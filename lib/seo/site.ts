@@ -14,7 +14,11 @@ export const site = {
   // TODO: replace with the real Google Play listing URL from the team.
   googlePlay: "https://play.google.com/store/search?q=vom%20accounting&c=apps",
   whatsapp: "+966502309337",
+  whatsappUrl: "https://api.whatsapp.com/send/?phone=966502309337",
+  phoneDisplay: "+966 50 230 9337",
+  email: "info@getvom.com",
   social: {
+    facebook: "https://www.facebook.com/profile.php?id=100084350145003",
     tiktok: "https://www.tiktok.com/@getvom",
     x: "https://x.com/GetVOM",
     instagram: "https://www.instagram.com/get.vom",

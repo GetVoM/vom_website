@@ -17,9 +17,13 @@ export type SectorIcon =
 
 export type ResourceKind = "guide" | "tool" | "template";
 
+export type SocialId = "facebook" | "x" | "linkedin" | "instagram" | "tiktok" | "whatsapp";
+
 export interface Dictionary {
   brand: { name: string; tagline: string; description: string };
   nav: {
+    home: string;
+    breadcrumb: string;
     features: string;
     sectors: string;
     pricing: string;
@@ -150,6 +154,16 @@ export interface Dictionary {
     android: string;
     features: string[];
     screen: { title: string; subtitle: string; amount: string; button: string; status: string };
+  };
+  contact: {
+    heading: string;
+    intro: string;
+    whatsappCta: string;
+    emailCta: string;
+    info: { heading: string; addressLabel: string; address: string; phoneLabel: string; emailLabel: string };
+    follow: { heading: string; items: Record<SocialId, string> };
+    question: { heading: string; body: string; reply: string; sealUnit: string; sealNote: string };
+    seo: { title: string; description: string };
   };
   seo: { homeTitle: string; homeDescription: string };
 }

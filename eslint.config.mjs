@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Downloaded copy of the WordPress site, kept only as a content source.
+    "getvom.com/**",
   ]),
 ]);
 

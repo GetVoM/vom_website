@@ -15,15 +15,45 @@ export function organizationJsonLd(locale: Locale): JsonLd {
     logo: `${site.url}${site.logo}`,
     foundingDate: site.foundingYear,
     areaServed: "SA",
+    email: site.email,
+    address: { "@type": "PostalAddress", addressLocality: "Riyadh", addressCountry: "SA" },
     sameAs: Object.values(site.social),
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "sales",
         telephone: site.whatsapp,
+        email: site.email,
         availableLanguage: ["ar", "en"],
       },
     ],
+  };
+}
+
+export function contactPageJsonLd(locale: Locale, path: string, name: string, description: string): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    url: `${site.url}${localePath(locale, path)}`,
+    name,
+    description,
+    inLanguage: locale,
+    isPartOf: { "@id": `${site.url}/#website` },
+    about: { "@id": `${site.url}/#organization` },
+  };
+}
+
+/** `path` values are locale-free; the visible breadcrumb must list the same items. */
+export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${site.url}${localePath(locale, item.path)}`,
+    })),
   };
 }
 

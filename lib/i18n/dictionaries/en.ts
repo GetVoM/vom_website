@@ -8,6 +8,8 @@ export const en: Dictionary = {
       "VoM is a Saudi cloud accounting platform approved by the Zakat, Tax and Customs Authority. It issues ZATCA Phase 2 e-invoices and gives small and mid-sized businesses live financial reports.",
   },
   nav: {
+    home: "Home",
+    breadcrumb: "Breadcrumb",
     features: "Features",
     sectors: "Industries",
     pricing: "Pricing",
@@ -297,6 +299,42 @@ export const en: Dictionary = {
     android: "Get it on Google Play",
     features: ["Issue invoices and send them on WhatsApp", "Photograph purchase invoices and book them", "Live reports wherever you are", "Instant notification on every payment"],
     screen: { title: "New invoice", subtitle: "Al Diwaniya Restaurant", amount: "263.35", button: "Issue and send", status: "Reported to ZATCA" },
+  },
+  contact: {
+    heading: "Contact Us",
+    intro: "Thank you for your interest in VoM. We value your comments, questions and requests, so please get in touch using the details here.",
+    whatsappCta: "Message us on WhatsApp",
+    emailCta: "Send an email",
+    info: {
+      heading: "Contact information",
+      addressLabel: "Address",
+      address: "Riyadh, Saudi Arabia",
+      phoneLabel: "Phone number",
+      emailLabel: "Email",
+    },
+    follow: {
+      heading: "Follow us on social media",
+      items: {
+        facebook: "Facebook",
+        x: "X",
+        linkedin: "LinkedIn",
+        instagram: "Instagram",
+        tiktok: "TikTok",
+        whatsapp: "WhatsApp",
+      },
+    },
+    question: {
+      heading: "Have a question or comment?",
+      body: "If you have any questions or comments, don't hesitate to get in touch. Our customer support team is here to help with anything you need.",
+      reply: "We strive to respond to all messages within 24 hours during our business hours.",
+      sealUnit: "hours",
+      sealNote: "during business hours",
+    },
+    seo: {
+      title: "Contact Us | VoM Cloud Accounting Software in Saudi Arabia",
+      description:
+        "Contact the VoM team in Riyadh by phone, WhatsApp or email. We strive to respond to all messages within 24 hours during our business hours.",
+    },
   },
   seo: {
     homeTitle: "The Easiest Accounting Software in Saudi Arabia | VoM",

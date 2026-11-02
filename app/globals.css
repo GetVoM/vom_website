@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Downloaded copy of the WordPress site: content source only, never styles. */
+@source not "../getvom.com";
+
 /* Design tokens. Brand values are pinned (see PRODUCT.md); the teal and
    orange scales are tints and shades of the brand values. */
 @theme {
@@ -446,6 +449,225 @@ details.faq[open] .faq-icon {
 }
 .panel-swap {
   animation: rise 0.45s var(--ease-out-quint) both;
+}
+
+/* Contact: the sealed envelope. Each resting style is the opened state; the
+   keyframes only state where it starts, so nothing depends on motion. */
+.envelope {
+  --env-body: 196px;
+  --env-overlap: 100px;
+  --env-flap: 130px;
+  --env-seal-y: 109px; /* Between the flap's tip and the pocket's V, covering both. */
+  --env-inset: 11%;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 460px;
+}
+.env-back {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 0;
+  height: var(--env-body);
+  border-radius: 0 0 10px 10px;
+  background: var(--color-teal-50);
+}
+.env-flap {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(var(--env-body) - var(--env-flap));
+  z-index: 1;
+  height: var(--env-flap);
+  transform-style: preserve-3d;
+  transform-origin: 50% 0;
+  transform: perspective(900px) rotateX(180deg);
+  animation: flap-open 0.6s cubic-bezier(0.45, 0, 0.2, 1) 0.6s both;
+}
+.env-flap-out,
+.env-flap-in {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+.env-flap-out {
+  background: linear-gradient(to bottom, var(--color-paper-100), var(--color-paper-300));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+/* The inside of the flap. Drawn point-up because this face is flipped once more
+   by its own rotation. */
+.env-flap-in {
+  background: var(--color-teal-50);
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
+  transform: rotateX(180deg);
+}
+@keyframes flap-open {
+  from {
+    z-index: 5;
+    transform: perspective(900px) rotateX(0deg);
+  }
+  49% {
+    z-index: 5;
+  }
+  50% {
+    z-index: 1;
+  }
+}
+.env-sheet {
+  position: relative;
+  z-index: 2;
+  padding-inline: var(--env-inset);
+  padding-bottom: calc(var(--env-body) - var(--env-overlap));
+  /* Clips the letter at the envelope's bottom edge while it is inside. */
+  clip-path: inset(-60px -60px 0 -60px);
+}
+.env-letter {
+  padding: 1.5rem 1.5rem calc(var(--env-overlap) + 1rem);
+  border-radius: var(--radius-sheet);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 18px 40px -24px rgba(5, 42, 37, 0.5);
+  animation: letter-rise 0.85s var(--ease-out-quint) 0.95s both;
+}
+@keyframes letter-rise {
+  from {
+    transform: translateY(88%);
+  }
+}
+.env-pocket {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 3;
+  height: var(--env-body);
+  filter: drop-shadow(0 -1px 3px rgba(5, 42, 37, 0.14)) drop-shadow(0 28px 32px rgba(5, 42, 37, 0.32));
+  pointer-events: none;
+}
+.env-pocket-face {
+  position: relative;
+  height: 100%;
+  border-radius: 0 0 10px 10px;
+  background: var(--color-paper);
+  clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%);
+}
+.postmark {
+  display: flex;
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 3px double var(--color-teal-600);
+  border-radius: 50%;
+  color: var(--color-teal-700);
+  transform: rotate(-9deg);
+}
+/* Clear of the fold lines, on the pocket's side panel. */
+.env-postmark {
+  position: absolute;
+  inset-inline-end: 4.5%;
+  top: 50%;
+  margin-top: -38px;
+}
+/* The broken seal stays where it broke, on the pocket's V, so the opened
+   envelope still shows what sealed it. */
+.env-seal {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--env-body) - var(--env-seal-y) - 34px);
+  z-index: 6;
+  width: 68px;
+  height: 68px;
+  margin-left: -34px;
+}
+/* Clean paper behind the split, hiding the V's tip and the fold lines' ends. */
+.env-seal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-paper);
+}
+.env-seal-half {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px double var(--color-teal-700);
+  border-radius: 50%;
+  background: var(--color-paper);
+  color: var(--color-teal-700);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.env-seal-a {
+  clip-path: inset(-2px 50% -2px -2px);
+  transform: translate(-8px, 2px) rotate(-7deg);
+  animation: seal-split 0.4s var(--ease-out-quint) 0.35s both;
+}
+.env-seal-b {
+  clip-path: inset(-2px -2px -2px 50%);
+  transform: translate(8px, 2px) rotate(7deg);
+  animation: seal-split 0.4s var(--ease-out-quint) 0.35s both;
+}
+@keyframes seal-split {
+  from {
+    transform: none;
+  }
+}
+@media (max-width: 639px) {
+  .envelope {
+    --env-body: 164px;
+    --env-overlap: 86px;
+    --env-flap: 104px;
+    --env-seal-y: 89px;
+    --env-inset: 10%;
+  }
+  .env-letter {
+    padding-inline: 1.25rem;
+  }
+}
+/* Stacked layouts: the envelope starts high enough for the seal and flap to play
+   inside the first screen, then settles as the letter rises out of it. */
+@media (max-width: 1023px) {
+  .envelope {
+    animation: env-settle 0.85s var(--ease-out-quint) 0.95s both;
+  }
+}
+@keyframes env-settle {
+  from {
+    transform: translateY(calc(-100% + var(--env-body) + 24px));
+  }
+}
+/* Mobile home for the envelope: a full-width slanted teal panel. */
+.contact-panel {
+  clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+}
+/* Desktop: wide enough to seat the whole envelope on teal at any width, and
+   present from first paint so the opening stays the page's one motion. */
+.contact-field {
+  width: max(46%, calc(50vw - 40px));
+  animation: none;
+}
+
+/* Contact: the closing seal, drawn in white on the teal band. */
+.contact-seal {
+  display: flex;
+  width: 220px;
+  height: 220px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border: 5px double #fff;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  transform: rotate(-8deg);
 }
 
 @media (prefers-reduced-motion: reduce) {

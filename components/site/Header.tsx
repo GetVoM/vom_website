@@ -1,23 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
+import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { site } from "@/lib/seo/site";
 import { ButtonLink } from "@/components/ui/Button";
+import { LocaleSwitch } from "./LocaleSwitch";
 import { MobileMenu } from "./MobileMenu";
 
 interface HeaderProps {
   locale: Locale;
   t: Dictionary;
-  /** Path of the current page in the other locale, if it exists. */
-  alternatePath?: string | null;
 }
 
-export function Header({ locale, t, alternatePath = "/" }: HeaderProps) {
-  const other = otherLocale(locale);
+export function Header({ locale, t }: HeaderProps) {
   const links = [
     { label: t.nav.features, href: localePath(locale, locale === "ar" ? "/features/" : "/features-en/") },
-    { label: t.nav.sectors, href: "#sectors" },
+    { label: t.nav.sectors, href: `${localePath(locale, "/")}#sectors` },
     { label: t.nav.pricing, href: localePath(locale, locale === "ar" ? "/pricing/" : "/pricing-en/") },
     {
       label: t.nav.einvoicing,
@@ -25,7 +23,6 @@ export function Header({ locale, t, alternatePath = "/" }: HeaderProps) {
     },
     { label: t.nav.blog, href: localePath(locale, locale === "ar" ? "/blog/" : "/blog-en/") },
   ];
-  const switchHref = alternatePath ? localePath(other, alternatePath) : localePath(other, "/");
 
   return (
     <header className="sticky top-0 z-40 border-b border-paper-200/80 bg-paper/85 backdrop-blur-md">
@@ -47,14 +44,11 @@ export function Header({ locale, t, alternatePath = "/" }: HeaderProps) {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
-          <Link
-            href={switchHref}
-            hrefLang={other}
-            lang={other}
+          <LocaleSwitch
+            locale={locale}
+            label={t.nav.switchLocale}
             className="num text-[0.875rem] text-ink-700 transition-colors hover:text-teal-700"
-          >
-            {t.nav.switchLocale}
-          </Link>
+          />
           <a href={site.login} className="text-[0.9375rem] text-ink/90 transition-colors hover:text-teal-700">
             {t.nav.login}
           </a>
@@ -65,7 +59,8 @@ export function Header({ locale, t, alternatePath = "/" }: HeaderProps) {
 
         <MobileMenu
           links={[...links, { label: t.nav.login, href: site.login }]}
-          switchLink={{ label: t.nav.switchLocale, href: switchHref, lang: other }}
+          locale={locale}
+          switchLabel={t.nav.switchLocale}
           start={{ label: t.nav.start, href: site.signup[locale] }}
           labels={{ menu: t.nav.menu, close: t.nav.close }}
         />

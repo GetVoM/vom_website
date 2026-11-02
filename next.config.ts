@@ -54,9 +54,15 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Trailing slashes stated so each is one hop to the final URL, with no chain.
       {
-        source: "/ar/:path*",
-        destination: "/:path*",
+        source: "/ar",
+        destination: "/",
+        statusCode: 301,
+      },
+      {
+        source: "/ar/:path+",
+        destination: "/:path+/",
         statusCode: 301,
       },
     ];

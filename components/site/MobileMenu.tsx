@@ -2,7 +2,9 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
+import type { Locale } from "@/lib/i18n/config";
 import { Icon } from "@/components/ui/Icon";
+import { LocaleSwitch } from "./LocaleSwitch";
 
 interface MenuLink {
   label: string;
@@ -11,12 +13,13 @@ interface MenuLink {
 
 interface MobileMenuProps {
   links: MenuLink[];
-  switchLink: { label: string; href: string; lang: string };
+  locale: Locale;
+  switchLabel: string;
   start: MenuLink;
   labels: { menu: string; close: string };
 }
 
-export function MobileMenu({ links, switchLink, start, labels }: MobileMenuProps) {
+export function MobileMenu({ links, locale, switchLabel, start, labels }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -56,9 +59,7 @@ export function MobileMenu({ links, switchLink, start, labels }: MobileMenuProps
           )}
         </nav>
         <div className="mt-4 flex items-center justify-between gap-4">
-          <Link href={switchLink.href} lang={switchLink.lang} className="num text-[0.9375rem] text-ink-700">
-            {switchLink.label}
-          </Link>
+          <LocaleSwitch locale={locale} label={switchLabel} className="num text-[0.9375rem] text-ink-700" />
           <a
             href={start.href}
             className="inline-flex h-10 items-center rounded-pill bg-orange-500 px-4 text-[0.9375rem] font-bold text-white"
