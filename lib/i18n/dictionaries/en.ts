@@ -219,7 +219,7 @@ export const en: Dictionary = {
       ],
       company: [
         ["About", "/about-us/"],
-        ["Contact", "/contact-us-2/"],
+        ["Contact", "/contact-us/"],
         ["Naming philosophy", "/naming-philosophy/"],
         ["Terms and conditions", "/terms-and-conditions/"],
       ],
@@ -334,6 +334,176 @@ export const en: Dictionary = {
       title: "Contact Us | VoM Cloud Accounting Software in Saudi Arabia",
       description:
         "Contact the VoM team in Riyadh by phone, WhatsApp or email. We strive to respond to all messages within 24 hours during our business hours.",
+    },
+  },
+  about: {
+    crumb: "About Us",
+    heading: "How It All Started",
+    lede: "Accounting has never been just about numbers. It's about time, accuracy, and control.",
+    figures: [
+      { value: "2021", label: "launched before it was perfect", target: "launch" },
+      { value: "200+", label: "user suggestions gathered", target: "feedback" },
+      { value: "3", label: "months to gather and implement them", target: "feedback" },
+      { value: "2", label: "weeks between every update", target: "updates" },
+    ],
+    problem: [
+      "For years, businesses struggled with manual data entry, endless spreadsheets, and outdated systems that made financial management harder than it needed to be.",
+      "When Saudi Arabia introduced electronic invoicing regulations, it was clear that businesses needed a better way to manage their finances. The challenge? Most accounting software was either too complex for small businesses or too basic to meet compliance standards. Accountants were stuck in data entry roles instead of analyzing financial trends and helping businesses grow.",
+      "Business owners needed a solution that automated tasks, simplified invoicing, and offered real-time insights, without requiring an accounting degree.",
+    ],
+    answer: {
+      heading: "That's Why We Built VoM",
+      body: "A smarter, AI-driven accounting platform that makes financial management seamless, compliant, and effortless.",
+    },
+    story: {
+      heading: "From Idea to Reality",
+      rows: [
+        {
+          id: "launch",
+          figures: [0],
+          body: "We didn't wait for perfection before launching. When VoM was introduced in 2021, it was still in its early stages. But instead of assuming what businesses needed, we took a different approach: we built VoM alongside its users.",
+        },
+        {
+          id: "feedback",
+          figures: [1, 2],
+          body: "In the first three months, we gathered over 200 user suggestions and implemented them at record speed. Every piece of feedback shaped the platform, ensuring that VoM wasn't just another accounting tool but a system designed to fit real-world business needs.",
+          challenge: {
+            heading: "The Biggest Challenge?",
+            body: "Balancing compliance with ease of use. Saudi businesses needed a solution that met ZATCA's (Zakat, Tax and Customs Authority) electronic invoicing regulations without adding extra complexity.",
+          },
+        },
+        {
+          id: "updates",
+          figures: [3],
+          body: "Every two weeks, we release a new update. Every feature is shaped by real user feedback, and every improvement is designed to make accounting smarter and more efficient.",
+        },
+      ],
+    },
+    why: {
+      heading: "That's Why We Focused on",
+      items: [
+        { icon: "chip", title: "AI-Powered Automation", body: "To eliminate repetitive tasks and manual errors." },
+        {
+          icon: "pointer", title: "An Intuitive Experience",
+          body: "A user-friendly experience that lets business owners focus on growth, not paperwork.",
+        },
+        {
+          icon: "receipt", title: "Seamless Electronic Invoicing",
+          body: "Electronic invoicing that fully complies with Saudi regulations.",
+        },
+      ],
+      result: {
+        heading: "What Is the Result?",
+        body: "An accounting system that simplifies procedures, speeds up performance, and gives business owners a clear financial picture, so they can focus on growing their projects with confidence.",
+      },
+    },
+    today: {
+      heading: "More Than Software: Why VoM?",
+      body: [
+        "We're not just another accounting platform. VoM is built for businesses that need more than bookkeeping. They need a smarter, faster way to manage their finances.",
+      ],
+      items: [
+        { icon: "refresh", title: "Continuous Updates", body: "A new update every two weeks, shaped by real user feedback." },
+        {
+          icon: "chart", title: "Real-Time Insights for Business Owners",
+          body: "Helping them make smarter financial decisions with confidence.",
+        },
+        {
+          icon: "users", title: "Company Culture",
+          body: "A diverse team of professionals from different backgrounds, focused on innovation, efficiency, and elevating the user experience.",
+        },
+      ],
+    },
+    statement:
+      "We're not just building software. We're building a financial partner that helps businesses focus less on paperwork and more on growth. With VoM, accounting is no longer a chore. It's a competitive advantage.",
+    approach: {
+      heading: "Why Businesses Choose VoM",
+      items: [
+        { icon: "bolt", title: "AI-Powered Automation", body: "No more manual data entry." },
+        { icon: "shield", title: "Effortless Compliance", body: "Stay fully aligned with Saudi tax and invoicing regulations." },
+        { icon: "chart", title: "Real-Time Insights", body: "Make better decisions with up-to-date financial data." },
+        { icon: "bulb", title: "Continuous Innovation", body: "We release updates every two weeks to keep VoM ahead of the curve." },
+      ],
+    },
+    closingStatement:
+      "What started as an idea has now become the go\u2060-\u2060to accounting solution for Saudi businesses, and we're just getting started.",
+    vision: {
+      heading: "The Future of Accounting: Our Vision",
+      body: "We believe that accounting should do more than just track numbers. It should help businesses grow. Our vision at VoM is to redefine accounting for small and medium-sized businesses, making it:",
+      list: [
+        "Smarter: automating the repetitive work so businesses can focus on strategy.",
+        "Faster: eliminating manual processes and providing real-time financial insights.",
+        "Simpler: creating a platform that's easy to use, even for non-accountants.",
+      ],
+    },
+    mission: {
+      heading: "Our Mission Is Simple: Make Accounting Effortless, Accurate, and Insightful",
+      body: "With VoM, businesses can:",
+      list: [
+        "Automate accounting tasks and save valuable time.",
+        "Reduce errors with AI-driven accuracy.",
+        "Stay compliant with Saudi tax and invoicing regulations.",
+        "Make smarter decisions with real-time financial insights.",
+      ],
+    },
+    values: {
+      heading: "Our Core Values: The Principles Behind Every Transaction",
+      intro: "At VoM, everything we do is driven by a strong foundation of values:",
+      items: [
+        {
+          icon: "bulb",
+          title: "Continuous Innovation",
+          body: "We improve and enhance VoM every two weeks, ensuring businesses always have access to the latest advancements.",
+        },
+        {
+          icon: "eye", title: "Transparency",
+          body: "We provide clear, accurate financial data, empowering businesses to make confident decisions.",
+        },
+        {
+          icon: "pointer", title: "Simplicity",
+          body: "Accounting doesn't have to be complicated. We make financial management accessible and user-friendly for everyone.",
+        },
+        {
+          icon: "shield", title: "Compliance First",
+          body: "Staying ahead of regulations is a priority. VoM ensures businesses are always aligned with Saudi Arabia's tax and electronic invoicing laws.",
+        },
+        {
+          icon: "growth", title: "Business Growth Focus",
+          body: "We see accounting as more than just bookkeeping. It's a tool for scaling smarter and planning for the future.",
+        },
+      ],
+    },
+    team: {
+      heading: "The Balance Sheet: Meet Our Team",
+      intro:
+        "Behind VoM is a team of experts dedicated to reshaping the future of accounting. We're not just developers and accountants. We're problem solvers, innovators, and strategists who believe businesses deserve better, smarter, and more intuitive financial tools.",
+      outro:
+        "Each team member plays a key role in balancing technology, finance, and user experience, ensuring that VoM is more than just software. It's a true partner in business success.",
+      members: [
+        { name: "Michael Aswad", role: "Co-Founder & CEO", photo: "/team/michael-aswad.jpg" },
+        { name: "Noura Alnafea", role: "Co-Founder & COO", photo: "/team/noura-alnafea.jpg" },
+        { name: "Yasmine Mokhtar", role: "Head of Development", photo: "/team/yasmine-mokhtar.jpg" },
+      ],
+    },
+    cta: {
+      heading: "Ready to Experience Smarter Accounting?",
+      body: "Start today with VoM and take control of your finances efficiently, accurately, and effortlessly.",
+      primary: "Register Now",
+      secondary: "Book an accounting consultation",
+    },
+    images: {
+      owner: "A delighted business owner looking at a phone beside financial charts",
+      growth: "Illustration of a rocket launching from a financial dashboard",
+      laptop: "A Saudi businessman holding a laptop",
+      reports: "A Saudi businessman reviewing financial data on a screen",
+      balance: "A current balance card with a chart",
+      boardroom: "Businessmen discussing a dashboard in a boardroom",
+      meeting: "A team in a meeting discussing a plan on a board",
+    },
+    seo: {
+      title: "About Us | VoM Cloud Accounting Software in Saudi Arabia",
+      description:
+        "How VoM started: launched in 2021, built alongside its users and updated every two weeks. Read our vision, mission and core values, and meet the team.",
     },
   },
   seo: {

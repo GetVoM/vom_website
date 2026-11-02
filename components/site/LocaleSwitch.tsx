@@ -9,13 +9,14 @@ interface LocaleSwitchProps {
   locale: Locale;
   label: string;
   className?: string;
+  onClick?: () => void;
 }
 
-export function LocaleSwitch({ locale, label, className }: LocaleSwitchProps) {
+export function LocaleSwitch({ locale, label, className, onClick }: LocaleSwitchProps) {
   const segments = useSelectedLayoutSegments();
   const other = otherLocale(locale);
   return (
-    <Link href={alternateHref(locale, segments)} hrefLang={other} lang={other} className={className}>
+    <Link href={alternateHref(locale, segments)} hrefLang={other} lang={other} className={className} onClick={onClick}>
       {label}
     </Link>
   );

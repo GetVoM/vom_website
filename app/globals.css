@@ -670,6 +670,465 @@ details.faq[open] .faq-icon {
   transform: rotate(-8deg);
 }
 
+/* Shared across the site, here so they are not repeated in every page's HTML. */
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-pill text-[0.9375rem] font-bold leading-none transition-[background-color,color,box-shadow,transform] duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-teal-500 active:translate-y-px;
+  }
+  .btn-primary {
+    @apply h-11 bg-orange-500 px-5 text-white shadow-[inset_0_-2px_0_rgba(0,0,0,0.12)] hover:bg-orange-600;
+  }
+  .btn-secondary {
+    @apply h-11 border border-ink/80 px-5 text-ink hover:border-ink hover:bg-paper-100;
+  }
+  .btn-ghost {
+    @apply h-11 px-2 text-ink underline decoration-teal-500 decoration-2 underline-offset-[6px] hover:decoration-ink;
+  }
+  .btn-inverse {
+    @apply h-11 bg-white px-5 text-teal-800 hover:bg-teal-50;
+  }
+  .link-quiet {
+    @apply text-ink-700 transition-colors hover:text-teal-700;
+  }
+  .link-nav {
+    @apply text-ink/90 transition-colors hover:text-teal-700;
+  }
+}
+
+/* Page width with the safe-area gutters. */
+.page-wrap {
+  margin-inline: auto;
+  max-width: 1280px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* The lattice from components/home/Guilloche.tsx as a CSS image, for pages with
+   several bands: the stylesheet is cached and the page's HTML stays small. */
+.guilloche-tile {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.14' stroke-width='.55'%3E%3Cellipse cx='48' cy='48' rx='44' ry='13'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(18 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(36 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(54 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(72 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(90 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(108 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(126 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(144 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(162 48 48)'/%3E%3Ccircle cx='48' cy='48' r='46'/%3E%3Ccircle r='22'/%3E%3Ccircle cx='96' cy='96' r='22'/%3E%3Ccircle cx='96' r='22'/%3E%3Ccircle cy='96' r='22'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* About: repeated type, kept here so each page sends less HTML. */
+.about-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.about-copy {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-ink-700);
+}
+.about-item h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.375;
+}
+.about-item p {
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+}
+/* Line icons as masks over the palette colour, drawn from the entry's own `ai-`
+   class, so an icon adds nothing to the markup. */
+.about-item,
+.about-value {
+  position: relative;
+}
+.about-item {
+  padding-top: 3.875rem;
+}
+.about-item::before,
+.about-value::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-tile);
+  background: var(--color-teal-100);
+}
+.about-item::after,
+.about-value::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.6875rem;
+  width: 1.625rem;
+  height: 1.625rem;
+  background: var(--color-teal-700);
+  -webkit-mask: var(--i) center / contain no-repeat;
+  mask: var(--i) center / contain no-repeat;
+}
+.about-item::before {
+  top: 0;
+}
+.about-item::after {
+  top: 0.6875rem;
+}
+.ai-chip {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 8h8v8H8zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z'/%3E%3C/svg%3E");
+}
+.ai-pointer {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4l6.5 16 2.5-6.5 6.5-2.5zM14 14l6 6'/%3E%3C/svg%3E");
+}
+.ai-receipt {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h4'/%3E%3C/svg%3E");
+}
+.ai-refresh {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 11a8 8 0 0 0-14.3-4.3L3 9.5M3 4v5.5h5.5M4 13a8 8 0 0 0 14.3 4.3L21 14.5M21 20v-5.5h-5.5'/%3E%3C/svg%3E");
+}
+.ai-support {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14v-2a8 8 0 0 1 16 0v2M4 14a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2zM20 14a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2zM18 18a4 4 0 0 1-4 3h-2'/%3E%3C/svg%3E");
+}
+.ai-users {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 6.5M17 14a6 6 0 0 1 4 6'/%3E%3C/svg%3E");
+}
+.ai-chart {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V4M4 20h16M7 15l4-5 3 3 6-7'/%3E%3C/svg%3E");
+}
+.ai-spark {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM19 3v4M17 5h4M5 17v4M3 19h4'/%3E%3C/svg%3E");
+}
+.ai-bolt {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E");
+}
+.ai-plug {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0zM12 16v5'/%3E%3C/svg%3E");
+}
+.ai-flag {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 21V4M5 4h13l-3 4.5L18 13H5'/%3E%3C/svg%3E");
+}
+.ai-shield {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM8.5 12l2.5 2.5 4.5-5'/%3E%3C/svg%3E");
+}
+.ai-bulb {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z'/%3E%3C/svg%3E");
+}
+.ai-eye {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/%3E%3C/svg%3E");
+}
+.ai-growth {
+  --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 17l6-6 4 4 8-8M15 7h6v6'/%3E%3C/svg%3E");
+}
+.about-value {
+  border-top: 1px solid var(--color-paper-300);
+  padding-block: 1.5rem;
+  padding-inline-start: 4rem;
+}
+.about-value::before {
+  top: 1.5rem;
+}
+.about-value::after {
+  top: 2.1875rem;
+}
+.about-value:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.about-value:first-child::before {
+  top: 0;
+}
+.about-value:first-child::after {
+  top: 0.6875rem;
+}
+.about-value dt {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.375;
+}
+.about-value dd {
+  margin-top: 0.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.story-row {
+  scroll-margin-top: 6rem;
+  border-top: 1px solid var(--color-paper-300);
+  padding-block: 2.5rem;
+  transition: background-color 0.4s ease;
+}
+.story-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+/* Confirms where a figure's link landed. */
+.story-row:target {
+  background: var(--color-teal-50);
+  box-shadow: 0 0 0 1rem var(--color-teal-50);
+  clip-path: inset(-1rem round var(--radius-tile));
+}
+.story-number {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-teal-700);
+}
+.story-number span {
+  display: inline-block;
+  direction: ltr;
+}
+.story-note {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.375;
+  color: var(--color-ink-700);
+}
+.about-photo {
+  width: 100%;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+}
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  object-position: top;
+}
+.team-name {
+  margin-top: 1rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.team-role {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: var(--color-ink-700);
+}
+.about-field {
+  width: 41%;
+  animation: none;
+}
+@media (min-width: 640px) {
+  .about-heading {
+    font-size: 2.25rem;
+  }
+  .team-photo {
+    aspect-ratio: 4 / 5;
+  }
+}
+@media (min-width: 1024px) {
+  .about-heading {
+    font-size: 2.75rem;
+  }
+  .story-number {
+    font-size: 5.5rem;
+  }
+}
+
+/* About: the figures. Numerals on the teal band, their captions on paper below,
+   ruled off with an accountant's double underline. */
+.about-hero {
+  display: flex;
+  flex-direction: column;
+}
+.about-art-slot {
+  order: 3;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 16px 0;
+}
+.about-art {
+  position: relative;
+  width: min(100%, 26rem);
+}
+.about-demo {
+  position: absolute;
+  top: 44%;
+  left: 0;
+  font-size: 0.75rem;
+  color: var(--color-ink-500);
+}
+.figures {
+  --fig-size: clamp(8.75rem, 12.2vw, 11rem);
+  --fig-digit: calc(var(--fig-size) * 0.545);
+  --fig-gap: clamp(3.25rem, 5.6vw, 5rem);
+  --fig-top: 4.5rem;
+  --fig-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+}
+.figures-band {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: -1;
+  height: calc(var(--fig-size) + var(--fig-top) + var(--fig-bottom));
+  background-color: var(--color-teal-500);
+  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .figures-band {
+  clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 100%);
+}
+/* Columns follow the numerals, so the gaps between them stay even. */
+.figures-grid {
+  display: flex;
+  gap: var(--fig-gap);
+  padding-top: var(--fig-top);
+  padding-bottom: 1.5rem;
+  border-bottom: 4px double var(--color-teal-500);
+}
+.figure-link {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.figure-link:focus-visible {
+  outline-color: var(--color-ink);
+}
+.figure-value {
+  display: inline-flex;
+  direction: ltr;
+  height: var(--fig-size);
+  align-self: flex-start;
+  color: #fff;
+  font-size: var(--fig-size);
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.3s var(--ease-out-quint);
+}
+.figure-link:hover .figure-value {
+  transform: translateY(-5px);
+}
+/* Smaller and raised, so "200+" next to "3" cannot read as a sum. */
+.figure-sign {
+  align-self: flex-start;
+  margin-top: 0.14em;
+  font-size: 0.55em;
+  line-height: 1;
+}
+.figure-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: calc(var(--fig-bottom) + 1rem);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+/* A one-digit figure's caption runs on into the gap without widening its column. */
+.figure-link[data-short] .figure-label {
+  --w: calc(var(--fig-digit) + var(--fig-gap) - 0.75rem);
+  width: var(--w);
+  margin-inline-end: calc(var(--fig-digit) - var(--w));
+}
+.figure-text {
+  text-decoration: underline transparent 2px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+.figure-link:hover .figure-text {
+  text-decoration-color: var(--color-teal-500);
+}
+.figure-arrow {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  color: var(--color-teal-700);
+  transform: rotate(90deg);
+  transition: transform 0.25s var(--ease-out-quint);
+}
+.figure-link:hover .figure-arrow {
+  transform: rotate(90deg) translateX(3px);
+}
+/* One digit window. The strip rolls down into it, ending on the real digit. */
+.reel {
+  display: inline-flex;
+  height: 1em;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: clip;
+}
+.reel-strip {
+  display: block;
+  line-height: 1;
+  animation: reel-roll 1.15s var(--ease-out-quint) both;
+  animation-delay: calc(0.1s + var(--o) * 70ms);
+}
+.reel-strip::before {
+  display: block;
+  content: attr(data-p);
+  content: attr(data-p) / "";
+  white-space: pre;
+}
+@keyframes reel-roll {
+  from {
+    transform: translateY(5em);
+  }
+}
+/* Side by side from here: the person rises from behind the band. */
+@media (min-width: 1180px) {
+  .about-hero-copy {
+    max-width: 58%;
+  }
+  .about-art-slot {
+    order: 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1280px;
+    height: 0;
+    margin-inline: auto;
+    padding: 0;
+  }
+  .about-art {
+    position: absolute;
+    bottom: -3.75rem;
+    inset-inline-end: 16px;
+    width: 26rem;
+  }
+}
+/* Stacked: a teal column of numerals beside captions on paper. */
+@media (max-width: 1179px) {
+  .figures {
+    --fig-size: clamp(4.25rem, 11vw, 6rem);
+    --fig-band: 54vw;
+    margin-top: 1.75rem;
+  }
+  .figures-band {
+    bottom: 0;
+    height: auto;
+    inset-inline-end: auto;
+    width: var(--fig-band);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  }
+  html[dir="rtl"] .figures-band {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  }
+  .figures-grid {
+    display: block;
+    padding-block: 0;
+    border-bottom: 0;
+  }
+  .figure-link {
+    display: grid;
+    height: auto;
+    min-height: 6.5rem;
+    grid-template-columns: calc(var(--fig-band) - 1rem) 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(2, 2, 2, 0.1);
+    padding-block: 1rem;
+  }
+  /* Held at the column's outer side, so short figures stay clear of the slant. */
+  .figure-value {
+    justify-self: start;
+  }
+  .figure-label,
+  .figure-link[data-short] .figure-label {
+    width: auto;
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+  .figure-arrow {
+    margin-top: 0.125rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

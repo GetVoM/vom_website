@@ -32,6 +32,9 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    // Fewer candidates keep every srcset, and so every page's HTML, smaller.
+    deviceSizes: [640, 1080, 1600],
+    imageSizes: [48, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 31,
   },
   turbopack: {
@@ -63,6 +66,17 @@ const nextConfig: NextConfig = {
       {
         source: "/ar/:path+",
         destination: "/:path+/",
+        statusCode: 301,
+      },
+      // Old WordPress slugs. See the redirect rows in docs/content/url-map.csv.
+      {
+        source: "/en/contact-us-2",
+        destination: "/en/contact-us/",
+        statusCode: 301,
+      },
+      {
+        source: "/about-us-2",
+        destination: "/about-us/",
         statusCode: 301,
       },
     ];

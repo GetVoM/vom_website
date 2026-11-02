@@ -91,7 +91,7 @@ Sitemaps and robots:
 
 URLs and redirects:
 
-- `trailingSlash: true`; preserved paths resolve exactly; the 10 `redirect` rows get a 301 straight to the final target (no chains); the 11 `retire` rows return 410; the 3 dead sitemap URLs leave the sitemap.
+- `trailingSlash: true`; preserved paths resolve exactly; the `redirect` rows get a 301 straight to the final target (no chains); the 11 `retire` rows return 410; the 3 dead sitemap URLs leave the sitemap.
 - Pagination keeps WordPress paths (`/blog/page/2/`), each page self-canonical.
 - 404s return a real 404 status (`notFound()` before streaming; `global-not-found`).
 

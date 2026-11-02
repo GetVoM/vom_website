@@ -165,5 +165,75 @@ export interface Dictionary {
     question: { heading: string; body: string; reply: string; sealUnit: string; sealNote: string };
     seo: { title: string; description: string };
   };
+  about: {
+    crumb: string;
+    heading: string;
+    lede: string;
+    figures: { value: string; label: string; target: string }[];
+    problem: string[];
+    answer: { heading: string; body: string };
+    story: {
+      heading: string;
+      rows: {
+        id: string;
+        /** Positions in `figures`, shown above this row's text. */
+        figures: number[];
+        body: string;
+        challenge?: { heading: string; body: string };
+      }[];
+    };
+    why: {
+      heading: string;
+      body?: string;
+      listHeading?: string;
+      items: AboutItem[];
+      result: { heading: string; body: string };
+    };
+    today: { heading: string; body: string[]; items: AboutItem[] };
+    statement: string;
+    approach: { heading: string; items: AboutItem[] };
+    closingStatement: string;
+    vision: AboutCharter;
+    mission: AboutCharter;
+    values: { heading: string; intro: string; items: AboutItem[] };
+    team: {
+      heading: string;
+      intro: string;
+      outro: string;
+      members: { name: string; role: string; photo: string }[];
+    };
+    cta: { heading: string; body: string; primary: string; secondary: string };
+    images: Record<"owner" | "growth" | "laptop" | "reports" | "balance" | "boardroom" | "meeting", string>;
+    seo: { title: string; description: string };
+  };
   seo: { homeTitle: string; homeDescription: string };
+}
+
+export type AboutIcon =
+  | "chip"
+  | "pointer"
+  | "receipt"
+  | "refresh"
+  | "support"
+  | "users"
+  | "chart"
+  | "spark"
+  | "bolt"
+  | "plug"
+  | "flag"
+  | "shield"
+  | "bulb"
+  | "eye"
+  | "growth";
+
+export interface AboutItem {
+  icon: AboutIcon;
+  title: string;
+  body: string;
+}
+
+export interface AboutCharter {
+  heading: string;
+  body: string;
+  list?: string[];
 }

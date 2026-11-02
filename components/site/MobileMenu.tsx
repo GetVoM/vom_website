@@ -59,7 +59,12 @@ export function MobileMenu({ links, locale, switchLabel, start, labels }: Mobile
           )}
         </nav>
         <div className="mt-4 flex items-center justify-between gap-4">
-          <LocaleSwitch locale={locale} label={switchLabel} className="num text-[0.9375rem] text-ink-700" />
+          <LocaleSwitch
+            locale={locale}
+            label={switchLabel}
+            className="num text-[0.9375rem] text-ink-700"
+            onClick={() => setOpen(false)}
+          />
           <a
             href={start.href}
             className="inline-flex h-10 items-center rounded-pill bg-orange-500 px-4 text-[0.9375rem] font-bold text-white"

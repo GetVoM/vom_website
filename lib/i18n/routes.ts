@@ -5,13 +5,14 @@ export interface PagePair {
   en: string;
 }
 
-export const contactPaths: PagePair = { ar: "/contact-us/", en: "/contact-us-2/" };
+export const contactPaths: PagePair = { ar: "/contact-us/", en: "/contact-us/" };
+export const aboutPaths: PagePair = { ar: "/about-us/", en: "/about-us/" };
 
 /**
  * Locale-free paths of the pages that exist in both languages. WordPress gave
  * many English twins a different slug, so the pair has to be stated.
  */
-const pagePairs: PagePair[] = [contactPaths];
+const pagePairs: PagePair[] = [contactPaths, aboutPaths];
 
 /**
  * Where the language switch leads from the current page. `segments` are the

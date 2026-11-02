@@ -2,12 +2,12 @@
 version: 1
 slug: "app-lang-contact-us-page-tsx"
 primary_target: "app/[lang]/contact-us/page.tsx"
-related_targets: ["app/[lang]/contact-us-2/page.tsx"]
+related_targets: []
 ---
 
-# Surface brief: contact page (Arabic `/contact-us/`, English `/en/contact-us-2/`)
+# Surface brief: contact page (Arabic `/contact-us/`, English `/en/contact-us/`)
 
-Scope: the contact page in both locales, visitor mode Persuade. Audience: Saudi business owners and existing customers who want a person. Job: find the phone, email, WhatsApp, or social link within seconds and act on it. Proof and content: only what the old page holds (Riyadh address, phone, email, six social links, the reply-within-24-hours line). Constraints: display only, no form (owner, 2026-11-02); no stock photography; dictionaries hold the copy; both URLs are `keep` rows.
+Scope: the contact page in both locales, visitor mode Persuade. Audience: Saudi business owners and existing customers who want a person. Job: find the phone, email, WhatsApp, or social link within seconds and act on it. Proof and content: only what the old page holds (Riyadh address, phone, email, six social links, the reply-within-24-hours line). Constraints: display only, no form (owner, 2026-11-02); no stock photography; dictionaries hold the copy; `/en/contact-us-2/` is a 301 to `/en/contact-us/` (owner, 2026-11-02).
 
 ## Direction contract
 

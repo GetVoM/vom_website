@@ -36,7 +36,7 @@ export function Header({ locale, t }: HeaderProps) {
             <Link
               key={link.label}
               href={link.href}
-              className="text-ink/90 transition-colors hover:text-teal-700"
+              className="link-nav"
             >
               {link.label}
             </Link>
@@ -49,7 +49,7 @@ export function Header({ locale, t }: HeaderProps) {
             label={t.nav.switchLocale}
             className="num text-[0.875rem] text-ink-700 transition-colors hover:text-teal-700"
           />
-          <a href={site.login} className="text-[0.9375rem] text-ink/90 transition-colors hover:text-teal-700">
+          <a href={site.login} className="text-[0.9375rem] link-nav">
             {t.nav.login}
           </a>
           <ButtonLink href={site.signup[locale]} variant="primary" className="h-10 px-4">

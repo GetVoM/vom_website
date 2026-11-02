@@ -230,7 +230,7 @@ post,https://getvom.com/finance/%d8%ad%d9%85%d8%a7%d9%8a%d8%a9-%d9%85%d9%88%d8%a
 post,https://getvom.com/firms/%d9%81%d8%aa%d8%ad-%d9%85%d8%a4%d8%b3%d8%b3%d8%a9/,/firms/فتح-مؤسسة/,200,keep,,Preserve path exactly; content migrates 1:1,فتح مؤسسة: الدليل الشامل لإنشاء مؤسستك في السعودية
 post,https://getvom.com/accounting/%d8%a7%d8%b3%d8%aa%d8%ae%d8%af%d8%a7%d9%85%d8%a7%d8%aa-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d8%ac%d8%af%d8%a7%d9%88%d9%84-%d8%a7%d9%84%d8%ad%d8%b3%d8%a7%d8%a8%d9%8a%d8%a9/,/accounting/استخدامات-برنامج-الجداول-الحسابية/,200,keep,,Preserve path exactly; content migrates 1:1,من استخدامات برنامج الجداول الحسابية ما يلي
 page,https://getvom.com/en/terms-and-conditions/,/en/terms-and-conditions/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/about-us-2/,/about-us-2/,200,keep,,Ugly slug; optional 301 to /about/ at launch,من نحن - Vom
+page,https://getvom.com/about-us-2/,/about-us-2/,200,redirect,/about-us/,Renamed to match the English slug (owner 2026-11-02),من نحن - Vom
 page,https://getvom.com/digital-ads-2023-landing-page/,/digital-ads-2023-landing-page/,200,retire,/,2023 ads landing page,برنامج المحاسبة السحابي الاول في السعودية - جرب مجانا | ڤوم
 page,https://getvom.com/terms-and-conditions-ar/,/terms-and-conditions-ar/,200,keep,,Empty title in WP; set a real title,Vom
 page,https://getvom.com/growth-plan/,/growth-plan/,200,keep,,,برنامج نمو - Vom
@@ -320,7 +320,7 @@ page,https://getvom.com/en/naming-philosophy/,/en/naming-philosophy/,200,keep,,B
 page,https://getvom.com/vom-foodics/,/vom-foodics/,200,keep,,,ﭬوم‬ و فودكس - Vom
 page,https://getvom.com/ksa-national-day/,/ksa-national-day/,200,retire,/,2023 campaign,KSA National Day - Vom
 page,https://getvom.com/vom-marn/,/vom-marn/,200,keep,,,ﭬوم‬ و مرن - Vom
-page,https://getvom.com/en/contact-us-2/,/en/contact-us-2/,200,keep,,Ugly slug; optional 301 to /en/contact-us/,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/contact-us-2/,/en/contact-us-2/,200,redirect,/en/contact-us/,Renamed to match the Arabic slug (owner 2026-11-02),مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/coming-soon/,/coming-soon/,200,retire,/,Placeholder,Coming Soon - Vom
 news,https://getvom.com/news/%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%d9%81%d9%88%d9%85-%d9%88%d9%84%d9%8a%d8%b2%d9%8a-%d9%88%d8%a7%d9%8a%d8%aa/,/news/تعاون-فوم-وليزي-وايت/,200,keep,,Preserve path exactly; content migrates 1:1,ڤوم المحاسبية توقع اتفاقية تكامل مع منصة ليزي ويت
 news,https://getvom.com/news/%d8%a7%d8%aa%d9%81%d8%a7%d9%82%d9%8a%d8%a9-%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%da%a4%d9%88%d9%85-%d9%88%d9%86%d9%82%d8%b7%d8%a9/,/news/اتفاقية-تعاون-ڤوم-ونقطة/,200,keep,,Preserve path exactly; content migrates 1:1,اتفاقية تعاون: ڤوم ونقطة لإدارة الولاء واستلام الطلبات - Vom

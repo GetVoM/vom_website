@@ -6,7 +6,7 @@ import { site } from "@/lib/seo/site";
 import { Icon } from "@/components/ui/Icon";
 
 function FooterLink({ label, href, locale }: { label: string; href: string; locale: Locale }) {
-  const cls = "text-ink-700 transition-colors hover:text-teal-700";
+  const cls = "link-quiet";
   if (href.startsWith("http")) {
     return (
       <a href={href} className={cls} rel="noopener">

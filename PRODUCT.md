@@ -59,7 +59,7 @@ Binding, set by the user on 2026-10-25: keep the logo, the colours and the fonts
 - Claims on the site: 4,000+ users; ZATCA approval badge; customer logo walls on sector pages (image files only).
 - Testimonials exist on the homepage but every attribution is the placeholder "Client One". They must not be reused until real names and businesses are supplied.
 - Blog posts carry Article schema with a named author (most often Abass Sahrawi) and a "reviewed by" chartered accountant (Faisal Al-Mutairi). Other authors in WordPress: Abdulrahman Fani, Noura Alnafea, Islam, Maha, Miled Elias, Hamza Ait. Author bios are empty, and one is lorem ipsum.
-- Team named on the about page: Michael Aswad (founder and CEO), Noura Alnafea (co-founder and COO), Yasmine Mokhtar (CTO).
+- Team named on the about page: Michael Aswad (Co-Founder & CEO), Noura Alnafea (Co-Founder & COO), Yasmine Mokhtar (Head of Development). Titles confirmed by the owner on 2026-11-02.
 - Absent and not to be invented: high-resolution product screenshots, case studies, press coverage, ratings or awards, an official ZATCA listing reference.
 
 ## Product Principles

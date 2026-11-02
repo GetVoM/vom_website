@@ -43,6 +43,34 @@ export function contactPageJsonLd(locale: Locale, path: string, name: string, de
   };
 }
 
+export function aboutPageJsonLd(
+  locale: Locale,
+  path: string,
+  name: string,
+  description: string,
+  team: { name: string; role: string; photo: string }[],
+): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    url: `${site.url}${localePath(locale, path)}`,
+    name,
+    description,
+    inLanguage: locale,
+    isPartOf: { "@id": `${site.url}/#website` },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      employee: team.map((member) => ({
+        "@type": "Person",
+        name: member.name,
+        jobTitle: member.role,
+        image: `${site.url}${member.photo}`,
+      })),
+    },
+  };
+}
+
 /** `path` values are locale-free; the visible breadcrumb must list the same items. */
 export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
   return {
