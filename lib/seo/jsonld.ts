@@ -71,6 +71,20 @@ export function aboutPageJsonLd(
   };
 }
 
+/** A plain page with no more specific schema.org type, such as the terms and conditions. */
+export function webPageJsonLd(locale: Locale, path: string, name: string, description: string): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `${site.url}${localePath(locale, path)}`,
+    name,
+    description,
+    inLanguage: locale,
+    isPartOf: { "@id": `${site.url}/#website` },
+    publisher: { "@id": `${site.url}/#organization` },
+  };
+}
+
 /** `path` values are locale-free; the visible breadcrumb must list the same items. */
 export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
   return {

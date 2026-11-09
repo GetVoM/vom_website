@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 import { localePath } from "@/lib/i18n/config";
-import { aboutPaths, contactPaths, type PagePair } from "@/lib/i18n/routes";
+import { aboutPaths, contactPaths, termsPaths, type PagePair } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
 
 interface SitemapPage {
   pair: PagePair;
   lastModified: string;
-  changeFrequency: "weekly" | "monthly";
+  changeFrequency: "weekly" | "monthly" | "yearly";
   priority: { ar: number; en: number };
 }
 
@@ -32,6 +32,12 @@ const pages: SitemapPage[] = [
     lastModified: "2026-11-02",
     changeFrequency: "monthly",
     priority: { ar: 0.5, en: 0.4 },
+  },
+  {
+    pair: termsPaths,
+    lastModified: "2026-11-09",
+    changeFrequency: "yearly",
+    priority: { ar: 0.3, en: 0.2 },
   },
 ];
 

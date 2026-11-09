@@ -232,7 +232,7 @@ post,https://getvom.com/accounting/%d8%a7%d8%b3%d8%aa%d8%ae%d8%af%d8%a7%d9%85%d8
 page,https://getvom.com/en/terms-and-conditions/,/en/terms-and-conditions/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/about-us-2/,/about-us-2/,200,redirect,/about-us/,Renamed to match the English slug (owner 2026-11-02),من نحن - Vom
 page,https://getvom.com/digital-ads-2023-landing-page/,/digital-ads-2023-landing-page/,200,retire,/,2023 ads landing page,برنامج المحاسبة السحابي الاول في السعودية - جرب مجانا | ڤوم
-page,https://getvom.com/terms-and-conditions-ar/,/terms-and-conditions-ar/,200,keep,,Empty title in WP; set a real title,Vom
+page,https://getvom.com/terms-and-conditions-ar/,/terms-and-conditions-ar/,200,redirect,/terms-and-conditions/,Renamed to match the English slug (owner 2026-11-09),Vom
 page,https://getvom.com/growth-plan/,/growth-plan/,200,keep,,,برنامج نمو - Vom
 page,https://getvom.com/,/,200,keep,,Homepage,برنامج محاسبة سحابي الأفضل في السعودية | فوم - جرب مجانا
 page,https://getvom.com/demo-landing-page/,/demo-landing-page/,200,retire,/,Internal test page,demo landing page - Vom

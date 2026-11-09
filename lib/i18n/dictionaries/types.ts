@@ -206,6 +206,17 @@ export interface Dictionary {
     images: Record<"owner" | "growth" | "laptop" | "reports" | "balance" | "boardroom" | "meeting", string>;
     seo: { title: string; description: string };
   };
+  terms: {
+    heading: string;
+    /** `{n}` is the number of numbered sections. */
+    sectionCount: string;
+    /** Label before the email address the agreement names for official notices. */
+    noticesLabel: string;
+    contents: string;
+    /** Accessible name of a clause number, which links to the clause; `{n}` is the number. */
+    clauseLink: string;
+    seo: { title: string; description: string };
+  };
   seo: { homeTitle: string; homeDescription: string };
 }
 

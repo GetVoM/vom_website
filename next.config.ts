@@ -79,6 +79,11 @@ const nextConfig: NextConfig = {
         destination: "/about-us/",
         statusCode: 301,
       },
+      {
+        source: "/terms-and-conditions-ar",
+        destination: "/terms-and-conditions/",
+        statusCode: 301,
+      },
     ];
   },
   async headers() {

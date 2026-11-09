@@ -1,0 +1,327 @@
+<style>
+  @font-face { font-family: "Effra"; src: url(/files/effra-regular.ttf); font-weight: 400; }
+  @font-face { font-family: "Effra"; src: url(/files/effra-medium.ttf); font-weight: 500; }
+  @font-face { font-family: "Effra"; src: url(/files/effra-bold.ttf); font-weight: 700; }
+
+  .intro-q { max-width: 72ch; margin-bottom: 1.5rem; }
+  .opt { margin: 0 0 3.5rem; }
+  .opt-head { display: flex; gap: .75rem; align-items: baseline; margin-bottom: .5rem; }
+  .opt-head .letter { font-weight: 700; font-size: 1.1rem; }
+  .opt-head h3 { margin: 0; }
+  .opt-note { color: var(--text-secondary); max-width: 80ch; margin: 0 0 1rem; line-height: 1.5; }
+  .opt-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 1.25rem; align-items: start; }
+  @media (max-width: 1100px) { .opt-grid { grid-template-columns: 1fr; } }
+  .opt.option { display: block; padding: 1.25rem; }
+
+  /* ---------- VoM page mock ---------- */
+  .vom { --teal-600:#13937f; --teal:#17BAA3; --teal-50:#eefaf7; --teal-100:#ddf5f0; --teal-200:#bfeae2; --teal-700:#0f6b5e;
+         --orange:#FF7300; --ink:#020202; --ink-700:#54595F; --ink-500:#6B6B6B; --paper:#fff; --paper-100:#F4F7FC; --paper-200:#e6eef3;
+         --body:#2b2f33;
+         font-family: "Effra", system-ui, sans-serif; color: var(--ink); background: var(--paper);
+         border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.08);
+         direction: rtl; text-align: right; }
+  .vom * { box-sizing: border-box; }
+  .vom .chrome { height: 32px; background: #eceff3; display: flex; align-items: center; gap: 6px; padding: 0 12px; direction: ltr; }
+  .vom .chrome i { width: 9px; height: 9px; border-radius: 50%; background: #cfd5dc; display: block; }
+  .vom .chrome span { margin-left: 12px; font: 12px system-ui; color: #54595F; }
+  .vom .hdr { height: 56px; border-bottom: 1px solid var(--paper-200); display: flex; align-items: center; justify-content: space-between; padding: 0 28px; font-size: 13px; color: var(--ink-700); }
+  .vom .hdr img { height: 26px; }
+  .vom .hdr nav { display: flex; gap: 20px; }
+  .vom .hdr .cta { background: var(--orange); color: #fff; border-radius: 999px; padding: 6px 14px; font-weight: 500; font-size: 12px; }
+  .vom .crumb { font-size: 12px; color: var(--ink-500); }
+  .vom .crumb b { font-weight: 400; color: var(--ink-700); }
+  .vom h1 { font-size: 40px; line-height: 1.15; font-weight: 700; margin: 10px 0 12px; letter-spacing: 0; }
+  .vom .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--ink-700); }
+  .vom .meta a { color: var(--teal-700); text-decoration: underline; text-underline-offset: 3px; }
+  .vom .rule { height: 1px; background: var(--paper-200); margin: 28px 0; }
+
+  .vom .sec h2 { font-size: 22px; font-weight: 700; margin: 0 0 14px; display: flex; gap: 12px; align-items: baseline; letter-spacing: 0; }
+  .vom .sec h2 .n { color: var(--teal-600); font-weight: 700; font-size: 22px; min-width: 2.2em; }
+  .vom ol.cl { list-style: none; margin: 0; padding: 0; }
+  .vom ol.cl li { display: grid; grid-template-columns: 2.6em minmax(0,1fr); gap: 4px; font-size: 16px; line-height: 1.95; color: var(--body); margin-bottom: 12px; }
+  .vom ol.cl li .n { color: var(--ink-500); font-size: 13px; padding-top: 5px; font-variant-numeric: tabular-nums; direction: ltr; text-align: right; }
+  .vom ol.cl li .lead { font-weight: 700; color: var(--ink); }
+  .vom .hl { background: var(--teal-50); padding: 4px 10px; margin: -4px -10px; border-radius: 6px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .vom .fade { position: relative; max-height: 560px; overflow: hidden; }
+  .vom .fade::after { content: ""; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(transparent, #fff); }
+
+  /* A: contents rail */
+  .vom .a-wrap { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; padding: 28px 40px 0; }
+  .vom .toc { position: relative; font-size: 13.5px; }
+  .vom .toc .t { font-size: 12px; color: var(--ink-500); margin-bottom: 10px; font-weight: 500; }
+  .vom .toc ol { list-style: none; margin: 0; padding: 0; border-right: 1px solid var(--paper-200); }
+  .vom .toc li { padding: 6px 14px 6px 0; margin-right: -1px; border-right: 2px solid transparent; color: var(--ink-700); display: flex; gap: 8px; line-height: 1.4; }
+  .vom .toc li .n { color: var(--ink-500); font-variant-numeric: tabular-nums; min-width: 1.2em; }
+  .vom .toc li.on { border-right-color: var(--teal); color: var(--ink); font-weight: 500; }
+  .vom .toc li.on .n { color: var(--teal-700); }
+  .vom .toc .mail { margin-top: 18px; padding: 12px 14px; background: var(--paper-100); border-radius: 10px; font-size: 12.5px; line-height: 1.6; color: var(--ink-700); }
+  .vom .toc .mail a { color: var(--teal-700); }
+  .vom .a-main { max-width: 680px; }
+
+  /* B: quick answers + single column */
+  .vom .b-wrap { max-width: 760px; margin: 0 auto; padding: 32px 32px 0; }
+  .vom .quick { margin-top: 24px; }
+  .vom .quick .t { font-size: 12px; color: var(--ink-500); font-weight: 500; margin-bottom: 10px; }
+  .vom .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .vom .chip { border: 1px solid var(--paper-200); border-radius: 999px; padding: 7px 14px; font-size: 13.5px; color: var(--ink); display: inline-flex; gap: 8px; align-items: center; background: #fff; }
+  .vom .chip .n { color: var(--teal-700); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .vom .toc-box { margin-top: 22px; border: 1px solid var(--paper-200); border-radius: 14px; padding: 16px 20px; }
+  .vom .toc-box .t { font-size: 12px; color: var(--ink-500); font-weight: 500; margin-bottom: 8px; }
+  .vom .toc-box ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 28px; font-size: 14px; }
+  .vom .toc-box li { padding: 4px 0; display: flex; gap: 8px; color: var(--ink-700); break-inside: avoid; }
+  .vom .toc-box li .n { color: var(--teal-700); min-width: 1.2em; font-variant-numeric: tabular-nums; }
+  .vom .float { position: absolute; left: 20px; bottom: 20px; z-index: 2; background: var(--ink); color: #fff; border-radius: 999px; padding: 8px 14px; font-size: 12.5px; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+
+  /* C: two parts */
+  .vom .c-top { padding: 28px 40px 0; }
+  .vom .parts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .vom .part { border: 1px solid var(--paper-200); border-radius: 16px; padding: 16px 18px; display: grid; gap: 4px; }
+  .vom .part.on { border-color: var(--teal); box-shadow: inset 0 0 0 1px var(--teal); background: var(--teal-50); }
+  .vom .part .k { font-size: 12px; color: var(--teal-700); font-weight: 500; }
+  .vom .part .h { font-size: 17px; font-weight: 700; }
+  .vom .part .d { font-size: 13px; color: var(--ink-700); line-height: 1.55; }
+  .vom .c-wrap { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; padding: 28px 40px 0; }
+  .vom .toc .grp { font-size: 12px; color: var(--teal-700); font-weight: 500; margin: 14px 0 6px; }
+  .vom .toc .grp:first-child { margin-top: 0; }
+  .vom .banned { columns: 3; column-gap: 22px; font-size: 14px; line-height: 1.7; color: var(--body); margin: 4px 0 0 0; padding: 14px 18px; background: var(--paper-100); border-radius: 12px; list-style: none; }
+  .vom .banned li { break-inside: avoid; padding: 2px 0; }
+  .vom .banned li::before { content: "–"; color: var(--ink-500); margin-left: 6px; }
+
+  /* phone */
+  .phone { width: 360px; border-radius: 28px; padding: 10px; background: #111; box-shadow: 0 12px 32px rgba(0,0,0,.18); }
+  .phone .vom { border-radius: 20px; box-shadow: none; position: relative; }
+  .phone .vom .hdr { height: 52px; padding: 0 16px; }
+  .phone .vom .hdr .burger { width: 20px; height: 12px; border-block: 2px solid var(--ink); position: relative; }
+  .phone .vom .hdr .burger::after { content: ""; position: absolute; inset: 3px 0 auto; height: 2px; background: var(--ink); }
+  .phone .vom h1 { font-size: 30px; }
+  .phone .vom .p { padding: 18px 16px 0; }
+  .phone .vom .sticky-toc { position: relative; margin: 16px -16px 18px; padding: 10px 16px; border-block: 1px solid var(--paper-200); background: rgba(255,255,255,.96); display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; }
+  .phone .vom .sticky-toc .cur { color: var(--ink); font-weight: 500; }
+  .phone .vom .sticky-toc .cur .n { color: var(--teal-700); margin-left: 6px; }
+  .phone .vom .sticky-toc .open { color: var(--teal-700); font-size: 12.5px; }
+  .phone .vom ol.cl li { font-size: 16px; line-height: 1.9; grid-template-columns: 2.4em minmax(0,1fr); }
+  .phone .vom .fade { max-height: 470px; }
+  .phone .vom .chips { flex-wrap: nowrap; overflow: hidden; }
+  .phone .vom .chip { white-space: nowrap; }
+  .phone .vom .parts { grid-template-columns: 1fr; gap: 8px; }
+  .phone .vom .seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--paper-100); border-radius: 999px; padding: 4px; margin-top: 16px; font-size: 13px; text-align: center; }
+  .phone .vom .seg span { padding: 7px 12px; border-radius: 999px; color: var(--ink-700); }
+  .phone .vom .seg span.on { background: #fff; color: var(--ink); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+  .rec { display: inline-block; font-size: .75rem; font-weight: 600; color: #0f6b5e; background: #ddf5f0; border-radius: 999px; padding: 2px 10px; margin-inline-start: .5rem; vertical-align: middle; }
+</style>
+
+<h2>Terms and conditions: three ways to lay it out</h2>
+<p class="subtitle intro-q">All three use the real Arabic text and the same reading type (Effra 16px, tall line height, a ~65-character line). What changes is how someone finds the one clause they came for. Click the one that feels right. Each clause gets a number (2.8, 6.7…) so support can send a link straight to it.</p>
+
+<!-- ================= A ================= -->
+<div class="option opt" data-choice="a" onclick="toggleSelect(this)">
+  <div class="opt-head"><span class="letter">A</span><h3>Contents rail <span class="rec">my pick</span></h3></div>
+  <p class="opt-note">The classic legal-document layout. On desktop a quiet contents list sits beside the text and follows you as you scroll, marking where you are. On a phone it becomes a thin bar under the header that shows the current section and opens the full list. Nothing else on the page.</p>
+  <div class="opt-grid">
+    <div class="vom">
+      <div class="chrome"><i></i><i></i><i></i><span>getvom.com/terms-and-conditions-ar/</span></div>
+      <div class="hdr"><img src="/files/vom-logo.png" alt=""><nav><span>المميزات</span><span>القطاعات</span><span>الأسعار</span><span>الفوترة الإلكترونية</span><span>المدونة</span></nav><span class="cta">ابدأ مجانًا</span></div>
+      <div class="a-wrap">
+        <div></div>
+        <div>
+          <div class="crumb">الرئيسية ‹ <b>الشروط والأحكام</b></div>
+          <h1>الشروط والأحكام</h1>
+          <div class="meta"><span>9 أقسام</span><span>للإشعارات الرسمية: <a>info@getvom.com</a></span></div>
+        </div>
+      </div>
+      <div class="a-wrap" style="padding-top:0">
+        <aside class="toc">
+          <div class="rule" style="margin:24px 0 18px"></div>
+          <div class="t">المحتويات</div>
+          <ol>
+            <li><span class="n">1</span>الموقع الإلكتروني</li>
+            <li class="on"><span class="n">2</span>كلمة مرور، الاشتراك والأمان</li>
+            <li><span class="n">3</span>حقوق النشر</li>
+            <li><span class="n">4</span>الوصول وتصدير البيانات</li>
+            <li><span class="n">5</span>البيانات</li>
+            <li><span class="n">6</span>الخدمة</li>
+            <li><span class="n">7</span>تحديد المسؤولية</li>
+            <li><span class="n">8</span>معلومات للتواصل</li>
+            <li><span class="n">9</span>التزامات المشترك والعمليات المالية (ڤوم باي)</li>
+          </ol>
+        </aside>
+        <main class="a-main fade">
+          <div class="rule" style="margin:24px 0 26px"></div>
+          <section class="sec">
+            <h2><span class="n">2</span>كلمة مرور، الاشتراك والأمان</h2>
+            <ol class="cl">
+              <li><span class="n">2.1</span><span>المشترك مسؤول عن الحفاظ على سرية كلمة المرور واسم المستخدم.</span></li>
+              <li><span class="n">2.2</span><span>يوافق المشترك على عدم تمرير اسم المستخدم وكلمة المرور للاشتراك للمستخدمين الآخرين للسماح لهم بالوصول إلى المحتوى وإذا علمنا أنه يتم استخدام اشتراك واحد مع عدة مستخدمين، أو إذا كان هناك عدة مستخدمين يتشاركون في حساب واحد، فسوف نغلق الحساب على الفور.</span></li>
+              <li><span class="n">2.7</span><span>الاشتراك لفترة محدودة فقط (على سبيل المثال 12 شهرًا) ويتم تجديده تلقائيًا ولا يمكن بدء التجديد السنوية والتصريح به إلا من قبل المشترك.</span></li>
+              <li><span class="n">2.8</span><span><span class="lead">الاسترداد:</span> يلتزم العميل باستخدام النظام وتجربته خلال الفترة التجريبية المحددة بـ7 أيام ولا يحق للعميل المطالبة باسترداد المبلغ بعد انتهاء هذه الفترة وفي حال تم طلب الاسترداد خلال فترة التجربة (السبع أيام)، يُستثنى من ذلك مبلغ التدريب (في حال الحصول عليه)، والبالغ 500 ريال سعودي شامل ضريبة القيمة المضافة، حيث لا يُسترد.</span></li>
+              <li><span class="n">2.9</span><span><span class="lead">التدريب:</span> يلتزم البرنامج بتقديم جلسة تدريبية واحدة من ضمن الاشتراك فقط، وتحتوي على آلية استخدام النظام فقط وليس استشارات محاسبية.</span></li>
+            </ol>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="phone"><div class="vom">
+      <div class="hdr"><img src="/files/vom-logo.png" alt=""><span class="burger"></span></div>
+      <div class="p fade">
+        <div class="crumb">الرئيسية ‹ <b>الشروط والأحكام</b></div>
+        <h1>الشروط والأحكام</h1>
+        <div class="meta"><span>9 أقسام</span><span><a>info@getvom.com</a></span></div>
+        <div class="sticky-toc"><span class="cur"><span class="n">2</span>كلمة مرور، الاشتراك والأمان</span><span class="open">المحتويات ▾</span></div>
+        <section class="sec">
+          <h2><span class="n">2</span>كلمة مرور، الاشتراك والأمان</h2>
+          <ol class="cl">
+            <li><span class="n">2.1</span><span>المشترك مسؤول عن الحفاظ على سرية كلمة المرور واسم المستخدم.</span></li>
+            <li><span class="n">2.8</span><span><span class="lead">الاسترداد:</span> يلتزم العميل باستخدام النظام وتجربته خلال الفترة التجريبية المحددة بـ7 أيام ولا يحق للعميل المطالبة باسترداد المبلغ بعد انتهاء هذه الفترة.</span></li>
+          </ol>
+        </section>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ================= B ================= -->
+<div class="option opt" data-choice="b" onclick="toggleSelect(this)">
+  <div class="opt-head"><span class="letter">B</span><h3>Most looked-up first</h3></div>
+  <p class="opt-note">One centred column, no sidebar. Under the title, a row of links to the clauses people ask about most (refunds, training, uptime, support hours, VoM Pay fees), each one jumping to and highlighting the real clause. They point to the clause; they don't summarise it, so nothing legal gets reworded. Then a compact contents box, then the text. A small "contents" button floats while you scroll.</p>
+  <div class="opt-grid">
+    <div class="vom" style="position:relative">
+      <div class="chrome"><i></i><i></i><i></i><span>getvom.com/terms-and-conditions-ar/</span></div>
+      <div class="hdr"><img src="/files/vom-logo.png" alt=""><nav><span>المميزات</span><span>القطاعات</span><span>الأسعار</span><span>الفوترة الإلكترونية</span><span>المدونة</span></nav><span class="cta">ابدأ مجانًا</span></div>
+      <div class="b-wrap fade" style="max-height:760px">
+        <div class="crumb">الرئيسية ‹ <b>الشروط والأحكام</b></div>
+        <h1>الشروط والأحكام</h1>
+        <div class="meta"><span>9 أقسام</span><span>للإشعارات الرسمية: <a>info@getvom.com</a></span></div>
+        <div class="quick">
+          <div class="t">الأكثر بحثًا</div>
+          <div class="chips">
+            <span class="chip">الاسترداد <span class="n">2.8</span></span>
+            <span class="chip">التدريب <span class="n">2.9</span></span>
+            <span class="chip">نسبة توفر الخدمة <span class="n">1.4</span></span>
+            <span class="chip">ساعات الدعم الفني <span class="n">6.7</span></span>
+            <span class="chip">استخدام البيانات <span class="n">5.7</span></span>
+            <span class="chip">رسوم ڤوم باي <span class="n">9.17</span></span>
+          </div>
+        </div>
+        <div class="toc-box">
+          <div class="t">المحتويات</div>
+          <ol>
+            <li><span class="n">1</span>الموقع الإلكتروني</li>
+            <li><span class="n">2</span>كلمة مرور، الاشتراك والأمان</li>
+            <li><span class="n">3</span>حقوق النشر</li>
+            <li><span class="n">4</span>الوصول وتصدير البيانات</li>
+            <li><span class="n">5</span>البيانات</li>
+            <li><span class="n">6</span>الخدمة</li>
+            <li><span class="n">7</span>تحديد المسؤولية</li>
+            <li><span class="n">8</span>معلومات للتواصل</li>
+            <li><span class="n">9</span>ڤوم باي</li>
+          </ol>
+        </div>
+        <div class="rule"></div>
+        <section class="sec">
+          <h2><span class="n">2</span>كلمة مرور، الاشتراك والأمان</h2>
+          <ol class="cl">
+            <li><span class="n">2.7</span><span>الاشتراك لفترة محدودة فقط (على سبيل المثال 12 شهرًا) ويتم تجديده تلقائيًا ولا يمكن بدء التجديد السنوية والتصريح به إلا من قبل المشترك.</span></li>
+            <li><span class="n">2.8</span><span class="hl"><span class="lead">الاسترداد:</span> يلتزم العميل باستخدام النظام وتجربته خلال الفترة التجريبية المحددة بـ7 أيام ولا يحق للعميل المطالبة باسترداد المبلغ بعد انتهاء هذه الفترة.</span></li>
+          </ol>
+        </section>
+      </div>
+      <span class="float">↑ المحتويات</span>
+    </div>
+
+    <div class="phone"><div class="vom">
+      <div class="hdr"><img src="/files/vom-logo.png" alt=""><span class="burger"></span></div>
+      <div class="p fade" style="max-height:560px">
+        <div class="crumb">الرئيسية ‹ <b>الشروط والأحكام</b></div>
+        <h1>الشروط والأحكام</h1>
+        <div class="meta"><span>9 أقسام</span><span><a>info@getvom.com</a></span></div>
+        <div class="quick">
+          <div class="t">الأكثر بحثًا</div>
+          <div class="chips">
+            <span class="chip">الاسترداد <span class="n">2.8</span></span>
+            <span class="chip">التدريب <span class="n">2.9</span></span>
+            <span class="chip">نسبة التوفر <span class="n">1.4</span></span>
+          </div>
+        </div>
+        <div class="toc-box" style="padding:12px 14px">
+          <div class="t">المحتويات</div>
+          <ol style="columns:1">
+            <li><span class="n">1</span>الموقع الإلكتروني</li>
+            <li><span class="n">2</span>كلمة مرور، الاشتراك والأمان</li>
+            <li><span class="n">3</span>حقوق النشر</li>
+            <li><span class="n">4</span>الوصول وتصدير البيانات</li>
+          </ol>
+        </div>
+      </div>
+      <span class="float">↑ المحتويات</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ================= C ================= -->
+<div class="option opt" data-choice="c" onclick="toggleSelect(this)">
+  <div class="opt-head"><span class="letter">C</span><h3>Two parts: subscription and VoM Pay</h3></div>
+  <p class="opt-note">VoM Pay's merchant terms are about three-quarters of the text but only matter to merchants taking payments. This splits the page into two clearly labelled parts on the same page (still one URL, still searchable with Ctrl+F): Part 1 for every subscriber, Part 2 for VoM Pay. The contents rail is grouped by part, and long lists such as the prohibited activities are set in compact columns.</p>
+  <div class="opt-grid">
+    <div class="vom">
+      <div class="chrome"><i></i><i></i><i></i><span>getvom.com/terms-and-conditions-ar/</span></div>
+      <div class="hdr"><img src="/files/vom-logo.png" alt=""><nav><span>المميزات</span><span>القطاعات</span><span>الأسعار</span><span>الفوترة الإلكترونية</span><span>المدونة</span></nav><span class="cta">ابدأ مجانًا</span></div>
+      <div class="c-top">
+        <div class="crumb">الرئيسية ‹ <b>الشروط والأحكام</b></div>
+        <h1>الشروط والأحكام</h1>
+        <div class="meta"><span>جزآن · 9 أقسام</span><span>للإشعارات الرسمية: <a>info@getvom.com</a></span></div>
+        <div class="parts">
+          <div class="part"><span class="k">الجزء الأول · الأقسام 1–8</span><span class="h">اشتراك ڤوم</span><span class="d">لكل مشترك: الحساب، الاشتراك والاسترداد، البيانات، الخدمة، المسؤولية.</span></div>
+          <div class="part on"><span class="k">الجزء الثاني · القسم 9</span><span class="h">ڤوم باي للتجار</span><span class="d">لمن يستقبل المدفوعات عبر ڤوم باي: الرسوم، التسويات، الأنشطة المحظورة.</span></div>
+        </div>
+      </div>
+      <div class="c-wrap">
+        <aside class="toc">
+          <div class="grp">الجزء الأول · اشتراك ڤوم</div>
+          <ol>
+            <li><span class="n">1</span>الموقع الإلكتروني</li>
+            <li><span class="n">2</span>كلمة مرور، الاشتراك والأمان</li>
+            <li><span class="n">3</span>حقوق النشر</li>
+            <li><span class="n">…</span>…</li>
+            <li><span class="n">8</span>معلومات للتواصل</li>
+          </ol>
+          <div class="grp">الجزء الثاني · ڤوم باي</div>
+          <ol>
+            <li class="on"><span class="n">9</span>التزامات المشترك والعمليات المالية</li>
+          </ol>
+        </aside>
+        <main class="a-main fade" style="max-height:520px">
+          <section class="sec">
+            <h2><span class="n">9</span>التزامات المشترك والعمليات المالية (ڤوم باي)</h2>
+            <ol class="cl">
+              <li><span class="n">9.17</span><span><span class="lead">الرسوم والعمولات:</span> تُطبق العمولات التالية: مدى 0.90%، البطاقات الائتمانية 2.25%، Apple Pay 2.25%…</span></li>
+              <li><span class="n">9.35</span><span>لا يجوز للمستخدم استخدام خدمات ڤوم لممارسة أي نشاط محظور أو التعامل مع جهات محظورة من قبل ڤوم في بلد النشاط، ومنها:</span></li>
+            </ol>
+            <ul class="banned">
+              <li>الكازينوهات وجهات المراهنة</li><li>المشروبات الكحولية</li><li>الأسلحة النارية</li><li>الألعاب النارية</li><li>المواد المتفجرة</li><li>المواد المشعة</li><li>العاج</li><li>التسويق الشبكي</li><li>بيع وشراء الأوراق المالية</li><li>التمويل الجماعي</li><li>الوكلاء الفرعيون</li><li>شركات البيتكوين</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="phone"><div class="vom">
+      <div class="hdr"><img src="/files/vom-logo.png" alt=""><span class="burger"></span></div>
+      <div class="p fade" style="max-height:600px">
+        <div class="crumb">الرئيسية ‹ <b>الشروط والأحكام</b></div>
+        <h1>الشروط والأحكام</h1>
+        <div class="seg"><span>اشتراك ڤوم</span><span class="on">ڤوم باي</span></div>
+        <div class="sticky-toc"><span class="cur"><span class="n">9</span>ڤوم باي</span><span class="open">المحتويات ▾</span></div>
+        <section class="sec">
+          <h2><span class="n">9</span>ڤوم باي</h2>
+          <ol class="cl">
+            <li><span class="n">9.17</span><span><span class="lead">الرسوم والعمولات:</span> تُطبق العمولات التالية: مدى 0.90%، البطاقات الائتمانية 2.25%…</span></li>
+          </ol>
+          <ul class="banned" style="columns:2">
+            <li>المشروبات الكحولية</li><li>الأسلحة النارية</li><li>الألعاب النارية</li><li>المواد المتفجرة</li><li>العاج</li><li>التمويل الجماعي</li>
+          </ul>
+        </section>
+      </div>
+    </div></div>
+  </div>
+</div>

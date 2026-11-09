@@ -1129,6 +1129,382 @@ html[dir="rtl"] .figures-band {
   }
 }
 
+/* Terms and conditions: a long legal document set for reading. Below 1024 px
+   the page is a single flow so the contents bar can stay stuck under the
+   header for the whole document (a sticky grid item cannot leave its row). */
+.terms-page {
+  --terms-ink: color-mix(in oklab, var(--color-ink) 86%, white);
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+.terms-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1.75rem;
+}
+.terms-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.terms-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-ink-700);
+}
+.terms-meta > span + span {
+  padding-inline-start: 1rem;
+  border-inline-start: 1px solid var(--color-paper-300);
+}
+.terms-link {
+  color: var(--color-teal-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, var(--color-teal-700) 40%, transparent);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
+}
+.terms-link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Contents: a bar under the header on small screens. */
+.terms-toc {
+  position: sticky;
+  top: 4rem;
+  z-index: 30;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  background: var(--color-paper);
+  border-block: 1px solid var(--color-paper-200);
+}
+.terms-toc-toggle {
+  display: flex;
+  width: 100%;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  font-size: 0.9375rem;
+  text-align: start;
+  cursor: pointer;
+}
+.terms-toc-current {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+.terms-toc-current .terms-toc-num {
+  color: var(--color-teal-700);
+}
+.terms-toc-label {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-teal-700);
+}
+.terms-toc-chevron {
+  transform: rotate(90deg);
+  transition: transform 0.25s var(--ease-out-quint);
+}
+.terms-toc-toggle[aria-expanded="true"] .terms-toc-chevron {
+  transform: rotate(-90deg);
+}
+.terms-toc-panel {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  max-height: min(70dvh, 34rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: 0.25rem 0.75rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-paper-200);
+  box-shadow: 0 18px 32px -16px rgb(5 42 37 / 0.22);
+}
+.terms-toc-panel[data-open] {
+  display: block;
+}
+.terms-toc-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.terms-toc-track {
+  position: relative;
+}
+.terms-toc-list a {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 0.5rem;
+  padding-block: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-ink-700);
+  transition: color 0.2s;
+}
+.terms-toc-list a:hover {
+  color: var(--color-ink);
+}
+.terms-toc-list a[aria-current="true"] {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+.terms-toc-list .terms-toc-num {
+  color: var(--color-ink-500);
+}
+.terms-toc-list a[aria-current="true"] .terms-toc-num {
+  color: var(--color-teal-700);
+}
+.terms-toc-thumb {
+  display: none;
+}
+
+/* The document. It fills the page container beside the contents (owner, 2026-11-09). */
+.terms-section {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-paper-200);
+  scroll-margin-top: 7.5rem;
+}
+.terms-section:first-child {
+  margin-top: 0;
+  padding-top: 2rem;
+  border-top: 0;
+}
+/* The unnumbered opening blocks read as one introduction, without rules between them. */
+.terms-preamble + .terms-preamble {
+  margin-top: 2rem;
+  padding-top: 0;
+  border-top: 0;
+}
+.terms-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.terms-section-num {
+  min-width: 1.25rem;
+  color: var(--color-teal-600);
+}
+.terms-paragraph,
+.terms-clause p,
+.terms-items li {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--terms-ink);
+}
+.terms-paragraph:lang(ar),
+.terms-clause p:lang(ar),
+.terms-items li:lang(ar) {
+  line-height: 1.85;
+}
+.terms-paragraph + .terms-paragraph {
+  margin-top: 1rem;
+}
+.terms-clauses {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+/* Padding and an equal negative margin leave room for the highlight a linked
+   clause gets, without moving the text. */
+.terms-clause {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  align-items: first baseline;
+  margin-inline: -0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sheet);
+  scroll-margin-top: 7.5rem;
+}
+/* A linked clause is washed in teal on arrival, then the wash fades so a long
+   clause never stays a teal field; its number keeps the teal as the marker. */
+.terms-clause:target {
+  animation: terms-landed 3.2s ease-out both;
+}
+@keyframes terms-landed {
+  0%,
+  45% {
+    background-color: var(--color-teal-50);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.terms-clause-num {
+  justify-self: start;
+  font-size: 0.875rem;
+  color: var(--color-ink-500);
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+.terms-clause-num:hover,
+.terms-clause:target .terms-clause-num {
+  color: var(--color-teal-700);
+}
+.terms-clause-num:hover {
+  text-decoration: underline;
+}
+.terms-clause strong {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.terms-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  padding-inline-start: 1.25rem;
+  list-style: "–  " outside;
+}
+.terms-items li {
+  padding-inline-start: 0.25rem;
+}
+.terms-items li::marker {
+  color: var(--color-ink-300);
+}
+
+@media (min-width: 1024px) {
+  .terms-page {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    grid-template-areas:
+      "head head"
+      "toc body";
+    column-gap: 4.5rem;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+  }
+  .terms-head {
+    grid-area: head;
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid var(--color-paper-200);
+  }
+  .terms-title {
+    font-size: 3.5rem;
+  }
+  .terms-body {
+    grid-area: body;
+  }
+  .terms-toc {
+    grid-area: toc;
+    top: 6rem;
+    z-index: auto;
+    align-self: start;
+    margin: 0;
+    padding-top: 2.25rem;
+    background: none;
+    border: 0;
+  }
+  .terms-toc-toggle {
+    display: none;
+  }
+  .terms-toc-panel {
+    display: block;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+  .terms-toc-title {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-ink-500);
+  }
+  .terms-toc-track {
+    border-inline-start: 1px solid var(--color-paper-200);
+  }
+  .terms-toc-list a {
+    padding-block: 0.4375rem;
+    padding-inline-start: 1rem;
+    font-size: 0.875rem;
+  }
+  .terms-toc-thumb {
+    display: block;
+    position: absolute;
+    top: 0;
+    inset-inline-start: -1px;
+    width: 2px;
+    height: 1px;
+    background: var(--color-teal-600);
+    opacity: 0;
+    transform-origin: top;
+    transition:
+      transform 0.45s var(--ease-out-quint),
+      opacity 0.2s;
+  }
+  .terms-toc-thumb[data-ready] {
+    opacity: 1;
+  }
+  .terms-section,
+  .terms-clause {
+    scroll-margin-top: 6rem;
+  }
+  .terms-paragraph,
+  .terms-clause p {
+    font-size: 1.125rem;
+  }
+  .terms-section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* On short desktop screens the rail may not fit, so it scrolls. A scrollbar
+   that came and went would rewrap the entries and move the thumb, which could
+   bring it back, so its space stays reserved. */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .terms-toc {
+    max-height: calc(100dvh - 7rem);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+}
+
+@media print {
+  body:has(.terms-page) > header,
+  body:has(.terms-page) > footer,
+  .terms-toc {
+    display: none;
+  }
+  .terms-page {
+    display: block;
+    padding: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

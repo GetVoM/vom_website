@@ -506,6 +506,18 @@ export const en: Dictionary = {
         "How VoM started: launched in 2021, built alongside its users and updated every two weeks. Read our vision, mission and core values, and meet the team.",
     },
   },
+  terms: {
+    heading: "Terms and Conditions",
+    sectionCount: "{n} sections",
+    noticesLabel: "Official notices:",
+    contents: "Contents",
+    clauseLink: "Link to clause {n}",
+    seo: {
+      title: "Terms and Conditions of Use | VoM Cloud Accounting",
+      description:
+        "The terms that govern your VoM subscription: refunds and training, your data and exports, service and support, liability, and VoM Pay terms for merchants.",
+    },
+  },
   seo: {
     homeTitle: "The Easiest Accounting Software in Saudi Arabia | VoM",
     homeDescription:

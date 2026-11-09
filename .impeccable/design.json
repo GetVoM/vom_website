@@ -1,0 +1,608 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T15:33:56+00:00",
+  "title": "Design System: VoM website (getvom.com)",
+  "extensions": {
+    "colorMeta": {
+      "teal": {
+        "role": "primary",
+        "displayName": "Record Teal",
+        "canonical": "#17baa3",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-50": {
+        "role": "primary",
+        "displayName": "Washed Teal (light)",
+        "canonical": "#eefaf7",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-100": {
+        "role": "primary",
+        "displayName": "Washed Teal",
+        "canonical": "#ddf5f0",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-200": {
+        "role": "primary",
+        "displayName": "Hairline Teal",
+        "canonical": "#bfeae2",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-300": {
+        "role": "primary",
+        "displayName": "Underline Teal",
+        "canonical": "#8edccf",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-600": {
+        "role": "primary",
+        "displayName": "Marker Teal",
+        "canonical": "#13937f",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-700": {
+        "role": "primary",
+        "displayName": "Engraver's Teal",
+        "canonical": "#0f6b5e",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-800": {
+        "role": "primary",
+        "displayName": "Deep Teal",
+        "canonical": "#0b5248",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "teal-950": {
+        "role": "primary",
+        "displayName": "Shadow Teal",
+        "canonical": "#052a25",
+        "tonalRamp": [
+          "#083d36",
+          "#0b5248",
+          "#0f6b5e",
+          "#13937f",
+          "#17baa3",
+          "#8edccf",
+          "#ddf5f0",
+          "#eefaf7"
+        ]
+      },
+      "orange": {
+        "role": "secondary",
+        "displayName": "Action Orange",
+        "canonical": "#ff7300",
+        "tonalRamp": [
+          "#4d2300",
+          "#803a00",
+          "#b35100",
+          "#d96200",
+          "#ff7300",
+          "#ffab66",
+          "#ffd5b3",
+          "#fff2e6"
+        ]
+      },
+      "orange-50": {
+        "role": "secondary",
+        "displayName": "Action Orange (wash)",
+        "canonical": "#fff2e6",
+        "tonalRamp": [
+          "#4c4945",
+          "#807973",
+          "#b2a9a1",
+          "#e0d5ca",
+          "#fff2e6",
+          "#fff7f0",
+          "#fffbf8",
+          "#fffefd"
+        ]
+      },
+      "orange-600": {
+        "role": "secondary",
+        "displayName": "Action Orange (hover)",
+        "canonical": "#d96200",
+        "tonalRamp": [
+          "#411d00",
+          "#6c3100",
+          "#984500",
+          "#bf5600",
+          "#d96200",
+          "#e8a166",
+          "#f4d0b2",
+          "#fcf2eb"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Record Ink",
+        "canonical": "#020202",
+        "tonalRamp": [
+          "#020202",
+          "#1a1a1a",
+          "#333333",
+          "#54595f",
+          "#6b6b6b",
+          "#9aa3ad",
+          "#d7e3ec",
+          "#f4f7fc"
+        ]
+      },
+      "ink-700": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#54595f",
+        "tonalRamp": [
+          "#191b1c",
+          "#2a2c30",
+          "#3b3e42",
+          "#4a4e54",
+          "#54595f",
+          "#989b9f",
+          "#cccdcf",
+          "#f1f2f2"
+        ]
+      },
+      "ink-500": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#6b6b6b",
+        "tonalRamp": [
+          "#202020",
+          "#363636",
+          "#4b4b4b",
+          "#5e5e5e",
+          "#6b6b6b",
+          "#a6a6a6",
+          "#d3d3d3",
+          "#f3f3f3"
+        ]
+      },
+      "ink-300": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#9aa3ad",
+        "tonalRamp": [
+          "#2e3134",
+          "#4d5256",
+          "#6c7279",
+          "#888f98",
+          "#9aa3ad",
+          "#c2c8ce",
+          "#e1e3e6",
+          "#f7f8f8"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#9aa3ad",
+          "#b8c6d2",
+          "#d7e3ec",
+          "#e6eef3",
+          "#f4f7fc",
+          "#f8fafd",
+          "#fcfdfe",
+          "#ffffff"
+        ]
+      },
+      "paper-100": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#f4f7fc",
+        "tonalRamp": [
+          "#494a4c",
+          "#7a7c7e",
+          "#abadb0",
+          "#d7d9de",
+          "#f4f7fc",
+          "#f8fafd",
+          "#fcfdfe",
+          "#fefeff"
+        ]
+      },
+      "paper-200": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e6eef3",
+        "tonalRamp": [
+          "#454749",
+          "#73777a",
+          "#a1a7aa",
+          "#cad1d6",
+          "#e6eef3",
+          "#f0f5f8",
+          "#f8fafb",
+          "#fdfefe"
+        ]
+      },
+      "paper-300": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#d7e3ec",
+        "tonalRamp": [
+          "#404447",
+          "#6c7276",
+          "#969fa5",
+          "#bdc8d0",
+          "#d7e3ec",
+          "#e7eef4",
+          "#f3f7f9",
+          "#fcfdfd"
+        ]
+      },
+      "reading-ink": {
+        "role": "neutral",
+        "displayName": "Reading Ink",
+        "canonical": "color-mix(in oklab, #020202 86%, white)",
+        "tonalRamp": [
+          "#020202",
+          "#1a1a1a",
+          "#333333",
+          "#54595f",
+          "#6b6b6b",
+          "#9aa3ad",
+          "#d7e3ec",
+          "#f4f7fc"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page H1 on contact and about."
+      },
+      "display-two-tier": {
+        "displayName": "Display, two-tier",
+        "purpose": "Homepage H1: light Slate tier over bold Ink tier."
+      },
+      "display-reading": {
+        "displayName": "Display, reading",
+        "purpose": "H1 of long documents (terms)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Terms section titles, team names."
+      },
+      "item-title": {
+        "displayName": "Item title",
+        "purpose": "List entries, values, cards."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text."
+      },
+      "body-reading": {
+        "displayName": "Body, reading",
+        "purpose": "Legal reading; the text column fills the page container beside the contents rail (owner, 2026-11-09)."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Intro paragraph under an H1."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, buttons, meta, footer."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Dates, demonstration-data labels, mock-up rows."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Tabular numerals; poster scale on the about band."
+      },
+      "micro-label": {
+        "displayName": "Bilingual micro-label",
+        "purpose": "0.625rem uppercase 0.08em English line inside paper document objects only; never above a heading."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lifted-sheet",
+        "value": "0 1px 2px rgba(2,2,2,0.08), 0 24px 48px -24px rgba(5,42,37,0.45), 0 60px 90px -40px rgba(5,42,37,0.35)",
+        "purpose": "Documents in the homepage stack."
+      },
+      {
+        "name": "object-on-field",
+        "value": "0 40px 80px -40px rgba(5,42,37,0.4)",
+        "purpose": "Closing certificate and paper objects on a field (up to 0 32px 60px -28px rgba(5,42,37,0.6))."
+      },
+      {
+        "name": "overlay",
+        "value": "0 24px 40px -24px rgba(5,42,37,0.35)",
+        "purpose": "Mobile menu panel."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 24px 40px -28px rgba(5,42,37,0.4)",
+        "purpose": "Report card hover with translateY(-4px)."
+      },
+      {
+        "name": "pressed-edge",
+        "value": "inset 0 -2px 0 rgba(0,0,0,0.12)",
+        "purpose": "Primary button base."
+      },
+      {
+        "name": "double-hairline",
+        "value": "inset 0 0 0 4px #ffffff, inset 0 0 0 5px #bfeae2",
+        "purpose": "The document frame's inner hairline, with a 1px teal-200 border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quint",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Every entrance and state transition."
+      },
+      {
+        "name": "rise",
+        "value": "0.9s ease-out-quint, 0.12s stagger, from 18px",
+        "purpose": "Hero copy entrance."
+      },
+      {
+        "name": "field-in",
+        "value": "1.2s ease-out-quint, from 40px (mirrored in RTL)",
+        "purpose": "Homepage teal field entrance."
+      },
+      {
+        "name": "button",
+        "value": "200ms ease-out",
+        "purpose": "Button colour, shadow and press."
+      },
+      {
+        "name": "thumb-slide",
+        "value": "transform 0.45s ease-out-quint",
+        "purpose": "Terms contents thumb."
+      },
+      {
+        "name": "anchor-landed",
+        "value": "3.2s ease-out teal-50 wash fading to clear",
+        "purpose": "Linked clause arrival."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations 0.001ms",
+        "purpose": "Global prefers-reduced-motion fallback; resting styles are the finished state."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "figures",
+        "value": "1180px"
+      },
+      {
+        "name": "container",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one orange action per view, a small pill with an arrow that flips in RTL.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">ابدأ تجربتك المجانية <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;border-radius:999px;font-size:0.9375rem;font-weight:700;line-height:1;text-decoration:none;cursor:pointer;border:0;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;transition:background-color .2s ease-out,color .2s ease-out,transform .2s ease-out;}.ds-btn:focus-visible{outline:2px solid var(--color-teal-500,#17baa3);outline-offset:3px;}.ds-btn:active{transform:translateY(1px);}.ds-btn-primary{padding:0 20px;background:var(--color-orange-500,#ff7300);color:#fff;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);}.ds-btn-primary:hover{background:var(--color-orange-600,#d96200);}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined ink pill for a second action on paper.",
+      "html": "<a class=\"ds-btn ds-btn-secondary\" href=\"#\">قارن الباقات</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;border-radius:999px;font-size:0.9375rem;font-weight:700;line-height:1;text-decoration:none;cursor:pointer;border:0;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;transition:background-color .2s ease-out,color .2s ease-out,transform .2s ease-out;}.ds-btn:focus-visible{outline:2px solid var(--color-teal-500,#17baa3);outline-offset:3px;}.ds-btn:active{transform:translateY(1px);}.ds-btn-secondary{padding:0 20px;background:transparent;color:var(--color-ink,#020202);border:1px solid rgba(2,2,2,.8);}.ds-btn-secondary:hover{border-color:var(--color-ink,#020202);background:var(--color-paper-100,#f4f7fc);}"
+    },
+    {
+      "name": "Ghost Link Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Text action with a teal underline, paired with the primary.",
+      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#\">احجز عرضًا</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;border-radius:999px;font-size:0.9375rem;font-weight:700;line-height:1;text-decoration:none;cursor:pointer;border:0;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;transition:background-color .2s ease-out,color .2s ease-out,transform .2s ease-out;}.ds-btn:focus-visible{outline:2px solid var(--color-teal-500,#17baa3);outline-offset:3px;}.ds-btn:active{transform:translateY(1px);}.ds-btn-ghost{padding:0 8px;background:transparent;color:var(--color-ink,#020202);text-decoration:underline;text-decoration-color:var(--color-teal-500,#17baa3);text-decoration-thickness:2px;text-underline-offset:6px;}.ds-btn-ghost:hover{text-decoration-color:var(--color-ink,#020202);}"
+    },
+    {
+      "name": "Inverse Button",
+      "kind": "button",
+      "refersTo": "button-inverse",
+      "description": "White pill with deep-teal text for teal bands.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-btn ds-btn-inverse\" href=\"#\">دليل الفوترة <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;border-radius:999px;font-size:0.9375rem;font-weight:700;line-height:1;text-decoration:none;cursor:pointer;border:0;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;transition:background-color .2s ease-out,color .2s ease-out,transform .2s ease-out;}.ds-btn:focus-visible{outline:2px solid var(--color-teal-500,#17baa3);outline-offset:3px;}.ds-btn:active{transform:translateY(1px);}.ds-band{background:var(--color-teal-500,#17baa3);padding:24px;}.ds-btn-inverse{padding:0 20px;background:#fff;color:var(--color-teal-800,#0b5248);}.ds-btn-inverse:hover{background:var(--color-teal-50,#eefaf7);}"
+    },
+    {
+      "name": "Pill Input",
+      "kind": "input",
+      "refersTo": "input-pill",
+      "description": "Pill text field; focus turns the border teal.",
+      "html": "<input class=\"ds-input\" placeholder=\"اسم منشأتك\" aria-label=\"اسم منشأتك\">",
+      "css": ".ds-input{height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--color-paper-300,#d7e3ec);background:#fff;color:var(--color-ink,#020202);font-size:1rem;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-input::placeholder{color:var(--color-ink-500,#6b6b6b);}.ds-input:focus{outline:none;border-color:var(--color-teal-500,#17baa3);}"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Sticky 64px translucent paper bar with quiet links and a small orange start pill.",
+      "html": "<header class=\"ds-header\" dir=\"rtl\"><strong class=\"ds-logo\">ڤوم</strong><nav class=\"ds-nav\"><a href=\"#\">المزايا</a><a href=\"#\">الأسعار</a><a href=\"#\">المدونة</a></nav><a class=\"ds-start\" href=\"#\">ابدأ مجانًا</a></header>",
+      "css": ".ds-header{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px;padding:0 16px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,238,243,.8);font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-logo{color:var(--color-teal-500,#17baa3);font-size:1.5rem;}.ds-nav{display:flex;gap:28px;font-size:.9375rem;}.ds-nav a{color:rgba(2,2,2,.9);text-decoration:none;transition:color .2s;}.ds-nav a:hover{color:var(--color-teal-700,#0f6b5e);}.ds-nav a:focus-visible,.ds-start:focus-visible{outline:2px solid #17baa3;outline-offset:3px;border-radius:4px;}.ds-start{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:999px;background:#ff7300;color:#fff;font-weight:700;font-size:.9375rem;text-decoration:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);}.ds-start:hover{background:#d96200;}"
+    },
+    {
+      "name": "Document Frame with Seal",
+      "kind": "card",
+      "refersTo": "doc-frame",
+      "description": "Paper sheet in the rounded double hairline, with a rotated double-ring seal.",
+      "html": "<div class=\"ds-frame\" dir=\"rtl\"><div class=\"ds-frame-head\"><strong>شهادة امتثال</strong><span class=\"ds-micro\">Certificate of compliance</span></div><div class=\"ds-row\"><span>الحالة</span><b>معتمدة</b></div><div class=\"ds-seal\"><b>VoM</b><span>Phase 2</span></div><small>بيانات توضيحية</small></div>",
+      "css": ".ds-frame{position:relative;max-width:360px;padding:28px;background:#fff;border:1px solid var(--color-teal-200,#bfeae2);border-radius:1.25rem;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px var(--color-teal-200,#bfeae2),0 40px 80px -40px rgba(5,42,37,.4);font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;color:#020202;}.ds-frame-head{display:flex;flex-direction:column;padding-bottom:16px;border-bottom:1px solid #bfeae2;font-size:1.125rem;}.ds-micro{font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;color:#6b6b6b;direction:ltr;text-align:right;}.ds-row{display:flex;justify-content:space-between;margin-top:16px;font-size:.8125rem;color:#6b6b6b;}.ds-row b{color:#0f6b5e;}.ds-seal{display:flex;flex-direction:column;align-items:center;justify-content:center;width:96px;height:96px;margin-top:20px;border:3px double #17baa3;border-radius:50%;color:#0f6b5e;transform:rotate(-8deg);font-size:1.0625rem;}.ds-seal span{font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;}.ds-frame small{display:block;margin-top:8px;font-size:.6875rem;color:#6b6b6b;}"
+    },
+    {
+      "name": "Teal Guilloche Band",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Full-width teal field with the white guilloche lattice; text on it is white (owner rule; contrast open item).",
+      "html": "<section class=\"ds-field\" dir=\"rtl\"><h2>الفوترة الإلكترونية، المرحلة الثانية</h2><p>تُرسل كل فاتورة إلى هيئة الزكاة تلقائيًا.</p></section>",
+      "css": ".ds-field{padding:48px 24px;color:#fff;background-color:var(--color-teal-500,#17baa3);background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.14' stroke-width='.55'%3E%3Cellipse cx='48' cy='48' rx='44' ry='13'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(36 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(72 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(108 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(144 48 48)'/%3E%3Ccircle cx='48' cy='48' r='46'/%3E%3C/g%3E%3C/svg%3E\");clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-field h2{margin:0 0 12px;font-size:1.875rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;}.ds-field p{margin:0;font-size:1.0625rem;line-height:1.7;}"
+    },
+    {
+      "name": "Contents Rail",
+      "kind": "nav",
+      "refersTo": "contents-rail",
+      "description": "Reading-register contents on a hairline track with a teal thumb at the current entry.",
+      "html": "<nav class=\"ds-rail\" dir=\"rtl\"><div class=\"ds-rail-title\">المحتويات</div><ol><li><a href=\"#\"><span>1</span>التعريفات</a></li><li><a href=\"#\" aria-current=\"true\"><span>2</span>نطاق الخدمة</a></li><li><a href=\"#\"><span>3</span>الاشتراك والدفع</a></li></ol></nav>",
+      "css": ".ds-rail{width:15rem;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-rail-title{margin-bottom:12px;font-size:.8125rem;font-weight:500;color:#6b6b6b;}.ds-rail ol{margin:0;padding:0;list-style:none;border-inline-start:1px solid var(--color-paper-200,#e6eef3);}.ds-rail a{position:relative;display:grid;grid-template-columns:1.5rem 1fr;gap:8px;padding:7px 16px 7px 0;padding-inline-start:16px;font-size:.875rem;line-height:1.45;color:var(--color-ink-700,#54595f);text-decoration:none;transition:color .2s;}.ds-rail a span{color:#6b6b6b;font-variant-numeric:tabular-nums;}.ds-rail a:hover{color:#020202;}.ds-rail a:focus-visible{outline:2px solid #17baa3;outline-offset:3px;border-radius:4px;}.ds-rail a[aria-current=true]{color:#020202;font-weight:500;}.ds-rail a[aria-current=true] span{color:var(--color-teal-700,#0f6b5e);}.ds-rail a[aria-current=true]::before{content:'';position:absolute;inset-block:0;inset-inline-start:-1px;width:2px;background:var(--color-teal-600,#13937f);}"
+    },
+    {
+      "name": "Clause",
+      "kind": "custom",
+      "refersTo": "clause",
+      "description": "Hanging self-linking clause number and a bold lead label, set at reading measure.",
+      "html": "<ol class=\"ds-clauses\" dir=\"rtl\"><li class=\"ds-clause\"><a href=\"#c\" class=\"ds-cnum\" dir=\"ltr\">2.1</a><p><strong>الاشتراك.</strong> يبدأ اشتراكك من تاريخ التفعيل ويتجدد تلقائيًا ما لم تلغه قبل نهاية المدة.</p></li></ol>",
+      "css": ".ds-clauses{margin:0;padding:0;list-style:none;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-clause{display:grid;grid-template-columns:2.75rem minmax(0,1fr);align-items:first baseline;margin-inline:-.75rem;padding:.5rem .75rem;border-radius:.75rem;background:var(--color-teal-50,#eefaf7);}.ds-cnum{font-size:.875rem;color:#6b6b6b;text-decoration:none;text-underline-offset:4px;font-variant-numeric:tabular-nums;transition:color .2s;}.ds-cnum:hover{color:#0f6b5e;text-decoration:underline;}.ds-cnum:focus-visible{outline:2px solid #17baa3;outline-offset:3px;border-radius:4px;}.ds-clause p{margin:0;font-size:1.0625rem;line-height:1.85;color:color-mix(in oklab,#020202 86%,white);}.ds-clause strong{font-weight:700;color:#020202;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Official Record",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "keyCharacteristics": [
+      "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
+      "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
+      "Effra only, in four weights (300, 400, 500, 700), with tabular numerals for every figure.",
+      "Small pill buttons; orange only on the primary action.",
+      "One orchestrated motion per page on load, with a reduced-motion fallback that removes it.",
+      "Arabic RTL first; slanted field edges, transforms and arrows flip for LTR."
+    ],
+    "rules": [
+      {
+        "name": "The One Hot Colour Rule",
+        "body": "Orange marks the single action to take or the single \"now\" (today's tick, the latest milestone). It is never a background field, a heading colour or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Guilloche-on-Teal Rule",
+        "body": "The guilloche is drawn in white at 10 to 14% opacity on teal fields only. Never on paper, on paper objects, on seals or on the reading register.",
+        "section": "colors"
+      },
+      {
+        "name": "The White-on-Teal Rule",
+        "body": "Text on a teal band is white (owner decision). At `teal` this measures about 2.4:1, below the AA floor in CLAUDE.md; this is an open conflict, not a validated pairing (see Do's and Don'ts).",
+        "section": "colors"
+      },
+      {
+        "name": "The Effra Only Rule",
+        "body": "One family, loaded through `next/font/local`, weights 300, 400, 500 and 700. No second face, no third-party font link.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figure Rule",
+        "body": "Every number that can be compared (amounts, serials, dates, counts, clause numbers) is tabular and set `dir=\"ltr\"` inside Arabic text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Teal Shadow Rule",
+        "body": "Shadows are tinted with Shadow Teal, never neutral grey, and belong to paper documents, overlays and hover states. Sections, tiles and frames at rest stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.",
+      "**Do** give each page one signature idea and one orchestrated motion on load, using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
+      "**Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.",
+      "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
+      "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
+      "**Do** label demonstration data in every mock-up.",
+      "**Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents."
+    ],
+    "donts": [
+      "**Don't** put orange on anything but the primary action or the single \"now\" marker.",
+      "**Don't** draw the guilloche on paper, on paper objects, on seals or in the reading register.",
+      "**Don't** add a second typeface or load Effra from a third-party link.",
+      "**Don't** use neutral grey shadows, or shadow sections, tiles and frames at rest.",
+      "**Don't** place a micro-label or any small line above a heading as a kicker or eyebrow.",
+      "**Don't** treat Mist (`ink-300`) as a text colour for content that must be read, or treat white on Record Teal and white on Action Orange as meeting AA; both measure below 3:1 and are open items."
+    ]
+  }
+}
