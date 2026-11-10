@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import { localePath } from "@/lib/i18n/config";
+import { monthlyPrice, planIds, planNames } from "@/lib/content/pricing/plans";
 import { site } from "./site";
 
 type JsonLd = Record<string, unknown>;
@@ -121,26 +122,22 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
     description,
     url: `${site.url}${localePath(locale, "/")}`,
     publisher: { "@id": `${site.url}/#organization` },
-    offers: site.plans.map((plan) => ({
-      "@type": "Offer",
-      name: plan.name[locale],
-      price: plan.price,
-      priceCurrency: "SAR",
-      availability: "https://schema.org/InStock",
-      url: `${site.url}${localePath(locale, "/pricing/")}`,
-    })),
-  };
-}
-
-export function faqJsonLd(items: { q: string; a: string }[]): JsonLd {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
+    // One Offer per plan with a published price, monthly and before VAT. Flex's
+    // is its starting price; Business is quoted by sales, so it has no Offer.
+    offers: planIds.flatMap((id) => {
+      const price = monthlyPrice[id];
+      return price === null
+        ? []
+        : [
+            {
+              "@type": "Offer",
+              name: planNames[id][locale],
+              price,
+              priceCurrency: "SAR",
+              availability: "https://schema.org/InStock",
+            },
+          ];
+    }),
   };
 }
 

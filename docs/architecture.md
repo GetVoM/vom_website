@@ -28,7 +28,7 @@ Why MDX first: the owner deferred the CMS decision; MDX needs no service, keeps 
 
 ## 5. Metadata and structured data: generated from one source
 
-`lib/seo/` builds `Metadata` objects and JSON-LD from content records: title templates per type, absolute canonical, `alternates.languages` from the hreflang pairs in the URL index, Open Graph with a generated image (`opengraph-image.tsx` per route type, Arabic font passed to `ImageResponse`), and JSON-LD by type (`Organization` + `WebSite` in the root layout; `SoftwareApplication` with `Offer` on home, features and pricing; `Article` with `author` and `reviewedBy` on posts and guides; `BreadcrumbList` everywhere; `FAQPage` where a page has FAQs; `HowTo` on calculators if they qualify). Sitemaps are split by type with `generateSitemaps` and listed in `robots.ts`.
+`lib/seo/` builds `Metadata` objects and JSON-LD from content records: title templates per type, absolute canonical, `alternates.languages` from the hreflang pairs in the URL index, Open Graph with a generated image (`opengraph-image.tsx` per route type, Arabic font passed to `ImageResponse`), and JSON-LD by type (`Organization` + `WebSite` in the root layout; `SoftwareApplication` with `Offer` on home, features and pricing; `Article` with `author` and `reviewedBy` on posts and guides; `BreadcrumbList` everywhere; no `FAQPage`, since Google no longer shows FAQ rich results for sites like this one (owner, 2026-11-10); `HowTo` on calculators if they qualify). Sitemaps are split by type with `generateSitemaps` and listed in `robots.ts`.
 
 ## 6. Fonts: self-hosted through `next/font`, two families at most
 

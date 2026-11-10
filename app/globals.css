@@ -4188,6 +4188,704 @@ html[dir="rtl"] .sec-close-band {
   }
 }
 
+/* Pricing: four plans as official sheets on the teal field, a ledger of only the
+   rows where they differ, what every plan shares and the questions. The billing
+   switch is two radios: :has() shows the chosen period's prices, with no script. */
+.prc .prc-period[data-period="annual"] {
+  display: none;
+}
+.prc:has(#billing-annual:checked) .prc-period[data-period="monthly"] {
+  display: none;
+}
+.prc:has(#billing-annual:checked) .prc-period[data-period="annual"] {
+  display: grid;
+}
+/* An amount in riyals: the official Saudi riyal sign (SAMA) is drawn before the
+   figure, so it sits on the left in both languages; the word after is for
+   screen readers only. */
+.sar {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.sar::before {
+  content: "";
+  display: inline-block;
+  width: 0.7em;
+  height: 0.78em;
+  margin-inline-end: 0.2em;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1124.14 1256.39'%3E%3Cpath d='M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z'/%3E%3Cpath d='M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.sar i {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.prc-top {
+  overflow-x: clip;
+}
+.prc-head {
+  display: grid;
+  gap: 2rem;
+  padding-block: 2rem 3.25rem;
+}
+.prc-title {
+  margin-top: 1.25rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.prc-lede {
+  margin-top: 1rem;
+  max-width: 52ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+}
+.prc-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+/* A track of cool paper; the chosen period is a paper chip lifted on it. */
+.prc-billing {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid var(--color-paper-300);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-100);
+}
+.prc-billing input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.prc-billing label {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 1.125rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-ink-700);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.prc-billing label:hover {
+  color: var(--color-ink);
+}
+.prc-billing input:checked + label {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow:
+    0 0 0 1px var(--color-teal-200),
+    0 6px 14px -8px rgb(5 42 37 / 0.35);
+}
+.prc-billing input:focus-visible + label {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 3px;
+}
+.prc-free {
+  padding: 0.3125rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-50);
+  font-size: 0.75rem;
+  line-height: 1;
+  color: var(--color-teal-800);
+}
+.prc-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-500);
+}
+.prc-note::before {
+  content: "";
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--color-teal-100) var(--tick) center / 0.75rem no-repeat;
+}
+/* The field: full bleed, cut by a slanted top edge, holding the four sheets. */
+.prc-field {
+  padding-block: 4.5rem 2.5rem;
+  background-color: var(--color-teal-500);
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .prc-field {
+  clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+}
+.prc-sheets {
+  display: grid;
+  gap: 1.25rem;
+}
+.prc-sheets > li {
+  display: grid;
+}
+/* Room for the seal above the most popular sheet. */
+.prc-sheets > li[data-popular] {
+  margin-top: 1.5rem;
+}
+.prc-sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem 1.5rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 60px -28px rgb(5 42 37 / 0.6);
+  animation: prc-rise 0.7s var(--ease-out-quint) 0.1s both;
+}
+.prc-sheets > li:nth-child(2) .prc-sheet {
+  animation-delay: 0.18s;
+}
+.prc-sheets > li:nth-child(3) .prc-sheet {
+  animation-delay: 0.26s;
+}
+.prc-sheets > li:nth-child(4) .prc-sheet {
+  animation-delay: 0.34s;
+}
+@keyframes prc-rise {
+  from {
+    transform: translateY(1.5rem);
+    box-shadow:
+      inset 0 0 0 4px var(--color-paper),
+      inset 0 0 0 5px var(--color-teal-200),
+      0 6px 10px -8px rgb(5 42 37 / 0.3);
+  }
+}
+.prc-sheet[data-popular] {
+  padding-top: 3.25rem;
+}
+.prc-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.prc-summary {
+  margin-top: 0.375rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink-700);
+}
+/* The price, ruled off with the accountant's double underline. */
+.prc-price {
+  display: grid;
+  min-height: 6rem;
+  align-content: end;
+  margin-top: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px double var(--color-teal-500);
+}
+.prc-price .prc-period {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  justify-items: start;
+  gap: 0.5rem;
+}
+.prc-price .prc-period > span {
+  font-size: 0.9375rem;
+  color: var(--color-ink-700);
+}
+.prc-price .prc-period > .prc-figure {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-teal-700);
+}
+.prc-figure::before {
+  width: 0.56em;
+  height: 0.62em;
+}
+.prc-price .prc-period > .prc-from {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink-500);
+}
+.prc-price .prc-period > .prc-save {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  padding: 0.3125rem 0.625rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-50);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-teal-800);
+}
+.prc-contact {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.prc-body {
+  flex: 1;
+}
+/* Flex's rates as ruled lines, the ledger's own grammar: label, then amount. */
+.prc-rates {
+  display: grid;
+  margin-top: 0.75rem;
+}
+.prc-rates > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 0.4375rem;
+  border-bottom: 1px solid var(--color-teal-200);
+}
+.prc-rates dt {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--color-ink-700);
+}
+.prc-rates dd {
+  flex: none;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-teal-800);
+}
+.prc-points {
+  display: grid;
+  margin-top: 1rem;
+}
+.prc-points li {
+  position: relative;
+  text-wrap: pretty;
+  padding-block: 0.625rem;
+  padding-inline-start: 2.125rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink-700);
+}
+.prc-points .sar {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.prc-points li + li {
+  border-top: 1px solid var(--color-teal-200);
+}
+.prc-points li::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  inset-inline-start: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 50%;
+  background: var(--color-teal-100) var(--tick) center / 0.8125rem no-repeat;
+}
+.prc {
+  --tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+.prc-cta {
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+/* The seal of the most popular plan, stamped on the sheet's top start corner. */
+.prc-seal {
+  --seal-ground: var(--color-paper);
+  position: absolute;
+  z-index: 1;
+  top: -2.75rem;
+  inset-inline-start: 1.25rem;
+  display: grid;
+  width: 5.75rem;
+  height: 5.75rem;
+  place-content: center;
+  justify-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background: var(--seal-ground);
+  color: var(--color-teal-700);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  rotate: -8deg;
+  box-shadow:
+    inset 0 0 0 3px currentColor,
+    inset 0 0 0 7px var(--seal-ground),
+    inset 0 0 0 8px currentColor,
+    0 16px 30px -14px rgb(5 42 37 / 0.55);
+  animation: sec-stamp 0.45s var(--ease-out-quint) 0.75s both;
+}
+.prc-seal span {
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0.85;
+}
+.prc-vat {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+}
+.prc-section {
+  border-top: 1px solid var(--color-paper-200);
+}
+#compare.prc-section {
+  border-top: 0;
+}
+.prc-block {
+  padding-block: 4rem;
+}
+/* The ledger: plan heads pinned under the site header, groups ruled off. */
+.prc-table {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.8125rem;
+}
+.prc-col-feature {
+  width: 34%;
+}
+.prc-col-popular {
+  background: var(--color-teal-50);
+}
+.prc-table thead th {
+  position: sticky;
+  z-index: 2;
+  top: 4rem;
+  padding: 0.75rem 0.25rem 0.875rem;
+  background: var(--color-paper);
+  box-shadow: inset 0 -1px 0 var(--color-teal-300);
+  vertical-align: bottom;
+}
+.prc-table thead th[data-popular] {
+  background: var(--color-teal-50);
+}
+.prc-table thead b {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+}
+.prc-table thead small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-teal-700);
+}
+.prc-table tbody th[scope="row"] {
+  padding-block: 0.75rem;
+  padding-inline-end: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: start;
+  color: var(--color-ink-700);
+}
+.prc-table td {
+  padding: 0.75rem 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  vertical-align: middle;
+}
+/* Rule between the rows of a group; the group's heading row has its own rule. */
+.prc-table tbody tr:nth-child(n + 3) > * {
+  border-top: 1px solid var(--color-paper-200);
+}
+.prc-table th[scope="rowgroup"] {
+  padding-block: 1.75rem 0.5rem;
+  border-bottom: 1px solid var(--color-teal-200);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-align: start;
+  color: var(--color-teal-700);
+}
+/* A tick, dash or ∞ drawn over the cell's own word, which is moved out of view
+   but still read by screen readers. */
+.prc-table td[data-v] {
+  position: relative;
+  overflow: hidden;
+  text-indent: -999em;
+  white-space: nowrap;
+}
+.prc-table td[data-v]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  text-indent: 0;
+}
+.prc-table td[data-v="y"]::before {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--color-teal-100) var(--tick) center / 0.875rem no-repeat;
+}
+/* Graphite, not Mist: the dash carries meaning, so it keeps 3:1 on the teal-50 column. */
+.prc-table td[data-v="n"]::before {
+  width: 0.875rem;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-ink-500);
+}
+.prc-table td[data-v="i"]::before {
+  content: "∞" / "";
+  width: 2rem;
+  height: 1.5rem;
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  text-align: center;
+  color: var(--color-teal-700);
+}
+.prc-table td small {
+  display: block;
+  margin-top: 0.125rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-ink-500);
+}
+/* What every plan shares: one framed sheet of ticked groups on cool paper. */
+.prc-included-section {
+  background: var(--color-paper-100);
+}
+.prc-section-lede {
+  margin-top: 0.75rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.prc-included {
+  display: grid;
+  gap: 2rem 2.5rem;
+  margin-top: 2rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--color-paper);
+}
+/* Each group head ruled off with the house double hairline, drawn as two 1px
+   lines 2px apart: at a fractional position the lines soften but never merge,
+   where a 3px double border smears into one band. */
+.prc-included h3 {
+  position: relative;
+  padding-bottom: 0.875rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.prc-included h3::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(
+    var(--color-teal-300) 0 1px,
+    transparent 1px 3px,
+    var(--color-teal-300) 3px 4px
+  );
+}
+.prc-included ul {
+  margin-top: 0.25rem;
+}
+.prc-included li {
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--color-paper-200);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink-700);
+  break-inside: avoid;
+}
+/* The FAQ's mark: the riyal sign struck in the house double-ring seal. */
+.prc-faq-heading::after {
+  content: "";
+  display: block;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  background: var(--color-paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1124.14 1256.39' fill='%230f6b5e'%3E%3Cpath d='M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z'/%3E%3Cpath d='M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z'/%3E%3C/svg%3E") center / 34% no-repeat;
+  rotate: -6deg;
+  box-shadow:
+    inset 0 0 0 3px var(--color-teal-700),
+    inset 0 0 0 7px var(--color-paper),
+    inset 0 0 0 8px var(--color-teal-700),
+    0 16px 30px -18px rgb(5 42 37 / 0.45);
+}
+.prc-close-band {
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .prc-close-band {
+  clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+}
+.prc-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  padding-block: 6rem 4.5rem;
+}
+.prc-close .btn:focus-visible {
+  outline-color: #fff;
+}
+.prc-close-line {
+  max-width: 30ch;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.prc-close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .prc-title {
+    font-size: 3rem;
+  }
+  .prc-sheets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4.5rem 1.25rem;
+  }
+  /* The popular sheet stands higher than its neighbour; its seal fills the gap. */
+  .prc-sheets > li[data-popular] {
+    margin-top: -1.5rem;
+  }
+  .prc-table {
+    font-size: 0.875rem;
+  }
+  .prc-table thead b {
+    font-size: 0.9375rem;
+  }
+  .prc-table thead small {
+    font-size: 0.8125rem;
+  }
+  .prc-table td {
+    padding-inline: 0.5rem;
+    font-size: 0.9375rem;
+  }
+  .prc-table td small {
+    font-size: 0.75rem;
+  }
+  .prc-included {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 2.25rem 2.5rem;
+  }
+  .prc-included > div:last-child {
+    grid-column: 1 / -1;
+  }
+  .prc-included > div:last-child ul {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prc-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 3rem;
+    padding-block: 2.5rem 2.5rem;
+  }
+  .prc-title {
+    font-size: clamp(3rem, 4vw, 3.5rem);
+  }
+  .prc-controls {
+    align-items: flex-end;
+  }
+  .prc-field {
+    padding-block: 6rem 3rem;
+    clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .prc-field {
+    clip-path: polygon(0 0, 100% 3rem, 100% 100%, 0 100%);
+  }
+  .prc-block {
+    padding-block: 6rem;
+  }
+  .prc-col-feature {
+    width: 36%;
+  }
+  .prc-table tbody th[scope="row"] {
+    font-size: 0.9375rem;
+  }
+  .prc-included {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 3rem;
+    padding: 2.5rem 3rem;
+  }
+  .prc-included > div:last-child {
+    grid-column: span 2;
+  }
+  .prc-close {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+  .prc-close-line {
+    font-size: 2.25rem;
+  }
+  .prc-faq-heading::after {
+    width: 8rem;
+    height: 8rem;
+    margin-top: 2.5rem;
+  }
+  .prc-close-actions {
+    flex: none;
+  }
+}
+
+/* One row of four once each sheet has room for Flex's rate chips (two across
+   until then). Each sheet's name, summary, price, body and button share rows
+   across the sheets (subgrid), so the double rules and buttons line up. */
+@media (min-width: 1280px) {
+  .prc-sheets {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(5, auto);
+    gap: 0 1.25rem;
+  }
+  .prc-sheets > li {
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+  }
+  .prc-sheet {
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+  }
+  .prc-cta {
+    align-self: end;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

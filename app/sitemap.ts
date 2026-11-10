@@ -5,6 +5,7 @@ import {
   contactPaths,
   growthPaths,
   integrationPaths,
+  pricingPaths,
   sectorPaths,
   studentPaths,
   termsPaths,
@@ -59,6 +60,13 @@ const pages: SitemapPage[] = [
     lastModified: "2026-11-10",
     changeFrequency: "monthly",
     priority: { ar: 0.5, en: 0.4 },
+  },
+  // Pricing sits just under the homepage: it answers "أسعار ڤوم" and converts.
+  {
+    pair: pricingPaths,
+    lastModified: "2026-11-10",
+    changeFrequency: "monthly",
+    priority: { ar: 0.8, en: 0.7 },
   },
   ...Object.values(integrationPaths).map(
     (pair): SitemapPage => ({

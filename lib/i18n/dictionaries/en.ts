@@ -214,7 +214,7 @@ export const en: Dictionary = {
     inputLabel: "Your business name",
     placeholder: "Example: Al Diwaniya Restaurant",
     cta: "Issue the certificate and start free",
-    pricingLine: "Advanced from 270 SAR a month, Unlimited from 350 SAR. Two months free on annual billing.",
+    pricingLine: "Flex from SAR 29 a month, paying as you go; Advanced SAR 270 and Unlimited SAR 350 a month. Two months free on yearly billing.",
     compare: "Compare plans",
     defaultName: "Your business",
   },
@@ -227,7 +227,7 @@ export const en: Dictionary = {
     links: {
       product: [
         ["Features", "/features-en/"],
-        ["Pricing", "/pricing-en/"],
+        ["Pricing", "/pricing/"],
         ["API documentation", "https://app.getvom.com/en/docs/api"],
       ],
       support: [

@@ -146,6 +146,23 @@ const nextConfig: NextConfig = {
         destination: "/en/student-package/",
         statusCode: 301,
       },
+      // Pricing: the live site already sends /en/pricing-en/ (and the unprefixed
+      // /pricing-en/, in two hops) to /en/pricing/; /pricing-ar/ duplicated /pricing/.
+      {
+        source: "/en/pricing-en",
+        destination: "/en/pricing/",
+        statusCode: 301,
+      },
+      {
+        source: "/pricing-en",
+        destination: "/en/pricing/",
+        statusCode: 301,
+      },
+      {
+        source: "/pricing-ar",
+        destination: "/pricing/",
+        statusCode: 301,
+      },
       // An empty WordPress shell titled "Vom"; the owner sent it to the homepage.
       {
         source: "/get-free-version",

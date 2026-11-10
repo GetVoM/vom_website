@@ -96,6 +96,12 @@ typography:
     lineHeight: 0.8
     letterSpacing: "-0.02em"
     fontFeature: "tnum"
+  figure-price:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "2.75rem"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "-0.02em"
 rounded:
   pill: "999px"
   card: "1.25rem"
@@ -285,6 +291,56 @@ components:
     height: "3.75rem"
   register-link-hover:
     backgroundColor: "{colors.teal-50}"
+  plan-sheet:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.card}"
+    padding: "1.75rem 1.5rem 1.5rem"
+  plan-sheet-popular:
+    padding: "3.25rem 1.5rem 1.5rem"
+  popular-seal:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "5.75rem"
+  billing-switch:
+    backgroundColor: "{colors.paper-100}"
+    rounded: "{rounded.pill}"
+    padding: "0.25rem"
+  billing-option:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink-700}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0 1.125rem"
+    height: "2.75rem"
+  billing-option-checked:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+  free-chip:
+    backgroundColor: "{colors.teal-50}"
+    textColor: "{colors.teal-800}"
+    rounded: "{rounded.pill}"
+    padding: "0.3125rem 0.5rem"
+  compare-ledger-head:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    padding: "0.75rem 0.25rem 0.875rem"
+  compare-ledger-popular:
+    backgroundColor: "{colors.teal-50}"
+  compare-ledger-group:
+    textColor: "{colors.teal-700}"
+    padding: "1.75rem 0 0.5rem"
+  included-sheet:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-700}"
+    rounded: "{rounded.card}"
+    padding: "1.75rem 1.5rem (sm 2.25rem 2.5rem, lg 2.5rem 3rem)"
+  faq-price-seal:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "5.5rem (lg 8rem)"
 ---
 
 # Design System: VoM website (getvom.com)
@@ -295,7 +351,7 @@ components:
 
 Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.
 
-The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
+The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
 
 The reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.
 
@@ -315,7 +371,8 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 - **Record Teal** (`teal`): the field colour. Hero and contact fields with a slanted edge, full-width bands (ZATCA, contact close, about statement), the about figures band, active ticks and progress, the double rule under totals, selection highlight and the focus ring.
 - **Engraver's Teal** (`teal-700`): teal as ink. Links, seal and postmark strokes, figure numerals on paper, icon strokes in tiles, the current entry in the terms contents, hovered nav links.
 - **Hairline Teal** (`teal-200`): the double-hairline frame, dividers inside document objects, inactive chart bars.
-- **Washed Teal** (`teal-50`, `teal-100`): the wash on a landed anchor (story row, linked clause), selected chips and hovered link tiles (`teal-50`), and the icon tiles behind line icons (`teal-100`).
+- **Ring Teal** (`teal-300`): the outer hairline on client seals, register discs and the FAQ plus; on pricing, the rule under the ledger's pinned plan heads and the double hairline under each "in every plan" group head.
+- **Washed Teal** (`teal-50`, `teal-100`): the wash on a landed anchor (story row, linked clause), selected chips, hovered link tiles, the "2 months free" and saving chips and the most-popular column of the pricing ledger (`teal-50`), and the icon tiles behind line icons (`teal-100`).
 - **Marker Teal** (`teal-600`): section numerals and the sliding contents thumb in the reading register.
 - **Deep Teal** (`teal-800`): text on the inverse (white) button and on selected chips.
 - **Shadow Teal** (`teal-950`): never a fill; the tint of every lifted shadow, as `rgba(5, 42, 37, a)`.
@@ -358,6 +415,7 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Display, integration** (700, 3rem / 4rem, then `clamp(3.75rem, 5.6vw, 5rem)` from 1024px, 1.1, balanced): the integration H1, the Display step made fluid at lg so a long partner name holds two lines in the 6/12 copy column.
 - **Display, student** (700, 3rem / 4rem, then `clamp(3.5rem, 5vw, 4.5rem)` from 1024px, 1.1, balanced): the student package H1, 2rem under the breadcrumb (no letterhead lockup), smaller than the integration clamp because its copy column is 5/12 (see Observed drift).
 - **Display, reading** (700, 2.5rem, 3.5rem from 1024px, 1.15): the H1 of long documents.
+- **Display, pricing** (700, 2.5rem / 3rem from 640px, then `clamp(3rem, 4vw, 3.5rem)` from 1024px, 1.15, balanced): the pricing H1 on its paper band, the reading step with a 640px step added; it reaches 3.5rem only from 1400px.
 - **Headline** (700, 1.875rem / 2.25rem / 2.5rem, 1.2 to 1.25): section H2s. About uses 2.75rem at lg and the growth features heading drops to `clamp(1.625rem, 2.2vw, 2rem)` at lg (observed drift, see Layout).
 - **Title** (700, 1.375rem, 1.5rem from 1024px, 1.3 to 1.35): terms section titles, team names and the headings of the two growth doors.
 - **Item title** (700, 1.125rem to 1.25rem, 1.375): list entries, values, cards, the partner record in a ledger row.
@@ -366,12 +424,15 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Label** (400 to 700, 0.875rem to 0.9375rem): nav, buttons, meta, footer.
 - **Caption** (400, 0.75rem to 0.8125rem): dates, demonstration-data labels, mock-up rows.
 - **Figure** (700, 1): tabular numerals. 3 to 3.5rem in teal-700 on the homepage record; 4.5 to 5.5rem on about story rows; poster scale `clamp(8.75rem, 12.2vw, 11rem)` in white on the about band.
+- **Price figure** (700, 2.75rem, 1, -0.02em, teal-700): the plan price on a plan sheet, the riyal sign before it at 0.56em by 0.62em, the unit after it on the same baseline in Slate at 0.9375rem; Flex's "from" sits above it at 0.875rem weight 500 in Graphite. Sales-quoted plans set a line at 1.375rem bold in its place. Tabular, through `.sar`.
 - **Offer figure** (700, 5.5rem / 7rem / 8rem, 0.8, -0.02em, teal-700): a single offer figure inside a paper door, beside a bold label (1.5rem, 1.875rem from 1024px) over a Slate duration (1.125rem, 1.25rem from 1024px), the group ruled off with the double teal underline. On the growth closing band the same figure runs white at `clamp(5.5rem, 13vw, 10.5rem)`, 0.9, inside a closing line set at 1.75rem / 2.25rem / 2.5rem. The integration close band sets its closing line at the same three steps (700, 1.25, 26ch, balanced).
 
 ### Named Rules
 **The Effra Only Rule.** One family, loaded through `next/font/local`, weights 300, 400, 500 and 700. No second face, no third-party font link.
 
 **The Tabular Figure Rule.** Every number that can be compared (amounts, serials, dates, counts, clause numbers) is tabular and set `dir="ltr"` inside Arabic text.
+
+**The Riyal Sign Rule.** An amount in riyals carries the official SAMA riyal sign, drawn as a CSS mask in the current colour on the amount's `::before` (0.7em by 0.78em, 0.2em before the figure), so it sits left of the figure in both languages inside a `dir="ltr"`, no-wrap span; the currency word follows as visually hidden text for screen readers. Never "SAR" or "ر.س" as visible text beside a figure, and never an image tag.
 
 ## Layout
 
@@ -394,6 +455,8 @@ Sector sections: the integration split (paper-200 top hairline, H2 on the start 
 Heading beside content (integration sections below the hero): each section is ruled off by a paper-200 top hairline and runs a 12-column split from 1024px, the H2 (Headline steps) on the start 4/12 and its content (ledger, offer list, sibling tiles) on the end 8/12, with a 2rem gap and 4rem / 6rem block padding. Below 1024px heading and content stack with a 2rem gap. The offer list and the sibling tiles go two across from 640px. The student page runs the same split: its features heading is sticky 6rem from the top from 1024px beside a column of textbook spreads (2rem apart), the reports section sits on Cool Paper with the Report Index in the 8/12, and each benefit is a plate (photo then caption, `1.35fr 1fr` from 640px with a 2rem gap) ruled off by paper-300 hairlines.
 
 Grid with a heading cell (growth features): from 640px the section heading takes the first cell of the grid and the items fill the rest through `subgrid`, so the heading and the items share one row line and the last row closes (two columns at 640px, four at 1024px with a 2.5rem gap). The heading carries the same 1px paper-300 top rule and 1.5rem pad as each item.
+
+Pricing (all widths): a paper band (breadcrumb, H1, lede, then the billing switch over a Graphite "no card" note; from 1024px the controls take an `auto` column at the end, bottom-aligned, with a 3rem gap) over a full-bleed teal guilloche field cut by a slanted top edge (2.5rem, 3rem from 1024px, high on the end side) that holds the four plan sheets inside the container, padded 4.5rem / 2.5rem (6rem / 3rem from 1024px), with the VAT note in white 2rem under them. Sheets stack below 640px, run two across from 640px (4.5rem row gap, 1.25rem column gap) and four across from 1280px. From 1280px the sheets share five subgrid rows (name, summary, price, body, button), so names, figures, double rules and buttons align across all four; the price row has a 6rem minimum and aligns its content to the bottom. Unlimited stands 1.5rem higher than its neighbours from 640px (stacked, it gets 1.5rem extra top space for its seal). Below the field, sections rule off with paper-200 top hairlines at 4rem / 6rem block padding: the ledger full width, "in every plan" on Cool Paper, the FAQ in the integration split, then a closing teal band.
 
 The reading register is a single column of text that fills the page container. From 1024px the header row (breadcrumb, title, meta) spans the full container width and is ruled off by a paper-200 hairline; below it a 15rem contents rail sits on the start side, sticky 6rem from the top, separated by a 4.5rem gap from the text column, which takes the rest of the width. Below 1024px the contents become a bar stuck under the 64px header. Clause numbers hang in a 2.75rem gutter.
 
@@ -435,6 +498,14 @@ The reading register is a single column of text that fills the page container. F
 - Sector: the FAQ redraws the plus in its own 1.75rem ringed disc (`teal-300` hairline) inside the shared `.faq` disclosure, and its focus outline is 2px Record Teal at 4px offset with a 4px radius.
 - Sector: the hero field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band pads 6rem / 4.5rem and 7rem / 5.5rem with a 2.5rem slanted top edge, like the integration close band.
 - Sector: client logos are greyed on their 320px canvases, so the clients read as one register rather than in their own colours (unlike the partner seal, which keeps the partner's colours).
+- Pricing: the plan figure is 2.75rem, not the offer-figure scale the surface brief named; four figures share a row, so the build set it smaller.
+- Pricing: the sheets go four across from 1280px, not from 1024px as the brief said (two across below 1024px); at 1024 to 1279px they stay two across because Flex's rate lines need the width.
+- Pricing: four tick sizes now live on one page and across the site: the ledger's 1.5rem disc with a 0.875rem check (the student tick), the plan point's 1.375rem disc with a 0.8125rem check, the no-card note's 1.25rem disc with a 0.75rem check, and the integration offer list's 1.75rem disc. The pricing check is drawn at a 2.25 stroke where the house line icons use 1.75.
+- Pricing: the VAT note is white 0.875rem weight 500 on Record Teal, the White-on-Teal open conflict at small size.
+- Pricing: the most-popular seal (5.75rem) and the FAQ price seal (5.5rem, 8rem from 1024px) add to the recorded seal sizes; the FAQ seal turns -6deg and drops at `0 16px 30px -18px rgb(5 42 37 / 0.45)`.
+- Pricing: the "in every plan" sheet pads 2.5rem 3rem from 1024px, past the doc-frame's 28 to 40px.
+- Pricing: the field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band pads 6rem / 4.5rem with a 2.5rem slanted top edge, like the integration close band, and its closing line runs 1.75rem / 2.25rem (no 640px step).
+- Pricing: the ledger has no ZATCA-link or export rows; whether it gets them is an open owner decision.
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -452,6 +523,10 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 - **Stamped seal** (`box-shadow: 0 16px 30px -14px rgb(5 42 37 / 0.55)`, after the seal's three inset rings): the sector seal hung on its photo plate, between the free seal's 0.45 and the play seal's 0.6.
 
+- **Chosen chip** (`box-shadow: 0 0 0 1px teal-200, 0 6px 14px -8px rgb(5 42 37 / 0.35)`): the chosen period in the billing switch, a paper chip lifted off its Cool Paper track.
+
+- **Sheet rising** (from `0 6px 10px -8px rgb(5 42 37 / 0.3)` to the object-on-field `0 32px 60px -28px rgb(5 42 37 / 0.6)`, after the doc-frame's two inset rings): the plan sheets as they rise onto the pricing field; at rest they carry the object-on-field shadow.
+
 - **Seal ring** (`box-shadow: 0 0 0 3px teal, 0 0 0 4px rgb(255 255 255 / 0.75)`): not elevation; a box-shadow used to draw the teal gap and white hairline around a partner seal or partner plate on teal.
 
 ### Named Rules
@@ -459,9 +534,9 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 ## Shapes
 
-Corners are generous and consistent: pills for actions and inputs, 1.25rem for framed sheets and photographs, 1rem for tiles, 0.75rem for paper sheets and highlighted clauses. Fields are not rounded; they are cut with a slanted edge by `clip-path` (an 8% slant on the hero field, a 3.5rem slant on the growth doors' seam, a 4.5rem slant on the integration hero field, a 36 to 40px rise on panels and the figures band, a 2.25rem rise on the integration stage panel below 1024px, a 2.5rem rise on the integration and student close bands' top edge, a 3rem slant on the student field between 1024 and 1279px, a 4.5rem slant on the sector field, a 2.25rem rise on the sector stage panel below 1024px and a 2.5rem rise on the sector close band), mirrored in RTL.
+Corners are generous and consistent: pills for actions and inputs, 1.25rem for framed sheets and photographs, 1rem for tiles, 0.75rem for paper sheets and highlighted clauses. Fields are not rounded; they are cut with a slanted edge by `clip-path` (an 8% slant on the hero field, a 3.5rem slant on the growth doors' seam, a 4.5rem slant on the integration hero field, a 36 to 40px rise on panels and the figures band, a 2.25rem rise on the integration stage panel below 1024px, a 2.5rem rise on the integration and student close bands' top edge, a 3rem slant on the student field between 1024 and 1279px, a 4.5rem slant on the sector field, a 2.25rem rise on the sector stage panel below 1024px, a 2.5rem rise on the sector close band, and on pricing a 2.5rem top slant on the field (3rem from 1024px) and the close band), mirrored in RTL.
 
-Lines carry authority. The document frame is a 1px teal-200 border with a second hairline 4px inside it (`inset 0 0 0 4px paper, inset 0 0 0 5px teal-200`). Seals and postmarks are circles with a 3 to 5px double border, rotated -8 to -10 degrees; the sector seal draws its rings as inset shadows (a heavy 3px outer ring, a 4px gap in the ground colour, a 1px hairline) and turns -6 degrees. Totals, the offer figure in a paper door and the last row of a posting ledger are ruled off with a 4px double teal underline. Elsewhere, divisions are single hairlines in paper-200 or paper-300.
+Lines carry authority. The document frame is a 1px teal-200 border with a second hairline 4px inside it (`inset 0 0 0 4px paper, inset 0 0 0 5px teal-200`). Seals and postmarks are circles with a 3 to 5px double border, rotated -8 to -10 degrees; the sector seal draws its rings as inset shadows (a heavy 3px outer ring, a 4px gap in the ground colour, a 1px hairline) and turns -6 degrees. Totals, the offer figure in a paper door, a plan sheet's price and the last row of a posting ledger are ruled off with a 4px double teal underline. Where a double rule must hold its two lines at a fractional position (the group heads of the pricing "in every plan" sheet), it is drawn as a 4px gradient in teal-300: a 1px line, a 2px gap, a 1px line, since a 3px double border smears into one band. Elsewhere, divisions are single hairlines in paper-200 or paper-300.
 
 ## Components
 
@@ -572,11 +647,41 @@ Repeated decoration on the sector pages carries no markup: the clause icons, the
 ### Signature motion (sector pages)
 Once on load, CSS only, ease-out-quint. The photo plate lifts onto the field with the shared `screen-lift` (1.5rem and the shadow lengthening, 0.9s from 0.1s), then the seal stamps in from 1.12x scale and zero opacity (0.45s from 0.75s), so the sequence ends at about 1.2s. Resting styles are the finished state; the global reduced-motion rule shows it finished.
 
+### Plan Sheet
+A plan as an official sheet on the pricing field: a doc-frame (1px teal-200 border, a second hairline 4px in, 1.25rem corners) padded 1.75rem 1.5rem 1.5rem and lifted with the object-on-field shadow. In order: the plan name (Title, 1.375rem bold), a one-line summary (0.9375rem Slate, 1.55), the price (Price figure, ruled off by the 4px double teal underline, 1rem above it), the body, then a full-width button pushed to the foot. Both periods' prices are in the HTML (`data-period`); the billing switch shows one. The annual price adds a saving chip (`teal-50`, Deep Teal, 0.8125rem bold, pill) under the figure. Points are 0.9375rem Slate on teal-200 rules, each with a 1.375rem `teal-100` tick disc drawn as a `::before`. The button is the secondary pill on every sheet but Unlimited's, which carries the page's only orange Register in the field. Unlimited pads 3.25rem on top for its seal and stands 1.5rem higher than its neighbours from 640px. From 1280px the sheet is a five-row subgrid of its list item, so every part lines up across the four sheets.
+
+### Most-popular Seal
+A 5.75rem Paper disc in Engraver's Teal stamped on Unlimited's top start corner (2.75rem above the sheet, 1.25rem in from its start edge), turned -8deg. Its rings are the sector seal's inset recipe on `--seal-ground: paper` (`inset 0 0 0 3px currentColor, inset 0 0 0 7px var(--seal-ground), inset 0 0 0 8px currentColor`) with the stamped-seal drop. It holds "Most popular" in bold 0.875rem over the micro-label "VoM" / "ڤوم" (0.625rem, weight 400, 85%, `aria-hidden`). It is a real `<p>` after the sheet's name in reading order, so the plan is named before it is praised.
+
+### Billing Switch
+Two real radios in a `fieldset` with a visually hidden legend. The track is a Cool Paper pill with a paper-300 border and 0.25rem padding; each option is a 2.75rem-tall pill label in bold 0.9375rem Slate, turning ink on hover. The chosen option is a Paper chip with a teal-200 ring and the chosen-chip shadow, in ink. The annual option carries a "2 months free" chip (`teal-50`, Deep Teal, 0.75rem, pill). Focus draws a 2px Record Teal outline on the label at a 3px offset. The page's CSS swaps the prices with `:has(#billing-annual:checked)` on the page root, so the switch ships no JavaScript.
+
+### Riyal Sign
+See The Riyal Sign Rule. `.sar` is a no-wrap `dir="ltr"` span with tabular numerals holding the formatted figure and an `<i>` with the spoken currency word, visually hidden; the sign is its `::before`, a mask of the official SAMA path in `currentColor`. Inside the price figure the sign shrinks to 0.56em by 0.62em.
+
+### Flex Rate Lines
+Flex's rates as ruled lines in the ledger's own grammar, not boxes: a `dl` of rows, each a label (0.875rem Slate) and its amount (0.9375rem bold, Deep Teal) at opposite ends on a shared baseline, divided by teal-200 hairlines with 0.4375rem block padding. The point that names the auto-charge threshold keeps its amount with the word before it through a no-break space.
+
+### Comparison Ledger
+A real `<table>` holding only the rows where the plans differ, with a visually hidden caption. The feature column takes 34% (36% from 1024px). Plan heads are sticky 4rem from the top, under the 64px header, on Paper with a teal-300 rule beneath (an inset shadow, so it holds while pinned): the short plan name bold over its price at 0.75rem bold teal-700 (0.8125rem from 640px), which follows the billing switch. The Unlimited column is tinted `teal-50` through its `<col>`, and its pinned head repeats the tint. Groups are `tbody`s headed by a `rowgroup` cell in bold teal-700 (0.8125rem) over a teal-200 rule; rows inside a group divide on paper-200 hairlines. Row labels are Slate (0.9375rem from 1024px); cells are bold and centred. A tick (a 1.5rem `teal-100` disc with a 0.875rem teal-700 check), a dash (a 0.875rem by 2px Graphite bar, Graphite rather than Mist so it keeps 3:1 on the tinted column), or an ∞ (1.375rem weight 500, teal-700, with empty alt text) is drawn by the cell's `::before` from `data-v`, over the cell's own word, which is text-indented out of view so screen readers still read it. Counts and rates set a 0.75rem Graphite sub-label under the value. Below 640px the table steps down to 0.8125rem with 0.25rem cell padding.
+
+### In-every-plan Sheet
+What every plan shares, as one doc-frame on the Cool Paper section: groups of plain-text items, no ticks, each item 0.9375rem Slate on a paper-200 rule. Each group head (1rem bold) is ruled off by the gradient double hairline in teal-300 (see Shapes). One column on phones, two from 640px, three from 1024px; the last, longest group spans the remaining width and runs its list in two CSS columns.
+
+### FAQ Price Seal
+The FAQ heading's mark: a Paper disc drawn entirely by the heading's `::after`, the riyal sign (34%) in teal-700 inside the house inset double ring in teal-700, turned -6deg with a soft teal drop; 5.5rem under the heading, 8rem from 1024px. Decorative, no markup. The questions use the sector FAQ disclosure.
+
+### Signature motion (pricing)
+Once on load, CSS only, on ease-out-quint. The four sheets rise 1.5rem onto the field while their shadow lengthens to the object-on-field shadow, 0.7s each, from 0.1s and 0.08s apart (0.1s, 0.18s, 0.26s, 0.34s). The most-popular seal then stamps in from 1.12x scale and zero opacity, 0.45s from 0.75s (the shared `sec-stamp`), so the sequence ends at about 1.2s. Resting styles are the finished state; the global reduced-motion rule shows it finished.
+
+### Amounts and cells (HTML budget)
+The pricing page repeats amounts and cells many times, and every element is repeated again in the RSC payload. A riyal amount is one span with the figure and a hidden word; a ledger cell is one `<td>` with its word and a `data-v` attribute; the tick, dash, ∞ and riyal sign are CSS. React lists key on indexes or stable ids, never on copy text, because a text key is written into the RSC payload a second time.
+
 ## Do's and Don'ts
 
 ### Do:
 - **Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.
-- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
+- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
 - **Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.
@@ -589,6 +694,8 @@ Once on load, CSS only, ease-out-quint. The photo plate lifts onto the field wit
 - **Do** draw seal rings as inset shadows on a `--seal-ground` that matches the surface the seal sits on, so the gap between the rings is always the ground.
 - **Do** draw icons repeated across a page (clause icons, register pictograms) in CSS pseudo-elements from data attributes, and serve repeated small images through one optimizer URL without a srcset, to keep the HTML inside its budget.
 - **Do** pre-set third-party logos on a common square canvas at an equal optical size, so one width fits every seal.
+- **Do** draw the riyal sign as the official SAMA mask before the figure, left of it in both languages, with the currency word visually hidden.
+- **Do** key repeated React lists on indexes or stable ids, never on copy text, and keep repeated amounts and cells to one element each.
 
 ### Don't:
 - **Don't** put orange on anything but the primary action or the single "now" marker.

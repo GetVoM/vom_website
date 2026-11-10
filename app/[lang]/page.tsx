@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { lang } from "next/root-params";
 import { isLocale, localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
+import { pricingPaths } from "@/lib/i18n/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { softwareJsonLd } from "@/lib/seo/jsonld";
 import { site } from "@/lib/seo/site";
@@ -43,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const locale = await currentLocale();
   const t = getDictionary(locale);
-  const compareHref = localePath(locale, locale === "ar" ? "/pricing/" : "/pricing-en/");
+  const compareHref = localePath(locale, pricingPaths[locale]);
 
   return (
     <>

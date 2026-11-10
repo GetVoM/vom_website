@@ -82,7 +82,7 @@ Structured data (JSON-LD, one block per page, validated in tests):
 - Home, features, pricing: `SoftwareApplication` (`applicationCategory: BusinessApplication`, `operatingSystem: Web, iOS`) with `Offer` entries for the published plans in SAR. No `aggregateRating` until real reviews exist.
 - Posts and guides: `Article` with `author` (Person with URL), `reviewedBy` (Person with jobTitle), `datePublished`, `dateModified`, `image`, `publisher`.
 - All pages: `BreadcrumbList` matching the visible breadcrumb.
-- Pages with FAQ sections: `FAQPage`. Calculators: `HowTo` where the page explains steps; otherwise `WebApplication`.
+- Pages with FAQ sections: no `FAQPage` markup. Google no longer shows FAQ rich results for sites like this one, so the owner removed it on 2026-11-10; the questions stay on the page as visible content. Calculators: `HowTo` where the page explains steps; otherwise `WebApplication`.
 
 Sitemaps and robots:
 
@@ -145,14 +145,14 @@ Added 2026-10-25 after the owner named AEO as a top factor alongside SEO and des
 Content shape:
 
 - Every pillar, sector and guide page opens with a direct answer: a two-sentence definition or verdict before any marketing copy, written so it can be quoted alone ("ڤوم هو برنامج محاسبة سحابي سعودي معتمد من هيئة الزكاة والضريبة والجمارك، يصدر الفواتير الإلكترونية للمرحلة الثانية ويعطي تقارير مالية لحظية للمنشآت الصغيرة والمتوسطة.").
-- A visible FAQ block on every page type with short, factual answers (40 to 80 words), marked up as `FAQPage`. Questions are the real questions people ask, taken from Search Console, support tickets and the Zendesk help centre.
+- A visible FAQ block on every page type with short, factual answers (40 to 80 words), as plain HTML with no `FAQPage` markup (owner, 2026-11-10). Questions are the real questions people ask, taken from Search Console, support tickets and the Zendesk help centre.
 - Tables for anything comparable: plans and limits, invoice types and their ZATCA treatment, Phase 2 waves and thresholds, competitor comparisons. Answer engines lift tables well.
 - Dated facts carry their date in the text (regulation changes, prices, thresholds) and the page shows a visible "last reviewed" date with the reviewer's name and credential.
 - Entity consistency: the same name forms (ڤوم, VoM), the same description, the same founding year, team and address on the site, the app, the App Store listing, LinkedIn, Crunchbase or similar, and Wikidata if an entry is warranted.
 
 Markup and access:
 
-- `Organization` with `sameAs`, `foundingDate`, `founder`, `contactPoint`; `SoftwareApplication` with `offers`; `Article` with `author` and `reviewedBy` carrying `jobTitle` and `sameAs`; `FAQPage`; `BreadcrumbList`; `WebPage` with `speakable` on the definition paragraphs.
+- `Organization` with `sameAs`, `foundingDate`, `founder`, `contactPoint`; `SoftwareApplication` with `offers`; `Article` with `author` and `reviewedBy` carrying `jobTitle` and `sameAs`; `BreadcrumbList`; `WebPage` with `speakable` on the definition paragraphs.
 - `robots.txt` keeps the current allowances for OAI-SearchBot and adds PerplexityBot, ClaudeBot, Google-Extended and Bingbot explicitly; a `/llms.txt` describes the site and lists the pillar pages; the sitemaps carry accurate `lastModified`.
 - Clean semantic HTML: one H1, hierarchical H2 and H3 that read as questions or claims, no content hidden behind interaction that a crawler cannot expand, FAQ answers present in the HTML not loaded on click.
 - Author pages with credentials, and a visible editorial policy page describing how content is reviewed by a chartered accountant.

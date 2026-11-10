@@ -7,7 +7,7 @@ import { getSector, readingImage, sectorClients, sectorPhotos, type SectorId } f
 import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { sectorPaths } from "@/lib/i18n/routes";
-import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from "@/lib/seo/jsonld";
+import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -52,7 +52,6 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
     <>
       <JsonLd data={webPageJsonLd(locale, path, c.seo.title, c.seo.description)} />
       <JsonLd data={breadcrumbJsonLd(locale, [{ name: t.nav.home, path: "/" }, { name: sector.name, path }])} />
-      <JsonLd data={faqJsonLd(c.faq)} />
 
       <section className="sec-top">
         <div className="page-wrap sec-grid">

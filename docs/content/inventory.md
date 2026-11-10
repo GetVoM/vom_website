@@ -24,7 +24,7 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 |---|---|---|
 | keep | 369 | Same path, same content, migrated one to one |
 | keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
-| redirect | 49 | Duplicates and renamed pages, 301 to the listed target |
+| redirect | 51 | Duplicates and renamed pages, 301 to the listed target |
 | retire | 11 | Test, campaign and already-dead pages, 410 |
 
 Notable rows:
@@ -40,13 +40,14 @@ Notable rows:
 - `/en/vom-foodics-2/`, `/en/vom-marn-2/`, `/en/vom-zid-2/` → `/en/vom-foodics/`, `/en/vom-marn/`, `/en/vom-zid/`: 301 (owner, 2026-11-10). The live site already serves the clean English URLs. The unprefixed `/vom-*-2/` slugs, which the live site sends to the English `-2` pages, now go to the clean English URL in one hop.
 - `/en/student-package-2/` and the unprefixed `/student-package-2/` → `/en/student-package/`: 301 (owner, 2026-11-10).
 - English sector pages: the ten `-2` slugs and `/en/accounting-software-for-car-maintenance-centers-en/` → `/en/accounting-software-for-<sector>/`: 301 (owner's standing preference for clean slugs, 2026-11-10). The live site already served the clean car URL, which is now a `keep` row. The live site also sent every English sector slug without its `/en` prefix to the `/en/` page; those 16 unprefixed URLs now go to the clean English URL in one hop. The 15 Arabic sector slugs stay exactly as they are.
+- `/en/pricing-en/` and the unprefixed `/pricing-en/` → `/en/pricing/`: 301, matching what the live site already does (it reached `/en/pricing/` from `/pricing-en/` in two hops). The live site already serves `/en/pricing/`, which is now a `keep` row (2026-11-10).
 - `/get-free-version/` → `/`: 301. It is an empty shell titled "Vom"; the owner sent it to the homepage rather than the student package (2026-11-10).
 - 17 URLs lack a meta description (mostly category archives); they get one before launch.
 
 ## Migration mechanics
 
 1. Export via the REST API (`/wp-json/wp/v2/posts`, `pages`, `templates`, `tools`, `news`, `categories`, `users`, `media`) with `_embed` for featured images. Rank Math exposes no public head endpoint, so titles and descriptions come from the crawl file.
-2. Convert HTML to MDX: strip editor attributes and inline styles, re-level headings (one H1 from the title, body starts at H2), convert tables and lists, keep inline images as `next/image`-compatible references, keep FAQ blocks as structured components so they can emit `FAQPage` schema.
+2. Convert HTML to MDX: strip editor attributes and inline styles, re-level headings (one H1 from the title, body starts at H2), convert tables and lists, keep inline images as `next/image`-compatible references, keep FAQ blocks as structured components (questions and answers as data, shown on the page; no `FAQPage` schema, owner 2026-11-10).
 3. Download media into `public/media/` preserving the original `/wp-content/uploads/...` paths so old image URLs keep resolving. Re-encode to AVIF and WebP at build time through `next/image`.
 4. Frontmatter per record: `title`, `seoTitle`, `description`, `path`, `lang`, `alternatePath`, `type`, `categories`, `author`, `reviewedBy`, `publishedAt`, `modifiedAt`, `image`, `imageAlt`, `faq`, `downloads` (templates), `toolConfig` (tools).
 5. Build the URL index from frontmatter; the catch-all route resolves paths against it; the SEO test suite reads `url-map.csv` and asserts every `keep` row resolves with the expected metadata.

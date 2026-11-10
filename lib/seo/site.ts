@@ -40,8 +40,4 @@ export const site = {
   },
   gtmId: "GTM-PS28X6L",
   logo: "/brand/vom-logo.png",
-  plans: [
-    { name: { ar: "الباقة المتقدمة", en: "Advanced" }, price: 270 },
-    { name: { ar: "الباقة اللامحدودة", en: "Unlimited" }, price: 350 },
-  ],
 } as const;

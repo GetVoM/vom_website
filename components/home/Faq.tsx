@@ -1,12 +1,9 @@
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { Icon } from "@/components/ui/Icon";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { faqJsonLd } from "@/lib/seo/jsonld";
 
 export function Faq({ t }: { t: Dictionary }) {
   return (
     <section id="faq" className="mx-auto max-w-[1280px] px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-24 lg:py-32">
-      <JsonLd data={faqJsonLd(t.faq.items)} />
       <div className="grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-20">
         <h2 className="font-arabic text-[1.875rem] font-bold leading-[1.25] sm:text-[2.25rem]">{t.faq.heading}</h2>
         <div className="flex flex-col border-t border-teal-200">

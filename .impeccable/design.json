@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T13:00:00+00:00",
+  "generatedAt": "2026-11-10T18:00:00+00:00",
   "title": "Design System: VoM website (getvom.com)",
   "extensions": {
     "colorMeta": {
@@ -376,6 +376,10 @@
       "figure-offer": {
         "displayName": "Offer Figure",
         "purpose": "A single offer figure in teal-700 inside a paper door, ruled off with the double teal underline; white at poster scale on the growth closing band."
+      },
+      "figure-price": {
+        "displayName": "Price figure",
+        "purpose": "The plan price on a pricing plan sheet, teal-700, after the riyal sign and before its unit, ruled off by the double teal underline."
       }
     },
     "shadows": [
@@ -438,6 +442,16 @@
         "name": "client-seal-ring",
         "value": "0 0 0 3px var(--color-paper), 0 0 0 4px var(--color-teal-300), 0 0 0 6px var(--color-paper), 0 0 0 7px var(--color-teal-200), 0 14px 24px -18px rgb(5 42 37 / 0.5)",
         "purpose": "Client seals' double ring drawn outside the disc; the trailing drop at rest is observed drift, not a rule."
+      },
+      {
+        "name": "chosen-chip",
+        "value": "0 0 0 1px #bfeae2, 0 6px 14px -8px rgb(5 42 37 / 0.35)",
+        "purpose": "The chosen period in the billing switch: a paper chip ringed in teal-200 and lifted off its Cool Paper track."
+      },
+      {
+        "name": "sheet-rise",
+        "value": "inset 0 0 0 4px #fff, inset 0 0 0 5px #bfeae2, 0 6px 10px -8px rgb(5 42 37 / 0.3) to the object-on-field 0 32px 60px -28px rgb(5 42 37 / 0.6)",
+        "purpose": "Pricing plan sheets: the shadow lengthening as they rise onto the field; at rest the object-on-field shadow."
       }
     ],
     "motion": [
@@ -520,6 +534,16 @@
         "name": "sec-stamp",
         "value": "opacity 0 and scale 1.12 to rest, 0.45s ease-out-quint from 0.75s",
         "purpose": "The sector seal stamping onto the photo plate after it lands."
+      },
+      {
+        "name": "prc-rise",
+        "value": "translateY 1.5rem to 0 with the shadow lengthening, 0.7s ease-out-quint, from 0.1s, 0.08s apart (0.1s, 0.18s, 0.26s, 0.34s)",
+        "purpose": "Pricing: the four plan sheets rising onto the field once on load."
+      },
+      {
+        "name": "prc-seal-stamp",
+        "value": "the shared sec-stamp: opacity 0 and scale 1.12 to rest, 0.45s ease-out-quint from 0.75s",
+        "purpose": "Pricing: the most-popular seal stamping onto Unlimited after the sheets land."
       }
     ],
     "breakpoints": [
@@ -705,11 +729,35 @@
       "description": "Links to the other sectors: the ringed disc is the link's ::before and the pictogram its ::after from data-icon, so each entry is a bare anchor.",
       "html": "<ul class=\"ds-register\"><li><a href=\"#\">Restaurants and cafés</a></li><li><a href=\"#\">Gyms and fitness</a></li><li><a href=\"#\">Law firms</a></li></ul>",
       "css": ".ds-register{--ic:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v8a2 2 0 0 0 2 2h0v8M9 3v5M5 3v5M17 3c-2 0-3 3-3 6s1 4 2 4v8'/%3E%3C/svg%3E\");display:grid;grid-template-columns:repeat(3,9rem);gap:1rem .5rem;margin:0;padding:0;list-style:none;font-family:Effra,system-ui,sans-serif} .ds-register a{--mini:3.5rem;position:relative;display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:1rem .5rem;border-radius:1rem;color:#020202;font-size:.9375rem;font-weight:700;line-height:1.35;text-align:center;text-decoration:none;transition:background-color .2s ease} .ds-register a::before{content:\"\";width:var(--mini);height:var(--mini);border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px #0f6b5e,inset 0 0 0 4px #fff,inset 0 0 0 5px #8edccf;transition:background-color .2s ease,box-shadow .2s ease} .ds-register a::after{content:\"\";position:absolute;top:calc(1rem + var(--mini) / 2);left:50%;width:1.25rem;height:1.25rem;translate:-50% -50%;background:#0f6b5e;mask:var(--ic) center/contain no-repeat;-webkit-mask:var(--ic) center/contain no-repeat} .ds-register a:hover{background:#eefaf7} .ds-register a:hover::before{background:#17baa3;box-shadow:inset 0 0 0 1.5px #fff,inset 0 0 0 4px #17baa3,inset 0 0 0 5px rgb(255 255 255 / .7)} .ds-register a:hover::after{background:#fff} .ds-register a:focus-visible{outline:2px solid #17baa3;outline-offset:4px}"
+    },
+    {
+      "name": "Plan Sheet with Most-popular Seal",
+      "kind": "card",
+      "refersTo": "plan-sheet",
+      "description": "A plan as a doc-frame sheet on the teal field: name, summary, price ruled off by the 4px double teal rule, ticked points, button; the popular sheet carries the stamped seal and the only orange Register.",
+      "html": "<div class=\"ds-prc-field\"><article class=\"ds-prc-sheet\" data-popular><h3 class=\"ds-prc-name\">Unlimited</h3><p class=\"ds-prc-seal\">Most popular<span aria-hidden=\"true\">VoM</span></p><p class=\"ds-prc-summary\">Unlimited users and documents.</p><div class=\"ds-prc-price\"><span class=\"ds-sar ds-prc-figure\" dir=\"ltr\">350<i> Saudi riyals</i></span><span class=\"ds-prc-unit\">/ month</span></div><ul class=\"ds-prc-points\"><li>Unlimited users</li><li>Every report</li></ul><a class=\"ds-prc-cta\" href=\"#\">Register</a></article></div>",
+      "css": ".ds-sar{white-space:nowrap} .ds-sar::before{content:\"\";display:inline-block;width:.7em;height:.78em;margin-inline-end:.2em;background:currentColor;mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1124.14 1256.39'%3E%3Cpath d='M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z'/%3E%3Cpath d='M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z'/%3E%3C/svg%3E\") center/contain no-repeat;-webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1124.14 1256.39'%3E%3Cpath d='M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z'/%3E%3Cpath d='M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z'/%3E%3C/svg%3E\") center/contain no-repeat} .ds-sar i{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap} .ds-prc-field{padding:4rem 1.5rem 1.5rem;background:#17baa3;font-family:Effra,system-ui,sans-serif} .ds-prc-sheet{position:relative;display:flex;flex-direction:column;max-width:18rem;padding:3.25rem 1.5rem 1.5rem;border:1px solid #bfeae2;border-radius:1.25rem;background:#fff;color:#020202;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #bfeae2,0 32px 60px -28px rgb(5 42 37 / .6)} .ds-prc-name{margin:0;font-size:1.375rem;font-weight:700;line-height:1.3} .ds-prc-seal{--g:#fff;position:absolute;top:-2.75rem;inset-inline-start:1.25rem;display:grid;width:5.75rem;height:5.75rem;margin:0;place-content:center;justify-items:center;gap:.25rem;padding:.75rem;border-radius:50%;background:var(--g);color:#0f6b5e;font-size:.875rem;font-weight:700;line-height:1.2;text-align:center;rotate:-8deg;box-shadow:inset 0 0 0 3px currentColor,inset 0 0 0 7px var(--g),inset 0 0 0 8px currentColor,0 16px 30px -14px rgb(5 42 37 / .55)} .ds-prc-seal span{font-size:.625rem;font-weight:400;line-height:1;opacity:.85} .ds-prc-summary{margin:.375rem 0 0;font-size:.9375rem;line-height:1.55;color:#54595f} .ds-prc-price{display:flex;align-items:baseline;gap:.5rem;margin-top:1.25rem;padding-bottom:1rem;border-bottom:4px double #17baa3} .ds-prc-figure{font-size:2.75rem;font-weight:700;line-height:1;letter-spacing:-.02em;color:#0f6b5e} .ds-prc-figure::before{width:.56em;height:.62em} .ds-prc-unit{font-size:.9375rem;color:#54595f} .ds-prc-points{margin:1rem 0 0;padding:0;list-style:none} .ds-prc-points li{position:relative;padding:.625rem 0;padding-inline-start:2.125rem;font-size:.9375rem;line-height:1.55;color:#54595f} .ds-prc-points li+li{border-top:1px solid #bfeae2} .ds-prc-points li::before{content:\"\";position:absolute;top:.75rem;inset-inline-start:0;width:1.375rem;height:1.375rem;border-radius:50%;background:#ddf5f0 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E\") center/.8125rem no-repeat} .ds-prc-cta{display:inline-flex;justify-content:center;align-items:center;height:44px;margin-top:1.5rem;border-radius:999px;background:#ff7300;color:#fff;font-size:.9375rem;font-weight:700;text-decoration:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);transition:background-color .2s ease-out} .ds-prc-cta:hover{background:#d96200} .ds-prc-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}"
+    },
+    {
+      "name": "Billing Switch",
+      "kind": "chip",
+      "refersTo": "billing-switch",
+      "description": "Two real radios in a cool-paper pill track; the chosen period is a paper chip with a teal-200 ring. On the page, :has() swaps the [data-period] prices with no script.",
+      "html": "<fieldset class=\"ds-billing\"><legend class=\"ds-sr\">Billing period</legend><input type=\"radio\" name=\"ds-billing\" id=\"ds-bm\" checked><label for=\"ds-bm\">Monthly</label><input type=\"radio\" name=\"ds-billing\" id=\"ds-ba\"><label for=\"ds-ba\">Annual<span class=\"ds-free\">2 months free</span></label></fieldset>",
+      "css": ".ds-sr,.ds-billing input{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap} .ds-billing{display:inline-flex;gap:.25rem;margin:0;padding:.25rem;border:1px solid #d7e3ec;border-radius:999px;background:#f4f7fc;font-family:Effra,system-ui,sans-serif} .ds-billing label{display:inline-flex;min-height:2.75rem;align-items:center;gap:.5rem;padding-inline:1.125rem;border-radius:999px;font-size:.9375rem;font-weight:700;color:#54595f;cursor:pointer;transition:background-color .2s ease,color .2s ease,box-shadow .2s ease} .ds-billing label:hover{color:#020202} .ds-billing input:checked+label{background:#fff;color:#020202;box-shadow:0 0 0 1px #bfeae2,0 6px 14px -8px rgb(5 42 37 / .35)} .ds-billing input:focus-visible+label{outline:2px solid #17baa3;outline-offset:2px} .ds-free{padding:.3125rem .5rem;border-radius:999px;background:#eefaf7;font-size:.75rem;line-height:1;color:#0b5248}"
+    },
+    {
+      "name": "Comparison Ledger",
+      "kind": "custom",
+      "refersTo": "compare-ledger-head",
+      "description": "A real table of only the rows where plans differ: plan heads on a teal-300 rule, the popular column tinted teal-50 via <col>, group heads teal-700 on a teal-200 rule, ticks and dashes drawn over the cell's own word.",
+      "html": "<table class=\"ds-ledger\"><colgroup><col style=\"width:40%\"><col><col class=\"ds-pop\"></colgroup><thead><tr><th scope=\"col\"></th><th scope=\"col\"><b>Advanced</b><small>270</small></th><th scope=\"col\" data-popular><b>Unlimited</b><small>350</small></th></tr></thead><tbody><tr><th scope=\"rowgroup\" colspan=\"3\">Sales</th></tr><tr><th scope=\"row\">Users</th><td>5</td><td data-v=\"i\">Unlimited</td></tr><tr><th scope=\"row\">Cost centres</th><td data-v=\"n\">No</td><td data-v=\"y\">Yes</td></tr></tbody></table>",
+      "css": ".ds-ledger{width:100%;border-collapse:separate;border-spacing:0;font-family:Effra,system-ui,sans-serif;font-size:.875rem;color:#020202} .ds-pop{background:#eefaf7} .ds-ledger thead th{padding:.75rem .25rem .875rem;background:#fff;box-shadow:inset 0 -1px 0 #8edccf;vertical-align:bottom} .ds-ledger thead th[data-popular]{background:#eefaf7} .ds-ledger thead b{display:block;font-size:.9375rem;line-height:1.3} .ds-ledger thead small{display:block;margin-top:.25rem;font-size:.8125rem;font-weight:700;color:#0f6b5e} .ds-ledger th[scope=rowgroup]{padding:1.75rem 0 .5rem;border-bottom:1px solid #bfeae2;font-size:.8125rem;font-weight:700;text-align:start;color:#0f6b5e} .ds-ledger th[scope=row]{padding:.75rem;padding-inline-start:0;font-weight:400;text-align:start;color:#54595f} .ds-ledger tbody tr:nth-child(n+3)>*{border-top:1px solid #e6eef3} .ds-ledger td{padding:.75rem .5rem;font-size:.9375rem;font-weight:700;text-align:center} .ds-ledger td[data-v]{position:relative;overflow:hidden;text-indent:-999em;white-space:nowrap} .ds-ledger td[data-v]::before{content:\"\";position:absolute;inset:0;margin:auto;text-indent:0} .ds-ledger td[data-v=y]::before{width:1.5rem;height:1.5rem;border-radius:50%;background:#ddf5f0 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E\") center/.875rem no-repeat} .ds-ledger td[data-v=n]::before{width:.875rem;height:2px;border-radius:1px;background:#9aa3ad} .ds-ledger td[data-v=i]::before{content:\"\\221E\";width:2rem;height:1.5rem;font-size:1.375rem;font-weight:500;line-height:1.5rem;color:#0f6b5e}"
     }
   ],
   "narrative": {
     "northStar": "The Official Record",
-    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
     "keyCharacteristics": [
       "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
       "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
@@ -750,6 +798,11 @@
         "section": "typography"
       },
       {
+        "name": "The Riyal Sign Rule",
+        "body": "An amount in riyals carries the official SAMA riyal sign, drawn as a CSS mask in the current colour on the amount's `::before` (0.7em by 0.78em, 0.2em before the figure), so it sits left of the figure in both languages inside a `dir=\"ltr\"`, no-wrap span; the currency word follows as visually hidden text for screen readers. Never \"SAR\" or \"ر.س\" as visible text beside a figure, and never an image tag.",
+        "section": "typography"
+      },
+      {
         "name": "The Teal Shadow Rule",
         "body": "Shadows are tinted with Shadow Teal, never neutral grey, and belong to paper documents, overlays and hover states. Sections, tiles and frames at rest stay flat.",
         "section": "elevation"
@@ -757,7 +810,7 @@
     ],
     "dos": [
       "**Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.",
-      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
+      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
       "**Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.",
       "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
       "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
@@ -769,7 +822,9 @@
       "**Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents.",
       "**Do** draw seal rings as inset shadows on a `--seal-ground` that matches the surface the seal sits on, so the gap between the rings is always the ground.",
       "**Do** draw icons repeated across a page (clause icons, register pictograms) in CSS pseudo-elements from data attributes, and serve repeated small images through one optimizer URL without a srcset, to keep the HTML inside its budget.",
-      "**Do** pre-set third-party logos on a common square canvas at an equal optical size, so one width fits every seal."
+      "**Do** pre-set third-party logos on a common square canvas at an equal optical size, so one width fits every seal.",
+      "**Do** draw the riyal sign as the official SAMA mask before the figure, left of it in both languages, with the currency word visually hidden.",
+      "**Do** key repeated React lists on indexes or stable ids, never on copy text, and keep repeated amounts and cells to one element each."
     ],
     "donts": [
       "**Don't** put orange on anything but the primary action or the single \"now\" marker.",

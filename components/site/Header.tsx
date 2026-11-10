@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-import { sectorPaths } from "@/lib/i18n/routes";
+import { pricingPaths, sectorPaths } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { DesktopNav } from "./DesktopNav";
@@ -21,7 +21,7 @@ export function Header({ locale, t }: HeaderProps) {
     { kind: "link", label: t.nav.home, href: home },
     { kind: "link", label: t.nav.features, href: localePath(locale, locale === "ar" ? "/features/" : "/features-en/") },
     { kind: "menu", id: "sectors" },
-    { kind: "link", label: t.nav.pricing, href: localePath(locale, locale === "ar" ? "/pricing/" : "/pricing-en/") },
+    { kind: "link", label: t.nav.pricing, href: localePath(locale, pricingPaths[locale]) },
     {
       kind: "link",
       label: t.nav.einvoicing,
