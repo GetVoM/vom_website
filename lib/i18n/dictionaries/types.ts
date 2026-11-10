@@ -90,7 +90,8 @@ export interface Dictionary {
     types: { title: string; body: string }[];
     timeline: { date: string; label: string }[];
   };
-  sectors: { heading: string; all: string; items: { slug: string; name: string; icon: SectorIcon }[] };
+  /** Page order of the 15 sector pages; their paths live in lib/i18n/routes.ts (`sectorPaths`). */
+  sectors: { heading: string; all: string; items: { id: SectorId; name: string; icon: SectorIcon }[] };
   integrations: { heading: string; items: { name: string; body: string }[] };
   resources: {
     heading: string;
@@ -141,7 +142,7 @@ export interface Dictionary {
     asOf: string;
     items: { value: number; suffix: string; unit: string; label: string }[];
   };
-  clients: { heading: string; body: string; count: string; note: string };
+  clients: { heading: string; body: string; count: string };
   testimonials: { heading: string; body: string; prev: string; next: string; slideOf: string };
   integrationsSection: {
     heading: string;
@@ -297,6 +298,23 @@ export interface Dictionary {
     close: { line: string; body: string };
     seo: { title: string; description: string };
   };
+  /** The sector template's own words; each sector's copy lives in lib/content/sectors/. */
+  sectorPages: {
+    /** Starts every H1; the sector's "for" phrase follows, e.g. "برنامج محاسبة" + "للمطاعم والمقاهي". */
+    h1Prefix: string;
+    /** Starts the features heading; the sector's "for" phrase follows. */
+    featuresPrefix: string;
+    moreFeatures: string;
+    register: string;
+    demo: string;
+    noCard: string;
+    faqHeading: string;
+    readingHeading: string;
+    readingMore: string;
+    othersHeading: string;
+    /** The micro-label under the sector's name inside its seal. */
+    sealMicro: string;
+  };
   terms: {
     heading: string;
     /** `{n}` is the number of numbered sections. */
@@ -343,6 +361,24 @@ export interface GrowthFeature {
 }
 
 export type IntegrationId = "foodics" | "marn" | "zid";
+
+/** The 15 sector pages, in page order. */
+export type SectorId =
+  | "restaurants"
+  | "beauty"
+  | "gyms"
+  | "law"
+  | "design"
+  | "marketing"
+  | "logistics"
+  | "travel"
+  | "car-care"
+  | "ecommerce"
+  | "perfume"
+  | "real-estate"
+  | "investment"
+  | "printing"
+  | "childcare";
 
 /** One integration page. Assets and video facts live in lib/integrations.ts. */
 export interface IntegrationCopy {

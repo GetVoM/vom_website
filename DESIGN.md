@@ -250,6 +250,41 @@ components:
     textColor: "{colors.teal-800}"
     rounded: "{rounded.pill}"
     padding: "0.25rem 0.625rem"
+  sector-seal:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "7.75rem (lg 9.5rem)"
+  sector-seal-white:
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    size: "8.25rem"
+  photo-plate:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.card}"
+    padding: "10px"
+    width: "34rem"
+  clause-sheet:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.card}"
+    padding: "0.5rem 1.25rem (lg 0.75rem 2.5rem)"
+  feature-tile:
+    backgroundColor: "{colors.teal-50}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.sheet}"
+    size: "2.75rem"
+  client-seal:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    width: "7rem"
+  register-link:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.tile}"
+    padding: "0.5rem (lg 1rem 0.5rem)"
+    height: "3.75rem"
+  register-link-hover:
+    backgroundColor: "{colors.teal-50}"
 ---
 
 # Design System: VoM website (getvom.com)
@@ -260,7 +295,7 @@ components:
 
 Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.
 
-The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
+The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
 
 The reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.
 
@@ -352,6 +387,10 @@ Integration hero (from 1024px): copy on the start 6/12 (breadcrumb, letterhead l
 
 Student hero (from 1024px): the integration hero's grid, copy and field, re-proportioned. Copy on the start 5/12 (breadcrumb, H1, lede, the orange student Register and a secondary university Register that opens in a new tab), vertically centred; the stage on the end 7/12 holding the open textbook spread, up to 40rem wide and aligned to the stage's start. The field shares the integration field: a 4.5rem slant on its start edge, the same `--bleed` to the viewport's end edge and a 4.5rem start pad. Between 1024 and 1279px, where the spread is narrowest, the slant and the pad both drop to 3rem, the spread's tables drop to 0.8125rem and its pages pad 1.125rem inline. From 640px the stage keeps 2.5rem under the spread for the seal that hangs below it. Below 1024px: copy first, then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, the spread centred on it with its pages stacked (side by side again from 640px).
 
+Sector hero (from 1024px): the integration hero's grid. Copy on the start 6/12 (breadcrumb, H1, lede, Register and a ghost demo link, then a Graphite "no credit card" note with a teal-700 check), vertically centred with 3rem / 4.5rem block padding; the stage on the end 6/12. The field is the same guilloche field: a 4.5rem slant on its start edge, the shared `--bleed` to the viewport's end edge and a 4.5rem start pad, so the photo plate (up to 34rem) sits wholly on teal; the stage pads 4rem top and 5.25rem bottom to leave room for the seal that hangs below the plate. Below 1024px: copy first, then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, the plate centred on it.
+
+Sector sections: the integration split (paper-200 top hairline, H2 on the start 4/12, content on the end 8/12, 2rem gap, 4rem / 6rem block padding) carries the clause sheet (on Cool Paper, with the heading and its "more features" link sticky 6rem from the top from 1024px), the client seals and the questions. The articles and the sector register are full-width blocks under their heading: articles two across from 640px and four from 1024px; the register two across on phones, three from 640px and seven from 1024px (two rows of seven for the other fourteen sectors). Sections with no data (clients, articles) drop out.
+
 Heading beside content (integration sections below the hero): each section is ruled off by a paper-200 top hairline and runs a 12-column split from 1024px, the H2 (Headline steps) on the start 4/12 and its content (ledger, offer list, sibling tiles) on the end 8/12, with a 2rem gap and 4rem / 6rem block padding. Below 1024px heading and content stack with a 2rem gap. The offer list and the sibling tiles go two across from 640px. The student page runs the same split: its features heading is sticky 6rem from the top from 1024px beside a column of textbook spreads (2rem apart), the reports section sits on Cool Paper with the Report Index in the 8/12, and each benefit is a plate (photo then caption, `1.35fr 1fr` from 640px with a 2rem gap) ruled off by paper-300 hairlines.
 
 Grid with a heading cell (growth features): from 640px the section heading takes the first cell of the grid and the items fill the rest through `subgrid`, so the heading and the items share one row line and the last row closes (two columns at 640px, four at 1024px with a 2.5rem gap). The heading carries the same 1px paper-300 top rule and 1.5rem pad as each item.
@@ -388,6 +427,14 @@ The reading register is a single column of text that fills the page container. F
 - Student: the hero field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band pads 6rem / 4.5rem and 7rem / 5.5rem like the integration close band, and its row gap is 3rem where the integration close uses 3.5rem.
 - Student: the brief's seal micro-label read "STUDENT PACKAGE · FREE"; the build ships "Student package" in both locales.
 - Student: the brief said the totals' double rule draws; the build reveals it with the totals row's cells rather than drawing it separately.
+- Sector: the H1 starts at 2.5rem and runs 3rem from 640px and `clamp(3rem, 4.2vw, 3.875rem)` from 1024px, a fluid step below the Display ramp (3rem / 4rem / 5rem) so the keyword-led H1 holds two or three lines in the 6/12 column.
+- Sector: off-ramp sizes. Clause titles 1.1875rem and clause numerals 1.375rem (between Item title and Title); seal name 0.8125rem (0.9375rem from 1024px) and seal micro 0.6875rem; the closing line 1.5rem / 1.75rem, below the integration close line's 1.75rem / 2.25rem / 2.5rem.
+- Sector: the seal rotates -6deg where seals elsewhere sit at -8 to -10deg, and stamps from 1.12x where the play and free seals stamp from 1.35x (the brief specified 1.12). Its sizes (7.75rem, 9.5rem, 8.25rem) add to the recorded seal sizes.
+- Sector: the clause icon tile is a third icon-tile implementation: 2.75rem, `teal-50`, the 0.75rem sheet radius and a 1.5rem icon as a data-URI background, where list icon tiles are 48px `teal-100` at the 1rem tile radius.
+- Sector: client seals carry a drop shadow at rest on paper (`0 14px 24px -18px rgb(5 42 37 / 0.5)`), against the Teal Shadow Rule's flat-at-rest objects.
+- Sector: the FAQ redraws the plus in its own 1.75rem ringed disc (`teal-300` hairline) inside the shared `.faq` disclosure, and its focus outline is 2px Record Teal at 4px offset with a 4px radius.
+- Sector: the hero field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band pads 6rem / 4.5rem and 7rem / 5.5rem with a 2.5rem slanted top edge, like the integration close band.
+- Sector: client logos are greyed on their 320px canvases, so the clients read as one register rather than in their own colours (unlike the partner seal, which keeps the partner's colours).
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -403,6 +450,8 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 - **Seal drop** (`box-shadow: 0 14px 28px -14px rgb(5 42 37 / 0.6)`): the play seal resting on the poster; the free seal on the textbook spread uses it at 0.45.
 
+- **Stamped seal** (`box-shadow: 0 16px 30px -14px rgb(5 42 37 / 0.55)`, after the seal's three inset rings): the sector seal hung on its photo plate, between the free seal's 0.45 and the play seal's 0.6.
+
 - **Seal ring** (`box-shadow: 0 0 0 3px teal, 0 0 0 4px rgb(255 255 255 / 0.75)`): not elevation; a box-shadow used to draw the teal gap and white hairline around a partner seal or partner plate on teal.
 
 ### Named Rules
@@ -410,9 +459,9 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 ## Shapes
 
-Corners are generous and consistent: pills for actions and inputs, 1.25rem for framed sheets and photographs, 1rem for tiles, 0.75rem for paper sheets and highlighted clauses. Fields are not rounded; they are cut with a slanted edge by `clip-path` (an 8% slant on the hero field, a 3.5rem slant on the growth doors' seam, a 4.5rem slant on the integration hero field, a 36 to 40px rise on panels and the figures band, a 2.25rem rise on the integration stage panel below 1024px, a 2.5rem rise on the integration and student close bands' top edge, a 3rem slant on the student field between 1024 and 1279px), mirrored in RTL.
+Corners are generous and consistent: pills for actions and inputs, 1.25rem for framed sheets and photographs, 1rem for tiles, 0.75rem for paper sheets and highlighted clauses. Fields are not rounded; they are cut with a slanted edge by `clip-path` (an 8% slant on the hero field, a 3.5rem slant on the growth doors' seam, a 4.5rem slant on the integration hero field, a 36 to 40px rise on panels and the figures band, a 2.25rem rise on the integration stage panel below 1024px, a 2.5rem rise on the integration and student close bands' top edge, a 3rem slant on the student field between 1024 and 1279px, a 4.5rem slant on the sector field, a 2.25rem rise on the sector stage panel below 1024px and a 2.5rem rise on the sector close band), mirrored in RTL.
 
-Lines carry authority. The document frame is a 1px teal-200 border with a second hairline 4px inside it (`inset 0 0 0 4px paper, inset 0 0 0 5px teal-200`). Seals and postmarks are circles with a 3 to 5px double border, rotated -8 to -10 degrees. Totals, the offer figure in a paper door and the last row of a posting ledger are ruled off with a 4px double teal underline. Elsewhere, divisions are single hairlines in paper-200 or paper-300.
+Lines carry authority. The document frame is a 1px teal-200 border with a second hairline 4px inside it (`inset 0 0 0 4px paper, inset 0 0 0 5px teal-200`). Seals and postmarks are circles with a 3 to 5px double border, rotated -8 to -10 degrees; the sector seal draws its rings as inset shadows (a heavy 3px outer ring, a 4px gap in the ground colour, a 1px hairline) and turns -6 degrees. Totals, the offer figure in a paper door and the last row of a posting ledger are ruled off with a 4px double teal underline. Elsewhere, divisions are single hairlines in paper-200 or paper-300.
 
 ## Components
 
@@ -499,11 +548,35 @@ A 15rem list on a paper-200 hairline track. Entries are 0.875rem Slate with Grap
 ### Clause
 A two-column grid: a self-linking clause number in a 2.75rem gutter (0.875rem Graphite, teal-700 and underlined on hover), then the text with a bold ink lead label. A linked clause is washed in `teal-50` on arrival and fades to clear over 3.2s. Sub-items use an en-dash marker in Mist.
 
+### Sector Seal
+The sector's own seal, struck onto that sector's photo: a Paper disc (7.75rem) in Engraver's Teal holding the sector pictogram (1.75rem, a CSS mask from the shared sector icon set through `data-icon`), the sector name in bold (0.8125rem, balanced, 6rem wide) and the micro-label "ڤوم" / "VoM" (0.6875rem at 85%), turned -6deg. Its rings are inset shadows on `--seal-ground`: a heavy 3px ring in the current colour, a 4px gap in the ground colour and a 1px hairline (`inset 0 0 0 3px currentColor, inset 0 0 0 7px var(--seal-ground), inset 0 0 0 8px currentColor`), so the gap always matches what the seal sits on. Decorative (`aria-hidden`); the H1 and breadcrumb name the sector. **Stamp variant:** hung on the photo plate's lower start corner, 2.75rem below it on phones; from 1024px it grows to 9.5rem (pictogram 2.25rem, name 0.9375rem) and hangs 3.75rem past the plate's start edge and 3.25rem below it, bridging photo and copy, with the stamped-seal drop. **White variant:** on the close band, 8.25rem, white on Record Teal with the ground set to teal; from 1024px it leads the close row (`auto 1fr auto`, 3.5rem gap) before the closing line and the two buttons (Register, then the inverse demo button).
+
+### Photo Plate
+The sector photograph, cut from the old page's tablet frame, on a Paper sheet: the double hairline (1px teal-200 border, a second hairline 4px in) at 1.25rem corners with a 10px bezel, the photo 3:2 at 0.75rem corners on a `teal-100` ground, up to 34rem wide, carrying the object-on-field shadow (`0 32px 60px -28px rgb(5 42 37 / 0.6)`). It is the Screen's sheet without a video; the photo is the page's one preloaded image.
+
+### Clause Sheet
+What VoM does for the sector, as one document: a doc-frame on the Cool Paper features section holding four numbered clauses on teal-200 hairline rules, padded 0.5rem 1.25rem (0.75rem 2.5rem from 1024px). From 1024px the clauses run 2×2 with a 3rem column gap, only the first row ruled beneath. Each clause is a `2rem 1fr` grid: its feature icon on top in the text column, then the clause numeral (bold 1.375rem, Engraver's Teal, tabular) in the gutter beside the bold title (1.1875rem), then the body in Slate at 1.75 line height. The icon is drawn by the clause's own `::before` from `data-feature`: a 2.75rem `teal-50` tile at the sheet radius holding a 1.5rem teal-700 line icon (1.5 stroke) as a data-URI background. The ten kinds (costs, customers, expenses, reports, operations, attachments, payroll, billing, connect, projects) are the old pages' icon kinds, redrawn in the house line style.
+
+### Client Seals
+Real clients of the sector, each logo on a white disc clipped to its circle and ringed twice from outside (a 3px paper gap, a 1px teal-300 ring, a 2px paper gap, a 1px teal-200 hairline). Logos are pre-set, greyed and centred, on a 320px square canvas at an equal optical size, so one width (92% of the disc) fits all and no client outweighs another. Four across on phones (up to 7rem each), `auto-fill` at 5.5rem minimum from 640px; a list of fewer than four sets fixed 7rem columns so the discs do not stretch. The logo's alt is the client's name.
+
+### Sector Register
+The other fourteen sectors as links: each a ringed pictogram beside (on phones) or over (from 1024px) the name in bold 0.9375rem. The ring is the link's `::before` (a 2.75rem Paper disc, 3.5rem from 1024px, with a 1.5px teal-700 ring, a gap and a teal-300 hairline as inset shadows) and the pictogram its `::after` (1.25rem, teal-700, a CSS mask from `data-icon`), so each entry is a bare `<a>` with its name. Hover washes the link `teal-50` at the tile radius and turns the disc Record Teal with white rings and a white pictogram. Focus is the 2px teal outline at 4px offset.
+
+### Articles (sector pages)
+Arabic article cards: the cover at the sheet radius with a paper-200 hairline ring, the title under it in bold 1.0625rem; hover lifts the cover 2px with a teal-200 ring and a teal shadow, and underlines the title in Record Teal.
+
+### Icons from data attributes (HTML budget)
+Repeated decoration on the sector pages carries no markup: the clause icons, the seal pictogram and the register's ringed pictograms are drawn in CSS pseudo-elements from `data-feature` and `data-icon` (the `--ic` / `--fi` custom properties hold the SVGs), so the HTML holds only the attribute. Repeated small images (client logos, article covers) are plain `<img>` tags pointing at one image-optimizer URL at a fixed width (256px, 640px) with no srcset, lazy and async; only the hero photo goes through `next/image` with `sizes` and `preload`.
+
+### Signature motion (sector pages)
+Once on load, CSS only, ease-out-quint. The photo plate lifts onto the field with the shared `screen-lift` (1.5rem and the shadow lengthening, 0.9s from 0.1s), then the seal stamps in from 1.12x scale and zero opacity (0.45s from 0.75s), so the sequence ends at about 1.2s. Resting styles are the finished state; the global reduced-motion rule shows it finished.
+
 ## Do's and Don'ts
 
 ### Do:
 - **Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.
-- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
+- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
 - **Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.
@@ -513,6 +586,9 @@ A two-column grid: a self-linking clause number in a 2.75rem gutter (0.875rem Gr
 - **Do** set partner and third-party logos on a white seal disc on teal, or on the ringed white plate when the mark is a wordmark too wide for a disc, never directly on the field.
 - **Do** draw partner marks at the context height times the mark's optical scale, so no partner outweighs another.
 - **Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents.
+- **Do** draw seal rings as inset shadows on a `--seal-ground` that matches the surface the seal sits on, so the gap between the rings is always the ground.
+- **Do** draw icons repeated across a page (clause icons, register pictograms) in CSS pseudo-elements from data attributes, and serve repeated small images through one optimizer URL without a srcset, to keep the HTML inside its budget.
+- **Do** pre-set third-party logos on a common square canvas at an equal optical size, so one width fits every seal.
 
 ### Don't:
 - **Don't** put orange on anything but the primary action or the single "now" marker.

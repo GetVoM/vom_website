@@ -1,28 +1,40 @@
-import Image from "next/image";
+import { clients, homeClients, tileLogo, type ClientKey } from "@/lib/content/clients";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-import { demoLogos } from "@/lib/i18n/dictionaries/demo";
+import { optimizedSrc } from "@/lib/image-url";
 
-function Row({ reverse = false }: { reverse?: boolean }) {
-  const logos = reverse ? [...demoLogos].reverse() : demoLogos;
+/** The old homepage's 47 client logos, split across the two rows. */
+const half = Math.ceil(homeClients.length / 2);
+const rows = [homeClients.slice(0, half), homeClients.slice(half)];
+
+/** One endless row: the logos twice, the second copy hidden from assistive tech. */
+function Row({ logos, locale, reverse = false }: { logos: ClientKey[]; locale: Locale; reverse?: boolean }) {
   const doubled = [...logos, ...logos];
   return (
     <div className="marquee-mask overflow-hidden" dir="ltr">
-      <div className="marquee" data-reverse={reverse ? "" : undefined} dir="ltr">
-        {doubled.map((logo, i) => (
-          <div
-            key={`${logo.name}-${i}`}
-            className="logo-tile flex h-20 w-44 shrink-0 items-center justify-center rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-6"
-            aria-hidden={i >= logos.length}
-          >
-            <Image src={logo.src} alt={logo.name} width={120} height={36} style={{ width: "auto", height: 36, maxWidth: 120 }} className="object-contain" unoptimized />
-          </div>
-        ))}
+      <div className="marquee" data-reverse={reverse || undefined}>
+        {doubled.map((key, i) => {
+          const copy = i >= logos.length;
+          return (
+            <div key={`${key}-${i}`} className="logo-tile" aria-hidden={copy || undefined}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={optimizedSrc(tileLogo(key).src, 256)}
+                alt={copy ? "" : clients[key][locale]}
+                width={160}
+                height={80}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
 
-export function TopClients({ t }: { t: Dictionary }) {
+export function TopClients({ t, locale }: { t: Dictionary; locale: Locale }) {
   return (
     <section id="clients" className="border-b border-paper-200 bg-paper-100">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-8 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-16">
@@ -37,10 +49,9 @@ export function TopClients({ t }: { t: Dictionary }) {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <Row />
-          <Row reverse />
+          <Row logos={rows[0]} locale={locale} />
+          <Row logos={rows[1]} locale={locale} reverse />
         </div>
-        <p className="text-[0.75rem] text-ink-300">{t.clients.note}</p>
       </div>
     </section>
   );

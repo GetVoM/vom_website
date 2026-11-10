@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T12:00:00+00:00",
+  "generatedAt": "2026-11-10T13:00:00+00:00",
   "title": "Design System: VoM website (getvom.com)",
   "extensions": {
     "colorMeta": {
@@ -428,6 +428,16 @@
         "name": "fold-shade",
         "value": "linear-gradient(to spine, transparent calc(100% - 1.25rem), rgb(5 42 37 / 0.07)) on the textbook page, 0.05 on the VoM page",
         "purpose": "Not elevation: the textbook spread's fold shade on each page's spine edge, mirrored in RTL."
+      },
+      {
+        "name": "stamped-seal",
+        "value": "inset 0 0 0 3px currentColor, inset 0 0 0 7px var(--seal-ground), inset 0 0 0 8px currentColor, 0 16px 30px -14px rgb(5 42 37 / 0.55)",
+        "purpose": "The sector seal hung on its photo plate: three inset rings on the seal ground, then the drop."
+      },
+      {
+        "name": "client-seal-ring",
+        "value": "0 0 0 3px var(--color-paper), 0 0 0 4px var(--color-teal-300), 0 0 0 6px var(--color-paper), 0 0 0 7px var(--color-teal-200), 0 14px 24px -18px rgb(5 42 37 / 0.5)",
+        "purpose": "Client seals' double ring drawn outside the disc; the trailing drop at rest is observed drift, not a rule."
       }
     ],
     "motion": [
@@ -500,6 +510,16 @@
         "name": "seal-stamp",
         "value": "opacity 0 and scale 1.35 to rest, 0.45s ease-out-quint from 1.05s",
         "purpose": "The free seal stamping onto the spread last."
+      },
+      {
+        "name": "sector-lift",
+        "value": "the shared screen-lift: translateY 1.5rem to 0 with the shadow lengthening, 0.9s ease-out-quint from 0.1s",
+        "purpose": "Sector pages: the photo plate lifting onto the field once on load."
+      },
+      {
+        "name": "sec-stamp",
+        "value": "opacity 0 and scale 1.12 to rest, 0.45s ease-out-quint from 0.75s",
+        "purpose": "The sector seal stamping onto the photo plate after it lands."
       }
     ],
     "breakpoints": [
@@ -653,11 +673,43 @@
       "description": "The reports as a book's index page: one framed paper sheet on Cool Paper, sorted on the keyword per locale, two columns read down each column from 640px.",
       "html": "<div class=\"ds-reports\"><ul class=\"ds-index\" style=\"--rows:3\"><li><span class=\"ds-ico\"></span>Account statements</li><li><span class=\"ds-ico\"></span>Assets</li><li><span class=\"ds-ico\"></span>Balance sheet</li><li class=\"ds-col\"><span class=\"ds-ico\"></span>Cost centres</li><li><span class=\"ds-ico\"></span>General ledger</li><li><span class=\"ds-ico\"></span>Trial balance</li></ul></div>",
       "css": ".ds-reports{padding:2rem;background:var(--color-paper-100,#f4f7fc);font-family:var(--font-effra),'Segoe UI',system-ui,sans-serif;}.ds-index{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(var(--rows),auto);grid-auto-flow:column;column-gap:2.5rem;margin:0;padding:1rem 2.5rem;list-style:none;background:#fff;border:1px solid #bfeae2;border-radius:1.25rem;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #bfeae2;}.ds-index li{display:flex;align-items:center;gap:1rem;padding-block:.875rem;border-top:1px solid #d7e3ec;font-size:1rem;font-weight:500;line-height:1.45;color:#020202;}.ds-index li:first-child,.ds-index li.ds-col{border-top:0;}.ds-ico{flex:none;width:3rem;height:3rem;border-radius:.75rem;background:#ddf5f0;}"
+    },
+    {
+      "name": "Sector Seal",
+      "kind": "custom",
+      "refersTo": "sector-seal",
+      "description": "The sector's seal stamped on its photo plate: inset-shadow rings on --seal-ground, the pictogram as a CSS mask, the bold name and the micro-label. The white variant sets the ground to teal on the close band.",
+      "html": "<div class=\"ds-sec-wrap\"><span class=\"ds-sec-seal\"><span class=\"ds-sec-seal-icon\"></span><span class=\"ds-sec-seal-name\">Restaurants and cafés</span><span class=\"ds-sec-seal-micro\">VoM</span></span><span class=\"ds-sec-seal ds-sec-seal-white\"><span class=\"ds-sec-seal-icon\"></span><span class=\"ds-sec-seal-name\">Restaurants and cafés</span><span class=\"ds-sec-seal-micro\">VoM</span></span></div>",
+      "css": ".ds-sec-wrap{display:flex;gap:32px;align-items:center;padding:24px;background:linear-gradient(90deg,#fff 50%,#17baa3 50%)} .ds-sec-seal{--seal-ground:#fff;--ic:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v8a2 2 0 0 0 2 2h0v8M9 3v5M5 3v5M17 3c-2 0-3 3-3 6s1 4 2 4v8'/%3E%3C/svg%3E\");display:grid;place-content:center;justify-items:center;gap:6px;width:7.75rem;height:7.75rem;padding:1rem;border-radius:50%;background:var(--seal-ground);color:#0f6b5e;text-align:center;rotate:-6deg;font-family:Effra,system-ui,sans-serif;box-shadow:inset 0 0 0 3px currentColor,inset 0 0 0 7px var(--seal-ground),inset 0 0 0 8px currentColor,0 16px 30px -14px rgb(5 42 37 / 0.55);animation:ds-sec-stamp .45s cubic-bezier(0.22,1,0.36,1) .2s both} .ds-sec-seal-icon::before{content:\"\";display:block;width:1.75rem;height:1.75rem;background:currentColor;mask:var(--ic) center/contain no-repeat;-webkit-mask:var(--ic) center/contain no-repeat} .ds-sec-seal-name{max-width:6rem;font-size:.8125rem;font-weight:700;line-height:1.25;text-wrap:balance} .ds-sec-seal-micro{font-size:.6875rem;line-height:1;opacity:.85} .ds-sec-seal-white{--seal-ground:#17baa3;width:8.25rem;height:8.25rem;color:#fff;box-shadow:inset 0 0 0 3px currentColor,inset 0 0 0 7px var(--seal-ground),inset 0 0 0 8px currentColor} @keyframes ds-sec-stamp{from{opacity:0;transform:scale(1.12)}} @media (prefers-reduced-motion:reduce){.ds-sec-seal{animation:none}}"
+    },
+    {
+      "name": "Clause Sheet",
+      "kind": "card",
+      "refersTo": "clause-sheet",
+      "description": "Four numbered clauses on teal-200 hairlines in one doc-frame, 2x2 from 1024px; each clause's feature icon is its ::before on a washed teal-50 tile, drawn from data-feature.",
+      "html": "<ol class=\"ds-clauses\"><li class=\"ds-clause\"><span class=\"ds-clause-num\">1</span><h3 class=\"ds-clause-title\">Issue financial reports</h3><p class=\"ds-clause-body\">The income statement, trial balance and cash flow, with more than 14 other reports.</p></li><li class=\"ds-clause\"><span class=\"ds-clause-num\">2</span><h3 class=\"ds-clause-title\">Issue financial reports</h3><p class=\"ds-clause-body\">The income statement, trial balance and cash flow.</p></li></ol>",
+      "css": ".ds-clauses{--fi:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h8l4 4v14H6zM14 3v4h4M9.5 17.5v-3M12 17.5v-6M14.5 17.5v-4'/%3E%3C/svg%3E\");display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem;margin:0;padding:.75rem 2.5rem;list-style:none;background:#fff;border:1px solid #bfeae2;border-radius:1.25rem;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #bfeae2;font-family:Effra,system-ui,sans-serif} .ds-clause{display:grid;grid-template-columns:2rem minmax(0,1fr);grid-template-areas:\". icon\" \"num title\" \". body\";align-content:start;column-gap:.75rem;padding-block:1.75rem} .ds-clause::before{content:\"\";grid-area:icon;width:2.75rem;height:2.75rem;margin-bottom:1rem;border-radius:.75rem;background:#eefaf7 var(--fi) center/1.5rem no-repeat} .ds-clause-num{grid-area:num;font-size:1.375rem;font-weight:700;line-height:1.25;color:#0f6b5e;font-variant-numeric:tabular-nums} .ds-clause-title{grid-area:title;margin:0;font-size:1.1875rem;font-weight:700;line-height:1.4;color:#020202} .ds-clause-body{grid-area:body;margin:.5rem 0 0;line-height:1.75;color:#54595f}"
+    },
+    {
+      "name": "Client Seal",
+      "kind": "custom",
+      "refersTo": "client-seal",
+      "description": "A client logo, pre-set on a 320px canvas at an equal optical size, on a white disc clipped to its circle with a double ring drawn outside it.",
+      "html": "<ul class=\"ds-clients\"><li class=\"ds-client\"><span>LAOF</span></li><li class=\"ds-client\"><span>Lucy</span></li><li class=\"ds-client\"><span>Mieyar</span></li><li class=\"ds-client\"><span>KQY</span></li></ul>",
+      "css": ".ds-clients{display:grid;grid-template-columns:repeat(4,7rem);gap:1.5rem 1.25rem;margin:0;padding:12px;list-style:none} .ds-client{display:grid;aspect-ratio:1;place-items:center;overflow:hidden;border-radius:50%;background:#fff;color:#6b6b6b;font:700 1rem Effra,system-ui,sans-serif;box-shadow:0 0 0 3px #fff,0 0 0 4px #8edccf,0 0 0 6px #fff,0 0 0 7px #bfeae2,0 14px 24px -18px rgb(5 42 37 / 0.5)}"
+    },
+    {
+      "name": "Sector Register",
+      "kind": "nav",
+      "refersTo": "register-link",
+      "description": "Links to the other sectors: the ringed disc is the link's ::before and the pictogram its ::after from data-icon, so each entry is a bare anchor.",
+      "html": "<ul class=\"ds-register\"><li><a href=\"#\">Restaurants and cafés</a></li><li><a href=\"#\">Gyms and fitness</a></li><li><a href=\"#\">Law firms</a></li></ul>",
+      "css": ".ds-register{--ic:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v8a2 2 0 0 0 2 2h0v8M9 3v5M5 3v5M17 3c-2 0-3 3-3 6s1 4 2 4v8'/%3E%3C/svg%3E\");display:grid;grid-template-columns:repeat(3,9rem);gap:1rem .5rem;margin:0;padding:0;list-style:none;font-family:Effra,system-ui,sans-serif} .ds-register a{--mini:3.5rem;position:relative;display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:1rem .5rem;border-radius:1rem;color:#020202;font-size:.9375rem;font-weight:700;line-height:1.35;text-align:center;text-decoration:none;transition:background-color .2s ease} .ds-register a::before{content:\"\";width:var(--mini);height:var(--mini);border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1.5px #0f6b5e,inset 0 0 0 4px #fff,inset 0 0 0 5px #8edccf;transition:background-color .2s ease,box-shadow .2s ease} .ds-register a::after{content:\"\";position:absolute;top:calc(1rem + var(--mini) / 2);left:50%;width:1.25rem;height:1.25rem;translate:-50% -50%;background:#0f6b5e;mask:var(--ic) center/contain no-repeat;-webkit-mask:var(--ic) center/contain no-repeat} .ds-register a:hover{background:#eefaf7} .ds-register a:hover::before{background:#17baa3;box-shadow:inset 0 0 0 1.5px #fff,inset 0 0 0 4px #17baa3,inset 0 0 0 5px rgb(255 255 255 / .7)} .ds-register a:hover::after{background:#fff} .ds-register a:focus-visible{outline:2px solid #17baa3;outline-offset:4px}"
     }
   ],
   "narrative": {
     "northStar": "The Official Record",
-    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
     "keyCharacteristics": [
       "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
       "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
@@ -705,7 +757,7 @@
     ],
     "dos": [
       "**Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.",
-      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
+      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
       "**Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.",
       "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
       "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
@@ -714,7 +766,10 @@
       "**Do** switch the focus outline to white on any teal ground.",
       "**Do** set partner and third-party logos on a white seal disc on teal, or on the ringed white plate when the mark is a wordmark too wide for a disc, never directly on the field.",
       "**Do** draw partner marks at the context height times the mark's optical scale, so no partner outweighs another.",
-      "**Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents."
+      "**Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents.",
+      "**Do** draw seal rings as inset shadows on a `--seal-ground` that matches the surface the seal sits on, so the gap between the rings is always the ground.",
+      "**Do** draw icons repeated across a page (clause icons, register pictograms) in CSS pseudo-elements from data attributes, and serve repeated small images through one optimizer URL without a srcset, to keep the HTML inside its budget.",
+      "**Do** pre-set third-party logos on a common square canvas at an equal optical size, so one width fits every seal."
     ],
     "donts": [
       "**Don't** put orange on anything but the primary action or the single \"now\" marker.",

@@ -1,5 +1,5 @@
 import { localePath, otherLocale, type Locale } from "./config";
-import type { IntegrationId } from "./dictionaries/types";
+import type { IntegrationId, SectorId } from "./dictionaries/types";
 
 export interface PagePair {
   ar: string;
@@ -21,6 +21,29 @@ export const integrationPaths: Record<IntegrationId, PagePair> = {
 };
 
 /**
+ * The 15 sector pages. The Arabic slugs are the ranked WordPress URLs, kept byte
+ * for byte (printing's is cut short at "…والاعلا"); WordPress gave most English
+ * twins a "-2" or "-en" slug, and those now redirect here (next.config.ts).
+ */
+export const sectorPaths: Record<SectorId, PagePair> = {
+  restaurants: { ar: "/برنامج-محاسبة-للمطاعم/", en: "/accounting-software-for-food-and-beverages/" },
+  beauty: { ar: "/برنامج-محاسبة-لمراكز-التجميل/", en: "/accounting-software-for-beauty-salons/" },
+  gyms: { ar: "/برنامج-محاسبة-للنوادي-الرياضية/", en: "/accounting-software-for-gym-and-fitness-centers/" },
+  law: { ar: "/برنامج-محاسبة-لمكاتب-المحاماة/", en: "/accounting-software-for-law-firms/" },
+  design: { ar: "/برنامج-محاسبة-مكاتب-التصميم/", en: "/accounting-software-for-design-offices/" },
+  marketing: { ar: "/برنامج-محاسبة-لوكالات-التسويق/", en: "/accounting-software-for-marketing-agencies/" },
+  logistics: { ar: "/برنامج-محاسبة-الخدمات-اللوجستية/", en: "/accounting-software-for-logistical-services/" },
+  travel: { ar: "/برنامج-محاسبة-لشركات-السفر-والسياحة/", en: "/accounting-software-for-travel-and-tourism/" },
+  "car-care": { ar: "/برنامج-محاسبة-لصيانة-السيارات/", en: "/accounting-software-for-car-maintenance-centers/" },
+  ecommerce: { ar: "/برنامج-محاسبة-والمتاجر-الالكترونية/", en: "/accounting-software-for-applications-and-ecommerce/" },
+  perfume: { ar: "/برنامج-محاسبة-للعطور/", en: "/accounting-software-for-perfume-stores/" },
+  "real-estate": { ar: "/برنامج-محاسبة-للعقارات-والمقاولات/", en: "/accounting-software-for-real-estate-and-construction/" },
+  investment: { ar: "/برنامج-محاسبة-لشركات-الاستثمار/", en: "/accounting-software-for-investment-firms/" },
+  printing: { ar: "/برنامج-محاسبة-لشركات-الطباعة-والاعلا/", en: "/accounting-software-for-printing-and-advertising-agencies/" },
+  childcare: { ar: "/برنامج-محاسبة-للاطفال/", en: "/accounting-software-for-day-care-centers/" },
+};
+
+/**
  * Locale-free paths of the pages that exist in both languages. WordPress gave
  * many English twins a different slug, so the pair has to be stated.
  */
@@ -31,7 +54,17 @@ const pagePairs: PagePair[] = [
   growthPaths,
   studentPaths,
   ...Object.values(integrationPaths),
+  ...Object.values(sectorPaths),
 ];
+
+/** Router segments arrive percent-encoded for Arabic paths; a bad escape stays as it is. */
+function decodeSegment(segment: string): string {
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return segment;
+  }
+}
 
 /**
  * Where the language switch leads from the current page. `segments` are the
@@ -40,7 +73,7 @@ const pagePairs: PagePair[] = [
  */
 export function alternateHref(locale: Locale, segments: string[]): string {
   const other = otherLocale(locale);
-  const current = `/${segments.join("/")}/`;
+  const current = `/${segments.map(decodeSegment).join("/")}/`;
   const pair = pagePairs.find((candidate) => candidate[locale] === current);
   return localePath(other, pair ? pair[other] : "/");
 }

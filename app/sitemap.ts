@@ -5,6 +5,7 @@ import {
   contactPaths,
   growthPaths,
   integrationPaths,
+  sectorPaths,
   studentPaths,
   termsPaths,
   type PagePair,
@@ -67,12 +68,22 @@ const pages: SitemapPage[] = [
       priority: { ar: 0.5, en: 0.4 },
     }),
   ),
+  // The vertical landing pages rank above the company pages.
+  ...Object.values(sectorPaths).map(
+    (pair): SitemapPage => ({
+      pair,
+      lastModified: "2026-11-10",
+      changeFrequency: "monthly",
+      priority: { ar: 0.6, en: 0.5 },
+    }),
+  ),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return pages.flatMap(({ pair, lastModified, changeFrequency, priority }) => {
-    const ar = `${site.url}${localePath("ar", pair.ar)}`;
-    const en = `${site.url}${localePath("en", pair.en)}`;
+    // Arabic paths are percent-encoded, as the sitemap protocol asks.
+    const ar = encodeURI(`${site.url}${localePath("ar", pair.ar)}`);
+    const en = encodeURI(`${site.url}${localePath("en", pair.en)}`);
     const languages = { ar, en, "x-default": ar };
     return [
       { url: ar, lastModified: new Date(lastModified), changeFrequency, priority: priority.ar, alternates: { languages } },

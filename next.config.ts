@@ -23,6 +23,40 @@ const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
 ];
 
+/**
+ * Sector pages: WordPress gave most English twins a "-2" or "-en" slug, and served
+ * every English slug without its /en prefix as a redirect to it (checked on the live
+ * site, 2026-11-10). Each old slug, with or without the prefix, goes straight to the
+ * clean English URL.
+ * Pairs: [old slug, clean slug]; the clean paths live in lib/i18n/routes.ts.
+ */
+const SECTOR_SLUGS: [string, string][] = [
+  ["accounting-software-for-food-and-beverages-2", "accounting-software-for-food-and-beverages"],
+  ["accounting-software-for-beauty-salons", "accounting-software-for-beauty-salons"],
+  ["accounting-software-for-gym-and-fitness-centers", "accounting-software-for-gym-and-fitness-centers"],
+  ["accounting-software-for-law-firms-2", "accounting-software-for-law-firms"],
+  ["accounting-software-for-design-offices", "accounting-software-for-design-offices"],
+  ["accounting-software-for-marketing-agencies-2", "accounting-software-for-marketing-agencies"],
+  ["accounting-software-for-logistical-services-2", "accounting-software-for-logistical-services"],
+  ["accounting-software-for-travel-and-tourism", "accounting-software-for-travel-and-tourism"],
+  ["accounting-software-for-car-maintenance-centers-en", "accounting-software-for-car-maintenance-centers"],
+  ["accounting-software-for-applications-and-ecommerce-2", "accounting-software-for-applications-and-ecommerce"],
+  ["accounting-software-for-perfume-stores-2", "accounting-software-for-perfume-stores"],
+  ["accounting-software-for-real-estate-and-construction-2", "accounting-software-for-real-estate-and-construction"],
+  ["accounting-software-for-investment-firms-2", "accounting-software-for-investment-firms"],
+  ["accounting-software-for-printing-and-advertising-agencies-2", "accounting-software-for-printing-and-advertising-agencies"],
+  ["accounting-software-for-day-care-centers-2", "accounting-software-for-day-care-centers"],
+];
+
+const sectorRedirects = SECTOR_SLUGS.flatMap(([old, clean]) => {
+  const destination = `/en/${clean}/`;
+  const sources = [`/${old}`];
+  if (old !== clean) sources.push(`/en/${old}`);
+  // The live site also answered the clean car slug without its prefix.
+  if (old.endsWith("-en")) sources.push(`/${clean}`);
+  return sources.map((source) => ({ source, destination, statusCode: 301 as const }));
+});
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
@@ -124,6 +158,7 @@ const nextConfig: NextConfig = {
         { source: `/en/vom-${id}-2`, destination: `/en/vom-${id}/`, statusCode: 301 as const },
         { source: `/vom-${id}-2`, destination: `/en/vom-${id}/`, statusCode: 301 as const },
       ]),
+      ...sectorRedirects,
     ];
   },
   async headers() {

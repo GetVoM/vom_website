@@ -7,11 +7,6 @@
  * lists what is real.
  */
 
-export interface DemoLogo {
-  name: string;
-  src: string;
-}
-
 export interface DemoTestimonial {
   quote: { ar: string; en: string };
   name: { ar: string; en: string };
@@ -32,20 +27,6 @@ export interface DemoIntegration {
   stats: { clients: number; invoices: number; sync: { ar: string; en: string } };
   steps: { ar: string; en: string }[];
 }
-
-export const demoLogos: DemoLogo[] = [
-  { name: "Google", src: "/demo/logos/google.svg" },
-  { name: "Meta", src: "/demo/logos/meta.svg" },
-  { name: "Netflix", src: "/demo/logos/netflix.svg" },
-  { name: "Spotify", src: "/demo/logos/spotify.svg" },
-  { name: "Airbnb", src: "/demo/logos/airbnb.svg" },
-  { name: "Uber", src: "/demo/logos/uber.svg" },
-  { name: "Shopify", src: "/demo/logos/shopify.svg" },
-  { name: "Stripe", src: "/demo/logos/stripe.svg" },
-  { name: "Notion", src: "/demo/logos/notion.svg" },
-  { name: "Figma", src: "/demo/logos/figma.svg" },
-  { name: "Nike", src: "/demo/logos/nike.svg" },
-];
 
 export const demoTestimonials: DemoTestimonial[] = [
   {

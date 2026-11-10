@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
+import { sectorPaths } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { DesktopNav } from "./DesktopNav";
@@ -37,7 +38,7 @@ export function Header({ locale, t }: HeaderProps) {
       all: { label: t.sectors.all, href: `${home}#sectors` },
       items: t.sectors.items.map((sector) => ({
         label: sector.name,
-        href: localePath(locale, `/${sector.slug}/`),
+        href: localePath(locale, sectorPaths[sector.id][locale]),
         icon: sector.icon,
       })),
     },

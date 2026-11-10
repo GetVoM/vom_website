@@ -22,9 +22,9 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 
 | Action | Count | Meaning |
 |---|---|---|
-| keep | 379 | Same path, same content, migrated one to one |
+| keep | 369 | Same path, same content, migrated one to one |
 | keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
-| redirect | 22 | Duplicates and renamed pages, 301 to the listed target |
+| redirect | 49 | Duplicates and renamed pages, 301 to the listed target |
 | retire | 11 | Test, campaign and already-dead pages, 410 |
 
 Notable rows:
@@ -39,6 +39,7 @@ Notable rows:
 - `/en/growth-plan-en/` → `/en/growth-plan/`: 301, matching what the live site already does (2026-11-10).
 - `/en/vom-foodics-2/`, `/en/vom-marn-2/`, `/en/vom-zid-2/` → `/en/vom-foodics/`, `/en/vom-marn/`, `/en/vom-zid/`: 301 (owner, 2026-11-10). The live site already serves the clean English URLs. The unprefixed `/vom-*-2/` slugs, which the live site sends to the English `-2` pages, now go to the clean English URL in one hop.
 - `/en/student-package-2/` and the unprefixed `/student-package-2/` → `/en/student-package/`: 301 (owner, 2026-11-10).
+- English sector pages: the ten `-2` slugs and `/en/accounting-software-for-car-maintenance-centers-en/` → `/en/accounting-software-for-<sector>/`: 301 (owner's standing preference for clean slugs, 2026-11-10). The live site already served the clean car URL, which is now a `keep` row. The live site also sent every English sector slug without its `/en` prefix to the `/en/` page; those 16 unprefixed URLs now go to the clean English URL in one hop. The 15 Arabic sector slugs stay exactly as they are.
 - `/get-free-version/` → `/`: 301. It is an empty shell titled "Vom"; the owner sent it to the homepage rather than the student package (2026-11-10).
 - 17 URLs lack a meta description (mostly category archives); they get one before launch.
 

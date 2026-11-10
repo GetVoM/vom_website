@@ -49,7 +49,7 @@ export default async function HomePage() {
     <>
       <JsonLd data={softwareJsonLd(locale, t.brand.description)} />
       <Hero locale={locale} t={t} />
-      <TopClients t={t} />
+      <TopClients t={t} locale={locale} />
       <MonthStrip t={t} />
       <Steps t={t} />
       <Features locale={locale} t={t} />
