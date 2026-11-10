@@ -143,3 +143,31 @@ export function faqJsonLd(items: { q: string; a: string }[]): JsonLd {
     })),
   };
 }
+
+/**
+ * A YouTube video embedded on the page. `name` is the title on YouTube; `uploadDate`
+ * and `duration` (ISO 8601) are as YouTube states them.
+ */
+export function videoJsonLd(video: {
+  youtubeId: string;
+  name: string;
+  description: string;
+  thumbnailPath: string;
+  uploadDate: string;
+  duration: string;
+  inLanguage: Locale;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.name,
+    description: video.description,
+    thumbnailUrl: `${site.url}${video.thumbnailPath}`,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
+    url: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+    inLanguage: video.inLanguage,
+    publisher: { "@id": `${site.url}/#organization` },
+  };
+}

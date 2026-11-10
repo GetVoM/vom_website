@@ -323,7 +323,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page H1 on contact and about."
+        "purpose": "Page H1 on contact and about; integration H1 runs the same steps, fluid at lg as clamp(3.75rem, 5.6vw, 5rem)."
       },
       "display-two-tier": {
         "displayName": "Display, two-tier",
@@ -412,7 +412,12 @@
       {
         "name": "seal-ring",
         "value": "0 0 0 3px var(--color-teal-500), 0 0 0 4px rgb(255 255 255 / 0.75)",
-        "purpose": "Not elevation: the teal gap and white hairline around a partner seal on teal."
+        "purpose": "Not elevation: the teal gap and white hairline around a partner seal or partner plate on teal."
+      },
+      {
+        "name": "seal-drop",
+        "value": "0 14px 28px -14px rgb(5 42 37 / 0.6)",
+        "purpose": "The play seal resting on a video poster."
       }
     ],
     "motion": [
@@ -460,12 +465,26 @@
         "name": "disc-bar",
         "value": "scaleY 0 to 1 from the bar's base (transform-box fill-box), 0.6s ease-out-quint, staggered 0.1s from 0.4s",
         "purpose": "Growth disc bars rising once on load."
+      },
+      {
+        "name": "screen-lift",
+        "value": "translateY 1.5rem to 0 with the shadow lengthening, 0.9s ease-out-quint from 0.1s",
+        "purpose": "Integration pages' signature: the video screen lifting onto the field once on load."
+      },
+      {
+        "name": "play-stamp",
+        "value": "opacity 0 and scale 1.35 to rest, 0.5s ease-out-quint from 0.75s",
+        "purpose": "The play seal stamping in after the screen lands."
       }
     ],
     "breakpoints": [
       {
         "name": "sm",
         "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
       },
       {
         "name": "lg",
@@ -569,11 +588,35 @@
       "description": "Hanging self-linking clause number and a bold lead label, set at reading measure.",
       "html": "<ol class=\"ds-clauses\" dir=\"rtl\"><li class=\"ds-clause\"><a href=\"#c\" class=\"ds-cnum\" dir=\"ltr\">2.1</a><p><strong>الاشتراك.</strong> يبدأ اشتراكك من تاريخ التفعيل ويتجدد تلقائيًا ما لم تلغه قبل نهاية المدة.</p></li></ol>",
       "css": ".ds-clauses{margin:0;padding:0;list-style:none;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-clause{display:grid;grid-template-columns:2.75rem minmax(0,1fr);align-items:first baseline;margin-inline:-.75rem;padding:.5rem .75rem;border-radius:.75rem;background:var(--color-teal-50,#eefaf7);}.ds-cnum{font-size:.875rem;color:#6b6b6b;text-decoration:none;text-underline-offset:4px;font-variant-numeric:tabular-nums;transition:color .2s;}.ds-cnum:hover{color:#0f6b5e;text-decoration:underline;}.ds-cnum:focus-visible{outline:2px solid #17baa3;outline-offset:3px;border-radius:4px;}.ds-clause p{margin:0;font-size:1.0625rem;line-height:1.85;color:color-mix(in oklab,#020202 86%,white);}.ds-clause strong{font-weight:700;color:#020202;}"
+    },
+    {
+      "name": "Video Screen",
+      "kind": "custom",
+      "refersTo": "video-screen",
+      "description": "A paper doc-frame with a 10px bezel holding a 16:9 poster on the teal field; the poster is a click-to-play button with a white play seal (hairline ring at 5px offset, position via --seal-x/--seal-y); two videos become pills under the screen.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-screen\"><button type=\"button\" class=\"ds-play\"><span class=\"ds-poster\"></span><span class=\"ds-play-seal\"><svg viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" aria-hidden=\"true\"><path d=\"M8.5 5.6v12.8a.8.8 0 0 0 1.2.7l10.2-6.4a.8.8 0 0 0 0-1.4L9.7 4.9a.8.8 0 0 0-1.2.7z\" fill=\"currentColor\"/></svg></span></button></div><ul class=\"ds-playlist\"><li><button type=\"button\" aria-pressed=\"true\">طريقة ربط ڤوم مع فودكس <span>7:02</span></button></li><li><button type=\"button\" aria-pressed=\"false\">ڤوم مع فودكس باختصار <span>0:28</span></button></li></ul></div>",
+      "css": ".ds-stage{padding:2.5rem 1.5rem;background:var(--color-teal-500,#17baa3);color:#fff;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-screen{max-width:36rem;padding:10px;background:#fff;border:1px solid var(--color-teal-200,#bfeae2);border-radius:1.25rem;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px var(--color-teal-200,#bfeae2),0 32px 60px -28px rgb(5 42 37 / .6);}.ds-play{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;border:0;padding:0;border-radius:.625rem;background:#020202;cursor:pointer;}.ds-poster{position:absolute;inset:0;background:linear-gradient(135deg,#0b5248,#13937f);transition:transform .6s cubic-bezier(.22,1,.36,1);}.ds-play-seal{position:absolute;left:var(--seal-x,50%);top:var(--seal-y,50%);translate:-50% -50%;display:grid;place-items:center;width:4.5rem;height:4.5rem;border-radius:50%;background:#fff;color:var(--color-teal-700,#0f6b5e);outline:1.5px solid #fff;outline-offset:5px;box-shadow:0 14px 28px -14px rgb(5 42 37 / .6);transition:transform .3s cubic-bezier(.22,1,.36,1),outline-offset .3s cubic-bezier(.22,1,.36,1);}.ds-play:hover .ds-poster{transform:scale(1.02);}.ds-play:hover .ds-play-seal{transform:scale(1.06);outline-offset:7px;}.ds-play:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--color-teal-500,#17baa3),inset 0 0 0 5px #fff;}.ds-playlist{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0 0;padding:0;list-style:none;}.ds-playlist button{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:0 1rem;border:1px solid rgb(255 255 255 / .6);border-radius:999px;background:transparent;color:#fff;font:700 .9375rem inherit;font-family:inherit;cursor:pointer;transition:background-color .2s ease,color .2s ease;}.ds-playlist button span{font-weight:400;font-variant-numeric:tabular-nums;}.ds-playlist button:hover{background:rgb(255 255 255 / .12);}.ds-playlist button[aria-pressed=true]{border-color:#fff;background:#fff;color:var(--color-teal-800,#0b5248);}.ds-playlist button:focus-visible{outline:2px solid #fff;outline-offset:3px;}"
+    },
+    {
+      "name": "Posting Ledger",
+      "kind": "custom",
+      "refersTo": "posting-ledger",
+      "description": "What each partner record becomes in VoM: two ruled columns on a doc-frame sheet, partner record to VoM result, mirrored arrows, teal-200 row rules, closed by the 4px double teal rule.",
+      "html": "<div class=\"ds-ledger\"><div class=\"ds-ledger-head\"><span>في فودكس</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><span>في ڤوم</span></div><ul><li><span class=\"ds-from\">المبيعات</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><span class=\"ds-to\">تُرحَّل إلى ڤوم بقيود يومية</span></li><li><span class=\"ds-from\">طرق الدفع</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><span class=\"ds-to\">تُربط بحسابات خاصة بها في الشجرة المحاسبية</span></li></ul></div>",
+      "css": ".ds-ledger{padding:12px 40px 32px;background:#fff;border:1px solid var(--color-teal-200,#bfeae2);border-radius:1.25rem;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px var(--color-teal-200,#bfeae2);color:#020202;font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-ledger ul{margin:0;padding:0;list-style:none;}.ds-ledger-head,.ds-ledger li{display:grid;grid-template-columns:minmax(0,2fr) 1.25rem minmax(0,3fr);column-gap:1.5rem;align-items:start;border-bottom:1px solid var(--color-teal-200,#bfeae2);}.ds-ledger-head{padding:1rem 0;font-size:.9375rem;color:var(--color-ink-700,#54595f);align-items:center;}.ds-ledger li{padding:1.125rem 0;}.ds-ledger li:last-child{border-bottom:4px double var(--color-teal-500,#17baa3);}.ds-ledger svg{color:var(--color-teal-700,#0f6b5e);margin-top:.25rem;}:host-context([dir=rtl]) .ds-ledger svg,[dir=rtl] .ds-ledger svg{transform:scaleX(-1);}.ds-from{font-size:1.125rem;font-weight:700;line-height:1.4;}.ds-to{font-size:1.0625rem;line-height:1.6;color:var(--color-ink-700,#54595f);}"
+    },
+    {
+      "name": "Connection Emblem (Partner Plate)",
+      "kind": "custom",
+      "refersTo": "partner-plate",
+      "description": "Plate variant of the Partner Seal for wordmarks too wide for a disc: rounded white plates carrying the seal ring, VoM and partner joined by a white double hairline on the teal close band.",
+      "html": "<div class=\"ds-close\"><div class=\"ds-emblem\" aria-hidden=\"true\"><span class=\"ds-plate\">VoM</span><span class=\"ds-link\"></span><span class=\"ds-plate\">FOODICS</span></div></div>",
+      "css": ".ds-close{padding:3rem 1.5rem;background:var(--color-teal-500,#17baa3);clip-path:polygon(0 2.5rem,100% 0,100% 100%,0 100%);}.ds-emblem{display:flex;align-items:center;}.ds-plate{display:flex;align-items:center;height:4.5rem;padding:0 1.5rem;border-radius:1rem;background:#fff;color:#020202;font:700 1.25rem var(--font-effra),'Segoe UI',system-ui,sans-serif;letter-spacing:.04em;box-shadow:0 0 0 3px var(--color-teal-500,#17baa3),0 0 0 4px rgb(255 255 255 / .75);}.ds-link{width:2.5rem;height:5px;border-top:1px solid #fff;border-bottom:1px solid #fff;}"
     }
   ],
   "narrative": {
     "northStar": "The Official Record",
-    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
     "keyCharacteristics": [
       "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
       "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
@@ -616,13 +659,14 @@
     ],
     "dos": [
       "**Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.",
-      "**Do** give each page one signature idea and one orchestrated motion on load, using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
+      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
       "**Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.",
       "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
       "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
       "**Do** label demonstration data in every mock-up.",
       "**Do** switch the focus outline to white on any teal ground.",
-      "**Do** set partner and third-party logos on a white seal disc on teal, never directly on the field.",
+      "**Do** set partner and third-party logos on a white seal disc on teal, or on the ringed white plate when the mark is a wordmark too wide for a disc, never directly on the field.",
+      "**Do** draw partner marks at the context height times the mark's optical scale, so no partner outweighs another.",
       "**Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents."
     ],
     "donts": [

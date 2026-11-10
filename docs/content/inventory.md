@@ -22,9 +22,9 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 
 | Action | Count | Meaning |
 |---|---|---|
-| keep | 383 | Same path, same content, migrated one to one |
+| keep | 380 | Same path, same content, migrated one to one |
 | keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
-| redirect | 14 | Duplicates and renamed pages, 301 to the listed target |
+| redirect | 20 | Duplicates and renamed pages, 301 to the listed target |
 | retire | 11 | Test, campaign and already-dead pages, 410 |
 
 Notable rows:
@@ -37,6 +37,7 @@ Notable rows:
 - `/en/student-package-2/` and other English pages carry WordPress "-2" suffixes. They are kept at launch; renaming them is an optional post-launch 301.
 - `/terms-and-conditions-ar/` → `/terms-and-conditions/`: 301 (owner, 2026-11-09).
 - `/en/growth-plan-en/` → `/en/growth-plan/`: 301, matching what the live site already does (2026-11-10).
+- `/en/vom-foodics-2/`, `/en/vom-marn-2/`, `/en/vom-zid-2/` → `/en/vom-foodics/`, `/en/vom-marn/`, `/en/vom-zid/`: 301 (owner, 2026-11-10). The live site already serves the clean English URLs. The unprefixed `/vom-*-2/` slugs, which the live site sends to the English `-2` pages, now go to the clean English URL in one hop.
 - 17 URLs lack a meta description (mostly category archives); they get one before launch.
 
 ## Migration mechanics

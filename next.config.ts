@@ -95,6 +95,12 @@ const nextConfig: NextConfig = {
         destination: "/en/growth-plan/",
         statusCode: 301,
       },
+      // Integration pages: WordPress gave the English twins a "-2" slug, and the
+      // unprefixed "-2" slugs led to them. Both go straight to the clean English URL.
+      ...["foodics", "marn", "zid"].flatMap((id) => [
+        { source: `/en/vom-${id}-2`, destination: `/en/vom-${id}/`, statusCode: 301 as const },
+        { source: `/vom-${id}-2`, destination: `/en/vom-${id}/`, statusCode: 301 as const },
+      ]),
     ];
   },
   async headers() {

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { localePath } from "@/lib/i18n/config";
-import { aboutPaths, contactPaths, growthPaths, termsPaths, type PagePair } from "@/lib/i18n/routes";
+import { aboutPaths, contactPaths, growthPaths, integrationPaths, termsPaths, type PagePair } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
 
 interface SitemapPage {
@@ -45,6 +45,14 @@ const pages: SitemapPage[] = [
     changeFrequency: "monthly",
     priority: { ar: 0.5, en: 0.4 },
   },
+  ...Object.values(integrationPaths).map(
+    (pair): SitemapPage => ({
+      pair,
+      lastModified: "2026-11-10",
+      changeFrequency: "monthly",
+      priority: { ar: 0.5, en: 0.4 },
+    }),
+  ),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

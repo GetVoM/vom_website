@@ -122,6 +122,8 @@ export interface Dictionary {
     product: string;
     support: string;
     company: string;
+    /** Heading of the column that lists the integration pages. */
+    marketplace: string;
     links: { product: [string, string][]; support: [string, string][]; company: [string, string][] };
     approved: string;
     rights: string;
@@ -236,6 +238,18 @@ export interface Dictionary {
     images: { hand: string };
     seo: { title: string; description: string };
   };
+  integrationPages: {
+    register: string;
+    /** Accessible name of a video's play button; `{title}` is the video's title. */
+    play: string;
+    /** Marks a video whose soundtrack is Arabic; empty where that goes without saying. */
+    inArabic: string;
+    /** Heads of the posting ledger's two columns; the partner's or VoM's mark follows. */
+    ledgerFrom: string;
+    ledgerTo: string;
+    others: string;
+    items: Record<IntegrationId, IntegrationCopy>;
+  };
   terms: {
     heading: string;
     /** `{n}` is the number of numbered sections. */
@@ -279,6 +293,29 @@ export interface GrowthFeature {
   icon: GrowthIcon;
   title: string;
   body: string;
+}
+
+export type IntegrationId = "foodics" | "marn" | "zid";
+
+/** One integration page. Assets and video facts live in lib/integrations.ts. */
+export interface IntegrationCopy {
+  /** The partner's name as this language writes it; also the alt text of its mark. */
+  partner: string;
+  /** The page's name: the breadcrumb, and the tile that links here from the other pages. */
+  crumb: string;
+  heading: string;
+  lede: string;
+  /** The ghost link to the video beside the register button. */
+  watch: string;
+  /** What the partner's records become in VoM, as the old page states it. */
+  sync: { heading: string; rows: { from: string; to: string }[] };
+  /** What the partner's own product offers; omitted when the old page listed nothing. */
+  offer?: { heading: string; items: string[] };
+  /** Display titles of the videos, in the order of lib/integrations.ts. */
+  videos: string[];
+  close: string;
+  images: { lockup: string };
+  seo: { title: string; description: string };
 }
 
 export interface GrowthPartner {

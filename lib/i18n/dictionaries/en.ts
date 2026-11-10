@@ -204,11 +204,11 @@ export const en: Dictionary = {
     product: "Product",
     support: "Resources",
     company: "VoM",
+    marketplace: "Marketplace",
     links: {
       product: [
         ["Features", "/features-en/"],
         ["Pricing", "/pricing-en/"],
-        ["Marketplace", "/vom-foodics-2/"],
         ["API documentation", "https://app.getvom.com/en/docs/api"],
       ],
       support: [
@@ -568,6 +568,111 @@ export const en: Dictionary = {
       title: "Growth Program for Startups: 90% Off VoM for 6 Months",
       description:
         "VoM's Growth Program gives startups 90% off cloud accounting for 6 months: invoices, journal entries, inventory, team access and automatic reports.",
+    },
+  },
+  integrationPages: {
+    register: "Register now",
+    play: "Play video: {title}",
+    inArabic: "In Arabic",
+    ledgerFrom: "In",
+    ledgerTo: "In",
+    others: "Other integrations",
+    items: {
+      foodics: {
+        partner: "Foodics",
+        crumb: "VoM & Foodics",
+        heading: "Connect Foodics to VoM",
+        lede: "Foodics is a point-of-sale and restaurant management system that runs your front of house, your kitchen and your back office with precision, simplicity and flexibility.",
+        watch: "Watch how it connects",
+        sync: {
+          heading: "What moves from Foodics into VoM",
+          rows: [
+            { from: "Sales", to: "Posted to VoM as daily journal entries" },
+            { from: "Payment methods", to: "Mapped to their own accounts in your chart of accounts" },
+            { from: "Branches", to: "Linked to VoM as cost centres" },
+            { from: "Suppliers", to: "Each linked to its own account, with a statement for every supplier" },
+            { from: "Cost of goods sold", to: "Calculated in VoM, and your stock reduced to match" },
+            { from: "Purchase bills", to: "Synced into VoM, adding to your stock" },
+          ],
+        },
+        offer: {
+          heading: "What Foodics gives you",
+          items: [
+            "Control and organise every detail of your restaurant from one screen.",
+            "Keep the system running, online or offline.",
+            "Connect the till and the kitchen easily, for service without mistakes.",
+            "Follow sales and customer orders as they happen, whenever you like, from any device.",
+            "Pull instant reports on your restaurant's performance at any time.",
+            "Browse advanced add-ons in the Foodics App Store and connect them to Foodics POS.",
+            "Reach customer support around the clock.",
+          ],
+        },
+        videos: ["How to connect Foodics to VoM", "VoM and Foodics in brief"],
+        close: "Connect Foodics to VoM and start your free trial. No credit card needed.",
+        images: { lockup: "VoM and Foodics" },
+        seo: {
+          title: "Foodics Integration: Post Restaurant Sales to VoM Accounting",
+          description:
+            "Connect Foodics POS to VoM accounting: sales post as daily journal entries, branches become cost centres, and purchase bills add to your stock.",
+        },
+      },
+      marn: {
+        partner: "Marn",
+        crumb: "VoM & Marn",
+        heading: "Connect Marn to VoM",
+        lede: "Marn is an all-in-one restaurant and point-of-sale system that organises your admin work and tracks every operation in your restaurant, simply and securely.",
+        watch: "Watch the video",
+        sync: {
+          heading: "What moves from Marn into VoM",
+          rows: [
+            { from: "Sales", to: "Posted to VoM as daily journal entries" },
+            { from: "Payment methods", to: "Mapped to their own accounts in your chart of accounts" },
+            { from: "Branches", to: "Linked as separate cost centres" },
+            { from: "Suppliers", to: "Each linked to its own account, with its own statement" },
+            { from: "Cost of sales", to: "Calculated in VoM, with your stock levels kept in view" },
+            { from: "Purchase bills", to: "Synced from Marn into VoM, adding to your stock" },
+          ],
+        },
+        offer: {
+          heading: "What Marn gives you",
+          items: [
+            "Run your admin work from a single screen.",
+            "Use the system online or offline.",
+            "Follow the till and the kitchen as orders move.",
+            "Watch your sales live from your phone.",
+            "Produce any instant report in one click.",
+            "Explore advanced restaurant management tools and connect them to Marn.",
+            "Contact customer support at any hour, 24/7.",
+          ],
+        },
+        videos: ["VoM and Marn in brief"],
+        close: "Connect Marn to VoM and start your free trial. No credit card needed.",
+        images: { lockup: "VoM and Marn" },
+        seo: {
+          title: "Marn Integration: Post Restaurant Sales to VoM Accounting",
+          description:
+            "Connect Marn's restaurant POS to VoM accounting: daily journal entries for sales, cost centres for branches, supplier statements and up-to-date stock.",
+        },
+      },
+      zid: {
+        partner: "Zid",
+        crumb: "VoM & Zid",
+        heading: "Connect Zid to VoM",
+        lede: "Zid gives you a complete online store with its own storefront, where you take in your customers' orders and manage them with ease.",
+        watch: "Watch the video",
+        sync: {
+          heading: "What moves from Zid into VoM",
+          rows: [{ from: "Sales", to: "Posted to VoM as daily journal entries" }],
+        },
+        videos: ["VoM and Zid in brief"],
+        close: "Connect your Zid store to VoM and start your free trial. No credit card needed.",
+        images: { lockup: "VoM and Zid" },
+        seo: {
+          title: "Zid Integration: Post Your Store's Sales to VoM Accounting",
+          description:
+            "Connect your Zid online store to VoM accounting, and your store's sales post to VoM as daily journal entries. Watch the video, then start a free trial.",
+        },
+      },
     },
   },
   terms: {

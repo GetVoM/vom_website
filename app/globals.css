@@ -1542,6 +1542,571 @@ html[dir="rtl"] .growth-field {
   }
 }
 
+/* Integration pages: Foodics, Marn and Zid share one template. The connection
+   video leads on a slanted teal field; below it a posting ledger states what each
+   partner record becomes in VoM. Stacked below 1024 px: copy, then the field as a
+   full-width panel with a slanted top edge holding the screen. */
+.integ-top {
+  overflow-x: clip;
+}
+.integ-grid {
+  display: grid;
+  grid-template-areas: "copy" "stage";
+  row-gap: 2.5rem;
+  padding-top: 2rem;
+}
+.integ-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* Partner marks differ in proportion; each context sets --mark-h and every mark
+   is drawn at that height times its optical scale, so none outweighs another. */
+.integ-mark {
+  height: calc(var(--mark-h, 1.5rem) * var(--mark-scale, 1));
+  width: auto;
+  max-width: 100%;
+}
+.integ-mark[data-mark="foodics"] {
+  --mark-scale: 0.72;
+}
+.integ-mark[data-mark="marn"] {
+  --mark-scale: 0.9;
+}
+.integ-mark[data-mark="zid"] {
+  --mark-scale: 1.25;
+}
+/* The letterhead: every lockup at one height, whatever its proportions. */
+.integ-lockup {
+  margin-top: 2rem;
+  height: 2.25rem;
+  width: auto;
+}
+.integ-title {
+  margin-top: 1.25rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.integ-lede {
+  margin-top: 1.25rem;
+  max-width: 54ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+}
+.integ-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 2rem;
+}
+.integ-stage {
+  grid-area: stage;
+  position: relative;
+  isolation: isolate;
+  margin-inline: -16px;
+  padding: 4.25rem 16px 3rem;
+  color: #fff;
+  scroll-margin-top: 4rem;
+}
+.integ-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-teal-500);
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .integ-field {
+  clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
+}
+.integ-stage :focus-visible {
+  outline-color: #fff;
+}
+/* The screen: a paper sheet holding the poster, lifted onto the field once. */
+.integ-screen-wrap {
+  width: min(100%, 36rem);
+  margin-inline: auto;
+}
+.integ-screen {
+  padding: 0.625rem;
+  background: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 60px -28px rgb(5 42 37 / 0.6);
+  animation: screen-lift 0.9s var(--ease-out-quint) 0.1s both;
+}
+@keyframes screen-lift {
+  from {
+    transform: translateY(1.5rem);
+    box-shadow:
+      inset 0 0 0 4px var(--color-paper),
+      inset 0 0 0 5px var(--color-teal-200),
+      0 6px 10px -8px rgb(5 42 37 / 0.3);
+  }
+}
+.integ-screen-inner {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  background: var(--color-ink);
+}
+.integ-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+.integ-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out-quint);
+}
+/* A white seal with a hairline ring, stamped once the screen has landed. The
+   triangle points right in both languages, as media controls do. It sits at the
+   poster's centre unless the poster names a clearer spot (--seal-x, --seal-y). */
+.integ-play-seal {
+  position: absolute;
+  left: var(--seal-x, 50%);
+  top: var(--seal-y, 50%);
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-teal-700);
+  outline: 1.5px solid #fff;
+  outline-offset: 5px;
+  box-shadow: 0 14px 28px -14px rgb(5 42 37 / 0.6);
+  transition:
+    transform 0.3s var(--ease-out-quint),
+    outline-offset 0.3s var(--ease-out-quint);
+  animation: play-stamp 0.5s var(--ease-out-quint) 0.75s both;
+}
+@keyframes play-stamp {
+  from {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+.integ-play:hover .integ-poster {
+  transform: scale(1.02);
+}
+.integ-play:hover .integ-play-seal {
+  transform: scale(1.06);
+  outline-offset: 7px;
+}
+/* The screen clips an outline, so focus is drawn inside its edge. */
+.integ-play:focus-visible {
+  outline: none;
+}
+.integ-play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.integ-play:focus-visible::after {
+  box-shadow:
+    inset 0 0 0 3px var(--color-teal-500),
+    inset 0 0 0 5px #fff;
+}
+.integ-screen-notes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.25rem;
+}
+.integ-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+.integ-length {
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+.integ-lang {
+  font-size: 0.875rem;
+}
+.integ-playlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.integ-playlist button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.6);
+  border-radius: var(--radius-pill);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.integ-playlist button:hover {
+  background: rgb(255 255 255 / 0.12);
+}
+.integ-playlist button[aria-pressed="true"] {
+  border-color: #fff;
+  background: #fff;
+  color: var(--color-teal-800);
+}
+.integ-playlist button[aria-pressed="true"] .integ-length {
+  color: var(--color-teal-700);
+}
+/* Sections below the hero: a heading on the start side, its content beside it. */
+.integ-section {
+  border-top: 1px solid var(--color-paper-200);
+}
+.integ-split {
+  display: grid;
+  gap: 2rem;
+  padding-block: 4rem;
+}
+.integ-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+/* The posting ledger: what each partner record becomes in VoM, ruled like a
+   journal and closed with the accountant's double rule. */
+.integ-ledger {
+  padding: 0.5rem 1.25rem 1.5rem;
+  background: var(--color-paper);
+}
+.integ-ledger-head {
+  --mark-h: 1.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-teal-200);
+  font-size: 0.9375rem;
+  color: var(--color-ink-700);
+}
+.integ-ledger-head span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.integ-ledger-arrow {
+  color: var(--color-teal-700);
+}
+.integ-ledger-rows li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "from from" "arrow to";
+  gap: 0.375rem 0.625rem;
+  padding-block: 1.125rem;
+  border-bottom: 1px solid var(--color-teal-200);
+}
+.integ-ledger-rows li:last-child {
+  border-bottom: 4px double var(--color-teal-500);
+}
+.integ-ledger-rows .integ-ledger-arrow {
+  grid-area: arrow;
+  margin-top: 0.25rem;
+}
+.integ-from {
+  grid-area: from;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.integ-to {
+  grid-area: to;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-ink-700);
+}
+/* One rule (Zid) is set large, so the sheet still reads as a statement. */
+.integ-ledger[data-single] .integ-ledger-rows li {
+  padding-block: 1.75rem;
+}
+.integ-ledger[data-single] .integ-from {
+  font-size: 1.5rem;
+}
+.integ-ledger[data-single] .integ-to {
+  font-size: 1.25rem;
+}
+.integ-offer-section {
+  background: var(--color-paper-100);
+}
+.integ-mark-tile {
+  --mark-h: 3rem;
+  display: flex;
+  max-width: 22rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 2.5rem 2rem;
+  background: var(--color-paper);
+}
+.integ-offer {
+  display: grid;
+  column-gap: 2rem;
+}
+.integ-offer li {
+  display: flex;
+  gap: 0.875rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--color-paper-300);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.integ-tick {
+  display: grid;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.125rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-teal-100);
+  color: var(--color-teal-700);
+}
+.integ-others {
+  display: grid;
+  gap: 1rem;
+}
+.integ-other {
+  --mark-h: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "mark arrow" "name arrow";
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-paper-300);
+  border-radius: var(--radius-tile);
+  background: var(--color-paper);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+.integ-other .integ-mark {
+  grid-area: mark;
+  justify-self: start;
+}
+.integ-other-name {
+  grid-area: name;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-ink-700);
+}
+.integ-other-arrow {
+  grid-area: arrow;
+  color: var(--color-teal-700);
+  transition: translate 0.25s var(--ease-out-quint);
+}
+.integ-other:hover {
+  border-color: var(--color-teal-500);
+  background: var(--color-teal-50);
+}
+.integ-other:hover .integ-other-arrow {
+  translate: 4px 0;
+}
+html[dir="rtl"] .integ-other:hover .integ-other-arrow {
+  translate: -4px 0;
+}
+/* The close: VoM's plate and the partner's, joined by a white double hairline. */
+.integ-close-band {
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .integ-close-band {
+  clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+}
+.integ-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-block: 6rem 4.5rem;
+}
+.integ-close .btn:focus-visible {
+  outline-color: #fff;
+}
+.integ-emblem {
+  --mark-h: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+/* A plate is the partner seal's ring around a wordmark, which a disc cannot hold. */
+.integ-plate {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  padding-inline: 1rem;
+  border-radius: var(--radius-tile);
+  background: #fff;
+  box-shadow:
+    0 0 0 3px var(--color-teal-500),
+    0 0 0 4px rgb(255 255 255 / 0.75);
+}
+.integ-link {
+  width: 1.5rem;
+  height: 5px;
+  border-block: 1px solid #fff;
+}
+.integ-close-line {
+  max-width: 26ch;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+@media (min-width: 640px) {
+  .integ-title {
+    font-size: 4rem;
+  }
+  .integ-lede {
+    font-size: 1.1875rem;
+  }
+  .integ-heading {
+    font-size: 2.25rem;
+  }
+  .integ-play-seal {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .integ-ledger {
+    padding: 0.75rem 2.5rem 2rem;
+  }
+  .integ-ledger-head,
+  .integ-ledger-rows li {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) 1.25rem minmax(0, 3fr);
+    grid-template-areas: "from arrow to";
+    align-items: start;
+    column-gap: 1.5rem;
+  }
+  .integ-ledger-head .integ-ledger-arrow {
+    align-self: center;
+  }
+  .integ-ledger-rows .integ-ledger-arrow {
+    margin-top: 0.25rem;
+  }
+  .integ-ledger[data-single] .integ-from {
+    font-size: 1.75rem;
+  }
+  .integ-ledger[data-single] .integ-to {
+    font-size: 1.375rem;
+  }
+  .integ-ledger[data-single] .integ-ledger-rows .integ-ledger-arrow {
+    margin-top: 0.625rem;
+  }
+  .integ-offer,
+  .integ-others {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .integ-emblem {
+    --mark-h: 1.75rem;
+  }
+  .integ-plate {
+    height: 4.5rem;
+    padding-inline: 1.5rem;
+  }
+  .integ-link {
+    width: 2.5rem;
+  }
+  .integ-close-line {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .integ-grid {
+    --bleed: max(16px, calc((100vw - 1280px) / 2 + 16px));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas: "copy copy copy copy copy copy stage stage stage stage stage stage";
+    column-gap: 2rem;
+    padding-top: 0;
+  }
+  .integ-copy {
+    align-self: center;
+    padding-block: 3rem 4.5rem;
+  }
+  .integ-lockup {
+    height: 2.75rem;
+  }
+  .integ-title {
+    font-size: clamp(3.75rem, 5.6vw, 5rem);
+  }
+  .integ-stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: 0;
+    padding: 3.5rem 0;
+    /* Clears the slant, so the screen sits wholly on teal. */
+    padding-inline-start: 4.5rem;
+  }
+  /* Bleeds to the viewport's end edge; the start edge is the slant. */
+  .integ-field {
+    inset-inline-end: calc(-1 * var(--bleed));
+    clip-path: polygon(4.5rem 0, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .integ-field {
+    clip-path: polygon(0 0, calc(100% - 4.5rem) 0, 100% 100%, 0 100%);
+  }
+  .integ-screen-wrap {
+    margin-inline: 0;
+  }
+  .integ-split {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 2rem;
+    padding-block: 6rem;
+  }
+  .integ-split > :first-child {
+    grid-column: 1 / span 4;
+  }
+  .integ-split > :last-child {
+    grid-column: 5 / -1;
+  }
+  .integ-heading {
+    font-size: 2.5rem;
+  }
+  .integ-ledger {
+    padding-inline: 3rem;
+  }
+  .integ-close {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 3.5rem;
+    padding-block: 7rem 5.5rem;
+  }
+  .integ-close-line {
+    font-size: 2.5rem;
+  }
+}
+
 /* Terms and conditions: a long legal document set for reading. Below 1024 px
    the page is a single flow so the contents bar can stay stuck under the
    header for the whole document (a sticky grid item cannot leave its row). */

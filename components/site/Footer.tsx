@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
+import { integrationPaths } from "@/lib/i18n/routes";
+import { integrationIds } from "@/lib/integrations";
 import { site } from "@/lib/seo/site";
 import { Icon } from "@/components/ui/Icon";
 
@@ -23,16 +25,22 @@ function FooterLink({ label, href, locale }: { label: string; href: string; loca
 
 export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
   const year = 2026;
+  // The integration pages, named and addressed as the pages themselves are.
+  const marketplace: [string, string][] = integrationIds.map((id) => [
+    t.integrationPages.items[id].crumb,
+    integrationPaths[id][locale],
+  ]);
   const groups: [string, [string, string][]][] = [
     [t.footer.product, t.footer.links.product],
+    [t.footer.marketplace, marketplace],
     [t.footer.support, t.footer.links.support],
     [t.footer.company, t.footer.links.company],
   ];
   return (
     <footer className="border-t border-paper-200 bg-paper-100">
       <div className="mx-auto max-w-[1280px] px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-14">
-        <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
-          <div className="flex flex-col gap-5">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:grid-cols-[1.6fr_repeat(4,minmax(0,1fr))]">
+          <div className="col-span-2 flex flex-col gap-5 md:col-span-4 lg:col-span-1">
             <Image src={site.logo} alt={t.brand.name} width={96} height={31} />
             <p className="max-w-[36ch] text-[0.9375rem] leading-relaxed text-ink-700">{t.footer.about}</p>
             <div className="flex items-center gap-2 text-[0.875rem] text-teal-800">
