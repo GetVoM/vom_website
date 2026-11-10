@@ -9,6 +9,8 @@ interface ButtonLinkProps {
   variant?: Variant;
   arrow?: boolean;
   external?: boolean;
+  /** Opens the link in a new tab; the text is read after the label, never shown. */
+  newTab?: string;
   className?: string;
   children: ReactNode;
 }
@@ -18,6 +20,7 @@ export function ButtonLink({
   variant = "primary",
   arrow = false,
   external = false,
+  newTab,
   className = "",
   children,
 }: ButtonLinkProps) {
@@ -30,8 +33,9 @@ export function ButtonLink({
   );
   if (external || href.startsWith("http")) {
     return (
-      <a href={href} className={classes} rel="noopener">
+      <a href={href} className={classes} rel="noopener" target={newTab ? "_blank" : undefined}>
         {content}
+        {newTab && <span className="sr-only">{` ${newTab}`}</span>}
       </a>
     );
   }

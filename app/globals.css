@@ -1129,6 +1129,419 @@ html[dir="rtl"] .figures-band {
   }
 }
 
+/* Growth program: two doors under one title. The startup door is a paper
+   document; the partner door is a teal field whose slanted start edge is the
+   seam between them, and the hand's arm rises out of it. Stacked below 1024 px:
+   copy, startup door, hand, partner panel. */
+.growth-top {
+  overflow-x: clip;
+}
+.growth-grid {
+  display: grid;
+  grid-template-areas: "copy" "startups" "art" "partners";
+  row-gap: 2rem;
+  padding-top: 2rem;
+}
+.growth-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+}
+.growth-title {
+  margin-top: 1.25rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.growth-tagline {
+  margin-top: 0.375rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--color-ink-700);
+  text-wrap: balance;
+}
+.growth-lede {
+  margin-top: 1.25rem;
+  max-width: 58ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+}
+/* The arm enters from the page's end edge and rises out of the partner panel. */
+.growth-art {
+  grid-area: art;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -2rem;
+  margin-inline-end: -16px;
+}
+.growth-photo {
+  position: relative;
+  width: min(100%, 26rem);
+}
+/* The disc's box in the photo, measured. In English the photo is mirrored so the
+   arm still enters from the end edge; the redrawn disc is not, so its arrow
+   always rises to the right. */
+.growth-disc {
+  position: absolute;
+  left: 54.15%;
+  top: 1.416%;
+  width: 35.986%;
+  height: 49.696%;
+  overflow: visible;
+}
+html[dir="ltr"] .growth-photo img {
+  transform: scaleX(-1);
+}
+html[dir="ltr"] .growth-disc {
+  left: auto;
+  right: 54.15%;
+}
+.growth-disc-face {
+  fill: var(--color-teal-500);
+}
+.growth-disc-base,
+.growth-disc-arrow {
+  stroke-dasharray: 1;
+}
+.growth-disc-base {
+  animation: disc-draw 0.4s var(--ease-out-quint) 0.2s both;
+}
+.growth-disc-bar {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: disc-bar 0.6s var(--ease-out-quint) 0.4s both;
+}
+.growth-disc-bar:nth-of-type(2) {
+  animation-delay: 0.5s;
+}
+.growth-disc-bar:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+.growth-disc-bar:nth-of-type(4) {
+  animation-delay: 0.7s;
+}
+.growth-disc-arrow {
+  animation: disc-draw 0.6s var(--ease-out-quint) 0.85s both;
+}
+@keyframes disc-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes disc-bar {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.growth-door-startups {
+  grid-area: startups;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--color-paper);
+}
+.growth-door-heading {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+/* Sits at the optical centre of whatever height the door is stretched to. */
+.growth-offer-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-block: auto;
+}
+/* The discount, ruled off with the accountant's double underline. */
+.growth-offer {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 4px double var(--color-teal-500);
+}
+.growth-figure {
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--color-teal-700);
+}
+.growth-offer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+.growth-offer-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.growth-offer-duration {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--color-ink-700);
+}
+.growth-door-partners {
+  grid-area: partners;
+  position: relative;
+  isolation: isolate;
+  margin-inline: -16px;
+  padding: 4.25rem 16px 3.5rem;
+  color: #fff;
+}
+.growth-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-teal-500);
+  /* High on the end side, where the arm rises. */
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .growth-field {
+  clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
+}
+.growth-partners-body {
+  margin-top: 0.625rem;
+  max-width: 46ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.growth-seals {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.75rem 2rem;
+}
+.growth-seals li {
+  display: flex;
+  justify-content: center;
+}
+/* A partner seal: the logo's own white disc, then a teal gap and a white hairline. */
+.growth-seal {
+  width: 100%;
+  max-width: 4.5rem;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 0 3px var(--color-teal-500),
+    0 0 0 4px rgb(255 255 255 / 0.75);
+}
+.growth-partners-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+.growth-partners-cta p {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.growth-partners-cta .btn:focus-visible {
+  outline-color: #fff;
+}
+.growth-features-section {
+  border-bottom: 1px solid var(--color-paper-200);
+  background: var(--color-paper-100);
+}
+.growth-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.growth-features {
+  display: grid;
+  gap: 2.25rem 2rem;
+  margin-top: 2.5rem;
+}
+/* From 640 px the heading takes the grid's first cell and the seven features
+   fill the rest, so every row closes. */
+.growth-feature {
+  border-top: 1px solid var(--color-paper-300);
+  padding-top: 1.5rem;
+}
+.growth-feature-icon {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-tile);
+  background: var(--color-teal-100);
+  color: var(--color-teal-700);
+}
+.growth-feature h3 {
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.375;
+}
+.growth-feature p {
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.growth-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-block: 4rem 4.5rem;
+}
+.growth-close-line {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.growth-poster {
+  display: inline-block;
+  font-size: clamp(5.5rem, 13vw, 10.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.growth-close .btn:focus-visible {
+  outline-color: #fff;
+}
+@media (min-width: 640px) {
+  .growth-title {
+    font-size: 4rem;
+  }
+  .growth-tagline {
+    font-size: 1.875rem;
+  }
+  .growth-lede {
+    font-size: 1.1875rem;
+  }
+  .growth-door-startups {
+    padding: 2.25rem 2.5rem;
+  }
+  .growth-figure {
+    font-size: 7rem;
+  }
+  .growth-seals {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .growth-heading {
+    font-size: 2.25rem;
+  }
+  .growth-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+  .growth-heading {
+    grid-area: 1 / 1;
+    border-top: 1px solid var(--color-paper-300);
+    padding-top: 1.5rem;
+  }
+  .growth-features {
+    grid-area: 1 / 1 / auto / -1;
+    grid-template-columns: subgrid;
+    column-gap: normal;
+    margin-top: 0;
+  }
+  .growth-feature:first-child {
+    grid-column-start: 2;
+  }
+  .growth-close-line {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .growth-grid {
+    --bleed: max(16px, calc((100vw - 1280px) / 2 + 16px));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas:
+      "copy copy copy copy copy copy copy art art art art art"
+      "startups startups startups startups startups partners partners partners partners partners partners partners";
+    column-gap: 2rem;
+    row-gap: 0;
+    padding-top: 3rem;
+  }
+  .growth-copy {
+    padding-bottom: 2.5rem;
+  }
+  .growth-title {
+    font-size: 5rem;
+  }
+  .growth-tagline {
+    font-size: 2.25rem;
+  }
+  .growth-art {
+    align-self: end;
+    margin-bottom: 0;
+    /* Out to the viewport edge on common laptop and desktop widths. */
+    margin-inline-end: calc(-1 * min(var(--bleed), 8rem));
+  }
+  .growth-photo {
+    width: min(100%, 34rem);
+  }
+  .growth-door-startups {
+    margin-bottom: 3.5rem;
+    padding-inline: 2rem;
+  }
+  .growth-door-heading {
+    font-size: 1.5rem;
+  }
+  .growth-figure {
+    font-size: 8rem;
+  }
+  .growth-offer-label {
+    font-size: 1.875rem;
+  }
+  .growth-offer-duration {
+    font-size: 1.25rem;
+  }
+  .growth-door-partners {
+    margin-inline: 0;
+    padding: 2.25rem 0 3.5rem;
+    padding-inline-start: 5rem;
+  }
+  /* Large enough that every partner's name or mark reads. */
+  .growth-seal {
+    max-width: 5.5rem;
+  }
+  /* Bleeds to the viewport's end edge; the start edge is the slanted seam. */
+  .growth-field {
+    inset-inline-end: calc(-1 * var(--bleed));
+    clip-path: polygon(3.5rem 0, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .growth-field {
+    clip-path: polygon(0 0, calc(100% - 3.5rem) 0, 100% 100%, 0 100%);
+  }
+  /* A heading in one grid cell: two lines from 1024 px up, never three. */
+  .growth-heading {
+    font-size: clamp(1.625rem, 2.2vw, 2rem);
+  }
+  .growth-features-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2.5rem;
+  }
+  .growth-close {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-block: 5rem 5.5rem;
+  }
+  .growth-close-line {
+    font-size: 2.5rem;
+  }
+}
+
 /* Terms and conditions: a long legal document set for reading. Below 1024 px
    the page is a single flow so the contents bar can stay stuck under the
    header for the whole document (a sticky grid item cannot leave its row). */

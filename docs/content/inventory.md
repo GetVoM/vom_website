@@ -22,9 +22,9 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 
 | Action | Count | Meaning |
 |---|---|---|
-| keep | 384 | Same path, same content, migrated one to one |
+| keep | 383 | Same path, same content, migrated one to one |
 | keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
-| redirect | 13 | Duplicates and renamed pages, 301 to the listed target |
+| redirect | 14 | Duplicates and renamed pages, 301 to the listed target |
 | retire | 11 | Test, campaign and already-dead pages, 410 |
 
 Notable rows:
@@ -36,6 +36,7 @@ Notable rows:
 - `/about-us-2/` → `/about-us/`: 301 (owner, 2026-11-02).
 - `/en/student-package-2/` and other English pages carry WordPress "-2" suffixes. They are kept at launch; renaming them is an optional post-launch 301.
 - `/terms-and-conditions-ar/` → `/terms-and-conditions/`: 301 (owner, 2026-11-09).
+- `/en/growth-plan-en/` → `/en/growth-plan/`: 301, matching what the live site already does (2026-11-10).
 - 17 URLs lack a meta description (mostly category archives); they get one before launch.
 
 ## Migration mechanics

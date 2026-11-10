@@ -206,6 +206,36 @@ export interface Dictionary {
     images: Record<"owner" | "growth" | "laptop" | "reports" | "balance" | "boardroom" | "meeting", string>;
     seo: { title: string; description: string };
   };
+  growth: {
+    crumb: string;
+    heading: string;
+    /** Phrases of the tagline; a line never breaks inside one. */
+    tagline: string[];
+    lede: string;
+    /** Hidden text after a link that opens the program's Google Form in a new tab. */
+    newTab: string;
+    startups: {
+      heading: string;
+      /** The discount, set as a figure. */
+      figure: string;
+      figureLabel: string;
+      duration: string;
+      apply: string;
+      included: string;
+    };
+    partners: {
+      heading: string;
+      body: string;
+      question: string;
+      apply: string;
+      items: GrowthPartner[];
+    };
+    features: { heading: string; items: GrowthFeature[] };
+    /** The closing line, split around the figure: before, figure, after. */
+    close: { before: string; figure: string; after: string; apply: string };
+    images: { hand: string };
+    seo: { title: string; description: string };
+  };
   terms: {
     heading: string;
     /** `{n}` is the number of numbered sections. */
@@ -241,6 +271,20 @@ export interface AboutItem {
   icon: AboutIcon;
   title: string;
   body: string;
+}
+
+export type GrowthIcon = "receipt" | "book" | "wallet" | "users" | "box" | "history" | "chart";
+
+export interface GrowthFeature {
+  icon: GrowthIcon;
+  title: string;
+  body: string;
+}
+
+export interface GrowthPartner {
+  name: string;
+  /** Path under /growth/partners/. */
+  logo: string;
 }
 
 export interface AboutCharter {

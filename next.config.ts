@@ -84,6 +84,17 @@ const nextConfig: NextConfig = {
         destination: "/terms-and-conditions/",
         statusCode: 301,
       },
+      {
+        source: "/growth-program-old",
+        destination: "/growth-plan/",
+        statusCode: 301,
+      },
+      // The live site already sends this English slug to /en/growth-plan/.
+      {
+        source: "/en/growth-plan-en",
+        destination: "/en/growth-plan/",
+        statusCode: 301,
+      },
     ];
   },
   async headers() {

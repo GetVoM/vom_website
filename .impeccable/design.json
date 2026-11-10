@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-09T15:33:56+00:00",
+  "generatedAt": "2026-11-10T00:00:00+00:00",
   "title": "Design System: VoM website (getvom.com)",
   "extensions": {
     "colorMeta": {
@@ -372,6 +372,10 @@
       "micro-label": {
         "displayName": "Bilingual micro-label",
         "purpose": "0.625rem uppercase 0.08em English line inside paper document objects only; never above a heading."
+      },
+      "figure-offer": {
+        "displayName": "Offer Figure",
+        "purpose": "A single offer figure in teal-700 inside a paper door, ruled off with the double teal underline; white at poster scale on the growth closing band."
       }
     },
     "shadows": [
@@ -404,6 +408,11 @@
         "name": "double-hairline",
         "value": "inset 0 0 0 4px #ffffff, inset 0 0 0 5px #bfeae2",
         "purpose": "The document frame's inner hairline, with a 1px teal-200 border."
+      },
+      {
+        "name": "seal-ring",
+        "value": "0 0 0 3px var(--color-teal-500), 0 0 0 4px rgb(255 255 255 / 0.75)",
+        "purpose": "Not elevation: the teal gap and white hairline around a partner seal on teal."
       }
     ],
     "motion": [
@@ -441,6 +450,16 @@
         "name": "reduced-motion",
         "value": "animation and transition durations 0.001ms",
         "purpose": "Global prefers-reduced-motion fallback; resting styles are the finished state."
+      },
+      {
+        "name": "disc-draw",
+        "value": "stroke-dashoffset 1 to 0 on pathLength 1; baseline 0.4s from 0.2s, arrow 0.6s from 0.85s, ease-out-quint",
+        "purpose": "Growth disc baseline and arrow drawing once on load."
+      },
+      {
+        "name": "disc-bar",
+        "value": "scaleY 0 to 1 from the bar's base (transform-box fill-box), 0.6s ease-out-quint, staggered 0.1s from 0.4s",
+        "purpose": "Growth disc bars rising once on load."
       }
     ],
     "breakpoints": [
@@ -528,6 +547,14 @@
       "css": ".ds-field{padding:48px 24px;color:#fff;background-color:var(--color-teal-500,#17baa3);background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.14' stroke-width='.55'%3E%3Cellipse cx='48' cy='48' rx='44' ry='13'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(36 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(72 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(108 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(144 48 48)'/%3E%3Ccircle cx='48' cy='48' r='46'/%3E%3C/g%3E%3C/svg%3E\");clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);font-family: var(--font-effra), 'Segoe UI', 'SF Arabic', 'Geeza Pro', system-ui, sans-serif;}.ds-field h2{margin:0 0 12px;font-size:1.875rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;}.ds-field p{margin:0;font-size:1.0625rem;line-height:1.7;}"
     },
     {
+      "name": "Partner Seal",
+      "kind": "custom",
+      "refersTo": "partner-seal",
+      "description": "A partner's logo on its own white disc with a teal gap and a white hairline ring, in a grid on a teal guilloche field.",
+      "html": "<ul class=\"ds-seals\"><li><span class=\"ds-seal\">500</span></li><li><span class=\"ds-seal\">SAND</span></li><li><span class=\"ds-seal\">G</span></li><li><span class=\"ds-seal\">FB</span></li></ul>",
+      "css": ".ds-seals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:0;padding:1.5rem;list-style:none;background:var(--color-teal-500);}.ds-seals li{display:flex;justify-content:center;}.ds-seal{display:flex;align-items:center;justify-content:center;width:100%;max-width:4.5rem;aspect-ratio:1;border-radius:50%;background:#fff;color:#020202;font:700 0.875rem var(--font-effra),'Segoe UI',system-ui,sans-serif;box-shadow:0 0 0 3px var(--color-teal-500),0 0 0 4px rgb(255 255 255 / 0.75);}"
+    },
+    {
       "name": "Contents Rail",
       "kind": "nav",
       "refersTo": "contents-rail",
@@ -546,7 +573,7 @@
   ],
   "narrative": {
     "northStar": "The Official Record",
-    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
     "keyCharacteristics": [
       "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
       "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
@@ -594,6 +621,8 @@
       "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
       "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
       "**Do** label demonstration data in every mock-up.",
+      "**Do** switch the focus outline to white on any teal ground.",
+      "**Do** set partner and third-party logos on a white seal disc on teal, never directly on the field.",
       "**Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents."
     ],
     "donts": [

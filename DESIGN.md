@@ -89,6 +89,13 @@ typography:
     fontWeight: 700
     lineHeight: 1
     fontFeature: "tnum"
+  figure-offer:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "5.5rem (sm 7rem, lg 8rem)"
+    fontWeight: 700
+    lineHeight: 0.8
+    letterSpacing: "-0.02em"
+    fontFeature: "tnum"
 rounded:
   pill: "999px"
   card: "1.25rem"
@@ -155,6 +162,10 @@ components:
     height: "64px"
   link-tile-hover:
     backgroundColor: "{colors.teal-50}"
+  partner-seal:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    size: "4.5rem (lg 5.5rem)"
   icon-tile:
     backgroundColor: "{colors.teal-100}"
     textColor: "{colors.teal-700}"
@@ -177,7 +188,7 @@ components:
 
 Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.
 
-The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
+The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
 
 The reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.
 
@@ -234,16 +245,17 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 
 ### Hierarchy
 - **Display** (700, 3rem / 4rem / 5rem, 1.1): page H1 on contact and about, set over the field or the figures.
-- **Display, two-tier** (300 then 700, 2.5rem / 3.25rem / 3.75rem, 1.15): the homepage H1, a light tier in Slate over a bold tier in Ink.
+- **Display, two-tier** (300 then 700, 2.5rem / 3.25rem / 3.75rem, 1.15): the homepage H1, a light tier in Slate over a bold tier in Ink. The growth program sets the light tier on its own line under a Display H1 (300, 1.5rem / 1.875rem / 2.25rem, 1.3, Slate, balanced, breaking only between phrases).
 - **Display, reading** (700, 2.5rem, 3.5rem from 1024px, 1.15): the H1 of long documents.
-- **Headline** (700, 1.875rem / 2.25rem / 2.5rem, 1.2 to 1.25): section H2s. About uses 2.75rem at lg (observed drift, see Layout).
-- **Title** (700, 1.375rem, 1.5rem from 1024px, 1.35): terms section titles and team names.
+- **Headline** (700, 1.875rem / 2.25rem / 2.5rem, 1.2 to 1.25): section H2s. About uses 2.75rem at lg and the growth features heading drops to `clamp(1.625rem, 2.2vw, 2rem)` at lg (observed drift, see Layout).
+- **Title** (700, 1.375rem, 1.5rem from 1024px, 1.3 to 1.35): terms section titles, team names and the headings of the two growth doors.
 - **Item title** (700, 1.125rem to 1.25rem, 1.375): list entries, values, cards.
 - **Body** (400, 1.0625rem, 1.6): the default. Marketing copy runs at 1.7 to 1.8 line height in Slate, capped at 44 to 62ch.
 - **Body, reading** (400, 1.0625rem, 1.125rem from 1024px, 1.75, Arabic 1.85): legal reading, in Reading Ink. The text column fills the page container beside the contents rail (owner, 2026-11-09), so lines run long at wide screens: about 125 characters in Arabic and 90 in English at 1440px.
 - **Label** (400 to 700, 0.875rem to 0.9375rem): nav, buttons, meta, footer.
 - **Caption** (400, 0.75rem to 0.8125rem): dates, demonstration-data labels, mock-up rows.
 - **Figure** (700, 1): tabular numerals. 3 to 3.5rem in teal-700 on the homepage record; 4.5 to 5.5rem on about story rows; poster scale `clamp(8.75rem, 12.2vw, 11rem)` in white on the about band.
+- **Offer figure** (700, 5.5rem / 7rem / 8rem, 0.8, -0.02em, teal-700): a single offer figure inside a paper door, beside a bold label (1.5rem, 1.875rem from 1024px) over a Slate duration (1.125rem, 1.25rem from 1024px), the group ruled off with the double teal underline. On the growth closing band the same figure runs white at `clamp(5.5rem, 13vw, 10.5rem)`, 0.9, inside a closing line set at 1.75rem / 2.25rem / 2.5rem.
 
 ### Named Rules
 **The Effra Only Rule.** One family, loaded through `next/font/local`, weights 300, 400, 500 and 700. No second face, no third-party font link.
@@ -258,6 +270,10 @@ Section rhythm: 4rem / 6rem (about), 5rem / 7rem (teal bands), 6rem / 8rem (home
 
 Responsive: 640px (type steps up), 1024px (columns, desktop header nav, terms rail), 1180px (about figures side by side). Below 1024px the slanted teal field becomes a full-width teal panel under the copy, with a slanted top edge, and the paper object sits on it.
 
+Two doors (growth program, from 1024px): under the 7/5 copy-and-photo row, a paper doc-frame door takes the start 5/12 and a teal guilloche field the end 7/12. The field's slanted start edge (a 3.5rem slant at the top) is the seam between the doors, and the field bleeds to the viewport's end edge through `--bleed: max(16px, calc((100vw - 1280px) / 2 + 16px))`; its content stays in the container with a 5rem start pad. A cut-out photograph sits on paper at the end of the copy row, bottom-aligned so the arm appears to rise out of the field, and reaches past the container by at most 8rem. Below 1024px the order is copy, paper door, photo, field; the field becomes a full-width panel with a 2.25rem slanted top edge, high on the end side where the arm rises, and the photo overlaps it by 2rem.
+
+Grid with a heading cell (growth features): from 640px the section heading takes the first cell of the grid and the items fill the rest through `subgrid`, so the heading and the items share one row line and the last row closes (two columns at 640px, four at 1024px with a 2.5rem gap). The heading carries the same 1px paper-300 top rule and 1.5rem pad as each item.
+
 The reading register is a single column of text that fills the page container. From 1024px the header row (breadcrumb, title, meta) spans the full container width and is ruled off by a paper-200 hairline; below it a 15rem contents rail sits on the start side, sticky 6rem from the top, separated by a 4.5rem gap from the text column, which takes the rest of the width. Below 1024px the contents become a bar stuck under the 64px header. Clause numbers hang in a 2.75rem gutter.
 
 ### Observed drift (recorded, not repaired)
@@ -270,6 +286,11 @@ The reading register is a single column of text that fills the page container. F
 - Small icon tiles and calculator inputs use a 0.75rem radius (`rounded-xl`) where list icon tiles use the 1rem tile radius.
 - `--measure: 62ch` is defined on `:root` but unused; about writes 62ch literally; terms sets no measure.
 - Marketing body text is Slate (`ink-700`); the reading register uses Reading Ink (86% ink). This is a deliberate register difference, recorded so it is not mistaken for drift.
+- Growth: the in-grid features heading is `clamp(1.625rem, 2.2vw, 2rem)` at lg, below the 2.5rem headline step, so it fits two lines in one grid cell; the closing line starts at 1.75rem where the headline ramp starts at 1.875rem.
+- Growth: the closing teal band pads 4rem / 4.5rem and 5rem / 5.5rem, not the 5rem / 7rem of other teal bands.
+- Growth: the partner field reuses the CSS guilloche tile, so it draws at 0.14 opacity where the hero and contact fields draw at 0.11.
+- Icon tiles exist twice: about draws them as CSS masks on pseudo-elements; growth renders the shared `Icon` component inside a 48px tile. Same look, two implementations.
+- The inverse button on the homepage ZATCA band keeps the default teal focus outline on a teal ground, where it is invisible; growth overrides it to white on both its teal surfaces.
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -283,14 +304,16 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 - **Hover lift** (`box-shadow: 0 24px 40px -28px rgba(5,42,37,0.4)` with translateY(-4px)): report cards.
 - **Pressed edge** (`box-shadow: inset 0 -2px 0 rgba(0,0,0,0.12)`): the primary button's base.
 
+- **Seal ring** (`box-shadow: 0 0 0 3px teal, 0 0 0 4px rgb(255 255 255 / 0.75)`): not elevation; a box-shadow used to draw the teal gap and white hairline around a partner seal on teal.
+
 ### Named Rules
 **The Teal Shadow Rule.** Shadows are tinted with Shadow Teal, never neutral grey, and belong to paper documents, overlays and hover states. Sections, tiles and frames at rest stay flat.
 
 ## Shapes
 
-Corners are generous and consistent: pills for actions and inputs, 1.25rem for framed sheets and photographs, 1rem for tiles, 0.75rem for paper sheets and highlighted clauses. Fields are not rounded; they are cut with a slanted edge by `clip-path` (an 8% slant on the hero field, a 36 to 40px rise on panels and the figures band), mirrored in RTL.
+Corners are generous and consistent: pills for actions and inputs, 1.25rem for framed sheets and photographs, 1rem for tiles, 0.75rem for paper sheets and highlighted clauses. Fields are not rounded; they are cut with a slanted edge by `clip-path` (an 8% slant on the hero field, a 3.5rem slant on the growth doors' seam, a 36 to 40px rise on panels and the figures band), mirrored in RTL.
 
-Lines carry authority. The document frame is a 1px teal-200 border with a second hairline 4px inside it (`inset 0 0 0 4px paper, inset 0 0 0 5px teal-200`). Seals and postmarks are circles with a 3 to 5px double border, rotated -8 to -10 degrees. Totals are ruled off with a 4px double teal underline. Elsewhere, divisions are single hairlines in paper-200 or paper-300.
+Lines carry authority. The document frame is a 1px teal-200 border with a second hairline 4px inside it (`inset 0 0 0 4px paper, inset 0 0 0 5px teal-200`). Seals and postmarks are circles with a 3 to 5px double border, rotated -8 to -10 degrees. Totals, and the offer figure in a paper door, are ruled off with a 4px double teal underline. Elsewhere, divisions are single hairlines in paper-200 or paper-300.
 
 ## Components
 
@@ -301,7 +324,8 @@ Small, precise and pill-shaped, in Effra bold at 0.9375rem, often with a 16px ar
 - **Secondary:** transparent with an 80% ink border; hover full ink border and Cool Paper.
 - **Ghost:** text with a 2px teal underline at 6px offset; hover the underline turns ink. Pairs with the primary.
 - **Inverse:** white with Deep Teal text, for teal bands; hover `teal-50`.
-- **Focus / Active:** 2px teal outline at 3px offset; active nudges 1px down.
+- **Focus / Active:** 2px teal outline at 3px offset; active nudges 1px down. On a teal ground the outline is white.
+- **New tab:** a link button that opens in a new tab (the growth application forms) sets `target="_blank"` and appends a visually hidden " (opens in a new tab)" after its label.
 
 ### Inputs / Fields
 - **Style:** pill input, 48px, paper-300 border on paper, 20px padding.
@@ -310,7 +334,7 @@ Small, precise and pill-shaped, in Effra bold at 0.9375rem, often with a 16px ar
 ### Cards / Containers
 - **Document frame:** Paper, 1.25rem corners, double hairline, 28 to 40px padding, internal dividers in teal-200. Used for the homepage record, certificates and about's vision and mission sheets.
 - **Tiles:** Paper with a paper-200 or paper-300 border at 1rem corners; link tiles hover to a teal border on `teal-50`.
-- **Icon tile:** a 48px `teal-100` square at 1rem corners holding a 26px line icon in teal-700 (1.75 stroke).
+- **Icon tile:** a 48px `teal-100` square at 1rem corners holding a 26px line icon in teal-700 (1.75 stroke), drawn from the shared `Icon` set.
 
 ### Navigation
 - **Header:** sticky, 64px, paper at 85% with backdrop blur and a paper-200 bottom rule. Logo at the start, links at 0.9375rem in 90% ink turning teal-700 on hover, then locale switch, login and a small orange start pill. Below 1024px a round menu button opens a paper panel of ruled links.
@@ -319,6 +343,12 @@ Small, precise and pill-shaped, in Effra bold at 0.9375rem, often with a 16px ar
 
 ### Seal and Postmark
 Double-ring circles that certify: teal on paper (96px certificate seal, 68px envelope seal, 76px postmark), white on teal (220px closing seal). Slightly rotated, set in bold Effra with tabular numerals.
+
+### Partner Seal
+A third-party logo on its own white disc, ringed by a 3px teal gap and a white hairline at 75%, in a grid on a teal field: 4.5rem (5.5rem from 1024px), six across from 640px (6×2) and four across below (4×3). The disc carries the partner's own colours, so other marks never sit directly on teal.
+
+### Growth Disc
+An SVG redraw laid over the teal disc in a photograph, placed by percentage so it holds its position at every width: a white baseline, four bars and a rising arrow. It draws once on load in CSS only: the baseline's stroke (0.4s from 0.2s), the bars rising by scaleY from their base (0.6s each, staggered 0.1s from 0.4s), then the arrow (0.6s from 0.85s), all on ease-out-quint; the global reduced-motion rule leaves it finished. In LTR the photograph is mirrored so the arm still enters from the end edge; the disc is not, so the growth arrow always rises to the right.
 
 ### Contents Rail (reading register)
 A 15rem list on a paper-200 hairline track. Entries are 0.875rem Slate with Graphite numerals; the current entry turns ink at weight 500 with a teal-700 numeral, and a 2px teal-600 thumb slides along the track (0.45s ease-out-quint). Below 1024px it collapses into a bar naming the current section with a button that opens the list as a panel.
@@ -335,6 +365,8 @@ A two-column grid: a self-linking clause number in a 2.75rem gutter (0.875rem Gr
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.
 - **Do** label demonstration data in every mock-up.
+- **Do** switch the focus outline to white on any teal ground.
+- **Do** set partner and third-party logos on a white seal disc on teal, never directly on the field.
 - **Do** use the reading register (no field, no guilloche, no buttons, teal only as a marker) for long documents.
 
 ### Don't:

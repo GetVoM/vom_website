@@ -10,6 +10,11 @@ export const site = {
   },
   login: "https://app.getvom.com",
   demo: "https://calendly.com/get-vom/vom-demo",
+  /** The growth program's application forms (Google Forms), for startups and for partners. */
+  growthForms: {
+    apply: "https://docs.google.com/forms/d/e/1FAIpQLScb6FWY925nc438AnhClM6pILJtPe07HxgbxtCpFeblPhqVfw/viewform",
+    partner: "https://docs.google.com/forms/d/e/1FAIpQLSdY8Pu1FyqTVVMUMgoU9I3gpiwI1G7TWHZgTtRIS_j9P2_UuQ/viewform",
+  },
   appStore: "https://apps.apple.com/us/app/vom/id1561019943",
   // TODO: replace with the real Google Play listing URL from the team.
   googlePlay: "https://play.google.com/store/search?q=vom%20accounting&c=apps",

@@ -306,7 +306,7 @@ page,https://getvom.com/en/blog-en/,/en/blog-en/,200,redirect,/en/blog/,English 
 page,https://getvom.com/thank-you/,/thank-you/,200,keep-noindex,,Form thank-you page,Thank You! - Vom
 page,https://getvom.com/en/pricing-Packages/,/en/pricing-Packages/,404,retire,,"Already 404; remove from sitemap, return 410",
 page,https://getvom.com/pricing-ar/,/pricing-ar/,200,redirect,/pricing/,Duplicate of pricing,الباقات - Vom
-page,https://getvom.com/en/growth-plan-en/,/en/growth-plan-en/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/growth-plan-en/,/en/growth-plan-en/,200,redirect,/en/growth-plan/,Live site already 301s here; English page lives at /en/growth-plan/ (2026-11-10),مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-timeline/,/en/vom-timeline/,200,keep,,"Timeline page; low traffic, consider merging into about",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/news-archive-en/,/en/news-archive-en/,200,redirect,/en/news/,Duplicate news archive,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/vom-pay-success/,/vom-pay-success/,200,keep-noindex,,Payment result page,فوم باي - تمت العملية بنجاح - Vom
