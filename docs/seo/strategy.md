@@ -35,7 +35,7 @@ Arabic, Saudi Arabia, unless marked. Volumes to be filled from Search Console an
 | Cluster | Example queries | Owning page type |
 |---|---|---|
 | Accounting software, head terms | برنامج محاسبة، برنامج محاسبة سحابي، برنامج محاسبي، أفضل برنامج محاسبة في السعودية، برنامج محاسبة معتمد من هيئة الزكاة، أسعار برامج المحاسبة، برنامج حسابات | Home, `/برنامج-محاسبة/` pillar, pricing, features |
-| E-invoicing | الفاتورة الإلكترونية، الفوترة الإلكترونية المرحلة الثانية، برنامج فاتورة إلكترونية، ربط الفاتورة الإلكترونية مع هيئة الزكاة، غرامة الفاتورة الإلكترونية، فاتورة ضريبية مبسطة | `/الفوترة-الإلكترونية/` pillar and its 14 guides, e-invoicing feature page |
+| E-invoicing | الفاتورة الإلكترونية، الفوترة الإلكترونية المرحلة الثانية، برنامج فاتورة إلكترونية، ربط الفاتورة الإلكترونية مع هيئة الزكاة، غرامة الفاتورة الإلكترونية، فاتورة ضريبية مبسطة | `/الفوترة-الإلكترونية/` pillar and its 12 guides, e-invoicing feature page |
 | Verticals | برنامج محاسبة للمطاعم، برنامج محاسبة لصالونات التجميل، برنامج محاسبة لمكاتب المحاماة، محاسبة المقاولات، برنامج محاسبة للمتاجر الإلكترونية، برنامج محاسبة زد | 15 sector pages, integration pages, industry posts |
 | Zakat and tax | حساب الزكاة، حاسبة الزكاة، الإقرار الضريبي، ضريبة القيمة المضافة، حاسبة الضريبة، ضريبة الاستقطاع، غرامات التأخير | Tools (calculators), tax-zakat category posts |
 | Learn accounting | القيود المحاسبية، دفتر الأستاذ، ميزان المراجعة، القيد المزدوج، الفرق بين دائن ومدين، قائمة الدخل، الميزانية العمومية | Accounting and finance category posts, glossary |

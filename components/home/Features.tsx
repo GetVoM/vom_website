@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
+import { featuresPaths } from "@/lib/i18n/routes";
 import { Icon } from "@/components/ui/Icon";
 
 type IconName = Parameters<typeof Icon>[0]["name"];
@@ -125,7 +126,7 @@ function Glimpse({ index, t }: { index: number; t: Dictionary }) {
 }
 
 export function Features({ locale, t }: { locale: Locale; t: Dictionary }) {
-  const featuresHref = localePath(locale, locale === "ar" ? "/features/" : "/features-en/");
+  const featuresHref = localePath(locale, featuresPaths[locale]);
   return (
     <section id="feature-highlights" className="border-t border-paper-200">
       <div className="mx-auto max-w-[1280px] px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-24 lg:py-32">

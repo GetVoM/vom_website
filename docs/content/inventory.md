@@ -11,7 +11,7 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 | Type | Count | Where | Notes |
 |---|---|---|---|
 | Blog posts | 230 | `/<category>/<arabic-slug>/`, a few at root | Arabic only. Average about 1,400 words of body. Article schema with author and reviewer. Content HTML carries pasted-editor artefacts (`data-start`, `data-end`). |
-| Pages | 93 live (95 in WP) | Arabic at root, English under `/en/` | Includes 15 sector pages per language, 4 integration pages per language, an e-invoicing pillar with 14 child guides, pricing, features, about, contact, student package, growth plan, glossary, terms. About 20 are test, duplicate or campaign pages. |
+| Pages | 93 live (95 in WP) | Arabic at root, English under `/en/` | Includes 15 sector pages per language, 4 integration pages per language, an e-invoicing pillar with 12 child guides (the 13 saved pages; "14" counted the English ZATCA page), pricing, features (built 2026-11-10 at `/features/` and `/en/features/`; its copy and screenshots live in `lib/content/features/` and `public/features/`), about, contact, student package, growth plan, glossary, terms. About 20 are test, duplicate or campaign pages. |
 | Templates | 45 | `/templates/<slug>/` | Downloadable Excel, Word and PDF forms with explanatory articles; direct download. |
 | Tools | 7 | `/tools/<slug>/` | Calculators: company zakat, zakat, zakat base, VAT, salary, discount, profit margin. |
 | News | 5 | `/news/<slug>/` | Partnership announcements. |
@@ -60,6 +60,7 @@ Notable rows:
 - Rewrite English marketing copy natively.
 - Write author bios with credentials for the reviewing accountant and main writer.
 - Confirm plan prices and feature limits on the pricing page with the team.
+- E-invoicing (built 2026-11-10): the hub `/الفوترة-الإلكترونية/` and its 12 guides are rebuilt from the saved HTML into `content/e-invoicing/*.mdx` by `scripts/import-einvoicing.mjs`; every slug kept byte for byte (including the cut-short `…هيئة-الزك/`), no redirects. The hub's PDF keeps its old path under `public/wp-content/uploads/2025/08/`. Body links to blog posts not yet rebuilt 404 on the new site until those posts are built.
 
 ## Quality work after launch
 

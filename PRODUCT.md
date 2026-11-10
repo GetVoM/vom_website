@@ -20,7 +20,7 @@ Language: Arabic first. English is a full mirror of the marketing pages; the blo
 
 ## Product Purpose
 
-VoM (ڤوم / ﭬوم / فوم) is a cloud accounting program for Saudi SMEs: ZATCA-approved e-invoicing with QR codes, sales and purchases, expenses, inventory with reorder thresholds, fixed assets with depreciation, cost centres, a basic HR and payroll module, around fourteen financial reports, an iOS app, a public API, and an integrations marketplace. Plans (confirmed by the owner on 2026-11-10; prices before 15% VAT): Flex, pay as you go, from 29 SAR/month for the first user, then 35 SAR per extra user, 0.10 SAR per transaction (sales invoices are priced separately and must never be shown as 0.10), 0.25 SAR per report export, monthly modules (ZATCA integration 10, each cost centre 10, assets 7, integrations 20), charged automatically when usage reaches 250 SAR, every Unlimited feature; Advanced at 270 SAR/month (5 users, 50 of each document, 1 invoice template, no assets or app integrations); Unlimited at 350 SAR/month, the most popular; Business by contacting sales (adds the API and dedicated support). Annual billing gives two months free (2,700 / 3,500 SAR a year). Free trial without a credit card. The data lives in `lib/content/pricing/plans.ts`; reconfirm before launch.
+VoM (ڤوم / ﭬوم / فوم) is a cloud accounting program for Saudi SMEs: ZATCA-approved e-invoicing with QR codes, sales and purchases, expenses, inventory with reorder thresholds, fixed assets with depreciation, cost centres, a basic HR and payroll module, fourteen financial reports, iOS and Android apps (the owner confirmed the Android app; its Google Play link is still to come), a public API, and an integrations marketplace. Plans (confirmed by the owner on 2026-11-10; prices before 15% VAT): Flex, pay as you go, from 29 SAR/month for the first user, then 35 SAR per extra user, 0.10 SAR per transaction (sales invoices are priced separately and must never be shown as 0.10), 0.25 SAR per report export, monthly modules (ZATCA integration 10, each cost centre 10, assets 7, integrations 20), charged automatically when usage reaches 250 SAR, every Unlimited feature; Advanced at 270 SAR/month (5 users, 50 of each document, 1 invoice template, no assets or app integrations); Unlimited at 350 SAR/month, the most popular; Business by contacting sales (adds the API and dedicated support). Annual billing gives two months free (2,700 / 3,500 SAR a year). Free trial without a credit card, for 7 days (the e-invoicing guides' trial card says so; confirmed by the owner on 2026-11-10). The data lives in `lib/content/pricing/plans.ts`; reconfirm before launch.
 
 The website's job is to win Arabic organic search for accounting, e-invoicing, zakat and tax queries in Saudi Arabia, and to convert that traffic into free-trial sign-ups at app.getvom.com or demo bookings. Success is measured by trial sign-ups and demo bookings from organic traffic, rankings preserved or improved through the migration, and passing Core Web Vitals.
 
@@ -33,7 +33,7 @@ The website's job is to win Arabic organic search for accounting, e-invoicing, z
 - Sign-up and login happen on a separate app at app.getvom.com (Arabic and English registration pages). The website never handles accounts.
 - Demo booking runs through Calendly (calendly.com/get-vom/vom-demo). Support runs through a Zendesk help centre, a Crisp chat widget, and WhatsApp (+966 50 230 9337).
 - API documentation lives at app.getvom.com/en/docs/api.
-- Integrations: Foodics and Marn (restaurant POS), Zid (e-commerce), Prexle (POS). Partnership news items exist for Nuqta, Mola and "ليزي وايت".
+- Integrations: Foodics and Marn (restaurant POS), Zid (e-commerce), Prexle (POS). The old features page also listed ZenHR and Order; the owner confirmed on 2026-11-10 they are no longer integrations. Partnership news items exist for Nuqta, Mola and "ليزي وايت".
 - Payment links are sold as "VoM Pay"; success and failure landing pages exist.
 - Analytics today: Google Tag Manager container GTM-PS28X6L; TikTok pixel; PixelYourSite.
 - Current site: WordPress with Elementor, Rank Math, Polylang and WP Rocket. Content inventory and SEO baseline are in `docs/content/` and `docs/seo/`.
@@ -41,7 +41,7 @@ The website's job is to win Arabic organic search for accounting, e-invoicing, z
 ## Capabilities and Constraints
 
 - Arabic is served at the root (`/`), English under `/en`. Both must stay at those paths to preserve rankings and existing links.
-- Content to migrate: about 230 Arabic blog posts, 15 sector pages in each language, 45 downloadable templates, 7 interactive calculators, 5 news items, an e-invoicing hub with 14 guides, pricing, features, about, contact, terms, student package, growth plan, 4 integration pages, a glossary.
+- Content to migrate: about 230 Arabic blog posts, 15 sector pages in each language, 45 downloadable templates, 7 interactive calculators, 5 news items, an e-invoicing hub with 12 guides (13 pages, Arabic only; built 2026-11-10), pricing, features (built 2026-11-10), about, contact, terms, student package, growth plan, 4 integration pages, a glossary.
 - Content management: deferred by the user on 2026-10-25 ("we will integrate a CMS or build one a bit later, not the concern for now"). The site must read content through one swappable content layer so that storage can change later without touching pages.
 - Undecided: whether the growth plan and student package pages stay; whether the blog gets an English edition; which CMS, if any.
 
@@ -59,8 +59,10 @@ Binding, set by the user on 2026-10-25: keep the logo, the colours and the fonts
 - Claims on the site: 4,000+ users; ZATCA approval badge; customer logo walls on sector pages (image files only).
 - Testimonials exist on the homepage but every attribution is the placeholder "Client One". They must not be reused until real names and businesses are supplied.
 - Blog posts carry Article schema with a named author (most often Abass Sahrawi) and a "reviewed by" chartered accountant (Faisal Al-Mutairi). Other authors in WordPress: Abdulrahman Fani, Noura Alnafea, Islam, Maha, Miled Elias, Hamza Ait. Author bios are empty, and one is lorem ipsum.
+- The e-invoicing hub and its 12 guides show a byline (owner, 2026-11-10): written by Noura Alnafea (نورة النافع), reviewed by Faisal Al-Mutairi (فيصل المطيري), chartered accountant (محاسب قانوني); their WordPress publish and modified dates (2025-08-30 to 2025-09-05) are kept.
 - Team named on the about page: Michael Aswad (Co-Founder & CEO), Noura Alnafea (Co-Founder & COO), Yasmine Mokhtar (Head of Development). Titles confirmed by the owner on 2026-11-02.
-- Absent and not to be invented: high-resolution product screenshots, case studies, press coverage, ratings or awards, an official ZATCA listing reference.
+- Product screenshots: the old features page held 17 real VoM screens from October 2023 (up to about 2400 px wide), now in `public/features/` (2026-11-10); newer ones would be welcome if the app has changed.
+- Absent and not to be invented: case studies, press coverage, ratings or awards, an official ZATCA listing reference.
 
 ## Product Principles
 

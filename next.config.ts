@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 /**
  * Arabic lives at `/`, English at `/en`. Routes are built under `app/[lang]`, so
@@ -163,6 +164,18 @@ const nextConfig: NextConfig = {
         destination: "/pricing/",
         statusCode: 301,
       },
+      // Features: the live site already sends /en/features-en/ (and the unprefixed
+      // /features-en/, in two hops) to /en/features/.
+      {
+        source: "/en/features-en",
+        destination: "/en/features/",
+        statusCode: 301,
+      },
+      {
+        source: "/features-en",
+        destination: "/en/features/",
+        statusCode: 301,
+      },
       // An empty WordPress shell titled "Vom"; the owner sent it to the homepage.
       {
         source: "/get-free-version",
@@ -183,4 +196,15 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+/**
+ * Long-form content (the e-invoicing guides today, the blog later) is MDX under
+ * `content/`, read only through `lib/content/` (docs/architecture.md §4).
+ * Plugins are named as strings so Turbopack can load them.
+ */
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [["remark-gfm", {}]],
+  },
+});
+
+export default withMDX(nextConfig);

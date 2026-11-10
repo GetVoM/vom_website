@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { useActiveSection } from "@/components/ui/useActiveSection";
 
 export interface ContentsEntry {
   id: string;
@@ -14,11 +15,6 @@ interface TermsContentsProps {
   title: string;
 }
 
-/** How far below the viewport top a section must reach to count as the one being read. */
-function readingLine() {
-  return Math.min(window.innerHeight * 0.3, 220);
-}
-
 /**
  * The contents of a long legal document. From 1024 px it is a rail beside the
  * text that marks the section being read with a thumb on a hairline track;
@@ -26,43 +22,12 @@ function readingLine() {
  * opens the full list.
  */
 export function TermsContents({ entries, title }: TermsContentsProps) {
-  const [active, setActive] = useState<string | undefined>(entries[0]?.id);
+  const active = useActiveSection(useMemo(() => entries.map((entry) => entry.id), [entries]));
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLOListElement>(null);
   const thumbRef = useRef<HTMLSpanElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  // Scroll-spy: the current section is the last one whose top has passed the reading line.
-  useEffect(() => {
-    const targets = entries
-      .map((entry) => document.getElementById(entry.id))
-      .filter((el): el is HTMLElement => el !== null);
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const line = readingLine();
-      let current: string | undefined = targets[0]?.id;
-      for (const el of targets) {
-        if (el.getBoundingClientRect().top <= line) current = el.id;
-        else break;
-      }
-      const root = document.documentElement;
-      if (window.scrollY + window.innerHeight >= root.scrollHeight - 2) current = targets.at(-1)?.id;
-      setActive(current);
-    };
-    const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    schedule();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
-    };
-  }, [entries]);
 
   // The thumb follows the active entry; it is re-measured when the list reflows.
   useEffect(() => {

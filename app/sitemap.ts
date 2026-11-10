@@ -3,6 +3,7 @@ import { localePath } from "@/lib/i18n/config";
 import {
   aboutPaths,
   contactPaths,
+  featuresPaths,
   growthPaths,
   integrationPaths,
   pricingPaths,
@@ -12,6 +13,7 @@ import {
   type PagePair,
 } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
+import { guidePath, guides } from "@/lib/content/einvoicing/catalogue";
 
 interface SitemapPage {
   pair: PagePair;
@@ -68,6 +70,13 @@ const pages: SitemapPage[] = [
     changeFrequency: "monthly",
     priority: { ar: 0.8, en: 0.7 },
   },
+  // Features is a pillar the homepage, header and sector pages all link to.
+  {
+    pair: featuresPaths,
+    lastModified: "2026-11-10",
+    changeFrequency: "monthly",
+    priority: { ar: 0.7, en: 0.6 },
+  },
   ...Object.values(integrationPaths).map(
     (pair): SitemapPage => ({
       pair,
@@ -87,7 +96,29 @@ const pages: SitemapPage[] = [
   ),
 ];
 
+/**
+ * The e-invoicing hub and its guides are Arabic only, so they carry no English
+ * alternate. lastModified is the WordPress page's own modified date. The hub is
+ * the e-invoicing pillar, just under pricing.
+ */
+function einvoicingEntries(): MetadataRoute.Sitemap {
+  return guides.map((guide) => {
+    const url = encodeURI(`${site.url}${guidePath(guide.id)}`);
+    return {
+      url,
+      lastModified: new Date(guide.modified),
+      changeFrequency: "monthly" as const,
+      priority: guide.number === 0 ? 0.8 : 0.6,
+      alternates: { languages: { ar: url, "x-default": url } },
+    };
+  });
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  return [...pagePairEntries(), ...einvoicingEntries()];
+}
+
+function pagePairEntries(): MetadataRoute.Sitemap {
   return pages.flatMap(({ pair, lastModified, changeFrequency, priority }) => {
     // Arabic paths are percent-encoded, as the sitemap protocol asks.
     const ar = encodeURI(`${site.url}${localePath("ar", pair.ar)}`);

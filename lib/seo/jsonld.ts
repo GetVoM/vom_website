@@ -86,6 +86,57 @@ export function webPageJsonLd(locale: Locale, path: string, name: string, descri
   };
 }
 
+/**
+ * A guide (the e-invoicing hub and its guides; later the blog): a WebPage carrying
+ * the reviewer, whose main entity is the Article with its author and dates. Arabic
+ * only. `reviewedBy` belongs to WebPage in schema.org, hence the pair.
+ */
+export function guideJsonLd(guide: {
+  path: string;
+  headline: string;
+  name: string;
+  description: string;
+  image: string;
+  published: string;
+  modified: string;
+  author: string;
+  reviewer: { name: string; jobTitle: string };
+  partOf?: { path: string; headline: string };
+}): JsonLd {
+  const url = `${site.url}${localePath("ar", guide.path)}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: guide.name,
+    description: guide.description,
+    inLanguage: "ar",
+    isPartOf: { "@id": `${site.url}/#website` },
+    reviewedBy: { "@type": "Person", name: guide.reviewer.name, jobTitle: guide.reviewer.jobTitle },
+    mainEntity: {
+      "@type": "Article",
+      "@id": `${url}#article`,
+      headline: guide.headline,
+      description: guide.description,
+      image: `${site.url}${guide.image}`,
+      datePublished: guide.published,
+      dateModified: guide.modified,
+      inLanguage: "ar",
+      author: { "@type": "Person", name: guide.author },
+      publisher: { "@id": `${site.url}/#organization` },
+      mainEntityOfPage: { "@id": `${url}#webpage` },
+      ...(guide.partOf && {
+        isPartOf: {
+          "@type": "Article",
+          "@id": `${site.url}${localePath("ar", guide.partOf.path)}#article`,
+          headline: guide.partOf.headline,
+        },
+      }),
+    },
+  };
+}
+
 /** `path` values are locale-free; the visible breadcrumb must list the same items. */
 export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
   return {
@@ -118,7 +169,7 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
     "@type": "SoftwareApplication",
     name: site.name[locale],
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, iOS",
+    operatingSystem: "Web, iOS, Android",
     description,
     url: `${site.url}${localePath(locale, "/")}`,
     publisher: { "@id": `${site.url}/#organization` },

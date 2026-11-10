@@ -4737,30 +4737,36 @@ html[dir="rtl"] .prc-field {
     inset 0 0 0 8px var(--color-teal-700),
     0 16px 30px -18px rgb(5 42 37 / 0.45);
 }
-.prc-close-band {
+.prc-close-band,
+.ftr-close-band {
   clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
 }
-html[dir="rtl"] .prc-close-band {
+html[dir="rtl"] .prc-close-band,
+html[dir="rtl"] .ftr-close-band {
   clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
 }
-.prc-close {
+.prc-close,
+.ftr-close {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.75rem;
   padding-block: 6rem 4.5rem;
 }
-.prc-close .btn:focus-visible {
+.prc-close .btn:focus-visible,
+.ftr-close .btn:focus-visible {
   outline-color: #fff;
 }
-.prc-close-line {
+.prc-close-line,
+.ftr-close-line {
   max-width: 30ch;
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.3;
   text-wrap: balance;
 }
-.prc-close-actions {
+.prc-close-actions,
+.ftr-close-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
@@ -4844,13 +4850,15 @@ html[dir="rtl"] .prc-close-band {
   .prc-included > div:last-child {
     grid-column: span 2;
   }
-  .prc-close {
+  .prc-close,
+  .ftr-close {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
   }
-  .prc-close-line {
+  .prc-close-line,
+  .ftr-close-line {
     font-size: 2.25rem;
   }
   .prc-faq-heading::after {
@@ -4858,7 +4866,8 @@ html[dir="rtl"] .prc-close-band {
     height: 8rem;
     margin-top: 2.5rem;
   }
-  .prc-close-actions {
+  .prc-close-actions,
+  .ftr-close-actions {
     flex: none;
   }
 }
@@ -4883,6 +4892,1920 @@ html[dir="rtl"] .prc-close-band {
   }
   .prc-cta {
     align-self: end;
+  }
+}
+
+/* E-invoicing: the hub and its twelve guides as one card catalogue (Arabic only).
+   Every page pins its own index card beside its title; the hub opens its drawer
+   of twelve cards behind four topic dividers on the teal field; every page reads
+   beside the catalogue rail (the reading register, with the terms page's grid).
+   Body markup is plain MDX output, styled from `.ein-body`, because each word is
+   repeated in the RSC payload. */
+.ein-top {
+  overflow-x: clip;
+}
+.ein-head {
+  display: grid;
+  gap: 2rem;
+  padding-block: 2rem 2.5rem;
+}
+.ein-title {
+  margin-top: 1.25rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ein-lede {
+  margin-top: 1.25rem;
+  max-width: 68ch;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+/* Prose links only: buttons and cards in the text carry classes of their own. */
+.ein-lede a,
+.ein-body a:not([class]) {
+  color: var(--color-teal-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, var(--color-teal-700) 40%, transparent);
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.2s;
+}
+.ein-lede a:hover,
+.ein-body a:not([class]):hover {
+  text-decoration-color: currentColor;
+}
+
+/* The index card: a paper card with the house double hairline, its number and
+   drawer on the head over a double teal rule, then the catalogue entries on ruled
+   lines. */
+.ein-card {
+  position: relative;
+  display: block;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200);
+}
+.ein-card-num {
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-teal-700);
+}
+/* Kept apart from the drawer's grid-area rule: adjacent, the minifier folded the two together. */
+.ein-card-time {
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+}
+.ein-card-pinned {
+  align-self: start;
+  padding: 1.375rem 1.5rem 1.25rem;
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 28px 48px -36px rgb(5 42 37 / 0.45);
+  animation: ein-card-settle 0.8s var(--ease-out-quint) 0.1s both;
+}
+.ein-card-head {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.ein-card-head::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(var(--color-teal-500) 0 1px, transparent 1px 3px, var(--color-teal-500) 3px 4px);
+}
+.ein-card-pinned .ein-card-num {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+.ein-card-topic {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink-500);
+}
+.ein-card-lines > div {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+  padding-block: 0.625rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.ein-card-lines dt {
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+}
+.ein-card-lines dd {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+.ein-card-related {
+  padding-top: 0.875rem;
+}
+.ein-card-related > p {
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+}
+.ein-card-related a {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  gap: 0.375rem;
+  align-items: baseline;
+  padding-block: 0.375rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+  transition: color 0.2s;
+}
+.ein-card-related a .num {
+  font-size: 0.875rem;
+  color: var(--color-teal-700);
+}
+.ein-card-related a:hover {
+  color: var(--color-teal-700);
+}
+.ein-card-related a:focus-visible,
+.ein-card-drawer:focus-visible,
+.ein-card-next:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-sheet);
+}
+
+/* The hub's drawer: full bleed, cut by a slanted top edge, high on the end side. */
+.ein-field {
+  padding-block: 4.5rem 3.5rem;
+  background-color: var(--color-teal-500);
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .ein-field {
+  clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+}
+.ein-field-head {
+  max-width: 44rem;
+  color: #fff;
+}
+.ein-field-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.ein-field-lede {
+  margin-top: 0.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgb(255 255 255 / 0.92);
+}
+.ein-drawers {
+  display: grid;
+  gap: 2.5rem 1.25rem;
+  margin-top: 2.5rem;
+}
+/* A topic divider: a paper tab standing above a paper board, the cards filed under it. */
+.ein-drawer-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1rem 0.5rem;
+  border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+  background: var(--color-paper);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+.ein-drawer-count {
+  display: inline-grid;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-50);
+  font-size: 0.75rem;
+  color: var(--color-teal-800);
+}
+.ein-drawer-cards {
+  display: grid;
+  gap: 0.625rem;
+  padding: 0.625rem;
+  border-radius: 0 var(--radius-sheet) var(--radius-sheet) var(--radius-sheet);
+  background: rgb(255 255 255 / 0.16);
+  box-shadow: inset 0 3px 0 var(--color-paper);
+}
+html[dir="rtl"] .ein-drawer-cards {
+  border-radius: var(--radius-sheet) 0 var(--radius-sheet) var(--radius-sheet);
+}
+.ein-drawer-cards > li {
+  display: grid;
+  animation: ein-file 0.6s var(--ease-out-quint) both;
+  animation-delay: calc(0.15s + var(--n, 0) * 0.06s);
+}
+/* On phones a card is one compact row: number, title, reading time. */
+.ein-card-drawer {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  grid-template-areas: "num title time";
+  gap: 0.25rem 0.5rem;
+  align-items: baseline;
+  padding: 0.8125rem 1rem;
+  border-radius: var(--radius-sheet);
+  box-shadow:
+    inset 0 0 0 3px var(--color-paper),
+    inset 0 0 0 4px var(--color-teal-100),
+    0 12px 22px -16px rgb(5 42 37 / 0.6);
+  transition:
+    transform 0.3s var(--ease-out-quint),
+    box-shadow 0.3s ease;
+}
+.ein-card-drawer:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 3px var(--color-paper),
+    inset 0 0 0 4px var(--color-teal-200),
+    0 18px 28px -16px rgb(5 42 37 / 0.6);
+}
+.ein-card-drawer:focus-visible {
+  outline-color: #fff;
+}
+.ein-card-drawer .ein-card-num {
+  grid-area: num;
+  font-size: 1.25rem;
+}
+.ein-card-drawer .ein-card-title {
+  grid-area: title;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+.ein-card-drawer .ein-card-time {
+  grid-area: time;
+}
+
+/* The page: one flow below 1024 px, the catalogue bar first so it sits under the
+   header from the first paint and stays there for the whole page; from 1024 px a
+   grid puts the rail beside the text on the start side, under the full-bleed top. */
+.ein-page {
+  display: flow-root;
+}
+/* The hairline under a guide's title row runs the content width, as the header does. */
+.ein-head {
+  position: relative;
+}
+.ein-head:not([data-hub])::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: max(16px, env(safe-area-inset-left, 0px));
+  right: max(16px, env(safe-area-inset-right, 0px));
+  height: 1px;
+  background: var(--color-paper-200);
+}
+
+.ein-rail {
+  position: sticky;
+  top: 4rem;
+  z-index: 30;
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-paper-200);
+}
+/* Behind the open catalogue on phones: the page dims and stops scrolling. */
+.ein-rail-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 29;
+  background: rgb(2 2 2 / 0.25);
+  animation: ein-scrim 0.2s ease-out both;
+}
+@keyframes ein-scrim {
+  from {
+    opacity: 0;
+  }
+}
+.ein-rail-toggle {
+  display: flex;
+  width: 100%;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  font-size: 0.9375rem;
+  text-align: start;
+  cursor: pointer;
+}
+.ein-rail-toggle:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: -2px;
+}
+.ein-rail-current {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 0.625rem;
+  font-weight: 500;
+}
+.ein-rail-num {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-ink-500);
+}
+.ein-rail-current .ein-rail-num {
+  color: var(--color-teal-700);
+}
+.ein-rail-label {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-teal-700);
+}
+.ein-rail-chevron {
+  transform: rotate(90deg);
+  transition: transform 0.25s var(--ease-out-quint);
+}
+.ein-rail-toggle[aria-expanded="true"] .ein-rail-chevron {
+  transform: rotate(-90deg);
+}
+.ein-rail-panel {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  max-height: min(72dvh, 36rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: 0.5rem 1rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-paper-200);
+  box-shadow: 0 18px 32px -16px rgb(5 42 37 / 0.22);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-paper-300) transparent;
+}
+.ein-rail-panel[data-open] {
+  display: block;
+}
+.ein-rail-title {
+  display: none;
+}
+.ein-rail-card {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  gap: 0.375rem;
+  align-items: baseline;
+  padding-block: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-ink-700);
+  transition: color 0.2s;
+}
+.ein-rail-card:hover {
+  color: var(--color-ink);
+}
+.ein-rail-card[aria-current="page"] {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.ein-rail-card[aria-current="page"] .ein-rail-num {
+  color: var(--color-teal-700);
+}
+.ein-rail-topic {
+  border-top: 1px solid var(--color-paper-200);
+}
+.ein-rail-topic > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-block: 0.75rem 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-ink-500);
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.ein-rail-topic > summary::-webkit-details-marker {
+  display: none;
+}
+.ein-rail-topic > summary:hover,
+.ein-rail-topic[open] > summary {
+  color: var(--color-ink);
+}
+.ein-rail-topic-chevron {
+  transform: rotate(90deg);
+  transition: transform 0.25s var(--ease-out-quint);
+}
+.ein-rail-topic[open] .ein-rail-topic-chevron {
+  transform: rotate(-90deg);
+}
+.ein-rail-cards {
+  padding-bottom: 0.25rem;
+}
+.ein-rail a:focus-visible,
+.ein-rail-topic > summary:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* The current card's own sections, on a hairline; the one being read is marked in teal. */
+.ein-rail-sections {
+  margin: 0.125rem 0 0.5rem;
+  margin-inline-start: 0.6875rem;
+  padding-inline-start: 1.4375rem;
+  border-inline-start: 1px solid var(--color-paper-200);
+}
+.ein-rail-sections a {
+  position: relative;
+  display: block;
+  padding-block: 0.3125rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-ink-500);
+  transition: color 0.2s;
+}
+.ein-rail-sections a:hover {
+  color: var(--color-ink);
+}
+.ein-rail-sections a[aria-current="true"] {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+.ein-rail-sections a[aria-current="true"]::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.25rem;
+  inset-inline-start: calc(-1.4375rem - 1px);
+  width: 2px;
+  border-radius: 1px;
+  background: var(--color-teal-600);
+}
+
+/* The text: the reading register, filling the width beside the rail. */
+.ein-body {
+  --ein-ink: color-mix(in oklab, var(--color-ink) 86%, white);
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--ein-ink);
+}
+.ein-body > p,
+.ein-body > ul,
+.ein-body > ol,
+.ein-answer > p,
+.ein-answer > ul,
+.ein-answer > ol {
+  margin-top: 1.125rem;
+  text-wrap: pretty;
+}
+.ein-body > :first-child {
+  margin-top: 0;
+}
+.ein-body strong {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.ein-body h2 {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-paper-200);
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  text-wrap: balance;
+  scroll-margin-top: 7.5rem;
+}
+.ein-body h3 {
+  margin-top: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.ein-body h4 {
+  margin-top: 2rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--color-ink);
+}
+.ein-body h3 + p,
+.ein-body h4 + p,
+.ein-body h4 + ul,
+.ein-body h3 + ul {
+  margin-top: 0.625rem;
+}
+/* Prose lists only (the body's, an answer's, a table cell's), not the cards' lists. */
+.ein-body > :is(ul, ol),
+.ein-answer > :is(ul, ol),
+.ein-body li > :is(ul, ol),
+.ein-table :is(ul, ol) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-inline-start: 1.375rem;
+}
+.ein-body > ul,
+.ein-answer > ul,
+.ein-body li > ul,
+.ein-table ul {
+  list-style: "–  " outside;
+}
+.ein-body > ol,
+.ein-answer > ol,
+.ein-body li > ol,
+.ein-table ol {
+  list-style: decimal outside;
+}
+.ein-body li::marker {
+  color: var(--color-teal-600);
+  font-variant-numeric: tabular-nums;
+}
+.ein-body ul li::marker {
+  color: var(--color-ink-300);
+}
+.ein-body li > :is(ul, ol) {
+  margin-top: 0.5rem;
+}
+.ein-body a:not([class])[target="_blank"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-inline-start: 0.25em;
+  vertical-align: -0.05em;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5h10v10M19 5L6 18'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+html[dir="rtl"] .ein-body a:not([class])[target="_blank"]::after {
+  transform: scaleX(-1);
+}
+
+/* An image from the old page, framed and centred in the text. */
+.ein-figure {
+  margin: 2.25rem auto;
+  overflow: hidden;
+  border: 1px solid var(--color-paper-200);
+  border-radius: var(--radius-sheet);
+  background: var(--color-paper);
+}
+.ein-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Tables in the ledger's language: an open ruled sheet, the head ruled off with
+   the double teal rule; wide ones scroll sideways on phones. */
+.ein-table {
+  margin-block: 2rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.ein-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+/* Three columns or more keep a readable width and scroll; two fit a phone. */
+.ein-table table:has(tr > :nth-child(3)) {
+  min-width: 34rem;
+}
+.ein-table th,
+.ein-table td {
+  padding: 0.875rem 1rem;
+  vertical-align: top;
+  text-align: start;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.ein-table tr > :first-child {
+  padding-inline-start: 0;
+}
+.ein-table tr > :last-child {
+  padding-inline-end: 0;
+}
+/* No closing rule: the section's own hairline often follows straight after. */
+.ein-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.ein-table thead th {
+  padding-bottom: 1rem;
+  border-bottom: 0;
+  background: linear-gradient(var(--color-teal-500) 0 1px, transparent 1px 3px, var(--color-teal-500) 3px 4px) bottom / 100% 4px no-repeat;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.ein-table tbody th {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.ein-table ul,
+.ein-table ol {
+  gap: 0.25rem;
+  margin-top: 0.375rem;
+  padding-inline-start: 1.125rem;
+}
+.ein-table ul:first-child,
+.ein-table ol:first-child {
+  margin-top: 0;
+}
+
+/* Questions: the house details pattern. */
+.ein-faq {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--color-teal-200);
+}
+.ein-faq details {
+  border-bottom: 1px solid var(--color-teal-200);
+}
+.ein-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.125rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-ink);
+  transition: color 0.2s ease;
+}
+.ein-faq summary:hover {
+  color: var(--color-teal-800);
+}
+.ein-faq summary:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.ein-faq-icon {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--color-teal-300);
+  border-radius: 50%;
+  color: var(--color-teal-700);
+}
+.ein-faq-icon::before,
+.ein-faq-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0.75rem;
+  height: 2px;
+  margin: auto;
+  border-radius: 1px;
+  background: currentColor;
+}
+.ein-faq-icon::after {
+  rotate: 90deg;
+}
+.ein-answer {
+  padding-bottom: 1.5rem;
+}
+.ein-answer > :first-child {
+  margin-top: 0;
+}
+
+/* The Phase 2 card: the trial, on cool paper, with three assurances. */
+.ein-phase {
+  display: grid;
+  gap: 1.25rem;
+  margin-block: 2.5rem 0.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-card);
+  background: var(--color-paper-100);
+  box-shadow: inset 0 0 0 1px var(--color-paper-200);
+}
+.ein-phase-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.ein-phase-points {
+  display: grid;
+  gap: 0.75rem;
+}
+.ein-phase-points li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink-700);
+}
+.ein-phase-points li::before {
+  content: "";
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--color-paper) var(--ein-icon) center / 1.25rem no-repeat;
+  box-shadow: inset 0 0 0 1px var(--color-teal-200);
+}
+/* Each assurance's line icon, drawn in Engraver's Teal on a paper disc. */
+.ein-phase-points li[data-icon="0"] {
+  --ein-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v6c0 4.2-3 7.6-7 9-4-1.4-7-4.8-7-9V6l7-3z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E");
+}
+.ein-phase-points li[data-icon="1"] {
+  --ein-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M8.6 13.9L7 21l5-2.6 5 2.6-1.6-7.1'/%3E%3C/svg%3E");
+}
+.ein-phase-points li[data-icon="2"] {
+  --ein-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V8a4 4 0 0 1 8 0v3'/%3E%3C/svg%3E");
+}
+.ein-phase-cta {
+  justify-self: start;
+}
+
+/* The end of a page: the next card beside the booking offer. */
+.ein-end {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 4.5rem;
+}
+.ein-card-next {
+  display: grid;
+  gap: 0.625rem;
+  padding: 1.5rem;
+  transition:
+    transform 0.3s var(--ease-out-quint),
+    box-shadow 0.3s ease;
+}
+.ein-card-next:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 22px 36px -24px rgb(5 42 37 / 0.45);
+}
+.ein-card-next .ein-card-head {
+  padding-bottom: 0.875rem;
+}
+.ein-card-next-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.875rem;
+  align-items: baseline;
+  padding-top: 0.25rem;
+}
+.ein-card-next .ein-card-num {
+  font-size: 1.75rem;
+}
+.ein-card-next .ein-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.ein-card-arrow {
+  align-self: center;
+  color: var(--color-teal-700);
+  transition: translate 0.3s var(--ease-out-quint);
+}
+.ein-card-next:hover .ein-card-arrow {
+  translate: -4px 0;
+}
+html[dir="ltr"] .ein-card-next:hover .ein-card-arrow {
+  translate: 4px 0;
+}
+
+.ein-booking {
+  display: grid;
+  align-content: space-between;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-card);
+  background: var(--color-paper-100);
+  box-shadow: inset 0 0 0 1px var(--color-paper-200);
+}
+.ein-booking-line {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+.ein-booking-line > span {
+  display: block;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.ein-booking-cta {
+  justify-self: start;
+}
+
+@keyframes ein-card-settle {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) rotate(-0.6deg);
+  }
+}
+@keyframes ein-file {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+
+@media (min-width: 640px) {
+  .ein-title {
+    font-size: 2.25rem;
+  }
+  .ein-card-drawer {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    grid-template-areas: "num title" ". time";
+    padding: 1rem 1.125rem 0.9375rem;
+  }
+  .ein-drawers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ein-phase-points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .ein-phase-points li {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.625rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .ein-end {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .ein-head {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    column-gap: 4.5rem;
+    align-items: start;
+    padding-block: 3rem 3.5rem;
+  }
+  .ein-title {
+    font-size: clamp(2.5rem, 3.2vw, 3rem);
+    line-height: 1.2;
+  }
+  .ein-lede {
+    font-size: 1.25rem;
+  }
+  .ein-field {
+    padding-block: 6rem 5rem;
+    clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .ein-field {
+    clip-path: polygon(0 0, 100% 3rem, 100% 100%, 0 100%);
+  }
+  .ein-field-title {
+    font-size: 2.5rem;
+  }
+  .ein-drawers {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 3rem;
+  }
+  .ein-page {
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(max(16px, env(safe-area-inset-left, 0px)), 1fr)
+      [rail-start] 16rem [rail-end] 4.5rem
+      [body-start] minmax(0, calc(1248px - 20.5rem)) [body-end]
+      minmax(max(16px, env(safe-area-inset-right, 0px)), 1fr) [full-end];
+  }
+  .ein-top {
+    grid-column: full-start / full-end;
+    grid-row: 1;
+  }
+  .ein-rail {
+    grid-column: rail-start / rail-end;
+    grid-row: 2;
+    top: 6rem;
+    z-index: auto;
+    align-self: start;
+    padding-top: 2.5rem;
+    background: none;
+    border: 0;
+  }
+  .ein-rail-scrim {
+    display: none;
+  }
+  .ein-rail-toggle {
+    display: none;
+  }
+  .ein-rail-panel {
+    display: block;
+    position: static;
+    max-height: calc(100dvh - 8.5rem);
+    padding: 0;
+    padding-inline-end: 0.75rem;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    scrollbar-gutter: stable;
+  }
+  .ein-rail-title {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-ink-500);
+  }
+  .ein-rail-card {
+    padding-block: 0.375rem;
+    font-size: 0.875rem;
+  }
+  .ein-body {
+    grid-column: body-start / body-end;
+    grid-row: 2;
+    max-width: none;
+    margin: 0;
+    padding: 2.5rem 0 8rem;
+    font-size: 1.125rem;
+  }
+  .ein-body h2 {
+    font-size: 1.875rem;
+    scroll-margin-top: 6rem;
+  }
+  .ein-body h3 {
+    font-size: 1.375rem;
+  }
+  .ein-phase {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 2rem;
+    padding: 1.75rem 2rem;
+  }
+  .ein-phase-points {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-paper-300);
+  }
+  .ein-phase-cta {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+/* Phones and tablets: the hub's drawer follows its lede at once, and the hub's own
+   card (byline, date, card count) moves under the drawer. */
+@media (max-width: 1023.98px) {
+  .ein-top:has(> .ein-head[data-hub]) {
+    display: flex;
+    flex-direction: column;
+  }
+  .ein-head[data-hub] {
+    display: contents;
+  }
+  .ein-head[data-hub] > .ein-head-copy {
+    order: 1;
+    padding: 2rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
+  }
+  .ein-top > .ein-field {
+    order: 2;
+  }
+  .ein-head[data-hub] > .ein-card-pinned {
+    order: 3;
+    margin: 2.5rem max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  }
+}
+
+@media print {
+  body:has(.ein-page) > header,
+  body:has(.ein-page) > footer,
+  .ein-rail,
+  .ein-phase,
+  .ein-end {
+    display: none;
+  }
+  .ein-page {
+    display: block;
+  }
+}
+
+/* Features: the register. The product as an official register of what it does:
+   a contents sheet on the teal field, then eleven numbered sections whose entries
+   are ruled rows with a limit column ("بلا حد" stamps), each beside the real
+   screens attached to it as sheets to page through. One moment on load: the
+   contents rows rule in one after another and the ZATCA seal stamps the sheet. */
+.ftr {
+  counter-reset: ftr-sec;
+}
+.ftr-top {
+  overflow-x: clip;
+}
+.ftr-grid {
+  display: grid;
+  grid-template-areas: "copy" "stage";
+  row-gap: 2.5rem;
+  padding-top: 2rem;
+}
+.ftr-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ftr-title {
+  margin-top: 1.25rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ftr-subline {
+  margin-top: 1.125rem;
+  max-width: 44ch;
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+.ftr-lede {
+  margin-top: 1rem;
+  max-width: 54ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+.ftr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 2rem;
+}
+.ftr-stage {
+  grid-area: stage;
+  position: relative;
+  isolation: isolate;
+  margin-inline: -16px;
+  padding: 4.25rem 16px 3rem;
+}
+.ftr-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-teal-500);
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .ftr-field {
+  clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
+}
+
+/* The contents sheet: a paper register on the field. */
+.ftr-contents {
+  position: relative;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 60px -28px rgb(5 42 37 / 0.6);
+}
+.ftr-contents-title {
+  padding-bottom: 0.875rem;
+  border-bottom: 4px double var(--color-teal-500);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.ftr-contents-list {
+  counter-reset: ftr-toc;
+}
+.ftr-contents-list > li {
+  --i: 0;
+  position: relative;
+  counter-increment: ftr-toc;
+}
+.ftr-contents-list > li:nth-child(2) { --i: 1; }
+.ftr-contents-list > li:nth-child(3) { --i: 2; }
+.ftr-contents-list > li:nth-child(4) { --i: 3; }
+.ftr-contents-list > li:nth-child(5) { --i: 4; }
+.ftr-contents-list > li:nth-child(6) { --i: 5; }
+.ftr-contents-list > li:nth-child(7) { --i: 6; }
+.ftr-contents-list > li:nth-child(8) { --i: 7; }
+.ftr-contents-list > li:nth-child(9) { --i: 8; }
+.ftr-contents-list > li:nth-child(10) { --i: 9; }
+.ftr-contents-list > li:nth-child(11) { --i: 10; }
+/* Each row's rule draws from the start edge, one row after another. */
+.ftr-contents-list > li + li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 1px;
+  background: var(--color-paper-200);
+  transform-origin: left;
+  animation: ftr-rule 0.5s var(--ease-out-quint) calc(0.15s + var(--i) * 0.05s) both;
+}
+html[dir="rtl"] .ftr-contents-list > li + li::before {
+  transform-origin: right;
+}
+@keyframes ftr-rule {
+  from {
+    transform: scaleX(0);
+  }
+}
+.ftr-contents-list a {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 0.75rem;
+  padding: 0.625rem 0.5rem;
+  margin-inline: -0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  animation: ftr-row 0.45s var(--ease-out-quint) calc(0.15s + var(--i) * 0.05s) both;
+}
+@keyframes ftr-row {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+}
+.ftr-contents-list a:hover {
+  background: var(--color-teal-50);
+}
+.ftr-contents-list a:hover > :first-child {
+  color: var(--color-teal-700);
+}
+.ftr-contents-list a:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 0;
+}
+.ftr-contents-list a::before {
+  content: counter(ftr-toc, decimal-leading-zero);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--color-teal-700);
+}
+.ftr-contents-list a > :first-child {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.45;
+  transition: color 0.2s ease-out;
+}
+.ftr-contents-list a > :nth-child(2) {
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+  white-space: nowrap;
+}
+.ftr-contents-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 4px double var(--color-teal-500);
+}
+.ftr-contents-total {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+/* The house ZATCA seal (the homepage's certificate wording), stamped once the
+   rows have ruled in. */
+.ftr-seal {
+  --seal-ground: var(--color-paper);
+  display: grid;
+  flex: none;
+  width: 5.5rem;
+  height: 5.5rem;
+  place-content: center;
+  justify-items: center;
+  gap: 0.25rem;
+  margin-block: -1.75rem -0.25rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background: var(--seal-ground);
+  color: var(--color-teal-700);
+  text-align: center;
+  rotate: -8deg;
+  box-shadow:
+    inset 0 0 0 3px currentColor,
+    inset 0 0 0 7px var(--seal-ground),
+    inset 0 0 0 8px currentColor,
+    0 16px 30px -14px rgb(5 42 37 / 0.45);
+  animation: sec-stamp 0.45s var(--ease-out-quint) 0.85s both;
+}
+.ftr-seal span {
+  font-size: 0.5rem;
+  line-height: 1.2;
+}
+.ftr-seal b {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* A section of the register. */
+.ftr-section {
+  overflow-x: clip;
+  counter-increment: ftr-sec;
+  border-top: 1px solid var(--color-paper-200);
+  scroll-margin-top: 4rem;
+}
+.ftr-section-grid {
+  display: grid;
+  grid-template-areas: "head" "ledger" "aside";
+  row-gap: 2rem;
+  padding-block: 3.5rem;
+}
+.ftr-section-head {
+  grid-area: head;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "num title" "num count";
+  align-self: start;
+  align-content: start;
+  align-items: start;
+  column-gap: 1rem;
+}
+.ftr-section-head::before {
+  content: counter(ftr-sec, decimal-leading-zero);
+  grid-area: num;
+  font-variant-numeric: tabular-nums;
+  align-self: center;
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 0.9;
+  color: var(--color-teal-700);
+}
+.ftr-section-title {
+  grid-area: title;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ftr-section-count {
+  grid-area: count;
+  margin-top: 0.125rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-500);
+}
+.ftr-ledger {
+  grid-area: ledger;
+  min-width: 0;
+}
+.ftr-ledger-head,
+.ftr-entries > li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+}
+.ftr-ledger-head {
+  padding-bottom: 0.5rem;
+  border-bottom: 4px double var(--color-teal-500);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-ink-500);
+}
+.ftr-ledger-head span:first-child {
+  grid-column: 1 / 3;
+}
+.ftr-ledger-head span + span {
+  display: none;
+  text-align: end;
+}
+.ftr-entries,
+.ftr-index {
+  counter-reset: ftr-row;
+}
+/* The reports index carries on after the three reports described in full. */
+.ftr-reports + h3 + .ftr-index {
+  counter-reset: ftr-row 3;
+}
+.ftr-entries > li,
+.ftr-index > li {
+  counter-increment: ftr-row;
+}
+.ftr-entries > li::before,
+.ftr-index > li::before {
+  content: counter(ftr-sec) "." counter(ftr-row);
+}
+.ftr-entries > li {
+  align-items: center;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.ftr-entries > li::before,
+.ftr-index > li::before {
+  align-self: baseline;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-teal-700);
+}
+.ftr-entries > li > :first-child {
+  align-self: baseline;
+  font-size: 1rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+.ftr-entries > li > :nth-child(2) {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+/* The "unlimited" stamp: the seal's double ring at entry scale, in ink. */
+.ftr-entries > li > span:nth-child(2) {
+  display: inline-block;
+  padding: 0.3125rem 0.5rem 0.25rem;
+  border-radius: 0.375rem;
+  color: var(--color-teal-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  rotate: -4deg;
+  box-shadow:
+    inset 0 0 0 1.5px currentColor,
+    inset 0 0 0 3.5px var(--color-paper),
+    inset 0 0 0 4.5px currentColor;
+}
+a[href="#plan-note"] {
+  margin-inline-start: 0.1875rem;
+  padding-inline: 0.125rem;
+  border-radius: 0.25rem;
+  color: var(--color-teal-700);
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 0;
+  vertical-align: super;
+  text-decoration: none;
+}
+a[href="#plan-note"]:hover {
+  background: var(--color-teal-50);
+}
+.ftr-link {
+  color: var(--color-teal-700);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--color-teal-300);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease-out;
+}
+.ftr-link:hover {
+  text-decoration-color: currentColor;
+}
+.ftr-intro {
+  margin-bottom: 1.75rem;
+  max-width: 60ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+
+/* Reports: the three described in full, then an index of the rest. */
+.ftr-reports > li {
+  align-items: baseline;
+}
+.ftr-reports h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.ftr-reports p {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+}
+.ftr-index-heading {
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px double var(--color-teal-500);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.ftr-index {
+  display: grid;
+  column-gap: 2rem;
+}
+.ftr-index li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: baseline;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--color-paper-200);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* Integrations: a partner's mark stands in the limit column. */
+.ftr-partners > li > a:first-child {
+  display: inline-flex;
+  justify-self: start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+  align-self: baseline;
+  border-radius: 0.375rem;
+}
+.ftr-partners b {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+.ftr-partners b + span {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-teal-700);
+}
+.ftr-partners b + span::after {
+  content: "";
+  display: inline-block;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-inline-start: 0.375rem;
+  vertical-align: -0.125rem;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+html[dir="rtl"] .ftr-partners b + span::after {
+  transform: scaleX(-1);
+}
+.ftr-partners > li > a:first-child:hover b + span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ftr-partners > li > a:first-child:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 4px;
+}
+/* The partners' marks, filed on a ruled sheet beside the rows that name them. */
+.ftr-marks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0.5rem;
+}
+.ftr-marks li {
+  display: grid;
+  min-height: 7.5rem;
+  place-items: center;
+  padding: 1.25rem;
+}
+.ftr-marks li:nth-child(even) {
+  border-inline-start: 1px solid var(--color-paper-200);
+}
+.ftr-marks li:nth-child(n + 3) {
+  border-top: 1px solid var(--color-paper-200);
+}
+.ftr-marks img {
+  width: auto;
+  max-width: 100%;
+  height: calc(2.25rem * var(--mark-scale, 1));
+}
+.ftr-marks img[data-mark="foodics"] {
+  --mark-scale: 0.62;
+}
+.ftr-marks img[data-mark="marn"] {
+  --mark-scale: 0.85;
+}
+.ftr-marks img[data-mark="zid"] {
+  --mark-scale: 1.25;
+}
+.ftr-marks img[data-mark="prexle"] {
+  --mark-scale: 1.75;
+}
+
+/* The attached sheets. */
+.ftr-exhibits {
+  grid-area: aside;
+  position: relative;
+  min-width: 0;
+}
+.ftr-sheets {
+  position: relative;
+  touch-action: pan-y;
+}
+/* Room for the sheets underneath, so their offset edge stays on the page. */
+.ftr-stack[data-many] .ftr-sheets {
+  margin-inline-end: 0.75rem;
+}
+/* Two more sheets lie under the top one when there is more than one to see. */
+.ftr-stack[data-many] .ftr-sheets::before,
+.ftr-stack[data-many] .ftr-sheets::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  box-shadow: 0 18px 36px -24px rgb(5 42 37 / 0.35);
+}
+.ftr-stack[data-many] .ftr-sheets::before {
+  transform: translate(0.5rem, 0.5rem) rotate(1.25deg);
+}
+.ftr-stack[data-many] .ftr-sheets::after {
+  transform: translate(0.25rem, 0.25rem) rotate(0.6deg);
+}
+html[dir="rtl"] .ftr-stack[data-many] .ftr-sheets::before {
+  transform: translate(-0.5rem, 0.5rem) rotate(-1.25deg);
+}
+html[dir="rtl"] .ftr-stack[data-many] .ftr-sheets::after {
+  transform: translate(-0.25rem, 0.25rem) rotate(-0.6deg);
+}
+.ftr-slot {
+  --off: 3rem;
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 auto;
+  opacity: 0;
+  transform: translateY(0.5rem) scale(0.985);
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.45s var(--ease-out-quint),
+    visibility 0s linear 0.45s;
+}
+html[dir="rtl"] .ftr-slot {
+  --off: -3rem;
+}
+/* The sheet just paged past slides off towards the end side. */
+.ftr-slot[data-past] {
+  transform: translateX(var(--off)) rotate(2deg);
+}
+html[dir="rtl"] .ftr-slot[data-past] {
+  transform: translateX(var(--off)) rotate(-2deg);
+}
+.ftr-slot[data-on] {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease-out 0.05s,
+    transform 0.45s var(--ease-out-quint),
+    visibility 0s;
+}
+.ftr-sheet {
+  padding: 0.625rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 24px 48px -28px rgb(5 42 37 / 0.5);
+}
+.ftr-sheet > div {
+  overflow: hidden;
+  border: 1px solid var(--color-paper-200);
+  border-radius: 0.625rem;
+  background: var(--color-paper);
+}
+/* The screen meets the sheet's edges; a tall one (the invoice) is cut from the top. */
+.ftr-sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 32rem;
+  object-fit: cover;
+  object-position: top;
+}
+.ftr-sheet figcaption {
+  padding: 0.75rem 0.375rem 0.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-ink-700);
+}
+.ftr-stack-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.ftr-stack-btn {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--color-paper-300);
+  border-radius: 50%;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out, background-color 0.2s ease-out;
+}
+.ftr-stack-btn:hover {
+  border-color: var(--color-teal-500);
+  background: var(--color-teal-50);
+  color: var(--color-teal-700);
+}
+.ftr-stack-btn:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 2px;
+}
+.ftr-stack-btn:active {
+  transform: translateY(1px);
+}
+.ftr-prev {
+  transform: scaleX(-1);
+}
+html[dir="rtl"] .ftr-prev {
+  transform: none;
+}
+html[dir="rtl"] .ftr-next {
+  transform: scaleX(-1);
+}
+.ftr-stack-count {
+  min-width: 8rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink-700);
+  text-align: center;
+}
+
+/* The old page's photo for the section: the person sits behind the stack, head
+   and shoulders above its top end corner, the laptop hidden by the sheets. */
+.ftr-exhibits[data-photo]:not(.ftr-app) {
+  padding-top: 5rem;
+}
+.ftr-exhibits[data-photo]:not(.ftr-app) .ftr-stack {
+  position: relative;
+  z-index: 1;
+}
+.ftr-exhibits:not(.ftr-app) .ftr-person {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 1.25rem;
+  width: auto;
+  height: 8rem;
+  pointer-events: none;
+}
+
+/* Customer support: the real channels on a slip. */
+.ftr-slip {
+  padding: 1.5rem;
+  background: var(--color-paper);
+}
+.ftr-slip-heading {
+  padding-bottom: 0.75rem;
+  border-bottom: 4px double var(--color-teal-500);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.ftr-slip dl > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.ftr-slip dt {
+  font-size: 0.875rem;
+  color: var(--color-ink-500);
+}
+.ftr-slip dd a {
+  font-weight: 700;
+  color: var(--color-teal-700);
+  text-decoration: underline;
+  text-decoration-color: var(--color-teal-300);
+  text-underline-offset: 4px;
+}
+.ftr-slip dd a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* The apps: the old hero's app line and the stores on a teal slab, with the
+   hand holding the phone rising from its bottom edge at the end side (the arm
+   leaves the photo at its foot, so it rises from the edge in both languages; the
+   screen holds English text, so the photo is never mirrored). Narrow, the hand
+   stands under the badges; with room, beside them. */
+.ftr-app {
+  container-type: inline-size;
+  overflow: hidden;
+  padding: 2rem 1.5rem 13rem;
+  border-radius: var(--radius-card);
+  background-color: var(--color-teal-500);
+  color: #fff;
+}
+.ftr-app-line {
+  max-width: 16ch;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+.ftr-app-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.ftr-app-badges a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.ftr-app .ftr-person {
+  position: absolute;
+  bottom: -1rem;
+  inset-inline-end: -0.5rem;
+  width: auto;
+  height: 14rem;
+  pointer-events: none;
+}
+.ftr-app-badges a {
+  white-space: nowrap;
+}
+@container (min-width: 28rem) {
+  .ftr-app-line {
+    max-width: calc(100% - 15rem);
+  }
+  .ftr-app .ftr-person {
+    inset-inline-end: -2rem;
+    height: 16rem;
+  }
+}
+
+.ftr-plan-note {
+  max-width: 72ch;
+  padding-block: 2.5rem 4.5rem;
+  border-top: 1px solid var(--color-paper-200);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
+  .ftr-title {
+    font-size: 4rem;
+  }
+  .ftr-contents {
+    padding: 1.75rem 1.75rem 1.5rem;
+  }
+  .ftr-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ftr-exhibits[data-photo]:not(.ftr-app) {
+    padding-top: 6.5rem;
+  }
+
+  .ftr-exhibits:not(.ftr-app) .ftr-person {
+    height: 10rem;
+    inset-inline-end: 2rem;
+  }
+  .ftr-ledger-head,
+  .ftr-entries > li {
+    grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+    column-gap: 1rem;
+  }
+  .ftr-ledger-head span + span {
+    display: block;
+    grid-column: 3;
+  }
+  .ftr-entries > li > :nth-child(2) {
+    grid-column: 3;
+    justify-self: end;
+    margin-top: 0;
+  }
+  .ftr-entries > li > :first-child {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ftr-grid {
+    --bleed: max(16px, calc((100vw - 1280px) / 2 + 16px));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas: "copy copy copy copy copy stage stage stage stage stage stage stage";
+    column-gap: 2rem;
+    padding-top: 0;
+  }
+  .ftr-copy {
+    align-self: center;
+    padding-block: 3rem 4.5rem;
+  }
+  .ftr-title {
+    font-size: clamp(4rem, 5.6vw, 5rem);
+  }
+  .ftr-stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: 0;
+    padding: 3.5rem 0;
+    padding-inline-start: 4.5rem;
+  }
+  /* Bleeds to the viewport's end edge; the start edge is the slant. */
+  .ftr-field {
+    inset-inline-end: calc(-1 * var(--bleed));
+    clip-path: polygon(4.5rem 0, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .ftr-field {
+    clip-path: polygon(0 0, calc(100% - 4.5rem) 0, 100% 100%, 0 100%);
+  }
+  .ftr-contents-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+  /* Two columns read down: the rule above each column's first row is the title's. */
+  .ftr-contents-list {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(6, auto);
+  }
+  .ftr-contents-list > li:nth-child(7)::before {
+    display: none;
+  }
+  .ftr-section {
+    scroll-margin-top: 5rem;
+  }
+  .ftr-section-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    /* Extra height from a tall attachment goes to the ledger's row, not the head's. */
+    grid-template-rows: auto 1fr;
+    grid-template-areas: none;
+    column-gap: 2rem;
+    row-gap: 2.5rem;
+    padding-block: 5.5rem;
+  }
+  .ftr-section-head,
+  .ftr-ledger {
+    grid-column: 1 / span 7;
+  }
+  .ftr-section-head {
+    grid-row: 1;
+  }
+  .ftr-ledger {
+    grid-row: 2;
+  }
+  .ftr-exhibits {
+    grid-column: 9 / -1;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+  .ftr-section[data-flip] .ftr-section-head,
+  .ftr-section[data-flip] .ftr-ledger {
+    grid-column: 6 / -1;
+  }
+  .ftr-section[data-flip] .ftr-exhibits {
+    grid-column: 1 / span 4;
+  }
+  .ftr-section-head::before {
+    font-size: 3.5rem;
+  }
+  .ftr-section-title {
+    font-size: 2rem;
+  }
+
+}
+
+@media (min-width: 1280px) {
+  .ftr-exhibits {
+    grid-column: 8 / -1;
+  }
+  .ftr-section[data-flip] .ftr-exhibits {
+    grid-column: 1 / span 5;
   }
 }
 

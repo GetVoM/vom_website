@@ -226,7 +226,7 @@ export const en: Dictionary = {
     marketplace: "Marketplace",
     links: {
       product: [
-        ["Features", "/features-en/"],
+        ["Features", "/features/"],
         ["Pricing", "/pricing/"],
         ["API documentation", "https://app.getvom.com/en/docs/api"],
       ],

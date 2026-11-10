@@ -1,0 +1,95 @@
+{
+  "tool": "build-phase",
+  "version": 2,
+  "startedAt": "2026-11-10T13:43:36.661Z",
+  "comp": null,
+  "direction": "461575f9",
+  "breakpoint": null,
+  "artifact": "components/einvoicing/GuidePage.tsx",
+  "phase": "comps",
+  "phases": {
+    "comps": {
+      "status": "open",
+      "openedAt": "2026-11-10T13:43:36.660Z",
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [
+        {
+          "at": "2026-11-10T14:14:29.351Z",
+          "text": "Code-led by contract: this harness has no image generation, so there is no comp round, spec, plates or hero diff; the surface roll locked a structure (Index cards, seed 461575f9) and its ambition lives in the surface brief's FIRST VIEWPORT and signature motion. Verified 2026-11-10: lint, tsc, build clean; 13 pages 200; no horizontal scroll at 390/1024/1280/1440; reduced motion; Lighthouse mobile a11y/BP/SEO 100; LCP 1.92 s, CLS 0. Finish review running."
+        },
+        {
+          "at": "2026-11-10T14:28:37.745Z",
+          "text": "Finish review, 2 rounds (2026-11-10): round 1 fix (7 items); round 2 cleared every page fix (mobile catalogue bar at first paint, hub reorder, next card without eyebrow, sheet scrim and scroll lock, balanced titles, ledger tables), no regressions. DESIGN.md and .impeccable/design.json updated by the documenter. 'finish --disposition ship' is refused because the comp-led phases cannot close on a code-led build with no comp; left open rather than forced."
+        }
+      ],
+      "gate": null,
+      "forced": null
+    },
+    "spec": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "plates": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "hero": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "sections": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "motion": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "responsive": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "review": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    }
+  },
+  "finish": null,
+  "sessionId": "3e065543-0f6c-4518-b04e-08e46434e734"
+}

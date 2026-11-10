@@ -6,7 +6,7 @@ import { optimizedSrc } from "@/lib/image-url";
 import { getSector, readingImage, sectorClients, sectorPhotos, type SectorId } from "@/lib/content/sectors";
 import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
-import { sectorPaths } from "@/lib/i18n/routes";
+import { featuresPaths, sectorPaths } from "@/lib/i18n/routes";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
@@ -46,7 +46,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
   const photo = sectorPhotos[id];
   const clientList = sectorClients[id];
   const others = t.sectors.items.filter((item) => item.id !== id);
-  const featuresPath = localePath(locale, locale === "ar" ? "/features/" : "/features-en/");
+  const featuresPath = localePath(locale, featuresPaths[locale]);
 
   return (
     <>
