@@ -136,7 +136,6 @@ export const ar: Dictionary = {
       { name: "Foodics", body: "مبيعات المطاعم تصل فواتير جاهزة" },
       { name: "Zid", body: "طلبات متجرك قيود مرحّلة" },
       { name: "Marn", body: "نقاط البيع" },
-      { name: "Prexle", body: "الكاشير" },
       { name: "API", body: "أي نظام آخر" },
     ],
   },
@@ -209,7 +208,7 @@ export const ar: Dictionary = {
       product: [
         ["المميزات", "/features/"],
         ["الباقات", "/pricing/"],
-        ["واجهة البرمجة", "https://app.getvom.com/en/docs/api"],
+        ["واجهة البرمجة (API)", "https://app.getvom.com/en/docs/api"],
       ],
       support: [
         ["المدونة", "/blog/"],
@@ -268,6 +267,7 @@ export const ar: Dictionary = {
       activate: "فعّل التكامل",
       waitlist: "منشأة في قائمة الانتظار",
       flow: ["عملية البيع", "ڤوم", "زاتكا"],
+      page: "تفاصيل الربط مع {partner}",
     },
   },
   reports: {
@@ -583,6 +583,7 @@ export const ar: Dictionary = {
     items: {
       foodics: {
         partner: "فودكس",
+        category: "نقاط بيع المطاعم",
         crumb: "ڤوم وفودكس",
         heading: "ربط فودكس مع ڤوم",
         lede: "فودكس نظام نقاط بيع وإدارة مطاعم، ينظّم أقسام مطعمك الأمامية وعمليات المطبخ والعمليات الخلفية بسهولة ودقة ومرونة.",
@@ -621,6 +622,7 @@ export const ar: Dictionary = {
       },
       marn: {
         partner: "مرن",
+        category: "نقاط بيع المطاعم",
         crumb: "ڤوم ومرن",
         heading: "ربط مرن مع ڤوم",
         lede: "مرن نظام متكامل لإدارة المطاعم ونقاط البيع، يُنظّم مهامك الإدارية ويتتبّع جميع عمليات مطعمك بكل سهولة وأمان.",
@@ -659,6 +661,7 @@ export const ar: Dictionary = {
       },
       zid: {
         partner: "زد",
+        category: "تجارة إلكترونية",
         crumb: "ڤوم وزد",
         heading: "ربط زد مع ڤوم",
         lede: "زد يوفّر لك متجرًا إلكترونيًا متكاملًا بواجهة خاصة، تستقبل منها طلبات عملائك وتديرها بكل سهولة.",

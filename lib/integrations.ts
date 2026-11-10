@@ -21,6 +21,10 @@ export interface IntegrationVideo {
 }
 
 export interface Integration {
+  /** The partner's name as its own logo writes it, in Latin letters in both languages. */
+  name: string;
+  /** The partner's square brand icon, 128 px: the homepage's integration tabs. */
+  icon: string;
   /** The VoM | partner lockup from the old page, trimmed. */
   lockup: Raster;
   /** The partner's half of the lockup. */
@@ -41,6 +45,8 @@ export const vomMark: Raster = { src: "/integrations/vom-mark.png", width: 1010,
  */
 export const integrations: Record<IntegrationId, Integration> = {
   foodics: {
+    name: "Foodics",
+    icon: "/integrations/foodics/icon.png",
     lockup: { src: "/integrations/foodics/lockup.png", width: 2034, height: 271 },
     mark: { src: "/integrations/foodics/mark.png", width: 1046, height: 143 },
     videos: [
@@ -63,6 +69,8 @@ export const integrations: Record<IntegrationId, Integration> = {
     ],
   },
   marn: {
+    name: "Marn",
+    icon: "/integrations/marn/icon.png",
     lockup: { src: "/integrations/marn/lockup.png", width: 2048, height: 336 },
     mark: { src: "/integrations/marn/mark.png", width: 890, height: 195 },
     videos: [
@@ -76,6 +84,8 @@ export const integrations: Record<IntegrationId, Integration> = {
     ],
   },
   zid: {
+    name: "Zid",
+    icon: "/integrations/zid/icon.png",
     lockup: { src: "/integrations/zid/lockup.png", width: 2048, height: 432 },
     mark: { src: "/integrations/zid/mark.png", width: 812, height: 432 },
     videos: [

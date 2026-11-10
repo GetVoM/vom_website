@@ -145,7 +145,17 @@ export interface Dictionary {
     api: string;
     apiBody: string;
     docs: string;
-    details: { clients: string; invoices: string; sync: string; how: string; activate: string; waitlist: string; flow: [string, string, string] };
+    details: {
+      clients: string;
+      invoices: string;
+      sync: string;
+      how: string;
+      activate: string;
+      waitlist: string;
+      flow: [string, string, string];
+      /** Link to a partner's integration page; `{partner}` is the partner's name. */
+      page: string;
+    };
   };
   reports: { heading: string; body: string; countLabel: string; items: string[]; cta: string; live: string };
   features: { heading: string; body: string; cta: string; items: { title: string; body: string; icon: string }[] };
@@ -301,6 +311,8 @@ export type IntegrationId = "foodics" | "marn" | "zid";
 export interface IntegrationCopy {
   /** The partner's name as this language writes it; also the alt text of its mark. */
   partner: string;
+  /** What the partner is, in a few words: its subtitle in the homepage's integration tabs. */
+  category: string;
   /** The page's name: the breadcrumb, and the tile that links here from the other pages. */
   crumb: string;
   heading: string;

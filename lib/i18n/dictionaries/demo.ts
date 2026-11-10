@@ -116,43 +116,11 @@ export const demoTestimonials: DemoTestimonial[] = [
   },
 ];
 
+/**
+ * Foodics, Marn and Zid are real, with pages of their own; the homepage builds their
+ * tabs from those pages (components/home/Integrations.tsx), so they are not here.
+ */
 export const demoIntegrations: DemoIntegration[] = [
-  {
-    id: "foodics",
-    name: "Foodics",
-    logo: "/demo/integrations/foodics.png",
-    category: { ar: "نقاط بيع المطاعم", en: "Restaurant POS" },
-    body: { ar: "مبيعات المطعم تصل فواتير جاهزة", en: "Restaurant sales arrive as invoices" },
-    description: {
-      ar: "كل طلب يُغلق على كاشير فودكس يصل إلى ڤوم كفاتورة ضريبية مبسطة برمز QR، ويُبلَّغ إلى زاتكا، ويُرحَّل إلى قائمة الدخل في اللحظة نفسها. المرتجعات تصبح إشعارات دائنة تلقائيًا.",
-      en: "Every order closed on a Foodics till reaches VoM as a simplified tax invoice with a QR code, is reported to ZATCA, and is posted to the income statement at the same moment. Refunds become credit notes automatically.",
-    },
-    live: true,
-    stats: { clients: 100, invoices: 48000, sync: { ar: "أقل من دقيقة", en: "under a minute" } },
-    steps: [
-      { ar: "اربط حساب فودكس من إعدادات ڤوم بضغطة واحدة.", en: "Connect your Foodics account from VoM settings in one click." },
-      { ar: "اختر الفروع وحسابات الإيراد لكل فرع.", en: "Choose the branches and the revenue account for each." },
-      { ar: "تصل كل عملية بيع فاتورةً مبلّغة وقيدًا مرحّلًا.", en: "Every sale arrives as a reported invoice and a posted entry." },
-    ],
-  },
-  {
-    id: "zid",
-    name: "Zid",
-    logo: "/demo/integrations/zid.png",
-    category: { ar: "تجارة إلكترونية", en: "E-commerce" },
-    body: { ar: "طلبات متجرك قيود مرحّلة", en: "Store orders become entries" },
-    description: {
-      ar: "طلبات متجرك على زد تصبح فواتير إلكترونية وقيودًا محاسبية، مع تسوية المدفوعات ورسوم الشحن تلقائيًا. المخزون في ڤوم يتحدّث مع كل طلب.",
-      en: "Your Zid store orders become e-invoices and accounting entries, with payments and shipping fees reconciled automatically. VoM inventory updates with every order.",
-    },
-    live: true,
-    stats: { clients: 240, invoices: 61000, sync: { ar: "لحظي", en: "real time" } },
-    steps: [
-      { ar: "فعّل ڤوم من سوق تطبيقات زد.", en: "Enable VoM from the Zid app marketplace." },
-      { ar: "اربط المنتجات بالأصناف في ڤوم مرة واحدة.", en: "Map products to VoM items once." },
-      { ar: "كل طلب مدفوع يصبح فاتورة وقيدًا.", en: "Every paid order becomes an invoice and an entry." },
-    ],
-  },
   {
     id: "salla",
     name: "Salla",
@@ -169,42 +137,6 @@ export const demoIntegrations: DemoIntegration[] = [
       { ar: "سجّل في قائمة الانتظار من إعدادات ڤوم.", en: "Join the waitlist from VoM settings." },
       { ar: "سنربط متجرك عند الإطلاق دون أي إعداد منك.", en: "We connect your store at launch with no setup from you." },
       { ar: "الطلبات السابقة تُستورد في أول مزامنة.", en: "Past orders are imported in the first sync." },
-    ],
-  },
-  {
-    id: "marn",
-    name: "Marn",
-    logo: "/demo/integrations/marn.png",
-    category: { ar: "نقاط بيع", en: "Point of sale" },
-    body: { ar: "الكاشير والمخزون في مكان واحد", en: "Cashier and inventory together" },
-    description: {
-      ar: "مبيعات مرن تصل إلى ڤوم مع تفاصيل الأصناف وطرق الدفع، فتتحدّث الفواتير والمخزون والتقارير معًا.",
-      en: "Marn sales reach VoM with item details and payment methods, so invoices, inventory and reports update together.",
-    },
-    live: true,
-    stats: { clients: 70, invoices: 22000, sync: { ar: "أقل من دقيقة", en: "under a minute" } },
-    steps: [
-      { ar: "اربط حساب مرن من إعدادات ڤوم.", en: "Connect your Marn account from VoM settings." },
-      { ar: "اختر طريقة ترحيل المدفوعات النقدية والشبكة.", en: "Choose how cash and card payments are posted." },
-      { ar: "تصل كل عملية بيع فاتورةً مبلّغة.", en: "Every sale arrives as a reported invoice." },
-    ],
-  },
-  {
-    id: "prexle",
-    name: "Prexle",
-    logo: "/demo/integrations/prexle.png",
-    category: { ar: "كاشير", en: "Cashier" },
-    body: { ar: "كل عملية بيع فاتورة مبلّغة", en: "Every sale a reported invoice" },
-    description: {
-      ar: "كاشير بريكسل يرسل كل عملية بيع إلى ڤوم مع رمز QR المعتمد، والإقفال اليومي يصبح قيدًا واحدًا مرتبًا.",
-      en: "The Prexle cashier sends every sale to VoM with the approved QR code, and the daily close becomes one tidy entry.",
-    },
-    live: true,
-    stats: { clients: 55, invoices: 17000, sync: { ar: "أقل من دقيقة", en: "under a minute" } },
-    steps: [
-      { ar: "فعّل ڤوم من لوحة بريكسل.", en: "Enable VoM from the Prexle dashboard." },
-      { ar: "اربط الفروع بحسابات الإيراد.", en: "Map branches to revenue accounts." },
-      { ar: "الإقفال اليومي يُرحَّل تلقائيًا.", en: "The daily close is posted automatically." },
     ],
   },
   {

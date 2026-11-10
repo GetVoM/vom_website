@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   experimental: {
     globalNotFound: true,
+    // The router predicts a page's route from patterns it has already seen. Having
+    // seen /en/ as [lang], it reads an Arabic link such as /vom-zid/ as [lang]=vom-zid;
+    // the server answers for /ar/vom-zid, and in 16.4.3 the router re-requested that
+    // segment in a loop (about 500 requests a second per link on the Arabic homepage).
+    // Off, the router asks the server for each route it has not seen yet.
+    optimisticRouting: false,
   },
   images: {
     formats: ["image/avif", "image/webp"],

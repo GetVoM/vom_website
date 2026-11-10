@@ -14,6 +14,7 @@ interface HeaderProps {
 
 export function Header({ locale, t }: HeaderProps) {
   const links = [
+    { label: t.nav.home, href: localePath(locale, "/") },
     { label: t.nav.features, href: localePath(locale, locale === "ar" ? "/features/" : "/features-en/") },
     { label: t.nav.sectors, href: `${localePath(locale, "/")}#sectors` },
     { label: t.nav.pricing, href: localePath(locale, locale === "ar" ? "/pricing/" : "/pricing-en/") },

@@ -1,21 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Image from "next/image";
-import type { Locale } from "@/lib/i18n/config";
-import type { DemoIntegration } from "@/lib/i18n/dictionaries/demo";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
+import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 
+/** One tab, already in the page's language. */
+export interface ExplorerItem {
+  id: string;
+  name: string;
+  logo: string | null;
+  category: string;
+  description: string;
+  live: boolean;
+  /** The pills beside the name: where the data starts, then where it goes. */
+  flow: string[];
+  /** Demonstration figures and steps; the partners with a page of their own have neither. */
+  stats?: { clients: number; invoices: number; sync: string };
+  steps?: string[];
+  /** What moves into VoM, from the partner's integration page. */
+  sync?: { heading: string; rows: { from: string; to: string }[] };
+  page?: { href: string; label: string };
+}
+
 interface Props {
-  locale: Locale;
-  items: DemoIntegration[];
+  items: ExplorerItem[];
   t: Dictionary["integrationsSection"];
   signupHref: string;
   docsHref: string;
 }
 
-function Logo({ item, size = 40 }: { item: DemoIntegration; size?: number }) {
+function Logo({ item, size = 40 }: { item: ExplorerItem; size?: number }) {
   if (item.logo) {
     return (
       <Image
@@ -39,7 +55,7 @@ function Logo({ item, size = 40 }: { item: DemoIntegration; size?: number }) {
   );
 }
 
-export function IntegrationsExplorer({ locale, items, t, signupHref, docsHref }: Props) {
+export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) {
   const [activeId, setActiveId] = useState(items[0].id);
   const active = items.find((i) => i.id === activeId) ?? items[0];
   const fmt = (n: number) => n.toLocaleString("en-US");
@@ -60,7 +76,7 @@ export function IntegrationsExplorer({ locale, items, t, signupHref, docsHref }:
               <Logo item={item} size={36} />
               <span className="flex min-w-0 flex-col">
                 <span className="num text-[1rem] font-bold leading-tight" dir="ltr">{item.name}</span>
-                <span className="truncate text-[0.75rem] text-ink-500">{item.category[locale]}</span>
+                <span className="truncate text-[0.75rem] text-ink-500">{item.category}</span>
               </span>
               <span
                 className={`ms-auto hidden shrink-0 rounded-pill px-2 py-0.5 text-[0.6875rem] font-bold lg:inline ${item.live ? "bg-teal-500 text-white" : "border border-paper-300 text-ink-500"}`}
@@ -83,50 +99,83 @@ export function IntegrationsExplorer({ locale, items, t, signupHref, docsHref }:
                   {active.live ? t.live : t.soon}
                 </span>
               </div>
-              <span className="text-[0.9375rem] text-teal-700">{active.category[locale]}</span>
+              <span className="text-[0.9375rem] text-teal-700">{active.category}</span>
             </div>
           </div>
           <div className="flex items-center gap-2 text-[0.8125rem] text-ink-500" aria-hidden="true">
-            <span className="rounded-pill border border-paper-300 px-3 py-1">{t.details.flow[0]}</span>
-            <Icon name="arrow" size={14} className="rtl:-scale-x-100" />
-            <span className="rounded-pill bg-teal-500 px-3 py-1 font-bold text-white">{t.details.flow[1]}</span>
-            <Icon name="arrow" size={14} className="rtl:-scale-x-100" />
-            <span className="rounded-pill border border-paper-300 px-3 py-1">{t.details.flow[2]}</span>
-          </div>
-        </div>
-
-        <p className="max-w-[62ch] text-[1.0625rem] leading-[1.75] text-ink-700">{active.description[locale]}</p>
-
-        <dl className="grid gap-4 sm:grid-cols-3">
-          <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-teal-50 p-5">
-            <dd className="num text-[2rem] font-bold leading-none text-teal-700">
-              {active.live ? `${fmt(active.stats.clients)}+` : fmt(active.stats.clients)}
-            </dd>
-            <dt className="text-[0.875rem] text-teal-800">{active.live ? t.details.clients : t.details.waitlist}</dt>
-          </div>
-          <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-paper-100 p-5">
-            <dd className="num text-[2rem] font-bold leading-none">{active.live ? fmt(active.stats.invoices) : "—"}</dd>
-            <dt className="text-[0.875rem] text-ink-700">{t.details.invoices}</dt>
-          </div>
-          <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-paper-100 p-5">
-            <dd className="text-[1.5rem] font-bold leading-none">{active.stats.sync[locale]}</dd>
-            <dt className="text-[0.875rem] text-ink-700">{t.details.sync}</dt>
-          </div>
-        </dl>
-
-        <div className="flex flex-col gap-4">
-          <h3 className="text-[1rem] font-bold">{t.details.how}</h3>
-          <ol className="grid gap-3 sm:grid-cols-3">
-            {active.steps.map((step, i) => (
-              <li key={i} className="flex gap-3 text-[0.9375rem] leading-snug text-ink-700">
-                <span className="num flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-teal-300 text-[0.8125rem] font-bold text-teal-700">
-                  {i + 1}
+            {active.flow.map((step, i) => (
+              <Fragment key={step}>
+                {i > 0 && <Icon name="arrow" size={14} className="rtl:-scale-x-100" />}
+                <span
+                  className={
+                    i === 1
+                      ? "rounded-pill bg-teal-500 px-3 py-1 font-bold text-white"
+                      : "rounded-pill border border-paper-300 px-3 py-1"
+                  }
+                >
+                  {step}
                 </span>
-                {step[locale]}
-              </li>
+              </Fragment>
             ))}
-          </ol>
+          </div>
         </div>
+
+        <p className="max-w-[62ch] text-[1.0625rem] leading-[1.75] text-ink-700">{active.description}</p>
+
+        {active.sync && (
+          <div className="flex flex-col gap-3">
+            <h3 className="text-[1rem] font-bold">{active.sync.heading}</h3>
+            <ul className="grid gap-x-8 sm:grid-cols-2">
+              {active.sync.rows.map((row) => (
+                <li key={row.from} className="flex flex-col gap-1 border-t border-paper-200 py-3 text-[0.9375rem] leading-snug">
+                  <span className="font-bold">
+                    {row.from}
+                    <span className="sr-only">: </span>
+                  </span>
+                  <span className="flex gap-2 text-ink-700">
+                    <Icon name="arrow" size={16} className="mt-0.5 shrink-0 text-teal-500 rtl:-scale-x-100" />
+                    {row.to}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {active.stats && (
+          <dl className="grid gap-4 sm:grid-cols-3">
+            <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-teal-50 p-5">
+              <dd className="num text-[2rem] font-bold leading-none text-teal-700">
+                {active.live ? `${fmt(active.stats.clients)}+` : fmt(active.stats.clients)}
+              </dd>
+              <dt className="text-[0.875rem] text-teal-800">{active.live ? t.details.clients : t.details.waitlist}</dt>
+            </div>
+            <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-paper-100 p-5">
+              <dd className="num text-[2rem] font-bold leading-none">{active.live ? fmt(active.stats.invoices) : "—"}</dd>
+              <dt className="text-[0.875rem] text-ink-700">{t.details.invoices}</dt>
+            </div>
+            <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-paper-100 p-5">
+              <dd className="text-[1.5rem] font-bold leading-none">{active.stats.sync}</dd>
+              <dt className="text-[0.875rem] text-ink-700">{t.details.sync}</dt>
+            </div>
+          </dl>
+        )}
+
+        {active.steps && (
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[1rem] font-bold">{t.details.how}</h3>
+            <ol className="grid gap-3 sm:grid-cols-3">
+              {active.steps.map((step, i) => (
+                <li key={i} className="flex gap-3 text-[0.9375rem] leading-snug text-ink-700">
+                  <span className="num flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-teal-300 text-[0.8125rem] font-bold text-teal-700">
+                    {i + 1}
+                  </span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
 
         <div className="flex flex-wrap items-center gap-4 border-t border-teal-200 pt-6">
           <a
@@ -137,6 +186,11 @@ export function IntegrationsExplorer({ locale, items, t, signupHref, docsHref }:
             {t.details.activate}
             <Icon name="arrow" size={16} className="rtl:-scale-x-100" />
           </a>
+          {active.page && (
+            <ButtonLink href={active.page.href} variant="secondary" arrow>
+              {active.page.label}
+            </ButtonLink>
+          )}
           <a href={docsHref} rel="noopener" className="text-[0.9375rem] font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
             {t.docs}
           </a>

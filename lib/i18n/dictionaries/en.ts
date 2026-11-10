@@ -136,7 +136,6 @@ export const en: Dictionary = {
       { name: "Foodics", body: "Restaurant sales arrive as invoices" },
       { name: "Zid", body: "Store orders become entries" },
       { name: "Marn", body: "Point of sale" },
-      { name: "Prexle", body: "Cashier" },
       { name: "API", body: "Any other system" },
     ],
   },
@@ -268,6 +267,7 @@ export const en: Dictionary = {
       activate: "Enable the integration",
       waitlist: "businesses on the waitlist",
       flow: ["The sale", "VoM", "ZATCA"],
+      page: "{partner} integration details",
     },
   },
   reports: {
@@ -580,6 +580,7 @@ export const en: Dictionary = {
     items: {
       foodics: {
         partner: "Foodics",
+        category: "Restaurant POS",
         crumb: "VoM & Foodics",
         heading: "Connect Foodics to VoM",
         lede: "Foodics is a point-of-sale and restaurant management system that runs your front of house, your kitchen and your back office with precision, simplicity and flexibility.",
@@ -618,6 +619,7 @@ export const en: Dictionary = {
       },
       marn: {
         partner: "Marn",
+        category: "Restaurant POS",
         crumb: "VoM & Marn",
         heading: "Connect Marn to VoM",
         lede: "Marn is an all-in-one restaurant and point-of-sale system that organises your admin work and tracks every operation in your restaurant, simply and securely.",
@@ -656,6 +658,7 @@ export const en: Dictionary = {
       },
       zid: {
         partner: "Zid",
+        category: "E-commerce",
         crumb: "VoM & Zid",
         heading: "Connect Zid to VoM",
         lede: "Zid gives you a complete online store with its own storefront, where you take in your customers' orders and manage them with ease.",

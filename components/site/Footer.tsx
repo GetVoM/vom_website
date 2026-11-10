@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
-import type { Dictionary } from "@/lib/i18n/dictionaries/types";
+import type { Dictionary, SocialId } from "@/lib/i18n/dictionaries/types";
 import { integrationPaths } from "@/lib/i18n/routes";
 import { integrationIds } from "@/lib/integrations";
 import { site } from "@/lib/seo/site";
 import { Icon } from "@/components/ui/Icon";
+// Drawn from public/icons/social.svg, so these paths are not repeated in every page's HTML.
+const socials: { id: SocialId; href: string }[] = [
+  { id: "tiktok", href: site.social.tiktok },
+  { id: "x", href: site.social.x },
+  { id: "instagram", href: site.social.instagram },
+  { id: "linkedin", href: site.social.linkedin },
+];
 
 function FooterLink({ label, href, locale }: { label: string; href: string; locale: Locale }) {
   const cls = "link-quiet";
@@ -77,12 +84,22 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
           <span>
             © <span className="num">{year}</span> {t.brand.name}. {t.footer.rights}.
           </span>
-          <div className="flex gap-5">
-            <a href={site.social.tiktok} rel="noopener" className="num hover:text-teal-700">TikTok</a>
-            <a href={site.social.x} rel="noopener" className="num hover:text-teal-700">X</a>
-            <a href={site.social.instagram} rel="noopener" className="num hover:text-teal-700">Instagram</a>
-            <a href={site.social.linkedin} rel="noopener" className="num hover:text-teal-700">LinkedIn</a>
-          </div>
+          <ul className="-mx-2.5 flex items-center" aria-label={t.contact.follow.heading}>
+            {socials.map(({ id, href }) => (
+              <li key={id}>
+                <a
+                  href={href}
+                  rel="noopener"
+                  className="flex size-10 items-center justify-center rounded-full text-ink-500 transition-colors hover:bg-paper hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
+                >
+                  <svg width={18} height={18} fill="currentColor" aria-hidden="true" focusable="false">
+                    <use href={`/icons/social.svg#${id}`} />
+                  </svg>
+                  <span className="sr-only">{t.contact.follow.items[id]}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>
