@@ -15,6 +15,15 @@ export const site = {
     apply: "https://docs.google.com/forms/d/e/1FAIpQLScb6FWY925nc438AnhClM6pILJtPe07HxgbxtCpFeblPhqVfw/viewform",
     partner: "https://docs.google.com/forms/d/e/1FAIpQLSdY8Pu1FyqTVVMUMgoU9I3gpiwI1G7TWHZgTtRIS_j9P2_UuQ/viewform",
   },
+  /**
+   * The student package's links, on the team's short-link service so its click
+   * counts keep working (owner, 2026-11-10). A student signs up in the app
+   * (?is_student=1); a university fills in a Google Form.
+   */
+  studentLinks: {
+    student: { ar: "https://sa.getvom.com/AR-SP-RG", en: "https://sa.getvom.com/EN-SP-RG" },
+    university: { ar: "https://sa.getvom.com/SP_AR", en: "https://sa.getvom.com/SP_EN" },
+  },
   appStore: "https://apps.apple.com/us/app/vom/id1561019943",
   // TODO: replace with the real Google Play listing URL from the team.
   googlePlay: "https://play.google.com/store/search?q=vom%20accounting&c=apps",

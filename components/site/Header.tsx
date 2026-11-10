@@ -4,8 +4,10 @@ import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { site } from "@/lib/seo/site";
 import { ButtonLink } from "@/components/ui/Button";
+import { DesktopNav } from "./DesktopNav";
 import { LocaleSwitch } from "./LocaleSwitch";
 import { MobileMenu } from "./MobileMenu";
+import type { NavItem, NavMenus } from "./navTypes";
 
 interface HeaderProps {
   locale: Locale;
@@ -13,36 +15,52 @@ interface HeaderProps {
 }
 
 export function Header({ locale, t }: HeaderProps) {
-  const links = [
-    { label: t.nav.home, href: localePath(locale, "/") },
-    { label: t.nav.features, href: localePath(locale, locale === "ar" ? "/features/" : "/features-en/") },
-    { label: t.nav.sectors, href: `${localePath(locale, "/")}#sectors` },
-    { label: t.nav.pricing, href: localePath(locale, locale === "ar" ? "/pricing/" : "/pricing-en/") },
+  const home = localePath(locale, "/");
+  const items: NavItem[] = [
+    { kind: "link", label: t.nav.home, href: home },
+    { kind: "link", label: t.nav.features, href: localePath(locale, locale === "ar" ? "/features/" : "/features-en/") },
+    { kind: "menu", id: "sectors" },
+    { kind: "link", label: t.nav.pricing, href: localePath(locale, locale === "ar" ? "/pricing/" : "/pricing-en/") },
     {
+      kind: "link",
       label: t.nav.einvoicing,
       href: localePath(locale, locale === "ar" ? "/الفوترة-الإلكترونية/" : "/zatca-e-invoicing-phase-2/"),
     },
-    { label: t.nav.blog, href: localePath(locale, locale === "ar" ? "/blog/" : "/blog-en/") },
+    { kind: "menu", id: "support" },
   ];
+
+  // One object for both menus, so the page carries the menu data once.
+  const menus: NavMenus = {
+    sectors: {
+      label: t.nav.sectors,
+      line: t.sectors.heading,
+      all: { label: t.sectors.all, href: `${home}#sectors` },
+      items: t.sectors.items.map((sector) => ({
+        label: sector.name,
+        href: localePath(locale, `/${sector.slug}/`),
+        icon: sector.icon,
+      })),
+    },
+    support: {
+      label: t.nav.support,
+      groups: t.nav.supportGroups.map((group) => ({
+        heading: group.heading,
+        links: group.links.map((link) => ({
+          label: link.label,
+          href: link.href.startsWith("http") ? link.href : localePath(locale, link.href),
+        })),
+      })),
+    },
+  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-paper-200/80 bg-paper/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-6 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))]">
-        <Link href={localePath(locale, "/")} className="flex shrink-0 items-center" aria-label={t.brand.name}>
+        <Link href={home} className="flex shrink-0 items-center" aria-label={t.brand.name}>
           <Image src={site.logo} alt={t.brand.name} width={110} height={36} priority={false} />
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[0.9375rem] lg:flex" aria-label="Main">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="link-nav"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <DesktopNav items={items} menus={menus} label={t.nav.menu} />
 
         <div className="hidden items-center gap-5 lg:flex">
           <LocaleSwitch
@@ -59,7 +77,9 @@ export function Header({ locale, t }: HeaderProps) {
         </div>
 
         <MobileMenu
-          links={[...links, { label: t.nav.login, href: site.login }]}
+          items={items}
+          menus={menus}
+          login={{ label: t.nav.login, href: site.login }}
           locale={locale}
           switchLabel={t.nav.switchLocale}
           start={{ label: t.nav.start, href: site.signup[locale] }}

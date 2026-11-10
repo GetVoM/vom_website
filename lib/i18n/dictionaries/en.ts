@@ -14,7 +14,27 @@ export const en: Dictionary = {
     sectors: "Industries",
     pricing: "Pricing",
     einvoicing: "E-invoicing",
-    blog: "Blog",
+    support: "Business support",
+    supportGroups: [
+      {
+        heading: "Resources",
+        links: [
+          { label: "Blog", href: "/blog/" },
+          { label: "News", href: "/news/" },
+          { label: "Sales invoices", href: "/sales-invoices/" },
+          { label: "ZATCA Phase 2 e-invoicing", href: "/zatca-e-invoicing-phase-2/" },
+        ],
+      },
+      {
+        heading: "Help",
+        links: [
+          { label: "Contact us", href: "/contact-us/" },
+          { label: "API documentation", href: "https://app.getvom.com/en/docs/api" },
+          { label: "Student package", href: "/student-package/" },
+          { label: "Terms and conditions", href: "/terms-and-conditions/" },
+        ],
+      },
+    ],
     login: "Log in",
     start: "Start free",
     switchLocale: "العربية",
@@ -214,7 +234,7 @@ export const en: Dictionary = {
         ["Blog", "/blog-en/"],
         ["ZATCA Phase 2", "/zatca-e-invoicing-phase-2/"],
         ["Sales invoices", "/sales-invoices/"],
-        ["Student package", "/student-package-2/"],
+        ["Student package", "/student-package/"],
       ],
       company: [
         ["About", "/about-us/"],
@@ -676,6 +696,134 @@ export const en: Dictionary = {
             "Connect your Zid online store to VoM accounting, and your store's sales post to VoM as daily journal entries. Watch the video, then start a free trial.",
         },
       },
+    },
+  },
+  student: {
+    crumb: "Student package",
+    heading: "Accounting software for students",
+    lede: "An exceptional chance to gain the accounting skills your career will need, in a package made for students who want to grow in accounting.",
+    register: { student: "Register as a student", university: "Register your university" },
+    newTab: "(opens in a new tab)",
+    seal: { word: "Free", micro: "Student package" },
+    hero: {
+      book: {
+        columns: ["Account", "Dr", "Cr"],
+        debit: "Cash",
+        credit: "Capital",
+        memo: "(Owner invests cash in the business)",
+        amount: "50,000",
+      },
+      record: {
+        title: "Journal entry",
+        serialLabel: "Entry no.",
+        serial: "0001",
+        dateLabel: "Date",
+        date: "2026-09-01",
+        columns: ["Account", "Debit", "Credit"],
+        lines: ["Cash", "Capital"],
+        total: "Total",
+        attachment: "deposit-slip.pdf",
+        demo: "Demonstration data",
+      },
+    },
+    features: {
+      heading: "What the student package includes",
+      bookHead: "In the textbook",
+      spreads: [
+        {
+          form: { kind: "taccount", labels: ["Cash", "Capital", "Dr", "Cr"] },
+          concept: "Double entry",
+          conceptLine: "Every entry posts to two sides: a debit and a credit.",
+          title: "Recording transactions",
+          items: [
+            "Post journal entries with every supporting document attached.",
+            "Record your assets and manage their whole life in VoM: depreciation, upgrades and sale.",
+            "Add as many cost centres as you need and report on each one in detail.",
+          ],
+        },
+        {
+          form: { kind: "invoice", labels: ["Tax invoice", "Seller", "VAT number", "Item", "VAT 15%", "Total"] },
+          concept: "The tax invoice",
+          conceptLine: "A tax invoice carries the elements the regulations require.",
+          title: "Draft invoices and quotations",
+          items: [
+            "Design your invoices with 10 templates.",
+            "Export draft invoices that meet every tax-invoice requirement, with your own terms, conditions and notes.",
+          ],
+        },
+        {
+          form: { kind: "ledger", labels: ["Customer account", "Dr", "Cr", "Balance"] },
+          concept: "The subsidiary ledger",
+          conceptLine: "Every customer and supplier has an account in the subsidiary ledger.",
+          title: "Purchases and sales",
+          items: [
+            "Add unlimited customers and suppliers, or import them from an Excel sheet.",
+            "Send invoices straight from VoM, with no limit.",
+            "Track each customer's payment status and get reminders in the notification centre.",
+          ],
+        },
+        {
+          form: { kind: "voucher", labels: ["Receipt voucher", "No.", "Received from", "The sum of", "Being"] },
+          concept: "The receipt voucher",
+          conceptLine: "A voucher is the document that proves money received or paid.",
+          title: "Receipt and payment vouchers",
+          items: [
+            "Design your receipt and payment vouchers.",
+            "Link each voucher to its invoices.",
+            "Export them easily, with no limit.",
+            "Track every receipt and payment.",
+          ],
+        },
+      ],
+    },
+    reports: {
+      heading: { before: "More than", figure: "14", after: "reports" },
+      footnote: "Every one is produced automatically, with no manual input.",
+      items: [
+        { id: "vat", name: "VAT report" },
+        { id: "balance-sheet", name: "Balance sheet" },
+        { id: "cash-flow-direct", name: "Cash flow statement (direct)" },
+        { id: "cash-flow-indirect", name: "Cash flow statement (indirect)" },
+        { id: "account-statements", name: "Account statements" },
+        { id: "general-ledger", name: "General ledger" },
+        { id: "income-statement", name: "Income statement" },
+        { id: "journal", name: "Journal entries" },
+        { id: "purchases", name: "Purchases" },
+        { id: "sales", name: "Sales" },
+        { id: "account-summary", name: "Account summary" },
+        { id: "assets", name: "Assets" },
+        { id: "trial-balance", name: "Trial balance" },
+        { id: "cost-centres", name: "Cost centres" },
+      ],
+    },
+    benefits: {
+      heading: "How the student package helps you",
+      items: [
+        {
+          title: "Put accounting concepts into practice",
+          body: "Take the theory from your lectures into a working system: create and manage invoices, record journal entries and work on the accounts.",
+          alt: "A student writing in a notebook beside a tablet",
+        },
+        {
+          title: "Learn how accounting systems work",
+          body: "Build your knowledge of the accounting systems you will meet at work.",
+          alt: "A pen pointing at printed charts during a discussion",
+        },
+        {
+          title: "Gain real accounting skills",
+          body: "Pick up the accounting skills to start a successful career.",
+          alt: "One hand on a calculator, the other holding receipts",
+        },
+      ],
+    },
+    close: {
+      line: "The student package is a real chance to build a strong foundation in accounting and to prepare for success in your studies and your career.",
+      body: "Join today, and grow with the student package.",
+    },
+    seo: {
+      title: "Free Accounting Software for Students | VoM Student Package",
+      description:
+        "VoM's free student package lets accounting students post journal entries, design invoices and vouchers, and run 14+ reports in a real accounting system.",
     },
   },
   terms: {

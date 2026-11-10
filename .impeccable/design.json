@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T00:00:00+00:00",
+  "generatedAt": "2026-11-10T12:00:00+00:00",
   "title": "Design System: VoM website (getvom.com)",
   "extensions": {
     "colorMeta": {
@@ -417,7 +417,17 @@
       {
         "name": "seal-drop",
         "value": "0 14px 28px -14px rgb(5 42 37 / 0.6)",
-        "purpose": "The play seal resting on a video poster."
+        "purpose": "The play seal resting on a video poster; the free seal on the textbook spread uses it at 0.45."
+      },
+      {
+        "name": "spread-rest",
+        "value": "0 1px 2px rgb(2 2 2 / 0.06), 0 24px 48px -30px rgb(5 42 37 / 0.35)",
+        "purpose": "Observed drift, not a rule: the student features spreads at rest on paper."
+      },
+      {
+        "name": "fold-shade",
+        "value": "linear-gradient(to spine, transparent calc(100% - 1.25rem), rgb(5 42 37 / 0.07)) on the textbook page, 0.05 on the VoM page",
+        "purpose": "Not elevation: the textbook spread's fold shade on each page's spine edge, mirrored in RTL."
       }
     ],
     "motion": [
@@ -475,6 +485,21 @@
         "name": "play-stamp",
         "value": "opacity 0 and scale 1.35 to rest, 0.5s ease-out-quint from 0.75s",
         "purpose": "The play seal stamping in after the screen lands."
+      },
+      {
+        "name": "spread-lift",
+        "value": "translateY 1.5rem to 0 with the shadow lengthening to object-on-field, 0.8s ease-out-quint from 0.1s",
+        "purpose": "Student package signature: the textbook spread lifting onto the field once on load."
+      },
+      {
+        "name": "row-write",
+        "value": "clip-path inset from the reading start (mirrored in RTL), 0.4s ease-out-quint per cell, cells staggered 0.07s; rows from 0.45s and 0.6s, totals row from 0.78s",
+        "purpose": "The VoM record's cells writing in after the spread lands, the totals closing on the double rule."
+      },
+      {
+        "name": "seal-stamp",
+        "value": "opacity 0 and scale 1.35 to rest, 0.45s ease-out-quint from 1.05s",
+        "purpose": "The free seal stamping onto the spread last."
       }
     ],
     "breakpoints": [
@@ -612,11 +637,27 @@
       "description": "Plate variant of the Partner Seal for wordmarks too wide for a disc: rounded white plates carrying the seal ring, VoM and partner joined by a white double hairline on the teal close band.",
       "html": "<div class=\"ds-close\"><div class=\"ds-emblem\" aria-hidden=\"true\"><span class=\"ds-plate\">VoM</span><span class=\"ds-link\"></span><span class=\"ds-plate\">FOODICS</span></div></div>",
       "css": ".ds-close{padding:3rem 1.5rem;background:var(--color-teal-500,#17baa3);clip-path:polygon(0 2.5rem,100% 0,100% 100%,0 100%);}.ds-emblem{display:flex;align-items:center;}.ds-plate{display:flex;align-items:center;height:4.5rem;padding:0 1.5rem;border-radius:1rem;background:#fff;color:#020202;font:700 1.25rem var(--font-effra),'Segoe UI',system-ui,sans-serif;letter-spacing:.04em;box-shadow:0 0 0 3px var(--color-teal-500,#17baa3),0 0 0 4px rgb(255 255 255 / .75);}.ds-link{width:2.5rem;height:5px;border-top:1px solid #fff;border-bottom:1px solid #fff;}"
+    },
+    {
+      "name": "Textbook Spread",
+      "kind": "custom",
+      "refersTo": "textbook-page",
+      "description": "Two pages on a spine: the textbook page in Slate on Cool Paper, unframed, facing the VoM page in the double-hairline frame, its list closed by the double teal rule at the page foot, with the free seal hung across the spine's foot.",
+      "html": "<div class=\"ds-spread\"><div class=\"ds-page ds-book\"><span class=\"ds-lh ds-lh-book\"></span><p class=\"ds-concept\">Double entry</p><table class=\"ds-note\"><tr><th>Account</th><th>Dr</th><th>Cr</th></tr><tr><td>Cash</td><td>50,000</td><td></td></tr><tr><td class=\"ds-cr\">Capital</td><td></td><td>50,000</td></tr></table><p class=\"ds-folio\">In the textbook</p></div><div class=\"ds-page ds-vom\"><p class=\"ds-lh\"><b>VoM</b></p><h3 class=\"ds-title\">Recording transactions</h3><ul class=\"ds-items\"><li>Post journal entries with every supporting document attached.</li><li>Add as many cost centres as you need.</li></ul><p class=\"ds-seal\"><span class=\"ds-seal-word\">Free</span><span class=\"ds-seal-micro\">Student package</span></p></div></div>",
+      "css": ".ds-spread{display:grid;grid-template-columns:1fr 1fr;max-width:40rem;margin-bottom:3rem;border-radius:1.25rem;font-family:var(--font-effra),'Segoe UI',system-ui,sans-serif;}.ds-page{position:relative;display:flex;flex-direction:column;padding:1.5rem 1.5rem 1.75rem;}.ds-book{background:var(--color-paper-100,#f4f7fc) linear-gradient(to right,transparent calc(100% - 1.25rem),rgb(5 42 37 / .07)) no-repeat;color:var(--color-ink-700,#54595f);border-radius:1.25rem 0 0 1.25rem;}.ds-vom{background:#fff linear-gradient(to left,transparent calc(100% - 1.25rem),rgb(5 42 37 / .05)) no-repeat;color:#020202;border:1px solid #bfeae2;border-radius:0 1.25rem 1.25rem 0;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #bfeae2;}.ds-lh{display:flex;min-height:1.125rem;margin:0 0 1rem;padding-bottom:.75rem;border-bottom:1px solid #bfeae2;color:#17baa3;}.ds-lh-book{border-color:#d7e3ec;}.ds-concept,.ds-title{margin:0;font-size:1.125rem;font-weight:700;}.ds-note{width:100%;margin-top:1rem;border-collapse:collapse;font-size:.9375rem;}.ds-note th{padding-bottom:.5rem;font-size:.75rem;font-weight:500;color:#6b6b6b;text-align:start;border-bottom:1px solid #9aa3ad;}.ds-note td{padding:.5rem .5rem .5rem 0;color:#020202;font-variant-numeric:tabular-nums;}.ds-note td+td,.ds-note th+th{width:4.5rem;padding-inline:.5rem;text-align:end;border-inline-start:1px solid #d7e3ec;}.ds-cr{padding-inline-start:1.5rem!important;}.ds-folio{display:flex;align-items:center;gap:.5rem;margin:auto 0 0;padding-top:1rem;font-size:.8125rem;color:#6b6b6b;}.ds-folio::after{content:'';flex:1;border-top:1px solid #d7e3ec;}.ds-items{flex:1;margin:.5rem 0 0;padding:0;list-style:none;border-bottom:4px double #17baa3;}.ds-items li{display:flex;gap:.75rem;padding-block:.875rem;border-bottom:1px solid #bfeae2;font-size:1rem;line-height:1.65;color:#54595f;}.ds-items li:last-child{border-bottom:0;}.ds-items li::before{content:'';flex:none;width:1.5rem;height:1.5rem;margin-top:.125rem;border-radius:50%;background:#ddf5f0 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E\") center/.875rem no-repeat;}.ds-seal{position:absolute;bottom:-2.5rem;left:0;translate:-50% 0;rotate:-8deg;display:grid;place-content:center;justify-items:center;gap:.25rem;width:6.5rem;height:6.5rem;margin:0;border:4px double #0f6b5e;border-radius:50%;background:#fff;color:#0f6b5e;text-align:center;box-shadow:0 14px 28px -14px rgb(5 42 37 / .45);}.ds-seal-word{font-size:1.375rem;font-weight:700;line-height:1.1;}.ds-seal-micro{max-width:4.75rem;font-size:.625rem;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;}"
+    },
+    {
+      "name": "Report Index",
+      "kind": "custom",
+      "refersTo": "report-index",
+      "description": "The reports as a book's index page: one framed paper sheet on Cool Paper, sorted on the keyword per locale, two columns read down each column from 640px.",
+      "html": "<div class=\"ds-reports\"><ul class=\"ds-index\" style=\"--rows:3\"><li><span class=\"ds-ico\"></span>Account statements</li><li><span class=\"ds-ico\"></span>Assets</li><li><span class=\"ds-ico\"></span>Balance sheet</li><li class=\"ds-col\"><span class=\"ds-ico\"></span>Cost centres</li><li><span class=\"ds-ico\"></span>General ledger</li><li><span class=\"ds-ico\"></span>Trial balance</li></ul></div>",
+      "css": ".ds-reports{padding:2rem;background:var(--color-paper-100,#f4f7fc);font-family:var(--font-effra),'Segoe UI',system-ui,sans-serif;}.ds-index{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(var(--rows),auto);grid-auto-flow:column;column-gap:2.5rem;margin:0;padding:1rem 2.5rem;list-style:none;background:#fff;border:1px solid #bfeae2;border-radius:1.25rem;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #bfeae2;}.ds-index li{display:flex;align-items:center;gap:1rem;padding-block:.875rem;border-top:1px solid #d7e3ec;font-size:1rem;font-weight:500;line-height:1.45;color:#020202;}.ds-index li:first-child,.ds-index li.ds-col{border-top:0;}.ds-ico{flex:none;width:3rem;height:3rem;border-radius:.75rem;background:#ddf5f0;}"
     }
   ],
   "narrative": {
     "northStar": "The Official Record",
-    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
     "keyCharacteristics": [
       "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
       "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
@@ -634,6 +675,11 @@
       {
         "name": "The Guilloche-on-Teal Rule",
         "body": "The guilloche is drawn in white at 10 to 14% opacity on teal fields only. Never on paper, on paper objects, on seals or on the reading register.",
+        "section": "colors"
+      },
+      {
+        "name": "The Book-in-Slate Rule",
+        "body": "On a textbook spread the textbook page is the book's, so it is printed in Slate and Graphite on Cool Paper with ink-300 and paper-300 hairlines and no teal; teal, the double hairline and the double teal rule belong to the facing VoM page. The book's own total keeps its accountant's double rule, drawn 3px in Graphite.",
         "section": "colors"
       },
       {
@@ -659,11 +705,12 @@
     ],
     "dos": [
       "**Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.",
-      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
+      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
       "**Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.",
       "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
       "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
       "**Do** label demonstration data in every mock-up.",
+      "**Do** print a textbook page in Slate on Cool Paper with no teal and no frame, and give teal, the double hairline and the double teal rule to the facing VoM page.",
       "**Do** switch the focus outline to white on any teal ground.",
       "**Do** set partner and third-party logos on a white seal disc on teal, or on the ringed white plate when the mark is a wordmark too wide for a disc, never directly on the field.",
       "**Do** draw partner marks at the context height times the mark's optical scale, so no partner outweighs another.",

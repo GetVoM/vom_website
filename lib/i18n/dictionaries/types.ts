@@ -28,7 +28,13 @@ export interface Dictionary {
     sectors: string;
     pricing: string;
     einvoicing: string;
-    blog: string;
+    /** The Business support menu's button. */
+    support: string;
+    /**
+     * Business support's links in labelled groups. The last group sits on the
+     * menu's teal field. `href` is a path without the locale, or a full URL.
+     */
+    supportGroups: { heading: string; links: { label: string; href: string }[] }[];
     login: string;
     start: string;
     switchLocale: string;
@@ -260,6 +266,37 @@ export interface Dictionary {
     others: string;
     items: Record<IntegrationId, IntegrationCopy>;
   };
+  student: {
+    crumb: string;
+    heading: string;
+    lede: string;
+    /** A student signs up in the app; a university fills in a Google Form, in a new tab. */
+    register: { student: string; university: string };
+    /** Hidden text after a link that opens the university form in a new tab. */
+    newTab: string;
+    /** The double-ring seal: the offer, and its English micro-label (on paper only). */
+    seal: { word: string; micro: string };
+    /** The opening spread: one entry as the textbook writes it, and as VoM records it. */
+    hero: {
+      book: StudentBookEntry;
+      record: StudentRecord;
+    };
+    features: {
+      heading: string;
+      /** The textbook page's running foot; the VoM page's letterhead is VoM's mark. */
+      bookHead: string;
+      spreads: StudentSpread[];
+    };
+    reports: {
+      /** The heading, split around the figure: before, figure, after. */
+      heading: { before: string; figure: string; after: string };
+      footnote: string;
+      items: { id: StudentReportId; name: string }[];
+    };
+    benefits: { heading: string; items: { title: string; body: string; alt: string }[] };
+    close: { line: string; body: string };
+    seo: { title: string; description: string };
+  };
   terms: {
     heading: string;
     /** `{n}` is the number of numbered sections. */
@@ -328,6 +365,66 @@ export interface IntegrationCopy {
   close: string;
   images: { lockup: string };
   seo: { title: string; description: string };
+}
+
+export type StudentReportId =
+  | "vat"
+  | "balance-sheet"
+  | "cash-flow-direct"
+  | "cash-flow-indirect"
+  | "account-statements"
+  | "general-ledger"
+  | "income-statement"
+  | "journal"
+  | "purchases"
+  | "sales"
+  | "account-summary"
+  | "assets"
+  | "trial-balance"
+  | "cost-centres";
+
+/** A journal entry in the notation of this language's textbooks. */
+export interface StudentBookEntry {
+  /** Column heads: the entry's wording, then debit and credit. */
+  columns: [string, string, string];
+  /** The debited account, then the credited one, as the textbook writes them. */
+  debit: string;
+  credit: string;
+  /** The explanation under the entry, in parentheses. */
+  memo: string;
+  amount: string;
+}
+
+/** The same entry as a VoM journal record, with demonstration figures. */
+export interface StudentRecord {
+  title: string;
+  serialLabel: string;
+  serial: string;
+  dateLabel: string;
+  date: string;
+  /** Column heads: account, debit, credit. */
+  columns: [string, string, string];
+  lines: [string, string];
+  total: string;
+  attachment: string;
+  /** Labels the figures as demonstration data. */
+  demo: string;
+}
+
+/**
+ * One feature group as a spread: the concept as the textbook teaches it, beside
+ * what VoM does. `labels` are the words printed on the drawn form, by kind:
+ * taccount [debited account, credited account, debit, credit];
+ * invoice [title, seller, VAT number, item, VAT line, total];
+ * ledger [title, debit, credit, balance];
+ * voucher [title, number, received from, the sum of, being].
+ */
+export interface StudentSpread {
+  form: { kind: "taccount" | "invoice" | "ledger" | "voucher"; labels: string[] };
+  concept: string;
+  conceptLine: string;
+  title: string;
+  items: string[];
 }
 
 export interface GrowthPartner {

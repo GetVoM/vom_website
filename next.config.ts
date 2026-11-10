@@ -101,6 +101,23 @@ const nextConfig: NextConfig = {
         destination: "/en/growth-plan/",
         statusCode: 301,
       },
+      // Student package: the English "-2" slug, and the unprefixed "-2" slug that led to it.
+      {
+        source: "/en/student-package-2",
+        destination: "/en/student-package/",
+        statusCode: 301,
+      },
+      {
+        source: "/student-package-2",
+        destination: "/en/student-package/",
+        statusCode: 301,
+      },
+      // An empty WordPress shell titled "Vom"; the owner sent it to the homepage.
+      {
+        source: "/get-free-version",
+        destination: "/",
+        statusCode: 301,
+      },
       // Integration pages: WordPress gave the English twins a "-2" slug, and the
       // unprefixed "-2" slugs led to them. Both go straight to the clean English URL.
       ...["foodics", "marn", "zid"].flatMap((id) => [

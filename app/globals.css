@@ -709,6 +709,316 @@ details.faq[open] .faq-icon {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.14' stroke-width='.55'%3E%3Cellipse cx='48' cy='48' rx='44' ry='13'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(18 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(36 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(54 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(72 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(90 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(108 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(126 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(144 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(162 48 48)'/%3E%3Ccircle cx='48' cy='48' r='46'/%3E%3Ccircle r='22'/%3E%3Ccircle cx='96' cy='96' r='22'/%3E%3Ccircle cx='96' r='22'/%3E%3Ccircle cy='96' r='22'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+/* Header: the Sectors and Business support mega menus. A paper panel drops under
+   the header; its links run in ruled columns on the start side and a slanted teal
+   field bleeds to the viewport's end edge, as on the page heroes. */
+.nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: rgb(2 2 2 / 0.9);
+  transition: color 0.2s ease;
+}
+.nav-trigger:hover,
+.nav-trigger[aria-expanded="true"] {
+  color: var(--color-teal-700);
+}
+.nav-trigger:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.nav-chevron {
+  rotate: 90deg;
+  transition: rotate 0.25s var(--ease-out-quint);
+}
+.nav-trigger[aria-expanded="true"] .nav-chevron {
+  rotate: -90deg;
+}
+.nav-panel {
+  --bleed: max(16px, calc((100vw - 1280px) / 2 + 16px));
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-paper-200);
+  background: var(--color-paper);
+  box-shadow: 0 24px 40px -24px rgb(5 42 37 / 0.35);
+  /* Closed. Leaving, it lifts and fades a little faster than it arrived, and
+     display waits for the fade, so the panel never snaps out. */
+  display: none;
+  opacity: 0;
+  translate: 0 -0.375rem;
+  pointer-events: none;
+  transition:
+    opacity 0.16s ease-in,
+    translate 0.16s ease-in,
+    display 0.16s allow-discrete;
+}
+.nav-panel[data-open] {
+  display: block;
+  opacity: 1;
+  translate: none;
+  pointer-events: auto;
+  animation: nav-drop 0.22s var(--ease-out-quint);
+}
+@keyframes nav-drop {
+  from {
+    opacity: 0;
+    translate: 0 -0.375rem;
+  }
+}
+/* Moving from one menu straight to the other swaps the panels at once. */
+.nav-root[data-instant] .nav-panel {
+  transition: none;
+  animation: none;
+}
+.nav-panel a:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.nav-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19rem;
+  column-gap: 3rem;
+}
+/* Sectors: an index of three ruled columns, read down each column. */
+.nav-sectors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), auto);
+  grid-auto-flow: column;
+  column-gap: 2rem;
+  padding-block: 1.5rem 1.75rem;
+}
+.nav-sectors li {
+  border-top: 1px solid var(--color-paper-200);
+}
+.nav-sectors .nav-col-head {
+  border-top: 0;
+}
+.nav-sectors a,
+.mnav-sectors a {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding-block: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+.nav-sectors a:hover,
+.mnav-sectors a:hover {
+  color: var(--color-teal-700);
+}
+/* The sector's line icon on a washed tile, drawn by CSS from the shared icon set. */
+.nav-sectors [data-icon],
+.mnav-sectors [data-icon] {
+  display: grid;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: var(--radius-sheet);
+  background: var(--color-teal-50);
+  transition: background-color 0.2s ease;
+}
+.nav-sectors [data-icon]::before,
+.mnav-sectors [data-icon]::before {
+  content: "";
+  width: 1.375rem;
+  height: 1.375rem;
+  background: var(--color-teal-700);
+  mask: var(--ic) center / contain no-repeat;
+  transition: background-color 0.2s ease;
+}
+.nav-sectors a:hover > [data-icon] {
+  background: var(--color-teal-500);
+}
+.nav-sectors a:hover > [data-icon]::before {
+  background: #fff;
+}
+/* The field: teal guilloche cut by a slant on its start edge, to the viewport's end. */
+.nav-field {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-block: 1.75rem 2rem;
+  padding-inline-start: 3rem;
+  color: #fff;
+}
+.nav-field-bg {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inset-inline-end: calc(-1 * var(--bleed));
+  z-index: -1;
+  background-color: var(--color-teal-500);
+  clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .nav-field-bg {
+  clip-path: polygon(0 0, calc(100% - 2.5rem) 0, 100% 100%, 0 100%);
+}
+.nav-panel .nav-field a:focus-visible {
+  outline-color: #fff;
+}
+.nav-field-line {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.nav-field-link {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 0.55);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.2s ease;
+}
+.nav-field-link:hover {
+  text-decoration-color: #fff;
+}
+/* Business support: labelled groups; a long group runs in two columns. */
+.nav-groups {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  column-gap: 2rem;
+  padding-block: 1.75rem 2rem;
+}
+.nav-group[data-wide] {
+  grid-column: span 2;
+}
+.nav-group[data-wide] ul {
+  max-width: 36rem;
+  columns: 2;
+  column-gap: 2rem;
+}
+.nav-group-heading {
+  margin-bottom: 0.375rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--color-teal-200);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding-block: 0.4375rem;
+  font-size: 0.9375rem;
+  color: var(--color-ink-700);
+  transition: color 0.2s ease;
+}
+.nav-links a:hover {
+  color: var(--color-teal-700);
+}
+.nav-field .nav-group-heading {
+  border-color: rgb(255 255 255 / 0.4);
+}
+.nav-field .nav-links a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+}
+.nav-field .nav-links a:hover {
+  text-decoration-color: #fff;
+}
+/* The arrow on a link to another site points up and out, mirrored in Arabic. */
+.nav-out {
+  rotate: -45deg;
+  opacity: 0.7;
+}
+html[dir="rtl"] .nav-out {
+  rotate: 45deg;
+  scale: -1 1;
+}
+/* Phone: the sections expand in place inside the menu panel. */
+.mnav-sectors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.mnav-sectors a {
+  gap: 0.625rem;
+  padding-block: 0.5rem;
+  font-size: 0.875rem;
+}
+.mnav-sectors [data-icon] {
+  width: 2rem;
+  height: 2rem;
+}
+.mnav-sectors [data-icon]::before {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.mnav-groups {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.mnav-groups ul {
+  display: grid;
+}
+[data-icon="utensils"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v8a2 2 0 0 0 2 2h0v8M9 3v5M5 3v5M17 3c-2 0-3 3-3 6s1 4 2 4v8'/%3E%3C/svg%3E");
+}
+[data-icon="scissors"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM6 13a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM8 9.5L20 4M8 14.5L20 20M13 12h1'/%3E%3C/svg%3E");
+}
+[data-icon="dumbbell"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10'/%3E%3C/svg%3E");
+}
+[data-icon="scale"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0zM8 21h8'/%3E%3C/svg%3E");
+}
+[data-icon="pen"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 21l4-1 11-11-3-3L4 17zM14 6l3 3M17 3l4 4'/%3E%3C/svg%3E");
+}
+[data-icon="megaphone"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6M7 14l1 6h3'/%3E%3C/svg%3E");
+}
+[data-icon="truck"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7h11v9H3zM14 10h4l3 3v3h-7zM6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'/%3E%3C/svg%3E");
+}
+[data-icon="plane"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 13l8-2 4-8h2l-2 8 6 2v2l-6-1-2 6h-2l1-6-6 1z'/%3E%3C/svg%3E");
+}
+[data-icon="car"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 11l2-5h10l2 5M4 11h16v6h-2a2 2 0 0 1-4 0H10a2 2 0 0 1-4 0H4zM7 14h2M15 14h2'/%3E%3C/svg%3E");
+}
+[data-icon="cart"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2 12h11l2-8H6M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM17 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/%3E%3C/svg%3E");
+}
+[data-icon="spray"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 8h6v13H9zM10 8V5h4v3M12 2v3M17 4l2-1M17 7h3M4 11h3M4 14h3'/%3E%3C/svg%3E");
+}
+[data-icon="building"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M14 9h5a1 1 0 0 1 1 1v11M3 21h18M7 8h3M7 12h3M7 16h3M17 13h1M17 17h1'/%3E%3C/svg%3E");
+}
+[data-icon="chart"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V4M4 20h16M7 15l4-5 3 3 6-7'/%3E%3C/svg%3E");
+}
+[data-icon="printer"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 8V3h10v5M5 8h14a2 2 0 0 1 2 2v6h-4v4H7v-4H3v-6a2 2 0 0 1 2-2zM7 16h10'/%3E%3C/svg%3E");
+}
+[data-icon="baby"] {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4zM10 8h.5M13.5 8h.5M6 21a6 6 0 0 1 12 0'/%3E%3C/svg%3E");
+}
+
 /* About: repeated type, kept here so each page sends less HTML. */
 .about-heading {
   font-size: 1.875rem;
@@ -1546,16 +1856,19 @@ html[dir="rtl"] .growth-field {
    video leads on a slanted teal field; below it a posting ledger states what each
    partner record becomes in VoM. Stacked below 1024 px: copy, then the field as a
    full-width panel with a slanted top edge holding the screen. */
-.integ-top {
+.integ-top,
+.stu-top {
   overflow-x: clip;
 }
-.integ-grid {
+.integ-grid,
+.stu-grid {
   display: grid;
   grid-template-areas: "copy" "stage";
   row-gap: 2.5rem;
   padding-top: 2rem;
 }
-.integ-copy {
+.integ-copy,
+.stu-copy {
   grid-area: copy;
   display: flex;
   flex-direction: column;
@@ -1583,7 +1896,8 @@ html[dir="rtl"] .growth-field {
   height: 2.25rem;
   width: auto;
 }
-.integ-title {
+.integ-title,
+.stu-title {
   margin-top: 1.25rem;
   font-size: 3rem;
   font-weight: 700;
@@ -1591,21 +1905,24 @@ html[dir="rtl"] .growth-field {
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
-.integ-lede {
+.integ-lede,
+.stu-lede {
   margin-top: 1.25rem;
   max-width: 54ch;
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--color-ink-700);
 }
-.integ-actions {
+.integ-actions,
+.stu-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.25rem;
   margin-top: 2rem;
 }
-.integ-stage {
+.integ-stage,
+.stu-stage {
   grid-area: stage;
   position: relative;
   isolation: isolate;
@@ -1614,14 +1931,16 @@ html[dir="rtl"] .growth-field {
   color: #fff;
   scroll-margin-top: 4rem;
 }
-.integ-field {
+.integ-field,
+.stu-field {
   position: absolute;
   inset: 0;
   z-index: -1;
   background-color: var(--color-teal-500);
   clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
 }
-html[dir="rtl"] .integ-field {
+html[dir="rtl"] .integ-field,
+html[dir="rtl"] .stu-field {
   clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
 }
 .integ-stage :focus-visible {
@@ -1779,15 +2098,18 @@ html[dir="rtl"] .integ-field {
   color: var(--color-teal-700);
 }
 /* Sections below the hero: a heading on the start side, its content beside it. */
-.integ-section {
+.integ-section,
+.stu-section {
   border-top: 1px solid var(--color-paper-200);
 }
-.integ-split {
+.integ-split,
+.stu-split {
   display: grid;
   gap: 2rem;
   padding-block: 4rem;
 }
-.integ-heading {
+.integ-heading,
+.stu-heading {
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 1.2;
@@ -1983,13 +2305,16 @@ html[dir="rtl"] .integ-close-band {
   text-wrap: balance;
 }
 @media (min-width: 640px) {
-  .integ-title {
+  .integ-title,
+  .stu-title {
     font-size: 4rem;
   }
-  .integ-lede {
+  .integ-lede,
+  .stu-lede {
     font-size: 1.1875rem;
   }
-  .integ-heading {
+  .integ-heading,
+  .stu-heading {
     font-size: 2.25rem;
   }
   .integ-play-seal {
@@ -2048,17 +2373,20 @@ html[dir="rtl"] .integ-close-band {
     column-gap: 2rem;
     padding-top: 0;
   }
-  .integ-copy {
+  .integ-copy,
+  .stu-copy {
     align-self: center;
     padding-block: 3rem 4.5rem;
   }
   .integ-lockup {
     height: 2.75rem;
   }
-  .integ-title {
+  .integ-title,
+  .stu-title {
     font-size: clamp(3.75rem, 5.6vw, 5rem);
   }
-  .integ-stage {
+  .integ-stage,
+  .stu-stage {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2068,28 +2396,34 @@ html[dir="rtl"] .integ-close-band {
     padding-inline-start: 4.5rem;
   }
   /* Bleeds to the viewport's end edge; the start edge is the slant. */
-  .integ-field {
+  .integ-field,
+  .stu-field {
     inset-inline-end: calc(-1 * var(--bleed));
     clip-path: polygon(4.5rem 0, 100% 0, 100% 100%, 0 100%);
   }
-  html[dir="rtl"] .integ-field {
+  html[dir="rtl"] .integ-field,
+  html[dir="rtl"] .stu-field {
     clip-path: polygon(0 0, calc(100% - 4.5rem) 0, 100% 100%, 0 100%);
   }
   .integ-screen-wrap {
     margin-inline: 0;
   }
-  .integ-split {
+  .integ-split,
+  .stu-split {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 2rem;
     padding-block: 6rem;
   }
-  .integ-split > :first-child {
+  .integ-split > :first-child,
+  .stu-split > :first-child {
     grid-column: 1 / span 4;
   }
-  .integ-split > :last-child {
+  .integ-split > :last-child,
+  .stu-split > :last-child {
     grid-column: 5 / -1;
   }
-  .integ-heading {
+  .integ-heading,
+  .stu-heading {
     font-size: 2.5rem;
   }
   .integ-ledger {
@@ -2104,6 +2438,709 @@ html[dir="rtl"] .integ-close-band {
   }
   .integ-close-line {
     font-size: 2.5rem;
+  }
+}
+
+/* Student package: each textbook concept beside what VoM does with it. The hero,
+   field and section rhythm are the integration pages' (grouped above); this block
+   draws the spread. A spread is two pages on a spine: the textbook page printed in
+   Slate on cool paper, the VoM page white in the double-hairline frame. Below
+   640 px the pages stack and the spine becomes a fold. */
+.stu-title {
+  margin-top: 2rem;
+}
+.stu-spread {
+  width: min(100%, 40rem);
+  margin-inline: auto;
+}
+.stu-pages {
+  --fold-book: to bottom;
+  --fold-vom: to top;
+  display: grid;
+  border-radius: var(--radius-card);
+  box-shadow:
+    0 1px 2px rgb(2 2 2 / 0.06),
+    0 24px 48px -30px rgb(5 42 37 / 0.35);
+}
+.stu-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background-repeat: no-repeat;
+}
+.stu-page-book {
+  border-start-start-radius: var(--radius-card);
+  border-start-end-radius: var(--radius-card);
+  background-color: var(--color-paper-100);
+  background-image: linear-gradient(var(--fold-book), transparent calc(100% - 1.25rem), rgb(5 42 37 / 0.07));
+  color: var(--color-ink-700);
+}
+.stu-page-vom {
+  border: 1px solid var(--color-teal-200);
+  border-end-start-radius: var(--radius-card);
+  border-end-end-radius: var(--radius-card);
+  background-color: var(--color-paper);
+  background-image: linear-gradient(var(--fold-vom), transparent calc(100% - 1.25rem), rgb(5 42 37 / 0.05));
+  color: var(--color-ink);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200);
+}
+/* Each page's letterhead is a mark alone over a hairline, so facing titles align:
+   VoM's mark over teal on the VoM page, the book's icon over grey on the textbook's. */
+.stu-letterhead {
+  display: flex;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-teal-200);
+}
+.stu-letterhead-book {
+  border-color: var(--color-paper-300);
+}
+/* VoM's mark at 18px, drawn by CSS from next/image's 128px rendition, so the
+   five pages do not each carry an image tag and its srcset. */
+.stu-letterhead-vom::before {
+  content: "";
+  width: 3.5rem;
+  height: 1.125rem;
+  background: url("/_next/image/?url=%2Fintegrations%2Fvom-mark.png&w=128&q=75") center / contain no-repeat;
+}
+/* The textbook page's running foot, at the bottom of the page like a folio. */
+.stu-folio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+}
+.stu-folio::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--color-paper-300);
+}
+/* The book's line icon, drawn by CSS so the five pages do not repeat its SVG. */
+.stu-letterhead-book::before {
+  content: "";
+  width: 1.125rem;
+  height: 1.125rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2zM4 17a2 2 0 0 1 2-2h13'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Textbook notation: the credited account indented, amounts in ruled columns. */
+.stu-notation,
+.stu-record {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.stu-notation th,
+.stu-record thead th {
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-ink-500);
+  text-align: start;
+}
+.stu-notation th {
+  border-bottom: 1px solid var(--color-ink-300);
+}
+.stu-notation th + th,
+.stu-notation td + td {
+  width: 4.5rem;
+  border-inline-start: 1px solid var(--color-paper-300);
+  text-align: end;
+}
+.stu-notation td {
+  padding-block: 0.5rem;
+  padding-inline-end: 0.5rem;
+  color: var(--color-ink);
+}
+.stu-notation th + th,
+.stu-notation td + td {
+  padding-inline: 0.5rem;
+}
+.stu-notation th:last-child,
+.stu-notation td:last-child {
+  padding-inline-end: 0;
+}
+.stu-credit {
+  padding-inline-start: 1.5rem;
+  white-space: nowrap;
+}
+.stu-notation .stu-memo {
+  padding-top: 0.375rem;
+  border-inline-start: 0;
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+  text-align: start;
+}
+
+/* The VoM record: lines on teal hairlines, totals on the double rule. */
+.stu-record-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+.stu-record-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.stu-record-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-ink-500);
+}
+.stu-record-meta div {
+  display: flex;
+  gap: 0.375rem;
+}
+.stu-record-meta dd {
+  color: var(--color-ink);
+}
+.stu-record {
+  margin-top: 0.75rem;
+}
+.stu-record thead th {
+  padding-top: 0.5rem;
+  border-bottom: 1px solid var(--color-teal-200);
+}
+.stu-record thead th + th,
+.stu-record td {
+  width: 4.75rem;
+  text-align: end;
+}
+.stu-record tbody th,
+.stu-record tfoot th {
+  font-weight: 500;
+  text-align: start;
+}
+.stu-record tbody > tr > * {
+  padding-block: 0.625rem;
+  border-bottom: 1px solid var(--color-teal-200);
+}
+.stu-record tfoot > tr > * {
+  padding-block: 0.625rem;
+  border-bottom: 4px double var(--color-teal-500);
+  font-weight: 700;
+}
+.stu-record-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+}
+.stu-attach {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-50);
+  color: var(--color-teal-800);
+}
+.stu-demo {
+  color: var(--color-ink-500);
+}
+
+/* The free seal: a double ring stamped on the spread's fold. */
+.stu-seal {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.25rem;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 4px double var(--color-teal-700);
+  border-radius: 50%;
+  background: var(--color-paper);
+  color: var(--color-teal-700);
+  text-align: center;
+  rotate: -8deg;
+}
+.stu-seal-word {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.stu-seal-micro {
+  max-width: 4.75rem;
+  font-size: 0.625rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  direction: ltr;
+}
+.stu-spread .stu-seal {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  inset-inline-end: 1rem;
+  translate: 0 -50%;
+  box-shadow: 0 14px 28px -14px rgb(5 42 37 / 0.45);
+  animation: seal-stamp 0.45s var(--ease-out-quint) 1.05s both;
+}
+
+/* Once on load: the spread lifts onto the field, the record's rows write in from
+   the reading start, the totals close on the double rule, the seal stamps. */
+.stu-spread .stu-pages {
+  box-shadow: 0 32px 60px -28px rgb(5 42 37 / 0.6);
+  animation: spread-lift 0.8s var(--ease-out-quint) 0.1s both;
+}
+@keyframes spread-lift {
+  from {
+    transform: translateY(1.5rem);
+    box-shadow: 0 6px 10px -8px rgb(5 42 37 / 0.3);
+  }
+}
+.stu-write > * {
+  animation: row-write 0.4s var(--ease-out-quint) both;
+}
+.stu-write > :nth-child(2) {
+  --cell: 0.07s;
+}
+.stu-write > :nth-child(3) {
+  --cell: 0.14s;
+}
+.stu-record tbody tr:nth-child(1) > * {
+  animation-delay: calc(0.45s + var(--cell, 0s));
+}
+.stu-record tbody tr:nth-child(2) > * {
+  animation-delay: calc(0.6s + var(--cell, 0s));
+}
+.stu-record tfoot tr > * {
+  animation-delay: calc(0.78s + var(--cell, 0s));
+}
+@keyframes row-write {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+html[dir="rtl"] .stu-write > * {
+  animation-name: row-write-rtl;
+}
+@keyframes row-write-rtl {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+@keyframes seal-stamp {
+  from {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+/* Features: a heading that stays in view beside four spreads. */
+.stu-spreads {
+  display: grid;
+  gap: 2rem;
+}
+.stu-concept {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+.stu-concept-line {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.stu-spread-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+/* The list runs to the page's foot, where the double rule closes it, so a short
+   page beside a taller textbook page reads as margin. */
+.stu-items {
+  flex: 1;
+  margin-top: 0.5rem;
+  border-bottom: 4px double var(--color-teal-500);
+}
+.stu-items li {
+  display: flex;
+  gap: 0.75rem;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid var(--color-teal-200);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-ink-700);
+}
+.stu-items li:last-child {
+  border-bottom: 0;
+}
+/* The tick: a teal-100 disc holding a teal-700 check, drawn by CSS. */
+.stu-items li::before {
+  content: "";
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.125rem;
+  border-radius: 50%;
+  background: var(--color-teal-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 0.875rem no-repeat;
+}
+
+/* The forms a textbook prints beside a concept, in Slate hairlines. */
+.stu-form {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-ink-500);
+}
+.stu-form-t {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding-block: 0.25rem;
+}
+.stu-t {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.stu-t-name {
+  grid-column: 1 / -1;
+  padding-bottom: 0.375rem;
+  border-bottom: 1.5px solid var(--color-ink-700);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-ink-700);
+  text-align: center;
+}
+.stu-t-side {
+  display: flex;
+  min-height: 3.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.375rem 0.625rem;
+}
+.stu-t-side:nth-child(2) {
+  border-inline-end: 1.5px solid var(--color-ink-700);
+}
+.stu-t-side .num {
+  font-size: 0.875rem;
+  color: var(--color-ink);
+}
+.stu-form-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem 1rem;
+  border: 1px solid var(--color-paper-300);
+  border-radius: var(--radius-sheet);
+  background: var(--color-paper);
+}
+.stu-form-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-ink-700);
+  text-align: center;
+}
+.stu-form-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.stu-form-head .stu-form-title {
+  text-align: start;
+}
+/* A blank on a printed form: the label, then a dotted line to write on. */
+.stu-blank {
+  display: flex;
+  min-height: 1.1em;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+.stu-blank::after {
+  content: "";
+  flex: 1;
+  margin-bottom: 0.25em;
+  border-bottom: 1px dotted var(--color-ink-300);
+}
+.stu-blank-short {
+  width: 5rem;
+}
+.stu-form-rule {
+  margin-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--color-ink-300);
+  font-weight: 500;
+}
+.stu-form-total {
+  font-weight: 700;
+  color: var(--color-ink-700);
+}
+.stu-form-total::after {
+  border-bottom: 3px double var(--color-ink-500);
+}
+.stu-ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.stu-ledger-grid > span {
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid var(--color-ink-300);
+  font-weight: 500;
+  text-align: center;
+}
+.stu-ledger-grid > span:not(:nth-child(3)) {
+  border-inline-end: 1px solid var(--color-paper-300);
+}
+/* Three empty ruled rows under the heads, with the column rules carried down. */
+.stu-ledger-grid > span.stu-ledger-rows {
+  grid-column: 1 / -1;
+  height: 4.875rem;
+  padding: 0;
+  border: 0;
+  background:
+    linear-gradient(to right, transparent calc(100% / 3 - 0.5px), var(--color-paper-300) 0 calc(100% / 3 + 0.5px), transparent 0 calc(200% / 3 - 0.5px), var(--color-paper-300) 0 calc(200% / 3 + 0.5px), transparent 0),
+    repeating-linear-gradient(to bottom, transparent 0 calc(1.625rem - 1px), var(--color-paper-300) 0 1.625rem);
+}
+
+/* Reports: the book's index page, every report beside its own icon. */
+.stu-reports {
+  background: var(--color-paper-100);
+}
+.stu-heading-figure {
+  color: var(--color-teal-700);
+}
+.stu-footnote {
+  max-width: 34ch;
+  margin-top: 1rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+/* One framed sheet, its entries in alphabetical order on ruled lines. */
+.stu-index {
+  display: grid;
+  column-gap: 2.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-paper);
+}
+.stu-index li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.875rem;
+  border-top: 1px solid var(--color-paper-300);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.stu-index li:first-child {
+  border-top: 0;
+}
+.stu-index img {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Benefits: each photo as a plate with its caption beside it. */
+.stu-plate {
+  display: grid;
+  gap: 1.25rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--color-paper-300);
+}
+.stu-plate:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.stu-plate:last-child {
+  padding-bottom: 0;
+}
+.stu-photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+.stu-plate-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+.stu-plate-text p {
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+
+/* The close: the seal in white, the closing words, both doors. */
+.stu-close-band {
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .stu-close-band {
+  clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+}
+.stu-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-block: 6rem 4.5rem;
+}
+.stu-close .btn:focus-visible {
+  outline-color: #fff;
+}
+.stu-seal-white {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-color: #fff;
+  background: transparent;
+  color: #fff;
+}
+.stu-seal-white .stu-seal-word {
+  font-size: 1.625rem;
+}
+.stu-close-line {
+  max-width: 36ch;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+.stu-close-body {
+  margin-top: 0.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.stu-close-actions {
+  margin-top: 0;
+}
+
+@media (min-width: 640px) {
+  .stu-pages {
+    --fold-book: to right;
+    --fold-vom: to left;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  html[dir="rtl"] .stu-pages {
+    --fold-book: to left;
+    --fold-vom: to right;
+  }
+  .stu-page {
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+  .stu-page-book {
+    border-start-end-radius: 0;
+    border-end-start-radius: var(--radius-card);
+  }
+  .stu-page-vom {
+    border-start-end-radius: var(--radius-card);
+    border-end-start-radius: 0;
+  }
+  /* Side by side, the seal is stamped across the spine and the pages' lower edge,
+     clear of the totals; the record's foot leaves it room. */
+  .stu-spread .stu-seal {
+    top: auto;
+    bottom: -2.5rem;
+    inset-inline-end: auto;
+    inset-inline-start: 0;
+    translate: -50% 0;
+  }
+  html[dir="rtl"] .stu-spread .stu-seal {
+    translate: 50% 0;
+  }
+  .stu-spread .stu-record-foot {
+    padding-inline-start: 3.25rem;
+  }
+  /* Room under the spread for the seal that hangs below it. */
+  .stu-stage .stu-spread {
+    margin-bottom: 2.5rem;
+  }
+  .stu-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(var(--rows), auto);
+    grid-auto-flow: column;
+    padding: 1rem 2.5rem;
+  }
+  /* The head of the second column starts on the sheet's edge, like the first. */
+  .stu-index .stu-index-col {
+    border-top: 0;
+  }
+  .stu-plate {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: 2rem;
+  }
+  .stu-close-line {
+    font-size: 1.625rem;
+  }
+  .stu-seal-white {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .stu-grid {
+    --bleed: max(16px, calc((100vw - 1280px) / 2 + 16px));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas: "copy copy copy copy copy stage stage stage stage stage stage stage";
+    column-gap: 2rem;
+    padding-top: 0;
+  }
+  .stu-title {
+    font-size: clamp(3.5rem, 5vw, 4.5rem);
+  }
+  .stu-spread {
+    margin-inline: 0;
+  }
+  .stu-heading-sticky {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+  .stu-close {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 3rem;
+    padding-block: 7rem 5.5rem;
+  }
+  .stu-close-line {
+    font-size: 1.875rem;
+  }
+  .stu-close-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .stu-close-actions .btn {
+    justify-content: center;
+  }
+}
+/* The spread is narrowest beside the copy, before the page reaches full width. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .stu-stage {
+    padding-inline-start: 3rem;
+  }
+  .stu-field {
+    clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .stu-field {
+    clip-path: polygon(0 0, calc(100% - 3rem) 0, 100% 100%, 0 100%);
+  }
+  .stu-notation,
+  .stu-record {
+    font-size: 0.8125rem;
+  }
+  .stu-page {
+    padding-inline: 1.125rem;
   }
 }
 

@@ -10,6 +10,8 @@ export const contactPaths: PagePair = { ar: "/contact-us/", en: "/contact-us/" }
 export const aboutPaths: PagePair = { ar: "/about-us/", en: "/about-us/" };
 export const termsPaths: PagePair = { ar: "/terms-and-conditions/", en: "/terms-and-conditions/" };
 export const growthPaths: PagePair = { ar: "/growth-plan/", en: "/growth-plan/" };
+/** The English twin was /en/student-package-2/; it now redirects here (next.config.ts). */
+export const studentPaths: PagePair = { ar: "/student-package/", en: "/student-package/" };
 
 /** WordPress gave the English twins a "-2" slug; those now redirect here (next.config.ts). */
 export const integrationPaths: Record<IntegrationId, PagePair> = {
@@ -27,6 +29,7 @@ const pagePairs: PagePair[] = [
   aboutPaths,
   termsPaths,
   growthPaths,
+  studentPaths,
   ...Object.values(integrationPaths),
 ];
 

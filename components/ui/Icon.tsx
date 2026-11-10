@@ -19,7 +19,8 @@ type IconName =
   | "layers"
   | "chevron"
   | "card"
-  | "history";
+  | "history"
+  | "clip";
 
 const paths: Record<IconName, string> = {
   arrow: "M5 12h14M13 6l6 6-6 6",
@@ -38,6 +39,7 @@ const paths: Record<IconName, string> = {
   layers: "M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 18l9 5 9-5",
   chevron: "M9 6l6 6-6 6",
   card: "M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M7 15h4",
+  clip: "M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48",
   history: "M3.5 12a8.5 8.5 0 1 0 2.5-6M3.5 4v4h4M12 7.5V12l3 2",
   utensils: "M7 3v8a2 2 0 0 0 2 2h0v8M9 3v5M5 3v5M17 3c-2 0-3 3-3 6s1 4 2 4v8",
   scissors: "M6 6a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM6 13a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM8 9.5L20 4M8 14.5L20 20M13 12h1",

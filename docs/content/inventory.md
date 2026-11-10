@@ -22,9 +22,9 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 
 | Action | Count | Meaning |
 |---|---|---|
-| keep | 380 | Same path, same content, migrated one to one |
+| keep | 379 | Same path, same content, migrated one to one |
 | keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
-| redirect | 20 | Duplicates and renamed pages, 301 to the listed target |
+| redirect | 22 | Duplicates and renamed pages, 301 to the listed target |
 | retire | 11 | Test, campaign and already-dead pages, 410 |
 
 Notable rows:
@@ -34,10 +34,12 @@ Notable rows:
 - `/growth-program-old/` → `/growth-plan/`: 301.
 - `/en/contact-us-2/` → `/en/contact-us/`: 301 (owner, 2026-11-02).
 - `/about-us-2/` → `/about-us/`: 301 (owner, 2026-11-02).
-- `/en/student-package-2/` and other English pages carry WordPress "-2" suffixes. They are kept at launch; renaming them is an optional post-launch 301.
+- Other English pages still carry WordPress "-2" suffixes. They are kept at launch unless the owner picks the clean slug when the page is rebuilt, as for the pages below.
 - `/terms-and-conditions-ar/` → `/terms-and-conditions/`: 301 (owner, 2026-11-09).
 - `/en/growth-plan-en/` → `/en/growth-plan/`: 301, matching what the live site already does (2026-11-10).
 - `/en/vom-foodics-2/`, `/en/vom-marn-2/`, `/en/vom-zid-2/` → `/en/vom-foodics/`, `/en/vom-marn/`, `/en/vom-zid/`: 301 (owner, 2026-11-10). The live site already serves the clean English URLs. The unprefixed `/vom-*-2/` slugs, which the live site sends to the English `-2` pages, now go to the clean English URL in one hop.
+- `/en/student-package-2/` and the unprefixed `/student-package-2/` → `/en/student-package/`: 301 (owner, 2026-11-10).
+- `/get-free-version/` → `/`: 301. It is an empty shell titled "Vom"; the owner sent it to the homepage rather than the student package (2026-11-10).
 - 17 URLs lack a meta description (mostly category archives); they get one before launch.
 
 ## Migration mechanics

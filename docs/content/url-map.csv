@@ -264,7 +264,7 @@ page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%
 page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d8%a9-%d9%84%d8%b4%d8%b1%d9%83%d8%a7%d8%aa-%d8%a7%d9%84%d8%a7%d8%b3%d8%aa%d8%ab%d9%85%d8%a7%d8%b1/,/برنامج-محاسبة-لشركات-الاستثمار/,200,keep,,,برنامج محاسبة لشركات الاستثمار | إدارة حسابات شركات الاستثمار
 page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d8%a9-%d9%84%d9%84%d8%a7%d8%b7%d9%81%d8%a7%d9%84/,/برنامج-محاسبة-للاطفال/,200,keep,,,برنامج محاسبة للأطفال | إدارة حسابات مراكز الأطفال
 page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d8%a9-%d9%84%d9%84%d9%86%d9%88%d8%a7%d8%af%d9%8a-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a%d8%a9/,/برنامج-محاسبة-للنوادي-الرياضية/,200,keep,,,برنامج محاسبة للصالات الرياضية | إدارة حسابات الصالات الرياضية
-page,https://getvom.com/get-free-version/,/get-free-version/,200,redirect,/student-package/,Old free-version page; confirm intent,Vom
+page,https://getvom.com/get-free-version/,/get-free-version/,200,redirect,/,"Empty shell titled ""Vom"" with no content; the owner sent it to the homepage (2026-11-10)",Vom
 page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d8%a9-%d9%84%d9%85%d8%b1%d8%a7%d9%83%d8%b2-%d8%a7%d9%84%d8%aa%d8%ac%d9%85%d9%8a%d9%84/,/برنامج-محاسبة-لمراكز-التجميل/,200,keep,,,برنامج محاسبة لصالونات التجميل | إدارة حسابات صالونات التجميل
 page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d8%a9-%d9%84%d9%84%d8%b9%d8%b7%d9%88%d8%b1/,/برنامج-محاسبة-للعطور/,200,keep,,,برنامج محاسبة لمحلات العطور | إدارة حسابات محلات العطور
 page,https://getvom.com/ksa-national-day-deals-2023/,/ksa-national-day-deals-2023/,200,retire,/pricing/,"2023 campaign, no meta description",عروض اليوم الوطني السعودي ٢٠٢٣ - Vom
@@ -292,7 +292,7 @@ page,https://getvom.com/en/sales-invoices/,/en/sales-invoices/,200,keep,,,مدو
 page,https://getvom.com/en/accounting-software-for-travel-and-tourism/,/en/accounting-software-for-travel-and-tourism/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-foodics-2/,/en/vom-foodics-2/,200,redirect,/en/vom-foodics/,"WordPress ""-2"" slug; the live site already serves /en/vom-foodics/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-marn-2/,/en/vom-marn-2/,200,redirect,/en/vom-marn/,"WordPress ""-2"" slug; the live site already serves /en/vom-marn/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/en/student-package-2/,/en/student-package-2/,200,keep,,Ugly slug; optional 301 to /en/student-package/,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/student-package-2/,/en/student-package-2/,200,redirect,/en/student-package/,"WordPress ""-2"" slug; 301 to the clean English URL (owner, 2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%d8%b3%d8%a8%d8%a9-%d8%a7%d9%84%d8%ae%d8%af%d9%85%d8%a7%d8%aa-%d8%a7%d9%84%d9%84%d9%88%d8%ac%d8%b3%d8%aa%d9%8a%d8%a9/,/برنامج-محاسبة-الخدمات-اللوجستية/,200,keep,,,برنامج محاسبة لشركات الخدمات اللوجستية
 page,https://getvom.com/temp-new/,/temp-new/,200,retire,/news/,Temp page,news archive - Vom
 page,https://getvom.com/en/about-us/,/en/about-us/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
@@ -415,3 +415,4 @@ category,https://getvom.com/integrations/,/integrations/,200,keep,,Blog category
 category,https://getvom.com/product/,/product/,200,keep,,Blog category archive; give it a real intro and meta description,تحديثات منتج ڤوم
 category,https://getvom.com/ai/,/ai/,200,keep,,Blog category archive; give it a real intro and meta description,الذكاء الاصطناعي Archives - Vom
 category,https://getvom.com/en/accounting-en/,/en/accounting-en/,404,retire,,"Already 404; remove from sitemap, return 410",
+page,https://getvom.com/student-package-2/,/student-package-2/,301,redirect,/en/student-package/,"Not in the crawl; the live site 301s it to /en/student-package-2/, now one hop to the clean English URL (2026-11-10)",
