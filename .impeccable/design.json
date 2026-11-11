@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T23:30:00+00:00",
+  "generatedAt": "2026-11-11T12:00:00+00:00",
   "title": "Design System: VoM website (getvom.com)",
   "extensions": {
     "colorMeta": {
@@ -534,6 +534,21 @@
         "name": "stamp-ring",
         "value": "inset 0 0 0 1.5px currentColor, inset 0 0 0 3.5px #fff, inset 0 0 0 4.5px currentColor",
         "purpose": "Not elevation: the «بلا حد» entry stamp's double ring, the seal recipe at entry scale."
+      },
+      {
+        "name": "tab-off-sheet",
+        "value": "0 10px 18px -12px rgb(5 42 37 / 0.6)",
+        "purpose": "A thumb tab standing off the guide contents sheet onto the teal field."
+      },
+      {
+        "name": "tab-on-paper",
+        "value": "0 8px 16px -14px rgb(5 42 37 / 0.55)",
+        "purpose": "The fixed thumb tabs on paper from 1024px (recorded drift against flat-at-rest)."
+      },
+      {
+        "name": "prompt-chip",
+        "value": "0 12px 24px -20px rgb(5 42 37 / 0.5)",
+        "purpose": "A prompt chip at rest on paper (recorded drift against flat-at-rest)."
       }
     ],
     "motion": [
@@ -661,6 +676,26 @@
         "name": "ftr-page",
         "value": "opacity 0.3s ease-out, transform 0.45s ease-out-quint; the sheet paged past translateX(3rem toward the end) rotate(2deg), the next from translateY(0.5rem) scale(0.985)",
         "purpose": "Features: paging a section's attached sheets; interaction, not the load moment."
+      },
+      {
+        "name": "acg-lift",
+        "value": "from opacity 0 and translateY(1.25rem), 0.8s ease-out-quint from 0.1s",
+        "purpose": "Accounting guide: the contents sheet lifting onto the field."
+      },
+      {
+        "name": "acg-tab-out",
+        "value": "translate and clip-path from under the sheet's end edge (mirrored in RTL), 0.45s ease-out-quint each from 0.5s, 0.06s apart",
+        "purpose": "Accounting guide: the eight tabs sliding out of the sheet's fore-edge."
+      },
+      {
+        "name": "acg-thumbs-show",
+        "value": "opacity 0.25s ease, translate 0.35s ease-out-quint from 0.5rem; visibility held until the fade ends",
+        "purpose": "Accounting guide: the fixed thumb index appearing once the hero sheet has scrolled away; state, not the load moment."
+      },
+      {
+        "name": "acg-thumb-label",
+        "value": "opacity 0.2s ease, visibility held until the fade ends",
+        "purpose": "Accounting guide: a tab's title label on hover or focus from 1024px."
       }
     ],
     "breakpoints": [
@@ -934,11 +969,35 @@
       "description": "A rounded Record Teal slab holding the app line and the shared ink store-badge pills; the hand photo rises from its bottom edge.",
       "html": "<div class=\"ds-app\" dir=\"rtl\"><p class=\"ds-app-line\">ڤوم على جوالك، في آيفون وأندرويد</p><div class=\"ds-app-badges\"><a href=\"#\" class=\"ds-badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.8 3-.8s1.8.8 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM14.2 5.9c.6-.8 1.1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3z\"/></svg><span>App Store</span></a><a href=\"#\" class=\"ds-badge\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M4 3.5v17a.8.8 0 0 0 1.2.7L19.5 13a1.1 1.1 0 0 0 0-2L5.2 2.8A.8.8 0 0 0 4 3.5z\"/></svg><span>Google Play</span></a></div></div>",
       "css": ".ds-app{max-width:26rem;padding:2rem 1.5rem 3rem;border-radius:1.25rem;background:#17baa3;color:#fff;font-family:Effra,system-ui,sans-serif} .ds-app-line{max-width:16ch;margin:0;font-size:1.375rem;font-weight:700;line-height:1.35;text-wrap:balance} .ds-app-badges{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;margin-top:1.5rem} .ds-badge{display:inline-flex;align-items:center;gap:.625rem;height:48px;padding:0 20px;border-radius:999px;background:#020202;color:#fff;font-size:.9375rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background-color .2s ease-out} .ds-badge:hover{background:#54595f} .ds-badge:focus-visible{outline:2px solid #fff;outline-offset:2px}"
+    },
+    {
+      "name": "Thumb Index (column)",
+      "kind": "nav",
+      "refersTo": "thumb-tab",
+      "description": "The guide's tabs on the page's fore-edge from 1024px: passed tabs ticked, the current one pulled out with a folded corner, a title label on hover or focus.",
+      "html": "<nav class=\"ds-ti\" dir=\"rtl\" aria-label=\"أجزاء الدليل\"><ol><li><a href=\"#\" class=\"ds-tab\" data-state=\"read\" aria-label=\"00 المختصر المفيد\"><span>00</span><span class=\"ds-tab-label\" aria-hidden=\"true\">المختصر المفيد</span></a></li><li><a href=\"#\" class=\"ds-tab\" data-state=\"current\" aria-current=\"location\" aria-label=\"01 ما هي برامج المحاسبة؟\"><span>01</span><span class=\"ds-tab-label\" aria-hidden=\"true\">ما هي برامج المحاسبة؟</span></a></li><li><a href=\"#\" class=\"ds-tab\" aria-label=\"02 كيف تختار برنامج محاسبة\"><span>02</span><span class=\"ds-tab-label\" aria-hidden=\"true\">كيف تختار برنامج محاسبة</span></a></li><li><a href=\"#\" class=\"ds-tab\" aria-label=\"03 مقارنة\"><span>03</span><span class=\"ds-tab-label\" aria-hidden=\"true\">مقارنة</span></a></li></ol></nav>",
+      "css": ".ds-ti{width:4rem;margin-inline-start:auto;font-family:Effra,'Segoe UI',system-ui,sans-serif} .ds-ti ol{list-style:none;margin:0;padding:0.625rem 0;display:flex;flex-direction:column;gap:0.375rem;border-inline-start:1px solid #bfeae2} .ds-tab{position:relative;display:grid;place-items:center;width:2.75rem;height:2.625rem;border:1px solid #bfeae2;border-inline-start:0;border-start-end-radius:0.625rem;border-end-end-radius:0.625rem;background:#fff;font-size:0.8125rem;font-weight:700;font-variant-numeric:tabular-nums;color:#0f6b5e;text-decoration:none;box-shadow:0 8px 16px -14px rgb(5 42 37 / 0.55);transition:width 0.3s cubic-bezier(0.22,1,0.36,1),background-color 0.2s ease} .ds-tab:hover{background:#eefaf7} .ds-tab:focus-visible{outline:2px solid #17baa3;outline-offset:2px} .ds-tab[data-state=read]{color:#6b6b6b} .ds-tab[data-state=read]::after{content:'';position:absolute;bottom:0.25rem;inset-inline-end:0.25rem;width:0.5625rem;height:0.5625rem;background:#13937f;mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6.5l2.5 2.5L10 3'/%3E%3C/svg%3E\") center/contain no-repeat} .ds-tab[data-state=current]{width:3.75rem;border-color:#8edccf;background:#eefaf7;color:#0b5248;border-start-end-radius:0} .ds-tab[data-state=current]::before{content:'';position:absolute;top:-1px;inset-inline-end:-1px;width:0.75rem;height:0.75rem;background:linear-gradient(135deg, #fff 50%, var(--color-teal-300, #8edccf) 50%)} .ds-tab-label{position:absolute;top:50%;inset-inline-end:calc(100% + 0.75rem);translate:0 -50%;padding:0.375rem 0.75rem;border-radius:0.5rem;background:#020202;color:#fff;font-size:0.8125rem;font-weight:500;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.2s ease,visibility 0s linear 0.2s} .ds-tab:is(:hover,:focus-visible) .ds-tab-label{opacity:1;visibility:visible;transition-delay:0s}"
+    },
+    {
+      "name": "Guide Contents Sheet with Tabs",
+      "kind": "custom",
+      "refersTo": "guide-contents-sheet",
+      "description": "The guide's contents as a doc-frame on the teal field, each row's thumb tab standing off the sheet's fore-edge.",
+      "html": "<div class=\"ds-gc-field\" dir=\"rtl\"><nav class=\"ds-gc\" aria-label=\"محتويات الدليل\"><p class=\"ds-gc-head\"><span>محتويات الدليل</span><span class=\"ds-gc-total\">19 دقيقة</span></p><ol><li><a href=\"#\"><span class=\"ds-gc-tab\">00</span><span>المختصر المفيد</span><span class=\"ds-gc-time\">دقيقة واحدة</span></a></li><li><a href=\"#\"><span class=\"ds-gc-tab\">01</span><span>ما هي برامج المحاسبة؟</span><span class=\"ds-gc-time\">5 دقائق</span></a></li><li><a href=\"#\"><span class=\"ds-gc-tab\">02</span><span>كيف تختار برنامج محاسبة يلائم نشاطك؟</span><span class=\"ds-gc-time\">3 دقائق</span></a></li></ol></nav></div>",
+      "css": ".ds-gc-field{background:#17baa3;padding:2.5rem 1.5rem;font-family:Effra,'Segoe UI',system-ui,sans-serif} .ds-gc{position:relative;margin-inline-end:2.5rem;padding:1.375rem 1.5rem 0.75rem;border:1px solid #bfeae2;border-radius:1.25rem;background:#fff;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #bfeae2,0 32px 60px -28px rgb(5 42 37 / 0.6)} .ds-gc-head{display:flex;justify-content:space-between;align-items:baseline;margin:0;padding-bottom:0.875rem;background:linear-gradient(#17baa3 0 1px,transparent 1px 3px,#17baa3 3px 4px) bottom/100% 4px no-repeat;font-size:1.125rem;font-weight:700;color:#020202} .ds-gc-total,.ds-gc-time{font-size:0.8125rem;font-weight:400;color:#6b6b6b;white-space:nowrap} .ds-gc ol{list-style:none;margin:0;padding:0} .ds-gc li{position:relative} .ds-gc li+li{border-top:1px solid #e6eef3} .ds-gc a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:0.75rem;min-height:2.75rem;padding-block:0.6875rem;font-size:0.9375rem;color:#020202;text-decoration:none;transition:color 0.2s ease} .ds-gc a:hover{color:#0b5248} .ds-gc a:focus-visible{outline:2px solid #17baa3;outline-offset:2px;border-radius:0.375rem} .ds-gc-tab{position:absolute;top:0.4375rem;inset-inline-end:calc(-1.5rem - 1px - 2.5rem);display:grid;place-items:center;width:2.5rem;height:2.125rem;border:1px solid #bfeae2;border-inline-start:0;border-start-end-radius:0.625rem;border-end-end-radius:0.625rem;background:#fff;font-size:0.8125rem;font-weight:700;color:#0f6b5e;box-shadow:0 10px 18px -12px rgb(5 42 37 / 0.6)} .ds-gc a:hover .ds-gc-tab{background:#eefaf7}"
+    },
+    {
+      "name": "Prompt Chips and Yes/No Marks",
+      "kind": "chip",
+      "refersTo": "prompt-chip",
+      "description": "An AI-assistant question as a ringed prompt with the assistant's wand tile, and a table's drawn yes/no marks.",
+      "html": "<div dir=\"rtl\" class=\"ds-pc-wrap\"><ul class=\"ds-pc\" role=\"list\"><li>كيف تغيرت المبيعات بين فبراير وأبريل؟</li></ul><p class=\"ds-mk-row\"><span class=\"ds-mk\" data-mark=\"yes\"><span class=\"ds-sr\">نعم</span></span>مدعوم ومعتمد <span class=\"ds-mk\" data-mark=\"no\"><span class=\"ds-sr\">لا</span></span>غير مدعوم</p></div>",
+      "css": ".ds-pc-wrap{font-family:Effra,'Segoe UI',system-ui,sans-serif} .ds-pc{list-style:none;margin:0;padding:0;display:grid;gap:0.75rem} .ds-pc li{display:grid;grid-template-columns:1.75rem minmax(0,1fr) 2.75rem;align-items:center;gap:0.875rem;padding:0.5rem;padding-inline-start:1rem;border:1.5px solid #8edccf;border-radius:1rem;background:#fff;font-size:1.0625rem;font-weight:700;line-height:1.55;color:#020202;box-shadow:0 12px 24px -20px rgb(5 42 37 / 0.5)} .ds-pc li::before{content:'';width:1.75rem;height:1.75rem;background:#13937f;mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V14M9 20v-8M14 20v-5M19 20V8M3 20h18M4 10l5-4 5 3 6-5'/%3E%3C/svg%3E\") center/contain no-repeat} .ds-pc li::after{content:'';grid-column:3;width:2.75rem;height:2.75rem;border-radius:0.75rem;background:#eefaf7 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19L15 9M13 7l4 4M18 3v3M16.5 4.5h3M20 9v2M19 10h2M8 3v2M7 4h2'/%3E%3C/svg%3E\") center/1.375rem no-repeat;box-shadow:inset 0 0 0 1px #bfeae2} .ds-mk-row{margin-top:1.25rem;font-size:0.9375rem;color:#54595f} .ds-mk{display:inline-block;width:1.375rem;height:1.375rem;margin-inline:0.75rem 0.375rem;vertical-align:-0.3em;border-radius:50%;background:#eefaf7 var(--mk) center/0.875rem no-repeat;box-shadow:inset 0 0 0 1px #bfeae2} .ds-mk[data-mark=yes]{--mk:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f6b5e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E\")} .ds-mk[data-mark=no]{--mk:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2354595f' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E\");background-color:#f4f7fc;box-shadow:inset 0 0 0 1px #d7e3ec} .ds-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}"
     }
   ],
   "narrative": {
     "northStar": "The Official Record",
-    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
+    "overview": "**Creative North Star: \"The Official Record\" (الوثيقة)**\n\nEvery page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.\n\nThe system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot, the accounting-software guide's thumb index, where the guide's eight parts stand off the contents sheet's fore-edge as paper tabs on the teal field and then hold the page's fore-edge as you read, the part being read pulled out with a folded corner and the parts passed ticked) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one \"now\". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.\n\nThe reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.",
     "keyCharacteristics": [
       "Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.",
       "Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.",
@@ -979,6 +1038,11 @@
         "section": "typography"
       },
       {
+        "name": "The One Card Rule",
+        "body": "A guide's identity (its number, topic, reading time, writer, reviewer and date) lives on its index card, never in a line of text above its title. No eyebrow or kicker over an H1, a card title or a section heading; a card's role goes in its meta line («التالية · 8 دقائق»).",
+        "section": "typography"
+      },
+      {
         "name": "The Riyal Sign Rule",
         "body": "An amount in riyals carries the official SAMA riyal sign, drawn as a CSS mask in the current colour on the amount's `::before` (0.7em by 0.78em, 0.2em before the figure), so it sits left of the figure in both languages inside a `dir=\"ltr\"`, no-wrap span; the currency word follows as visually hidden text for screen readers. Never \"SAR\" or \"ر.س\" as visible text beside a figure, and never an image tag.",
         "section": "typography"
@@ -989,19 +1053,19 @@
         "section": "elevation"
       },
       {
-        "name": "The One Card Rule",
-        "body": "A guide's identity (its number, topic, reading time, writer, reviewer and date) lives on its index card, never in a line of text above its title. No eyebrow or kicker over an H1, a card title or a section heading; a card's role goes in its meta line («التالية · 8 دقائق»).",
-        "section": "typography"
-      },
-      {
         "name": "The Honest Stamp Rule",
         "body": "A «بلا حد» stamp marks one entry that is unlimited, never a total, a heading or a section; where the plan decides, the entry also carries the plan marker.",
+        "section": "components"
+      },
+      {
+        "name": "The One Index Rule",
+        "body": "A page shows one thumb index at a time: the sheet's tabs in the hero, or the fixed tabs once the sheet has gone, never both in view.",
         "section": "components"
       }
     ],
     "dos": [
       "**Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.",
-      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
+      "**Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.",
       "**Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.",
       "**Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.",
       "**Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.",
@@ -1019,6 +1083,7 @@
       "**Do** key repeated React lists on indexes or stable ids, never on copy text, and keep repeated amounts and cells to one element each.",
       "**Do** number register sections and entries with CSS counters (`01`, `3.2`), so the HTML holds only the words.",
       "**Do** stamp «بلا حد» on individual unlimited entries only, and mark any line a plan decides with the superscript dagger linking to the one plan note.",
+      "**Do** draw a table's yes or no as the drawn mark with a visually hidden word, never as an emoji or a typed glyph.",
       "**Do** show a real screenshot at its own proportions on a Paper sheet with a 10px bezel and the 0.625rem screen radius, cutting a tall screen from the top rather than shrinking it."
     ],
     "donts": [

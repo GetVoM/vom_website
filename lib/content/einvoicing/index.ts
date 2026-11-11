@@ -3,13 +3,11 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { ComponentType, ReactNode } from "react";
 import { cacheLife, cacheTag } from "next/cache";
+import { mdxOutline } from "@/lib/content/mdx-outline";
 import { HUB_SEGMENT, guideIds, guidePath, type GuideId } from "./catalogue";
 
 export * from "./catalogue";
 export { einvoicingCopy, guideDate, readingTime } from "./copy";
-
-/** Arabic reading pace used for the reading time on every card. */
-const WORDS_PER_MINUTE = 200;
 
 export interface GuideSection {
   id: string;
@@ -31,17 +29,9 @@ export async function getGuideOutline(id: GuideId): Promise<GuideOutline> {
   cacheLife("max");
   cacheTag("einvoicing", `einvoicing-${id}`);
   const source = await readFile(join(process.cwd(), "content/e-invoicing", `${id}.mdx`), "utf8");
-  const sections = [...source.matchAll(/<h2 id="([^"]+)">([\s\S]*?)<\/h2>/g)].map((match) => ({
-    id: match[1],
-    heading: match[2].replace(/<[^>]+>/g, "").trim(),
-  }));
-  const text = source
-    .replace(/^export const lede = \(\s*<>|<\/>\s*\);/gm, " ")
-    .replace(/\{\/\*[\s\S]*?\*\/\}/g, " ")
-    .replace(/<Figure[^>]*\/>/g, " ")
-    .replace(/<[^>]+>|\]\([^)]*\)|[[\]*#>{}]/g, " ");
-  const words = text.split(/\s+/).filter(Boolean).length;
-  return { sections, words, minutes: Math.max(1, Math.round(words / WORDS_PER_MINUTE)) };
+  const { sections, words, minutes } = mdxOutline(source);
+  // The rail is a client component: send it the ids and headings only.
+  return { sections: sections.map((section) => ({ id: section.id, heading: section.heading })), words, minutes };
 }
 
 export interface GuideModule {

@@ -32,13 +32,14 @@ function BodyLink({ href = "", children, ...rest }: AnchorHTMLAttributes<HTMLAnc
 
 /**
  * An image from the old page, framed. Tall pictures (infographics, phone
- * screens) are held narrower than wide ones so they never fill a whole screen.
+ * screens) are held narrower than wide ones so they never fill a whole screen;
+ * `wide` screenshots (the accounting guide's) may run a wider reading column.
  */
-function Figure({ src, width, height, alt }: { src: string; width: number; height: number; alt: string }) {
+function Figure({ src, width, height, alt, wide }: { src: string; width: number; height: number; alt: string; wide?: boolean }) {
   const tall = height > width * 1.15;
-  const max = tall ? 520 : 760;
+  const max = wide ? 1152 : tall ? 520 : 760;
   return (
-    <figure className="ein-figure" style={{ maxWidth: Math.min(max, width) }}>
+    <figure className="ein-figure" data-wide={wide || undefined} style={{ maxWidth: Math.min(max, width) }}>
       <Image src={src} width={width} height={height} alt={alt} sizes={`(min-width: 1024px) ${max}px, 100vw`} />
     </figure>
   );

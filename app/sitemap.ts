@@ -13,6 +13,7 @@ import {
   type PagePair,
 } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
+import { accountingGuide } from "@/lib/content/accounting-guide/copy";
 import { guidePath, guides } from "@/lib/content/einvoicing/catalogue";
 
 interface SitemapPage {
@@ -114,8 +115,22 @@ function einvoicingEntries(): MetadataRoute.Sitemap {
   });
 }
 
+/** The accounting-software pillar: Arabic only, ranked with the e-invoicing pillar. */
+function accountingGuideEntry(): MetadataRoute.Sitemap {
+  const url = encodeURI(`${site.url}${accountingGuide.path}`);
+  return [
+    {
+      url,
+      lastModified: new Date(accountingGuide.modified),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { ar: url, "x-default": url } },
+    },
+  ];
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...pagePairEntries(), ...einvoicingEntries()];
+  return [...pagePairEntries(), ...einvoicingEntries(), ...accountingGuideEntry()];
 }
 
 function pagePairEntries(): MetadataRoute.Sitemap {
