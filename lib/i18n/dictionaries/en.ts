@@ -231,7 +231,7 @@ export const en: Dictionary = {
         ["API documentation", "https://app.getvom.com/en/docs/api"],
       ],
       support: [
-        ["Blog", "/blog-en/"],
+        ["Blog", "/blog/"],
         ["ZATCA Phase 2", "/zatca-e-invoicing-phase-2/"],
         ["Free Invoices Templates", "/templates/"],
         ["Student package", "/student-package/"],

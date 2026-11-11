@@ -1,6 +1,15 @@
 # Blog backend (Supabase + R2), admin editor, lead plumbing, WordPress import
 
-Status: approved by the owner on 2026-11-11.
+Status: approved by the owner on 2026-11-11 and built the same day. Changes made during the build:
+
+- **Leads are written by the server with the secret key** (owner, 2026-11-11), not by the public key; the `leads` insert policy and grant were removed.
+- **The post layout is "the ledger page"** (owner's pick on the decision page); its contract is `.impeccable/surfaces/components-blog-postpage-tsx.md`.
+- **Admin actions expire tags with `updateTag`**, so an editor sees a published change at once; `/api/revalidate` uses `revalidateTag(tag, 'max')`.
+- **Posts list 15 a page**, the number WordPress used, so pagination paths keep their numbers.
+- **The Supabase MCP sets the database password itself**; it could not be generated and shown as planned.
+- `posts.cover_width` and `cover_height` were added so the cover reserves its space.
+- **Templates are a third content type** (owner, 2026-11-11), imported from their public pages and edited in the admin; `/templates/` is their Arabic index, the Arabic invoice templates page is back at `/نماذج-فواتير/`, and `/en/templates/` stays the English invoice templates page.
+- **The admin's address is configurable** through the private `ADMIN_PATH`; it has a sidebar, a skeleton loader, and a fuller editor. `proxy.ts` no longer gates the admin (each page does); it only refreshes the session, for browsers carrying the `vom_admin` cookie.
 
 ## Context
 

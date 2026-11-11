@@ -17,10 +17,12 @@ export const pricingPaths: PagePair = { ar: "/pricing/", en: "/pricing/" };
 /** The English twin was /en/features-en/; it now redirects here (next.config.ts). */
 export const featuresPaths: PagePair = { ar: "/features/", en: "/features/" };
 /**
- * The free invoice templates, moved to /templates/ by the owner (2026-11-11); the
- * old /نماذج-فواتير/ and /en/sales-invoices/ redirect here (next.config.ts).
+ * The free invoice templates. Arabic is back at its WordPress path and English
+ * stays at /en/templates/ (owner, 2026-11-11): the Arabic /templates/ is the
+ * index of the 44 downloadable templates, which exist in Arabic only. The old
+ * /en/sales-invoices/ redirects to the English page (next.config.ts).
  */
-export const invoiceTemplatesPaths: PagePair = { ar: "/templates/", en: "/templates/" };
+export const invoiceTemplatesPaths: PagePair = { ar: "/نماذج-فواتير/", en: "/templates/" };
 
 /** WordPress gave the English twins a "-2" slug; those now redirect here (next.config.ts). */
 export const integrationPaths: Record<IntegrationId, PagePair> = {

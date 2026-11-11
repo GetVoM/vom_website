@@ -2,8 +2,9 @@ export const locales = ["ar", "en"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "ar";
 
-export function isLocale(value: string): value is Locale {
-  return (locales as readonly string[]).includes(value);
+/** Takes undefined too: outside app/[lang] (the admin) there is no `lang` root param. */
+export function isLocale(value: string | undefined): value is Locale {
+  return value !== undefined && (locales as readonly string[]).includes(value);
 }
 
 export function dirOf(locale: Locale): "rtl" | "ltr" {

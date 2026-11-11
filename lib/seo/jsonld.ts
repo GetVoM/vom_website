@@ -194,6 +194,50 @@ export function templateCollectionJsonLd(page: {
 }
 
 /** `path` values are locale-free; the visible breadcrumb must list the same items. */
+/**
+ * A blog post or news item: an Article with its writer (a Person with a page on
+ * this site), the accountant who reviewed it, its dates, image and publisher.
+ * `path` is the locale-free path. No FAQPage, even when the body has questions.
+ */
+export function articleJsonLd(post: {
+  locale: Locale;
+  path: string;
+  headline: string;
+  description: string;
+  image: string | null;
+  published: string;
+  modified: string;
+  section: string | null;
+  author: { name: string; slug: string; jobTitle: string | null; sameAs: string[] } | null;
+  reviewer: { name: string; slug: string; jobTitle: string | null; sameAs: string[] } | null;
+}): JsonLd {
+  const url = `${site.url}${encodeURI(localePath(post.locale, post.path))}`;
+  const person = (who: NonNullable<typeof post.author>) => ({
+    "@type": "Person",
+    name: who.name,
+    url: `${site.url}/author/${encodeURI(who.slug)}/`,
+    ...(who.jobTitle && { jobTitle: who.jobTitle }),
+    ...(who.sameAs.length > 0 && { sameAs: who.sameAs }),
+  });
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    mainEntityOfPage: url,
+    headline: post.headline,
+    description: post.description,
+    ...(post.image && { image: post.image }),
+    datePublished: post.published,
+    dateModified: post.modified,
+    inLanguage: post.locale,
+    ...(post.section && { articleSection: post.section }),
+    author: post.author ? person(post.author) : { "@id": `${site.url}/#organization` },
+    ...(post.reviewer && { reviewedBy: person(post.reviewer) }),
+    publisher: { "@id": `${site.url}/#organization` },
+    isPartOf: { "@id": `${site.url}/#website` },
+  };
+}
+
 export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
   return {
     "@context": "https://schema.org",

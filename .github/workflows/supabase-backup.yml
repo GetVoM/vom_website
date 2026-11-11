@@ -1,0 +1,69 @@
+# The free plan keeps no backups. Every week this dumps the database and stores
+# it in a private R2 bucket (no public domain), keeping the eight newest dumps.
+# Restore with: gunzip -c <file> | psql "$SUPABASE_DB_URL"
+name: Supabase backup
+
+on:
+  schedule:
+    - cron: "43 1 * * 0" # Sunday 04:43 in Riyadh
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: supabase-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: self-hosted
+    timeout-minutes: 30
+    env:
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+      AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+      R2_ENDPOINT: https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+      R2_BACKUP_BUCKET: ${{ secrets.R2_BACKUP_BUCKET }}
+    steps:
+      - name: Dump the database
+        # pg_dump must be as new as the server (Postgres 17), so it runs from the official image.
+        run: |
+          set -euo pipefail
+          file="vom-website-$(date -u +%Y%m%dT%H%M%SZ).sql.gz"
+          docker run --rm -e SUPABASE_DB_URL postgres:17 \
+            sh -c 'pg_dump "$SUPABASE_DB_URL" --no-owner --no-privileges --schema=public --schema=private --schema=auth' \
+            | gzip -9 > "$file"
+          # A dump this small means pg_dump failed part-way.
+          test "$(wc -c < "$file")" -gt 20000
+          echo "BACKUP_FILE=$file" >> "$GITHUB_ENV"
+
+      - name: Upload to the private bucket
+        run: |
+          set -euo pipefail
+          docker run --rm -v "$PWD:/work" -w /work \
+            -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION \
+            -e AWS_REQUEST_CHECKSUM_CALCULATION -e AWS_RESPONSE_CHECKSUM_VALIDATION \
+            amazon/aws-cli s3 cp "$BACKUP_FILE" "s3://$R2_BACKUP_BUCKET/$BACKUP_FILE" --endpoint-url "$R2_ENDPOINT"
+
+      - name: Keep the eight newest dumps
+        run: |
+          set -euo pipefail
+          aws_r2() {
+            docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION \
+              -e AWS_REQUEST_CHECKSUM_CALCULATION -e AWS_RESPONSE_CHECKSUM_VALIDATION \
+              amazon/aws-cli "$@" --endpoint-url "$R2_ENDPOINT"
+          }
+          # Names carry their UTC time, so sorting by name is sorting by age.
+          aws_r2 s3api list-objects-v2 --bucket "$R2_BACKUP_BUCKET" --prefix vom-website- --query 'Contents[].Key' --output text \
+            | tr '\t' '\n' | grep -v '^None$' | sort | head -n -8 \
+            | while read -r key; do
+                echo "Removing $key"
+                aws_r2 s3 rm "s3://$R2_BACKUP_BUCKET/$key"
+              done
+
+      - name: Remove the local dump
+        if: always()
+        run: rm -f vom-website-*.sql.gz

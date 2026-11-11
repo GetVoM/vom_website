@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { lang } from "next/root-params";
+import { TemplatesIndex, templatesIndexMetadata } from "@/components/blog/BlogIndex";
 import { InvoiceTemplatesPage, invoiceTemplatesMetadata } from "@/components/invoice-templates/InvoiceTemplatesPage";
 import { isLocale, type Locale } from "@/lib/i18n/config";
 
@@ -9,15 +10,19 @@ async function currentLocale(): Promise<Locale> {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  return invoiceTemplatesMetadata(await currentLocale());
+  const locale = await currentLocale();
+  return locale === "ar" ? templatesIndexMetadata(1) : invoiceTemplatesMetadata(locale);
 }
 
 /**
- * The free invoice templates at /templates/ and /en/templates/ (owner,
- * 2026-11-11). The old /نماذج-فواتير/, /en/sales-invoices/ and /sales-invoices/
- * redirect here (next.config.ts). Single templates under /templates/<slug>/ are
- * still for the catch-all route.
+ * Two different pages share this address, one per language (owner, 2026-11-11):
+ * - /templates/ (Arabic) is the index of the downloadable templates, as it was
+ *   on WordPress. Single templates at /templates/<slug>/ and later pages at
+ *   /templates/page/N/ are resolved by the catch-all route.
+ * - /en/templates/ is the free invoice templates page, whose Arabic twin is at
+ *   /نماذج-فواتير/. The templates themselves exist in Arabic only.
  */
 export default async function TemplatesRoute() {
-  return <InvoiceTemplatesPage locale={await currentLocale()} />;
+  const locale = await currentLocale();
+  return locale === "ar" ? <TemplatesIndex page={1} /> : <InvoiceTemplatesPage locale={locale} />;
 }

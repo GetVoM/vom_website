@@ -12,7 +12,7 @@ export function Resources({ locale, t }: { locale: Locale; t: Dictionary }) {
       <div className="mx-auto max-w-[1280px] px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-24 lg:py-32">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <h2 className="max-w-[30ch] font-arabic text-[1.875rem] font-bold leading-[1.25] sm:text-[2.25rem]">{t.resources.heading}</h2>
-          <Link href={localePath(locale, locale === "ar" ? "/blog/" : "/blog-en/")} className="text-[0.9375rem] font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
+          <Link href={localePath(locale, "/blog/")} className="text-[0.9375rem] font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
             {t.resources.all}
           </Link>
         </div>

@@ -35,7 +35,7 @@ export const ar: Dictionary = {
         links: [
           { label: "القوالب والنماذج", href: "/templates/" },
           { label: "الأدوات المالية", href: "/tools/" },
-          { label: "فواتير المبيعات", href: "/templates/" },
+          { label: "فواتير المبيعات", href: "/نماذج-فواتير/" },
           { label: "الفوترة الإلكترونية", href: "/الفوترة-الإلكترونية/" },
           { label: "برنامج المحاسبة", href: "/برنامج-محاسبة/" },
           { label: "الأخبار", href: "/news/" },

@@ -180,6 +180,39 @@ typography:
     fontWeight: 700
     lineHeight: 0.9
     fontFeature: "tnum"
+  display-ledger:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "clamp(1.75rem, 1.15rem + 2.6vw, 3.125rem)"
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: "-0.01em"
+  heading-ledger:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "1.5rem (lg 1.75rem)"
+    fontWeight: 700
+    lineHeight: 1.4
+    letterSpacing: "-0.01em"
+  subheading-ledger:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "1.1875rem (lg 1.3125rem)"
+    fontWeight: 700
+    lineHeight: 1.5
+  body-ledger:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "1.0625rem (lg 1.125rem)"
+    fontWeight: 400
+    lineHeight: 1.85
+  ledger-numeral:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "0.8125rem section, 0.75rem margin"
+    fontWeight: 700
+    lineHeight: 1.4
+    fontFeature: "tnum"
+  entry-title:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "1.1875rem (compact 1rem)"
+    fontWeight: "700 (compact 500)"
+    lineHeight: 1.5
 rounded:
   pill: "999px"
   card: "1.25rem"
@@ -615,6 +648,43 @@ components:
     textColor: "{colors.teal-700}"
     rounded: "{rounded.pill}"
     size: "2rem"
+  ledger-sheet:
+    backgroundColor: "{colors.paper}"
+    rounded: "4px"
+    padding: "1.5rem 16px 3rem (sm 2rem 2rem 3.5rem, lg 2rem 3rem 4.5rem 4.5rem)"
+  margin-number:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-500}"
+    rounded: "3px"
+    width: "2rem"
+    height: "1.5rem"
+  margin-number-current:
+    backgroundColor: "{colors.teal-700}"
+    textColor: "{colors.paper}"
+  reviewed-mark:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "2.875rem (LTR 4rem)"
+  blog-callout:
+    backgroundColor: "{colors.teal-50}"
+    textColor: "{colors.ink}"
+    rounded: "4px"
+    padding: "1.125rem 1.25rem"
+  entry-plate:
+    backgroundColor: "{colors.paper}"
+    rounded: "4px"
+    width: "12rem"
+    height: "6.75rem"
+  pagination-pill:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0 1.125rem"
+    height: "2.75rem"
+  pagination-pill-hover:
+    textColor: "{colors.teal-700}"
 ---
 
 # Design System: VoM website (getvom.com)
@@ -629,6 +699,8 @@ The system is restrained by rule. Each page gets one signature idea (the documen
 
 The reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.
 
+The blog is that reading register ruled as a ledger page: a white sheet on Cool Paper, split by one 2px Record Teal rule into a narrow margin that holds the numbered contents and a wide column where the article runs. Its one idea is the ruling: each section carries its number beside the rule, and the entry being read is inked in the margin. The blog index, topic archives and author pages list posts as dated entries on the same ruling. No teal field and no guilloche appear before the closing band.
+
 **Key Characteristics:**
 - Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.
 - Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.
@@ -642,7 +714,7 @@ The reading register, introduced by the terms and conditions page, is the same w
 A pinned brand palette of teal, orange and near-black on cool paper, extended only with tints and shades of those hues.
 
 ### Primary
-- **Record Teal** (`teal`): the field colour. Hero and contact fields with a slanted edge, full-width bands (ZATCA, contact close, about statement), the about figures band, active ticks and progress, the double rule under totals, selection highlight and the focus ring.
+- **Record Teal** (`teal`): the field colour. Hero and contact fields with a slanted edge, full-width bands (ZATCA, contact close, about statement), the about figures band, active ticks and progress, the double rule under totals, selection highlight and the focus ring. On the blog, the one 2px margin rule of the ledger page and the short rule under each section number.
 - **Engraver's Teal** (`teal-700`): teal as ink. Links, seal and postmark strokes, figure numerals on paper, icon strokes in tiles, the current entry in the terms contents, hovered nav links, and on the templates page the create-online links, the hinge's arrow disc and the QR mark.
 - **Hairline Teal** (`teal-200`): the double-hairline frame, dividers inside document objects, inactive chart bars.
 - **Ring Teal** (`teal-300`): the outer hairline on client seals, register discs and the FAQ plus; on pricing, the rule under the ledger's pinned plan heads and the double hairline under each "in every plan" group head.
@@ -660,7 +732,7 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 - **Graphite** (`ink-500`): captions, breadcrumbs, proof lines, clause numbers at rest.
 - **Mist** (`ink-300`): list markers in the reading register and the bilingual micro-label. Below AA as text (about 2.6:1 on paper); see Do's and Don'ts.
 - **Paper** (`paper`): the ground and every paper object.
-- **Cool Paper** (`paper-100`): alternate section ground (footer, social links, about's "why" and closing sections); the whole ground of the invoice templates page, its paper side.
+- **Cool Paper** (`paper-100`): alternate section ground (footer, social links, about's "why" and closing sections); the whole ground of the invoice templates page, its paper side. The ground of every blog page, under the white ledger sheet.
 - **Hairline** (`paper-200`): section borders, header rule, terms hairlines and the contents track.
 - **Rule** (`paper-300`): input and tile borders, inactive ticks, row dividers on about; the template sheets' single hairline, the dots of the hinge's perforation and the rule under each sheet serial.
 - **Reading Ink** (`reading-ink`): body text of long legal reading, 86% ink, slightly softer than Record Ink.
@@ -675,6 +747,8 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 **The Book-in-Slate Rule.** On a textbook spread the textbook page is the book's, so it is printed in Slate and Graphite on Cool Paper with ink-300 and paper-300 hairlines and no teal; teal, the double hairline and the double teal rule belong to the facing VoM page. The book's own total keeps its accountant's double rule, drawn 3px in Graphite.
 
 **The Paper-or-Record Rule.** Where a page faces what a visitor takes away against what VoM issues (the invoice templates page), everything taken away is the paper side: Slate and Graphite on Cool Paper with no teal, the template sheets in a single paper-300 hairline at rest and the Word and PDF pills outlined in ink. Everything that leads into VoM carries teal: the create-online links, the hinge's teal-700 arrow disc and the record on its teal field. Orange stays on the sign-up alone. Focus rings stay Record Teal on both sides; the rule governs what the page draws, not the template files' own print colours.
+
+**The Ledger-Page Rule.** A blog page is one ruled sheet: Paper on Cool Paper, with a single 2px Record Teal rule running the sheet's height between a 3/12 margin and a 9/12 column (from 1024px), and between the date column and the entry on list pages (from 640px). Teal is otherwise ink only: section numbers, links, the inked current entry, the reviewed mark and the double rule over tables and topic accounts. No teal field and no guilloche before the closing band, and orange only on the trial button in that band.
 
 **The White-on-Teal Rule.** Text on a teal band is white (owner decision). At `teal` this measures about 2.4:1, below the AA floor in CLAUDE.md; this is an open conflict, not a validated pairing (see Do's and Don'ts).
 
@@ -706,6 +780,11 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Stamp** (`stamp`; 700, 0.75rem, 1.2, teal-700, no wrap): the word inside the «بلا حد» entry stamp.
 - **Display, templates** (700, 2.75rem, 3.5rem from 640px, then `clamp(3.75rem, 5vw, 4.5rem)` from 1024px, 1.1, -0.01em, balanced): the invoice templates H1 on the start 7/12, beside its intro (Body in Slate, 1.75, 56ch) on the end 5/12 (see Observed drift).
 - **Sheet serial** (`sheet-serial`; 700, 2.25rem, 2.75rem from 640px, 0.9, tabular, Graphite, `dir` ltr): a template's serial, `01` to `06`, from a CSS counter (`decimal-leading-zero`) over a paper-300 hairline, read by eye only (`content: … / ""`); the H3 names the template. Slate-family, not teal, because the sheet is something you take away.
+- **Display, ledger** (`display-ledger`; 700, `clamp(1.75rem, 1.15rem + 2.6vw, 3.125rem)`, 1.3, -0.01em, balanced, 24em): the H1 of a blog post and of the blog index, topic, news and author pages, between the heading's two hairlines. It reaches 3.125rem from about 1215px (see Observed drift).
+- **Heading, ledger** (`heading-ledger`; 700, 1.5rem, 1.75rem from 1024px, 1.4, -0.01em, balanced, ink): the H2 of a blog body, ruled off above by a paper-200 hairline; the list pages' section headings and the related heading hold 1.5rem. **Subheading, ledger** (`subheading-ledger`; 700, 1.1875rem, 1.3125rem from 1024px, 1.5, balanced): its H3. Its H4 is the body size in bold (1.0625rem, 1.55), as in the guides.
+- **Body, ledger** (`body-ledger`; 400, 1.0625rem, 1.125rem from 1024px, 1.85 in both languages, Reading Ink, pretty): a blog body. Text holds a 46rem measure, 42rem from 1024px; figures, tables and code take the column (see Observed drift).
+- **Ledger numeral** (`ledger-numeral`; 700, tabular, a CSS counter, `decimal-leading-zero`, read by eye only): a section's number, 0.8125rem at 1.4 in teal-700 on the H2; 0.75rem in Graphite in the margin's number box, white on teal-700 for the entry being read.
+- **Entry title** (`entry-title`; 700, 1.1875rem, 1.5, balanced): a post's title in a dated entry list, beside its date at the Caption size in Slate; the compact variant sets 1rem at weight 500 and 1.6. A topic account's name is 1.25rem bold at 1.4.
 - **Body** (400, 1.0625rem, 1.6): the default. Marketing copy runs at 1.7 to 1.8 line height in Slate, capped at 44 to 62ch.
 - **Lede, guide** (`lede-guide`; 400, 1.125rem, 1.25rem from 1024px, 1.85, Slate, 68ch): the lede under an e-invoicing H1; its links take the prose-link style.
 - **Body, reading** (400, 1.0625rem, 1.125rem from 1024px, 1.75, Arabic 1.85): legal reading and the e-invoicing guide bodies, in Reading Ink. The text column fills the page container beside the contents rail (owner, 2026-11-09), so lines run long at wide screens: about 125 characters in Arabic and 90 in English at 1440px.
@@ -755,6 +834,8 @@ Features register (all widths): the hero is the integration grid re-proportioned
 Accounting guide (Arabic only): one `.acg-page` wrapper. From 1024px it is a named-line grid, `[full-start] gutter [body-start] minmax(0, calc(1248px - 6.5rem)) [body-end] 2.5rem [tabs-start] 4rem [tabs-end] gutter [full-end]`: the hero spans full-start to full-end in the first row and the text takes body-start to body-end in the second, leaving the end-side 4rem track free for the thumb index, which is fixed (6rem from the top, its end edge on the container's end edge) rather than placed in the track. The hero is a 7/12 to 5/12 split inside the container with a 2.5rem gap: copy on the start side (breadcrumb, H1 at the guide display steps, the hero line at the guide lede steps capped at 50ch, the orange trial button, then the trial card's three assurances as a row on a paper-200 rule), vertically centred with 3rem / 4rem block padding; the stage on the end side, its guilloche field cut by a 3.5rem slant on its start edge and bled to the viewport's end edge through the shared `--bleed`, padded 3.5rem block and 3.5rem on its start side, holding the contents sheet with a 3rem end margin for its tabs. Below 1024px: copy first (2rem top, 2.5rem under), then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 3.5rem, the sheet keeping 2.5rem on its end side for the tabs. In the text, prose (paragraphs, lists, H3, H4 and the FAQ) holds a 56rem start-aligned measure, while chapter plates, figures (up to 1152px for the guide's wide screenshots, the `wide` figure), tables, the key-points sheet, the prompt chips and the sector list span the body column; the text pads 2.5rem on top and 7rem at the foot from 1024px. The sector list runs one column, two from 768px and three from 1280px (2.5rem column gap). The close band follows the wrapper at full width and, from 1024px, pads its end side 6.5rem past the gutter so the thumb index still standing on the fore-edge never covers its text.
 
 Invoice templates (all widths): the page sits on Cool Paper. From 1024px the head is a 12-column row aligned to the end (2rem gap, 1.5rem top pad, 2rem below 1024px): breadcrumb and H1 on the start 7/12, the intro on the end 5/12. Under it the split runs paper 5 / hinge 2 / record 5 columns (2rem gap, centred): the old hero's two stacked sheets (up to 21rem) over a slate line linking down to the catalogue; the hinge; and the record, padded 3.5rem block (3.25rem at the foot) and 4.5rem on its start side, on a guilloche field cut by a 4.5rem slant on its start edge and bled to the viewport's end edge through the shared `--bleed`. Below 1024px the paper sits beside the hinge (`8.5rem 1fr`, 1rem gap; `14rem 1fr`, 2rem gap from 640px) and the record follows as a full-width panel (negative 16px inline margin, padded 3.75rem 16px 3rem) with a 2.25rem slanted top edge, high on the end side, so the orange sign-up reaches the first screen. The catalogue pads 4.5rem / 6rem (6rem / 7rem from 1024px), its heading and file note hold 46rem, and the six templates follow: stacked below 640px (3.5rem apart, the sheet up to 22.5rem above its entry), one-up from 640px with a 20rem sheet beside its entry (2rem gap), two-up from 1024px (4.5rem row gap, 3.5rem column gap) with each item a sheet (1.3fr) beside its entry (1fr, 1.75rem gap). Beside the sheet the serial heads the entry and the H3, the two file pills and the create-online link sit at the sheet's foot. The shared close band ends the page.
+
+Blog (the ledger page, all widths): every blog page sits on Cool Paper inside the page container. The head is the breadcrumb (1.5rem top pad, 2rem from 1024px), then the ledger heading 1.25rem under it, ruled above and below by paper-300 hairlines. On a post the sheet follows 1.5rem down (2rem from 1024px): below 640px it runs edge to edge (negative 16px inline margin) with paper-300 rules above and below; from 640px it is framed in a paper-300 hairline at 4px corners. From 1024px a post with H2 sections splits the sheet `3fr 9fr`: the margin on the start side, its title sticky 6.5rem from the top and its list 10.75rem from the top, scrolling inside itself (`max-height: calc(100vh - 12.5rem)`); the column on the end side, padded 2rem 3rem 4.5rem with 4.5rem on its start side, the 2px Record Teal rule on its start edge for the sheet's full height, and each H2's number set in that start pad, 1.25rem from the rule. A post with no H2 has no margin and no rule. Below 1024px the margin is one 3rem row at the top of the sheet that opens the numbered list, before the byline and cover, and the column pads 1.5rem 16px 3rem (2rem 2rem 3.5rem from 640px). In the column: byline, cover 1.5rem under it (held to 38rem from 1024px so the first lines reach the first screen), body 1.75rem under that; H2s land 7.5rem under the top. Related entries follow the sheet (2.5rem / 3.5rem block padding, 3.5rem / 5rem from 1024px), then the closing band. List pages (blog index, topic archive, news, author) set the same head, then sections on Cool Paper with the same padding: the entry list stacks below 640px (date over entry on paper-300 top rules, no sheet) and from 640px sits on its own sheet as a `9.5rem 1fr auto` grid (date, entry, plate; 1.5rem column gap), `11rem 1fr auto` with a 2.5rem gap from 1024px, the 2px rule standing after the date column. The blog index's first page opens with the topic accounts, one column, two from 1024px (3.5rem row gap, 4.5rem column gap), then the latest entries without excerpts and the pagination; later pages carry entries only.
 
 The reading register is a single column of text that fills the page container. From 1024px the header row (breadcrumb, title, meta) spans the full container width and is ruled off by a paper-200 hairline; below it a 15rem contents rail sits on the start side, sticky 6rem from the top, separated by a 4.5rem gap from the text column, which takes the rest of the width. Below 1024px the contents become a bar stuck under the 64px header. Clause numbers hang in a 2.75rem gutter.
 
@@ -848,6 +929,24 @@ The reading register is a single column of text that fills the page container. F
 - Templates: the template renders and the hero sheets carry the old files' own print colours (bands of green, blue, orange and grey, and a VoM wordmark on some), shown one to one; the Paper-or-Record Rule governs what the page draws, not the files' artwork.
 - Templates: the brief drew the phone hinge as a horizontal perforated rule between paper and record; the build sets the paper beside a vertical hinge with the record below, so the sign-up reaches the first screen. The brief's «Word · PDF» line ships as «6 templates to print · Word and PDF», a slate link down to the catalogue under a paper-300 underline.
 - Templates: the record field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band is the shared sector close band (6rem / 4.5rem padding, a 2.5rem slanted top edge, the closing line at 1.5rem / 1.75rem), so its drift applies.
+- Blog: a post's ledger heading sets a row of date, topic link and reading time (0.875rem Slate) above the H1, as its direction contract asked. That is a small line above a heading, against the One Card Rule and the kicker Don't. Recorded as built, not as a pattern for other surfaces; the owner to rule.
+- Blog: the H1 is one fluid clamp, 1.75rem to 3.125rem at 1.3 line height, below Display, reading (2.5rem / 3.5rem at 1.15) and off the stepped Display ramp; a fifth fluid Display setting.
+- Blog: the body H2 (1.5rem / 1.75rem) and H3 (1.1875rem / 1.3125rem) sit a step under Heading, reading and Subheading, reading (1.625rem / 1.875rem, 1.25rem / 1.375rem), so the site has two reading-heading ramps; the H4 matches. The body runs 1.85 line height in English too, where Body, reading sets 1.75.
+- Blog: prose holds a 46rem measure, narrowing to 42rem from 1024px as the type steps up, and the cover holds 38rem, where the e-invoicing guide bodies fill their column (owner's full-width preference) and the accounting guide holds 56rem. A third reading measure for the owner to confirm, not repaired.
+- Blog: the margin rule is 2px in Record Teal, a weight between the 1px hairlines and the 4px double rule; the only other 2px teal lines are the contents rail's teal-600 thumb and tick. The body's blockquote draws a 1px Mist rule on its start side.
+- Blog: section numbers are 0.8125rem in teal-700 over a 2rem, 2px Record Teal rule, not the Section numeral (2.75rem / 3.5rem) and not the reading register's Marker Teal (teal-600). Below 1024px the number stands above its H2. The contract had the number of the section being read repeat on the rule; the build shows every section's number beside the rule at all times and marks the current one in the margin only.
+- Blog: radii are off the scale. 4px (the focus radius, as on the template sheet) on the sheet, the entry sheet, the cover, figures, entry plates, the callout and code blocks; 3px on the margin's number box and inline code; 2px on link focus outlines.
+- Blog: the reviewed mark is 2.875rem in Arabic and 4rem in English, two new seal sizes and the smallest double ring after the QR seal. It turns -8deg in Arabic and 8deg in English, where other seals keep one angle; it hard-codes Paper as the gap between its rings (as the «بلا حد» stamp does) and carries no drop. Its English word is 0.5625rem uppercase at 0.02em, under the 0.625rem micro-label floor and off its 0.08em tracking: a legibility defect, not a type step.
+- Blog: focus outlines are 2px teal-700 at 2px offset with a 2px radius (the contents row at -2px), where the house outline is Record Teal at 3px.
+- Blog: weights stay inside the loaded four (400 and 700, with 500 only on compact entry titles, where entry titles are otherwise 700).
+- Blog: the table region's scroll shades are neutral ink at 10% (`rgb(2 2 2 / 0.1)`), where the Teal Shadow Rule tints every shade with Shadow Teal. The table is a second copy of the guide's ledger table with its own values: cells pad 0.75rem 0.875rem (the guide 0.875rem 1rem), the head row stays 0.9375rem (the guide 0.875rem), and the 34rem minimum starts at four columns (the guide at three).
+- Blog: the body's FAQ is a `details` on paper-200 rules with the browser's own marker, a third disclosure style beside the house FAQ and the ringed plus on teal-200 rules.
+- Blog: links to other sites carry the external-arrow mask but the preparer adds no visually hidden "opens in a new tab" words, which the guide body has.
+- Blog: the pagination pill is a fourth outlined pill (an ink border at 28%, like the file pill) and hovers to a teal-700 border and text, where the file pill hovers to Slate and the secondary button to Cool Paper.
+- Blog: below 640px the entry lists sit on Cool Paper with no sheet and no teal rule, and the compact lists inside topic accounts never sit on a sheet. The entry sheet's rule does not draw; on list pages the only motion is the heading settling.
+- Blog: the contract ruled the topics as rows, one per topic; the build sets the accounts two across from 1024px and opens the ten fullest topics, naming the rest in one line.
+- Blog: the closing band is the shared sector close band (6rem / 4.5rem padding, a 2.5rem slanted top edge, the CSS guilloche tile at 0.14, the closing line at 1.5rem / 1.75rem), so its drift and the White-on-Teal open conflict apply.
+- Admin: errors and the danger button use a red (`#a4281c`) that is not a tint or shade of any pinned brand colour; the owner to rule. Its panels use 8px and 6px corners and 4px tool buttons, off the radius scale; its primary button is teal-700, not orange; the editor's details toggle is a typed glyph (▸ / ▾), a defect the build carries, not a pattern; its two-column layout opens at 1100px, a breakpoint used nowhere else.
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -885,6 +984,8 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 - **Picked-up print** (`box-shadow: 0 26px 44px -26px rgb(5 42 37 / 0.5)` with translate 0 -4px, 0.35s ease-out-quint): a template sheet when its create-online link is hovered or focused; flat at rest under its single hairline. The record sheet on the templates field carries the object-on-field shadow after the doc-frame's two inset rings, the record seal the stamped-seal drop at 0.45, and the QR seal a small drop, `0 6px 12px -6px rgb(5 42 37 / 0.5)`, after the stamp ring at seal scale.
 
+- **Scroll shade** (`linear-gradient(to right, rgb(2 2 2 / 0.1), transparent)`, 0.75rem wide, on each side, under a 2.5rem Paper cover that scrolls with the table): not a box-shadow; the shade on whichever edge of a blog table region has more table to scroll to (see Observed drift). The ledger sheet, the entry sheet and the reviewed mark are flat.
+
 ### Named Rules
 **The Teal Shadow Rule.** Shadows are tinted with Shadow Teal, never neutral grey, and belong to paper documents, overlays and hover states. Sections, tiles and frames at rest stay flat.
 
@@ -899,6 +1000,8 @@ A screen nested in a Paper sheet keeps concentric corners: the sheet's 1.25rem c
 The thumb tab is the one shape rounded on a single side: square where it is cut into its edge, 0.625rem (`rounded.screen`) on its two free corners, with no border on the joined side. The tab being read squares its free corner and folds it over: a 0.75rem triangle split diagonally between paper and teal-300, mirrored in RTL. The accounting guide's field takes a 3.5rem start slant from 1024px and a 2.25rem rise below it.
 
 The template sheet is the one paper object in a single hairline: 1px paper-300 at 4px corners, clipped, no inner hairline, because it is a print you take away, not a document VoM issues. The hinge between paper and record is a perforation, not a line: paper-300 dots (1.6px in a 4px by 10px tile, a radial gradient) running down the hinge's start edge, mirrored in RTL. The templates record field takes the integration field's cuts (a 4.5rem start slant from 1024px, a 2.25rem rise below it).
+
+The ledger sheet is ruled, not framed: a single 1px paper-300 hairline at 4px corners (rules above and below only on phones, where it runs edge to edge), no inner hairline and no shadow, with one 2px Record Teal rule drawn the sheet's height as a pseudo-element, between margin and column on a post and after the date column on an entry list. Tables and topic accounts are headed by the 4px Record Teal gradient double rule; the reviewed mark is a circle in the stamp ring (1.5px ring, 2px Paper gap, 1px hairline).
 
 ## Components
 
@@ -1161,11 +1264,47 @@ VoM's own tax invoice on the templates field, under the orange sign-up (2rem abo
 ### Signature motion (invoice templates)
 Once on load, CSS only, on ease-out-quint. The paper sheets settle from zero opacity, translateY(14px) and rotate(-1.5deg), 0.7s from 0.1s; the record sheet lifts from 24px lower and zero opacity, 0.8s from 0.3s; the ZATCA seal stamps in from 1.12x scale and zero opacity (the shared `sec-stamp`), 0.45s from 0.95s, so the sequence ends at about 1.4s. The QR preview is the page's one interaction. Resting styles are the finished state; the global reduced-motion rule shows it finished and makes the preview instant.
 
+### Ledger Heading
+The head of every blog page, between two paper-300 hairlines (1.25rem above the words, 1.75rem below; 1.5rem from 1024px): the H1 at Display, ledger. On a post a row stands over the H1 (0.875rem Slate, 1.5rem apart, wrapping): the date (tabular), the topic as a bold teal-700 link under a teal-300 underline at 0.25em that turns solid on hover, and the reading time (see Observed drift). On a list page the H1 shares a baseline row with the count at the end (0.875rem Slate, tabular: «94 مقالاً», or «صفحة 2 من 9» on later pages); under it, when there is one, a line at 1.0625rem Slate (an author's job title) and the intro (1.0625rem Slate, 1.85, 46rem, pretty).
+
+### Margin Contents
+The post's H2s as numbered entries in the sheet's margin, a `nav` named «المحتويات» / "Contents". Each entry is a link in a `2rem 1fr` grid on a shared baseline: the number box (2rem by 1.5rem, 3px corners, a 1px paper-300 inset ring, the Ledger numeral in Graphite, from a CSS counter) and the heading (0.9375rem, 0.875rem from 1024px, 1.55, Slate, turning ink on hover). The entry being read (`aria-current`, from the shared `useActiveSection` hook) is inked in: bold ink beside a teal-700 box with a white number and no ring. From 1024px the title (0.8125rem bold Graphite, decorative) and the list are sticky in the margin. Below 1024px it is one 3rem row (0.9375rem bold ink and a 16px chevron that turns over in 0.2s), a real button with `aria-expanded` that opens the list in place over a paper-300 rule; following an entry closes it.
+
+### Section Number
+Each H2 of a blog body carries the number it has in the margin: the Ledger numeral in teal-700 over a 2rem, 2px Record Teal rule, drawn by the H2's `::before` from a CSS counter and hidden from assistive tech (`content: counter(…) / ""`). From 1024px it sits in the column's start pad, 1.25rem from the margin rule and level with the heading; below 1024px it stands 0.625rem above the heading. The H2 is ruled off by a paper-200 hairline, 3rem below the text before and 2.25rem above the heading.
+
+### Byline and Reviewed Mark
+Who wrote the post, which accountant reviewed it and when, as a `dl` in a wrapping row (2.5rem apart) on a paper-200 bottom rule: each label at 0.8125rem Graphite over its value at 0.9375rem bold ink. Names link to the person's page under a paper-300 underline, turning teal-700 on hover; the reviewer's job title sits under the name at 0.8125rem Slate (left out in English while it is recorded in Arabic only); the date is "last reviewed" when there is a reviewer and "published" when not. Beside the reviewer stands the reviewed mark: a 2.875rem circle in teal-700 with the stamp ring, holding «روجع» at 0.625rem bold, turned -8deg; in English 4rem, "Reviewed", turned 8deg (see Observed drift). Decorative (`aria-hidden`); the label says it.
+
+### Article Body (ledger)
+The editor's stored HTML, styled from one class and prepared once: every H2 gets an id (`s-1`, `s-2`, …) and becomes a margin entry; images on the media domain get an optimizer srcset (640, 1080, 1600), their stored size, `loading="lazy"`. Text is Body, ledger, blocks 1.125rem apart; H3 and H4 tuck their first block 0.625rem under them. Lists hang 1.375rem in with 0.5rem between items: bullets an en-dash in Mist, numbers teal-700 and tabular. Links are teal-700 under a teal-300 underline at 0.2em, solid on hover; links that open a new tab carry the 0.75em external-arrow mask, mirrored in RTL. **Cover and figures:** a 1px paper-200 border at 4px corners, figures centred with 2rem above and below and a centred 0.875rem Slate caption. **Callout:** a note the writer boxed in a one-cell table becomes an `aside` on `teal-50` at 4px corners, padded 1.125rem 1.25rem, in ink. **Quote:** ink, 1.25rem in from a 1px Mist rule on its start side. **Code:** Cool Paper at 3px corners inline; blocks at 4px corners, always left-to-right. **FAQ:** `details` on paper-200 rules, the question bold ink with 1rem block padding.
+
+### Table Region
+A body table on the ledger's ruling: an open sheet, no frame and no vertical dividers, in a region that scrolls sideways (`role="region"`, focusable, named «جدول 1», «جدول 2», …) with the scroll shade on the edge that has more to show. Cells are 0.9375rem at 1.7, tabular, padded 0.75rem 0.875rem with the outer cells flush to the text edges, on paper-200 rules with no closing rule. The first row heads the columns (plain cells become `th scope="col"` when the table has two rows or more): bold ink over the 4px Record Teal gradient double rule. A table of four columns or more keeps a 34rem minimum and scrolls; three fit a phone.
+
+### Dated Entry List
+Posts as dated ledger entries, an `ol`: the date (Caption, Slate, tabular) in the margin column, then the title (Entry title, a link turning teal-700 and underlined on hover), a two-line excerpt (0.9375rem Slate, 1.75, 44rem) and the topic link (0.8125rem, the heading row's link style), with the cover as a 12rem by 6.75rem plate at the end (a 1px paper-200 border at 4px corners, a plain lazy `<img>` from the optimizer at 384px, empty alt), hidden below 640px. Entries divide on paper-300 rules, padded 1.25rem (1.5rem from 640px). From 640px the list sits on a sheet (Paper, a 1px paper-300 hairline at 4px corners, entries padded 1.5rem inline) with the 2px Record Teal rule standing after the date column. The blog index's first page drops the excerpts; related entries and a topic's own archive drop the topic link. **Compact variant** (inside a topic account): date and title only, `7.5rem 1fr` from 640px, the title 1rem at weight 500, 0.75rem block padding on paper-200 rules, no sheet and no rule.
+
+### Topic Accounts
+Topics as the ledger's accounts on the blog index's first page: each account's head is a baseline row, the topic's name (1.25rem bold, a link turning teal-700) at the start and its count (0.8125rem Slate, tabular) at the end, over the 4px Record Teal gradient double rule, then its three latest entries as a compact list (posts filed mainly under that topic, so no post is listed twice). The ten fullest topics open as accounts; the rest are named in one line on a paper-300 rule (0.9375rem Slate, the links bold teal-700 under a teal-300 underline).
+
+### Pagination (blog)
+Newer and older pages under an entry list, a `nav` on a paper-300 top rule in a `1fr auto 1fr` row: the position («صفحة 2 من 9», 0.875rem Slate, tabular) centred between two outlined pills (2.75rem tall, 1.125rem inline padding, a 1px ink border at 28%, bold 0.9375rem ink), "newer" at the start and "older" at the end with `rel="prev"` and `rel="next"`. Hover turns border and text teal-700.
+
+### Closing Band (blog)
+Every blog page ends on the shared sector close band: Record Teal, the CSS guilloche, the 2.5rem slanted top edge, one white closing line (1.5rem bold, 34ch) and the page's only orange button, the trial. It is the surface's one field.
+
+### Signature motion (blog)
+Once on load, CSS only, on ease-out-quint. The ledger heading settles from 0.5rem lower (translate only, 0.5s); on a post from 1024px the margin rule then draws down the sheet from its top (`scale: 1 0` to rest, 0.8s from 0.15s), so the sequence ends at about 0.95s. The one interaction is the margin: the entry being read is inked in as the page scrolls. Resting styles are the finished state; the global reduced-motion rule shows it finished.
+
+### Admin (operate tool)
+Not part of the public design world: the blog's editor at `/admin`, Arabic and right-to-left, with its own stylesheet. A plain working tool in the brand tokens with no ornament: Cool Paper ground, Paper panels in a 1px paper-300 hairline at 8px corners, 0.9375rem text, a sticky Paper bar with the name in teal-700, no seals, no double hairlines, no guilloche, no shadows, no motion beyond 0.15s hovers. Inputs are 2.5rem tall at 6px corners on a paper-300 border; buttons are 2.5rem at 6px corners, outlined in ink at 28%, the primary a teal-700 fill turning teal-800 (orange is not used for actions here); status is a pill (paper-200, or `teal-100` with Deep Teal when published); focus is 2px teal-700 at 2px offset. The editor sets the article canvas beside a 22rem data panel from 1100px and shows the body in the blog's own body styles. Nothing here is a pattern for public pages.
+
 ## Do's and Don'ts
 
 ### Do:
 - **Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.
-- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
+- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s; blog: the ledger heading settles 0.5s, then on a post the margin rule draws down 0.8s from 0.15s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
 - **Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.
@@ -1186,6 +1325,8 @@ Once on load, CSS only, on ease-out-quint. The paper sheets settle from zero opa
 - **Do** draw a table's yes or no as the drawn mark with a visually hidden word, never as an emoji or a typed glyph.
 - **Do** show a real screenshot at its own proportions on a Paper sheet with a 10px bezel and the 0.625rem screen radius, cutting a tall screen from the top rather than shrinking it.
 - **Do** print what a visitor takes away (template sheets, download pills) in Slate on paper with no teal, and give teal to whatever leads into VoM, when a page faces the two.
+- **Do** rule a blog page as one ledger sheet: Paper on Cool Paper, one 2px Record Teal rule between margin and column, and no teal field, guilloche or orange before the closing band.
+- **Do** number a post's sections with one CSS counter shown twice, in the margin entry and beside the H2, and ink in the entry being read.
 
 ### Don't:
 - **Don't** put orange on anything but the primary action or the single "now" marker.

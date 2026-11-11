@@ -16,6 +16,7 @@ import {
 import { site } from "@/lib/seo/site";
 import { accountingGuide } from "@/lib/content/accounting-guide/copy";
 import { guidePath, guides } from "@/lib/content/einvoicing/catalogue";
+import { postPaths } from "@/lib/content/posts";
 
 interface SitemapPage {
   pair: PagePair;
@@ -137,8 +138,57 @@ function accountingGuideEntry(): MetadataRoute.Sitemap {
   ];
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/**
+ * The sitemap is split by type (docs/seo/strategy.md §5): /sitemap/pages.xml,
+ * /sitemap/posts.xml, /sitemap/news.xml and /sitemap/templates.xml, all listed
+ * in robots.ts.
+ */
+export const sitemapIds = ["pages", "posts", "news", "templates"] as const;
+
+export function generateSitemaps() {
+  return sitemapIds.map((id) => ({ id }));
+}
+
+export default async function sitemap({ id }: { id: Promise<string> }): Promise<MetadataRoute.Sitemap> {
+  const which = await id;
+  if (which === "posts") return blogEntries("post");
+  if (which === "news") return blogEntries("news");
+  if (which === "templates") return blogEntries("template");
   return [...pagePairEntries(), ...einvoicingEntries(), ...accountingGuideEntry()];
+}
+
+/**
+ * Posts with the blog index, the category archives and the author pages; or the
+ * news items with their index. lastModified is each record's own modified date;
+ * a list page carries the date of the newest record. Only the blog and news
+ * indexes exist in both languages.
+ */
+async function blogEntries(type: "post" | "news" | "template"): Promise<MetadataRoute.Sitemap> {
+  const index = await postPaths();
+  const absolute = (path: string) => encodeURI(`${site.url}${path}`);
+  const single = (path: string, lang: string, lastModified: Date, priority: number, changeFrequency: "weekly" | "monthly") => {
+    const url = absolute(path);
+    return { url, lastModified, changeFrequency, priority, alternates: { languages: lang === "ar" ? { ar: url, "x-default": url } : { en: url } } };
+  };
+  const records = index.posts.filter((post) => post.type === type);
+  const newest = new Date(records.map((post) => post.modifiedAt).sort().at(-1) ?? "2026-11-11");
+  // The templates and their index are Arabic only; /en/templates/ is another page, listed with the pages.
+  if (type === "template") {
+    return [single("/templates/", "ar", newest, 0.7, "weekly"), ...records.map((post) => single(post.path, post.lang, new Date(post.modifiedAt), 0.6, "monthly"))];
+  }
+  const home = type === "post" ? "/blog/" : "/news/";
+  const languages = { ar: absolute(home), en: absolute(`/en${home}`), "x-default": absolute(home) };
+  return [
+    { url: languages.ar, lastModified: newest, changeFrequency: "weekly", priority: 0.7, alternates: { languages } },
+    { url: languages.en, lastModified: newest, changeFrequency: "weekly", priority: 0.4, alternates: { languages } },
+    ...(type === "post"
+      ? [
+          ...index.categories.map((category) => single(category.path, category.lang, newest, 0.6, "weekly")),
+          ...index.authors.map((author) => single(`/author/${author.slug}/`, "ar", newest, 0.3, "monthly")),
+        ]
+      : []),
+    ...records.map((post) => single(post.path, post.lang, new Date(post.modifiedAt), 0.6, "monthly")),
+  ];
 }
 
 function pagePairEntries(): MetadataRoute.Sitemap {
