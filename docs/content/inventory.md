@@ -61,6 +61,7 @@ Notable rows:
 - Write author bios with credentials for the reviewing accountant and main writer.
 - Confirm plan prices and feature limits on the pricing page with the team.
 - E-invoicing (built 2026-11-10): the hub `/الفوترة-الإلكترونية/` and its 12 guides are rebuilt from the saved HTML into `content/e-invoicing/*.mdx` by `scripts/import-einvoicing.mjs`; every slug kept byte for byte (including the cut-short `…هيئة-الزك/`), no redirects. The hub's PDF keeps its old path under `public/wp-content/uploads/2025/08/`. Body links to blog posts not yet rebuilt 404 on the new site until those posts are built.
+- Free invoice templates (built 2026-11-11): the owner moved `/نماذج-فواتير/` and `/en/sales-invoices/` to `/templates/` and `/en/templates/`. The two old URLs and the unprefixed `/sales-invoices/` 301 there in one hop. `/templates/`, until now the WordPress templates archive, serves this page. The 12 Word and PDF files keep their old paths under `public/wp-content/uploads/2023/10/`, byte for byte. `scripts/invoice-templates-assets.mjs` copies them and checks each SHA-1. The page shows the six uncropped template renders, which were fetched from the live uploads because the download held only the 1024 px crops. The single templates under `/templates/<slug>/` are not built yet.
 
 ## Quality work after launch
 

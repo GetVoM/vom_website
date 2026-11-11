@@ -79,6 +79,8 @@ const altFixes = {
  */
 const linkFixes = {
   "ابدأ تجربتك المجانية 7 أيام بدون بطاقة بنكية": "https://app.getvom.com/ar/company-register-show",
+  // The invoice templates moved to /templates/ (owner, 2026-11-11); link the final URL, not the redirect.
+  "استعرض نماذج الفواتير المجانية": "/templates/",
 };
 
 /** Chapter H3s that open a numbered option get a line icon (drawn in CSS). */

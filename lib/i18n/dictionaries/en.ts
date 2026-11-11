@@ -21,7 +21,7 @@ export const en: Dictionary = {
         links: [
           { label: "Blog", href: "/blog/" },
           { label: "News", href: "/news/" },
-          { label: "Sales invoices", href: "/sales-invoices/" },
+          { label: "Free Invoices Templates", href: "/templates/" },
           { label: "ZATCA Phase 2 e-invoicing", href: "/zatca-e-invoicing-phase-2/" },
         ],
       },
@@ -168,7 +168,7 @@ export const en: Dictionary = {
     readMinutes: "min read",
     items: [
       { kind: "guide", title: "ZATCA e-invoicing Phase 2: what changes and how to prepare", href: "/zatca-e-invoicing-phase-2/", minutes: 10 },
-      { kind: "guide", title: "Sales invoices in VoM", href: "/sales-invoices/", minutes: 6 },
+      { kind: "template", title: "Free invoice templates in Word and PDF", href: "/templates/", minutes: 0 },
       { kind: "template", title: "Tax invoice template, ready to download", href: "/templates/", minutes: 0 },
     ],
   },
@@ -233,7 +233,7 @@ export const en: Dictionary = {
       support: [
         ["Blog", "/blog-en/"],
         ["ZATCA Phase 2", "/zatca-e-invoicing-phase-2/"],
-        ["Sales invoices", "/sales-invoices/"],
+        ["Free Invoices Templates", "/templates/"],
         ["Student package", "/student-package/"],
       ],
       company: [

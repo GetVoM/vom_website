@@ -174,6 +174,12 @@ typography:
     fontSize: "0.75rem"
     fontWeight: 700
     lineHeight: 1.2
+  sheet-serial:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "2.25rem (sm 2.75rem)"
+    fontWeight: 700
+    lineHeight: 0.9
+    fontFeature: "tnum"
 rounded:
   pill: "999px"
   card: "1.25rem"
@@ -569,6 +575,46 @@ components:
     textColor: "{colors.ink-700}"
     rounded: "{rounded.pill}"
     size: "1.375rem"
+  template-sheet:
+    backgroundColor: "{colors.paper}"
+    rounded: "4px"
+    width: "22.5rem (sm 20rem column, lg 1.3fr)"
+  file-pill:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "0 1rem 0 0.875rem"
+    height: "2.75rem"
+  file-pill-hover:
+    backgroundColor: "{colors.paper-200}"
+  create-online-link:
+    textColor: "{colors.teal-700}"
+    typography: "{typography.label}"
+    padding: "0.875rem 0 0"
+  create-online-link-hover:
+    textColor: "{colors.teal-800}"
+  hinge-arrow:
+    backgroundColor: "{colors.teal-700}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    size: "2.75rem"
+  hinge-arrow-hover:
+    backgroundColor: "{colors.teal-800}"
+  record-sheet:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.card}"
+    padding: "10px"
+    width: "30rem"
+  record-seal:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "5.25rem"
+  qr-seal:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "2rem"
 ---
 
 # Design System: VoM website (getvom.com)
@@ -579,7 +625,7 @@ components:
 
 Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.
 
-The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot, the accounting-software guide's thumb index, where the guide's eight parts stand off the contents sheet's fore-edge as paper tabs on the teal field and then hold the page's fore-edge as you read, the part being read pulled out with a folded corner and the parts passed ticked) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
+The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot, the accounting-software guide's thumb index, where the guide's eight parts stand off the contents sheet's fore-edge as paper tabs on the teal field and then hold the page's fore-edge as you read, the part being read pulled out with a folded corner and the parts passed ticked, the free invoice templates, where the templates you take away face the invoice VoM issues across a perforated hinge, the paper settles, the record lifts onto the field and the house ZATCA seal stamps its corner, and hovering a template's way into VoM fills its empty QR box) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
 
 The reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.
 
@@ -597,7 +643,7 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 
 ### Primary
 - **Record Teal** (`teal`): the field colour. Hero and contact fields with a slanted edge, full-width bands (ZATCA, contact close, about statement), the about figures band, active ticks and progress, the double rule under totals, selection highlight and the focus ring.
-- **Engraver's Teal** (`teal-700`): teal as ink. Links, seal and postmark strokes, figure numerals on paper, icon strokes in tiles, the current entry in the terms contents, hovered nav links.
+- **Engraver's Teal** (`teal-700`): teal as ink. Links, seal and postmark strokes, figure numerals on paper, icon strokes in tiles, the current entry in the terms contents, hovered nav links, and on the templates page the create-online links, the hinge's arrow disc and the QR mark.
 - **Hairline Teal** (`teal-200`): the double-hairline frame, dividers inside document objects, inactive chart bars.
 - **Ring Teal** (`teal-300`): the outer hairline on client seals, register discs and the FAQ plus; on pricing, the rule under the ledger's pinned plan heads and the double hairline under each "in every plan" group head.
 - **Washed Teal** (`teal-50`, `teal-100`): the wash on a landed anchor (story row, linked clause), selected chips, hovered link tiles, the "2 months free" and saving chips and the most-popular column of the pricing ledger (`teal-50`), and the icon tiles behind line icons (`teal-100`).
@@ -614,9 +660,9 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 - **Graphite** (`ink-500`): captions, breadcrumbs, proof lines, clause numbers at rest.
 - **Mist** (`ink-300`): list markers in the reading register and the bilingual micro-label. Below AA as text (about 2.6:1 on paper); see Do's and Don'ts.
 - **Paper** (`paper`): the ground and every paper object.
-- **Cool Paper** (`paper-100`): alternate section ground (footer, social links, about's "why" and closing sections).
+- **Cool Paper** (`paper-100`): alternate section ground (footer, social links, about's "why" and closing sections); the whole ground of the invoice templates page, its paper side.
 - **Hairline** (`paper-200`): section borders, header rule, terms hairlines and the contents track.
-- **Rule** (`paper-300`): input and tile borders, inactive ticks, row dividers on about.
+- **Rule** (`paper-300`): input and tile borders, inactive ticks, row dividers on about; the template sheets' single hairline, the dots of the hinge's perforation and the rule under each sheet serial.
 - **Reading Ink** (`reading-ink`): body text of long legal reading, 86% ink, slightly softer than Record Ink.
 
 Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is not used on any shipped surface.
@@ -627,6 +673,8 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 **The Guilloche-on-Teal Rule.** The guilloche is drawn in white at 10 to 14% opacity on teal fields only. Never on paper, on paper objects, on seals or on the reading register. A reading surface gets at most one field: in the e-invoicing catalogue it is the hub's drawer, and the twelve guides carry no field and no guilloche.
 
 **The Book-in-Slate Rule.** On a textbook spread the textbook page is the book's, so it is printed in Slate and Graphite on Cool Paper with ink-300 and paper-300 hairlines and no teal; teal, the double hairline and the double teal rule belong to the facing VoM page. The book's own total keeps its accountant's double rule, drawn 3px in Graphite.
+
+**The Paper-or-Record Rule.** Where a page faces what a visitor takes away against what VoM issues (the invoice templates page), everything taken away is the paper side: Slate and Graphite on Cool Paper with no teal, the template sheets in a single paper-300 hairline at rest and the Word and PDF pills outlined in ink. Everything that leads into VoM carries teal: the create-online links, the hinge's teal-700 arrow disc and the record on its teal field. Orange stays on the sign-up alone. Focus rings stay Record Teal on both sides; the rule governs what the page draws, not the template files' own print colours.
 
 **The White-on-Teal Rule.** Text on a teal band is white (owner decision). At `teal` this measures about 2.4:1, below the AA floor in CLAUDE.md; this is an open conflict, not a validated pairing (see Do's and Don'ts).
 
@@ -656,6 +704,8 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Section numeral** (`section-numeral`; 700, 2.75rem, 3.5rem from 1024px, 0.9, tabular, teal-700) and **Section title** (`section-title`; 700, 1.625rem, 2rem from 1024px, 1.25, -0.01em, balanced): the two halves of the register's section head lockup (see Components). The numeral is a CSS counter, two digits (`01` to `11`).
 - **Entry** (`entry`; 400, 1rem, 1.0625rem from 640px, 1.65, ink, pretty): a register entry's words. Its number ("3.2") is a CSS counter at the Caption size (0.8125rem), bold, tabular, teal-700, on the entry's baseline; the reports index and contents numerals use the same setting.
 - **Stamp** (`stamp`; 700, 0.75rem, 1.2, teal-700, no wrap): the word inside the «بلا حد» entry stamp.
+- **Display, templates** (700, 2.75rem, 3.5rem from 640px, then `clamp(3.75rem, 5vw, 4.5rem)` from 1024px, 1.1, -0.01em, balanced): the invoice templates H1 on the start 7/12, beside its intro (Body in Slate, 1.75, 56ch) on the end 5/12 (see Observed drift).
+- **Sheet serial** (`sheet-serial`; 700, 2.25rem, 2.75rem from 640px, 0.9, tabular, Graphite, `dir` ltr): a template's serial, `01` to `06`, from a CSS counter (`decimal-leading-zero`) over a paper-300 hairline, read by eye only (`content: … / ""`); the H3 names the template. Slate-family, not teal, because the sheet is something you take away.
 - **Body** (400, 1.0625rem, 1.6): the default. Marketing copy runs at 1.7 to 1.8 line height in Slate, capped at 44 to 62ch.
 - **Lede, guide** (`lede-guide`; 400, 1.125rem, 1.25rem from 1024px, 1.85, Slate, 68ch): the lede under an e-invoicing H1; its links take the prose-link style.
 - **Body, reading** (400, 1.0625rem, 1.125rem from 1024px, 1.75, Arabic 1.85): legal reading and the e-invoicing guide bodies, in Reading Ink. The text column fills the page container beside the contents rail (owner, 2026-11-09), so lines run long at wide screens: about 125 characters in Arabic and 90 in English at 1440px.
@@ -703,6 +753,8 @@ E-invoicing catalogue (hub and guides, Arabic only): one `.ein-page` wrapper. Be
 Features register (all widths): the hero is the integration grid re-proportioned. From 1024px the copy (breadcrumb, H1, subline, lede, then the orange Register and the secondary demo pill) takes the start 5/12, vertically centred with 3rem / 4.5rem block padding, and the stage the end 7/12; the stage's guilloche field is cut by a 4.5rem slant on its start edge and bleeds to the viewport's end edge through the shared `--bleed`, with a 4.5rem start pad and 3.5rem block padding, holding the contents sheet centred, its eleven rows in two columns read down (six rows, `grid-auto-flow: column`, 2rem gap). Below 1024px: copy first, then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 3rem, the contents in one column. Each of the eleven sections is ruled off by a paper-200 top hairline and padded 3.5rem (5.5rem from 1024px). From 1024px it runs a 12-column grid with a 2rem gap: the head lockup and the ledger on the start 7 columns in two rows (`auto 1fr`, so a tall attachment lengthens the ledger's row, not the head's), and the attachments from column 9 (column 8 from 1280px) to the end edge, spanning both rows and aligned to the top. Every second section flips: ledger on columns 6 to 12, attachments on 1 to 4 (1 to 5 from 1280px). Below 1024px head, ledger and attachments stack 2rem apart. The reports index runs two columns from 640px. After the last section, the plan note (0.875rem Slate, 1.75, 72ch, on a paper-200 hairline), then the pricing close band.
 
 Accounting guide (Arabic only): one `.acg-page` wrapper. From 1024px it is a named-line grid, `[full-start] gutter [body-start] minmax(0, calc(1248px - 6.5rem)) [body-end] 2.5rem [tabs-start] 4rem [tabs-end] gutter [full-end]`: the hero spans full-start to full-end in the first row and the text takes body-start to body-end in the second, leaving the end-side 4rem track free for the thumb index, which is fixed (6rem from the top, its end edge on the container's end edge) rather than placed in the track. The hero is a 7/12 to 5/12 split inside the container with a 2.5rem gap: copy on the start side (breadcrumb, H1 at the guide display steps, the hero line at the guide lede steps capped at 50ch, the orange trial button, then the trial card's three assurances as a row on a paper-200 rule), vertically centred with 3rem / 4rem block padding; the stage on the end side, its guilloche field cut by a 3.5rem slant on its start edge and bled to the viewport's end edge through the shared `--bleed`, padded 3.5rem block and 3.5rem on its start side, holding the contents sheet with a 3rem end margin for its tabs. Below 1024px: copy first (2rem top, 2.5rem under), then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 3.5rem, the sheet keeping 2.5rem on its end side for the tabs. In the text, prose (paragraphs, lists, H3, H4 and the FAQ) holds a 56rem start-aligned measure, while chapter plates, figures (up to 1152px for the guide's wide screenshots, the `wide` figure), tables, the key-points sheet, the prompt chips and the sector list span the body column; the text pads 2.5rem on top and 7rem at the foot from 1024px. The sector list runs one column, two from 768px and three from 1280px (2.5rem column gap). The close band follows the wrapper at full width and, from 1024px, pads its end side 6.5rem past the gutter so the thumb index still standing on the fore-edge never covers its text.
+
+Invoice templates (all widths): the page sits on Cool Paper. From 1024px the head is a 12-column row aligned to the end (2rem gap, 1.5rem top pad, 2rem below 1024px): breadcrumb and H1 on the start 7/12, the intro on the end 5/12. Under it the split runs paper 5 / hinge 2 / record 5 columns (2rem gap, centred): the old hero's two stacked sheets (up to 21rem) over a slate line linking down to the catalogue; the hinge; and the record, padded 3.5rem block (3.25rem at the foot) and 4.5rem on its start side, on a guilloche field cut by a 4.5rem slant on its start edge and bled to the viewport's end edge through the shared `--bleed`. Below 1024px the paper sits beside the hinge (`8.5rem 1fr`, 1rem gap; `14rem 1fr`, 2rem gap from 640px) and the record follows as a full-width panel (negative 16px inline margin, padded 3.75rem 16px 3rem) with a 2.25rem slanted top edge, high on the end side, so the orange sign-up reaches the first screen. The catalogue pads 4.5rem / 6rem (6rem / 7rem from 1024px), its heading and file note hold 46rem, and the six templates follow: stacked below 640px (3.5rem apart, the sheet up to 22.5rem above its entry), one-up from 640px with a 20rem sheet beside its entry (2rem gap), two-up from 1024px (4.5rem row gap, 3.5rem column gap) with each item a sheet (1.3fr) beside its entry (1fr, 1.75rem gap). Beside the sheet the serial heads the entry and the H3, the two file pills and the create-online link sit at the sheet's foot. The shared close band ends the page.
 
 The reading register is a single column of text that fills the page container. From 1024px the header row (breadcrumb, title, meta) spans the full container width and is ruled off by a paper-200 hairline; below it a 15rem contents rail sits on the start side, sticky 6rem from the top, separated by a 4.5rem gap from the text column, which takes the rest of the width. Below 1024px the contents become a bar stuck under the 64px header. Clause numbers hang in a 2.75rem gutter.
 
@@ -783,6 +835,19 @@ The reading register is a single column of text that fills the page container. F
 - Accounting guide: the direction contract had the tabs slide out from 0.45s; the build starts them at 0.5s.
 - Accounting guide: the phone strip of tabs sits on paper at 94% with an 8px blur, where the header uses 85%.
 - Accounting guide: the hero field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band pads 6rem / 4.5rem and 7rem / 5rem with the shared slanted top edge, and its white closing word, list and booking line (1.0625rem, 1.85) are the White-on-Teal open conflict at body size.
+- Templates: the H1 runs 2.75rem / 3.5rem / `clamp(3.75rem, 5vw, 4.5rem)`, a fourth fluid Display step, and starts below Display's 3rem.
+- Templates: the catalogue H2 is 1.875rem / 2.25rem with no 1024px step, where the headline ramp reaches 2.5rem.
+- Templates: the hinge's bold statement is 1rem, 1.125rem from 640px and 1.0625rem from 1024px, so it steps down when the columns open; the hinge text is 0.875rem / 0.9375rem and the paper line 0.75rem on phones (the Caption floor carrying a link).
+- Templates: the template sheet's 4px corner is off the radius scale (the value is the focus radius); the brief's "print laid on a desk".
+- Templates: the record seal is 5.25rem, a new seal size beside the register seal's 5.5rem, and the QR seal 2rem. Both copy the homepage certificate seal's type: the record seal's agency line at 0.5rem and both seal words at weight 800, which Effra is not loaded in. A legibility defect carried from the homepage, not a type step.
+- Templates: the QR seal appears from 1.25x scale over 0.3s (a hover transition), where the load stamps use `sec-stamp` from 1.12x.
+- Templates: the record seal sits on the screenshot's physical top-left corner and the QR seal on the QR box's physical bottom-right in both locales, because the rasters do not mirror (like the Peeking Person); the paper sheets' settle rotation (-1.5deg) is not mirrored in RTL either, and has no such reason, against the Do on mirroring transforms.
+- Templates: focus offsets vary: the create-online link draws its outline at 4px offset with a 4px radius and the paper line's link at 3px with a 2px radius.
+- Templates: the file pill is a third outlined pill beside the secondary button and the footer's app-store links: an ink border at 28% (the secondary uses 80%), hover Slate border on paper-200 (the secondary hovers to Cool Paper, which is this page's ground).
+- Templates: the record caption («sample data») sits inside the frame on a paper-200 rule, where the Screen and the Attached Sheets caption outside the sheet; the label stays on the document it describes.
+- Templates: the template renders and the hero sheets carry the old files' own print colours (bands of green, blue, orange and grey, and a VoM wordmark on some), shown one to one; the Paper-or-Record Rule governs what the page draws, not the files' artwork.
+- Templates: the brief drew the phone hinge as a horizontal perforated rule between paper and record; the build sets the paper beside a vertical hinge with the record below, so the sign-up reaches the first screen. The brief's «Word · PDF» line ships as «6 templates to print · Word and PDF», a slate link down to the catalogue under a paper-300 underline.
+- Templates: the record field and the close band reuse the CSS guilloche tile at 0.14 opacity; the close band is the shared sector close band (6rem / 4.5rem padding, a 2.5rem slanted top edge, the closing line at 1.5rem / 1.75rem), so its drift applies.
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -818,6 +883,8 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 - **Tab off the sheet** (`box-shadow: 0 10px 18px -12px rgb(5 42 37 / 0.6)`): a thumb tab standing off the contents sheet onto the teal field; the sheet itself carries the object-on-field shadow after the doc-frame's two inset rings. On paper the fixed tabs drop `0 8px 16px -14px rgb(5 42 37 / 0.55)` and the prompt chips `0 12px 24px -20px rgb(5 42 37 / 0.5)` (see Observed drift).
 
+- **Picked-up print** (`box-shadow: 0 26px 44px -26px rgb(5 42 37 / 0.5)` with translate 0 -4px, 0.35s ease-out-quint): a template sheet when its create-online link is hovered or focused; flat at rest under its single hairline. The record sheet on the templates field carries the object-on-field shadow after the doc-frame's two inset rings, the record seal the stamped-seal drop at 0.45, and the QR seal a small drop, `0 6px 12px -6px rgb(5 42 37 / 0.5)`, after the stamp ring at seal scale.
+
 ### Named Rules
 **The Teal Shadow Rule.** Shadows are tinted with Shadow Teal, never neutral grey, and belong to paper documents, overlays and hover states. Sections, tiles and frames at rest stay flat.
 
@@ -830,6 +897,8 @@ Lines carry authority. The document frame is a 1px teal-200 border with a second
 A screen nested in a Paper sheet keeps concentric corners: the sheet's 1.25rem card radius less its 10px bezel gives the screen radius (`rounded.screen`, 0.625rem), used by the integration poster and the features attachments. The features field takes the integration field's cuts (a 4.5rem start slant from 1024px, a 2.25rem rise below it). The «بلا حد» stamp is the one rectangular stamp: 0.375rem corners on a double ring, turned -4deg.
 
 The thumb tab is the one shape rounded on a single side: square where it is cut into its edge, 0.625rem (`rounded.screen`) on its two free corners, with no border on the joined side. The tab being read squares its free corner and folds it over: a 0.75rem triangle split diagonally between paper and teal-300, mirrored in RTL. The accounting guide's field takes a 3.5rem start slant from 1024px and a 2.25rem rise below it.
+
+The template sheet is the one paper object in a single hairline: 1px paper-300 at 4px corners, clipped, no inner hairline, because it is a print you take away, not a document VoM issues. The hinge between paper and record is a perforation, not a line: paper-300 dots (1.6px in a 4px by 10px tile, a radial gradient) running down the hinge's start edge, mirrored in RTL. The templates record field takes the integration field's cuts (a 4.5rem start slant from 1024px, a 2.25rem rise below it).
 
 ## Components
 
@@ -1068,11 +1137,35 @@ The guide's last part, 07, is the shared close band (Record Teal, the CSS guillo
 ### Signature motion (accounting guide)
 Once on load, CSS only, on ease-out-quint. The contents sheet lifts from 1.25rem lower and zero opacity, 0.8s from 0.1s; then the eight tabs slide out of its fore-edge, each moved in under the edge and clipped at it (`translate` and `clip-path` from the end edge, mirrored in RTL), 0.45s each from 0.5s and 0.06s apart (tab 07 at 0.92s), so the sequence ends at about 1.4s. The thumb index's appearing on scroll and its hover labels are state transitions, not a second moment. Resting styles are the finished state; the global reduced-motion rule shows it finished.
 
+### Template Sheet
+A template's whole first page, as a print laid on the desk: the uncropped render on Paper in a single 1px paper-300 hairline at 4px corners, no shadow at rest, up to 22.5rem stacked, 20rem beside its entry from 640px and 1.3fr of a two-up item from 1024px. The image carries its display width (360px) so its srcset holds 1x and 2x. It holds the template's empty «QR code» box as an `aria-hidden` overlay placed by four custom properties measured on each render (`--qr-x`, `--qr-y`, `--qr-w`, `--qr-h`, in percent), for the QR preview.
+
+### Sheet Serial
+`01` to `06` heading each entry (Sheet serial type), a CSS counter on the entry's `::before`, in Graphite over a paper-300 hairline 0.625rem below it, hidden from assistive tech through the alternative-text syntax (`content: counter(…) / ""`, the plain declaration before it as a fallback). Beside the sheet (from 640px) the serial stands at the entry's top and the H3 (1.25rem bold, balanced) is pushed down so the name, the files and the create-online link sit at the sheet's foot.
+
+### File Pill
+What you take away, in slate on paper: a 2.75rem (44px) Paper pill with a 1px ink border at 28%, padded 0.875rem then 1rem, holding an 18px download icon in Slate, the format in bold 0.9375rem ink («Word», «PDF») and the size in 0.8125rem Graphite tabular figures, `dir="ltr"` («64 KB»). The link carries `download` and a visually hidden lead naming the template. Hover turns the border Slate on paper-200; focus is the 2px Record Teal outline at 3px offset. Word and PDF wrap side by side, 0.5rem apart.
+
+### Create-online Link
+The way into VoM from each template, in teal: bold 0.9375rem teal-700 with a 16px arrow (mirrored in RTL), under a paper-300 top hairline with 0.875rem above the words, the template's name as visually hidden text. Hover turns it teal-800 with a 2px underline at 6px offset and nudges the arrow 3px toward the end. Its links carry a scroll margin that reaches back to the sheet's top (`calc(min(100vw - 2rem, 22.5rem) * 1.41 + 9rem)` stacked, 30rem from 640px), so tabbing to it keeps the QR box on screen.
+
+### QR Preview (signature interaction)
+Hovering or focusing a template's create-online link (`:has()` on the item) fills that sheet's empty QR box: a teal-700 QR mark (an inline SVG at 80% on Paper, a 1px Record Teal inset hairline, 2px corners) wipes in from the top by `clip-path` over 0.45s; after 0.3s a 2rem VoM seal («ڤوم» / "VoM", 0.5625rem, the stamp ring at seal scale on `--seal-ground: paper`, turned -10deg, the QR-seal drop) stamps onto the box's corner from 1.25x scale and zero opacity over 0.3s; and the sheet lifts 4px with the picked-up-print shadow. The paper previews the record it becomes. It is CSS only and decorative; leaving the link reverses it.
+
+### Hinge
+The old page's note between paper and record: a short bold statement (ink) over the offer in Slate, beside a dotted perforation on the hinge's start edge (see Shapes), padded 1rem on its start side (1.75rem from 640px, 1.5rem from 1024px). Under it a 2.75rem teal-700 arrow disc with an 18px white arrow, a real link to sign-up named by its label; hover teal-800, focus the Record Teal outline at 3px offset. From 1024px the arrow points at the record (toward the end edge, mirrored in RTL); below 1024px, where the record follows underneath, it points down in both directions.
+
+### Record Sheet
+VoM's own tax invoice on the templates field, under the orange sign-up (2rem above it, 2.25rem from 1024px): a real VoM screenshot with sample data, cut from the top through its totals, its lime accent recoloured to Record Teal, in the doc-frame's double hairline at 1.25rem corners with a 10px bezel and the object-on-field shadow, up to 30rem wide, the image at the 0.625rem screen radius. The «sample data» caption sits inside the frame under the screenshot, 0.8125rem Slate on a paper-200 rule. The house ZATCA seal is stamped on the frame's top-left physical corner (1.75rem above, 0.75rem out): a 5.25rem Paper disc in Engraver's Teal with the inset double ring on `--seal-ground: paper`, the certificate wording (the agency over «معتمد»), turned -8deg, with the stamped-seal drop at 0.45, a `role="img"` named by its wording. On teal the sign-up's focus outline is white.
+
+### Signature motion (invoice templates)
+Once on load, CSS only, on ease-out-quint. The paper sheets settle from zero opacity, translateY(14px) and rotate(-1.5deg), 0.7s from 0.1s; the record sheet lifts from 24px lower and zero opacity, 0.8s from 0.3s; the ZATCA seal stamps in from 1.12x scale and zero opacity (the shared `sec-stamp`), 0.45s from 0.95s, so the sequence ends at about 1.4s. The QR preview is the page's one interaction. Resting styles are the finished state; the global reduced-motion rule shows it finished and makes the preview instant.
+
 ## Do's and Don'ts
 
 ### Do:
 - **Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.
-- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
+- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
 - **Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.
@@ -1092,6 +1185,7 @@ Once on load, CSS only, on ease-out-quint. The contents sheet lifts from 1.25rem
 - **Do** stamp «بلا حد» on individual unlimited entries only, and mark any line a plan decides with the superscript dagger linking to the one plan note.
 - **Do** draw a table's yes or no as the drawn mark with a visually hidden word, never as an emoji or a typed glyph.
 - **Do** show a real screenshot at its own proportions on a Paper sheet with a 10px bezel and the 0.625rem screen radius, cutting a tall screen from the top rather than shrinking it.
+- **Do** print what a visitor takes away (template sheets, download pills) in Slate on paper with no teal, and give teal to whatever leads into VoM, when a page faces the two.
 
 ### Don't:
 - **Don't** put orange on anything but the primary action or the single "now" marker.

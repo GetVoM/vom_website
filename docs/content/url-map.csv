@@ -292,7 +292,7 @@ page,https://getvom.com/en/accounting-software-for-gym-and-fitness-centers/,/en/
 page,https://getvom.com/en/accounting-software-for-printing-and-advertising-agencies-2/,/en/accounting-software-for-printing-and-advertising-agencies-2/,200,redirect,/en/accounting-software-for-printing-and-advertising-agencies/,"WordPress ""-2"" slug; 301 to the clean English URL (owner's standing preference, 2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-zid-2/,/en/vom-zid-2/,200,redirect,/en/vom-zid/,"WordPress ""-2"" slug; the live site already serves /en/vom-zid/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-prexel/,/en/vom-prexel/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/en/sales-invoices/,/en/sales-invoices/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/sales-invoices/,/en/sales-invoices/,200,redirect,/en/templates/,Moved to /en/templates/ with the Arabic page (owner 2026-11-11),مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/accounting-software-for-travel-and-tourism/,/en/accounting-software-for-travel-and-tourism/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-foodics-2/,/en/vom-foodics-2/,200,redirect,/en/vom-foodics/,"WordPress ""-2"" slug; the live site already serves /en/vom-foodics/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-marn-2/,/en/vom-marn-2/,200,redirect,/en/vom-marn/,"WordPress ""-2"" slug; the live site already serves /en/vom-marn/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
@@ -315,7 +315,7 @@ page,https://getvom.com/en/vom-timeline/,/en/vom-timeline/,200,keep,,"Timeline p
 page,https://getvom.com/en/news-archive-en/,/en/news-archive-en/,200,redirect,/en/news/,Duplicate news archive,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/vom-pay-success/,/vom-pay-success/,200,keep-noindex,,Payment result page,فوم باي - تمت العملية بنجاح - Vom
 page,https://getvom.com/%d9%85%d8%ae%d8%b7%d8%b7-%d9%81%d9%88%d9%85-%d8%a7%d9%84%d8%b2%d9%85%d9%86%d9%8a/,/مخطط-فوم-الزمني/,200,keep,,"Timeline page; low traffic, consider merging into about",مخطط فوم الزمني - Vom
-page,https://getvom.com/%d9%86%d9%85%d8%a7%d8%b0%d8%ac-%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1/,/نماذج-فواتير/,200,keep,,,نماذج فواتير مجانية جاهزة | Word Excel PDF
+page,https://getvom.com/%d9%86%d9%85%d8%a7%d8%b0%d8%ac-%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1/,/نماذج-فواتير/,200,redirect,/templates/,Moved to /templates/ (owner 2026-11-11),نماذج فواتير مجانية جاهزة | Word Excel PDF
 page,https://getvom.com/glossary/,/glossary/,200,keep,,Thin page; expand or merge into blog,Glossary - Vom
 page,https://getvom.com/vom-pay-failure/,/vom-pay-failure/,200,keep-noindex,,Payment result page,فوم باي - فشل الدفع - Vom
 page,https://getvom.com/vom-zid/,/vom-zid/,200,keep,,,ﭬوم‬ و زد - Vom
@@ -338,7 +338,7 @@ news,https://getvom.com/en/news/,/en/news/,200,keep,,Preserve path exactly; cont
 template,https://getvom.com/templates/%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d9%85%d9%83%d8%aa%d8%a8-%d9%85%d8%ad%d8%a7%d9%85%d8%a7%d8%a9/,/templates/فاتورة-مكتب-محاماة/,200,keep,,Preserve path exactly; content migrates 1:1,فاتورة مكتب محاماة .. كيفية إعدادها وأهميتها لتنظيم عملك
 news,https://getvom.com/news/%d8%b1%d8%a8%d8%b7-%da%a4%d9%88%d9%85-%d9%85%d8%b9-%d9%85%d8%b1%d9%86/,/news/ربط-ڤوم-مع-مرن/,200,keep,,Preserve path exactly; content migrates 1:1,ربط ڤوم مع مرن: احصل على نظام متكامل لإدارة شؤونك المحاسبية - Vom
 template,https://getvom.com/templates/%d9%86%d9%85%d9%88%d8%b0%d8%ac-%d8%a7%d8%ae%d9%84%d8%a7%d8%a1-%d8%b7%d8%b1%d9%81/,/templates/نموذج-اخلاء-طرف/,200,keep,,Preserve path exactly; content migrates 1:1,نموذج إخلاء طرف وإخلاء عقار: صيغة جاهزة للاستخدام القانوني
-template,https://getvom.com/templates/,/templates/,200,keep,,Preserve path exactly; content migrates 1:1,Templates - Vom
+template,https://getvom.com/templates/,/templates/,200,keep,,"Kept; now serves the free invoice templates page (moved from /نماذج-فواتير/, owner 2026-11-11), with /en/templates/ as its English twin",Templates - Vom
 template,https://getvom.com/templates/%d9%82%d8%a7%d9%84%d8%a8-%d8%b6%d8%b1%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d9%85%d8%b4%d8%aa%d8%b1%d9%8a%d8%a7%d8%aa/,/templates/قالب-ضريبة-المشتريات/,200,keep,,Preserve path exactly; content migrates 1:1,حمل الآن قالب ضريبة المشتريات بصيغ word pdf excel
 template,https://getvom.com/templates/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1-excel/,/templates/برنامج-فواتير-excel/,200,keep,,Preserve path exactly; content migrates 1:1,بنقرة واحدة: حمل برنامج فواتير excel
 template,https://getvom.com/templates/%d9%86%d9%85%d9%88%d8%b0%d8%ac-%d8%af%d8%b1%d8%a7%d8%b3%d8%a9-%d8%ac%d8%af%d9%88%d9%89/,/templates/نموذج-دراسة-جدوى/,200,keep,,Preserve path exactly; content migrates 1:1,"نموذج دراسة جدوى جاهز للتحميل (Word, Excel, PPT)"

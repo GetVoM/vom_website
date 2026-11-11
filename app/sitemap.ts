@@ -6,6 +6,7 @@ import {
   featuresPaths,
   growthPaths,
   integrationPaths,
+  invoiceTemplatesPaths,
   pricingPaths,
   sectorPaths,
   studentPaths,
@@ -77,6 +78,13 @@ const pages: SitemapPage[] = [
     lastModified: "2026-11-10",
     changeFrequency: "monthly",
     priority: { ar: 0.7, en: 0.6 },
+  },
+  // The free invoice templates: a download hub that draws template searches.
+  {
+    pair: invoiceTemplatesPaths,
+    lastModified: "2026-11-11",
+    changeFrequency: "monthly",
+    priority: { ar: 0.7, en: 0.5 },
   },
   ...Object.values(integrationPaths).map(
     (pair): SitemapPage => ({

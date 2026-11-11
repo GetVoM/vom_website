@@ -176,6 +176,24 @@ const nextConfig: NextConfig = {
         destination: "/en/features/",
         statusCode: 301,
       },
+      // Free invoice templates: the owner moved both pages to /templates/ (2026-11-11).
+      // The unprefixed /sales-invoices/ already led to the English page on the live
+      // site. The Arabic source is percent-encoded, as the request path arrives.
+      {
+        source: encodeURI("/نماذج-فواتير"),
+        destination: "/templates/",
+        statusCode: 301,
+      },
+      {
+        source: "/en/sales-invoices",
+        destination: "/en/templates/",
+        statusCode: 301,
+      },
+      {
+        source: "/sales-invoices",
+        destination: "/en/templates/",
+        statusCode: 301,
+      },
       // An empty WordPress shell titled "Vom"; the owner sent it to the homepage.
       {
         source: "/get-free-version",

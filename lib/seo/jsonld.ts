@@ -137,6 +137,62 @@ export function guideJsonLd(guide: {
   };
 }
 
+/**
+ * A page of downloadable documents (the free invoice templates): a CollectionPage
+ * whose main entity lists each document with its files. The files are Arabic in
+ * both languages, so each document's `inLanguage` is "ar" whatever the page's.
+ */
+export function templateCollectionJsonLd(page: {
+  locale: Locale;
+  path: string;
+  name: string;
+  description: string;
+  published: string;
+  modified: string;
+  documents: {
+    name: string;
+    image: string;
+    files: { url: string; format: string; bytes: number }[];
+  }[];
+}): JsonLd {
+  const url = `${site.url}${localePath(page.locale, page.path)}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: page.name,
+    description: page.description,
+    inLanguage: page.locale,
+    datePublished: page.published,
+    dateModified: page.modified,
+    isPartOf: { "@id": `${site.url}/#website` },
+    publisher: { "@id": `${site.url}/#organization` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: page.documents.length,
+      itemListElement: page.documents.map((document, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "DigitalDocument",
+          name: document.name,
+          image: `${site.url}${document.image}`,
+          inLanguage: "ar",
+          isAccessibleForFree: true,
+          publisher: { "@id": `${site.url}/#organization` },
+          encoding: document.files.map((file) => ({
+            "@type": "MediaObject",
+            contentUrl: encodeURI(`${site.url}${file.url}`),
+            encodingFormat: file.format,
+            contentSize: `${file.bytes} B`,
+          })),
+        },
+      })),
+    },
+  };
+}
+
 /** `path` values are locale-free; the visible breadcrumb must list the same items. */
 export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
   return {

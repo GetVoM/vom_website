@@ -7640,6 +7640,572 @@ html[dir="rtl"] .acg-tab {
   }
 }
 
+/* ============================================================================
+   Free invoice templates (/templates/, /en/templates/): paper or record. The
+   first view faces the templates you can take away (plain paper, slate, no
+   teal) against the invoice VoM issues (the slanted teal field), with the old
+   note as the hinge between them. Anything that leads into VoM carries teal.
+   ========================================================================== */
+.ivt {
+  background: var(--color-paper-100);
+}
+.ivt-top {
+  overflow-x: clip;
+}
+.ivt-head {
+  display: grid;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+.ivt-title {
+  margin-top: 1.25rem;
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ivt-intro {
+  max-width: 56ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+/* Phones and tablets: the paper beside the hinge, the record below them, so the
+   sign-up reaches the first screen. */
+.ivt-split {
+  display: grid;
+  grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+  grid-template-areas: "paper hinge" "record record";
+  column-gap: 1rem;
+  align-items: center;
+  margin-top: 1.75rem;
+}
+
+/* The paper side: the old hero's two stacked sheets, laid down once on load. */
+.ivt-paper {
+  grid-area: paper;
+  display: grid;
+  justify-items: center;
+  gap: 0.875rem;
+  animation: ivt-settle 0.7s var(--ease-out-quint) 0.1s both;
+}
+.ivt-paper-img {
+  width: 100%;
+  height: auto;
+}
+.ivt-paper-line {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-ink-700);
+}
+/* Leads down to the six sheets: slate, since it leads to things you take away. */
+.ivt-paper-line a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-paper-300);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.2s ease;
+}
+.ivt-paper-line a:hover {
+  text-decoration-color: var(--color-ink-700);
+}
+.ivt-paper-line a:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+@keyframes ivt-settle {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(-1.5deg);
+  }
+}
+
+/* The hinge: the old note across a perforation, its arrow pointing at the record. */
+/* The perforation runs down the paper side's edge. */
+.ivt-hinge {
+  grid-area: hinge;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding-block: 0.75rem;
+  padding-inline-start: 1rem;
+  background: radial-gradient(circle, var(--color-paper-300) 1.6px, transparent 2px) left center / 4px 10px repeat-y;
+}
+html[dir="rtl"] .ivt-hinge {
+  background-position: right center;
+}
+.ivt-hinge-text {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+.ivt-hinge-text strong {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+/* A second way into sign-up: teal, because it leads into VoM. */
+.ivt-hinge-arrow {
+  display: grid;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-teal-700);
+  color: #fff;
+  transition:
+    background-color 0.2s ease,
+    translate 0.25s var(--ease-out-quint);
+}
+.ivt-hinge-arrow:hover {
+  background: var(--color-teal-800);
+}
+.ivt-hinge-arrow:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 3px;
+}
+/* Stacked: the record is below, so the arrow points down in both directions. */
+.ivt-hinge-arrow svg {
+  rotate: 90deg;
+}
+html[dir="rtl"] .ivt-hinge-arrow svg {
+  rotate: -90deg;
+}
+
+/* The record side: the slanted teal field with the sign-up and VoM's invoice. */
+.ivt-record {
+  grid-area: record;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  justify-items: start;
+  gap: 2rem;
+  margin: 1.75rem -16px 0;
+  padding: 3.75rem 16px 3rem;
+}
+.ivt-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .ivt-field {
+  clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
+}
+.ivt-field.guilloche-tile {
+  background-color: var(--color-teal-500);
+}
+.ivt-record .btn:focus-visible {
+  outline-color: #fff;
+}
+.ivt-record-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  animation: ivt-lift 0.8s var(--ease-out-quint) 0.3s both;
+}
+/* A paper document on the field: the double hairline, VoM's invoice, its label. */
+.ivt-record-frame {
+  padding: 10px;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 60px -28px rgb(5 42 37 / 0.6);
+}
+.ivt-record-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.625rem;
+}
+.ivt-record-caption {
+  padding: 0.625rem 0.25rem 0.125rem;
+  border-top: 1px solid var(--color-paper-200);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-ink-700);
+}
+@keyframes ivt-lift {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+/* The house ZATCA seal, stamped on the sheet's top-left corner (over the sample
+   logo, clear of the title and the QR) once the sheet has lifted. */
+.ivt-seal {
+  --seal-ground: var(--color-paper);
+  position: absolute;
+  top: -1.75rem;
+  left: -0.75rem;
+  display: grid;
+  width: 5.25rem;
+  height: 5.25rem;
+  place-content: center;
+  justify-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background: var(--seal-ground);
+  color: var(--color-teal-700);
+  text-align: center;
+  rotate: -8deg;
+  box-shadow:
+    inset 0 0 0 3px currentColor,
+    inset 0 0 0 7px var(--seal-ground),
+    inset 0 0 0 8px currentColor,
+    0 16px 30px -14px rgb(5 42 37 / 0.45);
+  animation: sec-stamp 0.45s var(--ease-out-quint) 0.95s both;
+}
+.ivt-seal span {
+  font-size: 0.5rem;
+  line-height: 1.2;
+}
+.ivt-seal b {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* The catalogue: each template's whole sheet beside its entry. */
+.ivt-catalogue {
+  padding-block: 4.5rem 6rem;
+}
+.ivt-catalogue-head {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 46rem;
+}
+.ivt-h2 {
+  scroll-margin-top: 6rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ivt-files-note {
+  font-size: 0.9375rem;
+  color: var(--color-ink-700);
+}
+.ivt-list {
+  display: grid;
+  gap: 3.5rem;
+  margin-top: 2.75rem;
+  counter-reset: ivt-sheet;
+}
+.ivt-item {
+  display: grid;
+  gap: 1.25rem;
+  counter-increment: ivt-sheet;
+}
+/* A print laid on the desk: a single hairline, no shadow until it is picked up. */
+.ivt-sheet {
+  position: relative;
+  width: min(100%, 22.5rem);
+  overflow: hidden;
+  border: 1px solid var(--color-paper-300);
+  border-radius: 4px;
+  background: var(--color-paper);
+  transition:
+    translate 0.35s var(--ease-out-quint),
+    box-shadow 0.35s var(--ease-out-quint);
+}
+.ivt-sheet-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* The sheet's empty «QR code» box, measured per template. The way into VoM
+   fills it with a QR mark and stamps VoM's small seal on its corner: the paper
+   previewing the record it becomes. */
+.ivt-qr {
+  position: absolute;
+  left: var(--qr-x);
+  top: var(--qr-y);
+  width: var(--qr-w);
+  height: var(--qr-h);
+}
+.ivt-qr::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--color-paper) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 21 21%27 shape-rendering=%27crispEdges%27%3E%3Cpath fill=%27%230f6b5e%27 d=%27M0 0h7v1h-7zM9 0h1v1h-1zM14 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM11 1h1v1h-1zM14 1h1v1h-1zM20 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM11 2h2v1h-2zM14 2h1v1h-1zM16 2h3v1h-3zM20 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h2v1h-2zM14 3h1v1h-1zM16 3h3v1h-3zM20 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM9 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM16 4h3v1h-3zM20 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM11 5h2v1h-2zM14 5h1v1h-1zM20 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h7v1h-7zM1 8h3v1h-3zM5 8h3v1h-3zM9 8h1v1h-1zM12 8h2v1h-2zM15 8h2v1h-2zM19 8h1v1h-1zM1 9h1v1h-1zM3 9h2v1h-2zM8 9h4v1h-4zM13 9h2v1h-2zM19 9h1v1h-1zM0 10h1v1h-1zM3 10h2v1h-2zM6 10h3v1h-3zM11 10h2v1h-2zM14 10h2v1h-2zM17 10h1v1h-1zM19 10h1v1h-1zM1 11h2v1h-2zM4 11h2v1h-2zM7 11h1v1h-1zM9 11h4v1h-4zM14 11h1v1h-1zM20 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM6 12h1v1h-1zM10 12h1v1h-1zM13 12h2v1h-2zM18 12h3v1h-3zM8 13h2v1h-2zM12 13h1v1h-1zM14 13h2v1h-2zM20 13h1v1h-1zM0 14h7v1h-7zM9 14h1v1h-1zM11 14h2v1h-2zM14 14h1v1h-1zM16 14h2v1h-2zM19 14h1v1h-1zM0 15h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1zM11 15h1v1h-1zM14 15h1v1h-1zM18 15h1v1h-1zM20 15h1v1h-1zM0 16h1v1h-1zM2 16h3v1h-3zM6 16h1v1h-1zM8 16h1v1h-1zM11 16h1v1h-1zM13 16h4v1h-4zM20 16h1v1h-1zM0 17h1v1h-1zM2 17h3v1h-3zM6 17h1v1h-1zM8 17h1v1h-1zM10 17h4v1h-4zM16 17h1v1h-1zM18 17h1v1h-1zM20 17h1v1h-1zM0 18h1v1h-1zM2 18h3v1h-3zM6 18h1v1h-1zM9 18h3v1h-3zM13 18h1v1h-1zM15 18h4v1h-4zM20 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM9 19h5v1h-5zM18 19h2v1h-2zM0 20h7v1h-7zM10 20h1v1h-1zM13 20h5v1h-5z%27/%3E%3C/svg%3E") center / 80% no-repeat;
+  box-shadow: inset 0 0 0 1px var(--color-teal-500);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.45s var(--ease-out-quint);
+}
+.ivt-qr-seal {
+  --seal-ground: var(--color-paper);
+  position: absolute;
+  right: -0.875rem;
+  bottom: -0.875rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--seal-ground);
+  color: var(--color-teal-700);
+  font-size: 0.5625rem;
+  font-weight: 800;
+  line-height: 1;
+  rotate: -10deg;
+  box-shadow:
+    inset 0 0 0 1.5px currentColor,
+    inset 0 0 0 3.5px var(--seal-ground),
+    inset 0 0 0 4.5px currentColor,
+    0 6px 12px -6px rgb(5 42 37 / 0.5);
+  opacity: 0;
+  scale: 1.25;
+  transition:
+    opacity 0.3s var(--ease-out-quint),
+    scale 0.3s var(--ease-out-quint);
+}
+.ivt-item:has(.ivt-online:hover, .ivt-online:focus-visible) .ivt-qr::before {
+  clip-path: inset(0);
+}
+.ivt-item:has(.ivt-online:hover, .ivt-online:focus-visible) .ivt-qr-seal {
+  opacity: 1;
+  scale: 1;
+  transition-delay: 0.3s;
+}
+.ivt-item:has(.ivt-online:hover, .ivt-online:focus-visible) .ivt-sheet {
+  translate: 0 -4px;
+  box-shadow: 0 26px 44px -26px rgb(5 42 37 / 0.5);
+}
+.ivt-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+/* The sheet's serial, as a form carries its number: slate, tabular, drawn from a
+   counter so the HTML holds only the words. Beside the sheet it heads the entry
+   and the file label sits at the sheet's foot. */
+.ivt-entry::before {
+  content: counter(ivt-sheet, decimal-leading-zero);
+  /* Read by eye only: the H3 names the template. Browsers without the alt
+     syntax keep the declaration above. */
+  content: counter(ivt-sheet, decimal-leading-zero) / "";
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--color-paper-300);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink-500);
+  direction: ltr;
+}
+/* Tabbing into an entry brings its whole sheet into view, so the QR box the
+   create-online link fills is on screen: the margin reaches back to the sheet's
+   top (stacked, the sheet sits above the entry; side by side, beside it). */
+.ivt-entry a {
+  scroll-margin-top: calc(min(100vw - 2rem, 22.5rem) * 1.41 + 9rem);
+}
+.ivt-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+.ivt-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+/* What you take away: slate on paper. */
+.ivt-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding-inline: 0.875rem 1rem;
+  border: 1px solid rgb(2 2 2 / 0.28);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+.ivt-file:hover {
+  border-color: var(--color-ink-700);
+  background: var(--color-paper-200);
+}
+.ivt-file:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 3px;
+}
+.ivt-file svg {
+  color: var(--color-ink-700);
+}
+.ivt-file-format {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.ivt-file-size {
+  font-size: 0.8125rem;
+  color: var(--color-ink-500);
+}
+/* The way into VoM: teal, under a hairline. */
+.ivt-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-paper-300);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-teal-700);
+  text-underline-offset: 6px;
+  transition: color 0.2s ease;
+}
+.ivt-online:hover {
+  color: var(--color-teal-800);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+.ivt-online:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.ivt-online svg {
+  transition: translate 0.25s var(--ease-out-quint);
+}
+.ivt-online:hover svg {
+  translate: 3px 0;
+}
+html[dir="rtl"] .ivt-online:hover svg {
+  translate: -3px 0;
+}
+
+@media (min-width: 640px) {
+  .ivt-title {
+    font-size: 3.5rem;
+  }
+  .ivt-split {
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+  .ivt-paper-line {
+    font-size: 0.875rem;
+  }
+  .ivt-hinge {
+    padding-inline-start: 1.75rem;
+  }
+  .ivt-hinge-text {
+    font-size: 0.9375rem;
+  }
+  .ivt-hinge-text strong {
+    font-size: 1.125rem;
+  }
+  .ivt-item {
+    grid-template-columns: 20rem minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+  .ivt-sheet {
+    width: 100%;
+  }
+  .ivt-entry a {
+    scroll-margin-top: 30rem;
+  }
+  .ivt-entry::before {
+    font-size: 2.75rem;
+  }
+  .ivt-name {
+    margin-top: auto;
+  }
+  .ivt-h2 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ivt-head {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 2rem;
+    align-items: end;
+    padding-top: 1.5rem;
+  }
+  .ivt-head-title {
+    grid-column: 1 / span 7;
+  }
+  .ivt-intro {
+    grid-column: 8 / span 5;
+    padding-bottom: 0.625rem;
+  }
+  .ivt-title {
+    font-size: clamp(3.75rem, 5vw, 4.5rem);
+  }
+  .ivt-split {
+    --bleed: max(16px, calc((100vw - 1280px) / 2 + 16px));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas: "paper paper paper paper paper hinge hinge record record record record record";
+    column-gap: 2rem;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  .ivt-paper-img {
+    width: min(100%, 21rem);
+  }
+  .ivt-hinge {
+    gap: 1.25rem;
+    padding-block: 2.5rem;
+    padding-inline-start: 1.5rem;
+  }
+  .ivt-hinge-text {
+    font-size: 0.9375rem;
+  }
+  .ivt-hinge-text strong {
+    font-size: 1.0625rem;
+  }
+  .ivt-hinge-arrow svg,
+  html[dir="rtl"] .ivt-hinge-arrow svg {
+    rotate: none;
+  }
+  .ivt-record {
+    gap: 2.25rem;
+    margin: 0;
+    padding: 3.5rem 0 3.25rem;
+    padding-inline-start: 4.5rem;
+  }
+  /* Bleeds to the viewport's end edge; the start edge is the slant. */
+  .ivt-field {
+    inset-inline-end: calc(-1 * var(--bleed));
+    clip-path: polygon(4.5rem 0, 100% 0, 100% 100%, 0 100%);
+  }
+  html[dir="rtl"] .ivt-field {
+    clip-path: polygon(0 0, calc(100% - 4.5rem) 0, 100% 100%, 0 100%);
+  }
+  .ivt-catalogue {
+    padding-block: 6rem 7rem;
+  }
+  .ivt-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4.5rem 3.5rem;
+    margin-top: 3.25rem;
+  }
+  .ivt-item {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: 1.75rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
