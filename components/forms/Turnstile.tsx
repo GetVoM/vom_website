@@ -15,9 +15,17 @@ const SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=exp
  * script is fetched the first time the visitor focuses or touches the form, so
  * pages with a form pay for it only when the form is used. The widget adds the
  * hidden `cf-turnstile-response` field that `submitLead` checks.
+ *
+ * `onToken` hears each token as it arrives, and null when one expires or the
+ * check fails, so a form can wait for the token before it posts.
  */
-export function Turnstile({ locale }: { locale: "ar" | "en" }) {
+export function Turnstile({ locale, onToken }: { locale: "ar" | "en"; onToken?: (token: string | null) => void }) {
   const box = useRef<HTMLDivElement>(null);
+  // Read through a ref, so a new callback never re-renders the widget.
+  const listener = useRef(onToken);
+  useEffect(() => {
+    listener.current = onToken;
+  }, [onToken]);
 
   useEffect(() => {
     const element = box.current;
@@ -29,7 +37,14 @@ export function Turnstile({ locale }: { locale: "ar" | "en" }) {
 
     const render = () => {
       if (cancelled || widget || !window.turnstile) return;
-      widget = window.turnstile.render(element, { sitekey: siteKey, language: locale, appearance: "interaction-only" });
+      widget = window.turnstile.render(element, {
+        sitekey: siteKey,
+        language: locale,
+        appearance: "interaction-only",
+        callback: (token: string) => listener.current?.(token),
+        "expired-callback": () => listener.current?.(null),
+        "error-callback": () => listener.current?.(null),
+      });
     };
     const load = () => {
       form.removeEventListener("focusin", load);

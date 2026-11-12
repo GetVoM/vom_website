@@ -338,6 +338,48 @@
   border-radius: 8px;
   background: var(--color-paper);
 }
+/* One chip per lead form, with its count; the chosen one is filled. */
+.adm-forms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.adm-forms a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-teal-900);
+}
+.adm-forms a:hover {
+  background: var(--color-teal-50);
+}
+.adm-forms a:focus-visible {
+  outline: 2px solid var(--color-teal-600);
+  outline-offset: 2px;
+}
+.adm-forms a[aria-current="page"] {
+  border-color: var(--color-teal-800);
+  background: var(--color-teal-800);
+  color: var(--color-paper);
+}
+.adm-forms .num {
+  padding: 0 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-100);
+  font-size: 0.75rem;
+  color: var(--color-teal-900);
+}
+.adm-forms a[aria-current="page"] .num {
+  background: rgb(255 255 255 / 0.18);
+  color: var(--color-paper);
+}
 .adm-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));

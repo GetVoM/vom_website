@@ -15,6 +15,8 @@
  * «ﭬوم» presentation forms) are not differences. Tool pages must also carry
  * only `ar` and `x-default` hreflang, their JSON-LD (WebApplication on a tool,
  * CollectionPage on the index) and no FAQPage; their English paths must 404.
+ * Campaign landing pages (LANDINGS) must be noindex, carry no hreflang, hold
+ * their lead form, and 404 in English.
  * Known, deliberate differences are listed in EXCEPTIONS. Exits 1 on any failure.
  */
 import { readFileSync } from "node:fs";
@@ -50,7 +52,10 @@ function parseCsv(text) {
   return body.filter((r) => r.length > 1).map((r) => Object.fromEntries(header.map((h, i) => [h, r[i] ?? ""])));
 }
 
-const urlMap = parseCsv(readFileSync(join(root, "docs/content/url-map.csv"), "utf8")).filter((r) => ["post", "news", "category", "template", "tool"].includes(r.type));
+/** Paid-campaign landing pages: kept, but hidden from search (app/(campaigns)/). */
+const LANDINGS = new Set(["/digital-ads-2023-landing-page/"]);
+
+const urlMap = parseCsv(readFileSync(join(root, "docs/content/url-map.csv"), "utf8")).filter((r) => ["post", "news", "category", "template", "tool"].includes(r.type) || LANDINGS.has(r.old_path_decoded));
 const inventory = new Map(parseCsv(readFileSync(join(root, "docs/content/wp-url-inventory.csv"), "utf8")).map((r) => [r.path_decoded, r]));
 const norm = (text) =>
   (text ?? "")
@@ -86,6 +91,7 @@ async function check(row) {
   const html = await response.text();
   const head = parse(html).querySelector("head");
   if (row.type === "tool") checkTool(path, html, fail);
+  if (LANDINGS.has(path)) checkLanding(html, fail);
   const title = norm(head?.querySelector("title")?.text);
   const description = norm(head?.querySelector('meta[name="description"]')?.getAttribute("content"));
   const canonical = decode(head?.querySelector('link[rel="canonical"]')?.getAttribute("href") ?? "");
@@ -117,6 +123,26 @@ function checkTool(path, html, fail) {
   if (types.includes("FAQPage")) fail("FAQPage JSON-LD (removed site-wide)");
 }
 
+/** A campaign landing page: out of search, Arabic only, its form on the page. */
+function checkLanding(html, fail) {
+  const doc = parse(html);
+  const robots = doc.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "";
+  if (!/noindex/.test(robots)) fail(`robots "${robots || "missing"}", expected noindex`);
+  if (doc.querySelectorAll('link[rel="alternate"][hreflang]').length) fail("hreflang links on a noindex landing page");
+  if (!doc.querySelector("form.lp-form")) fail("no lead form");
+}
+
+/** Landing pages are Arabic only and have no /ar/ twin: /en/ is a 404, /ar/ a 301 to the page. */
+async function checkLandingVariants() {
+  for (const path of LANDINGS) {
+    const english = await fetch(`${base}/en${encodeURI(path)}`, { redirect: "manual" });
+    if (english.status !== 404) failures.push(`landing  /en${path}  status ${english.status}, expected 404`);
+    const arabic = await fetch(`${base}/ar${encodeURI(path)}`, { redirect: "manual" });
+    const location = decode(arabic.headers.get("location") ?? "").replace(base, "").replace(SITE, "");
+    if (arabic.status !== 301 || location !== path) failures.push(`landing  /ar${path}  ${arabic.status} → ${location || "nowhere"}, expected 301 → ${path}`);
+  }
+}
+
 /** The tools are Arabic only: their /en/ twins must not exist. */
 async function checkToolEnglish() {
   const tools = urlMap.filter((row) => row.type === "tool" && row.proposed_action === "keep");
@@ -130,8 +156,9 @@ async function checkToolEnglish() {
 let next = 0;
 await Promise.all(Array.from({ length: 8 }, async () => { while (next < urlMap.length) await check(urlMap[next++]); }));
 await checkToolEnglish();
+await checkLandingVariants();
 
-console.log(`Checked ${urlMap.length} post, news, category, template and tool rows against ${base}`);
+console.log(`Checked ${urlMap.length} post, news, category, template, tool and landing rows against ${base}`);
 console.log(`  keep ${counts.keep} · redirect ${counts.redirect} · retire ${counts.retire} · deliberate exceptions ${counts.exceptions}`);
 for (const [path, why] of Object.entries(EXCEPTIONS)) console.log(`  exception: ${path} (${why})`);
 if (failures.length) {

@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { leadForms, type LeadForm } from "./forms.ts";
+import { isLeadForm, leadForms, type LeadFields } from "./forms.ts";
 
 /**
  * Saves one lead: validates it against its form's schema, checks the Turnstile
@@ -54,16 +54,19 @@ async function notify(form: string, lead: Record<string, unknown>) {
 }
 
 export async function recordLead(form: string, data: unknown, context: LeadContext): Promise<LeadOutcome> {
-  if (!Object.hasOwn(leadForms, form)) return { ok: false, reason: "invalid" };
-  const parsed = leadForms[form as LeadForm].safeParse(data);
-  if (!parsed.success) return { ok: false, reason: "invalid", fields: [...new Set(parsed.error.issues.map((issue) => String(issue.path[0])))] };
+  if (!isLeadForm(form)) return { ok: false, reason: "invalid" };
+  const parsed = leadForms[form].schema.safeParse(data);
+  // A payload field is reported by its own name ("sector"), as the form knows it.
+  const fieldOf = (path: PropertyKey[]) => String(path[0] === "payload" && path.length > 1 ? path[1] : path[0]);
+  if (!parsed.success) return { ok: false, reason: "invalid", fields: [...new Set(parsed.error.issues.map((issue) => fieldOf(issue.path)))] };
 
   if (!context.token || !(await verifyTurnstile(context.token, context.ip))) return { ok: false, reason: "turnstile" };
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) return { ok: false, reason: "unavailable" };
-  const fields: { name?: string; email?: string; phone?: string; company?: string; message?: string; payload?: Record<string, string> } = parsed.data;
+  const fields: LeadFields = parsed.data;
+  const payload = Object.fromEntries(Object.entries(fields.payload ?? {}).filter(([, value]) => value));
   const row = {
     form,
     name: fields.name || null,
@@ -71,7 +74,7 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
     phone: fields.phone || null,
     company: fields.company || null,
     message: fields.message || null,
-    payload: fields.payload ?? null,
+    payload: Object.keys(payload).length > 0 ? payload : null,
     locale: context.locale ?? null,
     page_path: context.pagePath?.slice(0, 500) ?? null,
     utm: context.utm && Object.keys(context.utm).length > 0 ? context.utm : null,

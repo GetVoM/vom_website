@@ -9991,6 +9991,564 @@ html[dir="rtl"] .tol-input input:placeholder-shown {
   }
 }
 
+/* Campaign landing page (/digital-ads-2023-landing-page/): "the form that stays".
+   Phones: the head, then the form panel as a full-bleed teal band, then the story,
+   with a bar that brings the form back. From 1024px the story runs on the start
+   7/12 while the panel rides sticky on the end 5/12.
+   Contract: .impeccable/surfaces/components-campaigns-digitalads2023-tsx.md. */
+.lp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "head" "form" "story";
+  padding-bottom: 7rem;
+}
+.lp-head {
+  grid-area: head;
+  padding-block: 1.25rem 2rem;
+}
+.lp-logo {
+  display: block;
+  width: 5.5rem;
+  height: auto;
+}
+.lp-title {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+/* ZATCA's logo closes the heading on its own plate, like the issuer's mark on a record. */
+.lp-zatca {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--color-paper-300);
+  border-radius: var(--radius-sheet);
+  background: var(--color-paper);
+  box-shadow: 0 12px 24px -20px rgb(5 42 37 / 0.5);
+  vertical-align: middle;
+}
+.lp-zatca img {
+  display: block;
+  width: 12.5rem;
+  height: auto;
+}
+.lp-lede {
+  max-width: 62ch;
+  margin-top: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+
+/* The panel: the teal guilloche field holding the paper form. */
+.lp-aside {
+  grid-area: form;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+}
+/* teal-600, not teal-500: the title is white text (about 3.8:1, against 2.4:1). Below 1024px the
+   panel is a full-width band with the house 2.25rem slanted top edge, high on the end side. */
+.lp-panel {
+  padding: 4.25rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
+  background-color: var(--color-teal-600);
+  background-position: 48px 0;
+  color: #fff;
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+  scroll-margin-top: 1rem;
+}
+html[dir="rtl"] .lp-panel {
+  clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
+}
+/* Sent: the panel stops asking; the thank-you is its only heading. */
+.lp-panel:has(.lp-thanks) .lp-panel-title {
+  display: none;
+}
+.lp-panel:has(.lp-thanks) .lp-sheet {
+  margin-top: 0;
+}
+.lp-panel-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #fff;
+  text-wrap: balance;
+}
+.lp-sheet {
+  margin-top: 1.25rem;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 56px -34px rgb(5 42 37 / 0.6);
+  animation: tol-lift 0.6s var(--ease-out-quint) 0.1s both;
+}
+
+/* The form. */
+.lp-form {
+  display: grid;
+  gap: 1.125rem;
+}
+.lp-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+.lp-optional {
+  font-weight: 400;
+  color: var(--color-ink-500);
+}
+.lp-field :is(input, select) {
+  width: 100%;
+  height: 3rem;
+  padding-inline: 1rem;
+  /* A 3:1 edge: the field's only outline on the white sheet. */
+  border: 1px solid color-mix(in oklab, var(--color-ink-700) 75%, white);
+  border-radius: var(--radius-sheet);
+  background-color: var(--color-paper);
+  font: inherit;
+  font-size: 1.0625rem;
+  color: var(--color-ink);
+  caret-color: var(--color-teal-600);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+/* Numbers and addresses are typed left to right but sit under their Arabic labels. */
+html[dir="rtl"] .lp-field input[dir="ltr"] {
+  text-align: right;
+}
+.lp-field input::placeholder {
+  color: var(--color-ink-500);
+}
+.lp-field select {
+  appearance: none;
+  padding-left: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2354595f' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-position: left 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  cursor: pointer;
+}
+.lp-field :is(input, select):hover {
+  border-color: var(--color-ink-700);
+}
+/* An invalid field: a darker, doubled border beside its message; orange stays on the submit. */
+.lp-field :is(input, select)[aria-invalid="true"] {
+  border-color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+}
+/* Focus: a teal-700 ring outside the edge, so it shows on an invalid field too. */
+.lp-field :is(input, select):focus-visible {
+  outline: 2px solid var(--color-teal-700);
+  outline-offset: 2px;
+}
+.lp-field :is(input, select):focus-visible:not([aria-invalid="true"]) {
+  border-color: var(--color-teal-700);
+}
+.lp-error {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+.lp-form .turnstile:empty {
+  display: none;
+}
+.lp-submit {
+  height: 3.25rem;
+  margin-top: 0.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-orange-500);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.12);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+.lp-submit:hover {
+  background: var(--color-orange-600);
+}
+.lp-submit:active {
+  transform: translateY(1px);
+}
+.lp-submit:focus-visible {
+  outline: 2px solid var(--color-teal-600);
+  outline-offset: 3px;
+}
+.lp-submit[aria-disabled="true"] {
+  background: var(--color-orange-600);
+  cursor: progress;
+}
+.lp-status {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+.lp-status:empty {
+  display: none;
+}
+.lp-thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.lp-thanks h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+.lp-thanks h2:focus {
+  outline: none;
+}
+.lp-thanks p {
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.lp-thanks-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--color-teal-700);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.lp-thanks-link:hover {
+  color: var(--color-teal-800);
+}
+
+/* The story: paper, one kind of proof per section. */
+.lp-story {
+  grid-area: story;
+  display: grid;
+  gap: 3.5rem;
+  padding-top: 3rem;
+}
+/* After the photo, each kind of proof is filed under a hairline, as the features register is. */
+.lp-story > :is(.lp-features, .lp-clients, .lp-voices, .lp-partners) {
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-paper-200);
+}
+.lp-photo {
+  padding: 0.375rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+}
+.lp-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-card) - 0.375rem);
+}
+.lp-features h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+.lp-features ul {
+  display: grid;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-paper-200);
+}
+.lp-features li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.125rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+/* The last row closes on the next section's hairline, not on a rule of its own. */
+.lp-features li:last-child {
+  border-bottom: 0;
+}
+.lp-features img {
+  flex: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+.lp-features h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+/* The 47 logos as a quiet wall: no marquee beside the form; the short last row is centred. */
+.lp-clients {
+  --per-row: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.lp-clients .logo-tile {
+  width: calc((100% - (var(--per-row) - 1) * 0.5rem) / var(--per-row));
+  height: auto;
+  aspect-ratio: 2 / 1;
+  border-radius: var(--radius-sheet);
+}
+.lp-rating {
+  display: block;
+  width: 8.5rem;
+  height: auto;
+}
+.lp-quotes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.lp-quotes figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: var(--radius-tile);
+  background: var(--color-paper-100);
+}
+.lp-quotes blockquote p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-ink);
+  text-wrap: pretty;
+}
+.lp-quotes figcaption {
+  display: flex;
+}
+.lp-quotes figcaption img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-paper);
+  box-shadow: 0 0 0 1px var(--color-paper-200);
+  object-fit: cover;
+}
+.lp-partners {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem 0.75rem;
+}
+.lp-partners img {
+  display: block;
+  width: 100%;
+  max-width: 6.5rem;
+  height: auto;
+  margin-inline: auto;
+}
+
+/* Fixed controls: the return bar (phones and tablets) and the WhatsApp disc. */
+.lp-return {
+  position: fixed;
+  z-index: 40;
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  inset-inline-start: 16px;
+  inset-inline-end: calc(16px + 3.5rem + 0.75rem);
+  transform: translateY(calc(100% + 2rem));
+  transition: transform 0.35s var(--ease-out-quint);
+}
+.lp-return[data-shown] {
+  transform: none;
+}
+.lp-return-button {
+  width: 100%;
+  height: 3.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-orange-500);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow:
+    inset 0 -2px 0 rgb(0 0 0 / 0.12),
+    0 14px 28px -14px rgb(5 42 37 / 0.55);
+  cursor: pointer;
+}
+.lp-return-button:hover {
+  background: var(--color-orange-600);
+}
+.lp-return-button:focus-visible {
+  outline: 2px solid var(--color-teal-800);
+  outline-offset: 3px;
+}
+.lp-whatsapp {
+  position: fixed;
+  z-index: 40;
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  inset-inline-end: 16px;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-teal-600);
+  color: #fff;
+  box-shadow: 0 14px 28px -14px rgb(5 42 37 / 0.6);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s var(--ease-out-quint);
+}
+.lp-whatsapp:hover {
+  background: var(--color-teal-700);
+  transform: translateY(-2px);
+}
+.lp-whatsapp:focus-visible {
+  outline: 2px solid var(--color-teal-800);
+  outline-offset: 3px;
+}
+/* Below the desktop layout the disc would sit on the form's fields: it steps aside while the panel is in view. */
+@media (max-width: 1023.98px) {
+  html[data-lp-panel="in"] .lp-whatsapp {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .lp-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  .lp-zatca img {
+    width: 14rem;
+  }
+  .lp-features ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+  .lp-features li:nth-last-child(2):nth-child(odd) {
+    border-bottom: 0;
+  }
+  .lp-clients {
+    --per-row: 6;
+  }
+  .lp-quotes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lp-partners {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .lp-sheet {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "head form" "story form";
+    column-gap: 4rem;
+  }
+  .lp-head {
+    padding-block: 2rem 0;
+  }
+  .lp-title {
+    margin-top: 3.5rem;
+    font-size: 3rem;
+    line-height: 1.15;
+  }
+  .lp-zatca {
+    margin-top: 1rem;
+  }
+  .lp-zatca img {
+    width: 15rem;
+  }
+  .lp-lede {
+    margin-top: 1.5rem;
+    font-size: 1.1875rem;
+  }
+  .lp-aside {
+    margin: 0;
+    padding-top: 2rem;
+  }
+  .lp-panel {
+    position: sticky;
+    top: 1.5rem;
+    /* Error messages can make it taller than a short window: it then scrolls on its own, so the button stays reachable. */
+    max-height: calc(100dvh - 3rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 2rem 2rem 2.25rem;
+    border-radius: var(--radius-card);
+    box-shadow: 0 40px 80px -50px rgb(5 42 37 / 0.65);
+  }
+  html[dir] .lp-panel {
+    clip-path: none;
+  }
+  .lp-thanks {
+    min-height: 18rem;
+  }
+  .lp-story {
+    gap: 4rem;
+    padding-top: 3.5rem;
+  }
+  .lp-story > :is(.lp-features, .lp-clients, .lp-voices, .lp-partners) {
+    padding-top: 4rem;
+  }
+  .lp-features h2 {
+    font-size: 2rem;
+  }
+}
+/* Desktop windows of ordinary height: the panel stays, so no return bar. */
+@media (min-width: 1024px) and (min-height: 621px) {
+  .lp-return {
+    display: none;
+  }
+}
+/* Laptop heights: a tighter panel, so it can stay sticky down to 620px of window. */
+@media (min-width: 1024px) and (max-height: 820px) {
+  .lp-panel {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+  .lp-panel-title {
+    font-size: 1.25rem;
+  }
+  .lp-sheet {
+    margin-top: 1rem;
+    padding: 1.25rem;
+  }
+  .lp-form {
+    gap: 0.875rem;
+  }
+  .lp-field :is(input, select) {
+    height: 2.75rem;
+  }
+}
+/* Shorter still, the panel cannot fit: it scrolls with the page and the return bar takes over,
+   beside the WhatsApp disc rather than across the page. */
+@media (min-width: 1024px) and (max-height: 620px) {
+  .lp-panel {
+    position: static;
+  }
+  .lp-return {
+    inset-inline-start: auto;
+    width: 20rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

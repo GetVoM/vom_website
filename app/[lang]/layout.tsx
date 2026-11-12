@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { lang } from "next/root-params";
 import { notFound } from "next/navigation";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { effra } from "@/app/fonts";
 import { dirOf, isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { site } from "@/lib/seo/site";
+import { loadTags } from "@/lib/seo/tags";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Header } from "@/components/site/Header";
@@ -38,6 +40,8 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
         <main className="flex-1">{children}</main>
         <Footer locale={locale} t={t} />
       </body>
+      {/* Production only (lib/seo/tags.ts); loaded once the page is interactive; every pixel lives inside the container (docs/architecture.md §8). */}
+      {loadTags && <GoogleTagManager gtmId={site.gtmId} />}
     </html>
   );
 }

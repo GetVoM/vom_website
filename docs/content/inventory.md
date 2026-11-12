@@ -22,14 +22,15 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 
 | Action | Count | Meaning |
 |---|---|---|
-| keep | 369 | Same path, same content, migrated one to one |
+| keep | 371 | Same path, same content, migrated one to one |
 | keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
-| redirect | 51 | Duplicates and renamed pages, 301 to the listed target |
-| retire | 11 | Test, campaign and already-dead pages, 410 |
+| redirect | 54 | Duplicates and renamed pages, 301 to the listed target |
+| retire | 10 | Test, campaign and already-dead pages, 410 |
 
 Notable rows:
 
 - Three sitemap URLs already return 404 (`/en/pricing-Packages/`, two empty English categories): remove from the sitemap, return 410.
+- `/digital-ads-2023-landing-page/`, once marked retire, is kept (owner, 2026-11-12): the paid-campaign page, rebuilt under `app/(campaigns)/`, noindex, with the site's first live lead form; see `docs/content/campaigns/`.
 - `/pricing-ar/` duplicates `/pricing/`: 301.
 - `/growth-program-old/` → `/growth-plan/`: 301.
 - `/en/contact-us-2/` → `/en/contact-us/`: 301 (owner, 2026-11-02).

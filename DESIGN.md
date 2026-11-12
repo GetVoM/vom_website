@@ -219,6 +219,12 @@ typography:
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "-0.01em"
+  display-campaign:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "2rem (sm 2.5rem, lg 3rem)"
+    fontWeight: 700
+    lineHeight: "1.25 (sm 1.2, lg 1.15)"
+    letterSpacing: "-0.01em"
   figure-poster:
     fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "3rem (sm 3.75rem, lg clamp(4rem, 5.4vw, 5.25rem)); m 2.5rem / 3rem / clamp(3.25rem, 4.2vw, 4rem); s 2rem / 2.375rem / 2.75rem"
@@ -748,6 +754,41 @@ components:
     backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
     rounded: "{rounded.sheet}"
+  lead-panel:
+    backgroundColor: "{colors.teal-600}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.card}"
+    padding: "4.25rem 16px 2.5rem (lg 2rem 2rem 2.25rem; lg up to 820px tall 1.5rem 1.75rem 1.75rem)"
+  lead-sheet:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.card}"
+    padding: "1.5rem 1.25rem (sm 1.75rem 1.5rem; lg up to 820px tall 1.25rem)"
+  lead-input:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sheet}"
+    padding: "0 1rem"
+    height: "3rem (lg up to 820px tall 2.75rem)"
+  lead-submit:
+    backgroundColor: "{colors.orange}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    height: "3.25rem"
+  lead-submit-hover:
+    backgroundColor: "{colors.orange-600}"
+  return-bar-button:
+    backgroundColor: "{colors.orange}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    height: "3.5rem"
+  whatsapp-disc:
+    backgroundColor: "{colors.teal-600}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    size: "3.5rem"
+  whatsapp-disc-hover:
+    backgroundColor: "{colors.teal-700}"
 ---
 
 # Design System: VoM website (getvom.com)
@@ -758,7 +799,7 @@ components:
 
 Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.
 
-The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot, the accounting-software guide's thumb index, where the guide's eight parts stand off the contents sheet's fore-edge as paper tabs on the teal field and then hold the page's fore-edge as you read, the part being read pulled out with a folded corner and the parts passed ticked, the free invoice templates, where the templates you take away face the invoice VoM issues across a perforated hinge, the paper settles, the record lifts onto the field and the house ZATCA seal stamps its corner, and hovering a template's way into VoM fills its empty QR box, the seven calculators, where each calculator is a full-bleed slanted teal band with its paper sheet on the start side and the answer beside it as a large white poster figure closed by the double white rule, changing as you type, while the sheet lifts onto the band, and the tools index, where each tool is a framed cover plate showing its own cover, filed under its group, the two without a cover drawn as their own worked example on the teal field, and the plates rise in reading order) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
+The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot, the accounting-software guide's thumb index, where the guide's eight parts stand off the contents sheet's fore-edge as paper tabs on the teal field and then hold the page's fore-edge as you read, the part being read pulled out with a folded corner and the parts passed ticked, the free invoice templates, where the templates you take away face the invoice VoM issues across a perforated hinge, the paper settles, the record lifts onto the field and the house ZATCA seal stamps its corner, and hovering a template's way into VoM fills its empty QR box, the seven calculators, where each calculator is a full-bleed slanted teal band with its paper sheet on the start side and the answer beside it as a large white poster figure closed by the double white rule, changing as you type, while the sheet lifts onto the band, and the tools index, where each tool is a framed cover plate showing its own cover, filed under its group, the two without a cover drawn as their own worked example on the teal field, and the plates rise in reading order, and the paid-campaign landing page, where the form never leaves the screen: on desktop a sticky teal panel holds the paper form beside the story as it scrolls past, and on phones the form follows the headline as a full-bleed slanted teal band and a return bar brings it back once it has scrolled away) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
 
 The reading register, introduced by the terms and conditions page, is the same world at its quietest: no field, no guilloche, no buttons, only paper, near-black ink, paper-200 hairlines and teal used as a marker on numerals and the active place in the contents.
 
@@ -782,7 +823,7 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 - **Hairline Teal** (`teal-200`): the double-hairline frame, dividers inside document objects, inactive chart bars.
 - **Ring Teal** (`teal-300`): the outer hairline on client seals, register discs and the FAQ plus; on pricing, the rule under the ledger's pinned plan heads and the double hairline under each "in every plan" group head.
 - **Washed Teal** (`teal-50`, `teal-100`): the wash on a landed anchor (story row, linked clause), selected chips, hovered link tiles, the "2 months free" and saving chips and the most-popular column of the pricing ledger (`teal-50`), and the icon tiles behind line icons (`teal-100`).
-- **Marker Teal** (`teal-600`): section numerals and the sliding contents thumb in the reading register.
+- **Marker Teal** (`teal-600`): section numerals and the sliding contents thumb in the reading register. On the campaign landing page it is the field itself: the form panel and the WhatsApp disc, where white text measures about 3.8:1 against 2.4:1 on Record Teal (see Observed drift).
 - **Deep Teal** (`teal-800`): text on the inverse (white) button and on selected chips.
 - **Shadow Teal** (`teal-950`): never a fill; the tint of every lifted shadow, as `rgba(5, 42, 37, a)`.
 
@@ -791,7 +832,7 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 
 ### Neutral
 - **Record Ink** (`ink`): headings and default text.
-- **Slate** (`ink-700`): body copy on marketing pages, ledes, footer links, meta lines.
+- **Slate** (`ink-700`): body copy on marketing pages, ledes, footer links, meta lines. Mixed 75% toward white in oklab (about 4:1 on Paper) it is the lead form's field edge, its full strength the hovered edge.
 - **Graphite** (`ink-500`): captions, breadcrumbs, proof lines, clause numbers at rest.
 - **Mist** (`ink-300`): list markers in the reading register and the bilingual micro-label. Below AA as text (about 2.6:1 on paper); see Do's and Don'ts.
 - **Paper** (`paper`): the ground and every paper object.
@@ -856,6 +897,7 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Figure** (700, 1): tabular numerals. 3 to 3.5rem in teal-700 on the homepage record; 4.5 to 5.5rem on about story rows; poster scale `clamp(8.75rem, 12.2vw, 11rem)` in white on the about band.
 - **Figure, poster** (`figure-poster`; 700, 3rem, 3.75rem from 640px, then `clamp(4rem, 5.4vw, 5.25rem)` from 1024px, 1, -0.02em, white, tabular through `.sar` / `.num`, no wrap): a calculator's answer on its teal band, under the answer label (700, 1.125rem, 1.25rem from 1024px, 1.5, balanced, white) and over the double white rule. Long amounts step down by length: `m` (over 11 characters) 2.5rem / 3rem / `clamp(3.25rem, 4.2vw, 4rem)`, `s` (over 15) 2rem / 2.375rem / 2.75rem. The riyal sign in it is 0.56em by 0.62em, 0.14em before the figure, as on the price figure. The secondary figures in the parts row are 1.375rem bold at 1.2 under 0.875rem weight-500 terms. The drawn cover plate on the tools index sets the same figure at 3.5rem over its own double white rule, with a 1rem weight-500 tabular line under it.
 - **Display, tools index** (`display-tools-index`; 700, 2.5rem, 3.25rem from 640px, then `clamp(3.25rem, 4.4vw, 4rem)` from 1024px, 1.15, -0.01em): the tools index H1 over its intro (1.0625rem, 1.1875rem from 1024px, 1.8, Slate, 58ch, pretty). Group headings are 700 at 1.375rem (1.625rem from 1024px), 1.35, the group's count after the name at 0.9375rem weight 500 in teal-700, tabular; plate names are 1.1875rem bold at 1.4 (1.5rem on a lone plate from 1024px) over a 0.9375rem Slate line at 1.65 (1.0625rem on a lone plate).
+- **Display, campaign** (`display-campaign`; 700, 2rem, 2.5rem from 640px, 3rem from 1024px, 1.25 then 1.2 then 1.15, -0.01em, balanced, ink): the campaign landing page's H1 on the start 7/12, closed by the ZATCA plate inline; under it the lede (1.0625rem, 1.1875rem from 1024px, 1.85, Slate, 62ch, pretty). The contract named the reading display; the build steps lower so the H1 holds the first viewport beside the panel. The panel title is 700 at 1.375rem (1.25rem at laptop heights), 1.45, white, balanced; the features heading 700 at 1.75rem (2rem from 1024px), 1.25, -0.01em; a feature's name 700 at 1.0625rem, 1.5.
 - **Price figure** (700, 2.75rem, 1, -0.02em, teal-700): the plan price on a plan sheet, the riyal sign before it at 0.56em by 0.62em, the unit after it on the same baseline in Slate at 0.9375rem; Flex's "from" sits above it at 0.875rem weight 500 in Graphite. Sales-quoted plans set a line at 1.375rem bold in its place. Tabular, through `.sar`.
 - **Offer figure** (700, 5.5rem / 7rem / 8rem, 0.8, -0.02em, teal-700): a single offer figure inside a paper door, beside a bold label (1.5rem, 1.875rem from 1024px) over a Slate duration (1.125rem, 1.25rem from 1024px), the group ruled off with the double teal underline. On the growth closing band the same figure runs white at `clamp(5.5rem, 13vw, 10.5rem)`, 0.9, inside a closing line set at 1.75rem / 2.25rem / 2.5rem. The integration close band sets its closing line at the same three steps (700, 1.25, 26ch, balanced).
 
@@ -905,6 +947,8 @@ Blog (the ledger page, all widths): every blog page sits on Cool Paper inside th
 Calculator pages (`/tools/<slug>/`, Arabic only): a paper title row in the container (breadcrumb, the H1 at Display, guide, the byline 1rem under it), padded 1.5rem / 3rem (2rem / 3.5rem from 1024px). The lead follows: the old page's words before its calculators in the guides' `.ein-body` reading styles, each block held to the container, and each calculator a full-bleed band between them (1.75rem above a band, 3rem after it). The band is the tool band (see Components): Record Teal with the CSS guilloche, a slanted top edge high on the end side, padded 4.25rem / 3rem (5.5rem / 4.5rem from 1024px), its grid inside the container. From 1024px the grid is 12 columns with a 2rem gap, vertically centred: the sheet on the start 5/12 and the answer on columns 7 to 12, column 6 left open between them. Below 1024px the sheet stacks over the answer, 2.5rem apart, and the sheet's button scrolls the answer into view when it sits below 60% of the viewport. In the sheet the fields run one column, two from 640px (1.125rem row gap, 1rem column gap; wide fields, choices and the field rule span both). Adjacent calculators share one band behind the two-way switch; separated ones get a band each. Then the article, padded 3.5rem / 5rem (4.5rem / 6rem from 1024px): on a page of three or more sections it is a `15rem 1fr` grid from 1024px with a 4.5rem gap, the contents sticky 6rem from the top on the start side; the body in the guides' reading styles, its cover held to 760px and its figures aligned to the text's start edge, not centred. Then the other tools on Cool Paper (3.5rem / 4rem, 5rem / 5.5rem from 1024px) in one column, two from 640px and three from 1024px (2.5rem column gap), and the shared blog close band.
 
 Tools index (`/tools/`, Arabic only): the head in the container (breadcrumb, the H1 1.25rem under it, the intro 1rem under that), padded 1.5rem / 2.5rem (2rem / 3rem from 1024px). The three groups follow 3.5rem apart (4.5rem from 1024px, 5rem / 6rem to the page end), each heading on a paper-200 rule with its plates 1.75rem under it: one per row on phones, two from 640px and three from 1024px (2rem row gap, 1.5rem column gap, 2rem from 1024px). A group of one lies across the row: from 640px image and words in two equal columns, vertically centred, 1.5rem apart; from 1024px the image takes the start 7fr and the words the end 5fr, 3rem apart. The shared blog close band ends the page.
+
+Campaign landing page (`/digital-ads-2023-landing-page/`, Arabic only): its own root layout with no site header, navigation or footer (see Components), the page in the 1280px container with 7rem at its foot for the fixed controls. Below 1024px one column in this order: the head (the VoM wordmark at 5.5rem, the H1 2rem under it closed by the ZATCA plate, the lede 1.25rem under that; 1.25rem / 2rem block padding), the form panel as a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 2.5rem, then the story 3rem under it. From 1024px a two-column grid, `minmax(0, 7fr) minmax(0, 5fr)` with a 4rem gap and rows `auto 1fr`: the head (2rem top pad, the H1 3.5rem under the wordmark) and the story under it on the start 7/12, the panel on the end 5/12 spanning both rows, 2rem from the top and sticky 1.5rem from the top, a rounded card padded 2rem 2rem 2.25rem, held to the window (`max-height: calc(100dvh - 3rem)`) and scrolling inside itself when error messages make it taller. From 1024px wide and up to 820px tall the panel tightens (padding 1.5rem 1.75rem 1.75rem, the sheet 1.25rem and 1rem under the title, a 0.875rem field gap, 2.75rem fields) so it stays sticky down to a 621px window; at 620px tall and below it scrolls with the page and the return bar takes over, 20rem wide beside the WhatsApp disc. The story stacks its blocks 3.5rem apart (4rem from 1024px, padded 3rem / 3.5rem on top): the photo, then the features, the client wall, the voices and the partners, each filed under a paper-200 hairline with 3rem (4rem from 1024px) above its content. Features run one column, a ruled 2×2 from 640px (2rem column gap); the client wall four across, six from 640px (0.5rem gaps, the short last row centred); the quotes one column, two from 640px (1rem gap); the partners four across, six from 640px.
 
 The reading register is a single column of text that fills the page container. From 1024px the header row (breadcrumb, title, meta) spans the full container width and is ruled off by a paper-200 hairline; below it a 15rem contents rail sits on the start side, sticky 6rem from the top, separated by a 4.5rem gap from the text column, which takes the rest of the width. Below 1024px the contents become a bar stuck under the 64px header. Clause numbers hang in a 2.75rem gutter.
 
@@ -1026,6 +1070,12 @@ The reading register is a single column of text that fills the page container. F
 - Tools: the article callout is centred text on `teal-50` at the card radius with a teal-200 inset hairline, a third callout beside the blog's 4px callout.
 - Tools: the cover rasters carry their old titles as baked-in text, so a cover plate shows its name twice (brief, unresolved).
 - Tools: the calculator pages and the index are Arabic only (hreflang ar and x-default), so these components' LTR mirroring is unbuilt and unverified.
+- Campaign: the form panel and the WhatsApp disc fill with `teal-600` where every other teal field fills with Record Teal, chosen so the panel's white title reaches about 3.8:1 (Record Teal measures 2.4:1); the guilloche tile at 0.14 sits on it.
+- Campaign: the lead form's field edge is Slate at 75% (about 4:1, a 3:1 edge on white) where the house pill input and the calculator inputs draw a paper-300 border (about 1.3:1); its fields sit at the sheet radius, not the house pill.
+- Campaign: field focus is a third treatment: a 2px teal-700 outline at 2px offset, the edge turning teal-700 unless invalid, beside the house border-only focus and the calculators' 28% ring. The submit's focus outline is teal-600 and the fixed controls' teal-800, where house buttons ring in Record Teal.
+- Campaign: the orange submit and the return bar carry white 17px bold text at about 2.7:1, the site-wide primary-button pairing; the White-on-Orange open conflict in Do's and Don'ts applies, not resolved here.
+- Campaign: the photo sits in a single teal-200 hairline with a 0.375rem bezel at the card radius, not the double-hairline doc frame the contract named; the ZATCA plate is a paper-300 hairline plate at the sheet radius with its own short drop.
+- Campaign: the page is Arabic only with its own root layout (`lang="ar" dir="rtl"`), so its LTR mirroring is unbuilt and unverified; the slanted band's RTL rule is the only mirrored geometry.
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -1069,6 +1119,10 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 - **Plate lift** (`box-shadow: 0 24px 40px -28px rgb(5 42 37 / 0.5)` with translateY(-3px), 0.3s ease-out-quint, after the doc-frame's two inset rings): a cover plate on the tools index when its link is hovered; flat at rest.
 
+- **Panel on paper** (`box-shadow: 0 40px 80px -50px rgb(5 42 37 / 0.65)`): the campaign's sticky form panel from 1024px, a teal field lifted off the paper page; below 1024px the band is flat. The lead sheet on it carries the sheet-on-the-band shadow and lifts with `tol-lift`; the ZATCA plate drops `0 12px 24px -20px rgb(5 42 37 / 0.5)`.
+
+- **Fixed control** (`box-shadow: 0 14px 28px -14px rgb(5 42 37 / 0.55)`, after the pressed edge, on the return bar; at 0.6 on the WhatsApp disc): the campaign's two fixed controls floating over the page, the seal drop at control scale.
+
 ### Named Rules
 **The Teal Shadow Rule.** Shadows are tinted with Shadow Teal, never neutral grey, and belong to paper documents, overlays and hover states. Sections, tiles and frames at rest stay flat.
 
@@ -1087,6 +1141,8 @@ The template sheet is the one paper object in a single hairline: 1px paper-300 a
 The ledger sheet is ruled, not framed: a single 1px paper-300 hairline at 4px corners (rules above and below only on phones, where it runs edge to edge), no inner hairline and no shadow, with one 2px Record Teal rule drawn the sheet's height as a pseudo-element, between margin and column on a post and after the date column on an entry list. Tables and topic accounts are headed by the 4px Record Teal gradient double rule; the reviewed mark is a circle in the stamp ring (1.5px ring, 2px Paper gap, 1px hairline).
 
 The calculator band is bled full width and cut by a slanted top edge, high on the end side (2.25rem, 3rem from 1024px). On it the sheet is the doc-frame at the card radius and its number inputs sit at the sheet radius; choices, the two-way switch and the sheet's actions are pills. The answer is closed by the double rule drawn white, as the 4px gradient (1px, 2px gap, 1px). On the tools index a cover plate is the doc-frame at the card radius with a 6px bezel, the cover inside at the sheet radius and the covers' 1600:915 proportion; a drawn plate is a guilloche teal panel at the same proportion and radius.
+
+The campaign's form panel changes shape at 1024px: below it a full-bleed band with the house 2.25rem slanted top edge, high on the end side (mirrored by its own RTL polygon), and from 1024px a card-radius panel with the clip removed. The lead sheet on it is the doc-frame at the card radius; its fields sit at the sheet radius; the submit and the return bar are pills; the WhatsApp disc and the quote avatars are circles. Quote cards are Cool Paper at the tile radius with no border; client tiles keep the logo tile at the sheet radius and a 2:1 proportion.
 
 ## Components
 
@@ -1417,6 +1473,31 @@ For a tool with no old cover (discount, zakat): a Record Teal panel with the CSS
 ### Signature motion (calculators and tools index)
 Once on load, CSS only, on ease-out-quint. On a calculator page each sheet lifts 1.5rem onto its band while its shadow lengthens to rest (0.6s from 0.1s); the poster changing as you type is the page's interaction. On the index the plates rise 1rem into place in reading order (translate only, 0.6s each from 0.08s, 0.06s apart). Resting styles are the finished state; the global reduced-motion rule shows them settled.
 
+### Campaign Root Layout
+A paid-campaign page is its own document: a root layout outside `app/[lang]` that sets `lang="ar" dir="rtl"`, Effra and the house stylesheet, with no site header, navigation or footer, so the page's one action is its form. The VoM wordmark heads the page as an image, not a link. Hidden from search (noindex, follow).
+
+### Form Panel (campaign)
+The field that carries the form: `teal-600` with the CSS guilloche tile (shifted 48px), white text, its title in white over the paper lead sheet 1.25rem under it (see Layout for its two shapes). Once the form is sent the title goes and the thank-you is the panel's only heading.
+
+### Lead Form Sheet
+- **Sheet:** Paper in the doc-frame (1px teal-200 border at the card radius, the inner hairline 4px in), padded 1.5rem 1.25rem (1.75rem 1.5rem from 640px), with the sheet-on-the-band shadow; fields 1.125rem apart.
+- **Labels:** 0.9375rem weight 500 ink at 1.5, 0.5rem above the field. An optional field says so after its label in weight 400 Graphite, never with an asterisk on the required ones.
+- **Fields:** 3rem tall (2.75rem at laptop heights) at the sheet radius, Paper, 1rem inline padding, 1.0625rem ink with a teal-600 caret, placeholder Graphite. The edge is 1px Slate at 75% toward white, a 3:1 edge on the white sheet; hover turns it full Slate. Mobile and email are typed left to right and aligned under their Arabic labels. The select draws its own Slate chevron 1rem from its left edge.
+- **Focus:** a 2px teal-700 outline at 2px offset, outside the edge so it also shows on an invalid field; the edge turns teal-700 when the field is valid.
+- **Invalid:** the edge turns ink and doubles (1px ink border plus a 1px ink inset), beside its message; the error line sits 0.5rem under the field at 0.875rem weight 500 ink, 1.6, tied by `aria-describedby`. No red and no orange: orange stays on the submit. The first wrong field takes focus.
+- **Submit:** the full-width orange pill, 3.25rem, 1.0625rem bold white, the pressed 2px base; hover `orange-600`, active 1px down, focus a 2px teal-600 outline at 3px offset. Sending keeps it in place as `aria-disabled`, filled `orange-600` with a progress cursor and the sending words; a failed call leaves the entries and speaks its message in the status line under the button (0.9375rem ink).
+- **Thank-you:** the form swaps for a status region: an H2 (1.375rem bold ink, 1.4) that takes focus, a 1.0625rem Slate line at 1.7, and a bold teal-700 WhatsApp link with a 2px underline at 6px offset, hover teal-800. From 1024px it holds an 18rem minimum so the panel keeps its height.
+
+### Fixed Controls (campaign)
+- **Return bar:** below 1024px (and on desktop windows 620px tall or less), a 3.5rem orange pill repeating the submit's words, fixed 16px from the bottom (safe-area aware) from the start edge to the WhatsApp disc, with the fixed-control drop. It slides up (0.35s ease-out-quint) only once the panel is above the viewport, hides while the panel is in view and for good once the form is sent; it scrolls back to the panel and focuses the first field. Hidden, it is `inert`. Focus: a 2px teal-800 outline at 3px offset.
+- **WhatsApp disc:** a 3.5rem `teal-600` circle at the bottom end corner holding the white WhatsApp mark (28px SVG), hover `teal-700` lifting 2px, focus a 2px teal-800 outline at 3px offset. Below 1024px it steps aside (hidden, no pointer) while the form panel is on screen, so it never covers a field.
+
+### Campaign Story
+The proof column on paper, one kind of proof per block: the old photo in a teal-200 hairline with a 0.375rem bezel at the card radius; the four features as a ruled register of rows on paper-200 hairlines (a 3.5rem illustration beside its bold name), the last row closing on the next block's hairline rather than a rule of its own; the 47 client logos as a quiet wall of logo tiles (no marquee beside the form); the old star image (8.5rem) over the quote cards, each closed by its round 3.5rem avatar on a paper-200 ring; the twelve round partner logos up to 6.5rem. The ZATCA logo closes the H1 on its own Paper plate (paper-300 hairline, sheet radius, 0.625rem 0.875rem padding), as the issuer's mark on a record.
+
+### Signature motion (campaign)
+Once on load, CSS only: the lead sheet lifts 1.5rem onto the panel while its shadow lengthens to rest (`tol-lift`, 0.6s from 0.1s, ease-out-quint), the calculators' motion reused. The return bar's slide is a state transition, not a second moment. The global reduced-motion rule shows the sheet settled and the bar without sliding.
+
 ### Admin (operate tool)
 Not part of the public design world: the blog's editor at `/admin`, Arabic and right-to-left, with its own stylesheet. A plain working tool in the brand tokens with no ornament: Cool Paper ground, Paper panels in a 1px paper-300 hairline at 8px corners, 0.9375rem text, a sticky Paper bar with the name in teal-700, no seals, no double hairlines, no guilloche, no shadows, no motion beyond 0.15s hovers. Inputs are 2.5rem tall at 6px corners on a paper-300 border; buttons are 2.5rem at 6px corners, outlined in ink at 28%, the primary a teal-700 fill turning teal-800 (orange is not used for actions here); status is a pill (paper-200, or `teal-100` with Deep Teal when published); focus is 2px teal-700 at 2px offset. The editor sets the article canvas beside a 22rem data panel from 1100px and shows the body in the blog's own body styles. Nothing here is a pattern for public pages.
 
@@ -1424,7 +1505,7 @@ Not part of the public design world: the blog's editor at `/admin`, Arabic and r
 
 ### Do:
 - **Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.
-- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s; blog: the ledger heading settles 0.5s, then on a post the margin rule draws down 0.8s from 0.15s; calculators: the sheet lifts 0.6s from 0.1s; tools index: the plates rise 0.6s each from 0.08s, 0.06s apart), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
+- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s; blog: the ledger heading settles 0.5s, then on a post the margin rule draws down 0.8s from 0.15s; calculators: the sheet lifts 0.6s from 0.1s; tools index: the plates rise 0.6s each from 0.08s, 0.06s apart; campaign: the lead sheet lifts 0.6s from 0.1s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
 - **Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.
@@ -1448,6 +1529,7 @@ Not part of the public design world: the blog's editor at `/admin`, Arabic and r
 - **Do** rule a blog page as one ledger sheet: Paper on Cool Paper, one 2px Record Teal rule between margin and column, and no teal field, guilloche or orange before the closing band.
 - **Do** number a post's sections with one CSS counter shown twice, in the margin entry and beside the H2, and ink in the entry being read.
 - **Do** set a calculator's answer in white at poster scale on its teal band beside the paper sheet, closed by the double white rule, with any lead-in words inline in its label.
+- **Do** mark an invalid field by doubling its edge in ink beside its message, and keep orange on the submit alone.
 
 ### Don't:
 - **Don't** put orange on anything but the primary action or the single "now" marker.

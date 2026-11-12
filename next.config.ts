@@ -20,7 +20,7 @@ import createMDX from "@next/mdx";
 const adminPath = (process.env.ADMIN_PATH ?? "").trim().replace(/^\/+|\/+$/g, "");
 const ADMIN_SEGMENT = /^[a-z0-9][a-z0-9-]{1,62}$/.test(adminPath) ? adminPath : "admin";
 
-const ARABIC_PATH = `/:path((?!en(?:/|$)|ar(?:/|$)|api(?:/|$)|admin(?:/|$)|${ADMIN_SEGMENT}(?:/|$)|_next(?:/|$)|.*\\..*).*)`;
+const ARABIC_PATH = `/:path((?!en(?:/|$)|ar(?:/|$)|api(?:/|$)|admin(?:/|$)|${ADMIN_SEGMENT}(?:/|$)|digital-ads-2023-landing-page(?:/|$)|_next(?:/|$)|.*\\..*).*)`;
 
 /**
  * A static Content-Security-Policy: no nonces, because a nonce would make every
@@ -30,16 +30,39 @@ const ARABIC_PATH = `/:path((?!en(?:/|$)|ar(?:/|$)|api(?:/|$)|admin(?:/|$)|${ADM
  * - Supabase for the admin's sign-in and data;
  * - media.getvom.com for images, and the R2 endpoint the admin uploads to;
  * - YouTube's no-cookie player on the integration pages;
- * - Google Tag Manager, which the layout will load after interaction.
+ * - Google Tag Manager (GTM-PS28X6L, loaded once the page is interactive) and
+ *   the tags its container fires: GA4 through the server container at
+ *   edge.getvom.com, Google Ads conversions, the Meta pixel and Stape's scripts.
+ *   The container's Custom JavaScript variables (the enhanced-conversion user
+ *   data) run through eval, hence 'unsafe-eval'. Checked against the live
+ *   container on 2026-11-12; a tag added in GTM later may need its origin here.
+ *   Left blocked on purpose: the Meta template's helper script from the public
+ *   npm CDNs (jsdelivr, unpkg) and the Meta pixel's calls to *.run.app and
+ *   *.on.aws hosts, which would open the policy to any package or cloud app.
+ *   The pixel's own PageView and Lead hits pass.
  */
+const GOOGLE_TAGS = "https://www.googletagmanager.com https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net";
+const TAG_BEACONS = [
+  "https://edge.getvom.com",
+  "https://*.google-analytics.com",
+  "https://*.analytics.google.com",
+  "https://www.google.com",
+  "https://google.com",
+  "https://www.google.com.sa",
+  "https://*.doubleclick.net",
+  "https://www.googleadservices.com",
+  "https://pagead2.googlesyndication.com",
+  "https://www.facebook.com",
+  "https://connect.facebook.net",
+].join(" ");
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com https://www.googletagmanager.com`,
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com ${GOOGLE_TAGS} https://connect.facebook.net https://stapecdn.com https://edge.getvom.com`,
   "style-src 'self' 'unsafe-inline'",
-  `img-src 'self' data: blob: ${process.env.MEDIA_BASE_URL || "https://media.getvom.com"} https://www.googletagmanager.com https://www.google-analytics.com`,
+  `img-src 'self' data: blob: ${process.env.MEDIA_BASE_URL || "https://media.getvom.com"} ${GOOGLE_TAGS} ${TAG_BEACONS}`,
   "font-src 'self'",
-  "connect-src 'self' https://*.supabase.co https://*.r2.cloudflarestorage.com https://challenges.cloudflare.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com",
-  "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com",
+  `connect-src 'self' https://*.supabase.co https://*.r2.cloudflarestorage.com https://challenges.cloudflare.com ${GOOGLE_TAGS} ${TAG_BEACONS} https://stapecdn.com`,
+  "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://td.doubleclick.net https://www.googletagmanager.com https://edge.getvom.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",

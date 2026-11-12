@@ -233,7 +233,7 @@ post,https://getvom.com/hr/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%ad%d8%b3%d8%
 post,https://getvom.com/accounting/%d8%b3%d9%86%d8%af-%d9%82%d8%a8%d8%b6/,/accounting/سند-قبض/,200,keep,,Published after the 2026-10-25 crawl; found by the import on 2026-11-11. Preserve path exactly,
 page,https://getvom.com/en/terms-and-conditions/,/en/terms-and-conditions/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/about-us-2/,/about-us-2/,200,redirect,/about-us/,Renamed to match the English slug (owner 2026-11-02),من نحن - Vom
-page,https://getvom.com/digital-ads-2023-landing-page/,/digital-ads-2023-landing-page/,200,retire,/,2023 ads landing page,برنامج المحاسبة السحابي الاول في السعودية - جرب مجانا | ڤوم
+page,https://getvom.com/digital-ads-2023-landing-page/,/digital-ads-2023-landing-page/,200,keep,,Kept (owner 2026-11-12): paid-campaign landing page in app/(campaigns)/; noindex and out of the sitemap; its form saves to the leads table as digital-ads-2023-landing-page; Arabic only; see docs/content/campaigns/,برنامج المحاسبة السحابي الاول في السعودية - جرب مجانا | ڤوم
 page,https://getvom.com/terms-and-conditions-ar/,/terms-and-conditions-ar/,200,redirect,/terms-and-conditions/,Renamed to match the English slug (owner 2026-11-09),Vom
 page,https://getvom.com/growth-plan/,/growth-plan/,200,keep,,,برنامج نمو - Vom
 page,https://getvom.com/,/,200,keep,,Homepage,برنامج محاسبة سحابي الأفضل في السعودية | فوم - جرب مجانا

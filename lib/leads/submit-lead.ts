@@ -1,8 +1,9 @@
 "use server";
 
 import { headers } from "next/headers";
+import { attributionKeys } from "./attribution";
 import { recordLead } from "./record";
-import type { LeadForm } from "./forms";
+import { leadForms, type LeadForm, type LeadFormDefinition } from "./forms";
 
 export interface LeadState {
   ok: boolean;
@@ -26,16 +27,16 @@ const messages = {
   },
 };
 
-const UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
 /**
  * The one server action every lead form posts to:
  *
  *   const [state, action] = useActionState(submitLead.bind(null, "contact"), null);
  *
- * The form sends its fields, a hidden `locale` and `page_path`, any `utm_*`
- * fields, and the Turnstile widget's `cf-turnstile-response`
- * (components/forms/Turnstile.tsx). The work is in lib/leads/record.ts.
+ * The form sends its fields (the shared ones and its `payloadFields`), a hidden
+ * `locale` and `page_path`, any `utm_*`, `gclid` and `fbclid` fields, and the
+ * Turnstile widget's `cf-turnstile-response` (components/forms/Turnstile.tsx).
+ * The work is in lib/leads/record.ts.
  */
 export async function submitLead(form: LeadForm, _previous: LeadState | null, data: FormData): Promise<LeadState> {
   const locale = data.get("locale") === "en" ? "en" : "ar";
@@ -44,15 +45,24 @@ export async function submitLead(form: LeadForm, _previous: LeadState | null, da
     return typeof value === "string" && value.trim() ? value.trim() : undefined;
   };
   const request = await headers();
+  const extra = Object.keys((leadForms[form] as LeadFormDefinition).payloadFields ?? {});
+  const payload = Object.fromEntries(extra.map((name) => [name, text(name)]));
   const outcome = await recordLead(
     form,
-    { name: text("name"), email: text("email"), phone: text("phone"), company: text("company"), message: text("message") },
+    {
+      name: text("name"),
+      email: text("email"),
+      phone: text("phone"),
+      company: text("company"),
+      message: text("message"),
+      ...(extra.length > 0 && { payload }),
+    },
     {
       token: text("cf-turnstile-response") ?? null,
       ip: request.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
       locale,
       pagePath: text("page_path") ?? null,
-      utm: Object.fromEntries(UTM.flatMap((name) => (text(name) ? [[name, text(name)!.slice(0, 200)]] : []))),
+      utm: Object.fromEntries(attributionKeys.flatMap((name) => (text(name) ? [[name, text(name)!.slice(0, 200)]] : []))),
       userAgent: request.get("user-agent"),
     },
   );

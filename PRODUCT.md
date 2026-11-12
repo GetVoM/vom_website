@@ -37,6 +37,7 @@ The website's job is to win Arabic organic search for accounting, e-invoicing, z
 - API documentation lives at app.getvom.com/en/docs/api.
 - Integrations: Foodics and Marn (restaurant POS), Zid (e-commerce), Prexle (POS). The old features page also listed ZenHR and Order; the owner confirmed on 2026-11-10 they are no longer integrations. Partnership news items exist for Nuqta, Mola and "ليزي وايت".
 - Payment links are sold as "VoM Pay"; success and failure landing pages exist.
+- Paid campaigns land on `/digital-ads-2023-landing-page/` (Arabic, noindex, no site navigation). Its form is the site's first live lead form (2026-11-12): name and a Saudi mobile (05XXXXXXXX) required, email and business sector optional; leads land in the `leads` table as `digital-ads-2023-landing-page` and show in the admin under that name.
 - Analytics today: Google Tag Manager container GTM-PS28X6L; TikTok pixel; PixelYourSite.
 - Current site: WordPress with Elementor, Rank Math, Polylang and WP Rocket. Content inventory and SEO baseline are in `docs/content/` and `docs/seo/`.
 
@@ -59,7 +60,7 @@ Binding, set by the user on 2026-10-25: keep the logo, the colours and the fonts
 ## Evidence on Hand
 
 - Claims on the site: 4,000+ users; ZATCA approval badge; customer logo walls on sector pages (image files only).
-- Testimonials exist on the homepage but every attribution is the placeholder "Client One". They must not be reused until real names and businesses are supplied.
+- Testimonials exist on the homepage but every attribution is the placeholder "Client One". They must not be reused until real names and businesses are supplied. One exception, by the owner's instruction (2026-11-12): the paid-campaign page `/digital-ads-2023-landing-page/` keeps its six quotes and their avatars exactly as the old page showed them, with the «Client One» name dropped and no attribution in its place.
 - Blog posts carry Article schema with a named author (most often Abass Sahrawi) and a "reviewed by" chartered accountant (Faisal Al-Mutairi). Other authors in WordPress: Abdulrahman Fani, Noura Alnafea, Islam, Maha, Miled Elias, Hamza Ait. Author bios are empty, and one is lorem ipsum.
 - The e-invoicing hub and its 12 guides show a byline (owner, 2026-11-10): written by Noura Alnafea (نورة النافع), reviewed by Faisal Al-Mutairi (فيصل المطيري), chartered accountant (محاسب قانوني); their WordPress publish and modified dates (2025-08-30 to 2025-09-05) are kept.
 - Team named on the about page: Michael Aswad (Co-Founder & CEO), Noura Alnafea (Co-Founder & COO), Yasmine Mokhtar (Head of Development). Titles confirmed by the owner on 2026-11-02.
