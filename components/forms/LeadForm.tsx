@@ -1,6 +1,7 @@
 "use client";
 
 import { startTransition, useActionState, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
+import posthog from "posthog-js";
 import { Turnstile } from "@/components/forms/Turnstile";
 import type { Locale } from "@/lib/i18n/config";
 import { attributionKeys } from "@/lib/leads/attribution";
@@ -87,7 +88,9 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
   // A failed call (no network, a server error) must not cost the visitor the form: it becomes a message, the entries stay.
   const send = async (previous: LeadState | null, data: FormData): Promise<LeadState> => {
     try {
-      return await submitLead(form, previous, data);
+      const result = await submitLead(form, previous, data);
+      if (result.ok) posthog.capture("lead_form_submitted", { form, locale });
+      return result;
     } catch {
       return { ok: false, message: copy.errors.network };
     }

@@ -55,13 +55,26 @@ const TAG_BEACONS = [
   "https://www.facebook.com",
   "https://connect.facebook.net",
 ].join(" ");
+const POSTHOG_CSP = (() => {
+  try {
+    const ingestionHost = new URL(process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "");
+    const assetHost = ingestionHost.hostname.replace(".i.", "-assets.i.");
+    return {
+      ingestion: ingestionHost.origin,
+      assets: `${ingestionHost.protocol}//${assetHost}`,
+    };
+  } catch {
+    return null;
+  }
+})();
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com ${GOOGLE_TAGS} https://connect.facebook.net https://stapecdn.com https://edge.getvom.com`,
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com ${GOOGLE_TAGS} https://connect.facebook.net https://stapecdn.com https://edge.getvom.com ${POSTHOG_CSP?.assets ?? ""}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${process.env.MEDIA_BASE_URL || "https://media.getvom.com"} ${GOOGLE_TAGS} ${TAG_BEACONS}`,
   "font-src 'self'",
-  `connect-src 'self' https://*.supabase.co https://*.r2.cloudflarestorage.com https://challenges.cloudflare.com ${GOOGLE_TAGS} ${TAG_BEACONS} https://stapecdn.com`,
+  `connect-src 'self' https://*.supabase.co https://*.r2.cloudflarestorage.com https://challenges.cloudflare.com ${GOOGLE_TAGS} ${TAG_BEACONS} https://stapecdn.com ${POSTHOG_CSP?.ingestion ?? ""}`,
+  "worker-src 'self' blob:",
   "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://td.doubleclick.net https://www.googletagmanager.com https://edge.getvom.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",

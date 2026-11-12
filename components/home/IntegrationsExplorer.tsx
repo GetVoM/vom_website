@@ -2,6 +2,7 @@
 
 import { Fragment, useState } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -59,6 +60,11 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
   const [activeId, setActiveId] = useState(items[0].id);
   const active = items.find((i) => i.id === activeId) ?? items[0];
   const fmt = (n: number) => n.toLocaleString("en-US");
+  const selectIntegration = (item: ExplorerItem) => {
+    if (item.id === activeId) return;
+    setActiveId(item.id);
+    posthog.capture("integration_selected", { integration_id: item.id, is_live: item.live });
+  };
 
   return (
     <div className="grid gap-6 lg:grid-cols-[4fr_8fr]">
@@ -69,7 +75,7 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
               type="button"
               role="tab"
               aria-selected={item.id === activeId}
-              onClick={() => setActiveId(item.id)}
+              onClick={() => selectIntegration(item)}
               data-active={item.id === activeId ? "" : undefined}
               className="int-item flex w-full items-center gap-3 rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-4 py-3 text-start transition-colors hover:border-teal-300"
             >

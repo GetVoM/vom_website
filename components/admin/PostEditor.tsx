@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import posthog from "posthog-js";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Editor, JSONContent } from "@tiptap/core";
 import { deleteDraft, savePost, type PostInput } from "@/app/(admin)/admin/actions";
@@ -111,8 +112,14 @@ export function PostEditor({ post, categories, authors, categoryIds, twins }: Pr
         setNote({ kind: "error", text: result.message });
         return false;
       }
-      if (intent === "publish") setStatus("published");
-      if (intent === "unpublish") setStatus("draft");
+      if (intent === "publish") {
+        setStatus("published");
+        posthog.capture("post_published", { post_type: post.type, locale: post.lang });
+      }
+      if (intent === "unpublish") {
+        setStatus("draft");
+        posthog.capture("post_unpublished", { post_type: post.type, locale: post.lang });
+      }
       setDirty(false);
       setNote({ kind: "saved", text: result.message ?? "حُفظ." });
       return true;

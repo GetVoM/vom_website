@@ -6,18 +6,10 @@ import { signOut } from "../actions";
 
 /** The sidebar and the page, rendered only once the visitor is known to be an admin. */
 async function Shell({ children }: { children: React.ReactNode }) {
-  await requireAdmin();
+  const { userId } = await requireAdmin();
   return (
     <div className="adm-shell">
-      <Sidebar
-        footer={
-          <form action={signOut}>
-            <button type="submit" className="adm-side-signout">
-              تسجيل الخروج
-            </button>
-          </form>
-        }
-      />
+      <Sidebar userId={userId} signOutAction={signOut} />
       <main className="adm-main">
         <Suspense fallback={<Loader />}>{children}</Suspense>
       </main>

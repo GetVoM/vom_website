@@ -1,4 +1,6 @@
+import { SeverityNumber } from "@opentelemetry/api-logs";
 import { createClient } from "@supabase/supabase-js";
+import { flushPostHogLogs, posthogLogger } from "@/instrumentation";
 import { isLeadForm, leadForms, type LeadFields } from "./forms.ts";
 
 /**
@@ -8,7 +10,6 @@ import { isLeadForm, leadForms, type LeadFields } from "./forms.ts";
  * configured. The insert comes first, so an email failure never loses a lead.
  *
  * It fails closed: with no Turnstile secret or no token, nothing is saved.
- * Kept free of Next.js imports so it can be tested from a script.
  */
 export type LeadOutcome = { ok: true } | { ok: false; reason: "invalid" | "turnstile" | "unavailable"; fields?: string[] };
 
@@ -60,7 +61,15 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
   const fieldOf = (path: PropertyKey[]) => String(path[0] === "payload" && path.length > 1 ? path[1] : path[0]);
   if (!parsed.success) return { ok: false, reason: "invalid", fields: [...new Set(parsed.error.issues.map((issue) => fieldOf(issue.path)))] };
 
-  if (!context.token || !(await verifyTurnstile(context.token, context.ip))) return { ok: false, reason: "turnstile" };
+  if (!context.token || !(await verifyTurnstile(context.token, context.ip))) {
+    posthogLogger?.emit({
+      body: "Lead submission rejected by Turnstile",
+      severityNumber: SeverityNumber.WARN,
+      attributes: { form, outcome: "turnstile_rejected" },
+    });
+    await flushPostHogLogs();
+    return { ok: false, reason: "turnstile" };
+  }
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -84,8 +93,20 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
   const { error } = await db.from("leads").insert(row);
   if (error) {
     console.error("Could not save a lead:", error.message);
+    posthogLogger?.emit({
+      body: "Lead submission storage failed",
+      severityNumber: SeverityNumber.ERROR,
+      attributes: { form, outcome: "storage_unavailable" },
+    });
+    await flushPostHogLogs();
     return { ok: false, reason: "unavailable" };
   }
   await notify(form, row);
+  posthogLogger?.emit({
+    body: "Lead submission stored",
+    severityNumber: SeverityNumber.INFO,
+    attributes: { form, locale: context.locale ?? "unknown", outcome: "stored" },
+  });
+  await flushPostHogLogs();
   return { ok: true };
 }

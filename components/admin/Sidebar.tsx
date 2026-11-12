@@ -2,7 +2,8 @@
 
 import Link, { useLinkStatus } from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense, useState, type ReactNode } from "react";
+import posthog from "posthog-js";
+import { Suspense, useEffect, useState } from "react";
 import { useAdminHref } from "./AdminBase";
 
 interface Item {
@@ -53,12 +54,21 @@ function Items({ items, onNavigate }: { items: Item[]; onNavigate: () => void })
 
 /**
  * The admin's sidebar: content types, the library behind them, and the leads
- * inbox, with the current section marked. Below 900px it folds into a bar with
- * a menu button. `footer` holds the sign-out form, which is a server action.
+ * inbox, with the current section marked. It establishes the verified Supabase
+ * user ID for browser analytics once the authenticated panel mounts.
  */
-export function Sidebar({ footer }: { footer: ReactNode }) {
+export function Sidebar({ userId, signOutAction }: { userId: string; signOutAction: () => Promise<void> }) {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    posthog.identify(userId);
+  }, [userId]);
+
+  const signOut = () => {
+    posthog.reset();
+    void signOutAction();
+  };
   const group = (title: string, items: Item[]) => (
     <div className="adm-side-group">
       <p className="adm-side-title">{title}</p>
@@ -84,7 +94,9 @@ export function Sidebar({ footer }: { footer: ReactNode }) {
           <a href="/" target="_blank" rel="noopener">
             فتح الموقع
           </a>
-          {footer}
+          <button type="button" className="adm-side-signout" onClick={signOut}>
+            تسجيل الخروج
+          </button>
         </div>
       </nav>
     </aside>
