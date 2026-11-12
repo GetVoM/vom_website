@@ -46,6 +46,8 @@ Notable rows:
 - `/en/pricing-en/` and the unprefixed `/pricing-en/` → `/en/pricing/`: 301, matching what the live site already does (it reached `/en/pricing/` from `/pricing-en/` in two hops). The live site already serves `/en/pricing/`, which is now a `keep` row (2026-11-10).
 - `/get-free-version/` → `/`: 301. It is an empty shell titled "Vom"; the owner sent it to the homepage rather than the student package (2026-11-10).
 - 17 URLs lack a meta description (mostly category archives); they get one before launch.
+- Links in post bodies to addresses WordPress never had (link check, 2026-11-12): eight lead by 301 to the page their link text names (`postLinkRedirects` in `next.config.ts`); the posts themselves are unchanged (owner). The other nine have no matching page and stay 404: `/accounting/برامج-محاسبة/`, `/tax-zakat/الامتثال-السريع-مع-هيئة-الزكاة/`, `/التدقيق-المالي/`, `/فاتورة-ضريبية/`, `/برامج-محاسبة/`, `/المرحلة-الثانية-من-الفاتورة-الإلكترو/`, `/مراحل-الفوترة-الالكترونية-الجديدة/`, `/برنامج-إيجار-سيارات/`, `/التسجيل-في-مرسول/`.
+- Prexle and the naming philosophy are off the site (owner, 2026-11-12): no link, mention or image. Their `keep` rows (`/vom-prexle/`, `/en/vom-prexel/`, `/en/naming-philosophy/`) still need a decision: redirect or 410.
 
 ## Migration mechanics
 

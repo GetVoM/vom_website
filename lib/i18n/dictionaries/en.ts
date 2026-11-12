@@ -97,7 +97,7 @@ export const en: Dictionary = {
     items: [
       {
         title: "Record the sale",
-        body: "From your phone, browser or point of sale, or let Foodics, Zid, Marn and Prexle send it automatically.",
+        body: "From your phone, browser or point of sale, or let Foodics, Zid and Marn send it automatically.",
       },
       {
         title: "The e-invoice is issued",
@@ -204,7 +204,7 @@ export const en: Dictionary = {
       },
       {
         q: "Does VoM work on mobile?",
-        a: "Yes. Manage your books from the browser on any device and from the VoM app on iOS, with sales posted automatically from Foodics, Zid, Marn and Prexle.",
+        a: "Yes. Manage your books from the browser on any device and from the VoM app on iOS, with sales posted automatically from Foodics, Zid and Marn.",
       },
     ],
   },
@@ -239,7 +239,6 @@ export const en: Dictionary = {
       company: [
         ["About", "/about-us/"],
         ["Contact", "/contact-us/"],
-        ["Naming philosophy", "/naming-philosophy/"],
         ["Growth Program", "/growth-plan/"],
         ["Terms and conditions", "/terms-and-conditions/"],
       ],

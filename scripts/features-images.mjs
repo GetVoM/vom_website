@@ -5,12 +5,9 @@
  * migration can be repeated. Run: node scripts/features-images.mjs
  *
  * Screenshots lose only the flat margin around them (trim), then are scaled to
- * at most 1600 px wide; photos keep their alpha. Prexle's mark is the partner
- * half of the old "VoM | Prexle" lockup, which the download does not hold: it is
- * read from the live site's upload (a plain GET of a public image) when missing.
+ * at most 1600 px wide; photos keep their alpha.
  */
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync } from "node:fs";
+import { mkdirSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -22,7 +19,6 @@ const sharp = require(require.resolve("sharp", { paths: [require.resolve("next")
 
 const uploads = join(root, "getvom.com/wp-content/uploads");
 const outDir = join(root, "public/features");
-const cacheDir = join(root, "node_modules/.cache/features-images");
 const MAX_WIDTH = 1600;
 
 /** Output name → source upload, and how to treat it. */
@@ -60,8 +56,6 @@ const images = {
   "photo-app": { src: "2023/08/Isolated_right_hand_with_smartphone-1-e1692264443400.png", kind: "art" },
 };
 
-const PREXLE_URL = "https://getvom.com/wp-content/uploads/2023/09/Untitled2-1-02.png";
-
 async function screen(input) {
   // Trim the flat margin the screenshot was taken with, keeping a hair of it.
   // sharp runs trim, resize and extend in a fixed order, so each step is its own pass.
@@ -74,18 +68,6 @@ function art(input) {
   return sharp(input).resize({ width: MAX_WIDTH, withoutEnlargement: true }).webp({ quality: 90, alphaQuality: 100, effort: 6 });
 }
 
-async function prexleMark() {
-  mkdirSync(cacheDir, { recursive: true });
-  const cached = join(cacheDir, "prexle-lockup.png");
-  if (!existsSync(cached)) execFileSync("curl", ["-sSfL", "-A", "Mozilla/5.0", "-o", cached, PREXLE_URL]);
-  const { width, height } = await sharp(cached).metadata();
-  // The lockup reads "VoM | Prexle"; Prexle's half starts after the divider, at 66% of the width.
-  const left = Math.round(width * 0.66);
-  const half = await sharp(cached).extract({ left, top: 0, width: width - left, height }).toBuffer();
-  const mark = await sharp(half).trim().toBuffer();
-  return sharp(mark).webp({ quality: 90, alphaQuality: 100, effort: 6 });
-}
-
 mkdirSync(outDir, { recursive: true });
 for (const [name, { src, kind }] of Object.entries(images)) {
   const input = join(uploads, src);
@@ -94,5 +76,3 @@ for (const [name, { src, kind }] of Object.entries(images)) {
   const info = await pipeline.toFile(out);
   console.log(`${name}.webp ${info.width}×${info.height} ${Math.round(info.size / 1024)} KB`);
 }
-const prexle = await (await prexleMark()).toFile(join(outDir, "prexle-mark.webp"));
-console.log(`prexle-mark.webp ${prexle.width}×${prexle.height} ${Math.round(prexle.size / 1024)} KB`);

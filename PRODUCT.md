@@ -14,7 +14,7 @@ Existing scaffold: Next.js 16.4.3 (App Router, `cacheComponents` and `partialPre
 
 Primary: owners and finance staff of small and mid-sized businesses in Saudi Arabia who must issue ZATCA-compliant e-invoices (Phase 2), record sales, purchases and expenses, and read financial reports without employing a full-time accountant. The current site names fifteen sectors it serves: restaurants and cafés, beauty salons, gyms and sports clubs, law firms, design offices, marketing agencies, logistics companies, travel agencies, car maintenance centres, e-commerce stores and apps, perfume shops, real estate and contracting, investment firms, printing and advertising, and childcare centres.
 
-Secondary audiences present on the current site: accountants and bookkeepers who manage several clients; accounting students (a student package exists); merchants of integration partners (Foodics, Zid, Marn, Prexle); English-speaking owners and expatriate finance staff (the English mirror exists for them).
+Secondary audiences present on the current site: accountants and bookkeepers who manage several clients; accounting students (a student package exists); merchants of integration partners (Foodics, Zid, Marn); English-speaking owners and expatriate finance staff (the English mirror exists for them).
 
 Language: Arabic first. English is a full mirror of the marketing pages; the blog is Arabic only today.
 
@@ -35,7 +35,7 @@ The website's job is to win Arabic organic search for accounting, e-invoicing, z
 - Sign-up and login happen on a separate app at app.getvom.com (Arabic and English registration pages). The website never handles accounts.
 - Demo booking runs through Calendly (calendly.com/get-vom/vom-demo). Support runs through a Zendesk help centre, a Crisp chat widget, and WhatsApp (+966 50 230 9337).
 - API documentation lives at app.getvom.com/en/docs/api.
-- Integrations: Foodics and Marn (restaurant POS), Zid (e-commerce), Prexle (POS). The old features page also listed ZenHR and Order; the owner confirmed on 2026-11-10 they are no longer integrations. Partnership news items exist for Nuqta, Mola and "ليزي وايت".
+- Integrations: Foodics and Marn (restaurant POS), Zid (e-commerce). The old features page also listed ZenHR and Order; the owner confirmed on 2026-11-10 they are no longer integrations. Prexle (POS) was removed from the site on 2026-11-12 (owner): no page, link or mention of it. Partnership news items exist for Nuqta, Mola and "ليزي وايت".
 - Payment links are sold as "VoM Pay"; success and failure landing pages exist.
 - Paid campaigns land on `/digital-ads-2023-landing-page/` (Arabic, noindex, no site navigation). Its form is the site's first live lead form (2026-11-12): name and a Saudi mobile (05XXXXXXXX) required, email and business sector optional; leads land in the `leads` table as `digital-ads-2023-landing-page` and show in the admin under that name.
 - The English ZATCA Phase 2 page `/en/zatca-e-invoicing-phase-2/` (the English navbar's e-invoicing item, paired with the Arabic e-invoicing hub) carries the second live lead form (2026-11-12): name and a Saudi mobile, both required; leads land as `zatca-e-invoicing-phase-2`. No GTM conversion is attached to it yet.

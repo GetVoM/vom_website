@@ -49,7 +49,7 @@ export function featuresMetadata(locale: Locale): Metadata {
 const SHEET_WIDTH = 480;
 
 /** Each partner mark's display width on the marks sheet (CSS sets the height). */
-const markWidth = { foodics: 192, zid: 96, marn: 160, prexle: 80 } as const;
+const markWidth = { foodics: 192, zid: 96, marn: 160 } as const;
 
 function displaySize(size: { width: number; height: number }, width: number) {
   return { width, height: Math.round((size.height / size.width) * width) };

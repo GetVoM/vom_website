@@ -119,6 +119,25 @@ const sectorRedirects = SECTOR_SLUGS.flatMap(([old, clean]) => {
 });
 
 /**
+ * Links in blog posts that pointed at addresses WordPress never had (a wrong
+ * category or a shortened slug). The posts keep their text and links as imported;
+ * each address leads to the page its link text names instead (owner, 2026-11-12).
+ * Links with no matching page are left to 404.
+ */
+const postLinkRedirects = (
+  [
+    ["/tax-zakat/ضريبة-القيمة-المضافة", "/invoicing/ضريبة-القيمة-المضافة/"],
+    ["/financial-analysis/تحليل-القوائم-المالية", "/finance/تحليل-القوائم-المالية/"],
+    ["/business-legal/الامتثال-الضريبي-للشركات-الصغيرة", "/tax-zakat/الامتثال-الضريبي-للشركات-الصغيرة/"],
+    ["/tax-zakat/السلع-والخدمات-المعفاة-من-ضريبة-القيم", "/invoicing/السلع-والخدمات-المعفاة-من-ضريبة-القيم/"],
+    ["/طريقة-عمل-فاتورة-إلكترونية", "/الفوترة-الإلكترونية/طريقة-عمل-و-إصدار-فاتورة-الكترونية/"],
+    ["/finance/القوائم-المالية", "/accounting/القوائم-المالية/"],
+    ["/مراحل-تطبيق-الفوترة-الإلكترونية", "/الفوترة-الإلكترونية/مراحل-تطبيق-الفاتورة-الإلكترونية/"],
+    ["/من-نحن", "/about-us/"],
+  ] as const
+).map(([source, destination]) => ({ source: encodeURI(source), destination: encodeURI(destination), statusCode: 301 as const }));
+
+/**
  * WordPress media now lives in Cloudflare R2 at media.getvom.com, under the same
  * keys, so every old /wp-content/uploads/ URL is sent there. Redirects run before
  * the filesystem, so the few files this site still serves itself from
@@ -329,6 +348,7 @@ const nextConfig: NextConfig = {
       // English blog and news addresses WordPress used before.
       { source: "/en/blog-en", destination: "/en/blog/", statusCode: 301 as const },
       { source: "/en/news-archive-en", destination: "/en/news/", statusCode: 301 as const },
+      ...postLinkRedirects,
       ...mediaRedirects,
     ];
   },

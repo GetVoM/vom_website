@@ -110,27 +110,20 @@ export const modulePhotos: Partial<Record<ModuleId, PhotoId>> = {
 export const exhibitSrc = (id: ExhibitId) => `/features/${id}.webp`;
 export const photoSrc = (id: PhotoId) => `/features/photo-${id}.webp`;
 
-export type PartnerId = "foodics" | "zid" | "marn" | "prexle";
+export type PartnerId = "foodics" | "zid" | "marn";
 
-/** The integrations the page lists (owner, 2026-11-10): ZenHR and Order are gone. */
-export const partnerIds: PartnerId[] = ["foodics", "zid", "marn", "prexle"];
+/** The integrations the page lists (owner, 2026-11-10): ZenHR and Order are gone; Prexle too (owner, 2026-11-12). */
+export const partnerIds: PartnerId[] = ["foodics", "zid", "marn"];
 
-/** Each partner's mark alone; Prexle's is the partner half of its old VoM lockup. */
+/** Each partner's mark alone. */
 export const partnerMarks: Record<PartnerId, Raster> = {
   foodics: integrations.foodics.mark,
   zid: integrations.zid.mark,
   marn: integrations.marn.mark,
-  prexle: { src: "/features/prexle-mark.webp", width: 841, height: 723 },
 };
 
-/**
- * The pages that explain each integration. Prexle's is still to build; these are
- * its kept WordPress paths (docs/content/url-map.csv).
- */
-export const partnerPaths: Record<PartnerId, PagePair> = {
-  ...integrationPaths,
-  prexle: { ar: "/vom-prexle/", en: "/vom-prexel/" },
-};
+/** The pages that explain each integration. */
+export const partnerPaths: Record<PartnerId, PagePair> = integrationPaths;
 
 /** The public API's documentation in the app. */
 export const apiDocs = "https://app.getvom.com/en/docs/api";

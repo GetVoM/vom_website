@@ -209,7 +209,7 @@ export const featuresAr: FeaturesCopy = {
     ],
   },
   apps: {
-    names: { foodics: "فودكس", zid: "زد", marn: "مرن", prexle: "بريكسل" },
+    names: { foodics: "فودكس", zid: "زد", marn: "مرن" },
     details: "تفاصيل الربط",
     api: {
       text: "واجهة برمجة مفتوحة (API)، يتصل عبرها أي نظام آخر بڤوم",

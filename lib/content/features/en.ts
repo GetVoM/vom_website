@@ -191,7 +191,7 @@ export const featuresEn: FeaturesCopy = {
     ],
   },
   apps: {
-    names: { foodics: "Foodics", zid: "Zid", marn: "Marn", prexle: "Prexle" },
+    names: { foodics: "Foodics", zid: "Zid", marn: "Marn" },
     details: "How it connects",
     api: { text: "An open API, so any other system can connect to VoM", plan: true },
     docs: "Developer docs",

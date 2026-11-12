@@ -6394,6 +6394,10 @@ html[dir="rtl"] .ftr-partners b + span::after {
 .ftr-marks li:nth-child(n + 3) {
   border-top: 1px solid var(--color-paper-200);
 }
+/* An odd mark out takes the whole last row, so the sheet has no empty cell. */
+.ftr-marks li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
 .ftr-marks img {
   width: auto;
   max-width: 100%;
@@ -6407,9 +6411,6 @@ html[dir="rtl"] .ftr-partners b + span::after {
 }
 .ftr-marks img[data-mark="zid"] {
   --mark-scale: 1.25;
-}
-.ftr-marks img[data-mark="prexle"] {
-  --mark-scale: 1.75;
 }
 
 /* The attached sheets. */
