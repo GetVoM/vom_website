@@ -12,6 +12,8 @@ Start with `CLAUDE.md` at the repo root (how to work here) and `PRODUCT.md` (pro
 | `content/tools/text-changes.md` | Every change the tool pages make to the WordPress copy |
 | `content/tools/calculator-rules.md` | Each calculator's fields and formula, the old widget against the new one, and the constants for the accountant's sign-off |
 | `content/campaigns/digital-ads-2023-text-changes.md` | The paid-campaign landing page: every change to the old copy, form and images |
+| `content/zatca-phase-2-text-changes.md` | The English ZATCA Phase 2 page: the new SEO tags, every change to the old copy, form and images |
+| `content/vom-pay-text-changes.md` | The VoM Pay result pages: the error codes, every change to the old copy, the new English, the form and images |
 | `design/directions.md` | The three design directions, shared colour roles, the typeface finding, next steps after the pick |
 | `architecture.md` | Rendering, locale routing, URL preservation, content layer, metadata, fonts, images, analytics, security, testing, hosting |
 | `research/next16-digest.md` | Next.js 16.4.3 API digest for people coming from 13 to 15 |

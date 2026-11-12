@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { LeadForm } from "@/components/campaigns/LeadForm";
 import { ReturnBar } from "@/components/campaigns/ReturnBar";
 import { SocialGlyph } from "@/components/contact/SocialGlyph";
+import { LeadForm } from "@/components/forms/LeadForm";
 import { clients, tileLogo } from "@/lib/content/clients";
 import { digitalAds2023 as page } from "@/lib/content/campaigns/digital-ads-2023";
 import { optimizedSrc } from "@/lib/image-url";
+import { DIGITAL_ADS_FORM, gtmFormSuccess, sectorLabel, sectors } from "@/lib/leads/digital-ads-2023";
 import { site } from "@/lib/seo/site";
 
 /**
@@ -38,7 +39,16 @@ export function DigitalAds2023() {
               {page.callToAction}
             </h2>
             <div className="lp-sheet">
-              <LeadForm copy={page.form} label={page.callToAction} whatsappUrl={site.whatsappUrl} />
+              <LeadForm
+                form={DIGITAL_ADS_FORM}
+                locale="ar"
+                copy={page.form}
+                label={page.callToAction}
+                gtm={gtmFormSuccess}
+                whatsappUrl={site.whatsappUrl}
+                email={{ label: page.form.email, error: page.form.errors.email }}
+                sector={{ label: sectorLabel, choose: page.form.sectorChoose, options: sectors, error: page.form.errors.sector }}
+              />
             </div>
           </div>
         </aside>

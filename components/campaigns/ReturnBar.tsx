@@ -21,7 +21,7 @@ export function ReturnBar({ label, target }: { label: string; target: string }) 
     if (!panel) return;
     const root = document.documentElement;
     const observer = new IntersectionObserver(([entry]) => {
-      const sent = panel.querySelector(".lp-thanks") !== null;
+      const sent = panel.querySelector(".lead-thanks") !== null;
       setShown(!sent && !entry.isIntersecting && entry.boundingClientRect.top < 0);
       if (entry.isIntersecting) root.dataset.lpPanel = "in";
       else delete root.dataset.lpPanel;

@@ -1,12 +1,13 @@
 import type { Locale } from "@/lib/i18n/config";
 import { localePath } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
+import { zatcaPhase2Paths } from "@/lib/i18n/routes";
 import { ButtonLink } from "@/components/ui/Button";
 import { Guilloche } from "./Guilloche";
 import { QrCode } from "./QrCode";
 
 export function ZatcaBand({ locale, t }: { locale: Locale; t: Dictionary }) {
-  const guideHref = localePath(locale, locale === "ar" ? "/الفوترة-الإلكترونية/" : "/zatca-e-invoicing-phase-2/");
+  const guideHref = localePath(locale, zatcaPhase2Paths[locale]);
   return (
     <section id="zatca" className="guilloche-dark relative overflow-hidden text-white">
       <Guilloche id="zatca-guilloche" className="absolute inset-0 h-full w-full" stroke="rgba(255,255,255,0.14)" />

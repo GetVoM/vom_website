@@ -23,7 +23,7 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 | Action | Count | Meaning |
 |---|---|---|
 | keep | 371 | Same path, same content, migrated one to one |
-| keep-noindex | 5 | Utility pages (thank-you, payment results) kept but not indexed |
+| keep-noindex | 7 | Utility pages (thank-you, payment results) kept but not indexed; 2 are the VoM Pay pages' English twins, added 2026-11-12 |
 | redirect | 54 | Duplicates and renamed pages, 301 to the listed target |
 | retire | 10 | Test, campaign and already-dead pages, 410 |
 
@@ -31,6 +31,8 @@ Notable rows:
 
 - Three sitemap URLs already return 404 (`/en/pricing-Packages/`, two empty English categories): remove from the sitemap, return 410.
 - `/digital-ads-2023-landing-page/`, once marked retire, is kept (owner, 2026-11-12): the paid-campaign page, rebuilt under `app/(campaigns)/`, noindex, with the site's first live lead form; see `docs/content/campaigns/`.
+- `/en/zatca-e-invoicing-phase-2/` is kept and rebuilt (2026-11-12): English only, with a new English title, description and self canonical (WordPress served the Arabic blog's title and pointed the canonical at `/en/blog-en/en/`), paired with the Arabic e-invoicing hub in hreflang, and the site's second live lead form; see `docs/content/zatca-phase-2-text-changes.md`.
+- `/vom-pay-success/` and `/vom-pay-failure/` (keep-noindex) are rebuilt with their English twins `/en/vom-pay-success/` and `/en/vom-pay-failure/` (2026-11-12). The app sends payers to these four addresses, so none may change; the English two were not in the WordPress sitemap and are added to `url-map.csv`. See `docs/content/vom-pay-text-changes.md`.
 - `/pricing-ar/` duplicates `/pricing/`: 301.
 - `/growth-program-old/` → `/growth-plan/`: 301.
 - `/en/contact-us-2/` → `/en/contact-us/`: 301 (owner, 2026-11-02).

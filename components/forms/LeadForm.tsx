@@ -2,9 +2,9 @@
 
 import { startTransition, useActionState, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { Turnstile } from "@/components/forms/Turnstile";
-import type { digitalAds2023 } from "@/lib/content/campaigns/digital-ads-2023";
+import type { Locale } from "@/lib/i18n/config";
 import { attributionKeys } from "@/lib/leads/attribution";
-import { DIGITAL_ADS_FORM, gtmFormSuccess, sectorLabel, sectors } from "@/lib/leads/digital-ads-2023";
+import type { LeadForm as LeadFormName } from "@/lib/leads/forms";
 import { normaliseSaudiMobile } from "@/lib/leads/phone";
 import { submitLead, type LeadState } from "@/lib/leads/submit-lead";
 
@@ -17,7 +17,53 @@ const readLocation = () => `${window.location.pathname}${window.location.search}
 /** How long a submit waits for the Turnstile token before posting anyway (the server then says why). */
 const TOKEN_WAIT = 10_000;
 
-/** The browser's own checks, mirroring the server's (lib/leads/forms.ts): name and mobile required, email checked only when typed. */
+/** The words every lead form needs: the two required fields, the button, the failures and the thank-you. */
+export interface LeadFormCopy {
+  name: string;
+  phone: string;
+  phonePlaceholder: string;
+  submit: string;
+  sending: string;
+  /** The mark beside an optional field's label; needed only when the form has one. */
+  optional?: string;
+  errors: { name: string; phone: string; network: string };
+  thanks: { heading: string; body: string; whatsapp: string };
+}
+
+/** An optional field: its label and the message shown when what was typed cannot be used. */
+export interface OptionalEmail {
+  label: string;
+  error: string;
+}
+export interface OptionalSector {
+  label: string;
+  /** The empty option, so the select does not read as already chosen. */
+  choose: string;
+  options: readonly string[];
+  error: string;
+}
+
+/** What Google Tag Manager hears once a lead is saved: each page keeps its old Elementor form's words. */
+export interface GtmFormSuccess {
+  readonly event: string;
+  readonly form_name: string;
+  readonly form_id: string;
+}
+
+interface LeadFormProps {
+  /** The form's name in the leads registry (lib/leads/forms.ts), which says what the server accepts. */
+  form: LeadFormName;
+  locale: Locale;
+  copy: LeadFormCopy;
+  /** The form's accessible name: the line that asks for the lead. */
+  label: string;
+  gtm: GtmFormSuccess;
+  whatsappUrl: string;
+  email?: OptionalEmail;
+  sector?: OptionalSector;
+}
+
+/** The browser's own checks, mirroring the server's: name and mobile required, email checked only when typed. */
 function check(data: FormData): Field[] {
   const value = (name: string) => String(data.get(name) ?? "").trim();
   const wrong: Field[] = [];
@@ -28,17 +74,20 @@ function check(data: FormData): Field[] {
 }
 
 /**
- * The campaign's lead form. It posts through `submitLead` to the leads table
- * as `digital-ads-2023-landing-page`. On success it swaps itself for a thank-you
- * note and tells Google Tag Manager in the words the old Elementor form used,
- * which fire the campaign's conversion tags (lib/leads/digital-ads-2023.ts).
+ * A lead form: full name and a Saudi mobile, required, plus an optional email
+ * and business sector where the page asks for them. It posts through
+ * `submitLead` to the leads table under `form`. On success it swaps itself for
+ * a thank-you note, takes focus there, and pushes `gtm` to Google Tag Manager
+ * once, in the words the page's old Elementor form used, so the container's
+ * triggers keep working. Styled from `.lead-` in app/globals.css; each page
+ * dresses it from its own block.
  */
-export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAds2023)["form"]; label: string; whatsappUrl: string }) {
+export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, sector }: LeadFormProps) {
   const id = useId();
   // A failed call (no network, a server error) must not cost the visitor the form: it becomes a message, the entries stay.
   const send = async (previous: LeadState | null, data: FormData): Promise<LeadState> => {
     try {
-      return await submitLead(DIGITAL_ADS_FORM, previous, data);
+      return await submitLead(form, previous, data);
     } catch {
       return { ok: false, message: copy.errors.network };
     }
@@ -69,9 +118,9 @@ export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAd
     announced.current = true;
     // GTM's queue (typed by @next/third-parties); created here if GTM has not loaded yet.
     window.dataLayer = window.dataLayer ?? [];
-    window.dataLayer.push({ ...gtmFormSuccess });
+    window.dataLayer.push({ ...gtm });
     thanks.current?.focus();
-  }, [state]);
+  }, [state, gtm]);
 
   const onToken = (value: string | null) => {
     token.current = value;
@@ -93,32 +142,33 @@ export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAd
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (busy) return;
-    const form = event.currentTarget;
-    const data = new FormData(form);
+    const element = event.currentTarget;
+    const data = new FormData(element);
     const wrong = check(data);
     setErrors(wrong);
     if (wrong.length > 0) {
-      form.querySelector<HTMLElement>(`[name="${wrong[0]}"]`)?.focus();
+      element.querySelector<HTMLElement>(`[name="${wrong[0]}"]`)?.focus();
       return;
     }
     setWaiting(true);
     await tokenReady();
     setWaiting(false);
     // The token field is filled now; read the form again so it is included.
-    startTransition(() => action(new FormData(form)));
+    startTransition(() => action(new FormData(element)));
   };
 
   const shown = (field: Field) => errors.includes(field) || (!pending && !state?.ok && state?.fields?.includes(field));
   const describe = (field: Field) => (shown(field) ? `${id}-${field}-error` : undefined);
+  const clear = (field: Field) => errors.includes(field) && setErrors(errors.filter((each) => each !== field));
 
   if (state?.ok) {
     return (
-      <div className="lp-thanks" role="status">
+      <div className="lead-thanks" role="status">
         <h2 ref={thanks} tabIndex={-1}>
           {copy.thanks.heading}
         </h2>
         <p>{copy.thanks.body}</p>
-        <a href={whatsappUrl} target="_blank" rel="noopener" className="lp-thanks-link">
+        <a href={whatsappUrl} target="_blank" rel="noopener" className="lead-thanks-link">
           {copy.thanks.whatsapp}
         </a>
       </div>
@@ -126,8 +176,8 @@ export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAd
   }
 
   return (
-    <form className="lp-form" name={gtmFormSuccess.form_name} aria-label={label} noValidate onSubmit={submit}>
-      <div className="lp-field">
+    <form className="lead-form" name={gtm.form_name} aria-label={label} noValidate onSubmit={submit}>
+      <div className="lead-field">
         <label htmlFor={`${id}-name`}>{copy.name}</label>
         <input
           id={`${id}-name`}
@@ -138,16 +188,16 @@ export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAd
           maxLength={200}
           aria-invalid={shown("name") || undefined}
           aria-describedby={describe("name")}
-          onChange={() => errors.includes("name") && setErrors(errors.filter((field) => field !== "name"))}
+          onChange={() => clear("name")}
         />
         {shown("name") && (
-          <p id={`${id}-name-error`} className="lp-error">
+          <p id={`${id}-name-error`} className="lead-error">
             {copy.errors.name}
           </p>
         )}
       </div>
 
-      <div className="lp-field">
+      <div className="lead-field">
         <label htmlFor={`${id}-phone`}>{copy.phone}</label>
         <input
           id={`${id}-phone`}
@@ -164,7 +214,7 @@ export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAd
           aria-describedby={describe("phone")}
           onChange={(event) => {
             setPhone(event.target.value);
-            if (errors.includes("phone")) setErrors(errors.filter((field) => field !== "phone"));
+            clear("phone");
           }}
           onBlur={() => {
             if (!phone.trim()) return;
@@ -175,62 +225,66 @@ export function LeadForm({ copy, label, whatsappUrl }: { copy: (typeof digitalAd
           }}
         />
         {shown("phone") && (
-          <p id={`${id}-phone-error`} className="lp-error">
+          <p id={`${id}-phone-error`} className="lead-error">
             {copy.errors.phone}
           </p>
         )}
       </div>
 
-      <div className="lp-field">
-        <label htmlFor={`${id}-email`}>
-          {copy.email} <span className="lp-optional">{copy.optional}</span>
-        </label>
-        <input
-          id={`${id}-email`}
-          name="email"
-          type="email"
-          dir="ltr"
-          autoComplete="email"
-          maxLength={320}
-          aria-invalid={shown("email") || undefined}
-          aria-describedby={describe("email")}
-          onChange={() => errors.includes("email") && setErrors(errors.filter((field) => field !== "email"))}
-        />
-        {shown("email") && (
-          <p id={`${id}-email-error`} className="lp-error">
-            {copy.errors.email}
-          </p>
-        )}
-      </div>
+      {email && (
+        <div className="lead-field">
+          <label htmlFor={`${id}-email`}>
+            {email.label} <span className="lead-optional">{copy.optional}</span>
+          </label>
+          <input
+            id={`${id}-email`}
+            name="email"
+            type="email"
+            dir="ltr"
+            autoComplete="email"
+            maxLength={320}
+            aria-invalid={shown("email") || undefined}
+            aria-describedby={describe("email")}
+            onChange={() => clear("email")}
+          />
+          {shown("email") && (
+            <p id={`${id}-email-error`} className="lead-error">
+              {email.error}
+            </p>
+          )}
+        </div>
+      )}
 
-      <div className="lp-field">
-        <label htmlFor={`${id}-sector`}>
-          {sectorLabel} <span className="lp-optional">{copy.optional}</span>
-        </label>
-        <select id={`${id}-sector`} name="sector" defaultValue="" aria-invalid={shown("sector") || undefined} aria-describedby={describe("sector")}>
-          <option value="">{copy.sectorChoose}</option>
-          {sectors.map((sector) => (
-            <option key={sector} value={sector}>
-              {sector}
-            </option>
-          ))}
-        </select>
-        {shown("sector") && (
-          <p id={`${id}-sector-error`} className="lp-error">
-            {copy.errors.sector}
-          </p>
-        )}
-      </div>
+      {sector && (
+        <div className="lead-field">
+          <label htmlFor={`${id}-sector`}>
+            {sector.label} <span className="lead-optional">{copy.optional}</span>
+          </label>
+          <select id={`${id}-sector`} name="sector" defaultValue="" aria-invalid={shown("sector") || undefined} aria-describedby={describe("sector")}>
+            <option value="">{sector.choose}</option>
+            {sector.options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          {shown("sector") && (
+            <p id={`${id}-sector-error`} className="lead-error">
+              {sector.error}
+            </p>
+          )}
+        </div>
+      )}
 
-      <input type="hidden" name="locale" value="ar" />
+      <input type="hidden" name="locale" value={locale} />
       {context && <input type="hidden" name="page_path" value={context.path} />}
       {context?.attribution.map(([key, value]) => <input key={key} type="hidden" name={key} value={value} />)}
-      <Turnstile locale="ar" onToken={onToken} />
+      <Turnstile locale={locale} onToken={onToken} />
 
-      <button type="submit" className="lp-submit" aria-disabled={busy || undefined}>
+      <button type="submit" className="lead-submit" aria-disabled={busy || undefined}>
         {busy ? copy.sending : copy.submit}
       </button>
-      <p className="lp-status" role="status" aria-live="polite">
+      <p className="lead-status" role="status" aria-live="polite">
         {!busy && state && !state.ok ? state.message : ""}
       </p>
     </form>

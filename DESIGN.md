@@ -225,6 +225,17 @@ typography:
     fontWeight: 700
     lineHeight: "1.25 (sm 1.2, lg 1.15)"
     letterSpacing: "-0.01em"
+  display-zatca:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "3rem (sm 3.75rem, lg 4.5rem)"
+    fontWeight: 700
+    lineHeight: "1.05 (lg 1)"
+    letterSpacing: "-0.02em (lg -0.025em)"
+  display-pay:
+    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontSize: "2.25rem (lg 3rem)"
+    fontWeight: 700
+    lineHeight: 1.15
   figure-poster:
     fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "3rem (sm 3.75rem, lg clamp(4rem, 5.4vw, 5.25rem)); m 2.5rem / 3rem / clamp(3.25rem, 4.2vw, 4rem); s 2rem / 2.375rem / 2.75rem"
@@ -769,7 +780,7 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.sheet}"
     padding: "0 1rem"
-    height: "3rem (lg up to 820px tall 2.75rem)"
+    height: "3rem (campaign, lg up to 820px tall 2.75rem)"
   lead-submit:
     backgroundColor: "{colors.orange}"
     textColor: "{colors.paper}"
@@ -789,6 +800,34 @@ components:
     size: "3.5rem"
   whatsapp-disc-hover:
     backgroundColor: "{colors.teal-700}"
+  zatca-field:
+    backgroundColor: "{colors.teal-600}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.card}"
+    padding: "3.75rem 16px 2.5rem (lg 2rem)"
+  zatca-thread-station:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal}"
+    rounded: "{rounded.pill}"
+    size: "1.5rem"
+  zatca-step-node:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal-700}"
+    rounded: "{rounded.pill}"
+    size: "1.75rem (1200px 2.25rem)"
+  zatca-lane-node:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    size: "3.5rem"
+  zatca-badge-plate:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.sheet}"
+    padding: "0.5rem 0.625rem (lg 0.625rem 0.75rem)"
+    width: "13rem (lg 16rem)"
+  zatca-close-band:
+    backgroundColor: "{colors.teal-600}"
+    textColor: "{colors.paper}"
+    padding: "6rem 0 4.5rem (1200px 7rem 0 5.5rem)"
 ---
 
 # Design System: VoM website (getvom.com)
@@ -823,7 +862,7 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 - **Hairline Teal** (`teal-200`): the double-hairline frame, dividers inside document objects, inactive chart bars.
 - **Ring Teal** (`teal-300`): the outer hairline on client seals, register discs and the FAQ plus; on pricing, the rule under the ledger's pinned plan heads and the double hairline under each "in every plan" group head.
 - **Washed Teal** (`teal-50`, `teal-100`): the wash on a landed anchor (story row, linked clause), selected chips, hovered link tiles, the "2 months free" and saving chips and the most-popular column of the pricing ledger (`teal-50`), and the icon tiles behind line icons (`teal-100`).
-- **Marker Teal** (`teal-600`): section numerals and the sliding contents thumb in the reading register. On the campaign landing page it is the field itself: the form panel and the WhatsApp disc, where white text measures about 3.8:1 against 2.4:1 on Record Teal (see Observed drift).
+- **Marker Teal** (`teal-600`): section numerals and the sliding contents thumb in the reading register. On the campaign landing page it is the field itself: the form panel and the WhatsApp disc, where white text measures about 3.8:1 against 2.4:1 on Record Teal (see Observed drift). The ZATCA Phase 2 page fills its hero form field and its close band with it for the same reason, and the VoM Pay success page its lead field and its close band.
 - **Deep Teal** (`teal-800`): text on the inverse (white) button and on selected chips.
 - **Shadow Teal** (`teal-950`): never a fill; the tint of every lifted shadow, as `rgba(5, 42, 37, a)`.
 
@@ -898,6 +937,8 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Figure, poster** (`figure-poster`; 700, 3rem, 3.75rem from 640px, then `clamp(4rem, 5.4vw, 5.25rem)` from 1024px, 1, -0.02em, white, tabular through `.sar` / `.num`, no wrap): a calculator's answer on its teal band, under the answer label (700, 1.125rem, 1.25rem from 1024px, 1.5, balanced, white) and over the double white rule. Long amounts step down by length: `m` (over 11 characters) 2.5rem / 3rem / `clamp(3.25rem, 4.2vw, 4rem)`, `s` (over 15) 2rem / 2.375rem / 2.75rem. The riyal sign in it is 0.56em by 0.62em, 0.14em before the figure, as on the price figure. The secondary figures in the parts row are 1.375rem bold at 1.2 under 0.875rem weight-500 terms. The drawn cover plate on the tools index sets the same figure at 3.5rem over its own double white rule, with a 1rem weight-500 tabular line under it.
 - **Display, tools index** (`display-tools-index`; 700, 2.5rem, 3.25rem from 640px, then `clamp(3.25rem, 4.4vw, 4rem)` from 1024px, 1.15, -0.01em): the tools index H1 over its intro (1.0625rem, 1.1875rem from 1024px, 1.8, Slate, 58ch, pretty). Group headings are 700 at 1.375rem (1.625rem from 1024px), 1.35, the group's count after the name at 0.9375rem weight 500 in teal-700, tabular; plate names are 1.1875rem bold at 1.4 (1.5rem on a lone plate from 1024px) over a 0.9375rem Slate line at 1.65 (1.0625rem on a lone plate).
 - **Display, campaign** (`display-campaign`; 700, 2rem, 2.5rem from 640px, 3rem from 1024px, 1.25 then 1.2 then 1.15, -0.01em, balanced, ink): the campaign landing page's H1 on the start 7/12, closed by the ZATCA plate inline; under it the lede (1.0625rem, 1.1875rem from 1024px, 1.85, Slate, 62ch, pretty). The contract named the reading display; the build steps lower so the H1 holds the first viewport beside the panel. The panel title is 700 at 1.375rem (1.25rem at laptop heights), 1.45, white, balanced; the features heading 700 at 1.75rem (2rem from 1024px), 1.25, -0.01em; a feature's name 700 at 1.0625rem, 1.5.
+- **Display, ZATCA Phase 2** (`display-zatca`; 700, 3rem, 3.75rem from 640px, 4.5rem from 1024px, 1.05 then 1, -0.02em then -0.025em, balanced, ink): the English ZATCA Phase 2 H1 on the start 7/12, over the lede (1.125rem, 1.25rem from 1024px, 1.65, Slate, 36ch, pretty). Section H2s are 700 at 1.75rem (2.25rem from 1024px), 1.2, -0.01em, balanced, 30ch (32ch from 1024px), each hung on a thread station; H3s 700 at 1.375rem (1.625rem from 1024px), 1.3; body 1.0625rem (1.125rem from 1024px) at 1.75, Slate, 68ch. The old page's accent words inside an H2 or H3 run in Engraver's Teal (see Heading Accent). The closing line on the band is 700 at 1.375rem (1.625rem from 1200px), 1.45, white, 44ch.
+- **Display, VoM Pay** (`display-pay`; 700, 2.25rem, 3rem from 1024px, 1.15, balanced): the status H1 on the VoM Pay result pages, centred in the Status Panel under the illustration, Engraver's Teal on success and ink on failure; the line or code under it is 1.125rem (1.25rem from 1024px) at 1.6, the line Slate, the code weight 500 ink. The sheet's invitation is 700 at 1.25rem, 1.45, ink, balanced, over a 1rem Slate line at 1.65; the failure message 1.125rem ink at 1.65, pretty; the FAQ heading 700 at 1.375rem. The pitch heading is 700 at 1.625rem (2rem from 1024px), 1.35, balanced, 30ch (44ch from 1024px), over a 1.125rem Slate line at 1.7, 60ch; the features heading 700 at 1.5rem; a feature's title 700 at 1.125rem, 1.4, over a 1rem Slate body at 1.75, 58ch; the closing line 700 at 1.5rem (1.75rem from 1024px), 1.45, white, 34ch, balanced.
 - **Price figure** (700, 2.75rem, 1, -0.02em, teal-700): the plan price on a plan sheet, the riyal sign before it at 0.56em by 0.62em, the unit after it on the same baseline in Slate at 0.9375rem; Flex's "from" sits above it at 0.875rem weight 500 in Graphite. Sales-quoted plans set a line at 1.375rem bold in its place. Tabular, through `.sar`.
 - **Offer figure** (700, 5.5rem / 7rem / 8rem, 0.8, -0.02em, teal-700): a single offer figure inside a paper door, beside a bold label (1.5rem, 1.875rem from 1024px) over a Slate duration (1.125rem, 1.25rem from 1024px), the group ruled off with the double teal underline. On the growth closing band the same figure runs white at `clamp(5.5rem, 13vw, 10.5rem)`, 0.9, inside a closing line set at 1.75rem / 2.25rem / 2.5rem. The integration close band sets its closing line at the same three steps (700, 1.25, 26ch, balanced).
 
@@ -949,6 +990,10 @@ Calculator pages (`/tools/<slug>/`, Arabic only): a paper title row in the conta
 Tools index (`/tools/`, Arabic only): the head in the container (breadcrumb, the H1 1.25rem under it, the intro 1rem under that), padded 1.5rem / 2.5rem (2rem / 3rem from 1024px). The three groups follow 3.5rem apart (4.5rem from 1024px, 5rem / 6rem to the page end), each heading on a paper-200 rule with its plates 1.75rem under it: one per row on phones, two from 640px and three from 1024px (2rem row gap, 1.5rem column gap, 2rem from 1024px). A group of one lies across the row: from 640px image and words in two equal columns, vertically centred, 1.5rem apart; from 1024px the image takes the start 7fr and the words the end 5fr, 3rem apart. The shared blog close band ends the page.
 
 Campaign landing page (`/digital-ads-2023-landing-page/`, Arabic only): its own root layout with no site header, navigation or footer (see Components), the page in the 1280px container with 7rem at its foot for the fixed controls. Below 1024px one column in this order: the head (the VoM wordmark at 5.5rem, the H1 2rem under it closed by the ZATCA plate, the lede 1.25rem under that; 1.25rem / 2rem block padding), the form panel as a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 2.5rem, then the story 3rem under it. From 1024px a two-column grid, `minmax(0, 7fr) minmax(0, 5fr)` with a 4rem gap and rows `auto 1fr`: the head (2rem top pad, the H1 3.5rem under the wordmark) and the story under it on the start 7/12, the panel on the end 5/12 spanning both rows, 2rem from the top and sticky 1.5rem from the top, a rounded card padded 2rem 2rem 2.25rem, held to the window (`max-height: calc(100dvh - 3rem)`) and scrolling inside itself when error messages make it taller. From 1024px wide and up to 820px tall the panel tightens (padding 1.5rem 1.75rem 1.75rem, the sheet 1.25rem and 1rem under the title, a 0.875rem field gap, 2.75rem fields) so it stays sticky down to a 621px window; at 620px tall and below it scrolls with the page and the return bar takes over, 20rem wide beside the WhatsApp disc. The story stacks its blocks 3.5rem apart (4rem from 1024px, padded 3rem / 3.5rem on top): the photo, then the features, the client wall, the voices and the partners, each filed under a paper-200 hairline with 3rem (4rem from 1024px) above its content. Features run one column, a ruled 2×2 from 640px (2rem column gap); the client wall four across, six from 640px (0.5rem gaps, the short last row centred); the quotes one column, two from 640px (1rem gap); the partners four across, six from 640px.
+
+ZATCA Phase 2 (`/en/zatca-e-invoicing-phase-2/`, English only, inside the site header and footer): the hero in the 1280px container, padded 1.5rem (2rem from 1024px) on top. Below 1024px one column: breadcrumb, H1, lede, the Phase 2 Link lockup filling the column, then the form field as a full-bleed band. From 1024px a `minmax(0, 7fr) minmax(0, 5fr)` grid with a 4rem gap, bottom-aligned: the intro and lockup on the start 7/12, the field on the end 5/12. Under the hero the whole body hangs on the thread: content indented 2.25rem (4.5rem from 1024px) from the container's start edge, the line's spine 0.75rem (1rem) in, 3.5rem (5rem) of padding above the first section, sections 4.5rem (6rem) apart. The what-it-is section sets its text beside the old laptop image (max 34rem) in two equal columns from 1024px (4rem gap). The requirements are one column, two from 640px (2.5rem by 2rem gaps). The readiness register and the VoM help register change layout at 900px and the seven steps at 1200px, two breakpoints only this page uses (see Observed drift). The thread ends 3.5rem (4.5rem) under the last section at the arrival, 4rem (5rem) tall, then 4.5rem (6rem) of paper before the close band.
+
+VoM Pay result pages (`/vom-pay-success/`, `/vom-pay-failure/` and their `/en/` twins, inside the site header and footer, noindex): one template for both outcomes and both languages. The top section sits in the 1280px container, padded 1.5rem / 3rem (2rem / 4.5rem from 1024px). Below 1024px one column, 2rem apart: the Status Panel, then on success the Pay Lead Field as a full-bleed slanted band, on failure the Failure Sheet and the FAQ 2.5rem under it. From 1024px two equal columns with a 3rem gap: status on the start side, the next step on the end side. On success the columns stretch, so the panel takes the field's height; on failure the grid aligns to the start and the panel holds a 32rem minimum height. Success continues on paper, padded 3.5rem / 4.5rem (5rem / 6rem from 1024px): the pitch row (the VoM AI logo at 9rem above the heading; from 640px a 10rem column beside it with a 2.5rem gap, from 1024px 12rem with 3.5rem), the features heading 2.75rem under its rule (3.5rem from 1024px), the lead feature 1.5rem under that (laptop and feature stacked 1.5rem apart, then `1.1fr 1fr` with a 3rem gap from 1024px), then the feature register 1.5rem under it (two columns with a 3rem gap from 900px, the breakpoint the ZATCA Phase 2 registers use), then the close band.
 
 The reading register is a single column of text that fills the page container. From 1024px the header row (breadcrumb, title, meta) spans the full container width and is ruled off by a paper-200 hairline; below it a 15rem contents rail sits on the start side, sticky 6rem from the top, separated by a 4.5rem gap from the text column, which takes the rest of the width. Below 1024px the contents become a bar stuck under the 64px header. Clause numbers hang in a 2.75rem gutter.
 
@@ -1076,6 +1121,22 @@ The reading register is a single column of text that fills the page container. F
 - Campaign: the orange submit and the return bar carry white 17px bold text at about 2.7:1, the site-wide primary-button pairing; the White-on-Orange open conflict in Do's and Don'ts applies, not resolved here.
 - Campaign: the photo sits in a single teal-200 hairline with a 0.375rem bezel at the card radius, not the double-hairline doc frame the contract named; the ZATCA plate is a paper-300 hairline plate at the sheet radius with its own short drop.
 - Campaign: the page is Arabic only with its own root layout (`lang="ar" dir="rtl"`), so its LTR mirroring is unbuilt and unverified; the slanted band's RTL rule is the only mirrored geometry.
+- Lead form: the campaign's laptop-height tightening (2.75rem fields, 0.875rem gap) is scoped to the campaign's block; the shared form is 3rem everywhere else. The ZATCA field sets no thank-you minimum height, where the campaign holds 18rem.
+- ZATCA Phase 2: the H1 is a fifth fluid Display step (3rem / 3.75rem / 4.5rem), off Display's clamp, chosen so «Integration Phase» holds one line at 1440 beside the field.
+- ZATCA Phase 2: the readiness and help registers step at 900px and the seven steps branch at 1200px, breakpoints used nowhere else in the site.
+- ZATCA Phase 2: the thread's station disc (a 1.5rem Paper disc with a 2px Record Teal ring and a 0.25rem centre dot drawn as a radial gradient) and the step and lane nodes (2px inset ring, no gap, no hairline) are a ring recipe beside the seal's three-ring inset and the register's ring-gap-hairline disc; on this page a single ring reads as a station on a line, not a seal.
+- ZATCA Phase 2: the hero line's stroke is set in the lockup's SVG units (4, 3.25 from 640px, 2.75 from 1024px) so it renders near the thread's 2px as the lockup scales; at intermediate widths it renders slightly heavier or lighter than 2px.
+- ZATCA Phase 2: the close band carries both `guilloche-dark` and a teal-600 fill, so the guilloche tile reads on Marker Teal rather than Record Teal; the closing line at 1.375rem bold reaches about 3.8:1, AA for large text only.
+- ZATCA Phase 2: the orange submit, the inline Register Now links and the close band's Register Now carry white text at about 2.7:1; the White-on-Orange open conflict in Do's and Don'ts applies and is disclosed to the owner, not resolved here.
+- ZATCA Phase 2: the laptop image shows VoM's Arabic interface on an English page, and the 18 icons are the old page's raster line icons (`<img>`, one optimiser URL each, no srcset) rather than the house CSS-mask icons; both are the old page's assets, kept one to one.
+- ZATCA Phase 2: the page is English only (paired with the Arabic e-invoicing hub for hreflang), so its RTL mirroring is built with logical properties but unverified in a rendered RTL page.
+- VoM Pay: the status panel's ground is a raster, the old pages' light-blue ribbon photo set through a CSS custom property over a Cool Paper fallback, the only section panel in the site carried by a photograph rather than a token colour; its light blue is the photo's own, not a brand tint.
+- VoM Pay: the success field and the close band fill with `teal-600` (the close band with `guilloche-dark` on it, as on ZATCA Phase 2), so the white closing line at 1.5rem / 1.75rem bold reaches about 3.8:1, AA for large text only.
+- VoM Pay: the form's orange «إرسال» / "Send" and the close band's «سجل الآن» / "Register Now" carry white text at about 2.7:1; the White-on-Orange open conflict in Do's and Don'ts applies and awaits the owner's ruling, not resolved here.
+- VoM Pay: the lead sheet on the field takes its head (invitation and line over the double rule) on the paper itself, where the campaign's panel title is white on teal; the field has no white text. It sets no thank-you minimum height, and the sheet does not lift on load (the illustration is the page's one motion).
+- VoM Pay: the feature register steps at 900px, the breakpoint the ZATCA Phase 2 registers introduced, so 900px is now shared by two pages and still has no token in the theme.
+- VoM Pay: the illustrations, the six feature icons and the laptop are the old pages' rasters (`<img>` or `next/image`, one optimiser URL each for the small ones), not house CSS-mask icons; the first two icons are the same drawing, and the laptop shows VoM's Arabic interface on the English twin, all kept one to one.
+- VoM Pay: on failure the first FAQ entry renders open; with no code or code 1 the sheet's heading and the general message say nearly the same thing (both old copy, for the owner to decide).
 - The homepage runs more than one motion: the load sequence, the scroll-pinned steps (contracted), an idle float, a logo marquee and count-up numbers.
 
 ## Elevation & Depth
@@ -1119,7 +1180,7 @@ Depth is tonal first: paper, cool paper and teal bands do most of the work. Shad
 
 - **Plate lift** (`box-shadow: 0 24px 40px -28px rgb(5 42 37 / 0.5)` with translateY(-3px), 0.3s ease-out-quint, after the doc-frame's two inset rings): a cover plate on the tools index when its link is hovered; flat at rest.
 
-- **Panel on paper** (`box-shadow: 0 40px 80px -50px rgb(5 42 37 / 0.65)`): the campaign's sticky form panel from 1024px, a teal field lifted off the paper page; below 1024px the band is flat. The lead sheet on it carries the sheet-on-the-band shadow and lifts with `tol-lift`; the ZATCA plate drops `0 12px 24px -20px rgb(5 42 37 / 0.5)`.
+- **Panel on paper** (`box-shadow: 0 40px 80px -50px rgb(5 42 37 / 0.65)`): the campaign's sticky form panel, the ZATCA Phase 2 hero field and the VoM Pay lead field from 1024px, a teal field lifted off the paper page; below 1024px the band is flat. The VoM Pay lead sheet carries the sheet-on-the-band shadow at rest; its failure sheet keeps only the doc-frame's two inset rings, and the status panel is flat. The ZATCA lead sheet carries the sheet-on-the-band shadow without the lift; its badge plates and thread are flat. The lead sheet on it carries the sheet-on-the-band shadow and lifts with `tol-lift`; the ZATCA plate drops `0 12px 24px -20px rgb(5 42 37 / 0.5)`.
 
 - **Fixed control** (`box-shadow: 0 14px 28px -14px rgb(5 42 37 / 0.55)`, after the pressed edge, on the return bar; at 0.6 on the WhatsApp disc): the campaign's two fixed controls floating over the page, the seal drop at control scale.
 
@@ -1143,6 +1204,10 @@ The ledger sheet is ruled, not framed: a single 1px paper-300 hairline at 4px co
 The calculator band is bled full width and cut by a slanted top edge, high on the end side (2.25rem, 3rem from 1024px). On it the sheet is the doc-frame at the card radius and its number inputs sit at the sheet radius; choices, the two-way switch and the sheet's actions are pills. The answer is closed by the double rule drawn white, as the 4px gradient (1px, 2px gap, 1px). On the tools index a cover plate is the doc-frame at the card radius with a 6px bezel, the cover inside at the sheet radius and the covers' 1600:915 proportion; a drawn plate is a guilloche teal panel at the same proportion and radius.
 
 The campaign's form panel changes shape at 1024px: below it a full-bleed band with the house 2.25rem slanted top edge, high on the end side (mirrored by its own RTL polygon), and from 1024px a card-radius panel with the clip removed. The lead sheet on it is the doc-frame at the card radius; its fields sit at the sheet radius; the submit and the return bar are pills; the WhatsApp disc and the quote avatars are circles. Quote cards are Cool Paper at the tile radius with no border; client tiles keep the logo tile at the sheet radius and a 2:1 proportion.
+
+The ZATCA Phase 2 page is drawn with one line: 2px Record Teal, round-capped in the hero, starting on a filled 0.875rem terminal and ending, at the arrival, in a quarter turn with a 1.5rem rounded corner (`border-end-start-radius`). Its stations and nodes are circles ringed by a 2px inset Record Teal ring on Paper; the badge sits on a Paper plate in a 1px paper-300 hairline at the sheet radius (12 units in the SVG lockup). Its hero field takes the campaign panel's two shapes (a 2.25rem slanted top edge, high on the end side, below 1024px; the card radius from 1024px) and its close band a 2.5rem slanted top edge. The requirement photos sit at the sheet radius in a 1px paper-200 hairline.
+
+The VoM Pay result pages set the status panel at the card radius. The lead field takes the campaign panel's two shapes (a 2.25rem slanted top edge, high on the end side and mirrored by its own RTL polygon, below 1024px; the card radius from 1024px) and the close band a 2.5rem slanted top edge, mirrored in RTL. Both sheets are the doc-frame at the card radius, their heads closed by the 4px Record Teal gradient double rule (two 1px lines 3px apart). The lead feature is a Cool Paper panel at the card radius; ZATCA's logo sits on a Paper plate in a 1px paper-300 hairline at the sheet radius.
 
 ## Components
 
@@ -1480,13 +1545,14 @@ A paid-campaign page is its own document: a root layout outside `app/[lang]` tha
 The field that carries the form: `teal-600` with the CSS guilloche tile (shifted 48px), white text, its title in white over the paper lead sheet 1.25rem under it (see Layout for its two shapes). Once the form is sent the title goes and the thank-you is the panel's only heading.
 
 ### Lead Form Sheet
+One shared client component (`components/forms/LeadForm.tsx`) in either direction, styled by the shared lead-form rules; each page places it on its own teal field and dresses the sheet from its own block (the campaign's form panel, the ZATCA Phase 2 hero field, the VoM Pay lead field). The campaign renders pixel-identically to its first build.
 - **Sheet:** Paper in the doc-frame (1px teal-200 border at the card radius, the inner hairline 4px in), padded 1.5rem 1.25rem (1.75rem 1.5rem from 640px), with the sheet-on-the-band shadow; fields 1.125rem apart.
 - **Labels:** 0.9375rem weight 500 ink at 1.5, 0.5rem above the field. An optional field says so after its label in weight 400 Graphite, never with an asterisk on the required ones.
-- **Fields:** 3rem tall (2.75rem at laptop heights) at the sheet radius, Paper, 1rem inline padding, 1.0625rem ink with a teal-600 caret, placeholder Graphite. The edge is 1px Slate at 75% toward white, a 3:1 edge on the white sheet; hover turns it full Slate. Mobile and email are typed left to right and aligned under their Arabic labels. The select draws its own Slate chevron 1rem from its left edge.
+- **Fields:** 3rem tall (2.75rem on the campaign at laptop heights) at the sheet radius, Paper, 1rem inline padding, 1.0625rem ink with a teal-600 caret, placeholder Graphite. The edge is 1px Slate at 75% toward white, a 3:1 edge on the white sheet; hover turns it full Slate. Mobile and email are typed left to right; in Arabic they align right, under their labels. The select draws its own Slate chevron 1rem from its end edge (right in LTR, left in RTL), with 2.75rem of end padding.
 - **Focus:** a 2px teal-700 outline at 2px offset, outside the edge so it also shows on an invalid field; the edge turns teal-700 when the field is valid.
 - **Invalid:** the edge turns ink and doubles (1px ink border plus a 1px ink inset), beside its message; the error line sits 0.5rem under the field at 0.875rem weight 500 ink, 1.6, tied by `aria-describedby`. No red and no orange: orange stays on the submit. The first wrong field takes focus.
 - **Submit:** the full-width orange pill, 3.25rem, 1.0625rem bold white, the pressed 2px base; hover `orange-600`, active 1px down, focus a 2px teal-600 outline at 3px offset. Sending keeps it in place as `aria-disabled`, filled `orange-600` with a progress cursor and the sending words; a failed call leaves the entries and speaks its message in the status line under the button (0.9375rem ink).
-- **Thank-you:** the form swaps for a status region: an H2 (1.375rem bold ink, 1.4) that takes focus, a 1.0625rem Slate line at 1.7, and a bold teal-700 WhatsApp link with a 2px underline at 6px offset, hover teal-800. From 1024px it holds an 18rem minimum so the panel keeps its height.
+- **Thank-you:** the form swaps for a status region: an H2 (1.375rem bold ink, 1.4) that takes focus, a 1.0625rem Slate line at 1.7, and a bold teal-700 WhatsApp link with a 2px underline at 6px offset, hover teal-800. On the campaign it holds an 18rem minimum from 1024px so the panel keeps its height.
 
 ### Fixed Controls (campaign)
 - **Return bar:** below 1024px (and on desktop windows 620px tall or less), a 3.5rem orange pill repeating the submit's words, fixed 16px from the bottom (safe-area aware) from the start edge to the WhatsApp disc, with the fixed-control drop. It slides up (0.35s ease-out-quint) only once the panel is above the viewport, hides while the panel is in view and for good once the form is sent; it scrolls back to the panel and focuses the first field. Hidden, it is `inert`. Focus: a 2px teal-800 outline at 3px offset.
@@ -1498,6 +1564,63 @@ The proof column on paper, one kind of proof per block: the old photo in a teal-
 ### Signature motion (campaign)
 Once on load, CSS only: the lead sheet lifts 1.5rem onto the panel while its shadow lengthens to rest (`tol-lift`, 0.6s from 0.1s, ease-out-quint), the calculators' motion reused. The return bar's slide is a state transition, not a second moment. The global reduced-motion rule shows the sheet settled and the bar without sliding.
 
+### Phase 2 Link (ZATCA Phase 2 hero lockup)
+The page's thesis drawn as one SVG (viewBox `0 10 722 172`, `role="img"` named "VoM · " and the badge's alt) so its parts scale together across the start column, up to 46rem: the VoM mark at the start, a Record Teal line leaving it from a filled start terminal, running out, looping once like the ribbon in the old photos and landing on ZATCA's Phase 2 badge, which sits on a Paper plate in a paper-300 hairline at the sheet radius. Where the line lands it is ringed: a Paper disc with a Record Teal ring on the plate's start edge. 2rem under the lede (2.5rem from 1024px).
+
+### The Thread (ZATCA Phase 2)
+The hero line carried down the page: a 2px Record Teal margin line on the start edge of the body (spine 0.75rem in, 1rem from 1024px; content indented 2.25rem, 4.5rem from 1024px), starting on a filled 0.875rem terminal just under the hero. Each section's H2 hangs on a station: a 1.5rem Paper disc in a 2px Record Teal ring with a 0.25rem Record Teal centre dot, centred on the heading's first line over the spine. Decorative, drawn by pseudo-elements; the headings carry the structure.
+
+### Step Branch (ZATCA Phase 2)
+The seven steps to connect, numbered by a CSS counter. Below 1200px each step is a `3rem 1fr` row (the old icon, then the bold 1.0625rem title over a 1rem Slate line, or a single line) 1.75rem apart, its number in a node on the thread itself: a 1.75rem Paper disc in the 2px ring holding a 0.8125rem bold tabular numeral in Engraver's Teal. From 1200px a horizontal branch leaves the thread and strings seven columns (1.25rem gaps) at one shared y: the 3.5rem icon above, the node (2.25rem, numeral 0.9375rem) on the branch, the text (0.9375rem) below. The branch stops at the last node's centre.
+
+### Invoice Lanes (ZATCA Phase 2)
+How a tax invoice and a simplified tax invoice travel, one lane each, tax first: an H3 (1.375rem bold) over a Slate intro, then four steps, each a ringed 3.5rem Paper node (2px Record Teal inset ring) holding the old 2.25rem icon, with its text in Slate led by a bold tabular step numeral in Engraver's Teal from a CSS counter. Below 1024px each lane draws its own 2px line from node to node down its start side. From 1024px a branch from the thread runs across all four nodes of a lane at one y (four columns, 2rem gaps), stopping at the last node's centre, so each step lines up with its counterpart in the other lane.
+
+### Arrival (ZATCA Phase 2)
+Where the thread ends, above the close band: the line turns toward the end side at a 1.5rem rounded elbow and lands, ringed (a 0.875rem Paper disc in a 2px Record Teal inset ring), on a repeat of the badge plate (Paper, 1px paper-300 hairline, sheet radius, 13rem wide, 16rem from 1024px). It repeats the hero's landing so the page closes on the integration it opened with. Decorative (`aria-hidden`).
+
+### Readiness Register (ZATCA Phase 2)
+The three readiness conditions as a ruled register, not cards: a paper-300 rule above, a paper-200 rule under each row, 1.5rem block padding. Below 900px the old icon (3rem) and the bold 1.25rem condition share a row and what it asks runs under both (1rem Slate, 1.7, 62ch). From 900px each row is three columns: the 3.5rem icon, the condition (9 to 13rem), and what it asks, 1.5rem apart.
+
+### VoM Help Register (ZATCA Phase 2)
+What VoM does, five entries as a ruled list: each a bold 1.125rem ink title over a 1rem Slate line at 1.7, padded 1.375rem block. One column on paper-200 rules under a paper-300 rule; from 900px two columns (3rem gap), each entry under its own paper-300 top rule.
+
+### Form Field (ZATCA Phase 2 hero)
+The teal-600 guilloche field (the tile shifted 48px) holding the paper lead sheet on the hero's end 5/12. Below 1024px a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, padded 3.75rem 16px 2.5rem; from 1024px a rounded card at the card radius padded 2rem, with the panel-on-paper shadow. It has no title of its own: the H1 and lede beside it say what the form is for, and the submit names the action.
+
+### Close Band (ZATCA Phase 2)
+The house slanted guilloche close band in Marker Teal (`teal-600`), not Record Teal, so its white closing paragraph reaches about 3.8:1: a 2.5rem slanted top edge, padded 6rem / 4.5rem (7rem / 5.5rem from 1200px). The closing line, then Register Now (primary, to sign-up) and Book a call (inverse, opening in a new tab), stacked below 1200px and beside the line from 1200px (`1fr auto`, 4rem gap). Button focus switches to the white outline on the band.
+
+### Heading Accent (ZATCA Phase 2)
+The old page's accent words inside an H2 or H3 («Second Phase», «VoM») set in Engraver's Teal, the rest of the heading in ink, kept one to one from the old page. Colour only: same weight, size and line, no underline or highlight.
+
+### Signature motion (ZATCA Phase 2)
+Once on load, CSS only, on ease-out-quint: the hero line draws from the VoM mark to the badge (stroke-dashoffset 1 to 0 on a `pathLength` of 1, 0.9s from 0.15s), then the landing ring scales in from 30% and fades up (0.45s from 0.95s). The thread, branches and arrival are static. Resting styles are the finished state; the global reduced-motion rule shows the line drawn and the ring closed.
+
+### Status Panel (VoM Pay)
+The outcome, on the start side of the first screen: the old pages' light-blue ribbon photo (`public/vom-pay/hero-bg.webp`, passed as a CSS custom property and set `center / cover` over Cool Paper) at the card radius, its contents centred and vertically centred, padded 2rem 1.25rem 2.25rem (2.5rem 2rem 3rem from 1024px). It holds the old illustration (9rem wide, 13rem from 1024px, the LCP image, preloaded), the status H1 1.25rem under it at Display, VoM Pay, and the line or the code 0.625rem under that. Success sets the H1 in Engraver's Teal (`teal-700`); failure sets it in ink, with no red, and orange stays on actions: the illustration's own orange cross carries the failure. The code line («رمز الخطأ: 2» / "Error code: 2") renders only when the app sent `?vom_pay_errors=`, read in the browser so the page stays static; it is weight 500 ink with tabular numerals, the value in an LTR span.
+
+### Pay Lead Field
+The success page's next step: a `teal-600` field with the CSS guilloche tile (shifted 48px) holding the Lead Form Sheet in the doc frame with the sheet-on-the-band shadow. Below 1024px a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, mirrored in RTL, padded 3.75rem 16px 2.5rem; from 1024px a rounded card at the card radius padded 2rem, with the panel-on-paper shadow. The sheet's head is the invitation (H2, 1.25rem bold ink) and a 1rem Slate line, 1.125rem above the 4px double Record Teal rule (two 1px gradients 3px apart), then the shared lead form 1.25rem under the rule (name, mobile, optional email, the orange submit).
+
+### Failure Sheet
+The failure page's next step: the same doc-frame Paper sheet with no drop shadow. Its heading (1.25rem bold ink) sits over the double rule; the message for the app's code (1.125rem ink at 1.65, pretty wrap) is under it, the general message when the code is missing or unknown. The house FAQ follows 2.5rem below under a 1.375rem bold heading, in the existing `details` pattern unchanged, its first entry open.
+
+### Pitch Row (VoM Pay)
+The section's statement under the first screen: the VoM AI logo (9rem on phones, a 10rem column from 640px, 12rem from 1024px) beside the pitch heading (1.625rem, 2rem from 1024px; 44ch from 1024px) and its Slate line, vertically centred and closed by a paper-300 rule 2.5rem under it.
+
+### Lead Feature (VoM Pay)
+The first of the six features, set apart: a Cool Paper (`paper-100`) panel at the card radius, padded 1.5rem 1.25rem (2rem 2.5rem from 1024px), the laptop beside the feature from 1024px. The feature carries its 3rem icon, title and body, then ZATCA's logo (12rem) on a Paper plate in a paper-300 hairline at the sheet radius, padded 0.5rem 0.75rem.
+
+### Feature Register (VoM Pay)
+The other five features as a ruled register, no cards: each entry a `3rem 1fr` row (the 3rem icon spanning two rows beside the bold title and the Slate body, 1rem apart), padded 1.5rem block. One column under a paper-300 rule with paper-200 rules between entries; from 900px two columns (3rem gap), each entry under its own paper-300 top rule, and an odd last entry spans the row rather than leaving an empty cell.
+
+### Close Band (VoM Pay)
+The house slanted guilloche close band in Marker Teal (`teal-600`, with `guilloche-dark`): a 2.5rem slanted top edge, mirrored in RTL, padded 5.5rem / 4.5rem (6.5rem / 5rem from 1024px). The white closing line, then Register Now (primary, to sign-up, with its arrow), stacked 1.75rem apart below 1024px and beside the line from 1024px (`1fr auto`, 4rem gap). Button focus switches to the white outline on the band.
+
+### Signature motion (VoM Pay)
+Once on load, CSS only: the illustration rises 1rem into place and fades in (`pr-rise`, 0.8s from 0.1s, ease-out-quint). Nothing else moves; the sheet and the field are at rest from the first paint. Resting styles are the finished state; the global reduced-motion rule shows the illustration at rest.
+
 ### Admin (operate tool)
 Not part of the public design world: the blog's editor at `/admin`, Arabic and right-to-left, with its own stylesheet. A plain working tool in the brand tokens with no ornament: Cool Paper ground, Paper panels in a 1px paper-300 hairline at 8px corners, 0.9375rem text, a sticky Paper bar with the name in teal-700, no seals, no double hairlines, no guilloche, no shadows, no motion beyond 0.15s hovers. Inputs are 2.5rem tall at 6px corners on a paper-300 border; buttons are 2.5rem at 6px corners, outlined in ink at 28%, the primary a teal-700 fill turning teal-800 (orange is not used for actions here); status is a pill (paper-200, or `teal-100` with Deep Teal when published); focus is 2px teal-700 at 2px offset. The editor sets the article canvas beside a 22rem data panel from 1100px and shows the body in the blog's own body styles. Nothing here is a pattern for public pages.
 
@@ -1505,7 +1628,7 @@ Not part of the public design world: the blog's editor at `/admin`, Arabic and r
 
 ### Do:
 - **Do** keep the brand palette pinned: tints and shades of teal, orange, blue, near-black, the two greys and the light grey only, through the theme tokens.
-- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s; blog: the ledger heading settles 0.5s, then on a post the margin rule draws down 0.8s from 0.15s; calculators: the sheet lifts 0.6s from 0.1s; tools index: the plates rise 0.6s each from 0.08s, 0.06s apart; campaign: the lead sheet lifts 0.6s from 0.1s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
+- **Do** give each page one signature idea and one orchestrated motion on load (integration pages: the screen lifts 0.9s from 0.1s, then the play seal stamps 0.5s from 0.75s; student package: the spread lifts 0.8s from 0.1s, the record writes in from 0.45s, the seal stamps 0.45s from 1.05s; sector pages: the photo plate lifts 0.9s from 0.1s, then the sector seal stamps 0.45s from 0.75s; pricing: the four sheets rise 0.7s each from 0.1s, 0.08s apart, then the seal stamps 0.45s from 0.75s; e-invoicing: the pinned card settles 0.8s from 0.1s, and on the hub the drawer cards file in 0.6s each from 0.15s, 0.06s apart; features: the contents rows rule in 0.45 to 0.5s each from 0.15s, 0.05s apart, then the ZATCA seal stamps 0.45s from 0.85s; accounting guide: the contents sheet lifts 0.8s from 0.1s, then the eight tabs slide out of its fore-edge 0.45s each from 0.5s, 0.06s apart; invoice templates: the paper sheets settle 0.7s from 0.1s, the record sheet lifts 0.8s from 0.3s, then the ZATCA seal stamps 0.45s from 0.95s; blog: the ledger heading settles 0.5s, then on a post the margin rule draws down 0.8s from 0.15s; calculators: the sheet lifts 0.6s from 0.1s; tools index: the plates rise 0.6s each from 0.08s, 0.06s apart; campaign: the lead sheet lifts 0.6s from 0.1s; ZATCA Phase 2: the hero line draws 0.9s from 0.15s, then the landing ring closes 0.45s from 0.95s; VoM Pay: the illustration rises 0.8s from 0.1s), using `cubic-bezier(0.22, 1, 0.36, 1)`, with every resting style being the finished state so reduced motion loses nothing.
 - **Do** frame paper objects with the double hairline and certify with double-ring seals; rule off totals with the 4px double teal underline.
 - **Do** cut teal fields with a slanted edge and mirror the slant, the arrows and any transform in RTL.
 - **Do** set the English micro-label (0.625rem, uppercase, 0.08em tracking) only inside paper document objects, as the English line of an official form or a corner stamp.

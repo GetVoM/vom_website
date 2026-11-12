@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-import { featuresPaths, pricingPaths, sectorPaths } from "@/lib/i18n/routes";
+import { featuresPaths, pricingPaths, sectorPaths, zatcaPhase2Paths } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { DesktopNav } from "./DesktopNav";
@@ -22,11 +22,7 @@ export function Header({ locale, t }: HeaderProps) {
     { kind: "link", label: t.nav.features, href: localePath(locale, featuresPaths[locale]) },
     { kind: "menu", id: "sectors" },
     { kind: "link", label: t.nav.pricing, href: localePath(locale, pricingPaths[locale]) },
-    {
-      kind: "link",
-      label: t.nav.einvoicing,
-      href: localePath(locale, locale === "ar" ? "/الفوترة-الإلكترونية/" : "/zatca-e-invoicing-phase-2/"),
-    },
+    { kind: "link", label: t.nav.einvoicing, href: localePath(locale, zatcaPhase2Paths[locale]) },
     { kind: "menu", id: "support" },
   ];
 

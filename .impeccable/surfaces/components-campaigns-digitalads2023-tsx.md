@@ -2,12 +2,12 @@
 version: 1
 slug: "components-campaigns-digitalads2023-tsx"
 primary_target: "components/campaigns/DigitalAds2023.tsx"
-related_targets: ["app/(campaigns)/digital-ads-2023-landing-page/page.tsx","components/campaigns/LeadForm.tsx"]
+related_targets: ["app/(campaigns)/digital-ads-2023-landing-page/page.tsx","components/forms/LeadForm.tsx"]
 ---
 
 # Surface brief: the digital-ads campaign landing page (`/digital-ads-2023-landing-page/`)
 
-Scope: one Arabic-only, paid-campaign page, `app/(campaigns)/digital-ads-2023-landing-page/page.tsx` → `components/campaigns/DigitalAds2023.tsx`, with the lead form `components/campaigns/LeadForm.tsx`; copy and images from `lib/content/campaigns/digital-ads-2023.ts`. Its own root layout `app/(campaigns)/layout.tsx`: no site header, navigation or footer. Visitor mode Persuade: the visitor arrives from an ad and the one success is a submitted lead (name and Saudi mobile required; email and sector optional). Hidden from search (noindex, follow; owner 2026-11-12), so the SEO title and description are kept as they were and no structured data is owed. Copy, photo, four feature icons, 47 client logos, the star image, the six quotes with their avatars and the 12 round logos are the old page's, one to one; the quotes' placeholder name «Client One» is removed (owner, 2026-11-12). The form's success pushes the old Elementor event to GTM (`elementor_form_success`, form_id c8749cd); that contract is in `lib/leads/digital-ads-2023.ts` and must not change with the design.
+Scope: one Arabic-only, paid-campaign page, `app/(campaigns)/digital-ads-2023-landing-page/page.tsx` → `components/campaigns/DigitalAds2023.tsx`, with the shared lead form `components/forms/LeadForm.tsx` (also on the English ZATCA Phase 2 page; its fields, buttons and thank-you are styled from the shared `.lead-` block, the campaign's dress from `.lp-`); copy and images from `lib/content/campaigns/digital-ads-2023.ts`. Its own root layout `app/(campaigns)/layout.tsx`: no site header, navigation or footer. Visitor mode Persuade: the visitor arrives from an ad and the one success is a submitted lead (name and Saudi mobile required; email and sector optional). Hidden from search (noindex, follow; owner 2026-11-12), so the SEO title and description are kept as they were and no structured data is owed. Copy, photo, four feature icons, 47 client logos, the star image, the six quotes with their avatars and the 12 round logos are the old page's, one to one; the quotes' placeholder name «Client One» is removed (owner, 2026-11-12). The form's success pushes the old Elementor event to GTM (`elementor_form_success`, form_id c8749cd); that contract is in `lib/leads/digital-ads-2023.ts` and must not change with the design.
 
 ## Direction contract
 

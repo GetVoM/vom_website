@@ -11,6 +11,7 @@ import {
   sectorPaths,
   studentPaths,
   termsPaths,
+  zatcaPhase2Paths,
   type PagePair,
 } from "@/lib/i18n/routes";
 import { site } from "@/lib/seo/site";
@@ -108,20 +109,24 @@ const pages: SitemapPage[] = [
 ];
 
 /**
- * The e-invoicing hub and its guides are Arabic only, so they carry no English
- * alternate. lastModified is the WordPress page's own modified date. The hub is
- * the e-invoicing pillar, just under pricing.
+ * The e-invoicing hub and its guides are Arabic. The guides carry no English
+ * alternate; the hub's is the English-only ZATCA Phase 2 page (owner,
+ * 2026-11-12), listed here as its pair. lastModified is the WordPress page's own
+ * modified date, or the rebuild's for the English page. The hub is the
+ * e-invoicing pillar, just under pricing.
  */
 function einvoicingEntries(): MetadataRoute.Sitemap {
-  return guides.map((guide) => {
+  const english = encodeURI(`${site.url}${localePath("en", zatcaPhase2Paths.en)}`);
+  return guides.flatMap((guide) => {
     const url = encodeURI(`${site.url}${guidePath(guide.id)}`);
-    return {
-      url,
-      lastModified: new Date(guide.modified),
-      changeFrequency: "monthly" as const,
-      priority: guide.number === 0 ? 0.8 : 0.6,
-      alternates: { languages: { ar: url, "x-default": url } },
-    };
+    if (guide.id !== "hub") {
+      return [{ url, lastModified: new Date(guide.modified), changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages: { ar: url, "x-default": url } } }];
+    }
+    const languages = { ar: url, en: english, "x-default": url };
+    return [
+      { url, lastModified: new Date(guide.modified), changeFrequency: "monthly" as const, priority: 0.8, alternates: { languages } },
+      { url: english, lastModified: new Date("2026-11-12"), changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages } },
+    ];
   });
 }
 

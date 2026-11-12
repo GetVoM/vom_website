@@ -15,6 +15,7 @@ import {
 } from "@/lib/content/einvoicing";
 import { localePath } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
+import { zatcaPhase2Paths } from "@/lib/i18n/routes";
 import { breadcrumbJsonLd, guideJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
@@ -26,13 +27,16 @@ import { DrawerCard, NextCard, PinnedCard } from "./IndexCard";
 
 const ogImage = (id: GuideId) => `/og/e-invoicing/${id}.png`;
 
-/** Arabic only: canonical, `ar` and `x-default` hreflang, no English twin. */
+/**
+ * Canonical, `ar` and `x-default` hreflang. The guides are Arabic only; the hub's
+ * English twin is the ZATCA Phase 2 page (owner, 2026-11-12).
+ */
 export function guideMetadata(id: GuideId): Metadata {
   const entry = guideEntry(id);
   const meta = buildMetadata({
     locale: "ar",
     path: guidePath(id),
-    alternatePath: null,
+    alternatePath: id === "hub" ? zatcaPhase2Paths.en : null,
     title: entry.seoTitle,
     description: entry.description,
     type: "article",

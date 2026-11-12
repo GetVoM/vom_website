@@ -16,7 +16,12 @@
  * only `ar` and `x-default` hreflang, their JSON-LD (WebApplication on a tool,
  * CollectionPage on the index) and no FAQPage; their English paths must 404.
  * Campaign landing pages (LANDINGS) must be noindex, carry no hreflang, hold
- * their lead form, and 404 in English.
+ * their lead form, and 404 in English. The English ZATCA Phase 2 page must hold
+ * its lead form, pair with the Arabic e-invoicing hub in hreflang (both ways),
+ * and 404 in Arabic. The VoM Pay result pages (PAY) must answer at their exact
+ * addresses in both languages, noindex, in the address's language, paired in
+ * hreflang, the success pages with their lead form; a link without the slash or
+ * with /ar/ must reach them with its query intact.
  * Known, deliberate differences are listed in EXCEPTIONS. Exits 1 on any failure.
  */
 import { readFileSync } from "node:fs";
@@ -31,6 +36,9 @@ const SITE = "https://getvom.com";
 /** path → why its title or description differs from the crawl on purpose. */
 const EXCEPTIONS = {
   "/en/accounting-software/choose-accounting-software/": "WordPress gave it the blog index's Arabic title and description; it now uses its own",
+  "/en/zatca-e-invoicing-phase-2/": "WordPress gave it the Arabic blog's title and description; it now uses its own (owner, 2026-11-12)",
+  "/vom-pay-success/": "description spelling fixed («أعجبتك»)",
+  "/vom-pay-failure/": "the old description was the error code's placeholder («رمز الخطأ: 1»); it is now the general message",
 };
 
 function parseCsv(text) {
@@ -55,7 +63,15 @@ function parseCsv(text) {
 /** Paid-campaign landing pages: kept, but hidden from search (app/(campaigns)/). */
 const LANDINGS = new Set(["/digital-ads-2023-landing-page/"]);
 
-const urlMap = parseCsv(readFileSync(join(root, "docs/content/url-map.csv"), "utf8")).filter((r) => ["post", "news", "category", "template", "tool"].includes(r.type) || LANDINGS.has(r.old_path_decoded));
+/** The English ZATCA Phase 2 page and its Arabic twin, the e-invoicing hub (lib/i18n/routes.ts). */
+const ZATCA = { en: "/en/zatca-e-invoicing-phase-2/", ar: "/الفوترة-الإلكترونية/" };
+
+/** The VoM Pay result pages: the app sends payers to these exact addresses (owner, 2026-11-12). */
+const PAY = ["/vom-pay-success/", "/en/vom-pay-success/", "/vom-pay-failure/", "/en/vom-pay-failure/"];
+
+const urlMap = parseCsv(readFileSync(join(root, "docs/content/url-map.csv"), "utf8")).filter(
+  (r) => ["post", "news", "category", "template", "tool"].includes(r.type) || LANDINGS.has(r.old_path_decoded) || r.old_path_decoded === ZATCA.en || PAY.includes(r.old_path_decoded),
+);
 const inventory = new Map(parseCsv(readFileSync(join(root, "docs/content/wp-url-inventory.csv"), "utf8")).map((r) => [r.path_decoded, r]));
 const norm = (text) =>
   (text ?? "")
@@ -85,13 +101,15 @@ async function check(row) {
     if (![404, 410].includes(response.status)) fail(`status ${response.status}, expected 404 or 410`);
     return;
   }
-  if (row.proposed_action !== "keep") return;
+  if (row.proposed_action !== "keep" && row.proposed_action !== "keep-noindex") return;
   counts.keep++;
   if (response.status !== 200) return fail(`status ${response.status}, expected 200`);
   const html = await response.text();
   const head = parse(html).querySelector("head");
   if (row.type === "tool") checkTool(path, html, fail);
   if (LANDINGS.has(path)) checkLanding(html, fail);
+  if (path === ZATCA.en) checkZatca(html, fail);
+  if (PAY.includes(path)) checkPay(path, html, fail);
   const title = norm(head?.querySelector("title")?.text);
   const description = norm(head?.querySelector('meta[name="description"]')?.getAttribute("content"));
   const canonical = decode(head?.querySelector('link[rel="canonical"]')?.getAttribute("href") ?? "");
@@ -129,7 +147,64 @@ function checkLanding(html, fail) {
   const robots = doc.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "";
   if (!/noindex/.test(robots)) fail(`robots "${robots || "missing"}", expected noindex`);
   if (doc.querySelectorAll('link[rel="alternate"][hreflang]').length) fail("hreflang links on a noindex landing page");
-  if (!doc.querySelector("form.lp-form")) fail("no lead form");
+  if (!doc.querySelector("form.lead-form")) fail("no lead form");
+}
+
+/** hreflang → absolute URL, decoded, from a page's head. */
+function alternates(html) {
+  return Object.fromEntries(parse(html).querySelectorAll('link[rel="alternate"][hreflang]').map((link) => [link.getAttribute("hreflang"), decode(link.getAttribute("href") ?? "")]));
+}
+
+/** The English ZATCA Phase 2 page: indexed, its form on the page, paired with the Arabic hub. */
+function checkZatca(html, fail) {
+  const doc = parse(html);
+  const robots = doc.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "";
+  if (/noindex/.test(robots)) fail(`robots "${robots}", expected indexable`);
+  if (!doc.querySelector("form.lead-form")) fail("no lead form");
+  const langs = alternates(html);
+  const expected = { en: `${SITE}${ZATCA.en}`, ar: `${SITE}${ZATCA.ar}`, "x-default": `${SITE}${ZATCA.ar}` };
+  for (const [lang, url] of Object.entries(expected)) if (langs[lang] !== url) fail(`hreflang ${lang} ${langs[lang] ?? "missing"}, expected ${url}`);
+}
+
+/** A VoM Pay result page: noindex, in its address's language, paired with its twin; the success pages hold their form. */
+function checkPay(path, html, fail) {
+  const doc = parse(html);
+  const robots = doc.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "";
+  if (!/noindex/.test(robots)) fail(`robots "${robots || "missing"}", expected noindex`);
+  const english = path.startsWith("/en/");
+  const lang = doc.querySelector("html")?.getAttribute("lang");
+  if (lang !== (english ? "en" : "ar")) fail(`html lang ${lang}, expected ${english ? "en" : "ar"}`);
+  const arabic = path.replace(/^\/en/, "");
+  const langs = alternates(html);
+  if (langs.ar !== `${SITE}${arabic}` || langs.en !== `${SITE}/en${arabic}`) fail(`hreflang pair ${langs.ar ?? "missing"} / ${langs.en ?? "missing"}`);
+  if (path.includes("success") && !doc.querySelector("form.lead-form")) fail("no lead form");
+}
+
+/** The app's links may lack the slash or carry /ar/: both must reach the page with the query intact. */
+async function checkPayLinks() {
+  const cases = [
+    ["/vom-pay-failure?vom_pay_errors=2", 308, "/vom-pay-failure/?vom_pay_errors=2"],
+    ["/en/vom-pay-failure?vom_pay_errors=3", 308, "/en/vom-pay-failure/?vom_pay_errors=3"],
+    ["/ar/vom-pay-failure/?vom_pay_errors=2", 301, "/vom-pay-failure/?vom_pay_errors=2"],
+    ["/vom-pay-success", 308, "/vom-pay-success/"],
+  ];
+  for (const [from, status, to] of cases) {
+    const response = await fetch(`${base}${from}`, { redirect: "manual" });
+    const location = decode(response.headers.get("location") ?? "").replace(base, "").replace(SITE, "");
+    if (response.status !== status || location !== to) failures.push(`pay      ${from}  ${response.status} → ${location || "nowhere"}, expected ${status} → ${to}`);
+  }
+  const sitemap = await (await fetch(`${base}/sitemap/pages.xml`)).text();
+  if (sitemap.includes("vom-pay")) failures.push("pay      a VoM Pay page is in the sitemap");
+}
+
+/** The pair's other side and the page's missing Arabic twin: the hub names the English page; /zatca-e-invoicing-phase-2/ 404s. */
+async function checkZatcaPair() {
+  const hub = await fetch(`${base}${encodeURI(ZATCA.ar)}`, { redirect: "manual" });
+  if (hub.status !== 200) failures.push(`pair     ${ZATCA.ar}  status ${hub.status}, expected 200`);
+  else if (alternates(await hub.text()).en !== `${SITE}${ZATCA.en}`) failures.push(`pair     ${ZATCA.ar}  no hreflang en → ${ZATCA.en}`);
+  const arabic = ZATCA.en.replace(/^\/en/, "");
+  const response = await fetch(`${base}${arabic}`, { redirect: "manual" });
+  if (response.status !== 404) failures.push(`arabic   ${arabic}  status ${response.status}, expected 404`);
 }
 
 /** Landing pages are Arabic only and have no /ar/ twin: /en/ is a 404, /ar/ a 301 to the page. */
@@ -157,9 +232,11 @@ let next = 0;
 await Promise.all(Array.from({ length: 8 }, async () => { while (next < urlMap.length) await check(urlMap[next++]); }));
 await checkToolEnglish();
 await checkLandingVariants();
+await checkZatcaPair();
+await checkPayLinks();
 
-console.log(`Checked ${urlMap.length} post, news, category, template, tool and landing rows against ${base}`);
-console.log(`  keep ${counts.keep} · redirect ${counts.redirect} · retire ${counts.retire} · deliberate exceptions ${counts.exceptions}`);
+console.log(`Checked ${urlMap.length} post, news, category, template, tool, landing, e-invoicing and VoM Pay rows against ${base}`);
+console.log(`  keep (with keep-noindex) ${counts.keep} · redirect ${counts.redirect} · retire ${counts.retire} · deliberate exceptions ${counts.exceptions}`);
 for (const [path, why] of Object.entries(EXCEPTIONS)) console.log(`  exception: ${path} (${why})`);
 if (failures.length) {
   console.log(`\n${failures.length} FAILED`);

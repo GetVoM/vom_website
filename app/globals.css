@@ -9991,6 +9991,156 @@ html[dir="rtl"] .tol-input input:placeholder-shown {
   }
 }
 
+/* Lead forms (components/forms/LeadForm.tsx): the fields, the button and the
+   thank-you on a white sheet, in either direction. Each page places and
+   dresses the form from its own block (.lp, .zp). */
+.lead-form {
+  display: grid;
+  gap: 1.125rem;
+}
+.lead-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+.lead-optional {
+  font-weight: 400;
+  color: var(--color-ink-500);
+}
+.lead-field :is(input, select) {
+  width: 100%;
+  height: 3rem;
+  padding-inline: 1rem;
+  /* A 3:1 edge: the field's only outline on the white sheet. */
+  border: 1px solid color-mix(in oklab, var(--color-ink-700) 75%, white);
+  border-radius: var(--radius-sheet);
+  background-color: var(--color-paper);
+  font: inherit;
+  font-size: 1.0625rem;
+  color: var(--color-ink);
+  caret-color: var(--color-teal-600);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+/* Numbers and addresses are typed left to right but sit under their Arabic labels. */
+html[dir="rtl"] .lead-field input[dir="ltr"] {
+  text-align: right;
+}
+.lead-field input::placeholder {
+  color: var(--color-ink-500);
+}
+.lead-field select {
+  appearance: none;
+  padding-inline-end: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2354595f' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  cursor: pointer;
+}
+html[dir="rtl"] .lead-field select {
+  background-position: left 1rem center;
+}
+.lead-field :is(input, select):hover {
+  border-color: var(--color-ink-700);
+}
+/* An invalid field: a darker, doubled border beside its message; orange stays on the submit. */
+.lead-field :is(input, select)[aria-invalid="true"] {
+  border-color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+}
+/* Focus: a teal-700 ring outside the edge, so it shows on an invalid field too. */
+.lead-field :is(input, select):focus-visible {
+  outline: 2px solid var(--color-teal-700);
+  outline-offset: 2px;
+}
+.lead-field :is(input, select):focus-visible:not([aria-invalid="true"]) {
+  border-color: var(--color-teal-700);
+}
+.lead-error {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+.lead-form .turnstile:empty {
+  display: none;
+}
+.lead-submit {
+  height: 3.25rem;
+  margin-top: 0.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-orange-500);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.12);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+.lead-submit:hover {
+  background: var(--color-orange-600);
+}
+.lead-submit:active {
+  transform: translateY(1px);
+}
+.lead-submit:focus-visible {
+  outline: 2px solid var(--color-teal-600);
+  outline-offset: 3px;
+}
+.lead-submit[aria-disabled="true"] {
+  background: var(--color-orange-600);
+  cursor: progress;
+}
+.lead-status {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+.lead-status:empty {
+  display: none;
+}
+.lead-thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.lead-thanks h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+.lead-thanks h2:focus {
+  outline: none;
+}
+.lead-thanks p {
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.lead-thanks-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--color-teal-700);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.lead-thanks-link:hover {
+  color: var(--color-teal-800);
+}
+
 /* Campaign landing page (/digital-ads-2023-landing-page/): "the form that stays".
    Phones: the head, then the form panel as a full-bleed teal band, then the story,
    with a bar that brings the form back. From 1024px the story runs on the start
@@ -10065,10 +10215,10 @@ html[dir="rtl"] .lp-panel {
   clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
 }
 /* Sent: the panel stops asking; the thank-you is its only heading. */
-.lp-panel:has(.lp-thanks) .lp-panel-title {
+.lp-panel:has(.lead-thanks) .lp-panel-title {
   display: none;
 }
-.lp-panel:has(.lp-thanks) .lp-sheet {
+.lp-panel:has(.lead-thanks) .lp-sheet {
   margin-top: 0;
 }
 .lp-panel-title {
@@ -10090,151 +10240,6 @@ html[dir="rtl"] .lp-panel {
     inset 0 0 0 5px var(--color-teal-200),
     0 32px 56px -34px rgb(5 42 37 / 0.6);
   animation: tol-lift 0.6s var(--ease-out-quint) 0.1s both;
-}
-
-/* The form. */
-.lp-form {
-  display: grid;
-  gap: 1.125rem;
-}
-.lp-field label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--color-ink);
-}
-.lp-optional {
-  font-weight: 400;
-  color: var(--color-ink-500);
-}
-.lp-field :is(input, select) {
-  width: 100%;
-  height: 3rem;
-  padding-inline: 1rem;
-  /* A 3:1 edge: the field's only outline on the white sheet. */
-  border: 1px solid color-mix(in oklab, var(--color-ink-700) 75%, white);
-  border-radius: var(--radius-sheet);
-  background-color: var(--color-paper);
-  font: inherit;
-  font-size: 1.0625rem;
-  color: var(--color-ink);
-  caret-color: var(--color-teal-600);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-/* Numbers and addresses are typed left to right but sit under their Arabic labels. */
-html[dir="rtl"] .lp-field input[dir="ltr"] {
-  text-align: right;
-}
-.lp-field input::placeholder {
-  color: var(--color-ink-500);
-}
-.lp-field select {
-  appearance: none;
-  padding-left: 2.75rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2354595f' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
-  background-position: left 1rem center;
-  background-repeat: no-repeat;
-  background-size: 1rem;
-  cursor: pointer;
-}
-.lp-field :is(input, select):hover {
-  border-color: var(--color-ink-700);
-}
-/* An invalid field: a darker, doubled border beside its message; orange stays on the submit. */
-.lp-field :is(input, select)[aria-invalid="true"] {
-  border-color: var(--color-ink);
-  box-shadow: inset 0 0 0 1px var(--color-ink);
-}
-/* Focus: a teal-700 ring outside the edge, so it shows on an invalid field too. */
-.lp-field :is(input, select):focus-visible {
-  outline: 2px solid var(--color-teal-700);
-  outline-offset: 2px;
-}
-.lp-field :is(input, select):focus-visible:not([aria-invalid="true"]) {
-  border-color: var(--color-teal-700);
-}
-.lp-error {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.6;
-  color: var(--color-ink);
-}
-.lp-form .turnstile:empty {
-  display: none;
-}
-.lp-submit {
-  height: 3.25rem;
-  margin-top: 0.25rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-orange-500);
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: #fff;
-  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.12);
-  cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-}
-.lp-submit:hover {
-  background: var(--color-orange-600);
-}
-.lp-submit:active {
-  transform: translateY(1px);
-}
-.lp-submit:focus-visible {
-  outline: 2px solid var(--color-teal-600);
-  outline-offset: 3px;
-}
-.lp-submit[aria-disabled="true"] {
-  background: var(--color-orange-600);
-  cursor: progress;
-}
-.lp-status {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--color-ink);
-}
-.lp-status:empty {
-  display: none;
-}
-.lp-thanks {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-.lp-thanks h2 {
-  font-size: 1.375rem;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--color-ink);
-}
-.lp-thanks h2:focus {
-  outline: none;
-}
-.lp-thanks p {
-  margin-top: 0.5rem;
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--color-ink-700);
-}
-.lp-thanks-link {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: 700;
-  color: var(--color-teal-700);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
-}
-.lp-thanks-link:hover {
-  color: var(--color-teal-800);
 }
 
 /* The story: paper, one kind of proof per section. */
@@ -10498,7 +10503,7 @@ html[dir="rtl"] .lp-field input[dir="ltr"] {
   html[dir] .lp-panel {
     clip-path: none;
   }
-  .lp-thanks {
+  .lp .lead-thanks {
     min-height: 18rem;
   }
   .lp-story {
@@ -10530,10 +10535,10 @@ html[dir="rtl"] .lp-field input[dir="ltr"] {
     margin-top: 1rem;
     padding: 1.25rem;
   }
-  .lp-form {
+  .lp .lead-form {
     gap: 0.875rem;
   }
-  .lp-field :is(input, select) {
+  .lp .lead-field :is(input, select) {
     height: 2.75rem;
   }
 }
@@ -10546,6 +10551,1047 @@ html[dir="rtl"] .lp-field input[dir="ltr"] {
   .lp-return {
     inset-inline-start: auto;
     width: 20rem;
+  }
+}
+
+/* ZATCA Phase 2 (/en/zatca-e-invoicing-phase-2/): "the Phase 2 link". The hero
+   draws one teal line from the VoM mark to ZATCA's Phase 2 badge beside the
+   lead form on the teal field; the same 2px line then runs down the start margin
+   as the page's thread, each section hung on it at a ringed station, branching
+   across the seven steps and the two invoice lanes, and ending above the close.
+   Contract: .impeccable/surfaces/components-zatca-zatcaphase2page-tsx.md. */
+.zp-hero {
+  padding-top: 1.5rem;
+}
+.zp-hero-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+.zp-title {
+  margin-top: 1.75rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.zp-lede {
+  margin-top: 1.125rem;
+  max-width: 36ch;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+
+/* The link: one SVG holding the VoM mark, the drawn line with its loop and ZATCA's
+   Phase 2 badge on its plate, so the three scale together across the start column. */
+.zp-link {
+  display: block;
+  width: 100%;
+  max-width: 46rem;
+  height: auto;
+  margin-top: 2rem;
+  overflow: visible;
+}
+.zp-link-path {
+  fill: none;
+  stroke: var(--color-teal-500);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: zp-draw 0.9s var(--ease-out-quint) 0.15s both;
+}
+.zp-link-start {
+  fill: var(--color-teal-500);
+}
+.zp-link-plate {
+  fill: var(--color-paper);
+  stroke: var(--color-paper-300);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.zp-link-end {
+  fill: var(--color-paper);
+  stroke: var(--color-teal-500);
+  stroke-width: 4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: zp-ring 0.45s var(--ease-out-quint) 0.95s both;
+}
+@keyframes zp-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes zp-ring {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+/* The form on the teal field: below 1024px a full-bleed band with the house slanted top edge. */
+.zp-field {
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding: 3.75rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
+  background-color: var(--color-teal-600);
+  background-position: 48px 0;
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+}
+.zp-sheet {
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 56px -34px rgb(5 42 37 / 0.6);
+}
+
+/* The thread: the line down the start margin, a ringed station at each section. */
+.zp-thread {
+  --zp-indent: 2.25rem;
+  --zp-spine: 0.75rem;
+  --zp-pad-end: 4.5rem;
+  --zp-arrive-h: 4rem;
+  position: relative;
+  padding-block: 3.5rem var(--zp-pad-end);
+  padding-inline-start: var(--zp-indent);
+}
+/* The line runs from its start terminal down to the arrival, where it turns toward the badge. */
+.zp-thread::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(var(--zp-spine) - 1px);
+  top: 0;
+  bottom: calc(var(--zp-pad-end) + var(--zp-arrive-h));
+  width: 2px;
+  background: var(--color-teal-500);
+}
+/* The hero line's filled start terminal, so the thread reads as the same line carrying on. */
+.zp-thread::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(var(--zp-spine) - 0.4375rem);
+  top: -0.4375rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--color-teal-500);
+}
+/* The arrival: the line turns at a rounded elbow and lands on ZATCA's badge, ringed, as in the hero. */
+.zp-arrive {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--zp-arrive-h);
+  margin-top: 3.5rem;
+  padding-inline-start: 1.5rem;
+}
+.zp-arrive::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(var(--zp-spine) - var(--zp-indent) - 1px);
+  top: 0;
+  width: calc(var(--zp-indent) - var(--zp-spine) + 1.5rem + 1px);
+  height: calc(50% + 1px);
+  border-inline-start: 2px solid var(--color-teal-500);
+  border-bottom: 2px solid var(--color-teal-500);
+  border-end-start-radius: 1.5rem;
+}
+.zp-arrive-plate {
+  position: relative;
+  display: block;
+  width: 13rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--color-paper-300);
+  border-radius: var(--radius-sheet);
+  background: var(--color-paper);
+}
+.zp-arrive-plate::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -0.5rem;
+  top: calc(50% - 0.4375rem);
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--color-paper);
+  box-shadow: inset 0 0 0 2px var(--color-teal-500);
+}
+.zp-arrive-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.zp-sec + .zp-sec {
+  margin-top: 4.5rem;
+}
+.zp-h2 {
+  position: relative;
+  max-width: 30ch;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.zp-h2::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(var(--zp-spine) - var(--zp-indent) - 0.75rem);
+  /* Centred on the first line: the line box is 1.2em tall. */
+  top: calc((1.2em - 1.5rem) / 2);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-teal-500) 0 0.25rem, var(--color-paper) calc(0.25rem + 0.5px));
+  box-shadow: inset 0 0 0 2px var(--color-teal-500);
+}
+.zp-accent {
+  color: var(--color-teal-700);
+}
+.zp-h3 {
+  margin-top: 2.75rem;
+  max-width: 32ch;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.zp-text {
+  margin-top: 1rem;
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  text-wrap: pretty;
+}
+.zp-after {
+  margin-top: 2rem;
+}
+
+/* What it is, beside the old page's laptop. */
+.zp-what {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+.zp-laptop {
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+}
+
+/* The three readiness conditions: a ruled register (icon, condition, what it asks), no cards. */
+.zp-conditions {
+  display: grid;
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-paper-300);
+}
+.zp-conditions li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: center;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.zp-conditions img {
+  width: 3rem;
+  height: 3rem;
+}
+.zp-conditions h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.zp-conditions p {
+  grid-column: 1 / -1;
+  margin-top: 0.75rem;
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.zp-conditions p + p {
+  margin-top: 0.5rem;
+}
+
+/* The four requirements, each under its photo; the photos carry the ribbon the line rhymes with. */
+.zp-reqs {
+  display: grid;
+  gap: 2.5rem 2rem;
+  margin-top: 2rem;
+}
+.zp-reqs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-paper-200);
+  border-radius: var(--radius-sheet);
+}
+.zp-reqs h3 {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.zp-reqs p {
+  margin-top: 0.5rem;
+  max-width: 52ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+
+/* The seven steps. Below 1200px each step hangs on the thread itself, its number in a ringed node on the line. */
+.zp-steps {
+  counter-reset: zp-step;
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+.zp-steps li {
+  counter-increment: zp-step;
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  /* Steps share a row's height; their own rows must not stretch, or the nodes leave the line. */
+  align-content: start;
+}
+.zp-steps img {
+  width: 3rem;
+  height: 3rem;
+}
+.zp-node {
+  position: absolute;
+  inset-inline-start: calc(var(--zp-spine) - var(--zp-indent) - 0.875rem);
+  top: 0.625rem;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-paper);
+  box-shadow: inset 0 0 0 2px var(--color-teal-500);
+}
+.zp-node::before {
+  content: counter(zp-step);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--color-teal-700);
+}
+.zp-step-text h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.zp-step-text p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-ink-700);
+}
+.zp-step-text h3 + p {
+  margin-top: 0.25rem;
+}
+.zp-step-text h3:only-child,
+.zp-step-text p:only-child {
+  padding-top: 0.75rem;
+}
+
+/* How it works: two lanes, tax then simplified, so each step lines up with its counterpart. */
+.zp-flows {
+  display: grid;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+.zp-flow h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.zp-flow-intro {
+  margin-top: 0.5rem;
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.zp-lane {
+  counter-reset: zp-lane;
+  position: relative;
+  display: grid;
+  margin-top: 1.5rem;
+}
+.zp-lane li {
+  counter-increment: zp-lane;
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  align-content: start;
+  padding-bottom: 1.5rem;
+}
+.zp-lane li:last-child {
+  padding-bottom: 0;
+}
+/* Below 1024px the lane draws its own line from node to node. */
+.zp-lane li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(1.75rem - 1px);
+  top: 3.5rem;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-teal-500);
+}
+.zp-lane-node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-paper);
+  box-shadow: inset 0 0 0 2px var(--color-teal-500);
+}
+.zp-lane-node img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.zp-lane p {
+  padding-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-ink-700);
+}
+.zp-lane p::before {
+  content: counter(zp-lane);
+  margin-inline-end: 0.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-teal-700);
+}
+
+/* What VoM does: a ruled register of five. */
+.zp-helps {
+  display: grid;
+  column-gap: 3rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--color-paper-300);
+}
+.zp-helps li {
+  padding-block: 1.375rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.zp-helps h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.zp-helps p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+
+/* The close: the house slanted teal band. */
+/* teal-600, not the guilloche-dark teal-500: the closing line is white text (about 3.8:1, against 2.4:1). */
+.zp-close-band {
+  background-color: var(--color-teal-600);
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+.zp-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-block: 6rem 4.5rem;
+}
+.zp-close .btn:focus-visible {
+  outline-color: #fff;
+}
+.zp-close-line {
+  max-width: 44ch;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+.zp-close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .zp-title {
+    font-size: 3.75rem;
+  }
+  .zp-link-path,
+  .zp-link-end {
+    stroke-width: 3.25;
+  }
+  .zp-sheet {
+    padding: 1.75rem 1.5rem;
+  }
+  .zp-reqs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .zp-conditions li {
+    grid-template-columns: 3.5rem minmax(9rem, 13rem) minmax(0, 1fr);
+    column-gap: 1.5rem;
+    align-items: start;
+  }
+  .zp-conditions img {
+    grid-row: 1 / span 2;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .zp-conditions h3 {
+    padding-top: 0.75rem;
+  }
+  .zp-conditions p {
+    grid-column: 3;
+    margin-top: 0;
+    padding-top: 0.625rem;
+  }
+  .zp-conditions p + p {
+    margin-top: 0;
+    padding-top: 0.5rem;
+  }
+  .zp-helps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 0;
+  }
+  .zp-helps li {
+    border-top: 1px solid var(--color-paper-300);
+    border-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .zp-hero {
+    padding-top: 2rem;
+  }
+  .zp-hero-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: 4rem;
+    align-items: end;
+  }
+  .zp-title {
+    margin-top: 3rem;
+    font-size: 4.5rem;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+  .zp-lede {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+  }
+  .zp-link {
+    margin-top: 2.5rem;
+  }
+  .zp-link-path,
+  .zp-link-end {
+    stroke-width: 2.75;
+  }
+  .zp-field {
+    margin: 0;
+    padding: 2rem;
+    border-radius: var(--radius-card);
+    clip-path: none;
+    box-shadow: 0 40px 80px -50px rgb(5 42 37 / 0.65);
+  }
+
+  .zp-thread {
+    --zp-indent: 4.5rem;
+    --zp-spine: 1rem;
+    --zp-pad-end: 6rem;
+    --zp-arrive-h: 5rem;
+    padding-top: 5rem;
+  }
+  .zp-arrive {
+    margin-top: 4.5rem;
+    padding-inline-start: 2rem;
+  }
+  .zp-arrive::before {
+    width: calc(var(--zp-indent) - var(--zp-spine) + 2rem + 1px);
+  }
+  .zp-arrive-plate {
+    width: 16rem;
+    padding: 0.625rem 0.75rem;
+  }
+  .zp-h3 {
+    margin-top: 3.25rem;
+    font-size: 1.625rem;
+  }
+  .zp-sec + .zp-sec {
+    margin-top: 6rem;
+  }
+  .zp-h2 {
+    max-width: 32ch;
+    font-size: 2.25rem;
+  }
+  .zp-text {
+    font-size: 1.125rem;
+  }
+  .zp-what {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 4rem;
+  }
+
+  /* The lanes branch off the thread: one line from the spine through each lane's four nodes. */
+  .zp-lane {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+  .zp-lane::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: calc(var(--zp-spine) - var(--zp-indent));
+    inset-inline-end: calc((100% - 6rem) / 4 - 1.75rem);
+    top: calc(1.75rem - 1px);
+    height: 2px;
+    background: var(--color-teal-500);
+  }
+  .zp-lane li {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1rem;
+    padding-bottom: 0;
+  }
+  .zp-lane li:not(:last-child)::before {
+    content: none;
+  }
+  .zp-lane p {
+    padding-top: 0;
+  }
+}
+
+/* The seven steps branch across: the line leaves the thread and strings the seven nodes. */
+@media (min-width: 1200px) {
+  .zp-steps {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    column-gap: 1.25rem;
+    position: relative;
+  }
+  .zp-steps::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: calc(var(--zp-spine) - var(--zp-indent));
+    inset-inline-end: calc((100% - 7.5rem) / 7 - 1.125rem);
+    top: calc(4.5rem + 1.125rem - 1px);
+    height: 2px;
+    background: var(--color-teal-500);
+  }
+  .zp-steps li {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1rem;
+  }
+  .zp-steps img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .zp-node {
+    position: relative;
+    inset: auto;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  .zp-node::before {
+    font-size: 0.9375rem;
+  }
+  .zp-step-text h3,
+  .zp-step-text p {
+    font-size: 0.9375rem;
+  }
+  .zp-step-text h3:only-child,
+  .zp-step-text p:only-child {
+    padding-top: 0;
+  }
+  .zp-close {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 4rem;
+    padding-block: 7rem 5.5rem;
+  }
+  .zp-close-line {
+    font-size: 1.625rem;
+  }
+}
+
+/* VoM Pay result pages (/vom-pay-success/, /vom-pay-failure/ and their /en/ twins):
+   "status beside the form". The outcome stands on the start side, on the old
+   pages' light-blue ribbon panel; the next step sits beside it: the lead form on
+   the teal field (success) or the code's message and the FAQ (failure). Phones:
+   the panel, then the field as a full-bleed slanted band, or the sheet and FAQ.
+   Contract: .impeccable/surfaces/components-vompay-payresult-tsx.md. */
+.pr-top {
+  padding-block: 1.5rem 3rem;
+}
+.pr-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+/* The outcome: the old illustration on the old ribbon panel. */
+.pr-status {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  padding: 2rem 1.25rem 2.25rem;
+  border-radius: var(--radius-card);
+  background: var(--color-paper-100) var(--pr-bg) center / cover no-repeat;
+  text-align: center;
+}
+.pr-illustration {
+  width: 9rem;
+  height: auto;
+  animation: pr-rise 0.8s var(--ease-out-quint) 0.1s both;
+}
+.pr-title {
+  margin-top: 1.25rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+/* Success in Engraver's Teal; failure stays ink (no red, and orange is for actions):
+   the illustration's own orange cross carries it. */
+.pr-status[data-outcome="success"] .pr-title {
+  color: var(--color-teal-700);
+}
+.pr-line,
+.pr-code {
+  margin-top: 0.625rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-ink-700);
+  text-wrap: balance;
+}
+.pr-code {
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.pr-code span {
+  font-variant-numeric: tabular-nums;
+}
+@keyframes pr-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+/* The next step on success: the teal field holding the paper sheet. */
+.pr-field {
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding: 3.75rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
+  background-color: var(--color-teal-600);
+  background-position: 48px 0;
+  clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .pr-field {
+  clip-path: polygon(0 0, 100% 2.25rem, 100% 100%, 0 100%);
+}
+.pr-sheet {
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--color-teal-200);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200),
+    0 32px 56px -34px rgb(5 42 37 / 0.6);
+}
+/* The sheet's head over the house 4px double teal rule. */
+.pr-sheet-head {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.125rem;
+  background:
+    linear-gradient(var(--color-teal-500), var(--color-teal-500)) left bottom / 100% 1px no-repeat,
+    linear-gradient(var(--color-teal-500), var(--color-teal-500)) left calc(100% - 3px) / 100% 1px no-repeat;
+}
+.pr-sheet-head h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.pr-sheet-head p {
+  margin-top: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-ink-700);
+}
+
+/* The next step on failure: the message on its sheet, then the FAQ. */
+.pr-top-failure .pr-sheet {
+  box-shadow:
+    inset 0 0 0 4px var(--color-paper),
+    inset 0 0 0 5px var(--color-teal-200);
+}
+.pr-message {
+  text-wrap: pretty;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-ink);
+}
+.pr-faq {
+  margin-top: 2.5rem;
+}
+.pr-faq-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* What VoM does: the pitch beside the VoM AI logo, then the features. */
+.pr-features {
+  padding-block: 3.5rem 4.5rem;
+}
+.pr-pitch {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-paper-300);
+}
+.pr-vom-ai {
+  width: 9rem;
+  height: auto;
+}
+.pr-pitch-title {
+  max-width: 30ch;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.pr-pitch-line {
+  margin-top: 0.75rem;
+  max-width: 60ch;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-ink-700);
+}
+.pr-features-title {
+  margin-top: 2.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.pr-lead-feature {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-card);
+  background: var(--color-paper-100);
+}
+.pr-laptop {
+  width: 100%;
+  height: auto;
+}
+.pr-feature img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+.pr-feature h4 {
+  margin-top: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+.pr-feature p {
+  margin-top: 0.5rem;
+  max-width: 58ch;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+}
+.pr-zatca {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-paper-300);
+  border-radius: var(--radius-sheet);
+  background: var(--color-paper);
+}
+.pr-zatca img {
+  display: block;
+  width: 12rem;
+  height: auto;
+}
+/* The other five: a ruled register, icon beside title and body; no cards. */
+.pr-register {
+  display: grid;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--color-paper-300);
+}
+.pr-register .pr-feature {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-content: start;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--color-paper-200);
+}
+.pr-register .pr-feature img {
+  grid-row: 1 / span 2;
+}
+.pr-register .pr-feature h4 {
+  margin-top: 0.625rem;
+}
+
+/* The close: the house slanted teal-600 band. */
+.pr-close-band {
+  background-color: var(--color-teal-600);
+  clip-path: polygon(0 2.5rem, 100% 0, 100% 100%, 0 100%);
+}
+html[dir="rtl"] .pr-close-band {
+  clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+}
+.pr-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  padding-block: 5.5rem 4.5rem;
+}
+.pr-close .btn:focus-visible {
+  outline-color: #fff;
+}
+.pr-close-line {
+  max-width: 34ch;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .pr-sheet {
+    padding: 1.75rem 1.5rem;
+  }
+  .pr-pitch {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    column-gap: 2.5rem;
+  }
+  .pr-vom-ai {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .pr-register {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+    border-top: 0;
+  }
+  .pr-register .pr-feature {
+    border-top: 1px solid var(--color-paper-300);
+    border-bottom: 0;
+  }
+  /* Five entries: the odd last one takes the whole row rather than leaving an empty cell. */
+  .pr-register .pr-feature:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pr-top {
+    padding-block: 2rem 4.5rem;
+  }
+  .pr-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3rem;
+  }
+  .pr-top-failure .pr-grid {
+    align-items: start;
+  }
+  .pr-status {
+    padding: 2.5rem 2rem 3rem;
+  }
+  .pr-top-failure .pr-status {
+    min-height: 32rem;
+  }
+  .pr-illustration {
+    width: 13rem;
+  }
+  .pr-title {
+    font-size: 3rem;
+  }
+  .pr-line,
+  .pr-code {
+    font-size: 1.25rem;
+  }
+  .pr-field {
+    margin: 0;
+    padding: 2rem;
+    border-radius: var(--radius-card);
+    clip-path: none;
+    box-shadow: 0 40px 80px -50px rgb(5 42 37 / 0.65);
+  }
+  html[dir="rtl"] .pr-field {
+    clip-path: none;
+  }
+  .pr-features {
+    padding-block: 5rem 6rem;
+  }
+  .pr-pitch {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    column-gap: 3.5rem;
+  }
+  .pr-pitch-title {
+    max-width: 44ch;
+    font-size: 2rem;
+  }
+  .pr-features-title {
+    margin-top: 3.5rem;
+  }
+  .pr-lead-feature {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: 3rem;
+    padding: 2rem 2.5rem;
+  }
+  .pr-close {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 4rem;
+    padding-block: 6.5rem 5rem;
+  }
+  .pr-close-line {
+    font-size: 1.75rem;
   }
 }
 

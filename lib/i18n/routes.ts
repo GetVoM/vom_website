@@ -23,6 +23,18 @@ export const featuresPaths: PagePair = { ar: "/features/", en: "/features/" };
  * /en/sales-invoices/ redirects to the English page (next.config.ts).
  */
 export const invoiceTemplatesPaths: PagePair = { ar: "/نماذج-فواتير/", en: "/templates/" };
+/**
+ * E-invoicing: the Arabic hub (lib/content/einvoicing, `guidePath("hub")`) and
+ * the English-only ZATCA Phase 2 page are each other's twin (owner,
+ * 2026-11-12): the navbar's e-invoicing item, the language switch and hreflang.
+ */
+export const zatcaPhase2Paths: PagePair = { ar: "/الفوترة-الإلكترونية/", en: "/zatca-e-invoicing-phase-2/" };
+/**
+ * The VoM Pay result pages. The app sends payers to these exact addresses in
+ * either language (owner, 2026-11-12); nothing on the site links to them.
+ */
+export const vomPaySuccessPaths: PagePair = { ar: "/vom-pay-success/", en: "/vom-pay-success/" };
+export const vomPayFailurePaths: PagePair = { ar: "/vom-pay-failure/", en: "/vom-pay-failure/" };
 
 /** WordPress gave the English twins a "-2" slug; those now redirect here (next.config.ts). */
 export const integrationPaths: Record<IntegrationId, PagePair> = {
@@ -67,6 +79,9 @@ const pagePairs: PagePair[] = [
   pricingPaths,
   featuresPaths,
   invoiceTemplatesPaths,
+  zatcaPhase2Paths,
+  vomPaySuccessPaths,
+  vomPayFailurePaths,
   ...Object.values(integrationPaths),
   ...Object.values(sectorPaths),
 ];

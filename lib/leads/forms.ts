@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { normaliseSaudiMobile } from "./phone.ts";
 import { DIGITAL_ADS_FORM, sectors } from "./digital-ads-2023.ts";
+import { ZATCA_PHASE_2_FORM } from "./zatca-phase-2.ts";
+import { VOM_PAY_FORM } from "./vom-pay.ts";
 
 /**
  * The forms that may save a lead, and what each one accepts. A form that is not
@@ -51,6 +53,23 @@ export const leadForms = {
       payload: z.object({ sector: z.enum(sectors).optional() }).optional(),
     }),
     payloadFields: { sector: "القطاع" },
+    unused: ["company", "message"],
+  },
+  /** The English ZATCA Phase 2 page: the old form's two fields, both required; the mobile is the one format check. */
+  [ZATCA_PHASE_2_FORM]: {
+    schema: z.object({
+      name: text(200).min(2),
+      phone: saudiMobile,
+    }),
+    unused: ["email", "company", "message"],
+  },
+  /** The VoM Pay success page, in both languages (owner, 2026-11-12): name and mobile required, email optional. */
+  [VOM_PAY_FORM]: {
+    schema: z.object({
+      name: text(200).min(2),
+      phone: saudiMobile,
+      email: z.email().max(320).optional(),
+    }),
     unused: ["company", "message"],
   },
 } satisfies Record<string, LeadFormDefinition>;

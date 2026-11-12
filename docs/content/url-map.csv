@@ -304,7 +304,7 @@ page,https://getvom.com/temp-new/,/temp-new/,200,retire,/news/,Temp page,news ar
 page,https://getvom.com/en/about-us/,/en/about-us/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/student-package/,/student-package/,200,keep,,,باقة الطلاب - Vom
 page,https://getvom.com/en/thank-you-en/,/en/thank-you-en/,200,keep-noindex,,Form thank-you page,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/en/zatca-e-invoicing-phase-2/,/en/zatca-e-invoicing-phase-2/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/zatca-e-invoicing-phase-2/,/en/zatca-e-invoicing-phase-2/,200,keep,,Rebuilt 2026-11-12: English only (the Arabic path 404s); new English title and description and a self canonical (WordPress served the Arabic blog's title and canonical /en/blog-en/en/); hreflang pair with the Arabic e-invoicing hub; its form saves to the leads table as zatca-e-invoicing-phase-2; see docs/content/zatca-phase-2-text-changes.md,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/temp-news/,/en/temp-news/,200,retire,/en/news/,Temp page,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/growth-program-old/,/growth-program-old/,200,redirect,/growth-plan/,Old version of growth plan,أفضل برنامج محاسبة للشركات الناشئة والصغيرة في السعودية | ڤوم
 page,https://getvom.com/en/thanks-en/,/en/thanks-en/,200,keep-noindex,,Form thank-you page,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
@@ -315,11 +315,13 @@ page,https://getvom.com/pricing-ar/,/pricing-ar/,200,redirect,/pricing/,Duplicat
 page,https://getvom.com/en/growth-plan-en/,/en/growth-plan-en/,200,redirect,/en/growth-plan/,Live site already 301s here; English page lives at /en/growth-plan/ (2026-11-10),مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-timeline/,/en/vom-timeline/,200,keep,,"Timeline page; low traffic, consider merging into about",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/news-archive-en/,/en/news-archive-en/,200,redirect,/en/news/,Duplicate news archive,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/vom-pay-success/,/vom-pay-success/,200,keep-noindex,,Payment result page,فوم باي - تمت العملية بنجاح - Vom
+page,https://getvom.com/vom-pay-success/,/vom-pay-success/,200,keep-noindex,,"Payment result page. Rebuilt 2026-11-12: the app sends payers here after a VoM Pay payment; the address must not change. Holds the vom-pay-success lead form. English twin at /en/vom-pay-success/. See docs/content/vom-pay-text-changes.md",فوم باي - تمت العملية بنجاح - Vom
+page,https://getvom.com/en/vom-pay-success/,/en/vom-pay-success/,200,keep-noindex,,"Not in the WordPress sitemap; the app sends English payers here (owner, 2026-11-12). WordPress served the Arabic page; now English",VoM Pay: payment successful | VoM
 page,https://getvom.com/%d9%85%d8%ae%d8%b7%d8%b7-%d9%81%d9%88%d9%85-%d8%a7%d9%84%d8%b2%d9%85%d9%86%d9%8a/,/مخطط-فوم-الزمني/,200,keep,,"Timeline page; low traffic, consider merging into about",مخطط فوم الزمني - Vom
 page,https://getvom.com/%d9%86%d9%85%d8%a7%d8%b0%d8%ac-%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1/,/نماذج-فواتير/,200,keep,,Kept at its WordPress path; its English twin is /en/templates/ (owner 2026-11-11),نماذج فواتير مجانية جاهزة | Word Excel PDF
 page,https://getvom.com/glossary/,/glossary/,200,keep,,Thin page; expand or merge into blog,Glossary - Vom
-page,https://getvom.com/vom-pay-failure/,/vom-pay-failure/,200,keep-noindex,,Payment result page,فوم باي - فشل الدفع - Vom
+page,https://getvom.com/vom-pay-failure/,/vom-pay-failure/,200,keep-noindex,,"Payment result page. Rebuilt 2026-11-12: the app sends payers here with ?vom_pay_errors=<code>; the address must not change. Shows the code's message. English twin at /en/vom-pay-failure/. See docs/content/vom-pay-text-changes.md",فوم باي - فشل الدفع - Vom
+page,https://getvom.com/en/vom-pay-failure/,/en/vom-pay-failure/,200,keep-noindex,,"Not in the WordPress sitemap; the app sends English payers here with ?vom_pay_errors=<code> (owner, 2026-11-12). WordPress served the Arabic page; now English",VoM Pay: payment failed | VoM
 page,https://getvom.com/vom-zid/,/vom-zid/,200,keep,,,ﭬوم‬ و زد - Vom
 page,https://getvom.com/vom-zid-2/,/vom-zid-2/,301,redirect,/en/vom-zid/,"Not in the crawl; the live site 301s it to /en/vom-zid-2/, now one hop to the clean English URL (2026-11-10)",
 page,https://getvom.com/vom-prexle/,/vom-prexle/,200,keep,,,ﭬوم‬ و بريكسل - Vom
