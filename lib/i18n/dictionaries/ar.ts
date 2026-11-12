@@ -1,3 +1,4 @@
+import { toolPath, tools, toolsIndex } from "@/lib/content/tools/catalogue";
 import type { Dictionary } from "./types";
 
 export const ar: Dictionary = {
@@ -34,11 +35,17 @@ export const ar: Dictionary = {
         heading: "الموارد",
         links: [
           { label: "القوالب والنماذج", href: "/templates/" },
-          { label: "الأدوات المالية", href: "/tools/" },
           { label: "فواتير المبيعات", href: "/نماذج-فواتير/" },
           { label: "الفوترة الإلكترونية", href: "/الفوترة-الإلكترونية/" },
           { label: "برنامج المحاسبة", href: "/برنامج-محاسبة/" },
           { label: "الأخبار", href: "/news/" },
+        ],
+      },
+      {
+        heading: "الأدوات المالية",
+        links: [
+          ...tools.map((tool) => ({ label: tool.cardTitle, href: toolPath(tool.id) })),
+          { label: "كل الأدوات المالية", href: toolsIndex.path },
         ],
       },
       {

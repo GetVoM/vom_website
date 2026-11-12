@@ -174,10 +174,5 @@ export const cells: Record<RowId, Record<PlanId, Cell>> = {
   support: { flex: no, advanced: no, unlimited: no, business: yes },
 };
 
-/** Western digits with thousands separators, as on the rest of the site: 2,700 and 0.10. */
-export function formatAmount(value: number): string {
-  return new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
-    maximumFractionDigits: 2,
-  }).format(value);
-}
+/** Western digits with thousands separators, as on the rest of the site: 2,700 and 0.10. Shared with the calculators. */
+export { formatAmount } from "@/lib/tools/format";

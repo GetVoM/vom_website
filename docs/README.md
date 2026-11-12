@@ -9,6 +9,8 @@ Start with `CLAUDE.md` at the repo root (how to work here) and `PRODUCT.md` (pro
 | `content/inventory.md` | What exists on WordPress, migration mechanics, quality work before and after launch |
 | `content/wp-url-inventory.csv` | Every sitemap URL with its current title, description, canonical, hreflang, H1, schema types, dates and size |
 | `content/url-map.csv` | The URL contract: keep, keep-noindex, redirect (with target) or retire, per URL |
+| `content/tools/text-changes.md` | Every change the tool pages make to the WordPress copy |
+| `content/tools/calculator-rules.md` | Each calculator's fields and formula, the old widget against the new one, and the constants for the accountant's sign-off |
 | `design/directions.md` | The three design directions, shared colour roles, the typeface finding, next steps after the pick |
 | `architecture.md` | Rendering, locale routing, URL preservation, content layer, metadata, fonts, images, analytics, security, testing, hosting |
 | `research/next16-digest.md` | Next.js 16.4.3 API digest for people coming from 13 to 15 |

@@ -17,6 +17,7 @@ import { site } from "@/lib/seo/site";
 import { accountingGuide } from "@/lib/content/accounting-guide/copy";
 import { guidePath, guides } from "@/lib/content/einvoicing/catalogue";
 import { postPaths } from "@/lib/content/posts";
+import { toolPath, tools, toolsIndex, toolsModified } from "@/lib/content/tools/catalogue";
 
 interface SitemapPage {
   pair: PagePair;
@@ -139,11 +140,24 @@ function accountingGuideEntry(): MetadataRoute.Sitemap {
 }
 
 /**
- * The sitemap is split by type (docs/seo/strategy.md §5): /sitemap/pages.xml,
- * /sitemap/posts.xml, /sitemap/news.xml and /sitemap/templates.xml, all listed
- * in robots.ts.
+ * The financial tools: the index and its seven calculators, Arabic only.
+ * lastModified is each WordPress page's own modified date; the index carries
+ * the newest of them.
  */
-export const sitemapIds = ["pages", "posts", "news", "templates"] as const;
+function toolEntries(): MetadataRoute.Sitemap {
+  const entry = (path: string, modified: string, priority: number) => {
+    const url = encodeURI(`${site.url}${path}`);
+    return { url, lastModified: new Date(modified), changeFrequency: "monthly" as const, priority, alternates: { languages: { ar: url, "x-default": url } } };
+  };
+  return [entry(toolsIndex.path, toolsModified, 0.7), ...tools.map((tool) => entry(toolPath(tool.id), tool.modified, 0.6))];
+}
+
+/**
+ * The sitemap is split by type (docs/seo/strategy.md §5): /sitemap/pages.xml,
+ * /sitemap/posts.xml, /sitemap/news.xml, /sitemap/templates.xml and
+ * /sitemap/tools.xml, all listed in robots.ts.
+ */
+export const sitemapIds = ["pages", "posts", "news", "templates", "tools"] as const;
 
 export function generateSitemaps() {
   return sitemapIds.map((id) => ({ id }));
@@ -154,6 +168,7 @@ export default async function sitemap({ id }: { id: Promise<string> }): Promise<
   if (which === "posts") return blogEntries("post");
   if (which === "news") return blogEntries("news");
   if (which === "templates") return blogEntries("template");
+  if (which === "tools") return toolEntries();
   return [...pagePairEntries(), ...einvoicingEntries(), ...accountingGuideEntry()];
 }
 

@@ -13,7 +13,7 @@ WordPress with the Sydney theme, Elementor and Elementor Pro, ElementsKit, Smart
 | Blog posts | 230 | `/<category>/<arabic-slug>/`, a few at root | Arabic only. Average about 1,400 words of body. Article schema with author and reviewer. Content HTML carries pasted-editor artefacts (`data-start`, `data-end`). |
 | Pages | 93 live (95 in WP) | Arabic at root, English under `/en/` | Includes 15 sector pages per language, 4 integration pages per language, an e-invoicing pillar with 12 child guides (the 13 saved pages; "14" counted the English ZATCA page), pricing, features (built 2026-11-10 at `/features/` and `/en/features/`; its copy and screenshots live in `lib/content/features/` and `public/features/`), about, contact, student package, growth plan, glossary, terms. About 20 are test, duplicate or campaign pages. |
 | Templates | 45 | `/templates/<slug>/` | Downloadable Excel, Word and PDF forms with explanatory articles; direct download. |
-| Tools | 7 | `/tools/<slug>/` | Calculators: company zakat, zakat, zakat base, VAT, salary, discount, profit margin. |
+| Tools | 7 | `/tools/<slug>/` | Calculators: company zakat, zakat, zakat base, VAT, salary, discount, profit margin. Built 2026-11-12 as code-owned Arabic pages with the `/tools/` index; see `docs/content/tools/`. |
 | News | 5 | `/news/<slug>/` | Partnership announcements. |
 | Categories | 39 in WP, 30 in sitemap | Mixed Arabic and Latin slugs | 10 carry most posts; several are empty, duplicated (two "digital marketing" variants, one a typo) or English-only with one post. |
 | Authors | 9 | `/author/<slug>/` | Abass Sahrawi writes most posts; Faisal Al-Mutairi reviews; others include Abdulrahman Fani, Noura Alnafea, Islam, Maha, Miled Elias, Hamza Ait, admin. Bios empty; one is lorem ipsum. |

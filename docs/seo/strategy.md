@@ -82,7 +82,7 @@ Structured data (JSON-LD, one block per page, validated in tests):
 - Home, features, pricing: `SoftwareApplication` (`applicationCategory: BusinessApplication`, `operatingSystem: Web, iOS`) with `Offer` entries for the published plans in SAR. No `aggregateRating` until real reviews exist.
 - Posts and guides: `Article` with `author` (Person with URL), `reviewedBy` (Person with jobTitle), `datePublished`, `dateModified`, `image`, `publisher`.
 - All pages: `BreadcrumbList` matching the visible breadcrumb.
-- Pages with FAQ sections: no `FAQPage` markup. Google no longer shows FAQ rich results for sites like this one, so the owner removed it on 2026-11-10; the questions stay on the page as visible content. Calculators: `HowTo` where the page explains steps; otherwise `WebApplication`.
+- Pages with FAQ sections: no `FAQPage` markup. Google no longer shows FAQ rich results for sites like this one, so the owner removed it on 2026-11-10; the questions stay on the page as visible content. Calculators (built 2026-11-12): `Article` with author and reviewer, one `WebApplication` per calculator and `BreadcrumbList`; the `/tools/` index a `CollectionPage`. No `HowTo` (Google retired the rich result).
 
 Sitemaps and robots:
 

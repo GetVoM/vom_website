@@ -1,21 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useState } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-
-export function calcVat(amount: number, ratePercent: number, inclusive: boolean) {
-  const rate = ratePercent / 100;
-  if (inclusive) {
-    const net = amount / (1 + rate);
-    return { net, tax: amount - net, gross: amount };
-  }
-  const tax = amount * rate;
-  return { net: amount, tax, gross: amount + tax };
-}
+import { calcVat } from "@/lib/tools/calc";
 
 const fmt = (n: number) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-export function VatCalculator({ t }: { t: Dictionary["vat"] }) {
+/**
+ * The homepage's small VAT calculator. `moreHref` (Arabic only, where the tools
+ * live) links it to the full calculators.
+ */
+export function VatCalculator({ t, moreHref }: { t: Dictionary["vat"]; moreHref?: string }) {
   const [amount, setAmount] = useState("2500");
   const [rate, setRate] = useState("15");
   const [inclusive, setInclusive] = useState(false);
@@ -78,6 +74,11 @@ export function VatCalculator({ t }: { t: Dictionary["vat"] }) {
           </dd>
         </div>
       </dl>
+      {moreHref && (
+        <Link href={moreHref} className="self-start text-[0.9375rem] font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
+          {t.more}
+        </Link>
+      )}
     </div>
   );
 }

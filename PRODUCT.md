@@ -43,7 +43,7 @@ The website's job is to win Arabic organic search for accounting, e-invoicing, z
 ## Capabilities and Constraints
 
 - Arabic is served at the root (`/`), English under `/en`. Both must stay at those paths to preserve rankings and existing links.
-- Content to migrate: about 230 Arabic blog posts, 15 sector pages in each language, 45 downloadable templates, 7 interactive calculators, 5 news items, an e-invoicing hub with 12 guides (13 pages, Arabic only; built 2026-11-10), the accounting-software pillar `/برنامج-محاسبة/` (Arabic only; built 2026-11-11), pricing, features (built 2026-11-10), about, contact, terms, student package, growth plan, 4 integration pages, a glossary.
+- Content to migrate: about 230 Arabic blog posts, 15 sector pages in each language, 45 downloadable templates, 7 interactive calculators (Arabic only, `/tools/`; built 2026-11-12), 5 news items, an e-invoicing hub with 12 guides (13 pages, Arabic only; built 2026-11-10), the accounting-software pillar `/برنامج-محاسبة/` (Arabic only; built 2026-11-11), pricing, features (built 2026-11-10), about, contact, terms, student package, growth plan, 4 integration pages, a glossary.
 - Content management: deferred by the user on 2026-10-25 ("we will integrate a CMS or build one a bit later, not the concern for now"). The site must read content through one swappable content layer so that storage can change later without touching pages.
 - Undecided: whether the growth plan and student package pages stay; whether the blog gets an English edition; which CMS, if any.
 

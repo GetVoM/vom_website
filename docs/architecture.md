@@ -16,7 +16,7 @@ Rejected: two separate route trees (`app/(ar)` and `app/en`): duplicates every l
 
 ## 3. URLs: preserve first, restructure later
 
-`trailingSlash: true` so WordPress paths resolve byte-for-byte. A catch-all route `app/[lang]/[...slug]/page.tsx` resolves any preserved path through the content layer's URL index (posts under `/<category>/<arabic-slug>/`, sector pages under `/<arabic-slug>/`, e-invoicing guides under `/الفوترة-الإلكترونية/<slug>/`, templates under `/templates/<slug>/`, tools under `/tools/<slug>/`). Dedicated routes exist only for pages whose structure is new (home, pricing, features, about, contact, blog index, category archives). Redirects for the `redirect` and `retire` rows of `docs/content/url-map.csv` go in `next.config.ts` `redirects()` with `statusCode: 301` (about 25 entries) and a small `410` handler.
+`trailingSlash: true` so WordPress paths resolve byte-for-byte. A catch-all route `app/[lang]/[...slug]/page.tsx` resolves any preserved path through the content layer's URL index (posts under `/<category>/<arabic-slug>/`, sector pages under `/<arabic-slug>/`, e-invoicing guides under `/الفوترة-الإلكترونية/<slug>/`, templates under `/templates/<slug>/`). Dedicated routes exist only for pages whose structure is new (home, pricing, features, about, contact, blog index, category archives) and for the tools: `app/[lang]/tools/page.tsx` and `app/[lang]/tools/[slug]/page.tsx` (2026-11-12, Arabic only, English 404s), kept out of the catch-all so the calculators' client code stays off every other page it serves. Redirects for the `redirect` and `retire` rows of `docs/content/url-map.csv` go in `next.config.ts` `redirects()` with `statusCode: 301` (about 25 entries) and a small `410` handler.
 
 Rejected for launch: moving posts to `/blog/<slug>/`. It is cleaner but adds about 230 redirects and temporary ranking volatility during a migration that already changes platform, design and markup. It can be done later as its own change with its own redirect map.
 
@@ -28,9 +28,11 @@ Why MDX first: the owner deferred the CMS decision; MDX needs no service, keeps 
 
 Since 2026-11-11 posts and news are not MDX. They live in Supabase and are edited in the site's own admin at `/admin` (§13): `lib/content/posts/` exposes `getPostByPath`, `listPosts`, `listCategories`, `getCategory`, `getAuthor`, `postPaths` and `relatedPosts`. Bodies are stored twice, as the editor's document and as HTML rendered from it on the server; one schema (`lib/editor/extensions.ts`) is shared by the editor, the save action and `scripts/import-wordpress.mjs`. The catch-all route resolves blog paths against one cached index of every published path, so an unknown URL is a 404 without a database query. The e-invoicing guides and the accounting guide stay on MDX.
 
+The tools (2026-11-12) are MDX too, in code, not Supabase: metadata in `lib/content/tools/catalogue.ts`, each page split by `scripts/import-tools.mjs` into `content/tools/<id>.lead.mdx` (up to its last calculator, shown full width as the poster bands) and `content/tools/<id>.mdx` (the article), read through `lib/content/tools/`. The calculators are client components (`components/tools/calculators.tsx`, one 7 KB gzipped chunk loaded only on tool pages) over pure functions in `lib/tools/` (`calc`, `parse`, `format`, `rates`). See `docs/content/tools/`.
+
 ## 5. Metadata and structured data: generated from one source
 
-`lib/seo/` builds `Metadata` objects and JSON-LD from content records: title templates per type, absolute canonical, `alternates.languages` from the hreflang pairs in the URL index, Open Graph with a generated image (`opengraph-image.tsx` per route type, Arabic font passed to `ImageResponse`), and JSON-LD by type (`Organization` + `WebSite` in the root layout; `SoftwareApplication` with `Offer` on home, features and pricing; `Article` with `author` and `reviewedBy` on posts and guides; `BreadcrumbList` everywhere; no `FAQPage`, since Google no longer shows FAQ rich results for sites like this one (owner, 2026-11-10); `HowTo` on calculators if they qualify). Sitemaps are split by type with `generateSitemaps` and listed in `robots.ts`.
+`lib/seo/` builds `Metadata` objects and JSON-LD from content records: title templates per type, absolute canonical, `alternates.languages` from the hreflang pairs in the URL index, Open Graph with a generated image (`opengraph-image.tsx` per route type, Arabic font passed to `ImageResponse`), and JSON-LD by type (`Organization` + `WebSite` in the root layout; `SoftwareApplication` with `Offer` on home, features and pricing; `Article` with `author` and `reviewedBy` on posts and guides; `BreadcrumbList` everywhere; no `FAQPage`, since Google no longer shows FAQ rich results for sites like this one (owner, 2026-11-10); on the tools (2026-11-12), `Article` with author and reviewer, one free `WebApplication` per calculator and `BreadcrumbList`, and on the index a `CollectionPage` listing them; no `HowTo`, since Google no longer shows HowTo rich results). Sitemaps are split by type with `generateSitemaps` and listed in `robots.ts`.
 
 ## 6. Fonts: self-hosted through `next/font`, two families at most
 
@@ -54,7 +56,8 @@ Static CSP in `headers()` (no nonces, because nonce CSP forces dynamic rendering
 
 ## 11. Testing and quality gates
 
-- `pnpm lint`, `pnpm typecheck`, `pnpm build` in CI.
+- `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build` in CI. `pnpm test` runs `node --test` over `lib/**/*.test.ts` (Node's built-in type stripping, no test dependency): the calculators against their pages' worked examples, the number parser, and the tools catalogue against `url-map.csv`.
+- `node scripts/check-blog-urls.mjs <base>` against a running build: every post, news, category, template and tool row of `url-map.csv` (status, canonical, title and description against the crawl; on tools also hreflang, JSON-LD and the English 404s).
 - Playwright: smoke navigation in both locales at 390 px and 1440 px; an SEO assertion suite that loads every URL in `url-map.csv` and checks status, title, description, canonical, hreflang, and JSON-LD validity.
 - Lighthouse CI with the budgets from `CLAUDE.md` on home, a sector page, a post, a template, a tool, in both locales.
 - Visual regression on the design system components in RTL and LTR.

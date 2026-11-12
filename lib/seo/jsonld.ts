@@ -193,6 +193,63 @@ export function templateCollectionJsonLd(page: {
   };
 }
 
+/**
+ * One calculator on a tool page: a free WebApplication that runs in the browser.
+ * `anchor` is the calculator's element id on the page. Arabic only.
+ */
+export function webApplicationJsonLd(app: { path: string; anchor: string; name: string; description: string }): JsonLd {
+  const url = `${site.url}${encodeURI(localePath("ar", app.path))}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${url}#${app.anchor}`,
+    name: app.name,
+    description: app.description,
+    url: `${url}#${app.anchor}`,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript.",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "SAR" },
+    inLanguage: "ar",
+    publisher: { "@id": `${site.url}/#organization` },
+  };
+}
+
+/** The tools index: a CollectionPage listing each tool page. Arabic only. */
+export function toolCollectionJsonLd(page: {
+  path: string;
+  name: string;
+  description: string;
+  modified: string;
+  tools: { name: string; description: string; path: string }[];
+}): JsonLd {
+  const url = `${site.url}${encodeURI(localePath("ar", page.path))}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: page.name,
+    description: page.description,
+    inLanguage: "ar",
+    dateModified: page.modified,
+    isPartOf: { "@id": `${site.url}/#website` },
+    publisher: { "@id": `${site.url}/#organization` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: page.tools.length,
+      itemListElement: page.tools.map((tool, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${site.url}${encodeURI(localePath("ar", tool.path))}`,
+        name: tool.name,
+        description: tool.description,
+      })),
+    },
+  };
+}
+
 /** `path` values are locale-free; the visible breadcrumb must list the same items. */
 /**
  * A blog post or news item: an Article with its writer (a Person with a page on

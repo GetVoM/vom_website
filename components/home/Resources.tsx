@@ -56,7 +56,7 @@ export function Resources({ locale, t }: { locale: Locale; t: Dictionary }) {
               </Link>
             ))}
           </div>
-          <VatCalculator t={t.vat} />
+          <VatCalculator t={t.vat} moreHref={locale === "ar" ? "/tools/" : undefined} />
         </div>
       </div>
     </section>
