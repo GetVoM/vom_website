@@ -55,7 +55,7 @@ export function BlogClose({ locale }: { locale: Locale }) {
 /**
  * A blog post, news item or template on the ledger page: a ruled heading (date, topic,
  * title), then the sheet, split by one teal rule into the margin, which holds
- * the numbered contents, and the column where the article runs. The byline
+ * the numbered contents and the trial card, and the column where the article runs. The byline
  * names the writer and the accountant who reviewed it; related entries and the
  * trial close the page.
  */
@@ -121,7 +121,22 @@ export async function PostPage({ post }: { post: Post }) {
 
       <div className="page-wrap">
         <div className="blg-sheet">
-        {post.sections.length > 0 && <MarginContents sections={post.sections} title={c.contents} />}
+        {post.sections.length > 0 && (
+          <div className="blg-aside">
+            <div className="blg-aside-stick">
+              <MarginContents sections={post.sections} title={c.contents} />
+              <aside className="blg-trial" aria-labelledby="blg-trial">
+                <h2 id="blg-trial" className="blg-trial-title">
+                  {c.trial.heading}
+                </h2>
+                <p className="blg-trial-body">{c.trial.body}</p>
+                <ButtonLink href={site.signup[locale]} arrow>
+                  {c.trial.cta}
+                </ButtonLink>
+              </aside>
+            </div>
+          </div>
+        )}
 
         <div className="blg-col">
           <dl className="blg-byline">

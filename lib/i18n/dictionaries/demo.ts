@@ -1,10 +1,9 @@
 /**
- * DEMO CONTENT. Everything in this file is invented for design review on
- * 2026-10-25 at the owner's request. Client logos are well-known brands used
- * as stand-ins, testimonials and portraits are placeholders, and several
- * integration partners and all integration statistics are made up. Replace
- * with real, approved material before launch. PRODUCT.md › Evidence on Hand
- * lists what is real.
+ * DEMO CONTENT. The testimonials and their portraits in this file are invented
+ * placeholders, made for design review on 2026-10-25 at the owner's request, and
+ * are live on the homepage until real, approved quotes replace them (owner,
+ * 2026-11-16: keep until the content arrives). The client logos are no longer
+ * here: they are the old site's own, in lib/content/clients.ts.
  */
 
 export interface DemoTestimonial {
@@ -14,18 +13,6 @@ export interface DemoTestimonial {
   business: { ar: string; en: string };
   avatar: string;
   metric: { value: string; label: { ar: string; en: string } };
-}
-
-export interface DemoIntegration {
-  id: string;
-  name: string;
-  logo: string | null;
-  category: { ar: string; en: string };
-  body: { ar: string; en: string };
-  description: { ar: string; en: string };
-  live: boolean;
-  stats: { clients: number; invoices: number; sync: { ar: string; en: string } };
-  steps: { ar: string; en: string }[];
 }
 
 export const demoTestimonials: DemoTestimonial[] = [
@@ -94,120 +81,5 @@ export const demoTestimonials: DemoTestimonial[] = [
     business: { ar: "أفق للتصميم، الخبر", en: "Ufuq Design, Khobar" },
     avatar: "/demo/avatars/6.jpg",
     metric: { value: "3", label: { ar: "أسابيع أسرع في التحصيل", en: "weeks faster collection" } },
-  },
-];
-
-/**
- * Foodics, Marn and Zid are real, with pages of their own; the homepage builds their
- * tabs from those pages (components/home/Integrations.tsx), so they are not here.
- */
-export const demoIntegrations: DemoIntegration[] = [
-  {
-    id: "salla",
-    name: "Salla",
-    logo: "/demo/integrations/salla.png",
-    category: { ar: "تجارة إلكترونية", en: "E-commerce" },
-    body: { ar: "مزامنة الطلبات والمرتجعات", en: "Orders and returns in sync" },
-    description: {
-      ar: "تكامل سلة قيد الإطلاق: مزامنة الطلبات والمرتجعات والمدفوعات، مع فوترة إلكترونية مبلّغة لكل طلب.",
-      en: "The Salla integration is launching soon: orders, returns and payments in sync, with a reported e-invoice for every order.",
-    },
-    live: false,
-    stats: { clients: 85, invoices: 0, sync: { ar: "لحظي", en: "real time" } },
-    steps: [
-      { ar: "سجّل في قائمة الانتظار من إعدادات ڤوم.", en: "Join the waitlist from VoM settings." },
-      { ar: "سنربط متجرك عند الإطلاق دون أي إعداد منك.", en: "We connect your store at launch with no setup from you." },
-      { ar: "الطلبات السابقة تُستورد في أول مزامنة.", en: "Past orders are imported in the first sync." },
-    ],
-  },
-  {
-    id: "rewaa",
-    name: "Rewaa",
-    logo: "/demo/integrations/rewaa.png",
-    category: { ar: "مخزون", en: "Inventory" },
-    body: { ar: "حركة المخزون تُرحَّل تلقائيًا", en: "Stock movements posted automatically" },
-    description: {
-      ar: "قيد الإطلاق: حركة المخزون في رواء تنعكس على ڤوم، فتعرف تكلفة البضاعة المباعة لحظة بلحظة.",
-      en: "Launching soon: stock movements in Rewaa are reflected in VoM, so you know your cost of goods sold to the minute.",
-    },
-    live: false,
-    stats: { clients: 40, invoices: 0, sync: { ar: "كل ساعة", en: "hourly" } },
-    steps: [
-      { ar: "سجّل في قائمة الانتظار.", en: "Join the waitlist." },
-      { ar: "اربط المستودعات بالأصناف.", en: "Map warehouses to items." },
-      { ar: "تكلفة البضاعة المباعة تُحسب تلقائيًا.", en: "Cost of goods sold is calculated automatically." },
-    ],
-  },
-  {
-    id: "moyasar",
-    name: "Moyasar",
-    logo: "/demo/integrations/moyasar.png",
-    category: { ar: "مدفوعات", en: "Payments" },
-    body: { ar: "التحصيل الإلكتروني مع كل فاتورة", en: "Online collection on every invoice" },
-    description: {
-      ar: "قيد الإطلاق: رابط دفع ميسر مع كل فاتورة، وتسوية المبالغ المحصّلة مع الرسوم في القيد نفسه.",
-      en: "Launching soon: a Moyasar payment link on every invoice, with collected amounts and fees reconciled in the same entry.",
-    },
-    live: false,
-    stats: { clients: 120, invoices: 0, sync: { ar: "لحظي", en: "real time" } },
-    steps: [
-      { ar: "سجّل في قائمة الانتظار.", en: "Join the waitlist." },
-      { ar: "اربط حساب ميسر التاجر.", en: "Connect your Moyasar merchant account." },
-      { ar: "كل فاتورة تحمل رابط دفع.", en: "Every invoice carries a payment link." },
-    ],
-  },
-  {
-    id: "tap",
-    name: "Tap",
-    logo: null,
-    category: { ar: "مدفوعات", en: "Payments" },
-    body: { ar: "مدى وأبل باي على روابط الدفع", en: "mada and Apple Pay on payment links" },
-    description: {
-      ar: "قيد الإطلاق: مدى وأبل باي وفيزا وماستركارد على روابط الدفع التي ترسلها مع فواتيرك.",
-      en: "Launching soon: mada, Apple Pay, Visa and Mastercard on the payment links you send with your invoices.",
-    },
-    live: false,
-    stats: { clients: 95, invoices: 0, sync: { ar: "لحظي", en: "real time" } },
-    steps: [
-      { ar: "سجّل في قائمة الانتظار.", en: "Join the waitlist." },
-      { ar: "اربط حساب Tap.", en: "Connect your Tap account." },
-      { ar: "المدفوعات تُسوّى مع الفواتير تلقائيًا.", en: "Payments are reconciled to invoices automatically." },
-    ],
-  },
-  {
-    id: "nuqta",
-    name: "Nuqta",
-    logo: "/demo/integrations/nuqta.png",
-    category: { ar: "ولاء العملاء", en: "Loyalty" },
-    body: { ar: "النقاط والخصومات في القيد نفسه", en: "Points and discounts in the same entry" },
-    description: {
-      ar: "خصومات نقاط الولاء من نقطة تُقيَّد تلقائيًا على الفاتورة، فتبقى الإيرادات والخصومات دقيقة في التقارير.",
-      en: "Loyalty discounts from Nuqta are booked on the invoice automatically, keeping revenue and discounts accurate in reports.",
-    },
-    live: true,
-    stats: { clients: 30, invoices: 9000, sync: { ar: "لحظي", en: "real time" } },
-    steps: [
-      { ar: "اربط حساب نقطة من إعدادات ڤوم.", en: "Connect your Nuqta account from VoM settings." },
-      { ar: "اختر حساب الخصومات.", en: "Choose the discounts account." },
-      { ar: "كل خصم ولاء يظهر في الفاتورة والقيد.", en: "Every loyalty discount appears on the invoice and the entry." },
-    ],
-  },
-  {
-    id: "mola",
-    name: "Mola",
-    logo: null,
-    category: { ar: "توصيل", en: "Delivery" },
-    body: { ar: "طلبات التوصيل تُقيَّد لحظيًا", en: "Delivery orders booked instantly" },
-    description: {
-      ar: "طلبات التوصيل من مولا تصل إلى ڤوم كفواتير، مع فصل رسوم التوصيل والعمولات في حسابات مستقلة.",
-      en: "Delivery orders from Mola reach VoM as invoices, with delivery fees and commissions separated into their own accounts.",
-    },
-    live: true,
-    stats: { clients: 45, invoices: 12000, sync: { ar: "أقل من دقيقة", en: "under a minute" } },
-    steps: [
-      { ar: "اربط حساب مولا.", en: "Connect your Mola account." },
-      { ar: "اختر حسابات الرسوم والعمولات.", en: "Choose the fee and commission accounts." },
-      { ar: "كل طلب توصيل فاتورة مبلّغة.", en: "Every delivery order is a reported invoice." },
-    ],
   },
 ];

@@ -46,7 +46,7 @@ export const zatcaPhase2 = {
 
   what: {
     heading: ["What is the ", "Second Phase", " of Electronic Invoicing?"] as AccentHeading,
-    body: "The second phase, known as the integration phase, requires linking the taxpayer’s electronic invoicing systems with the Zakat, Tax, and Customs Authority system (Fatoora platform). Electronic invoices must be issued in the required format. It will be implemented gradually, and taxpayers will be notified by the Zakat, Tax, and Customs Authority of the second phase at least 6 months in advance.",
+    body: "The second phase, known as the integration phase, requires linking the taxpayer’s electronic invoicing systems with the Zakat, Tax, and Customs Authority system (Fatoora platform). Electronic invoices must be issued in the required format. It is being rolled out in waves, and the Zakat, Tax, and Customs Authority notifies taxpayers of their wave at least 6 months in advance.",
     image: photo("laptop", 1600, 810, "VoM’s dashboard on a laptop, with a Phase 2 e-invoice in front of it"),
   },
 
@@ -126,7 +126,7 @@ export const zatcaPhase2 = {
         steps: [
           { body: "The seller issues the electronic invoice containing all elements of the tax invoice.", icon: icon("seller") },
           {
-            body: "The seller shares the invoice with the Zakat, Tax, and Customs Authority through electronic linking for approval by the authority, and then resends the invoice to the seller after electronic approval.",
+            body: "The seller shares the invoice with the Zakat, Tax, and Customs Authority through electronic linking for clearance: the authority validates and stamps the invoice, then returns it to the seller.",
             icon: icon("authority"),
           },
           { body: "The seller shares the electronically approved invoice from the authority with the buyer in a readable format.", icon: icon("buyer") },
@@ -163,12 +163,24 @@ export const zatcaPhase2 = {
         body: "Our clients can now smoothly submit invoices, whether tax invoices or simplified tax invoices, directly through the integrated VoM accounting software.",
       },
       {
-        title: "Ease of Handling Debit and Credit Notifications",
-        body: "VoM users can partially or fully use debit and credit notifications in their invoices. They are sent to the Zakat, Tax, and Customs Authority according to its requirements, ensuring complete transparency and accuracy.",
+        title: "Ease of Handling Debit and Credit Notes",
+        body: "VoM users can issue debit and credit notes against their invoices, in part or in full. They are sent to the Zakat, Tax, and Customs Authority according to its requirements, ensuring complete transparency and accuracy.",
       },
       {
         title: "Immediate Support in Case of Non-submission",
         body: "We deal with submission issues as quickly as possible, as our VoM accounting software automatically resubmits invoices in case of non-submission.",
+      },
+      {
+        title: "Cleared or Reported the Moment You Save",
+        body: "Tax invoices are cleared and simplified invoices are reported automatically when you save them, and every document shows its ZATCA status.",
+      },
+      {
+        title: "Errors Explained in Plain Language",
+        body: "If ZATCA rejects an invoice, VoM shows the reason in Arabic and English with how to fix it, and a dashboard alert counts the documents that need your attention.",
+      },
+      {
+        title: "The Cleared Invoice Reaches Your Customer",
+        body: "Once a tax invoice is cleared, your customer receives it by email with the signed XML and a PDF.",
       },
       {
         title: "Simplifying Operations",

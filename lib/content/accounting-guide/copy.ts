@@ -22,5 +22,5 @@ export const accountingGuide = {
   contents: "محتويات الدليل",
   thumbsLabel: "أجزاء الدليل",
   trustLabel: "لماذا ڤوم",
-  chipsLabel: "أمثلة على أسئلة لمساعد الذكاء الصناعي في ڤوم",
+  chipsLabel: "أمثلة على أسئلة لڤوم AI (نسخة تجريبية)",
 } as const;

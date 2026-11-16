@@ -25,8 +25,6 @@ export const site = {
     university: { ar: "https://sa.getvom.com/SP_AR", en: "https://sa.getvom.com/SP_EN" },
   },
   appStore: "https://apps.apple.com/us/app/vom/id1561019943",
-  // TODO: replace with the real Google Play listing URL from the team.
-  googlePlay: "https://play.google.com/store/search?q=vom%20accounting&c=apps",
   whatsapp: "+966502309337",
   whatsappUrl: "https://api.whatsapp.com/send/?phone=966502309337",
   phoneDisplay: "+966 50 230 9337",

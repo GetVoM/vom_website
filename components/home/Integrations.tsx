@@ -1,6 +1,5 @@
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-import { demoIntegrations } from "@/lib/i18n/dictionaries/demo";
 import { integrationPaths } from "@/lib/i18n/routes";
 import { integrationIds, integrations } from "@/lib/integrations";
 import { site } from "@/lib/seo/site";
@@ -9,7 +8,7 @@ import { IntegrationsExplorer, type ExplorerItem } from "./IntegrationsExplorer"
 export function Integrations({ locale, t }: { locale: Locale; t: Dictionary }) {
   const s = t.integrationsSection;
 
-  // Partners with a page of their own say what that page says, and link to it.
+  // Each tab says what the partner's own page says, and links to it.
   const partners: ExplorerItem[] = integrationIds.map((id) => {
     const page = t.integrationPages.items[id];
     return {
@@ -18,8 +17,7 @@ export function Integrations({ locale, t }: { locale: Locale; t: Dictionary }) {
       logo: integrations[id].icon,
       category: page.category,
       description: page.lede,
-      live: true,
-      flow: [page.partner, s.details.flow[1]],
+      flow: [page.partner, s.details.target],
       sync: page.sync,
       page: {
         href: localePath(locale, integrationPaths[id][locale]),
@@ -27,18 +25,6 @@ export function Integrations({ locale, t }: { locale: Locale; t: Dictionary }) {
       },
     };
   });
-
-  const demos: ExplorerItem[] = demoIntegrations.map((item) => ({
-    id: item.id,
-    name: item.name,
-    logo: item.logo,
-    category: item.category[locale],
-    description: item.description[locale],
-    live: item.live,
-    flow: s.details.flow,
-    stats: { clients: item.stats.clients, invoices: item.stats.invoices, sync: item.stats.sync[locale] },
-    steps: item.steps.map((step) => step[locale]),
-  }));
 
   return (
     <section id="integrations" className="border-t border-paper-200">
@@ -48,7 +34,7 @@ export function Integrations({ locale, t }: { locale: Locale; t: Dictionary }) {
           <p className="max-w-[60ch] text-[1.0625rem] leading-relaxed text-ink-700">{s.body}</p>
         </div>
         <IntegrationsExplorer
-          items={[...partners, ...demos]}
+          items={partners}
           t={s}
           signupHref={site.signup[locale]}
           docsHref={`${site.appUrl}/en/docs/api`}

@@ -23,6 +23,8 @@ export interface Dictionary {
   brand: { name: string; tagline: string; description: string };
   nav: {
     home: string;
+    /** Read to screen readers while the loader between pages is up. */
+    loading: string;
     breadcrumb: string;
     features: string;
     sectors: string;
@@ -92,7 +94,6 @@ export interface Dictionary {
   };
   /** Page order of the 15 sector pages; their paths live in lib/i18n/routes.ts (`sectorPaths`). */
   sectors: { heading: string; all: string; items: { id: SectorId; name: string; icon: SectorIcon }[] };
-  integrations: { heading: string; items: { name: string; body: string }[] };
   resources: {
     heading: string;
     all: string;
@@ -148,18 +149,11 @@ export interface Dictionary {
     heading: string;
     body: string;
     live: string;
-    soon: string;
-    api: string;
-    apiBody: string;
     docs: string;
     details: {
-      clients: string;
-      invoices: string;
-      sync: string;
-      how: string;
       activate: string;
-      waitlist: string;
-      flow: [string, string, string];
+      /** Where every integration's data lands: the second pill beside the partner's name. */
+      target: string;
       /** Link to a partner's integration page; `{partner}` is the partner's name. */
       page: string;
     };
@@ -170,7 +164,6 @@ export interface Dictionary {
     heading: string;
     body: string;
     ios: string;
-    android: string;
     features: string[];
     screen: { title: string; subtitle: string; amount: string; button: string; status: string };
   };
@@ -360,7 +353,7 @@ export interface GrowthFeature {
   body: string;
 }
 
-export type IntegrationId = "foodics" | "marn" | "zid";
+export type IntegrationId = "foodics" | "marn" | "lazywait" | "zid";
 
 /** The 15 sector pages, in page order. */
 export type SectorId =
@@ -390,9 +383,9 @@ export interface IntegrationCopy {
   crumb: string;
   heading: string;
   lede: string;
-  /** The ghost link to the video beside the register button. */
+  /** The ghost link beside the register button: to the video, or to the posting ledger when the page has none. */
   watch: string;
-  /** What the partner's records become in VoM, as the old page states it. */
+  /** What the partner's records become in VoM (the old page's words; LazyWait's are from the app's integration). */
   sync: { heading: string; rows: { from: string; to: string }[] };
   /** What the partner's own product offers; omitted when the old page listed nothing. */
   offer?: { heading: string; items: string[] };
@@ -417,7 +410,11 @@ export type StudentReportId =
   | "account-summary"
   | "assets"
   | "trial-balance"
-  | "cost-centres";
+  | "cost-centres"
+  // Added with the app's current reports (2026-11-16); their icons reuse the VAT and statement ones.
+  | "sales-vat"
+  | "purchases-vat"
+  | "customer-ageing";
 
 /** A journal entry in the notation of this language's textbooks. */
 export interface StudentBookEntry {

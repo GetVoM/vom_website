@@ -25,6 +25,10 @@ export interface PricingCopy {
     annual: string;
     /** The chip on the annual option. */
     free: string;
+    /** The chip under Flex's price: it has no annual billing. */
+    monthlyOnly: string;
+    /** Under the sheets while annual is chosen, where Flex is hidden. */
+    flexHidden: string;
   };
   /** Units after a figure: "/ شهريًا", "/ year", "per transaction". */
   per: {

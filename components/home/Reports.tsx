@@ -52,7 +52,7 @@ export function Reports({ locale, t }: { locale: Locale; t: Dictionary }) {
         <div className="grid gap-10 lg:grid-cols-[4fr_8fr] lg:gap-16">
           <div className="flex flex-col gap-6">
             <div className="flex items-baseline gap-3">
-              <span className="num text-[4.5rem] font-bold leading-none text-teal-700 sm:text-[5.5rem]">14+</span>
+              <span className="num text-[4.5rem] font-bold leading-none text-teal-700 sm:text-[5.5rem]">{t.reports.items.length}</span>
               <span className="text-[1.25rem] font-bold">{t.reports.countLabel}</span>
             </div>
             <h2 className="font-arabic text-[1.875rem] font-bold leading-[1.25] sm:text-[2.25rem]">{t.reports.heading}</h2>

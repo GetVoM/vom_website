@@ -48,7 +48,7 @@ export const invoiceTemplatesEn: InvoiceTemplatesCopy = {
   filesNote: "All six templates are Arabic documents.",
   createOnline: "Create online",
   close: {
-    line: "Looking for e-invoices? Issue them in VoM, approved by ZATCA.",
+    line: "Looking for e-invoices? Issue them in VoM, approved by ZATCA, with 11 templates that print in Arabic, English or both.",
     cta: "Start a 7-day free trial",
   },
 };

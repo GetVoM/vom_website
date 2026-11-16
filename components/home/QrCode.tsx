@@ -9,7 +9,7 @@ function finder(x: number, y: number, size: number) {
   return ring || inner;
 }
 
-function cellOn(x: number, y: number): boolean {
+export function cellOn(x: number, y: number): boolean {
   const n = 21;
   if (x < 7 && y < 7) return finder(x, y, 7);
   if (x >= n - 7 && y < 7) return finder(x - (n - 7), y, 7);

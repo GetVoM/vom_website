@@ -6,8 +6,15 @@ import { Icon } from "@/components/ui/Icon";
 
 type IconName = Parameters<typeof Icon>[0]["name"];
 
+/** The glimpses' own sample words, in the page's language. */
+const samples = {
+  ar: { supplier: "مورّد الخضار", item: "مياه معدنية", stock: "المتبقي 12 · الحد الأدنى 24", low: "تحت الحد الأدنى", payroll: "مسيّر رواتب أكتوبر", staff: "12 موظفًا", initial: "س", branches: ["الرياض", "جدة", "الدمام"], link: "رابط دفع", methods: "مدى · Apple Pay · فيزا", paid: "مدفوع" },
+  en: { supplier: "Vegetable supplier", item: "Mineral water", stock: "12 left · minimum 24", low: "Below minimum", payroll: "October payroll", staff: "12 employees", initial: "S", branches: ["Riyadh", "Jeddah", "Dammam"], link: "Payment link", methods: "mada · Apple Pay · Visa", paid: "Paid" },
+} as const;
+
 /** A small product glimpse per feature so the tiles show, not just tell. */
-function Glimpse({ index, t }: { index: number; t: Dictionary }) {
+function Glimpse({ index, t, locale }: { index: number; t: Dictionary; locale: Locale }) {
+  const x = samples[locale];
   switch (index) {
     case 0:
       return (
@@ -37,7 +44,7 @@ function Glimpse({ index, t }: { index: number; t: Dictionary }) {
             <Icon name="receipt" size={18} />
           </span>
           <span className="flex flex-col">
-            <span className="font-bold">مورّد الخضار</span>
+            <span className="font-bold">{x.supplier}</span>
             <span className="text-ink-500">2,140.00 · 50%</span>
           </span>
           <span className="ms-auto h-1.5 w-16 overflow-hidden rounded-pill bg-paper-200">
@@ -49,10 +56,10 @@ function Glimpse({ index, t }: { index: number; t: Dictionary }) {
       return (
         <div className="flex items-center justify-between rounded-[var(--radius-tile)] border border-orange-500/40 bg-orange-50 px-4 py-3 text-[0.8125rem]" aria-hidden="true">
           <span className="flex flex-col">
-            <span className="font-bold">مياه معدنية</span>
-            <span className="text-ink-700">المتبقي 12 · الحد الأدنى 24</span>
+            <span className="font-bold">{x.item}</span>
+            <span className="text-ink-700">{x.stock}</span>
           </span>
-          <span className="rounded-pill bg-orange-500 px-2 py-0.5 text-[0.6875rem] font-bold text-white">أعد الطلب</span>
+          <span className="rounded-pill bg-orange-500 px-2 py-0.5 text-[0.6875rem] font-bold text-white">{x.low}</span>
         </div>
       );
     case 3:
@@ -74,10 +81,10 @@ function Glimpse({ index, t }: { index: number; t: Dictionary }) {
       return (
         <div className="flex items-center justify-between rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-4 py-3 text-[0.8125rem]" aria-hidden="true">
           <span className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-50 font-bold text-teal-700">س</span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-50 font-bold text-teal-700">{x.initial}</span>
             <span className="flex flex-col">
-              <span className="font-bold">مسيّر رواتب أكتوبر</span>
-              <span className="text-ink-500">12 موظفًا</span>
+              <span className="font-bold">{x.payroll}</span>
+              <span className="text-ink-500">{x.staff}</span>
             </span>
           </span>
           <span className="num font-bold">48,600.00</span>
@@ -86,7 +93,7 @@ function Glimpse({ index, t }: { index: number; t: Dictionary }) {
     case 6:
       return (
         <div className="flex flex-wrap items-center gap-2 text-[0.8125rem]" aria-hidden="true">
-          {["الرياض", "جدة", "الدمام"].map((b, i) => (
+          {x.branches.map((b, i) => (
             <span key={b} className={`inline-flex items-center gap-2 rounded-pill border px-3 py-1.5 ${i === 0 ? "border-teal-500 bg-teal-50 text-teal-800" : "border-paper-300 text-ink-700"}`}>
               <span className={`h-1.5 w-1.5 rounded-full ${i === 0 ? "bg-teal-500" : "bg-paper-300"}`} />
               {b}
@@ -105,12 +112,12 @@ function Glimpse({ index, t }: { index: number; t: Dictionary }) {
       return (
         <div className="flex items-center justify-between rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-4 py-3 text-[0.8125rem]" aria-hidden="true">
           <span className="flex flex-col">
-            <span className="font-bold">رابط دفع · <span className="num">#1043</span></span>
-            <span className="text-ink-500">مدى · Apple Pay · فيزا</span>
+            <span className="font-bold">{x.link} · <span className="num">#1043</span></span>
+            <span className="text-ink-500">{x.methods}</span>
           </span>
           <span className="flex items-center gap-3">
             <span className="num font-bold">263.35</span>
-            <span className="rounded-pill bg-teal-500 px-2 py-0.5 text-[0.6875rem] font-bold text-white">مدفوع</span>
+            <span className="rounded-pill bg-teal-500 px-2 py-0.5 text-[0.6875rem] font-bold text-white">{x.paid}</span>
           </span>
         </div>
       );
@@ -156,7 +163,7 @@ export function Features({ locale, t }: { locale: Locale; t: Dictionary }) {
                 <h3 className="text-[1.25rem] font-bold leading-snug">{item.title}</h3>
                 <p className="max-w-[52ch] text-[0.9375rem] leading-relaxed text-ink-700">{item.body}</p>
               </div>
-              <Glimpse index={i} t={t} />
+              <Glimpse index={i} t={t} locale={locale} />
             </li>
           ))}
         </ul>

@@ -23,7 +23,7 @@ export function Apps({ t }: { t: Dictionary }) {
             ))}
           </ul>
           <div className="flex flex-wrap gap-3">
-            <StoreBadges ios={a.ios} android={a.android} />
+            <StoreBadges ios={a.ios} />
           </div>
         </div>
 

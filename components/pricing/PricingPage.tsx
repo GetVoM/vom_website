@@ -74,12 +74,14 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <div className="page-wrap">
             <ul className="prc-sheets" role="list">
               {planIds.map((id) => (
-                <li key={id} {...(id === popularPlan && { "data-popular": "" })}>
+                <li key={id} data-plan={id} {...(id === popularPlan && { "data-popular": "" })}>
                   <PlanSheet id={id} c={c} locale={locale} href={id === "business" ? contact : signup} />
                 </li>
               ))}
             </ul>
             <p className="prc-vat">{c.vatNote}</p>
+            {/* Shown by CSS while annual is chosen, where Flex is hidden. */}
+            <p className="prc-vat prc-flex-hidden">{c.billing.flexHidden}</p>
           </div>
         </div>
       </section>

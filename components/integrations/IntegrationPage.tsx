@@ -29,7 +29,7 @@ export function integrationMetadata(id: IntegrationId, locale: Locale): Metadata
 }
 
 /**
- * One integration page; Foodics, Marn and Zid share it. The connection video leads
+ * One integration page; Foodics, Marn, LazyWait and Zid share it. The connection video leads
  * on the teal field, then the posting ledger says what each partner record becomes
  * in VoM. Parts the old page did not have (Zid's offer list) drop out.
  */
@@ -79,7 +79,7 @@ export function IntegrationPage({ id, locale }: { id: IntegrationId; locale: Loc
               <ButtonLink href={site.signup[locale]} variant="primary" arrow>
                 {s.register}
               </ButtonLink>
-              <ButtonLink href="#watch" variant="ghost">
+              <ButtonLink href={assets.videos.length > 0 ? "#watch" : "#sync"} variant="ghost">
                 {c.watch}
               </ButtonLink>
             </div>
@@ -87,17 +87,26 @@ export function IntegrationPage({ id, locale }: { id: IntegrationId; locale: Loc
 
           <div id="watch" className="integ-stage">
             <div className="integ-field guilloche-tile" aria-hidden="true" />
-            <VideoScreen
-              videos={assets.videos.map((video, i) => ({
-                youtubeId: video.youtubeId,
-                title: c.videos[i],
-                length: videoLength(video.seconds),
-                poster: video.poster,
-                seal: video.seal,
-              }))}
-              playLabel={s.play}
-              inArabic={s.inArabic}
-            />
+            {assets.videos.length > 0 ? (
+              <VideoScreen
+                videos={assets.videos.map((video, i) => ({
+                  youtubeId: video.youtubeId,
+                  title: c.videos[i],
+                  length: videoLength(video.seconds),
+                  poster: video.poster,
+                  seal: video.seal,
+                }))}
+                playLabel={s.play}
+                inArabic={s.inArabic}
+              />
+            ) : (
+              // No video yet: the two marks, joined, stand on the field in its place.
+              <div className="integ-pair doc-frame" aria-hidden="true">
+                <Image src={assets.mark.src} alt="" width={assets.mark.width} height={assets.mark.height} sizes="200px" className="integ-mark" data-mark={id} />
+                <Icon name="arrow" size={22} className="integ-ledger-arrow rtl:-scale-x-100" />
+                <Image src={vomMark.src} alt="" width={vomMark.width} height={vomMark.height} sizes="140px" className="integ-mark" />
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -232,3 +241,4 @@ export function IntegrationPage({ id, locale }: { id: IntegrationId; locale: Loc
     </>
   );
 }
+

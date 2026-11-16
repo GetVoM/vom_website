@@ -9,6 +9,7 @@ export const en: Dictionary = {
   },
   nav: {
     home: "Home",
+    loading: "Loading page",
     breadcrumb: "Breadcrumb",
     features: "Features",
     sectors: "Industries",
@@ -21,7 +22,7 @@ export const en: Dictionary = {
         links: [
           { label: "Blog", href: "/blog/" },
           { label: "News", href: "/news/" },
-          { label: "Free Invoices Templates", href: "/templates/" },
+          { label: "Free invoice templates", href: "/templates/" },
           { label: "ZATCA Phase 2 e-invoicing", href: "/zatca-e-invoicing-phase-2/" },
         ],
       },
@@ -47,7 +48,7 @@ export const en: Dictionary = {
     body: "VoM issues your e-invoices with the approved QR code, reports them to the Zakat, Tax and Customs Authority the moment they are created, and keeps your financial reports current. No accountant required, no complexity.",
     primary: "Start your free trial",
     secondary: "Book a demo",
-    proof: "No credit card. More than 4,000 Saudi businesses run on VoM.",
+    proof: "A 7-day trial with no credit card. More than 5,000 Saudi businesses run on VoM.",
     demoLabel: "Sample data",
   },
   invoice: {
@@ -97,30 +98,30 @@ export const en: Dictionary = {
     items: [
       {
         title: "Record the sale",
-        body: "From your phone, browser or point of sale, or let Foodics, Zid and Marn send it automatically.",
+        body: "Record it from your phone or browser, and sales from Foodics, Zid and Marn reach your books on their own.",
       },
       {
         title: "The e-invoice is issued",
-        body: "A tax or simplified invoice with the approved QR code, reported to the Fatoora platform at the same moment.",
+        body: "With the approved QR code: tax invoices are cleared by the Fatoora platform and simplified ones reported to it, the moment you save.",
       },
       {
         title: "Your report updates",
-        body: "Income statement, balance sheet and VAT return, current to the minute, without opening a single spreadsheet.",
+        body: "Income statement, balance sheet and VAT report, current to the minute, without opening a single spreadsheet.",
       },
     ],
     panels: {
       sale: { title: "New sale", customer: "Customer", amount: "Amount", method: "Payment", methodValue: "mada", button: "Issue invoice" },
-      invoice: { title: "E-invoice", status: "Approved", qr: "QR code" },
+      invoice: { title: "E-invoice", status: "Reported", qr: "QR code" },
       report: { title: "Live report", period: "This month" },
     },
   },
   zatca: {
     heading: "Ready for Phase 2 of e-invoicing.",
-    body: "VoM is integrated directly with the Fatoora platform. Every invoice it issues carries the approved QR code and is reported or cleared according to its type, with no step from you.",
+    body: "VoM is integrated directly with the Fatoora platform. Every invoice it issues carries the approved QR code and is reported or cleared according to its type, with no step from you. If ZATCA rejects an invoice, VoM explains why and how to fix it.",
     cta: "Phase 2 guide",
     types: [
       { title: "Tax invoice", body: "Cleared by the Authority before you share it with the customer." },
-      { title: "Simplified invoice", body: "Reported within 24 hours, with the QR code on it from the moment of issue." },
+      { title: "Simplified invoice", body: "Reported automatically when you save, well inside the 24-hour window, with the QR code on it from the moment of issue." },
       { title: "Credit and debit notes", body: "For returns and corrections, linked to the original invoice." },
     ],
     timeline: [
@@ -148,15 +149,6 @@ export const en: Dictionary = {
       { id: "investment", name: "Investment firms", icon: "chart" },
       { id: "printing", name: "Printing and advertising", icon: "printer" },
       { id: "childcare", name: "Day care", icon: "baby" },
-    ],
-  },
-  integrations: {
-    heading: "Posted automatically from the systems you already use.",
-    items: [
-      { name: "Foodics", body: "Restaurant sales arrive as invoices" },
-      { name: "Zid", body: "Store orders become entries" },
-      { name: "Marn", body: "Point of sale" },
-      { name: "API", body: "Any other system" },
     ],
   },
   resources: {
@@ -233,7 +225,7 @@ export const en: Dictionary = {
       support: [
         ["Blog", "/blog/"],
         ["ZATCA Phase 2", "/zatca-e-invoicing-phase-2/"],
-        ["Free Invoices Templates", "/templates/"],
+        ["Free invoice templates", "/templates/"],
         ["Student package", "/student-package/"],
       ],
       company: [
@@ -254,7 +246,7 @@ export const en: Dictionary = {
     items: [
       { value: 5000, suffix: "+", unit: "", label: "businesses run on VoM" },
       { value: 1, suffix: "+", unit: "billion SAR", label: "in invoices issued" },
-      { value: 10, suffix: "", unit: "", label: "integrations with the systems you use" },
+      { value: 4, suffix: "", unit: "", label: "integrations with the systems you use" },
     ],
   },
   clients: {
@@ -271,29 +263,21 @@ export const en: Dictionary = {
   },
   integrationsSection: {
     heading: "Integrates with the systems you already run.",
-    body: "Your sales, payments and stock flow into VoM on their own, and out come reported invoices and current reports.",
+    body: "Sales from your systems flow into VoM on their own and post as entries to your accounts and branches, so your reports stay current.",
     live: "Live",
-    soon: "Coming soon",
-    api: "Open API",
-    apiBody: "Any other system connects to VoM through a documented API.",
     docs: "Developer docs",
     details: {
-      clients: "businesses use it with VoM",
-      invoices: "invoices posted per month",
-      sync: "sync time",
-      how: "How the integration works",
       activate: "Enable the integration",
-      waitlist: "businesses on the waitlist",
-      flow: ["The sale", "VoM", "ZATCA"],
+      target: "VoM",
       page: "{partner} integration details",
     },
   },
   reports: {
-    heading: "More than 14 ready reports, current to the minute.",
+    heading: "17 ready reports, current to the minute.",
     body: "No month-end wait and no spreadsheet to build. Every report your accountant, auditor or bank asks for is here, read from the same entries.",
     countLabel: "reports",
     live: "Live now",
-    items: ["VAT return", "Income statement", "Balance sheet", "Cash flow", "Trial balance", "General ledger", "Account statement", "Receivables ageing", "Sales report", "Purchases report", "Cost centres", "Journal entries", "Fixed assets", "Inventory report"],
+    items: ["VAT report", "Income statement", "Balance sheet", "Cash flow (direct)", "Cash flow (indirect)", "Trial balance", "General ledger", "Account statement", "Account summary", "Customer ageing", "Sales", "Purchases", "Sales VAT", "Purchases VAT", "Cost centres", "Journal entries", "Fixed assets"],
     cta: "All reports",
   },
   features: {
@@ -301,22 +285,21 @@ export const en: Dictionary = {
     body: "From the first quote to the last closing entry. These are the highlights; the full list is longer.",
     cta: "All features",
     items: [
-      { title: "Sales and e-invoicing", body: "Quotes, tax and simplified invoices with QR codes, credit notes, collection tracking, and a payment link on every invoice.", icon: "receipt" },
-      { title: "Purchases and expenses", body: "Record a supplier invoice from a photo, track partial payments, and repeat fixed expenses automatically.", icon: "wallet" },
-      { title: "Inventory", body: "Unlimited products and services, a minimum-stock alert before you run out, and periodic stocktakes.", icon: "box" },
-      { title: "Accounting and assets", body: "A ready chart of accounts, entries with attached documents, cost centres, and automatic depreciation.", icon: "layers" },
-      { title: "People and payroll", body: "Employee files, payroll runs, advances and deductions, and payroll entries in one click.", icon: "users" },
-      { title: "Reports", body: "More than 14 reports, exported to PDF and Excel, shared with your accountant on read-only access.", icon: "chart" },
-      { title: "Branches and permissions", body: "Several branches in one account, precise permissions for every employee and accountant, and a log of every change and who made it.", icon: "building" },
-      { title: "Payment links and collection", body: "A payment link on every invoice with mada and Apple Pay, automatic reminders for what is due, and collected amounts reconciled as they arrive.", icon: "card" },
+      { title: "Sales and e-invoicing", body: "Quotes that turn into invoices, tax and simplified invoices with QR codes, credit and debit notes, recurring invoices, and collection tracking.", icon: "receipt" },
+      { title: "Purchases and expenses", body: "Purchase orders that become bills, returns and payment vouchers, with partial payments tracked for every supplier.", icon: "wallet" },
+      { title: "Inventory", body: "Unlimited products and services, several warehouses with transfers between them, and a minimum-stock alert before you run out.", icon: "box" },
+      { title: "Accounting and assets", body: "A ready chart of accounts, entries with attached documents, bank statement matching, cost centres, and automatic depreciation.", icon: "layers" },
+      { title: "People and payroll", body: "Employee files, payroll runs, and payroll entries in one click.", icon: "users" },
+      { title: "Reports", body: "17 reports, compared across periods, exported to PDF and Excel, shared with your accountant on read-only access.", icon: "chart" },
+      { title: "Branches and permissions", body: "Several branches in one account, permissions for every screen limited by branch or warehouse, and a log of every change and who made it.", icon: "building" },
+      { title: "Payment links and collection", body: "A VoM Pay link on the invoice for mada, Visa, Mastercard and Apple Pay, the receipt and its entry created on payment, and overdue invoices in front of you on the dashboard.", icon: "card" },
     ],
   },
   apps: {
-    heading: "Your books in your pocket, on iOS and Android.",
+    heading: "Your books in your pocket, on iOS.",
     body: "Record the sale on the shop floor, issue the e-invoice with its QR code, and send the payment link before the customer leaves. Everything you see in the browser, you see on your phone.",
     ios: "Download on the App Store",
-    android: "Get it on Google Play",
-    features: ["Issue invoices and send them on WhatsApp", "Photograph purchase invoices and book them", "Live reports wherever you are", "Instant notification on every payment"],
+    features: ["Issue invoices and share them on WhatsApp", "The dashboard, with your sales and what you are owed", "Live reports wherever you are", "A receipt created for you when a customer pays by VoM Pay"],
     screen: { title: "New invoice", subtitle: "Al Diwaniya Restaurant", amount: "263.35", button: "Issue and send", status: "Reported to ZATCA" },
   },
   contact: {
@@ -438,7 +421,7 @@ export const en: Dictionary = {
     approach: {
       heading: "Why Businesses Choose VoM",
       items: [
-        { icon: "bolt", title: "AI-Powered Automation", body: "No more manual data entry." },
+        { icon: "bolt", title: "AI-Powered Automation", body: "Every document posts its own entry, and VoM AI (beta) reads your sales and purchases figures." },
         { icon: "shield", title: "Effortless Compliance", body: "Stay fully aligned with Saudi tax and invoicing regulations." },
         { icon: "chart", title: "Real-Time Insights", body: "Make better decisions with up-to-date financial data." },
         { icon: "bulb", title: "Continuous Innovation", body: "We release updates every two weeks to keep VoM ahead of the curve." },
@@ -508,7 +491,7 @@ export const en: Dictionary = {
       heading: "Ready to Experience Smarter Accounting?",
       body: "Start today with VoM and take control of your finances efficiently, accurately, and effortlessly.",
       primary: "Register Now",
-      secondary: "Book an accounting consultation",
+      secondary: "Book a demo",
     },
     images: {
       owner: "A delighted business owner looking at a phone beside financial charts",
@@ -606,7 +589,7 @@ export const en: Dictionary = {
         sync: {
           heading: "What moves from Foodics into VoM",
           rows: [
-            { from: "Sales", to: "Posted to VoM as daily journal entries" },
+            { from: "Sales", to: "Posted to VoM as journal entries" },
             { from: "Payment methods", to: "Mapped to their own accounts in your chart of accounts" },
             { from: "Branches", to: "Linked to VoM as cost centres" },
             { from: "Suppliers", to: "Each linked to its own account, with a statement for every supplier" },
@@ -632,7 +615,7 @@ export const en: Dictionary = {
         seo: {
           title: "Foodics Integration: Post Restaurant Sales to VoM Accounting",
           description:
-            "Connect Foodics POS to VoM accounting: sales post as daily journal entries, branches become cost centres, and purchase bills add to your stock.",
+            "Connect Foodics POS to VoM accounting: sales post as journal entries, branches become cost centres, and purchase bills add to your stock.",
         },
       },
       marn: {
@@ -645,7 +628,7 @@ export const en: Dictionary = {
         sync: {
           heading: "What moves from Marn into VoM",
           rows: [
-            { from: "Sales", to: "Posted to VoM as daily journal entries" },
+            { from: "Sales", to: "Posted to VoM as journal entries" },
             { from: "Payment methods", to: "Mapped to their own accounts in your chart of accounts" },
             { from: "Branches", to: "Linked as separate cost centres" },
             { from: "Suppliers", to: "Each linked to its own account, with its own statement" },
@@ -671,7 +654,33 @@ export const en: Dictionary = {
         seo: {
           title: "Marn Integration: Post Restaurant Sales to VoM Accounting",
           description:
-            "Connect Marn's restaurant POS to VoM accounting: daily journal entries for sales, cost centres for branches, supplier statements and up-to-date stock.",
+            "Connect Marn's restaurant POS to VoM accounting: journal entries for sales, cost centres for branches, supplier statements and up-to-date stock.",
+        },
+      },
+      lazywait: {
+        partner: "LazyWait",
+        category: "Restaurant POS",
+        crumb: "VoM & LazyWait",
+        heading: "Connect LazyWait to VoM",
+        lede: "LazyWait is a cloud point-of-sale and management system for restaurants and cafés. Connect it to VoM and your sales reach your books with nothing to type in.",
+        watch: "What moves into VoM",
+        sync: {
+          heading: "What moves from LazyWait into VoM",
+          rows: [
+            { from: "Sales", to: "Posted to VoM as journal entries" },
+            { from: "Sales returns", to: "Posted as return entries of their own" },
+            { from: "Payment methods", to: "Mapped to their own accounts in your chart of accounts" },
+            { from: "Branches", to: "Linked to VoM as cost centres" },
+            { from: "Customers", to: "Added to your customer list in VoM" },
+          ],
+        },
+        videos: [],
+        close: "Connect LazyWait to VoM, and start your free trial with no credit card.",
+        images: { lockup: "VoM and LazyWait" },
+        seo: {
+          title: "Connect LazyWait to VoM: restaurant sales posted automatically",
+          description:
+            "Connect LazyWait POS to VoM accounting: journal entries for sales and returns, cost centres for branches, accounts for payment methods, and your customers in one list.",
         },
       },
       zid: {
@@ -683,7 +692,7 @@ export const en: Dictionary = {
         watch: "Watch the video",
         sync: {
           heading: "What moves from Zid into VoM",
-          rows: [{ from: "Sales", to: "Posted to VoM as daily journal entries" }],
+          rows: [{ from: "Sales", to: "Posted to VoM as journal entries" }],
         },
         videos: ["VoM and Zid in brief"],
         close: "Connect your Zid store to VoM and start your free trial. No credit card needed.",
@@ -691,7 +700,7 @@ export const en: Dictionary = {
         seo: {
           title: "Zid Integration: Post Your Store's Sales to VoM Accounting",
           description:
-            "Connect your Zid online store to VoM accounting, and your store's sales post to VoM as daily journal entries. Watch the video, then start a free trial.",
+            "Connect your Zid online store to VoM accounting, and your store's sales post to VoM as journal entries. Watch the video, then start a free trial.",
         },
       },
     },
@@ -745,7 +754,7 @@ export const en: Dictionary = {
           conceptLine: "A tax invoice carries the elements the regulations require.",
           title: "Draft invoices and quotations",
           items: [
-            "Design your invoices with 10 templates.",
+            "Design your invoices with 11 templates.",
             "Export draft invoices that meet every tax-invoice requirement, with your own terms, conditions and notes.",
           ],
         },
@@ -775,7 +784,7 @@ export const en: Dictionary = {
       ],
     },
     reports: {
-      heading: { before: "More than", figure: "14", after: "reports" },
+      heading: { before: "Run", figure: "17", after: "reports" },
       footnote: "Every one is produced automatically, with no manual input.",
       items: [
         { id: "vat", name: "VAT report" },
@@ -792,6 +801,9 @@ export const en: Dictionary = {
         { id: "assets", name: "Assets" },
         { id: "trial-balance", name: "Trial balance" },
         { id: "cost-centres", name: "Cost centres" },
+        { id: "sales-vat", name: "Sales VAT" },
+        { id: "purchases-vat", name: "Purchases VAT" },
+        { id: "customer-ageing", name: "Customer ageing" },
       ],
     },
     benefits: {
@@ -821,7 +833,7 @@ export const en: Dictionary = {
     seo: {
       title: "Free Accounting Software for Students | VoM Student Package",
       description:
-        "VoM's free student package lets accounting students post journal entries, design invoices and vouchers, and run 14+ reports in a real accounting system.",
+        "VoM's free student package lets accounting students post journal entries, design invoices and vouchers, and run 17 reports in a real accounting system.",
     },
   },
   sectorPages: {

@@ -49,7 +49,7 @@ export function featuresMetadata(locale: Locale): Metadata {
 const SHEET_WIDTH = 480;
 
 /** Each partner mark's display width on the marks sheet (CSS sets the height). */
-const markWidth = { foodics: 192, zid: 96, marn: 160 } as const;
+const markWidth = { foodics: 192, zid: 96, marn: 160, lazywait: 150 } as const;
 
 function displaySize(size: { width: number; height: number }, width: number) {
   return { width, height: Math.round((size.height / size.width) * width) };
@@ -58,7 +58,7 @@ function displaySize(size: { width: number; height: number }, width: number) {
 /** How many entries a section holds, as its count and the register's total state it. */
 function entryCount(module: FeatureModule, c: FeaturesCopy): number {
   if (module.id === "reports") return c.reports.featured.length + c.reports.index.length;
-  if (module.id === "apps") return partnerIds.length + 1;
+  if (module.id === "apps") return partnerIds.length + module.entries.length + 1;
   return module.entries.length;
 }
 
@@ -81,7 +81,7 @@ function EntryText({ entry, locale }: { entry: FeatureEntry; locale: Locale }) {
 function PlanMark({ label }: { label: string }) {
   return (
     <a href="#plan-note" aria-label={label}>
-      †
+      *
     </a>
   );
 }
@@ -100,7 +100,7 @@ function Entry({ entry, c, locale }: { entry: FeatureEntry; c: FeaturesCopy; loc
 }
 
 /** The section's real screens as attached sheets, on a teal slab when the old page had a photo here. */
-function Exhibits({ id, c }: { id: ModuleId; c: FeaturesCopy }) {
+function Exhibits({ id, c, locale }: { id: ModuleId; c: FeaturesCopy; locale: Locale }) {
   const exhibits = moduleExhibits[id];
   const photo = modulePhotos[id];
   if (!exhibits) return null;
@@ -110,7 +110,7 @@ function Exhibits({ id, c }: { id: ModuleId; c: FeaturesCopy }) {
         {exhibits.map((exhibit) => (
           <figure key={exhibit} className="ftr-sheet">
             <div>
-              <Image src={exhibitSrc(exhibit)} alt="" {...displaySize(exhibitSizes[exhibit], SHEET_WIDTH)} />
+              <Image src={exhibitSrc(exhibit, locale)} alt="" {...displaySize(exhibitSizes[exhibit], SHEET_WIDTH)} />
             </div>
             <figcaption>{c.captions[exhibit]}</figcaption>
           </figure>
@@ -128,7 +128,7 @@ function Section({ module, index, c, locale }: { module: FeatureModule; index: n
   const id = module.id;
   const headingId = `${id}-heading`;
   let body: ReactNode;
-  let aside: ReactNode = <Exhibits id={id} c={c} />;
+  let aside: ReactNode = <Exhibits id={id} c={c} locale={locale} />;
 
   if (id === "reports") {
     const { featured, index: others } = c.reports;
@@ -163,6 +163,10 @@ function Section({ module, index, c, locale }: { module: FeatureModule; index: n
                 <span>{c.apps.details}</span>
               </Link>
             </li>
+          ))}
+          {/* Integrations without a page of their own yet. */}
+          {module.entries.map((entry, i) => (
+            <Entry key={i} entry={entry} c={c} locale={locale} />
           ))}
           <li>
             <span>
@@ -230,7 +234,7 @@ function Section({ module, index, c, locale }: { module: FeatureModule; index: n
       <div className="ftr-exhibits ftr-app" data-photo="app">
         <p className="ftr-app-line">{c.app.line}</p>
         <div className="ftr-app-badges">
-          <StoreBadges ios={c.app.ios} android={c.app.android} />
+          <StoreBadges ios={c.app.ios} />
         </div>
         <Image src={photoSrc("app")} alt={c.photos.app} {...displaySize(photoSizes.app, 304)} className="ftr-person" />
       </div>
@@ -268,7 +272,7 @@ function Section({ module, index, c, locale }: { module: FeatureModule; index: n
 
 /**
  * The features page: the product as an official register. The contents sheet
- * on the teal field lists the eleven sections; each section rules its entries,
+ * on the teal field lists the sections; each section rules its entries,
  * stamps the unlimited ones, and attaches the real screens that show them.
  */
 export function FeaturesPage({ locale }: { locale: Locale }) {
@@ -338,7 +342,7 @@ export function FeaturesPage({ locale }: { locale: Locale }) {
 
       <div className="page-wrap">
         <p id="plan-note" className="ftr-plan-note">
-          <span aria-hidden="true">† </span>
+          <span aria-hidden="true">* </span>
           {c.planNote.text}{" "}
           <Link href={`${localePath(locale, pricingPaths[locale])}#compare`} className="ftr-link">
             {c.planNote.link}

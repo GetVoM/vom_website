@@ -29,6 +29,8 @@ export interface BlogCopy {
   authorDescription: (name: string) => string;
   reviewedMark: string;
   close: { line: string; cta: string };
+  /** The trial card under the contents, beside the article. */
+  trial: { heading: string; body: string; cta: string };
 }
 
 const ar: BlogCopy = {
@@ -77,6 +79,11 @@ const ar: BlogCopy = {
     line: "أصدر فواتيرك الإلكترونية وتابع حساباتك من ڤوم، المعتمد من هيئة الزكاة والضريبة والجمارك.",
     cta: "ابدأ بتجربة مجانية لمدة 7 أيام",
   },
+  trial: {
+    heading: "جرّب ڤوم مجانًا لمدة 7 أيام",
+    body: "أصدر فواتيرك الإلكترونية وتابع حساباتك، دون بطاقة ائتمان.",
+    cta: "ابدأ تجربتك المجانية",
+  },
 };
 
 const en: BlogCopy = {
@@ -119,6 +126,11 @@ const en: BlogCopy = {
   close: {
     line: "Issue e-invoices and keep your books in VoM, approved by ZATCA.",
     cta: "Start a 7-day free trial",
+  },
+  trial: {
+    heading: "Try VoM free for 7 days",
+    body: "Issue e-invoices and keep your books. No credit card needed.",
+    cta: "Start your free trial",
   },
 };
 

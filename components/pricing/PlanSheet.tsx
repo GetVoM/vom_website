@@ -45,6 +45,7 @@ export function PlanSheet({ id, c, locale, href }: { id: PlanId; c: PricingCopy;
             <span className="prc-from">{c.from}</span>
             <Amount value={monthly} currency={c.currency} className="prc-figure" />
             <span>{c.per.firstUser}</span>
+            <span className="prc-save">{c.billing.monthlyOnly}</span>
           </p>
         ) : (
           <>

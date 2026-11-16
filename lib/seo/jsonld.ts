@@ -326,7 +326,7 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
     "@type": "SoftwareApplication",
     name: site.name[locale],
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, iOS, Android",
+    operatingSystem: "Web, iOS",
     description,
     url: `${site.url}${localePath(locale, "/")}`,
     publisher: { "@id": `${site.url}/#organization` },
@@ -342,6 +342,16 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
               name: planNames[id][locale],
               price,
               priceCurrency: "SAR",
+              // Says what the bare number cannot: a month's price, before VAT, and for Flex only where it starts.
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                price,
+                ...(id === "flex" ? { minPrice: price } : {}),
+                priceCurrency: "SAR",
+                billingDuration: "P1M",
+                unitCode: "MON",
+                valueAddedTaxIncluded: false,
+              },
               availability: "https://schema.org/InStock",
             },
           ];

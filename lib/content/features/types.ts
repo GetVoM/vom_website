@@ -1,23 +1,23 @@
 import type { ExhibitId, ModuleId, PartnerId, PhotoId } from "./assets";
 
-/** One entry of the register: a capability, as the old page stated it. */
+/** One entry of the register: one thing the app does. */
 export interface FeatureEntry {
   text: string;
   /** Part of `text` that links out, with where it goes. */
   link?: { term: string; href: string };
-  /** The old page says "بعدد لا محدود" / "unlimited": the limit column is stamped. */
+  /** Not capped by count ("بعدد لا محدود" / "unlimited"): the limit column is stamped. */
   unlimited?: true;
   /** Differs between the plans (pricing's comparison ledger): marked to the plan note. */
   plan?: true;
 }
 
-/** A report the old page described at length. */
+/** A report described at length. */
 export interface FeaturedReport {
   name: string;
   body: string;
 }
 
-/** A section of the register: one of the old page's eleven modules. */
+/** A section of the register. */
 export interface FeatureModule {
   id: ModuleId;
   title: string;
@@ -40,9 +40,9 @@ export interface FeaturesCopy {
   contents: {
     title: string;
     label: string;
-    /** "11 قسمًا" */
+    /** "13 قسمًا" */
     sections: (n: number) => string;
-    /** "58 بندًا", also each section's count. */
+    /** "106 بنود", also each section's count. */
     entries: (n: number) => string;
   };
   /** The register's column heads and the plan marker's accessible name. */
@@ -63,7 +63,7 @@ export interface FeaturesCopy {
     docs: string;
   };
   support: { heading: string; whatsapp: string; email: string };
-  app: { line: string; ios: string; android: string };
+  app: { line: string; ios: string };
   planNote: { text: string; link: string };
   close: { line: string; register: string; demo: string };
   newTab: string;

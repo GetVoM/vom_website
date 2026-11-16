@@ -92,7 +92,7 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
     line: "هل أعجبتك تجربتك مع VoM Pay؟",
     /** new */
     alt: "هاتف تظهر على شاشته علامة صح، وبجانبه فاتورة وقطع نقدية",
-    formIntro: ["الآن يمكنك تجربة VoM Pay في عملك مجاناً", "اترك بياناتك أدناه وسيتواصل معك أحد أعضاء فريقنا!"],
+    formIntro: ["الآن يمكنك التقديم على VoM Pay لعملك", "اترك بياناتك أدناه وسيتواصل معك أحد أعضاء فريقنا!"],
     form: {
       name: "الاسم",
       phone: "رقم الموبايل",
@@ -134,7 +134,7 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
         "يساعدك VoM على الالتزام باللوائح الضريبية المحلية من خلال أدوات متطورة تضمن دقة وسهولة في التعامل مع الأمور الضريبية.",
         "مع ميزة VoM AI، يمكنك الاستفادة من تحليلات متقدمة تعتمد على الذكاء الاصطناعي، مما يوفر لك رؤى أعمق ويعزز دقة القرارات المالية.",
         "يوفر VoM فريق دعم متاح دائمًا لمساعدتك في أي استفسار أو مشكلة، مما يضمن لك تحقيق أقصى استفادة من البرنامج وتقنياته المتقدمة.",
-        "يدعم الربط مع أنظمة نقاط البيع، ومنصات التجارة الإلكترونية، وأنظمة الموارد البشرية، مما يضمن لك تجربة متكاملة وسهلة.",
+        "يدعم الربط مع أنظمة نقاط البيع ومنصات التجارة الإلكترونية، مما يضمن لك تجربة متكاملة وسهلة.",
       ],
     ),
     closing: "استخدم VoM AI وحقق نقلة نوعية في إدارة أعمالك!",
@@ -143,11 +143,11 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
   /** All new: written natively from the Arabic, for the owner's approval. */
   en: {
     seoTitle: "VoM Pay: payment successful | VoM",
-    description: "Your VoM Pay payment went through. Enjoyed it? Try VoM Pay in your own business, free.",
+    description: "Your VoM Pay payment went through. Enjoyed it? Apply for VoM Pay for your own business.",
     heading: "Payment successful!",
     line: "Did you enjoy paying with VoM Pay?",
     alt: "A phone showing a tick, beside an invoice and coins",
-    formIntro: ["Now you can try VoM Pay in your own business, free.", "Leave your details below and one of our team will be in touch!"],
+    formIntro: ["Now you can apply for VoM Pay for your own business.", "Leave your details below and one of our team will be in touch!"],
     form: {
       name: "Name",
       phone: "Mobile number",
@@ -184,7 +184,7 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
         "VoM helps you keep to local tax regulations, with advanced tools that make tax matters accurate and easy to handle.",
         "With VoM AI, you get advanced analytics driven by artificial intelligence, for deeper insight and sharper financial decisions.",
         "VoM’s support team is always on hand to help with any question or problem, so you get the most out of the software and its advanced features.",
-        "VoM connects with point-of-sale systems, e-commerce platforms and HR systems, for a joined-up, easy experience.",
+        "VoM connects with point-of-sale systems and e-commerce platforms, for a joined-up, easy experience.",
       ],
     ),
     closing: "Use VoM AI and transform the way you run your business!",
@@ -207,13 +207,13 @@ export const vomPayFailure: Record<Locale, FailureCopy> = {
     messages: {
       "1": "حدث خطأ ما في عملية الدفع",
       "2": "تم دفع هذه الفاتورة بشكل كامل أو جزئي",
-      "3": "المورد لم يعد نشطًا في خدمة VoM Pay",
+      "3": "التاجر لم يعد نشطًا في خدمة VoM Pay",
     },
     faqHeading: "أسئلة شائعة",
     faq: [
       {
         q: "هل أستطيع وضع الشعار الخاص بي على الفاتورة؟",
-        a: "بالتأكيد، بإمكانك وضع العلامة التجارية الخاصة بك على الفاتورة لضمان التوافق مع لوائح هيئة الزكاة والضريبة والجمارك.",
+        a: "بالتأكيد، بإمكانك وضع العلامة التجارية الخاصة بك على الفاتورة، وتبقى الفاتورة متوافقة مع لوائح هيئة الزكاة والضريبة والجمارك.",
       },
       {
         q: "هل يمكنني منح الصلاحيات لمختلف الفريق؟",
@@ -236,11 +236,11 @@ export const vomPayFailure: Record<Locale, FailureCopy> = {
     messages: {
       "1": "Something went wrong during the payment.",
       "2": "This invoice has already been paid, in full or in part.",
-      "3": "This supplier is no longer active on VoM Pay.",
+      "3": "This merchant is no longer active on VoM Pay.",
     },
     faqHeading: "Frequently asked questions",
     faq: [
-      { q: "Can I put my own logo on the invoice?", a: "Absolutely. You can put your own brand on your invoices, in line with the Zakat, Tax and Customs Authority’s rules." },
+      { q: "Can I put my own logo on the invoice?", a: "Absolutely. You can put your own brand on your invoices, and they stay in line with the Zakat, Tax and Customs Authority’s rules." },
       { q: "Can I give my team different permissions?", a: "Yes. You can set up and tailor your team’s permissions easily, to fit each member’s needs and tasks." },
       {
         q: "Is VoM right for my business?",

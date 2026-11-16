@@ -29,12 +29,12 @@ export interface Integration {
   lockup: Raster;
   /** The partner's half of the lockup. */
   mark: Raster;
-  /** The first leads on the screen. */
+  /** The first leads on the screen; none when the partner has no video yet (LazyWait). */
   videos: IntegrationVideo[];
 }
 
 /** Page order, which is also the order of the tiles that link the pages together. */
-export const integrationIds: IntegrationId[] = ["foodics", "marn", "zid"];
+export const integrationIds: IntegrationId[] = ["foodics", "marn", "lazywait", "zid"];
 
 /** VoM's half of a lockup, at a resolution the brand logo file does not have. */
 export const vomMark: Raster = { src: "/integrations/vom-mark.png", width: 1010, height: 327 };
@@ -83,6 +83,14 @@ export const integrations: Record<IntegrationId, Integration> = {
       },
     ],
   },
+  // No old page and no video: the marks come from the logo the owner supplied on 2026-11-16.
+  lazywait: {
+    name: "LazyWait",
+    icon: "/integrations/lazywait/icon.png",
+    lockup: { src: "/integrations/lazywait/lockup.png", width: 1175, height: 220 },
+    mark: { src: "/integrations/lazywait/mark.png", width: 352, height: 112 },
+    videos: [],
+  },
   zid: {
     name: "Zid",
     icon: "/integrations/zid/icon.png",
@@ -110,3 +118,4 @@ export function isoDuration(seconds: number): string {
   const minutes = Math.floor(seconds / 60);
   return `PT${minutes ? `${minutes}M` : ""}${seconds % 60}S`;
 }
+

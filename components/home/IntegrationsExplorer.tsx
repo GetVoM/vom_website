@@ -14,12 +14,8 @@ export interface ExplorerItem {
   logo: string | null;
   category: string;
   description: string;
-  live: boolean;
   /** The pills beside the name: where the data starts, then where it goes. */
   flow: string[];
-  /** Demonstration figures and steps; the partners with a page of their own have neither. */
-  stats?: { clients: number; invoices: number; sync: string };
-  steps?: string[];
   /** What moves into VoM, from the partner's integration page. */
   sync?: { heading: string; rows: { from: string; to: string }[] };
   page?: { href: string; label: string };
@@ -59,11 +55,10 @@ function Logo({ item, size = 40 }: { item: ExplorerItem; size?: number }) {
 export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) {
   const [activeId, setActiveId] = useState(items[0].id);
   const active = items.find((i) => i.id === activeId) ?? items[0];
-  const fmt = (n: number) => n.toLocaleString("en-US");
   const selectIntegration = (item: ExplorerItem) => {
     if (item.id === activeId) return;
     setActiveId(item.id);
-    posthog.capture("integration_selected", { integration_id: item.id, is_live: item.live });
+    posthog.capture("integration_selected", { integration_id: item.id, is_live: true });
   };
 
   return (
@@ -84,10 +79,8 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
                 <span className="num text-[1rem] font-bold leading-tight" dir="ltr">{item.name}</span>
                 <span className="truncate text-[0.75rem] text-ink-500">{item.category}</span>
               </span>
-              <span
-                className={`ms-auto hidden shrink-0 rounded-pill px-2 py-0.5 text-[0.6875rem] font-bold lg:inline ${item.live ? "bg-teal-500 text-white" : "border border-paper-300 text-ink-500"}`}
-              >
-                {item.live ? t.live : t.soon}
+              <span className="ms-auto hidden shrink-0 rounded-pill bg-teal-500 px-2 py-0.5 text-[0.6875rem] font-bold text-white lg:inline">
+                {t.live}
               </span>
             </button>
           </li>
@@ -101,9 +94,7 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
                 <span className="num text-[1.75rem] font-bold leading-none" dir="ltr">{active.name}</span>
-                <span className={`rounded-pill px-2.5 py-1 text-[0.75rem] font-bold ${active.live ? "bg-teal-500 text-white" : "border border-paper-300 text-ink-500"}`}>
-                  {active.live ? t.live : t.soon}
-                </span>
+                <span className="rounded-pill bg-teal-500 px-2.5 py-1 text-[0.75rem] font-bold text-white">{t.live}</span>
               </div>
               <span className="text-[0.9375rem] text-teal-700">{active.category}</span>
             </div>
@@ -145,41 +136,6 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
                 </li>
               ))}
             </ul>
-          </div>
-        )}
-
-        {active.stats && (
-          <dl className="grid gap-4 sm:grid-cols-3">
-            <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-teal-50 p-5">
-              <dd className="num text-[2rem] font-bold leading-none text-teal-700">
-                {active.live ? `${fmt(active.stats.clients)}+` : fmt(active.stats.clients)}
-              </dd>
-              <dt className="text-[0.875rem] text-teal-800">{active.live ? t.details.clients : t.details.waitlist}</dt>
-            </div>
-            <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-paper-100 p-5">
-              <dd className="num text-[2rem] font-bold leading-none">{active.live ? fmt(active.stats.invoices) : "—"}</dd>
-              <dt className="text-[0.875rem] text-ink-700">{t.details.invoices}</dt>
-            </div>
-            <div className="flex flex-col gap-1 rounded-[var(--radius-tile)] bg-paper-100 p-5">
-              <dd className="text-[1.5rem] font-bold leading-none">{active.stats.sync}</dd>
-              <dt className="text-[0.875rem] text-ink-700">{t.details.sync}</dt>
-            </div>
-          </dl>
-        )}
-
-        {active.steps && (
-          <div className="flex flex-col gap-4">
-            <h3 className="text-[1rem] font-bold">{t.details.how}</h3>
-            <ol className="grid gap-3 sm:grid-cols-3">
-              {active.steps.map((step, i) => (
-                <li key={i} className="flex gap-3 text-[0.9375rem] leading-snug text-ink-700">
-                  <span className="num flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-teal-300 text-[0.8125rem] font-bold text-teal-700">
-                    {i + 1}
-                  </span>
-                  {step}
-                </li>
-              ))}
-            </ol>
           </div>
         )}
 

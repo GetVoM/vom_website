@@ -12,15 +12,6 @@ function AppleGlyph() {
   );
 }
 
-function PlayGlyph() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill="currentColor" d="M4 3.5v17a.8.8 0 0 0 1.2.7L19.5 13a1.1 1.1 0 0 0 0-2L5.2 2.8A.8.8 0 0 0 4 3.5z" />
-      <path fill="rgba(255,255,255,0.35)" d="M4.4 3L14 12l-9.6 9z" />
-    </svg>
-  );
-}
-
 function StoreBadge({ href, label, children }: { href: string; label: string; children: ReactNode }) {
   return (
     <a
@@ -34,16 +25,11 @@ function StoreBadge({ href, label, children }: { href: string; label: string; ch
   );
 }
 
-/** The App Store and Google Play badges, drawn in the house pill rather than the stores' artwork. */
-export function StoreBadges({ ios, android }: { ios: string; android: string }) {
+/** The App Store badge, drawn in the house pill rather than the store's artwork. */
+export function StoreBadges({ ios }: { ios: string }) {
   return (
-    <>
-      <StoreBadge href={site.appStore} label={ios}>
-        <AppleGlyph />
-      </StoreBadge>
-      <StoreBadge href={site.googlePlay} label={android}>
-        <PlayGlyph />
-      </StoreBadge>
-    </>
+    <StoreBadge href={site.appStore} label={ios}>
+      <AppleGlyph />
+    </StoreBadge>
   );
 }

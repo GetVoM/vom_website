@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { lang } from "next/root-params";
 import { notFound } from "next/navigation";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -11,6 +12,8 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { NavLoader } from "@/components/site/NavLoader";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import "@/app/globals.css";
 
 export const ensureStatic = "navigation";
@@ -39,6 +42,10 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
         <Header locale={locale} t={t} />
         <main className="flex-1">{children}</main>
         <Footer locale={locale} t={t} />
+        <WhatsAppButton label={t.contact.whatsappCta} />
+        <Suspense fallback={null}>
+          <NavLoader label={t.nav.loading} reported={t.invoice.reported} />
+        </Suspense>
       </body>
       {/* Production only (lib/seo/tags.ts); loaded once the page is interactive; every pixel lives inside the container (docs/architecture.md §8). */}
       {loadTags && <GoogleTagManager gtmId={site.gtmId} />}

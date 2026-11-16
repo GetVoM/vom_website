@@ -40,6 +40,7 @@ export const vomPayFailurePaths: PagePair = { ar: "/vom-pay-failure/", en: "/vom
 export const integrationPaths: Record<IntegrationId, PagePair> = {
   foodics: { ar: "/vom-foodics/", en: "/vom-foodics/" },
   marn: { ar: "/vom-marn/", en: "/vom-marn/" },
+  lazywait: { ar: "/vom-lazywait/", en: "/vom-lazywait/" },
   zid: { ar: "/vom-zid/", en: "/vom-zid/" },
 };
 

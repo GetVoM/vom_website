@@ -10,7 +10,7 @@ import type { SectorCopy, SectorFeature, SectorId } from "./types";
 const reports: SectorFeature = {
   icon: "reports",
   title: "Issue financial reports",
-  body: "Produce the income statement, trial balance and cash flow statement, along with more than 14 other reports.",
+  body: "Produce the income statement, trial balance and cash flow statement, among 17 ready reports.",
 };
 
 const invoices: SectorFeature = {
@@ -39,7 +39,7 @@ const customers: SectorFeature = {
 
 const logo = (who: string) => ({
   q: "Can I put my own logo on the invoice?",
-  a: `Yes. ${who} can add their own logo to invoices in VoM, in line with the requirements of the Zakat, Tax and Customs Authority (ZATCA).`,
+  a: `Yes. ${who} can add their own logo to invoices in VoM, and the invoice stays in line with the requirements of the Zakat, Tax and Customs Authority (ZATCA).`,
 });
 
 const roles = (who: string) => ({
@@ -56,12 +56,12 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
       {
         icon: "connect",
         title: "Connect your point of sale",
-        body: "Link VoM to your POS so orders, both sales and purchases, sync automatically as journal entries, with no developer or extra accountant needed.",
+        body: "Link VoM to your POS so orders, both sales and purchases, post automatically as journal entries, with no developer or extra accountant needed.",
       },
       {
         icon: "customers",
         title: "Track suppliers",
-        body: "Follow each supplier's standing in VoM and record payments as journal entries to produce a statement of account for every supplier. Connected to a POS, future supplier orders are entered automatically.",
+        body: "Follow each supplier's standing in VoM and record payments with payment vouchers to produce a statement of account for every supplier. Connected to a POS, future supplier orders are entered automatically.",
       },
       {
         icon: "expenses",
@@ -83,7 +83,11 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
       },
       {
         q: "Can VoM connect to my POS?",
-        a: "Yes. VoM offers a range of apps that sync all your sales and purchases automatically.",
+        a: "Yes. VoM connects to Foodics, Marn and LazyWait, and your sales post to your books automatically.",
+      },
+      {
+        q: "Does VoM handle a restaurant's stock and warehouses?",
+        a: "Yes. Keep a warehouse for the central kitchen and one for each branch, move stock between them with transfer requisitions, and set up menu items as bundles that deduct their ingredients when sold, with an alert when an item reaches its minimum.",
       },
     ],
     seo: {
@@ -107,11 +111,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. Beauty salons rely on VoM to handle sales, invoicing, tax and detailed reports in one place, tailored to the beauty business.",
       },
+      {
+        q: "Can I collect payment with a link?",
+        a: "Yes. Add a VoM Pay link to the invoice or the proforma, so your customer pays by mada, Visa, Mastercard or Apple Pay, and the receipt is created for you on payment.",
+      },
     ],
     seo: {
       title: "Accounting Software for Beauty Salons in Saudi Arabia | VoM",
       description:
-        "Accounting software for beauty salons: e-invoices with tax, summary and detailed tax reports, paperless attachments, expense tracking and 14+ reports.",
+        "Accounting software for beauty salons: e-invoices with tax, summary and detailed tax reports, paperless attachments, expense tracking and 17 reports.",
     },
   },
 
@@ -129,11 +137,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM gives gyms and fitness centers full accounting for sales, invoices, tax and reports, designed with the fitness business in mind.",
       },
+      {
+        q: "Can membership invoices go out automatically?",
+        a: "Yes. Set up a recurring invoice for each membership, monthly or yearly, and it is issued on its date with nothing for you to do. Pause it whenever you like.",
+      },
     ],
     seo: {
       title: "Accounting Software for Gyms and Fitness Centers | VoM",
       description:
-        "Accounting software for gyms and fitness centers in Saudi Arabia: e-invoices with tax, paperless attachments, expense tracking and 14+ financial reports.",
+        "Accounting software for gyms and fitness centers in Saudi Arabia: e-invoices with tax, paperless attachments, expense tracking and 17 financial reports.",
     },
   },
 
@@ -163,11 +175,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM gives law firms the accounting they need to manage sales, invoices and tax and to produce full reports, shaped around how a legal practice works.",
       },
+      {
+        q: "Can I follow the fees and costs of each case separately?",
+        a: "Yes. Add each case as a cost center, tag its invoices and expenses to it, and run the cost center report for that case. For retainers, a recurring invoice goes out on its date.",
+      },
     ],
     seo: {
       title: "Accounting Software for Law Firms in Saudi Arabia | VoM",
       description:
-        "Accounting software for law firms: ZATCA-compliant e-invoices, customer payment tracking, expense records and more than 14 financial reports.",
+        "Accounting software for law firms: ZATCA-compliant e-invoices, customer payment tracking, expense records and 17 financial reports.",
     },
   },
 
@@ -185,11 +201,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM is easy to use and helps design offices manage sales, invoices and tax and produce reports, even without much accounting experience.",
       },
+      {
+        q: "Can I send a quotation and then turn it into an invoice?",
+        a: "Yes. Write the quotation and send it to your client, then convert it to a proforma or a sales invoice without retyping it.",
+      },
     ],
     seo: {
       title: "Accounting Software for Design Offices in Saudi Arabia | VoM",
       description:
-        "Accounting software for design offices: e-invoices with tax, summary and detailed tax reports, customer payment tracking, expenses and 14+ reports.",
+        "Accounting software for design offices: e-invoices with tax, summary and detailed tax reports, customer payment tracking, expenses and 17 reports.",
     },
   },
 
@@ -207,11 +227,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM gives marketing agencies solid accounting to run sales, invoices and tax and to produce detailed reports for the business.",
       },
+      {
+        q: "Can monthly retainer invoices go out automatically?",
+        a: "Yes. Set up a recurring invoice for each retainer client, and follow the overdue ones in the customer ageing report.",
+      },
     ],
     seo: {
       title: "Accounting Software for Marketing Agencies | VoM",
       description:
-        "Accounting software for marketing agencies in Saudi Arabia: e-invoices with tax, customer payment tracking, expense records and 14+ financial reports.",
+        "Accounting software for marketing agencies in Saudi Arabia: e-invoices with tax, customer payment tracking, expense records and 17 financial reports.",
     },
   },
 
@@ -235,17 +259,21 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
       roles("Logistics companies"),
       {
         q: "Is VoM right for my business?",
-        a: "Yes. VoM connects with your systems to sync sales and purchase data, and handles finances, invoices, tax and the reports a logistics company needs.",
+        a: "Yes. VoM connects with your systems through its API, and handles finances, invoices, tax and the reports a logistics company needs.",
       },
       {
         q: "Do you have cost centers?",
         a: "Yes, with no limit on how many you create. Track expenses by project or department and produce detailed reports for each cost center.",
       },
+      {
+        q: "Does VoM manage the fleet as fixed assets?",
+        a: "Yes, on plans that include asset management. Register each vehicle as a fixed asset, choose straight-line or declining-balance depreciation, and it is posted automatically. Upgrades and sales are recorded when they happen.",
+      },
     ],
     seo: {
       title: "Accounting Software for Logistics Companies | VoM",
       description:
-        "Accounting software for logistics companies in Saudi Arabia: unlimited cost centers, customer payment tracking, expense records and 14+ financial reports.",
+        "Accounting software for logistics companies in Saudi Arabia: unlimited cost centers, customer payment tracking, expense records and 17 financial reports.",
     },
   },
 
@@ -261,13 +289,17 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
       roles("Travel and tourism companies"),
       {
         q: "Is VoM right for my business?",
-        a: "Yes. VoM gives travel and tourism companies integrated accounting that syncs sales and purchases and handles finances, invoices, tax and industry reports.",
+        a: "Yes. VoM gives travel and tourism companies integrated accounting that handles finances, invoices, tax and industry reports.",
+      },
+      {
+        q: "Can I collect a booking's payment with a link?",
+        a: "Yes. Send your customer a proforma or an invoice with a VoM Pay link, so they pay by mada, Visa, Mastercard or Apple Pay, and the receipt is created for you on payment.",
       },
     ],
     seo: {
       title: "Accounting Software for Travel and Tourism Companies | VoM",
       description:
-        "Accounting software for travel and tourism companies in Saudi Arabia: e-invoices with tax, paperless attachments, expense tracking and 14+ reports.",
+        "Accounting software for travel and tourism companies in Saudi Arabia: e-invoices with tax, paperless attachments, expense tracking and 17 reports.",
     },
   },
 
@@ -285,11 +317,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM handles sales, invoices, tax and detailed reports for car maintenance centers, tailored to the automotive trade.",
       },
+      {
+        q: "Does VoM track spare-parts stock?",
+        a: "Yes. Keep the parts in your warehouses, set a minimum for each item to be alerted when it runs low, and cost of goods sold is posted with every invoice.",
+      },
     ],
     seo: {
       title: "Accounting Software for Car Maintenance Centers | VoM",
       description:
-        "Accounting software for car maintenance centers in Saudi Arabia: e-invoices with tax, paperless attachments, expense tracking and 14+ financial reports.",
+        "Accounting software for car maintenance centers in Saudi Arabia: e-invoices with tax, paperless attachments, expense tracking and 17 financial reports.",
     },
   },
 
@@ -301,12 +337,12 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
       {
         icon: "connect",
         title: "Connect your online store",
-        body: "Link VoM to your online store so orders sync automatically as journal entries, with no accountant needed in between.",
+        body: "Link VoM to your Zid online store so orders post automatically as journal entries, with no accountant needed in between.",
       },
       {
         icon: "customers",
         title: "Track suppliers",
-        body: "Follow each supplier's status and record payments as journal entries to produce a statement of account for every supplier. Connected to a POS, future supplier orders are recorded automatically.",
+        body: "Follow each supplier's status and record payments with payment vouchers to produce a statement of account for every supplier.",
       },
       expenses,
       reports,
@@ -321,13 +357,17 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
       roles("Apps and online stores"),
       {
         q: "Can I connect VoM to my online store?",
-        a: "Yes. Connect through VoM's apps and your sales and purchase data moves into VoM automatically.",
+        a: "Yes. VoM connects to your Zid store so your orders move into VoM automatically, and any other system can connect through the API.",
+      },
+      {
+        q: "Can I connect a system other than Zid?",
+        a: "Yes, through the documented API, which comes with the Business plan.",
       },
     ],
     seo: {
       title: "Accounting Software for Apps and Online Stores | VoM",
       description:
-        "Accounting software for online stores and apps in Saudi Arabia: connect your store, track suppliers and expenses, and issue more than 14 financial reports.",
+        "Accounting software for online stores and apps in Saudi Arabia: connect your store, track suppliers and expenses, and issue 17 financial reports.",
     },
   },
 
@@ -345,11 +385,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. Perfume stores use VoM to manage sales, invoices and tax and to produce the reports the fragrance trade needs.",
       },
+      {
+        q: "Does VoM manage stock across several shops or kiosks?",
+        a: "Yes. Keep a warehouse for each outlet, move stock between them with transfer requisitions, and set up gift sets as bundles that deduct their components when sold.",
+      },
     ],
     seo: {
       title: "Accounting Software for Perfume Stores in Saudi Arabia | VoM",
       description:
-        "Accounting software for perfume stores: e-invoices with tax, summary and detailed tax reports, paperless attachments, expense tracking and 14+ reports.",
+        "Accounting software for perfume stores: e-invoices with tax, summary and detailed tax reports, paperless attachments, expense tracking and 17 reports.",
     },
   },
 
@@ -383,11 +427,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM gives real estate and construction companies one place to manage finances, invoices and tax and to produce the reports they need.",
       },
+      {
+        q: "Does VoM support retention on contract work?",
+        a: "Yes. Switch on retention in the accounting settings and set its percentage on the invoice; it is calculated and booked to its own account.",
+      },
     ],
     seo: {
       title: "Accounting Software for Real Estate and Construction | VoM",
       description:
-        "Accounting software for real estate and construction in Saudi Arabia: unlimited cost centers, project cost reports, expense tracking and 14+ reports.",
+        "Accounting software for real estate and construction in Saudi Arabia: unlimited cost centers, project cost reports, expense tracking and 17 reports.",
     },
   },
 
@@ -408,11 +456,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Do you have cost centers?",
         a: "Yes, with no limit on how many you create. Group expenses by investment project and produce a detailed report on the finances of each one.",
       },
+      {
+        q: "Can I compare financial statements across periods?",
+        a: "Yes. Compare the income statement and the balance sheet with the previous period or with earlier months, up to 11 of them, and export them to PDF or Excel.",
+      },
     ],
     seo: {
       title: "Accounting Software for Investment Firms in KSA | VoM",
       description:
-        "Accounting software for investment firms: e-invoices with tax, paperless attachments, unlimited cost centers, expense tracking and 14+ financial reports.",
+        "Accounting software for investment firms: e-invoices with tax, paperless attachments, unlimited cost centers, expense tracking and 17 financial reports.",
     },
   },
 
@@ -430,11 +482,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. VoM handles sales, invoices, tax and industry reports for printing and advertising companies, so the finances stay in order.",
       },
+      {
+        q: "Can I send a customer a quotation and then turn it into an invoice?",
+        a: "Yes. Write the quotation and send it, then convert it to a proforma or a sales invoice without retyping it, and add a payment link for the deposit.",
+      },
     ],
     seo: {
       title: "Accounting Software for Printing and Advertising | VoM",
       description:
-        "Accounting software for printing and advertising companies in Saudi Arabia: e-invoices with tax, attachments, expense tracking and 14+ financial reports.",
+        "Accounting software for printing and advertising companies in Saudi Arabia: e-invoices with tax, attachments, expense tracking and 17 financial reports.",
     },
   },
 
@@ -452,11 +508,15 @@ export const sectorsEn: Record<SectorId, SectorCopy> = {
         q: "Is VoM right for my business?",
         a: "Yes. Day care centers rely on VoM for sales, invoicing, tax and full reports, without the accounting hassle.",
       },
+      {
+        q: "Can monthly fee invoices go out automatically?",
+        a: "Yes. Set up a recurring invoice for each child and it is issued every month on its date. Follow overdue fees in the customer ageing report.",
+      },
     ],
     seo: {
       title: "Accounting Software for Day Care Centers in KSA | VoM",
       description:
-        "Accounting software for day care centers: e-invoices with tax, summary and detailed tax reports, paperless attachments, expense tracking and 14+ reports.",
+        "Accounting software for day care centers: e-invoices with tax, summary and detailed tax reports, paperless attachments, expense tracking and 17 reports.",
     },
   },
 };

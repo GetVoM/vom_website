@@ -16,3 +16,11 @@ if (token && host) {
     `${missingVariable} variable required by PostHog is missing or un-configured, this causes events to be silently missed. This error stops appearing once ${missingVariable} is configured`,
   );
 }
+
+/**
+ * Tells the page a client-side navigation has started, so the loader between pages
+ * (components/site/NavLoader.tsx) can show when it takes more than a moment.
+ */
+export function onRouterTransitionStart(url: string) {
+  window.dispatchEvent(new CustomEvent("vom:navigation-start", { detail: url }));
+}

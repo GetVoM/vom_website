@@ -85,7 +85,7 @@ export const flexRates = {
 export const vatPercent = 15;
 
 /** The old page's fourteen reports, in every plan. */
-export const reportCount = 14;
+export const reportCount = 17;
 
 /**
  * One cell of the comparison ledger. `rate` is Flex's price per unit, where the
@@ -158,10 +158,10 @@ export const cells: Record<RowId, Record<PlanId, Cell>> = {
     business: unlimited,
   },
   templates: {
-    flex: { kind: "count", value: 10 },
+    flex: { kind: "count", value: 11 },
     advanced: { kind: "count", value: 1 },
-    unlimited: { kind: "count", value: 10 },
-    business: { kind: "count", value: 10 },
+    unlimited: { kind: "count", value: 11 },
+    business: { kind: "count", value: 11 },
   },
   assets: { flex: { kind: "rate", value: flexRates.assets, per: "month" }, advanced: no, unlimited: yes, business: yes },
   apps: {
