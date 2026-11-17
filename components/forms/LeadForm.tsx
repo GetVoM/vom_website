@@ -3,6 +3,7 @@
 import { startTransition, useActionState, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import posthog from "posthog-js";
 import { Turnstile } from "@/components/forms/Turnstile";
+import { track } from "@/lib/analytics/track";
 import type { Locale } from "@/lib/i18n/config";
 import { attributionKeys } from "@/lib/leads/attribution";
 import type { LeadForm as LeadFormName } from "@/lib/leads/forms";
@@ -80,7 +81,10 @@ function check(data: FormData): Field[] {
  * `submitLead` to the leads table under `form`. On success it swaps itself for
  * a thank-you note, takes focus there, and pushes `gtm` to Google Tag Manager
  * once, in the words the page's old Elementor form used, so the container's
- * triggers keep working. Styled from `.lead-` in app/globals.css; each page
+ * triggers keep working. PostHog hears each step (started, validation failed,
+ * submit failed, submitted) and, once the lead is saved, learns who the visitor
+ * is: the mobile number becomes their PostHog id, with the name, email and
+ * sector as person properties (owner, 2026-11-17). Styled from `.lead-` in app/globals.css; each page
  * dresses it from its own block.
  */
 export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, sector }: LeadFormProps) {
@@ -89,9 +93,23 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
   const send = async (previous: LeadState | null, data: FormData): Promise<LeadState> => {
     try {
       const result = await submitLead(form, previous, data);
-      if (result.ok) posthog.capture("lead_form_submitted", { form, locale });
+      if (result.ok) {
+        track("lead_form_submitted", { form, locale });
+        const value = (name: string) => String(data.get(name) ?? "").trim() || undefined;
+        const mobile = normaliseSaudiMobile(value("phone") ?? "");
+        if (mobile) {
+          posthog.identify(
+            mobile,
+            { name: value("name"), phone: mobile, email: value("email"), business_sector: value("sector") },
+            { first_lead_form: form, first_lead_page: value("page_path") },
+          );
+        }
+      } else {
+        track("lead_form_submit_failed", { form, locale, reason: result.reason ?? "unknown" });
+      }
       return result;
     } catch {
+      track("lead_form_submit_failed", { form, locale, reason: "network" });
       return { ok: false, message: copy.errors.network };
     }
   };
@@ -103,6 +121,7 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
   const waiters = useRef<((token: string | null) => void)[]>([]);
   const thanks = useRef<HTMLHeadingElement>(null);
   const announced = useRef(false);
+  const started = useRef(false);
 
   // Where the visitor landed and from which ad: read in the browser only, so the page stays static.
   const location = useSyncExternalStore(noChange, readLocation, () => null);
@@ -150,6 +169,7 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
     const wrong = check(data);
     setErrors(wrong);
     if (wrong.length > 0) {
+      track("lead_form_validation_failed", { form, locale, fields: wrong });
       element.querySelector<HTMLElement>(`[name="${wrong[0]}"]`)?.focus();
       return;
     }
@@ -157,7 +177,14 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
     await tokenReady();
     setWaiting(false);
     // The token field is filled now; read the form again so it is included.
-    startTransition(() => action(new FormData(element)));
+const filled = new FormData(element);
+    // The visitor's PostHog id goes with the lead, so the server's `lead_recorded` lands on the same person.
+    if (posthog.__loaded) {
+      filled.set("ph_distinct_id", posthog.get_distinct_id());
+      const session = posthog.get_session_id();
+      if (session) filled.set("ph_session_id", session);
+    }
+    startTransition(() => action(filled));
   };
 
   const shown = (field: Field) => errors.includes(field) || (!pending && !state?.ok && state?.fields?.includes(field));
@@ -179,7 +206,18 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
   }
 
   return (
-    <form className="lead-form" name={gtm.form_name} aria-label={label} noValidate onSubmit={submit}>
+    <form
+      className="lead-form"
+      name={gtm.form_name}
+      aria-label={label}
+      noValidate
+      onSubmit={submit}
+      onFocus={() => {
+        if (started.current) return;
+        started.current = true;
+        track("lead_form_started", { form, locale });
+      }}
+    >
       <div className="lead-field">
         <label htmlFor={`${id}-name`}>{copy.name}</label>
         <input

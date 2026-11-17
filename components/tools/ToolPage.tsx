@@ -154,7 +154,7 @@ export async function ToolPage({ id }: { id: ToolId }) {
           <ul className="tol-others-list" role="list">
             {siblingTools(id).map((tool) => (
               <li key={tool.id}>
-                <Link href={toolPath(tool.id)} prefetch={false}>
+                <Link href={toolPath(tool.id)} prefetch={false} data-track="tool_card_clicked" data-track-tool={tool.id}>
                   <span className="tol-others-name">{tool.cardTitle}</span>
                   <span className="tol-others-line">{tool.cardLine}</span>
                 </Link>

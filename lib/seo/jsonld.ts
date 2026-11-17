@@ -5,6 +5,28 @@ import { site } from "./site";
 
 type JsonLd = Record<string, unknown>;
 
+/** An absolute URL on the site, percent-encoded like the canonicals, so one page has one spelling everywhere. */
+const absolute = (locale: Locale, path: string) => `${site.url}${encodeURI(localePath(locale, path))}`;
+
+/** A person with a page on this site (/author/<slug>/). The `@id` makes every mention the same entity. */
+export interface PersonRef {
+  name: string;
+  slug: string;
+  jobTitle?: string | null;
+  sameAs?: string[];
+}
+const personUrl = (slug: string) => `${site.url}/author/${encodeURI(slug)}/`;
+function personNode(who: PersonRef): JsonLd {
+  return {
+    "@type": "Person",
+    "@id": `${personUrl(who.slug)}#person`,
+    name: who.name,
+    url: personUrl(who.slug),
+    ...(who.jobTitle && { jobTitle: who.jobTitle }),
+    ...(who.sameAs && who.sameAs.length > 0 && { sameAs: who.sameAs }),
+  };
+}
+
 export function organizationJsonLd(locale: Locale): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -12,8 +34,9 @@ export function organizationJsonLd(locale: Locale): JsonLd {
     "@id": `${site.url}/#organization`,
     name: site.name[locale],
     alternateName: locale === "ar" ? "VoM" : "ڤوم",
-    url: site.url,
-    logo: `${site.url}${site.logo}`,
+    legalName: site.legalName,
+    url: `${site.url}/`,
+    logo: { "@type": "ImageObject", url: `${site.url}${site.logoSquare}`, width: 512, height: 512 },
     foundingDate: site.foundingYear,
     areaServed: "SA",
     email: site.email,
@@ -35,7 +58,8 @@ export function contactPageJsonLd(locale: Locale, path: string, name: string, de
   return {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    url: `${site.url}${localePath(locale, path)}`,
+    "@id": `${absolute(locale, path)}#webpage`,
+    url: absolute(locale, path),
     name,
     description,
     inLanguage: locale,
@@ -54,7 +78,8 @@ export function aboutPageJsonLd(
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    url: `${site.url}${localePath(locale, path)}`,
+    "@id": `${absolute(locale, path)}#webpage`,
+    url: absolute(locale, path),
     name,
     description,
     inLanguage: locale,
@@ -77,7 +102,8 @@ export function webPageJsonLd(locale: Locale, path: string, name: string, descri
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    url: `${site.url}${localePath(locale, path)}`,
+    "@id": `${absolute(locale, path)}#webpage`,
+    url: absolute(locale, path),
     name,
     description,
     inLanguage: locale,
@@ -99,11 +125,11 @@ export function guideJsonLd(guide: {
   image: string;
   published: string;
   modified: string;
-  author: string;
-  reviewer: { name: string; jobTitle: string };
+  author: PersonRef;
+  reviewer: PersonRef;
   partOf?: { path: string; headline: string };
 }): JsonLd {
-  const url = `${site.url}${localePath("ar", guide.path)}`;
+  const url = absolute("ar", guide.path);
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -113,7 +139,7 @@ export function guideJsonLd(guide: {
     description: guide.description,
     inLanguage: "ar",
     isPartOf: { "@id": `${site.url}/#website` },
-    reviewedBy: { "@type": "Person", name: guide.reviewer.name, jobTitle: guide.reviewer.jobTitle },
+    reviewedBy: personNode(guide.reviewer),
     mainEntity: {
       "@type": "Article",
       "@id": `${url}#article`,
@@ -123,13 +149,13 @@ export function guideJsonLd(guide: {
       datePublished: guide.published,
       dateModified: guide.modified,
       inLanguage: "ar",
-      author: { "@type": "Person", name: guide.author },
+      author: personNode(guide.author),
       publisher: { "@id": `${site.url}/#organization` },
       mainEntityOfPage: { "@id": `${url}#webpage` },
       ...(guide.partOf && {
         isPartOf: {
           "@type": "Article",
-          "@id": `${site.url}${localePath("ar", guide.partOf.path)}#article`,
+          "@id": `${absolute("ar", guide.partOf.path)}#article`,
           headline: guide.partOf.headline,
         },
       }),
@@ -155,7 +181,7 @@ export function templateCollectionJsonLd(page: {
     files: { url: string; format: string; bytes: number }[];
   }[];
 }): JsonLd {
-  const url = `${site.url}${localePath(page.locale, page.path)}`;
+  const url = absolute(page.locale, page.path);
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -250,11 +276,12 @@ export function toolCollectionJsonLd(page: {
   };
 }
 
-/** `path` values are locale-free; the visible breadcrumb must list the same items. */
 /**
- * A blog post or news item: an Article with its writer (a Person with a page on
- * this site), the accountant who reviewed it, its dates, image and publisher.
- * `path` is the locale-free path. No FAQPage, even when the body has questions.
+ * A blog post, news item or tool page: a WebPage carrying the accountant who
+ * reviewed it (`reviewedBy` belongs to WebPage in schema.org, not to Article),
+ * whose main entity is the Article (a NewsArticle for news) with its writer, a
+ * Person with a page on this site, its dates, image and publisher. `path` is the
+ * locale-free path. No FAQPage, even when the body has questions.
  */
 export function articleJsonLd(post: {
   locale: Locale;
@@ -265,35 +292,96 @@ export function articleJsonLd(post: {
   published: string;
   modified: string;
   section: string | null;
-  author: { name: string; slug: string; jobTitle: string | null; sameAs: string[] } | null;
-  reviewer: { name: string; slug: string; jobTitle: string | null; sameAs: string[] } | null;
+  author: PersonRef | null;
+  reviewer: PersonRef | null;
+  /** The image's real size, when known. */
+  imageSize?: { width: number; height: number } | null;
+  news?: boolean;
 }): JsonLd {
   const url = `${site.url}${encodeURI(localePath(post.locale, post.path))}`;
-  const person = (who: NonNullable<typeof post.author>) => ({
-    "@type": "Person",
-    name: who.name,
-    url: `${site.url}/author/${encodeURI(who.slug)}/`,
-    ...(who.jobTitle && { jobTitle: who.jobTitle }),
-    ...(who.sameAs.length > 0 && { sameAs: who.sameAs }),
-  });
+  const image = post.image && post.imageSize ? { "@type": "ImageObject", url: post.image, ...post.imageSize } : post.image;
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": `${url}#article`,
-    mainEntityOfPage: url,
-    headline: post.headline,
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: post.headline,
     description: post.description,
-    ...(post.image && { image: post.image }),
-    datePublished: post.published,
-    dateModified: post.modified,
     inLanguage: post.locale,
-    ...(post.section && { articleSection: post.section }),
-    author: post.author ? person(post.author) : { "@id": `${site.url}/#organization` },
-    ...(post.reviewer && { reviewedBy: person(post.reviewer) }),
-    publisher: { "@id": `${site.url}/#organization` },
     isPartOf: { "@id": `${site.url}/#website` },
+    ...(post.reviewer && { reviewedBy: personNode(post.reviewer), lastReviewed: post.modified.slice(0, 10) }),
+    mainEntity: {
+      "@type": post.news ? "NewsArticle" : "Article",
+      "@id": `${url}#article`,
+      mainEntityOfPage: { "@id": `${url}#webpage` },
+      headline: post.headline,
+      description: post.description,
+      ...(image && { image }),
+      datePublished: post.published,
+      dateModified: post.modified,
+      inLanguage: post.locale,
+      ...(post.section && { articleSection: post.section }),
+      // The brand's own byline ("VoM") is the organisation, not a person.
+      author: post.author && post.author.name !== site.legalName ? personNode(post.author) : { "@id": `${site.url}/#organization` },
+      publisher: { "@id": `${site.url}/#organization` },
+    },
   };
 }
+
+/**
+ * A person's page (/author/<slug>/): a ProfilePage whose main entity is the
+ * Person every article names by the same `@id`. Arabic only.
+ */
+export function profilePageJsonLd(author: PersonRef & { bio?: string | null; avatar?: string | null }): JsonLd {
+  const url = personUrl(author.slug);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${url}#webpage`,
+    url,
+    name: author.name,
+    inLanguage: "ar",
+    isPartOf: { "@id": `${site.url}/#website` },
+    mainEntity: {
+      ...personNode(author),
+      ...(author.bio && { description: author.bio }),
+      ...(author.avatar && { image: author.avatar }),
+      worksFor: { "@id": `${site.url}/#organization` },
+    },
+  };
+}
+
+/**
+ * A list of articles (the blog index, a topic, the news, the templates): a
+ * CollectionPage whose main entity lists the entries on this page, in order.
+ * Paths are locale-free for the page and public (`/en/...` included) for entries.
+ */
+export function collectionJsonLd(page: { locale: Locale; path: string; name: string; description: string; entries: { name: string; path: string }[] }): JsonLd {
+  const url = absolute(page.locale, page.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: page.name,
+    description: page.description,
+    inLanguage: page.locale,
+    isPartOf: { "@id": `${site.url}/#website` },
+    publisher: { "@id": `${site.url}/#organization` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: page.entries.length,
+      itemListElement: page.entries.map((entry, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${site.url}${encodeURI(entry.path)}`,
+        name: entry.name,
+      })),
+    },
+  };
+}
+
+/** `path` values are locale-free; the visible breadcrumb must list the same items. */
 
 export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]): JsonLd {
   return {
@@ -303,19 +391,25 @@ export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: st
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${site.url}${localePath(locale, item.path)}`,
+      item: absolute(locale, item.path),
     })),
   };
 }
 
-export function websiteJsonLd(locale: Locale): JsonLd {
+/**
+ * The site: one entity, described the same on every page in both languages
+ * (Google reads the site name from the home page's WebSite), with the name in
+ * Arabic and its Latin form as the alternate.
+ */
+export function websiteJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${site.url}/#website`,
-    url: `${site.url}${localePath(locale, "/")}`,
-    name: site.name[locale],
-    inLanguage: locale,
+    url: `${site.url}/`,
+    name: site.name.ar,
+    alternateName: [site.name.en, "getvom.com"],
+    inLanguage: ["ar", "en"],
     publisher: { "@id": `${site.url}/#organization` },
   };
 }
@@ -324,11 +418,13 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${site.url}/#software`,
     name: site.name[locale],
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, iOS",
     description,
     url: `${site.url}${localePath(locale, "/")}`,
+    installUrl: site.appStore,
     publisher: { "@id": `${site.url}/#organization` },
     // One Offer per plan with a published price, monthly and before VAT. Flex's
     // is its starting price; Business is quoted by sales, so it has no Offer.
@@ -375,6 +471,7 @@ export function videoJsonLd(video: {
   return {
     "@context": "https://schema.org",
     "@type": "VideoObject",
+    "@id": `https://www.youtube.com/watch?v=${video.youtubeId}#video`,
     name: video.name,
     description: video.description,
     thumbnailUrl: `${site.url}${video.thumbnailPath}`,

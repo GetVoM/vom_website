@@ -16,6 +16,7 @@ import {
 import { common, discountCopy, marginCopy, pricingCopy, salaryCopy, vatCopy, zakatBaseCopy, zakatCompanyCopy, zakatCopy } from "@/lib/tools/copy";
 import { formatAmount, formatMoney, formatPercent } from "@/lib/tools/format";
 import { rates } from "@/lib/tools/rates";
+import { track } from "@/lib/analytics/track";
 import { Answer, LiveSummary, Money, NumberField, Percent, Sheet, spokenMoney, useNumber, type NumberState } from "./fields";
 
 /**
@@ -112,11 +113,13 @@ export function VatCalculator({ head }: CalcProps) {
     rate.reset(VAT_DEFAULTS.rate);
     setInclusive(false);
     setStatus("");
+    track("calculator_reset", { calculator: "vat" });
   };
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(lines.join("\n"));
       setStatus(vatCopy.copied);
+      track("calculator_result_copied", { calculator: "vat" });
     } catch {
       setStatus(vatCopy.copyFailed);
     }
@@ -124,6 +127,7 @@ export function VatCalculator({ head }: CalcProps) {
   const save = () => {
     const ok = vatHistory.save({ ...result, rate: ratePct, at: new Date().toISOString() });
     setStatus(ok ? vatCopy.saved : vatCopy.copyFailed);
+    if (ok) track("calculator_result_saved", { calculator: "vat" });
   };
 
   const slider = (field: NumberState, min: number, max: number, step: number, label: string) => (
@@ -144,6 +148,7 @@ export function VatCalculator({ head }: CalcProps) {
   return (
     <>
       <Sheet
+calculator="vat"
         head={head}
         answerRef={answerRef}
         footer={
@@ -232,7 +237,7 @@ export function DiscountCalculator({ head }: CalcProps) {
   const saving = result.ok ? result.saving : 0;
   return (
     <>
-      <Sheet head={head} title={discountCopy.title} button={discountCopy.button} answerRef={answerRef}>
+      <Sheet calculator="discount" head={head} title={discountCopy.title} button={discountCopy.button} answerRef={answerRef}>
         <NumberField label={discountCopy.amount} field={amount} unit="sar" />
         <NumberField label={discountCopy.percent} field={percent} unit="percent" />
       </Sheet>
@@ -260,7 +265,7 @@ export function MarginCalculator({ head }: CalcProps) {
   const result = calcMarkup(v(cost), v(markup));
   return (
     <>
-      <Sheet head={head} button={marginCopy.button} answerRef={answerRef}>
+      <Sheet calculator="margin" head={head} button={marginCopy.button} answerRef={answerRef}>
         <NumberField label={marginCopy.cost} field={cost} unit="sar" placeholder={marginCopy.costPlaceholder} />
         <NumberField label={marginCopy.markup} field={markup} unit="percent" placeholder={marginCopy.markup} />
       </Sheet>
@@ -292,7 +297,7 @@ export function PricingCalculator({ head }: CalcProps) {
   );
   return (
     <>
-      <Sheet head={head} title={pricingCopy.title} intro={pricingCopy.intro} button={pricingCopy.button} answerRef={answerRef}>
+      <Sheet calculator="pricing" head={head} title={pricingCopy.title} intro={pricingCopy.intro} button={pricingCopy.button} answerRef={answerRef}>
         {pricingCopy.costs.map((item, i) => (
           <NumberField key={item.id} label={item.label} hint={item.hint} field={fields[i]} unit="sar" />
         ))}
@@ -329,7 +334,7 @@ export function SalaryNetCalculator({ head }: CalcProps) {
   const deduction = result.ok ? result.deduction : 0;
   return (
     <>
-      <Sheet head={head} button={c.button} answerRef={answerRef}>
+      <Sheet calculator="salary-net" head={head} button={c.button} answerRef={answerRef}>
         <NumberField label={c.salary} field={salary} unit="sar" placeholder={c.salaryPlaceholder} />
         <NumberField label={c.tax} field={tax} unit="percent" placeholder={c.taxPlaceholder} />
       </Sheet>
@@ -355,7 +360,7 @@ export function SalaryAnnualCalculator({ head }: CalcProps) {
   const monthly = annualToMonthly(v(annual));
   return (
     <>
-      <Sheet head={head} button={c.button} answerRef={answerRef}>
+      <Sheet calculator="salary-annual" head={head} button={c.button} answerRef={answerRef}>
         <NumberField label={c.salary} field={annual} unit="sar" placeholder={c.salaryPlaceholder} wide />
       </Sheet>
       <Answer answerRef={answerRef} label={c.result} figure={<Money value={monthly} />} figureText={formatMoney(monthly)} muted={annual.value === null}>
@@ -377,7 +382,7 @@ export function ZakatCalculator({ head }: CalcProps) {
   const note = result.nisab === null ? zakatCopy.needPrice : undefined;
   return (
     <>
-      <Sheet head={head} title={zakatCopy.title} button={zakatCopy.button} answerRef={answerRef}>
+      <Sheet calculator="zakat" head={head} title={zakatCopy.title} button={zakatCopy.button} answerRef={answerRef}>
         {zakatCopy.fields.map((item, i) => (
           <NumberField key={item.id} label={item.label} field={fields[i]} unit="sar" />
         ))}
@@ -422,7 +427,7 @@ export function ZakatBaseCalculator({ head }: CalcProps) {
   const note = [result.missing.includes("goldPrice") && c.needGoldPrice, result.missing.includes("silverPrice") && c.needSilverPrice].filter(Boolean).join(" ") || undefined;
   return (
     <>
-      <Sheet head={head} button={c.button} answerRef={answerRef}>
+      <Sheet calculator="zakat-base" head={head} button={c.button} answerRef={answerRef}>
         <NumberField label={c.cash} field={cash} unit="sar" placeholder={c.cashPlaceholder} wide />
         <NumberField label={c.gold} field={gold} unit="gram" placeholder={c.goldPlaceholder} />
         <NumberField label={c.goldPrice} field={goldPrice} unit="sar" />
@@ -456,7 +461,7 @@ export function ZakatCompanyCalculator({ head }: CalcProps) {
   const zakat = calcCompanyZakat(v(amount));
   return (
     <>
-      <Sheet head={head} title={c.title} titleLevel={3} button={c.button} answerRef={answerRef}>
+      <Sheet calculator="zakat-company" head={head} title={c.title} button={c.button} answerRef={answerRef}>
         <NumberField label={c.amount} field={amount} unit="sar" placeholder={c.placeholder} wide />
       </Sheet>
       <Answer answerRef={answerRef} label={c.result} figure={<Money value={zakat} />} figureText={formatMoney(zakat)} muted={amount.value === null}>
@@ -497,7 +502,12 @@ export function CalcBand({ ids }: { ids: CalculatorId[] }) {
         <legend className="sr-only">{common.switchLegend}</legend>
         {ids.map((id) => (
           <label key={id}>
-            <input type="radio" name={name} checked={active === id} onChange={() => setActive(id)} />
+            <input type="radio" name={name} checked={active === id}
+              onChange={() => {
+                track("calculator_switched", { from: active, to: id });
+                setActive(id);
+              }}
+            />
             <span>{tabLabels[id] ?? id}</span>
           </label>
         ))}

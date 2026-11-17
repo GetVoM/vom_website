@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /**
- * Checks the blog's and the tools' URL contract against a running site.
+ * Checks the whole URL contract against a running site (`pnpm check:urls`).
  *
- *   node scripts/check-blog-urls.mjs [base URL, default http://localhost:3100]
+ *   node scripts/check-blog-urls.mjs [base URL, default http://localhost:3111]
  *
- * For every post, news, category, template and tool row of docs/content/url-map.csv:
- * - keep: 200, the title and description the crawl recorded
- *   (docs/content/wp-url-inventory.csv), and an absolute canonical pointing at
- *   the page itself on https://getvom.com;
+ * For every row of docs/content/url-map.csv:
+ * - keep: 200, a title, a description and an absolute canonical pointing at
+ *   the page itself on https://getvom.com; post, news, category, template and
+ *   tool rows must also carry the title and description the crawl recorded
+ *   (docs/content/wp-url-inventory.csv). Rebuilt pages have new copy, so theirs
+ *   are not compared;
  * - redirect: one 301 to the listed target;
- * - retire: 404 or 410.
+ * - retire: exactly 410.
  * Titles and descriptions are compared after Unicode compatibility folding and
  * with invisible direction marks removed, so the logged character fixes (the
  * «ﭬوم» presentation forms) are not differences. Tool pages must also carry
@@ -30,7 +32,7 @@ import { fileURLToPath } from "node:url";
 import { parse } from "node-html-parser";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const base = (process.argv[2] ?? "http://localhost:3100").replace(/\/$/, "");
+const base = (process.argv[2] ?? "http://localhost:3111").replace(/\/$/, "");
 const SITE = "https://getvom.com";
 
 /** path → why its title or description differs from the crawl on purpose. */
@@ -39,6 +41,18 @@ const EXCEPTIONS = {
   "/en/zatca-e-invoicing-phase-2/": "WordPress gave it the Arabic blog's title and description; it now uses its own (owner, 2026-11-12)",
   "/vom-pay-success/": "description spelling fixed («أعجبتك»)",
   "/vom-pay-failure/": "the old description was the error code's placeholder («رمز الخطأ: 1»); it is now the general message",
+  "/tools/برنامج-حساب-الراتب-حاسبة-الرواتب/": "description rewritten by the owner (commit 4ade118) to say what the calculator does",
+  "/blog/": "two doubled letters in the description fixed («المعلومات», «السحابية»)",
+  "/tax-zakat/ڤوم-تقدم-ورشة-الضرائب-في-السعودية-لتع/": "straight quotes stored as &quot; replaced with the title's own “ ”",
+  // SEO audit, 2026-11-17: WordPress's English archive defaults ("Tools - Vom", "X Archives - Vom") and two
+  // categories that copied a post's title were given titles and descriptions of their own (owner approved).
+  ...Object.fromEntries(
+    [
+      "/tools/", "/news/", "/en/news/", "/templates/", "/ai/", "/industries/", "/integrations/", "/أخبار-ڤوم/", "/أدوات-محاسبية/",
+      "/أساسيات-المحاسبة/", "/إدارة-المخزون/", "/برنامج-محاسبة-2/", "/تأسيس-الشركات/", "/ريادة-الأعمال/", "/مراجعة-البرامج-المحاسبية/",
+      "/هامش-الربح-في-المحاسبة/", "/محاسبة-المبيعات/", "/نقاط-البيع/",
+    ].map((path) => [path, "archive placeholder replaced with its own title and description (2026-11-17)"]),
+  ),
 };
 
 function parseCsv(text) {
@@ -69,12 +83,15 @@ const ZATCA = { en: "/en/zatca-e-invoicing-phase-2/", ar: "/الفوترة-ال�
 /** The VoM Pay result pages: the app sends payers to these exact addresses (owner, 2026-11-12). */
 const PAY = ["/vom-pay-success/", "/en/vom-pay-success/", "/vom-pay-failure/", "/en/vom-pay-failure/"];
 
-const urlMap = parseCsv(readFileSync(join(root, "docs/content/url-map.csv"), "utf8")).filter(
-  (r) => ["post", "news", "category", "template", "tool"].includes(r.type) || LANDINGS.has(r.old_path_decoded) || r.old_path_decoded === ZATCA.en || PAY.includes(r.old_path_decoded),
-);
+const urlMap = parseCsv(readFileSync(join(root, "docs/content/url-map.csv"), "utf8"));
+/** Rows whose title and description must still be the crawl's: imported content, and the pages rebuilt word for word. */
+const comparesCopy = (r) => ["post", "news", "category", "template", "tool"].includes(r.type) || LANDINGS.has(r.old_path_decoded) || r.old_path_decoded === ZATCA.en || PAY.includes(r.old_path_decoded);
 const inventory = new Map(parseCsv(readFileSync(join(root, "docs/content/wp-url-inventory.csv"), "utf8")).map((r) => [r.path_decoded, r]));
+// The crawl recorded titles as they stood in the HTML source, entities and all; the page is read decoded.
 const norm = (text) =>
   (text ?? "")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
     .normalize("NFKC")
     .replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\u061C]/g, "")
     .replace(/\s+/g, " ")
@@ -98,7 +115,7 @@ async function check(row) {
   }
   if (row.proposed_action === "retire") {
     counts.retire++;
-    if (![404, 410].includes(response.status)) fail(`status ${response.status}, expected 404 or 410`);
+    if (response.status !== 410) fail(`status ${response.status}, expected 410`);
     return;
   }
   if (row.proposed_action !== "keep" && row.proposed_action !== "keep-noindex") return;
@@ -117,7 +134,7 @@ async function check(row) {
   if (!title) fail("no title");
   if (!description) fail("no description");
   const crawl = inventory.get(path);
-  if (!crawl) return;
+  if (!crawl || !comparesCopy(row)) return;
   if (EXCEPTIONS[path]) { counts.exceptions++; return; }
   if (norm(crawl.title) && title !== norm(crawl.title)) fail(`title "${title}" ≠ crawl "${norm(crawl.title)}"`);
   if (norm(crawl.meta_description) && description !== norm(crawl.meta_description)) fail(`description differs from the crawl`);
@@ -235,9 +252,9 @@ await checkLandingVariants();
 await checkZatcaPair();
 await checkPayLinks();
 
-console.log(`Checked ${urlMap.length} post, news, category, template, tool, landing, e-invoicing and VoM Pay rows against ${base}`);
+console.log(`Checked all ${urlMap.length} rows of url-map.csv against ${base}`);
 console.log(`  keep (with keep-noindex) ${counts.keep} · redirect ${counts.redirect} · retire ${counts.retire} · deliberate exceptions ${counts.exceptions}`);
-for (const [path, why] of Object.entries(EXCEPTIONS)) console.log(`  exception: ${path} (${why})`);
+console.log(`  ${Object.keys(EXCEPTIONS).length} deliberate differences are listed in EXCEPTIONS at the top of this script.`);
 if (failures.length) {
   console.log(`\n${failures.length} FAILED`);
   for (const line of failures.sort()) console.log(`  ${line}`);

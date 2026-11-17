@@ -45,7 +45,7 @@ function PlateArt({ tool }: { tool: ToolEntry }) {
 function Plate({ tool, n, wide }: { tool: ToolEntry; n: number; wide?: boolean }) {
   return (
     <li className="tix-plate" data-wide={wide || undefined} style={{ "--n": n } as CSSProperties}>
-      <Link href={toolPath(tool.id)} className="tix-plate-link">
+      <Link href={toolPath(tool.id)} className="tix-plate-link" data-track="tool_card_clicked" data-track-tool={tool.id}>
         <span className="tix-plate-art">
           <PlateArt tool={tool} />
         </span>

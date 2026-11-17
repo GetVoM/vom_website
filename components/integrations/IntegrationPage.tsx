@@ -52,7 +52,8 @@ export function IntegrationPage({ id, locale }: { id: IntegrationId; locale: Loc
           data={videoJsonLd({
             youtubeId: video.youtubeId,
             name: video.title,
-            description: c.seo.description,
+            // Each video is described by its own title first, so two on one page do not share a description.
+            description: `${video.title}. ${c.seo.description}`,
             thumbnailPath: video.poster.src,
             uploadDate: video.uploaded,
             duration: isoDuration(video.seconds),

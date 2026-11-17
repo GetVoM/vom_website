@@ -85,7 +85,7 @@ function Template({
         <ul className="ivt-files" role="list">
           {files.map(({ format, file }) => (
             <li key={format}>
-              <a href={file.href} download className="ivt-file">
+              <a href={file.href} download className="ivt-file" data-track-template={template.id}>
                 <Icon name="download" size={18} />
                 <span className="sr-only">{c.download.lead(name)}</span>
                 <span className="ivt-file-format">{format}</span>{" "}
@@ -96,7 +96,7 @@ function Template({
             </li>
           ))}
         </ul>
-        <a href={signup} className="ivt-online" rel="noopener">
+        <a href={signup} className="ivt-online" rel="noopener" data-track-template={template.id}>
           <span>{c.createOnline}</span>
           <span className="sr-only">: {name}</span>
           <Icon name="arrow" size={16} className="rtl:-scale-x-100" />
@@ -159,6 +159,7 @@ export function InvoiceTemplatesPage({ locale }: { locale: Locale }) {
               width={400}
               height={Math.round((heroSheets.height / heroSheets.width) * 400)}
               preload
+              fetchPriority="high"
               className="ivt-paper-img"
             />
             <figcaption className="ivt-paper-line">

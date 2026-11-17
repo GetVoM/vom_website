@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { ButtonLink } from "@/components/ui/Button";
-import { PayErrorCode, PayErrorMessage } from "@/components/vompay/PayError";
+import { PayErrorCode, PayErrorMessage, PayResultViewed } from "@/components/vompay/PayError";
 import { vomPayFailure, vomPayImages as img, vomPaySuccess } from "@/lib/content/vom-pay";
 import type { Locale } from "@/lib/i18n/config";
 import { vomPayFailurePaths, vomPaySuccessPaths } from "@/lib/i18n/routes";
@@ -39,7 +39,7 @@ export function PayResult({ outcome, locale }: { outcome: PayOutcome; locale: Lo
 function Status({ outcome, image, alt, heading, children }: { outcome: PayOutcome; image: typeof img.success; alt: string; heading: string; children: ReactNode }) {
   return (
     <div className="pr-status" data-outcome={outcome} style={{ "--pr-bg": `url(${optimizedSrc(img.heroBg.src, 1080)})` } as CSSProperties}>
-      <Image className="pr-illustration" src={image.src} alt={alt} width={image.width} height={image.height} sizes="(min-width: 1024px) 240px, 180px" preload />
+      <Image className="pr-illustration" src={image.src} alt={alt} width={image.width} height={image.height} sizes="(min-width: 1024px) 240px, 180px" preload fetchPriority="high" />
       <h1 className="pr-title">{heading}</h1>
       {children}
     </div>
@@ -51,6 +51,7 @@ function Success({ locale }: { locale: Locale }) {
   const [first, ...rest] = c.features;
   return (
     <>
+      <PayResultViewed outcome="success" locale={locale} />
       <section className="pr-top">
         <div className="page-wrap pr-grid">
           <Status outcome="success" image={img.success} alt={c.alt} heading={c.heading}>
@@ -133,6 +134,7 @@ function Failure({ locale }: { locale: Locale }) {
   const c = vomPayFailure[locale];
   return (
     <section className="pr-top pr-top-failure">
+      <PayResultViewed outcome="failure" locale={locale} />
       <div className="page-wrap pr-grid">
         <Status outcome="failure" image={img.failure} alt={c.alt} heading={c.heading}>
           <PayErrorCode copy={c} className="pr-code" />

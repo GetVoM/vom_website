@@ -105,7 +105,13 @@ export function PlanSheet({ id, c, locale, href }: { id: PlanId; c: PricingCopy;
         </ul>
       </div>
 
-      <ButtonLink href={href} variant={popular ? "primary" : "secondary"} className="prc-cta">
+      <ButtonLink
+        href={href}
+        variant={popular ? "primary" : "secondary"}
+        className="prc-cta"
+        data-track="pricing_plan_cta_clicked"
+        data-track-plan={id}
+      >
         {copy.cta}
       </ButtonLink>
     </article>

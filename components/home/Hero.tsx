@@ -7,7 +7,7 @@ import { Guilloche } from "./Guilloche";
 
 export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
-    <section className="relative overflow-hidden">
+    <section data-track-section="hero" className="relative overflow-hidden">
       <div className="hero-field hidden lg:block">
         <Guilloche id="hero-guilloche" className="absolute inset-0 h-full w-full" />
       </div>
@@ -15,7 +15,8 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
       <div className="relative mx-auto grid max-w-[1280px] items-center gap-12 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] pb-20 pt-14 lg:grid-cols-[7fr_5fr] lg:gap-10 lg:pb-24 lg:pt-16">
         <div className="flex flex-col gap-7">
           <h1 className="rise font-arabic text-[2.5rem] leading-[1.15] sm:text-[3.25rem] lg:text-[3.75rem]">
-            <span className="block font-light text-ink-700">{t.hero.tierLight}</span>
+            {/* The space between the two lines is for text-only readers (search results, screen readers): the lines are blocks, so it never shows. */}
+            <span className="block font-light text-ink-700">{t.hero.tierLight}</span>{" "}
             <span className="block font-bold">{t.hero.tierBold}</span>
           </h1>
           <p className="rise rise-2 max-w-[52ch] text-[1.0625rem] leading-[1.75] text-ink-700 sm:text-[1.125rem]">

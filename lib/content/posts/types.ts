@@ -74,7 +74,18 @@ export interface PostPage {
 
 /** Every public blog address, for the catch-all route and the sitemap. */
 export interface PathIndex {
-  posts: { id: string; path: string; type: PostType; lang: Locale; modifiedAt: string }[];
+  posts: {
+    id: string;
+    path: string;
+    type: PostType;
+    lang: Locale;
+    modifiedAt: string;
+    /** For the sitemap: whose page and which topic the post counts towards, and its twin in the other language. */
+    authorId: string | null;
+    reviewerId: string | null;
+    categoryId: string | null;
+    alternateId: string | null;
+  }[];
   categories: { id: string; path: string; lang: Locale }[];
   authors: { id: string; slug: string }[];
 }

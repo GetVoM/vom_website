@@ -38,7 +38,7 @@ function Ways({ lang }: { lang: Locale }) {
     <ul className="nf-ways">
       {copy[lang].ways.map(([label, href]) => (
         <li key={href}>
-          <Link href={href}>
+          <Link href={href} data-track="not_found_exit_clicked">
             {label}
             <Icon name="arrow" size={16} className={lang === "ar" ? "-scale-x-100" : undefined} />
           </Link>
@@ -59,7 +59,7 @@ export function NotFound({ locale }: { locale: Locale }) {
   const c = copy[locale];
   const o = copy[other];
   return (
-    <section className="nf page-wrap" aria-labelledby="nf-heading">
+    <section className="nf page-wrap" data-track-section="not_found" aria-labelledby="nf-heading">
       <div className="nf-copy">
         <p className="nf-code num">404</p>
         <h1 id="nf-heading" className="nf-title">

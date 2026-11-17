@@ -90,7 +90,7 @@ export function CatalogueRail({ hub, topics, currentId, sections, title, label }
     <ol className="ein-rail-sections">
       {sections.map((entry) => (
         <li key={entry.id}>
-          <a href={`#${entry.id}`} aria-current={entry.id === active ? "true" : undefined} onClick={() => setOpen(false)}>
+          <a href={`#${entry.id}`} data-track="contents_link_clicked" data-track-surface="guide" data-track-target={entry.id} aria-current={entry.id === active ? "true" : undefined} onClick={() => setOpen(false)}>
             {entry.heading}
           </a>
         </li>
@@ -104,6 +104,8 @@ export function CatalogueRail({ hub, topics, currentId, sections, title, label }
         href={card.href}
         prefetch={false}
         className="ein-rail-card"
+        data-track="guide_card_clicked"
+        data-track-guide={card.id}
         aria-current={card.id === currentId ? "page" : undefined}
         onClick={() => setOpen(false)}
       >

@@ -13,6 +13,8 @@ interface ButtonLinkProps {
   newTab?: string;
   className?: string;
   children: ReactNode;
+  /** Analytics attributes, read by components/analytics/Tracker.tsx: `data-track="event_name"`, `data-track-plan="flex"`. */
+  [attribute: `data-track${string}`]: string | undefined;
 }
 
 export function ButtonLink({
@@ -23,6 +25,7 @@ export function ButtonLink({
   newTab,
   className = "",
   children,
+  ...tracking
 }: ButtonLinkProps) {
   const classes = `btn btn-${variant} ${className}`;
   const content = (
@@ -33,14 +36,14 @@ export function ButtonLink({
   );
   if (external || href.startsWith("http")) {
     return (
-      <a href={href} className={classes} rel="noopener" target={newTab ? "_blank" : undefined}>
+      <a href={href} className={classes} rel="noopener" target={newTab ? "_blank" : undefined} {...tracking}>
         {content}
         {newTab && <span className="sr-only">{` ${newTab}`}</span>}
       </a>
     );
   }
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} {...tracking}>
       {content}
     </Link>
   );

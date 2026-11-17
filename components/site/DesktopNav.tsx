@@ -11,6 +11,7 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { track } from "@/lib/analytics/track";
 import { NavAnchor } from "./NavAnchor";
 import type { MenuId, NavItem, NavMenus } from "./navTypes";
 
@@ -109,6 +110,8 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
       justHovered.current = false;
       return;
     }
+    // Counted only when asked for (a click, Enter or Space), not when the pointer passes over.
+    if (open !== id) track("nav_menu_opened", { menu: id });
     go(open === id ? null : id);
   };
   const onBlur = (event: FocusEvent) => {
@@ -137,6 +140,8 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
               key={item.href}
               href={item.href}
               className="link-nav"
+              data-track="nav_link_clicked"
+              data-track-group="top"
               onPointerEnter={(event) => isMouse(event) && open && schedule(null, 150)}
             >
               {item.label}
@@ -171,7 +176,7 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
           <ul className="nav-sectors" style={{ "--rows": sectorRows } as CSSProperties}>
             {sectors.items.map((sector, i) => (
               <li key={sector.href} className={i % sectorRows === 0 ? "nav-col-head" : undefined}>
-                <NavAnchor link={sector} onNavigate={close}>
+                <NavAnchor link={sector} group="sectors" onNavigate={close}>
                   <span data-icon={sector.icon} />
                   {sector.label}
                 </NavAnchor>
@@ -181,7 +186,7 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
           <div className="nav-field">
             <span className="nav-field-bg guilloche-tile" aria-hidden="true" />
             <p className="nav-field-line">{sectors.line}</p>
-            <NavAnchor link={sectors.all} className="nav-field-link" onNavigate={close}>
+            <NavAnchor link={sectors.all} group="sectors" className="nav-field-link" onNavigate={close}>
               {sectors.all.label}
               <Icon name="arrow" size={16} className="rtl:-scale-x-100" />
             </NavAnchor>
@@ -229,7 +234,7 @@ function NavGroup({
       <ul className="nav-links" aria-labelledby={id}>
         {group.links.map((link) => (
           <li key={link.href}>
-            <NavAnchor link={link} onNavigate={onNavigate} />
+            <NavAnchor link={link} group="support" onNavigate={onNavigate} />
           </li>
         ))}
       </ul>

@@ -44,7 +44,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
       <JsonLd data={breadcrumbJsonLd(locale, [{ name: t.nav.home, path: "/" }, { name: c.breadcrumb, path }])} />
       {/* The app with its priced plans; the tagline keeps it short, since the page's
           description is already in its metadata. */}
-      <JsonLd data={softwareJsonLd(locale, t.brand.tagline)} />
+      <JsonLd data={softwareJsonLd(locale, t.brand.description)} />
 
       <section className="prc-top" aria-labelledby="pricing-heading">
         <div className="page-wrap prc-head">

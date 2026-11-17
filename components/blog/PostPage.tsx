@@ -26,12 +26,20 @@ export function postMetadata(post: Post): Metadata {
     description: description(post),
     type: "article",
     image: post.coverImage ?? undefined,
+    imageSize: post.coverSize,
   });
   return {
     ...meta,
     // The live page's full title, not the "%s | VoM" template.
     title: { absolute: title },
-    openGraph: { ...meta.openGraph, type: "article", publishedTime: post.publishedAt, modifiedTime: post.modifiedAt },
+    openGraph: {
+      ...meta.openGraph,
+      type: "article",
+      publishedTime: post.publishedAt,
+      modifiedTime: post.modifiedAt,
+      ...(post.author && { authors: [`${site.url}${encodeURI(authorPath(post.author))}`] }),
+      ...(post.primaryCategory && { section: post.primaryCategory.name }),
+    },
   };
 }
 
@@ -79,6 +87,8 @@ export async function PostPage({ post }: { post: Post }) {
   // The reviewer's title is recorded in Arabic only; an English page omits it rather than show Arabic.
   const reviewerTitle = post.reviewer?.jobTitle && (locale === "ar" || !/[\u0600-\u06FF]/.test(post.reviewer.jobTitle)) ? post.reviewer.jobTitle : null;
   const person = (who: Author) => ({ name: who.name, slug: who.slug, jobTitle: who.jobTitle, sameAs: who.sameAs });
+  // The markup says what the page shows: on an English page the reviewer's Arabic title is left out of both.
+  const reviewer = post.reviewer && { ...person(post.reviewer), jobTitle: reviewerTitle };
 
   return (
     <article className="blg" data-sections={post.sections.length > 0 || undefined}>
@@ -89,11 +99,13 @@ export async function PostPage({ post }: { post: Post }) {
           headline: post.title,
           description: description(post),
           image: post.coverImage,
+          imageSize: post.coverSize,
+          news: post.type === "news",
           published: post.publishedAt,
           modified: post.modifiedAt,
           section: topic?.name ?? null,
           author: post.author && person(post.author),
-          reviewer: post.reviewer && person(post.reviewer),
+          reviewer,
         })}
       />
       <JsonLd data={breadcrumbJsonLd(locale, [...crumbs, { name: post.title, path: barePath(post.path) }])} />
@@ -109,7 +121,7 @@ export async function PostPage({ post }: { post: Post }) {
               {postDate(post.publishedAt, locale)}
             </time>
             {topic && (
-              <Link href={topic.path} prefetch={false}>
+              <Link href={topic.path} prefetch={false} data-track="blog_topic_clicked" data-track-topic={topic.path}>
                 {topic.name}
               </Link>
             )}
@@ -125,7 +137,7 @@ export async function PostPage({ post }: { post: Post }) {
           <div className="blg-aside">
             <div className="blg-aside-stick">
               <MarginContents sections={post.sections} title={c.contents} />
-              <aside className="blg-trial" aria-labelledby="blg-trial">
+              <aside className="blg-trial" aria-labelledby="blg-trial" data-track-section="margin_card">
                 <h2 id="blg-trial" className="blg-trial-title">
                   {c.trial.heading}
                 </h2>
@@ -144,7 +156,7 @@ export async function PostPage({ post }: { post: Post }) {
               <div>
                 <dt>{c.writtenBy}</dt>
                 <dd>
-                  <Link href={authorPath(post.author)} prefetch={false}>
+                  <Link href={authorPath(post.author)} prefetch={false} data-track="author_link_clicked" data-track-role="author">
                     {post.author.name}
                   </Link>
                 </dd>
@@ -154,7 +166,7 @@ export async function PostPage({ post }: { post: Post }) {
               <div className="blg-byline-reviewer">
                 <dt>{c.reviewedBy}</dt>
                 <dd>
-                  <Link href={authorPath(post.reviewer)} prefetch={false}>
+                  <Link href={authorPath(post.reviewer)} prefetch={false} data-track="author_link_clicked" data-track-role="reviewer">
                     {post.reviewer.name}
                   </Link>
                   {reviewerTitle && <span className="blg-byline-title">{reviewerTitle}</span>}
@@ -189,13 +201,13 @@ export async function PostPage({ post }: { post: Post }) {
           )}
 
           {/* The stored HTML is the editor's own output, sanitised when it was saved. */}
-          <div className="blg-body" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+          <div className="blg-body" data-track-section="post_body" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
         </div>
       </div>
       </div>
 
       {related.length > 0 && (
-        <section className="page-wrap blg-related" aria-labelledby="blg-related">
+        <section className="page-wrap blg-related" aria-labelledby="blg-related" data-track-section="related_posts">
           <h2 id="blg-related" className="blg-related-title">
             {c.related}
           </h2>

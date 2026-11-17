@@ -27,10 +27,7 @@ interface SitemapPage {
   priority: { ar: number; en: number };
 }
 
-/**
- * The pages built so far. The content layer will add every row of
- * docs/content/url-map.csv marked "keep" as pages come online.
- */
+/** The code-owned pages that exist in both languages, each with the date it was last rebuilt. */
 const pages: SitemapPage[] = [
   {
     pair: { ar: "/", en: "/" },
@@ -160,7 +157,8 @@ function toolEntries(): MetadataRoute.Sitemap {
 /**
  * The sitemap is split by type (docs/seo/strategy.md §5): /sitemap/pages.xml,
  * /sitemap/posts.xml, /sitemap/news.xml, /sitemap/templates.xml and
- * /sitemap/tools.xml, all listed in robots.ts.
+ * /sitemap/tools.xml. /sitemap.xml (app/api/sitemap-index/route.ts) is their index,
+ * and the one address robots.ts names.
  */
 export const sitemapIds = ["pages", "posts", "news", "templates", "tools"] as const;
 
@@ -180,35 +178,60 @@ export default async function sitemap({ id }: { id: Promise<string> }): Promise<
 /**
  * Posts with the blog index, the category archives and the author pages; or the
  * news items with their index. lastModified is each record's own modified date;
- * a list page carries the date of the newest record. Only the blog and news
- * indexes exist in both languages.
+ * a list page carries the date of the newest record it lists, in its own
+ * language. A list with nothing in it (an author who has written nothing yet,
+ * the English news) is noindex on the page and so is left out here.
  */
 async function blogEntries(type: "post" | "news" | "template"): Promise<MetadataRoute.Sitemap> {
   const index = await postPaths();
   const absolute = (path: string) => encodeURI(`${site.url}${path}`);
+  const newestOf = (posts: { modifiedAt: string }[]) => {
+    const latest = posts.map((post) => post.modifiedAt).sort().at(-1);
+    return latest ? new Date(latest) : null;
+  };
   const single = (path: string, lang: string, lastModified: Date, priority: number, changeFrequency: "weekly" | "monthly") => {
     const url = absolute(path);
-    return { url, lastModified, changeFrequency, priority, alternates: { languages: lang === "ar" ? { ar: url, "x-default": url } : { en: url } } };
+    return { url, lastModified, changeFrequency, priority, alternates: { languages: lang === "ar" ? { ar: url, "x-default": url } : { en: url, "x-default": url } } };
+  };
+  // A post names its twin in the other language as the page itself does (alternate_post_id, either way round).
+  const record = (post: (typeof index.posts)[number]) => {
+    const twin = index.posts.find((other) => other.id === post.alternateId || other.alternateId === post.id);
+    if (!twin || twin.lang === post.lang) return single(post.path, post.lang, new Date(post.modifiedAt), 0.6, "monthly");
+    const [ar, en] = post.lang === "ar" ? [post, twin] : [twin, post];
+    const languages = { ar: absolute(ar.path), en: absolute(en.path), "x-default": absolute(ar.path) };
+    return { url: absolute(post.path), lastModified: new Date(post.modifiedAt), changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages } };
   };
   const records = index.posts.filter((post) => post.type === type);
-  const newest = new Date(records.map((post) => post.modifiedAt).sort().at(-1) ?? "2026-11-11");
   // The templates and their index are Arabic only; /en/templates/ is another page, listed with the pages.
   if (type === "template") {
-    return [single("/templates/", "ar", newest, 0.7, "weekly"), ...records.map((post) => single(post.path, post.lang, new Date(post.modifiedAt), 0.6, "monthly"))];
+    const newest = newestOf(records);
+    return [...(newest ? [single("/templates/", "ar", newest, 0.7, "weekly")] : []), ...records.map(record)];
   }
   const home = type === "post" ? "/blog/" : "/news/";
-  const languages = { ar: absolute(home), en: absolute(`/en${home}`), "x-default": absolute(home) };
-  return [
-    { url: languages.ar, lastModified: newest, changeFrequency: "weekly", priority: 0.7, alternates: { languages } },
-    { url: languages.en, lastModified: newest, changeFrequency: "weekly", priority: 0.4, alternates: { languages } },
-    ...(type === "post"
+  const newest = { ar: newestOf(records.filter((post) => post.lang === "ar")), en: newestOf(records.filter((post) => post.lang === "en")) };
+  // Each language's index is listed while it has entries, and paired with the other only when both do.
+  const paired = newest.ar && newest.en;
+  const indexes = (["ar", "en"] as const).flatMap((lang) => {
+    const lastModified = newest[lang];
+    if (!lastModified) return [];
+    const url = absolute(lang === "ar" ? home : `/en${home}`);
+    const languages = paired ? { ar: absolute(home), en: absolute(`/en${home}`), "x-default": absolute(home) } : lang === "ar" ? { ar: url, "x-default": url } : { en: url, "x-default": url };
+    return [{ url, lastModified, changeFrequency: "weekly" as const, priority: lang === "ar" ? 0.7 : 0.4, alternates: { languages } }];
+  });
+  const lists =
+    type === "post"
       ? [
-          ...index.categories.map((category) => single(category.path, category.lang, newest, 0.6, "weekly")),
-          ...index.authors.map((author) => single(`/author/${author.slug}/`, "ar", newest, 0.3, "monthly")),
+          ...index.categories.flatMap((category) => {
+            const lastModified = newestOf(index.posts.filter((post) => post.categoryId === category.id)) ?? newest[category.lang];
+            return lastModified ? [single(category.path, category.lang, lastModified, 0.6, "weekly")] : [];
+          }),
+          ...index.authors.flatMap((author) => {
+            const lastModified = newestOf(index.posts.filter((post) => post.authorId === author.id || post.reviewerId === author.id));
+            return lastModified ? [single(`/author/${author.slug}/`, "ar", lastModified, 0.3, "monthly")] : [];
+          }),
         ]
-      : []),
-    ...records.map((post) => single(post.path, post.lang, new Date(post.modifiedAt), 0.6, "monthly")),
-  ];
+      : [];
+  return [...indexes, ...lists, ...records.map(record)];
 }
 
 function pagePairEntries(): MetadataRoute.Sitemap {

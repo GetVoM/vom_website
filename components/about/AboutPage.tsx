@@ -100,6 +100,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               width={640}
               height={510}
               preload
+              fetchPriority="high"
               sizes="(min-width: 1180px) 416px, 100vw"
               className="h-auto w-full"
             />

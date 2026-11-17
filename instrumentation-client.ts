@@ -7,6 +7,8 @@ const missingVariable = !token ? "NEXT_PUBLIC_POSTHOG_KEY" : !host ? "NEXT_PUBLI
 if (token && host) {
   posthog.init(token, {
     api_host: host,
+    // `host` is the reverse proxy (n.getvom.com); links back to PostHog itself go to the app.
+    ui_host: "https://us.posthog.com",
     defaults: "2026-08-30",
     capture_exceptions: true,
     debug: process.env.NODE_ENV === "development",

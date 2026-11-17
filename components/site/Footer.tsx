@@ -19,17 +19,17 @@ const socials: { id: SocialId; href: string }[] = [
   { id: "linkedin", href: site.social.linkedin },
 ];
 
-function FooterLink({ label, href, locale }: { label: string; href: string; locale: Locale }) {
+function FooterLink({ label, href, locale, group }: { label: string; href: string; locale: Locale; group: string }) {
   const cls = "link-quiet";
   if (href.startsWith("http")) {
     return (
-      <a href={href} className={cls} rel="noopener">
+      <a href={href} className={cls} rel="noopener" data-track="footer_link_clicked" data-track-group={group}>
         {label}
       </a>
     );
   }
   return (
-    <Link href={localePath(locale, href)} className={cls}>
+    <Link href={localePath(locale, href)} className={cls} data-track="footer_link_clicked" data-track-group={group}>
       {label}
     </Link>
   );
@@ -42,14 +42,15 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
     t.integrationPages.items[id].crumb,
     integrationPaths[id][locale],
   ]);
-  const groups: [string, [string, string][]][] = [
-    [t.footer.product, t.footer.links.product],
-    [t.footer.marketplace, marketplace],
-    [t.footer.support, t.footer.links.support],
-    [t.footer.company, t.footer.links.company],
+  // The third entry names the group in analytics, the same in both languages.
+  const groups: [string, [string, string][], string][] = [
+    [t.footer.product, t.footer.links.product, "product"],
+    [t.footer.marketplace, marketplace, "marketplace"],
+    [t.footer.support, t.footer.links.support, "support"],
+    [t.footer.company, t.footer.links.company, "company"],
   ];
   return (
-    <footer className="border-t border-paper-200 bg-paper-100">
+    <footer data-track-section="footer" className="border-t border-paper-200 bg-paper-100">
       <div className="mx-auto max-w-[1280px] px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] pb-14 pt-16">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:grid-cols-[1.6fr_repeat(4,minmax(0,1fr))]">
           <div className="col-span-2 flex flex-col gap-5 md:col-span-4 lg:col-span-1">
@@ -67,11 +68,11 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
               <StoreBadges ios={t.apps.ios} />
             </div>
           </div>
-          {groups.map(([title, links]) => (
+          {groups.map(([title, links, group]) => (
             <div key={title} className="flex flex-col gap-3 text-[0.9375rem]">
               <div className="font-bold">{title}</div>
               {links.map(([label, href]) => (
-                <FooterLink key={label} label={label} href={href} locale={locale} />
+                <FooterLink key={label} label={label} href={href} locale={locale} group={group} />
               ))}
             </div>
           ))}

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: page.description,
     url: page.path,
     siteName: site.name.ar,
-    locale: "ar_SA",
+    locale: "ar_AR",
     type: "website",
     images: [{ url: page.ogImage, width: 1200, height: 630, alt: page.seoTitle }],
   },

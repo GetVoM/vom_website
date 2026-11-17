@@ -293,7 +293,7 @@ page,https://getvom.com/pricing-en/,/pricing-en/,200,redirect,/en/pricing/,"Unpr
 page,https://getvom.com/en/accounting-software-for-gym-and-fitness-centers/,/en/accounting-software-for-gym-and-fitness-centers/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/accounting-software-for-printing-and-advertising-agencies-2/,/en/accounting-software-for-printing-and-advertising-agencies-2/,200,redirect,/en/accounting-software-for-printing-and-advertising-agencies/,"WordPress ""-2"" slug; 301 to the clean English URL (owner's standing preference, 2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-zid-2/,/en/vom-zid-2/,200,redirect,/en/vom-zid/,"WordPress ""-2"" slug; the live site already serves /en/vom-zid/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/en/vom-prexel/,/en/vom-prexel/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/vom-prexel/,/en/vom-prexel/,200,retire,,"Retired, returns 410 (owner 2026-11-17)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/sales-invoices/,/en/sales-invoices/,200,redirect,/en/templates/,Moved to /en/templates/ (owner 2026-11-11); its Arabic twin is /نماذج-فواتير/,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/accounting-software-for-travel-and-tourism/,/en/accounting-software-for-travel-and-tourism/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/vom-foodics-2/,/en/vom-foodics-2/,200,redirect,/en/vom-foodics/,"WordPress ""-2"" slug; the live site already serves /en/vom-foodics/ (2026-11-10)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
@@ -303,29 +303,29 @@ page,https://getvom.com/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d9%85%d8%ad%d8%a7%
 page,https://getvom.com/temp-new/,/temp-new/,200,retire,/news/,Temp page,news archive - Vom
 page,https://getvom.com/en/about-us/,/en/about-us/,200,keep,,,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/student-package/,/student-package/,200,keep,,,باقة الطلاب - Vom
-page,https://getvom.com/en/thank-you-en/,/en/thank-you-en/,200,keep-noindex,,Form thank-you page,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/thank-you-en/,/en/thank-you-en/,200,retire,,"Form thank-you page; Retired, returns 410 (owner 2026-11-17)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/zatca-e-invoicing-phase-2/,/en/zatca-e-invoicing-phase-2/,200,keep,,Rebuilt 2026-11-12: English only (the Arabic path 404s); new English title and description and a self canonical (WordPress served the Arabic blog's title and canonical /en/blog-en/en/); hreflang pair with the Arabic e-invoicing hub; its form saves to the leads table as zatca-e-invoicing-phase-2; see docs/content/zatca-phase-2-text-changes.md,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/temp-news/,/en/temp-news/,200,retire,/en/news/,Temp page,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/growth-program-old/,/growth-program-old/,200,redirect,/growth-plan/,Old version of growth plan,أفضل برنامج محاسبة للشركات الناشئة والصغيرة في السعودية | ڤوم
-page,https://getvom.com/en/thanks-en/,/en/thanks-en/,200,keep-noindex,,Form thank-you page,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/thanks-en/,/en/thanks-en/,200,retire,,"Form thank-you page; Retired, returns 410 (owner 2026-11-17)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/blog-en/,/en/blog-en/,200,redirect,/en/blog/,English blog index; decide if English blog exists,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/thank-you/,/thank-you/,200,keep-noindex,,Form thank-you page,Thank You! - Vom
+page,https://getvom.com/thank-you/,/thank-you/,200,retire,,"Form thank-you page; Retired, returns 410 (owner 2026-11-17)",Thank You! - Vom
 page,https://getvom.com/en/pricing-Packages/,/en/pricing-Packages/,404,retire,,"Already 404; remove from sitemap, return 410",
 page,https://getvom.com/pricing-ar/,/pricing-ar/,200,redirect,/pricing/,Duplicate of pricing,الباقات - Vom
 page,https://getvom.com/en/growth-plan-en/,/en/growth-plan-en/,200,redirect,/en/growth-plan/,Live site already 301s here; English page lives at /en/growth-plan/ (2026-11-10),مدونة محاسبة متخصصة في كل ما يخص المحاسبة
-page,https://getvom.com/en/vom-timeline/,/en/vom-timeline/,200,keep,,"Timeline page; low traffic, consider merging into about",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/en/vom-timeline/,/en/vom-timeline/,200,retire,,"Timeline page; low traffic, consider merging into about; Retired, returns 410 (owner 2026-11-17)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/en/news-archive-en/,/en/news-archive-en/,200,redirect,/en/news/,Duplicate news archive,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/vom-pay-success/,/vom-pay-success/,200,keep-noindex,,"Payment result page. Rebuilt 2026-11-12: the app sends payers here after a VoM Pay payment; the address must not change. Holds the vom-pay-success lead form. English twin at /en/vom-pay-success/. See docs/content/vom-pay-text-changes.md",فوم باي - تمت العملية بنجاح - Vom
 page,https://getvom.com/en/vom-pay-success/,/en/vom-pay-success/,200,keep-noindex,,"Not in the WordPress sitemap; the app sends English payers here (owner, 2026-11-12). WordPress served the Arabic page; now English",VoM Pay: payment successful | VoM
-page,https://getvom.com/%d9%85%d8%ae%d8%b7%d8%b7-%d9%81%d9%88%d9%85-%d8%a7%d9%84%d8%b2%d9%85%d9%86%d9%8a/,/مخطط-فوم-الزمني/,200,keep,,"Timeline page; low traffic, consider merging into about",مخطط فوم الزمني - Vom
+page,https://getvom.com/%d9%85%d8%ae%d8%b7%d8%b7-%d9%81%d9%88%d9%85-%d8%a7%d9%84%d8%b2%d9%85%d9%86%d9%8a/,/مخطط-فوم-الزمني/,200,retire,,"Timeline page; low traffic, consider merging into about; Retired, returns 410 (owner 2026-11-17)",مخطط فوم الزمني - Vom
 page,https://getvom.com/%d9%86%d9%85%d8%a7%d8%b0%d8%ac-%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1/,/نماذج-فواتير/,200,keep,,Kept at its WordPress path; its English twin is /en/templates/ (owner 2026-11-11),نماذج فواتير مجانية جاهزة | Word Excel PDF
-page,https://getvom.com/glossary/,/glossary/,200,keep,,Thin page; expand or merge into blog,Glossary - Vom
+page,https://getvom.com/glossary/,/glossary/,200,retire,,"Thin page; expand or merge into blog; Retired, returns 410 (owner 2026-11-17)",Glossary - Vom
 page,https://getvom.com/vom-pay-failure/,/vom-pay-failure/,200,keep-noindex,,"Payment result page. Rebuilt 2026-11-12: the app sends payers here with ?vom_pay_errors=<code>; the address must not change. Shows the code's message. English twin at /en/vom-pay-failure/. See docs/content/vom-pay-text-changes.md",فوم باي - فشل الدفع - Vom
 page,https://getvom.com/en/vom-pay-failure/,/en/vom-pay-failure/,200,keep-noindex,,"Not in the WordPress sitemap; the app sends English payers here with ?vom_pay_errors=<code> (owner, 2026-11-12). WordPress served the Arabic page; now English",VoM Pay: payment failed | VoM
 page,https://getvom.com/vom-zid/,/vom-zid/,200,keep,,,ﭬوم‬ و زد - Vom
 page,https://getvom.com/vom-zid-2/,/vom-zid-2/,301,redirect,/en/vom-zid/,"Not in the crawl; the live site 301s it to /en/vom-zid-2/, now one hop to the clean English URL (2026-11-10)",
-page,https://getvom.com/vom-prexle/,/vom-prexle/,200,keep,,,ﭬوم‬ و بريكسل - Vom
-page,https://getvom.com/en/naming-philosophy/,/en/naming-philosophy/,200,keep,,Brand story; link from about,مدونة محاسبة متخصصة في كل ما يخص المحاسبة
+page,https://getvom.com/vom-prexle/,/vom-prexle/,200,retire,,"Retired, returns 410 (owner 2026-11-17)",ﭬوم‬ و بريكسل - Vom
+page,https://getvom.com/en/naming-philosophy/,/en/naming-philosophy/,200,retire,,"Brand story; link from about; Retired, returns 410 (owner 2026-11-17)",مدونة محاسبة متخصصة في كل ما يخص المحاسبة
 page,https://getvom.com/vom-foodics/,/vom-foodics/,200,keep,,,ﭬوم‬ و فودكس - Vom
 page,https://getvom.com/vom-foodics-2/,/vom-foodics-2/,301,redirect,/en/vom-foodics/,"Not in the crawl; the live site 301s it to /en/vom-foodics-2/, now one hop to the clean English URL (2026-11-10)",
 page,https://getvom.com/ksa-national-day/,/ksa-national-day/,200,retire,/,2023 campaign,KSA National Day - Vom
@@ -337,7 +337,7 @@ news,https://getvom.com/news/%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%d9%81%d9%88%d9%85-%
 news,https://getvom.com/news/%d8%a7%d8%aa%d9%81%d8%a7%d9%82%d9%8a%d8%a9-%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%da%a4%d9%88%d9%85-%d9%88%d9%86%d9%82%d8%b7%d8%a9/,/news/اتفاقية-تعاون-ڤوم-ونقطة/,200,keep,,Preserve path exactly; content migrates 1:1,اتفاقية تعاون: ڤوم ونقطة لإدارة الولاء واستلام الطلبات - Vom
 news,https://getvom.com/news/%d8%a7%d8%aa%d9%81%d8%a7%d9%82%d9%8a%d8%a9-%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%da%a4%d9%88%d9%85-%d9%88%d9%85%d9%88%d9%84%d8%a7/,/news/اتفاقية-تعاون-ڤوم-ومولا/,200,keep,,Preserve path exactly; content migrates 1:1,اتفاقية تعاون: ڤوم ومولا لإدارة المصروفات - Vom
 news,https://getvom.com/news/,/news/,200,keep,,Preserve path exactly; content migrates 1:1,News - Vom
-news,https://getvom.com/news/%da%a4%d9%88%d9%85-%d8%aa%d9%82%d8%af%d9%85-%d9%88%d8%b1%d8%b4%d8%a9-%d8%a7%d9%84%d8%b6%d8%b1%d8%a7%d8%a6%d8%a8-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9/,/news/ڤوم-تقدم-ورشة-الضرائب-في-السعودية/,200,keep,,Preserve path exactly; content migrates 1:1,ڤوم تقدم ورشة “الضرائب في السعودية” لتعزيز المعرفة المحاسبية والامتثال الضريبي - Vom
+news,https://getvom.com/news/%da%a4%d9%88%d9%85-%d8%aa%d9%82%d8%af%d9%85-%d9%88%d8%b1%d8%b4%d8%a9-%d8%a7%d9%84%d8%b6%d8%b1%d8%a7%d8%a6%d8%a8-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9/,/news/ڤوم-تقدم-ورشة-الضرائب-في-السعودية/,200,redirect,/tax-zakat/ڤوم-تقدم-ورشة-الضرائب-في-السعودية-لتع/,"Published twice; the post stays, the news copy redirects (2026-11-17)",ڤوم تقدم ورشة “الضرائب في السعودية” لتعزيز المعرفة المحاسبية والامتثال الضريبي - Vom
 news,https://getvom.com/en/news/,/en/news/,200,keep,,Preserve path exactly; content migrates 1:1,News - Vom
 template,https://getvom.com/templates/%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d9%85%d9%83%d8%aa%d8%a8-%d9%85%d8%ad%d8%a7%d9%85%d8%a7%d8%a9/,/templates/فاتورة-مكتب-محاماة/,200,keep,,Preserve path exactly; content migrates 1:1,فاتورة مكتب محاماة .. كيفية إعدادها وأهميتها لتنظيم عملك
 news,https://getvom.com/news/%d8%b1%d8%a8%d8%b7-%da%a4%d9%88%d9%85-%d9%85%d8%b9-%d9%85%d8%b1%d9%86/,/news/ربط-ڤوم-مع-مرن/,200,keep,,Preserve path exactly; content migrates 1:1,ربط ڤوم مع مرن: احصل على نظام متكامل لإدارة شؤونك المحاسبية - Vom

@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { Locale } from "@/lib/i18n/config";
 import type { DemoTestimonial } from "@/lib/i18n/dictionaries/demo";
 import { Icon } from "@/components/ui/Icon";
+import { track as trackEvent } from "@/lib/analytics/track";
 
 interface Props {
   locale: Locale;
@@ -103,7 +104,10 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
             <button
               key={item.name.en}
               type="button"
-              onClick={() => goTo(i)}
+              onClick={() => {
+                trackEvent("testimonial_slide_changed", { index: i, method: "dot" });
+                goTo(i);
+              }}
               data-index={i}
               aria-label={`${i + 1} ${labels.slideOf} ${items.length}`}
               aria-current={index === i ? "true" : undefined}
@@ -114,7 +118,10 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
         <div className="flex gap-2">
           <button
             type="button"
-            onClick={() => go(-1)}
+            onClick={() => {
+              trackEvent("testimonial_slide_changed", { index: Math.max(0, index - 1), method: "previous" });
+              go(-1);
+            }}
             aria-label={labels.prev}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/70 text-ink transition-colors hover:bg-paper"
           >
@@ -122,7 +129,10 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
           </button>
           <button
             type="button"
-            onClick={() => go(1)}
+            onClick={() => {
+              trackEvent("testimonial_slide_changed", { index: Math.min(items.length - 1, index + 1), method: "next" });
+              go(1);
+            }}
             aria-label={labels.next}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white transition-colors hover:bg-ink-700"
           >

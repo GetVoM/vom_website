@@ -1,9 +1,10 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { Icon } from "@/components/ui/Icon";
+import { track } from "@/lib/analytics/track";
 
 interface Props {
   t: Dictionary;
@@ -14,10 +15,11 @@ interface Props {
 export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
   const [name, setName] = useState("");
   const id = useId();
+  const typed = useRef(false);
   const shown = name.trim() || t.closing.defaultName;
 
   return (
-    <section id="start" className="border-t border-paper-200 bg-paper">
+    <section id="start" data-track-section="closing" className="border-t border-paper-200 bg-paper">
       <div className="mx-auto grid max-w-[1280px] items-center gap-12 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-24 lg:grid-cols-[6fr_5fr] lg:gap-20 lg:py-32">
         <div className="flex flex-col gap-6">
           <h2 className="font-arabic text-[2rem] font-bold leading-[1.2] sm:text-[2.5rem]">{t.closing.heading}</h2>
@@ -26,6 +28,7 @@ export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
             className="flex max-w-[520px] flex-col gap-3 sm:flex-row"
             onSubmit={(e) => {
               e.preventDefault();
+              track("signup_cta_clicked", { location: "certificate", locale: document.documentElement.lang });
               window.location.href = signupHref;
             }}
           >
@@ -35,7 +38,14 @@ export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
             <input
               id={`${id}-name`}
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                // The name stays in the browser; only the fact that one was typed is counted.
+                if (!typed.current) {
+                  typed.current = true;
+                  track("certificate_name_entered", {});
+                }
+                setName(e.target.value);
+              }}
               placeholder={t.closing.placeholder}
               className="h-12 flex-1 rounded-pill border border-paper-300 bg-paper px-5 text-[1rem] text-ink placeholder:text-ink-300 focus:border-teal-500 focus:outline-none"
               maxLength={60}

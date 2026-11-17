@@ -2,6 +2,7 @@
 
 import { Children, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { track } from "@/lib/analytics/track";
 
 interface ExhibitStackProps {
   /** `of` takes {n} and {total}. */
@@ -20,7 +21,11 @@ export function ExhibitStack({ labels, children }: ExhibitStackProps) {
   const [active, setActive] = useState(0);
   const startX = useRef<number | null>(null);
 
-  const go = (step: number) => setActive((current) => (current + step + total) % total);
+  const go = (step: number, method: "button" | "swipe") => {
+    const next = (active + step + total) % total;
+    track("feature_exhibit_changed", { index: next, method });
+    setActive(next);
+  };
 
   // A horizontal swipe pages too. The next sheet lies towards the end side, which
   // is the left in Arabic, so a swipe to the right brings it there.
@@ -33,7 +38,7 @@ export function ExhibitStack({ labels, children }: ExhibitStackProps) {
     startX.current = null;
     if (Math.abs(dx) < 40) return;
     const rtl = getComputedStyle(event.currentTarget).direction === "rtl";
-    go((dx > 0) === rtl ? 1 : -1);
+    go((dx > 0) === rtl ? 1 : -1, "swipe");
   };
 
   return (
@@ -58,13 +63,13 @@ export function ExhibitStack({ labels, children }: ExhibitStackProps) {
       </div>
       {total > 1 && (
         <div className="ftr-stack-controls">
-          <button type="button" className="ftr-stack-btn" onClick={() => go(-1)} aria-label={labels.prev}>
+          <button type="button" className="ftr-stack-btn" onClick={() => go(-1, "button")} aria-label={labels.prev}>
             <Icon name="chevron" size={18} className="ftr-prev" />
           </button>
           <p className="num ftr-stack-count" aria-live="polite">
             {labels.of.replace("{n}", String(active + 1)).replace("{total}", String(total))}
           </p>
-          <button type="button" className="ftr-stack-btn" onClick={() => go(1)} aria-label={labels.next}>
+          <button type="button" className="ftr-stack-btn" onClick={() => go(1, "button")} aria-label={labels.next}>
             <Icon name="chevron" size={18} className="ftr-next" />
           </button>
         </div>

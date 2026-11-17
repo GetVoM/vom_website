@@ -36,6 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     path: "/",
     title: t.seo.homeTitle,
     description: t.seo.homeDescription,
+    image: `/og/home-${locale}.png`,
   });
   // The homepage title is the full SEO title, not the "%s | VoM" template.
   return { ...meta, title: { absolute: t.seo.homeTitle } };

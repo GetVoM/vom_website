@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { calcVat } from "@/lib/tools/calc";
+import { track } from "@/lib/analytics/track";
 
 const fmt = (n: number) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -16,10 +17,16 @@ export function VatCalculator({ t, moreHref }: { t: Dictionary["vat"]; moreHref?
   const [rate, setRate] = useState("15");
   const [inclusive, setInclusive] = useState(false);
   const id = useId();
+  const used = useRef(false);
+  const onInput = () => {
+    if (used.current) return;
+    used.current = true;
+    track("calculator_used", { calculator: "vat-home" });
+  };
   const result = calcVat(Number(amount) || 0, Number(rate) || 0, inclusive);
 
   return (
-    <div className="doc-frame flex h-full flex-col gap-5 bg-paper p-6">
+    <div className="doc-frame flex h-full flex-col gap-5 bg-paper p-6" onInput={onInput}>
       <div className="text-[1.0625rem] font-bold">{t.title}</div>
       <div className="grid grid-cols-[1fr_auto] gap-3">
         <label className="flex flex-col gap-1.5 text-[0.8125rem] text-ink-500" htmlFor={`${id}-amount`}>

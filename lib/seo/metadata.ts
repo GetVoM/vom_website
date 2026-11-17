@@ -8,15 +8,28 @@ interface PageMeta {
   path: string;
   title: string;
   description: string;
-  /** Set when the page has a twin in the other locale at a different path. */
+  /** Set when the page has a twin in the other locale at a different path; null when it has none. */
   alternatePath?: string | null;
   type?: "website" | "article";
+  /** The share image. Without one the page takes the site's card for its language, so no page is shared bare. */
   image?: string;
+  /** The image's real size, when it is not a 1200×630 card (a post's cover). */
+  imageSize?: { width: number; height: number } | null;
+  /** False keeps the page out of search while its links are still followed (an empty list, a thank-you page). */
+  index?: boolean;
 }
+
+/** The share card for pages that have none of their own: the blog's lists, people's pages, posts without a cover. */
+export const fallbackImage = (locale: Locale) => `/og/blog-${locale}.png`;
+
+/** Facebook's locale names: Arabic has one code for every country. */
+const OG_LOCALE = { ar: "ar_AR", en: "en_US" } as const;
 
 /**
  * Builds the Metadata object every page needs: absolute canonical, hreflang
- * pairs with x-default on Arabic, Open Graph and Twitter cards.
+ * pairs with x-default (the Arabic page, or the page itself when it exists in
+ * English only), Open Graph and Twitter cards with an image, and the snippet
+ * permissions for every crawler, not Google's alone.
  */
 export function buildMetadata({
   locale,
@@ -26,6 +39,8 @@ export function buildMetadata({
   alternatePath = path,
   type = "website",
   image,
+  imageSize,
+  index = true,
 }: PageMeta): Metadata {
   const canonical = localePath(locale, path);
   const other: Locale = locale === "ar" ? "en" : "ar";
@@ -36,7 +51,11 @@ export function buildMetadata({
     languages[other] = localePath(other, alternatePath);
   }
   const arabicPath = locale === "ar" ? canonical : alternatePath ? localePath("ar", alternatePath) : null;
-  if (arabicPath) languages["x-default"] = arabicPath;
+  languages["x-default"] = arabicPath ?? canonical;
+
+  const card = image ?? fallbackImage(locale);
+  const size = image && imageSize ? imageSize : { width: 1200, height: 630 };
+  const snippets = { "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } as const;
 
   return {
     title,
@@ -47,26 +66,20 @@ export function buildMetadata({
       description,
       url: canonical,
       siteName: site.name[locale],
-      locale: locale === "ar" ? "ar_SA" : "en_SA",
+      locale: OG_LOCALE[locale],
+      ...(alternatePath && { alternateLocale: OG_LOCALE[other] }),
       type,
-      ...(image ? { images: [{ url: image, width: 1200, height: 630, alt: title }] } : {}),
+      images: [{ url: card, ...size, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
+      site: site.xHandle,
       title,
       description,
-      ...(image ? { images: [image] } : {}),
+      images: [card],
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
+    robots: index
+      ? { index: true, follow: true, ...snippets, googleBot: { index: true, follow: true, ...snippets } }
+      : { index: false, follow: true },
   };
 }

@@ -41,7 +41,7 @@ export function EntryList({
             {!compact && excerpts && post.excerpt && <p className="blg-entry-excerpt">{post.excerpt}</p>}
             {showTopic && post.primaryCategory && (
               <p className="blg-entry-topic">
-                <Link href={post.primaryCategory.path} prefetch={false}>
+                <Link href={post.primaryCategory.path} prefetch={false} data-track="blog_topic_clicked" data-track-topic={post.primaryCategory.path}>
                   {post.primaryCategory.name}
                 </Link>
               </p>
@@ -75,7 +75,7 @@ export function Pagination({
   return (
     <nav className="blg-pages" aria-label={labels.nav}>
       {page > 1 ? (
-        <Link href={href(page - 1)} rel="prev" prefetch={false} className="blg-pages-link">
+        <Link href={href(page - 1)} rel="prev" prefetch={false} className="blg-pages-link" data-track="blog_pagination_clicked" data-track-direction="newer">
           {labels.newer}
         </Link>
       ) : (
@@ -83,7 +83,7 @@ export function Pagination({
       )}
       <p className="blg-pages-position num">{labels.position}</p>
       {page < pages ? (
-        <Link href={href(page + 1)} rel="next" prefetch={false} className="blg-pages-link">
+        <Link href={href(page + 1)} rel="next" prefetch={false} className="blg-pages-link" data-track="blog_pagination_clicked" data-track-direction="older">
           {labels.older}
         </Link>
       ) : (

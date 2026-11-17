@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { Raster } from "@/lib/integrations";
+import { track } from "@/lib/analytics/track";
 
 export interface ScreenVideo {
   youtubeId: string;
@@ -44,11 +45,13 @@ export function VideoScreen({
   // The ghost link beside Register promises the video, so following it plays it.
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
-      if (event.target instanceof Element && event.target.closest('a[href="#watch"]')) setPlaying(true);
+      if (!(event.target instanceof Element) || !event.target.closest('a[href="#watch"]')) return;
+      track("video_played", { video_id: video.youtubeId, trigger: "watch_link" });
+      setPlaying(true);
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, []);
+  }, [video.youtubeId]);
 
   return (
     <div className="integ-screen-wrap">
@@ -68,7 +71,10 @@ export function VideoScreen({
             <button
               type="button"
               className="integ-play"
-              onClick={() => setPlaying(true)}
+              onClick={() => {
+                track("video_played", { video_id: video.youtubeId, trigger: "poster" });
+                setPlaying(true);
+              }}
               style={video.seal ? ({ "--seal-x": video.seal.x, "--seal-y": video.seal.y } as CSSProperties) : undefined}
             >
               <Image
@@ -100,6 +106,7 @@ export function VideoScreen({
                   type="button"
                   aria-pressed={i === active}
                   onClick={() => {
+                    track("video_playlist_item_selected", { video_id: entry.youtubeId });
                     setActive(i);
                     setPlaying(true);
                   }}

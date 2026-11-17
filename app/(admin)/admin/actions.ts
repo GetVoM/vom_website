@@ -84,7 +84,11 @@ const postInput = z.object({
     .string()
     .trim()
     .max(400)
-    .regex(/^\/[^\s?#]*\/$/, "المسار يبدأ وينتهي بشرطة مائلة، مثل ‎/accounting/ميزان-المراجعة/"),
+    .regex(/^\/[^\s?#]*\/$/, "المسار يبدأ وينتهي بشرطة مائلة، مثل ‎/accounting/ميزان-المراجعة/")
+    // Addresses the site cannot serve as a post: a dot (read as a file), percent-encoding (paths are stored decoded),
+    // doubled slashes, and the prefixes other routes own.
+    .refine((path) => !/[.%]|\/\//.test(path), "المسار لا يحتوي على نقطة أو ترميز ‎%‎ أو شرطتين متتاليتين")
+    .refine((path) => !/^\/(?:ar|api|admin|_next|author|tools|blog|feed|sitemap|wp-content)\//.test(path) && !/\/page\/\d+\/$/.test(path), "هذا المسار محجوز لصفحات أخرى في الموقع"),
   lang: z.enum(["ar", "en"]),
   seoTitle: optionalText(200),
   seoDescription: optionalText(400),

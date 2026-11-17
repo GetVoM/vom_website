@@ -102,6 +102,9 @@ export function TermsContents({ entries, title }: TermsContentsProps) {
               <li key={entry.id}>
                 <a
                   href={`#${entry.id}`}
+                  data-track="contents_link_clicked"
+                  data-track-surface="terms"
+                  data-track-target={entry.id}
                   aria-current={entry.id === active ? "true" : undefined}
                   onClick={() => setOpen(false)}
                 >

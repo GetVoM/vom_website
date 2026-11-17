@@ -63,6 +63,7 @@ export function GrowthPage({ locale }: { locale: Locale }) {
                 width={2048}
                 height={1483}
                 preload
+                fetchPriority="high"
                 sizes="(min-width: 1024px) 480px, 360px"
                 className="h-auto w-full"
               />

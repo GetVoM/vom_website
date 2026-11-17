@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { track } from "@/lib/analytics/track";
 
 /**
  * Below the desktop layout, where the form panel scrolls away with the page: a
@@ -36,6 +37,7 @@ export function ReturnBar({ label, target }: { label: string; target: string }) 
   const back = () => {
     const panel = document.getElementById(target);
     if (!panel) return;
+    track("return_to_form_clicked", {});
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     panel.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
     panel.querySelector<HTMLInputElement>("input:not([type=hidden])")?.focus({ preventScroll: true });

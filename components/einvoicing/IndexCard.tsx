@@ -47,12 +47,19 @@ export function PinnedCard({
         </div>
         <div>
           <dt>{c.writer}</dt>
-          <dd>{copy.authors.writer}</dd>
+          <dd>
+            <Link href={`/author/${copy.authors.writerSlug}/`} prefetch={false} data-track="author_link_clicked" data-track-role="author">
+              {copy.authors.writer}
+            </Link>
+          </dd>
         </div>
         <div>
           <dt>{c.reviewer}</dt>
           <dd>
-            {copy.authors.reviewer}، {copy.authors.reviewerTitle}
+            <Link href={`/author/${copy.authors.reviewerSlug}/`} prefetch={false} data-track="author_link_clicked" data-track-role="reviewer">
+              {copy.authors.reviewer}
+            </Link>
+            ، {copy.authors.reviewerTitle}
           </dd>
         </div>
         <div>
@@ -74,7 +81,7 @@ export function PinnedCard({
           <ul role="list">
             {related.map((guide) => (
               <li key={guide.id}>
-                <Link href={guidePath(guide.id)} prefetch={false}>
+                <Link href={guidePath(guide.id)} prefetch={false} data-track="guide_card_clicked" data-track-guide={guide.id}>
                   <span className="num" dir="ltr">
                     {cardNumber(guide.number)}
                   </span>
@@ -92,7 +99,7 @@ export function PinnedCard({
 /** A card as it stands in the hub's drawer: number, title and reading time. */
 export function DrawerCard({ entry, minutes }: { entry: GuideEntry; minutes: number }) {
   return (
-    <Link href={guidePath(entry.id)} prefetch={false} className="ein-card ein-card-drawer">
+    <Link href={guidePath(entry.id)} prefetch={false} className="ein-card ein-card-drawer" data-track="guide_card_clicked" data-track-guide={entry.id}>
       <span className="num ein-card-num" dir="ltr">
         {cardNumber(entry.number)}
       </span>
@@ -108,7 +115,7 @@ export function DrawerCard({ entry, minutes }: { entry: GuideEntry; minutes: num
  */
 export function NextCard({ entry, minutes }: { entry: GuideEntry; minutes: number }) {
   return (
-    <Link href={guidePath(entry.id)} prefetch={false} className="ein-card ein-card-next">
+    <Link href={guidePath(entry.id)} prefetch={false} className="ein-card ein-card-next" data-track="guide_card_clicked" data-track-guide={entry.id}>
       <span className="sr-only">{copy.card.next}: </span>
       <span className="ein-card-head">
         <span className="num ein-card-num" dir="ltr">

@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import { Icon } from "@/components/ui/Icon";
+import { track } from "@/lib/analytics/track";
 import { LocaleSwitch } from "./LocaleSwitch";
 import { NavAnchor } from "./NavAnchor";
 import type { MenuId, NavItem, NavLink, NavMenus } from "./navTypes";
@@ -31,12 +32,15 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
   const close = () => setOpen(false);
 
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden" data-track-section="mobile_menu">
       <button
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) track("mobile_menu_opened", {});
+          setOpen(!open);
+        }}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-paper-100"
       >
         <Icon name={open ? "close" : "menu"} size={22} />
@@ -50,7 +54,14 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
         <nav className="flex flex-col" aria-label={labels.menu}>
           {items.map((item) =>
             item.kind === "link" ? (
-              <Link key={item.href} href={item.href} onClick={close} className="border-b border-paper-200 py-3 text-[1.0625rem]">
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={close}
+                className="border-b border-paper-200 py-3 text-[1.0625rem]"
+                data-track="nav_link_clicked"
+                data-track-group="top"
+              >
                 {item.label}
               </Link>
             ) : (
@@ -59,7 +70,10 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
                   type="button"
                   aria-expanded={section === item.id}
                   aria-controls={`${sectionId}-${item.id}`}
-                  onClick={() => setSection((current) => (current === item.id ? null : item.id))}
+                  onClick={() => {
+                    if (section !== item.id) track("mobile_menu_section_opened", { section: item.id });
+                    setSection(section === item.id ? null : item.id);
+                  }}
                   className="nav-trigger flex w-full justify-between py-3 text-[1.0625rem]"
                 >
                   {menus[item.id].label}
@@ -70,7 +84,7 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
                     <ul className="mnav-sectors">
                       {menus.sectors.items.map((sector) => (
                         <li key={sector.href}>
-                          <NavAnchor link={sector} onNavigate={close}>
+                          <NavAnchor link={sector} group="sectors" onNavigate={close}>
                             <span data-icon={sector.icon} />
                             {sector.label}
                           </NavAnchor>
@@ -86,7 +100,7 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
                           <ul className="nav-links">
                             {group.links.map((link) => (
                               <li key={link.href}>
-                                <NavAnchor link={link} onNavigate={close} />
+                                <NavAnchor link={link} group="support" onNavigate={close} />
                               </li>
                             ))}
                           </ul>

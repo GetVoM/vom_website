@@ -1,10 +1,12 @@
 import type { Locale } from "@/lib/i18n/config";
 
 /**
- * The blog's fixed words. Titles and descriptions of the two indexes are the
- * live site's, character for character, so search results do not change at
- * launch (docs/content/wp-url-inventory.csv); the English blog index had no page
- * of its own on WordPress, so its words are new.
+ * The blog's fixed words. The blog index keeps the live site's title and
+ * description (two doubled letters in the description fixed), so its search
+ * result does not change at launch. The news and templates indexes carried
+ * WordPress's English archive defaults ("News - Vom"), the same on the Arabic
+ * and English pages; theirs were written on 2026-11-17, as were the English
+ * blog index's, which had no page of its own on WordPress.
  */
 export interface BlogCopy {
   blog: { crumb: string; h1: string; seoTitle: string; description: string; topics: string; latest: string; moreTopics: string };
@@ -39,7 +41,7 @@ const ar: BlogCopy = {
     h1: "مدونة ڤوم",
     seoTitle: "مدونة محاسبة متخصصة في كل ما يخص المحاسبة",
     description:
-      "مدونة ڤوم هي مدونة محاسبة تجدون فيها مختلف الشروحات الدروس االمعلومات الخاصة بمجال المحاسبة المالية والبرامج االسحابية في السعودية",
+      "مدونة ڤوم هي مدونة محاسبة تجدون فيها مختلف الشروحات الدروس المعلومات الخاصة بمجال المحاسبة المالية والبرامج السحابية في السعودية",
     topics: "المواضيع",
     latest: "أحدث المقالات",
     moreTopics: "مواضيع أخرى",
@@ -47,15 +49,15 @@ const ar: BlogCopy = {
   news: {
     crumb: "الأخبار",
     h1: "أخبار ڤوم",
-    seoTitle: "News - Vom",
-    description: "News Archive - Vom",
+    seoTitle: "أخبار ڤوم: آخر الإعلانات والشراكات | ڤوم",
+    description: "آخر أخبار ڤوم: اتفاقيات التعاون والشراكات والفعاليات والإعلانات الرسمية، مرتّبة من الأحدث إلى الأقدم.",
     empty: "لا توجد أخبار بعد.",
   },
   templates: {
     crumb: "القوالب والنماذج",
     h1: "القوالب والنماذج",
-    seoTitle: "Templates - Vom",
-    description: "Templates Archive - Vom",
+    seoTitle: "قوالب ونماذج محاسبية جاهزة للتحميل | ڤوم",
+    description: "نماذج محاسبية وإدارية جاهزة للتحميل: فواتير، قوائم مالية، مخالصات ومسيّرات رواتب، مع شرح طريقة استخدام كل نموذج.",
   },
   writtenBy: "كتبه",
   reviewedBy: "راجعه",
@@ -99,8 +101,8 @@ const en: BlogCopy = {
   news: {
     crumb: "News",
     h1: "VoM news",
-    seoTitle: "News - Vom",
-    description: "News Archive - Vom",
+    seoTitle: "VoM News: Announcements and Partnerships | VoM",
+    description: "Company news from VoM: partnerships, events and announcements for businesses in Saudi Arabia.",
     empty: "No news in English yet.",
   },
   // Templates exist in Arabic only; these words are never shown.

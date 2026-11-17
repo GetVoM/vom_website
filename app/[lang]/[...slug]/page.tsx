@@ -142,7 +142,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (page.kind === "invoice-templates") return invoiceTemplatesMetadata("ar");
   if (page.kind === "templates-index") return templatesIndexMetadata(page.page);
   if (page.kind === "category") return categoryMetadata(page.category, page.listing.page);
-  if (page.kind === "author") return authorMetadata(page.author, page.listing.page);
+  if (page.kind === "author") return authorMetadata(page.author, page.listing.page, page.listing.total);
   return accountingGuideMetadata();
 }
 

@@ -1,3 +1,4 @@
+import { Tracker } from "@/components/analytics/Tracker";
 import type { Metadata } from "next";
 import { effra } from "@/app/fonts";
 import { getDictionary } from "@/lib/i18n/getDictionary";
@@ -28,6 +29,7 @@ export default function GlobalNotFound() {
         </main>
         <Footer locale="ar" t={t} />
         <WhatsAppButton label={t.contact.whatsappCta} />
+        <Tracker />
       </body>
     </html>
   );

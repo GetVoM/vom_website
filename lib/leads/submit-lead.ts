@@ -10,6 +10,8 @@ export interface LeadState {
   message: string;
   /** Names of the fields that need fixing. */
   fields?: string[];
+  /** Why it failed, for analytics: "invalid", "turnstile" or "unavailable". */
+  reason?: string;
 }
 
 const messages = {
@@ -35,7 +37,8 @@ const messages = {
  *
  * The form sends its fields (the shared ones and its `payloadFields`), a hidden
  * `locale` and `page_path`, any `utm_*`, `gclid` and `fbclid` fields, and the
- * Turnstile widget's `cf-turnstile-response` (components/forms/Turnstile.tsx).
+ * Turnstile widget's `cf-turnstile-response` (components/forms/Turnstile.tsx),
+ * and the visitor's PostHog ids (`ph_distinct_id`, `ph_session_id`).
  * The work is in lib/leads/record.ts.
  */
 export async function submitLead(form: LeadForm, _previous: LeadState | null, data: FormData): Promise<LeadState> {
@@ -64,8 +67,9 @@ export async function submitLead(form: LeadForm, _previous: LeadState | null, da
       pagePath: text("page_path") ?? null,
       utm: Object.fromEntries(attributionKeys.flatMap((name) => (text(name) ? [[name, text(name)!.slice(0, 200)]] : []))),
       userAgent: request.get("user-agent"),
+      visitor: { distinctId: text("ph_distinct_id")?.slice(0, 200), sessionId: text("ph_session_id")?.slice(0, 200) },
     },
   );
   if (outcome.ok) return { ok: true, message: messages[locale].ok };
-  return { ok: false, message: messages[locale][outcome.reason], fields: outcome.fields };
+  return { ok: false, message: messages[locale][outcome.reason], fields: outcome.fields, reason: outcome.reason };
 }

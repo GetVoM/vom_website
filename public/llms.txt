@@ -1,0 +1,30 @@
+# VoM (ڤوم)
+
+> VoM is a Saudi cloud accounting product: e-invoicing approved by ZATCA (the Zakat, Tax and Customs Authority), sales, purchases, inventory and financial reports. This site describes the product and hosts an Arabic library on accounting, e-invoicing, zakat and tax in Saudi Arabia. Arabic is the primary language, at the root; English pages are under /en/. The product itself, with sign-up and login, is at https://app.getvom.com.
+
+## Product
+
+- [Homepage (Arabic)](https://getvom.com/): what VoM does and who it is for
+- [Homepage (English)](https://getvom.com/en/)
+- [Features](https://getvom.com/features/): every module of the product
+- [Pricing](https://getvom.com/pricing/): plans and prices in Saudi riyals, before VAT
+- [About VoM](https://getvom.com/about-us/)
+- [Contact](https://getvom.com/contact-us/)
+
+## Guides (Arabic)
+
+- [E-invoicing in Saudi Arabia](https://getvom.com/الفوترة-الإلكترونية/): the full guide to ZATCA e-invoicing, with twelve detailed guides
+- [Accounting software guide](https://getvom.com/برنامج-محاسبة/): how to choose accounting software in Saudi Arabia
+- [ZATCA e-invoicing Phase 2 (English)](https://getvom.com/en/zatca-e-invoicing-phase-2/)
+- [Blog](https://getvom.com/blog/): articles on accounting, tax, zakat and business, reviewed by a chartered accountant
+
+## Tools and templates (Arabic)
+
+- [Financial calculators](https://getvom.com/tools/): VAT, profit margin, discount, salary and zakat calculators
+- [Free invoice templates](https://getvom.com/نماذج-فواتير/): invoice templates to download
+- [Accounting templates](https://getvom.com/templates/): downloadable accounting and administrative forms
+
+## Feeds
+
+- [Sitemap index](https://getvom.com/sitemap.xml)
+- [Blog RSS feed](https://getvom.com/feed/)

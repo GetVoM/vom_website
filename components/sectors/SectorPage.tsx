@@ -84,6 +84,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
                   height={photo.height}
                   sizes="(min-width: 1024px) 34rem, calc(100vw - 4rem)"
                   preload
+                  fetchPriority="high"
                 />
               </div>
               <SectorSeal icon={sector.icon} name={sector.name} micro={s.sealMicro} variant="stamp" />
@@ -204,7 +205,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
           <ul className="sec-register" role="list">
             {others.map((other) => (
               <li key={other.id}>
-                <Link href={localePath(locale, sectorPaths[other.id][locale])} prefetch={false} data-icon={other.icon}>
+                <Link href={localePath(locale, sectorPaths[other.id][locale])} prefetch={false} data-icon={other.icon} data-track="sector_card_clicked" data-track-sector={other.id}>
                   {other.name}
                 </Link>
               </li>

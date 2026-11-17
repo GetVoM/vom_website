@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { barePath, blogCopy, listCategories, listPosts, type Author, type Category, type PostPage as Listing } from "@/lib/content/posts";
+import { barePath, blogCopy, listCategories, listPosts, type Author, type Category, type PostPage as Listing, type PostSummary } from "@/lib/content/posts";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
-import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { breadcrumbJsonLd, collectionJsonLd, profilePageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
@@ -13,7 +13,11 @@ import { BlogClose } from "./PostPage";
 /** How many topics open as accounts on the blog index; the rest are listed by name. */
 const OPEN_TOPICS = 10;
 
-/** Later pages are self-canonical and say which page they are, so no two titles match. */
+/**
+ * Later pages are self-canonical and say which page they are in the title and
+ * the description, so no two match. An empty list (`index: false`) stays out of
+ * search and is not offered as the other language's twin.
+ */
 function listMetadata({
   locale,
   base,
@@ -21,6 +25,7 @@ function listMetadata({
   title,
   description,
   twin = false,
+  index = true,
 }: {
   locale: Locale;
   /** Locale-free path of page 1. */
@@ -30,12 +35,25 @@ function listMetadata({
   description: string;
   /** True when the same page exists in the other language at the same path. */
   twin?: boolean;
+  index?: boolean;
 }): Metadata {
   const c = blogCopy(locale);
   const full = page > 1 ? `${title}${c.pageSuffix(page)}` : title;
   const path = page > 1 ? `${base}page/${page}/` : base;
-  const meta = buildMetadata({ locale, path, alternatePath: twin && page === 1 ? base : null, title: full, description });
+  const meta = buildMetadata({
+    locale,
+    path,
+    alternatePath: twin && page === 1 ? base : null,
+    title: full,
+    description: page > 1 ? `${description}${c.pageSuffix(page)}` : description,
+    index,
+  });
   return { ...meta, title: { absolute: full } };
+}
+
+/** The page's entries as a CollectionPage: what the list is and what it lists, in order. */
+function ListJsonLd({ locale, path, name, description, posts }: { locale: Locale; path: string; name: string; description: string; posts: PostSummary[] }) {
+  return <JsonLd data={collectionJsonLd({ locale, path, name, description, entries: posts.map((post) => ({ name: post.title, path: post.path })) })} />;
 }
 
 function paginationLabels(locale: Locale, listing: Listing) {
@@ -123,6 +141,7 @@ export async function BlogIndex({ locale, page }: { locale: Locale; page: number
 
   return (
     <div className="blg">
+      <ListJsonLd locale={locale} path={page > 1 ? `/blog/page/${page}/` : "/blog/"} name={c.blog.h1} description={c.blog.description} posts={listing.posts} />
       <ListHead locale={locale} crumbs={[{ name: c.blog.crumb, path: "/blog/" }]} title={c.blog.h1} count={page > 1 ? c.page(listing.page, listing.pages) : c.entries(listing.total)} />
 
       {topics.length > 0 && (
@@ -135,7 +154,7 @@ export async function BlogIndex({ locale, page }: { locale: Locale; page: number
               <li key={category.id} className="blg-account">
                 <div className="blg-account-head">
                   <h3 className="blg-account-name">
-                    <Link href={category.path} prefetch={false}>
+                    <Link href={category.path} prefetch={false} data-track="blog_topic_clicked" data-track-topic={category.path}>
                       {category.name}
                     </Link>
                   </h3>
@@ -149,7 +168,7 @@ export async function BlogIndex({ locale, page }: { locale: Locale; page: number
             <p className="blg-more-topics">
               <span>{c.blog.moreTopics}</span>
               {others.map(({ category }) => (
-                <Link key={category.id} href={category.path} prefetch={false}>
+                <Link key={category.id} href={category.path} prefetch={false} data-track="blog_topic_clicked" data-track-topic={category.path}>
                   {category.name}
                 </Link>
               ))}
@@ -173,9 +192,26 @@ export async function BlogIndex({ locale, page }: { locale: Locale; page: number
 
 /* ------------------------------------------------------------ news index */
 
-export function newsIndexMetadata(locale: Locale): Metadata {
+/**
+ * The news index exists in both languages, but each is offered to search, and
+ * to the other as its twin, only while it has news to show.
+ */
+export async function newsIndexMetadata(locale: Locale): Promise<Metadata> {
   const c = blogCopy(locale);
-  return listMetadata({ locale, base: "/news/", page: 1, title: c.news.seoTitle, description: c.news.description, twin: true });
+  const other: Locale = locale === "ar" ? "en" : "ar";
+  const [own, twin] = await Promise.all([
+    listPosts({ lang: locale, type: "news", size: 1 }),
+    listPosts({ lang: other, type: "news", size: 1 }),
+  ]);
+  return listMetadata({
+    locale,
+    base: "/news/",
+    page: 1,
+    title: c.news.seoTitle,
+    description: c.news.description,
+    twin: own.total > 0 && twin.total > 0,
+    index: own.total > 0,
+  });
 }
 
 export async function NewsIndex({ locale }: { locale: Locale }) {
@@ -183,6 +219,7 @@ export async function NewsIndex({ locale }: { locale: Locale }) {
   const listing = await listPosts({ lang: locale, type: "news", size: 100 });
   return (
     <div className="blg">
+      {listing.posts.length > 0 && <ListJsonLd locale={locale} path="/news/" name={c.news.h1} description={c.news.description} posts={listing.posts} />}
       <ListHead locale={locale} crumbs={[{ name: c.news.crumb, path: "/news/" }]} title={c.news.h1} />
       <section className="page-wrap blg-ledger" aria-label={c.news.h1}>
         {listing.posts.length > 0 ? <EntryList posts={listing.posts} locale={locale} showTopic={false} /> : <p className="blg-empty">{c.news.empty}</p>}
@@ -208,6 +245,7 @@ export async function TemplatesIndex({ page }: { page: number }) {
   const listing = await listPosts({ lang: "ar", type: "template", page });
   return (
     <div className="blg">
+      <ListJsonLd locale="ar" path={page > 1 ? `/templates/page/${page}/` : "/templates/"} name={c.templates.h1} description={c.templates.description} posts={listing.posts} />
       <ListHead locale="ar" crumbs={[{ name: c.templates.crumb, path: "/templates/" }]} title={c.templates.h1} count={page > 1 ? c.page(listing.page, listing.pages) : undefined} />
       <section className="page-wrap blg-ledger" aria-label={c.templates.h1}>
         <EntryList posts={listing.posts} locale="ar" showTopic={false} />
@@ -236,6 +274,13 @@ export async function CategoryPage({ category, listing }: { category: Category; 
   const c = blogCopy(locale);
   return (
     <div className="blg">
+      <ListJsonLd
+        locale={locale}
+        path={listing.page > 1 ? `${barePath(category.path)}page/${listing.page}/` : barePath(category.path)}
+        name={category.name}
+        description={category.seoDescription ?? category.intro ?? category.name}
+        posts={listing.posts}
+      />
       <ListHead
         locale={locale}
         crumbs={[{ name: c.blog.crumb, path: "/blog/" }, { name: category.name, path: barePath(category.path) }]}
@@ -254,9 +299,18 @@ export async function CategoryPage({ category, listing }: { category: Category; 
 
 /* ------------------------------------------------------------ author page */
 
-export function authorMetadata(author: Author, page: number): Metadata {
+/** A person's page with nothing listed yet stays out of search (`entries` is how many posts it lists). */
+export function authorMetadata(author: Author, page: number, entries: number): Metadata {
   const c = blogCopy("ar");
-  return listMetadata({ locale: "ar", base: `/author/${author.slug}/`, page, title: `${author.name} | ڤوم`, description: c.authorDescription(author.name) });
+  return listMetadata({
+    locale: "ar",
+    base: `/author/${author.slug}/`,
+    page,
+    // The brand's own page would read "VoM | ڤوم".
+    title: author.name === "VoM" ? "فريق ڤوم | مدونة ڤوم" : `${author.name} | ڤوم`,
+    description: c.authorDescription(author.name),
+    index: entries > 0,
+  });
 }
 
 /** A writer or the reviewing accountant: their name and title, then everything they wrote or reviewed. */
@@ -265,6 +319,7 @@ export async function AuthorPage({ author, listing }: { author: Author; listing:
   const base = `/author/${author.slug}/`;
   return (
     <div className="blg">
+      {listing.page === 1 && <JsonLd data={profilePageJsonLd({ name: author.name, slug: author.slug, jobTitle: author.jobTitle, sameAs: author.sameAs, bio: author.bio, avatar: author.avatar })} />}
       <ListHead locale="ar" crumbs={[{ name: c.blog.crumb, path: "/blog/" }, { name: author.name, path: base }]} title={author.name} sub={author.jobTitle ?? undefined} count={listing.page > 1 ? c.page(listing.page, listing.pages) : undefined} intro={author.bio} />
       <section className="page-wrap blg-ledger" aria-labelledby="blg-author-entries">
         <h2 id="blg-author-entries" className="blg-section-title">

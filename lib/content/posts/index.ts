@@ -118,7 +118,7 @@ export async function postPaths(): Promise<PathIndex> {
   cacheTag("posts", "categories", "authors");
   const db = publicSupabase();
   const [posts, categories, authors] = await Promise.all([
-    db.from("posts").select("id, path, type, lang, published_at, modified_at").eq("status", "published").order("path").limit(5000),
+    db.from("posts").select("id, path, type, lang, published_at, modified_at, author_id, reviewed_by_id, primary_category_id, alternate_post_id").eq("status", "published").order("path").limit(5000),
     db.from("categories").select("id, path, lang").order("path").limit(1000),
     db.from("authors").select("id, slug").order("slug").limit(1000),
   ]);
@@ -132,6 +132,10 @@ export async function postPaths(): Promise<PathIndex> {
       type: asType(row.type),
       lang: asLocale(row.lang),
       modifiedAt: row.modified_at ?? row.published_at ?? "",
+      authorId: row.author_id,
+      reviewerId: row.reviewed_by_id,
+      categoryId: row.primary_category_id,
+      alternateId: row.alternate_post_id,
     })),
     categories: categories.data.map((row) => ({ id: row.id, path: row.path, lang: asLocale(row.lang) })),
     authors: authors.data,

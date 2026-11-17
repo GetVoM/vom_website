@@ -159,8 +159,8 @@ export async function GuidePage({ id }: { id: GuideId }) {
           image: ogImage(id),
           published: entry.published,
           modified: entry.modified,
-          author: copy.authors.writer,
-          reviewer: { name: copy.authors.reviewer, jobTitle: copy.authors.reviewerTitle },
+          author: { name: copy.authors.writer, slug: copy.authors.writerSlug },
+          reviewer: { name: copy.authors.reviewer, slug: copy.authors.reviewerSlug, jobTitle: copy.authors.reviewerTitle },
           ...(!isHub && { partOf: { path: hubPath, headline: guideEntry("hub").h1 } }),
         })}
       />

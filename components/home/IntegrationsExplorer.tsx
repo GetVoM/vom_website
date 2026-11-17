@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from "react";
 import Image from "next/image";
-import posthog from "posthog-js";
+import { track } from "@/lib/analytics/track";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -58,7 +58,7 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
   const selectIntegration = (item: ExplorerItem) => {
     if (item.id === activeId) return;
     setActiveId(item.id);
-    posthog.capture("integration_selected", { integration_id: item.id, is_live: true });
+    track("integration_selected", { integration_id: item.id, is_live: true });
   };
 
   return (

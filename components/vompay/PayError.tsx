@@ -1,6 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+import { track } from "@/lib/analytics/track";
 import type { FailureCopy } from "@/lib/content/vom-pay";
 import { isKnownPayError, readPayError } from "@/lib/leads/vom-pay";
 
@@ -28,4 +29,17 @@ export function PayErrorCode({ copy, className }: { copy: FailureCopy; className
 export function PayErrorMessage({ copy, className }: { copy: FailureCopy; className?: string }) {
   const code = usePayError();
   return <p className={className}>{copy.messages[isKnownPayError(code) ? code : "1"]}</p>;
+}
+
+/**
+ * Tells PostHog a visitor landed on a payment result page, and with which error
+ * code when the app sent one. Pageviews are counted anyway; this names the two
+ * ends of the payment funnel. Renders nothing.
+ */
+export function PayResultViewed({ outcome, locale }: { outcome: "success" | "failure"; locale: "ar" | "en" }) {
+  useEffect(() => {
+    const code = outcome === "failure" ? readPayError(window.location.search) : null;
+    track("pay_result_viewed", { outcome, locale, ...(code && { error_code: code }) });
+  }, [outcome, locale]);
+  return null;
 }

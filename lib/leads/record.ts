@@ -1,6 +1,7 @@
 import { SeverityNumber } from "@opentelemetry/api-logs";
 import { createClient } from "@supabase/supabase-js";
 import { flushPostHogLogs, posthogLogger } from "@/instrumentation";
+import { captureServer, type Visitor } from "@/lib/analytics/server";
 import { isLeadForm, leadForms, type LeadFields } from "./forms.ts";
 
 /**
@@ -20,6 +21,8 @@ export interface LeadContext {
   pagePath?: string | null;
   utm?: Record<string, string> | null;
   userAgent?: string | null;
+  /** The browser's PostHog ids, so the events sent from here land on the same person. */
+  visitor?: Visitor;
 }
 
 async function verifyTurnstile(token: string, ip?: string | null): Promise<boolean> {
@@ -59,7 +62,11 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
   const parsed = leadForms[form].schema.safeParse(data);
   // A payload field is reported by its own name ("sector"), as the form knows it.
   const fieldOf = (path: PropertyKey[]) => String(path[0] === "payload" && path.length > 1 ? path[1] : path[0]);
-  if (!parsed.success) return { ok: false, reason: "invalid", fields: [...new Set(parsed.error.issues.map((issue) => fieldOf(issue.path)))] };
+  const visitor = context.visitor ?? {};
+  if (!parsed.success) {
+    await captureServer(visitor, "lead_rejected", { form, reason: "invalid" });
+    return { ok: false, reason: "invalid", fields: [...new Set(parsed.error.issues.map((issue) => fieldOf(issue.path)))] };
+  }
 
   if (!context.token || !(await verifyTurnstile(context.token, context.ip))) {
     posthogLogger?.emit({
@@ -67,6 +74,7 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
       severityNumber: SeverityNumber.WARN,
       attributes: { form, outcome: "turnstile_rejected" },
     });
+    await captureServer(visitor, "lead_rejected", { form, reason: "turnstile" });
     await flushPostHogLogs();
     return { ok: false, reason: "turnstile" };
   }
@@ -98,6 +106,7 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
       severityNumber: SeverityNumber.ERROR,
       attributes: { form, outcome: "storage_unavailable" },
     });
+    await captureServer(visitor, "lead_rejected", { form, reason: "unavailable" });
     await flushPostHogLogs();
     return { ok: false, reason: "unavailable" };
   }
@@ -106,6 +115,12 @@ export async function recordLead(form: string, data: unknown, context: LeadConte
     body: "Lead submission stored",
     severityNumber: SeverityNumber.INFO,
     attributes: { form, locale: context.locale ?? "unknown", outcome: "stored" },
+  });
+  await captureServer(visitor, "lead_recorded", {
+    form,
+    locale: context.locale ?? "unknown",
+    page_path: row.page_path ?? undefined,
+    ...row.utm,
   });
   await flushPostHogLogs();
   return { ok: true };

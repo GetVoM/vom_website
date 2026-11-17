@@ -110,7 +110,7 @@ function Exhibits({ id, c, locale }: { id: ModuleId; c: FeaturesCopy; locale: Lo
         {exhibits.map((exhibit) => (
           <figure key={exhibit} className="ftr-sheet">
             <div>
-              <Image src={exhibitSrc(exhibit, locale)} alt="" {...displaySize(exhibitSizes[exhibit], SHEET_WIDTH)} />
+              <Image src={exhibitSrc(exhibit, locale)} alt={c.captions[exhibit]} {...displaySize(exhibitSizes[exhibit], SHEET_WIDTH)} />
             </div>
             <figcaption>{c.captions[exhibit]}</figcaption>
           </figure>
@@ -286,7 +286,7 @@ export function FeaturesPage({ locale }: { locale: Locale }) {
   return (
     <div className="ftr">
       <JsonLd data={breadcrumbJsonLd(locale, [{ name: t.nav.home, path: "/" }, { name: c.crumb, path }])} />
-      <JsonLd data={softwareJsonLd(locale, c.seo.description)} />
+      <JsonLd data={softwareJsonLd(locale, t.brand.description)} />
 
       <section className="ftr-top" aria-labelledby="features-heading">
         <div className="page-wrap ftr-grid">

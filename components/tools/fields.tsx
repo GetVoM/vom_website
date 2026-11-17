@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode, typ
 import { common } from "@/lib/tools/copy";
 import { formatAmount, formatMoney, formatPercent } from "@/lib/tools/format";
 import { parseAmount, type ParseError } from "@/lib/tools/parse";
+import { track } from "@/lib/analytics/track";
 
 /**
  * The calculators' shared parts: a number field that reads Arabic and Western
@@ -104,9 +105,12 @@ export function NumberField({
 /**
  * The paper sheet: a form that never reloads the page. Results update as the
  * visitor types; the button (the old widget's label) brings the answer into
- * view on a phone, where it sits under the fields, and reads it out.
+ * view on a phone, where it sits under the fields, and reads it out. The first
+ * entry in a field sends `calculator_used` to PostHog, once per visit to the
+ * page; what was typed is never sent.
  */
 export function Sheet({
+  calculator,
   title,
   titleLevel = 2,
   intro,
@@ -117,6 +121,8 @@ export function Sheet({
   children,
   footer,
 }: {
+  /** The calculator's id (lib/content/tools/catalogue.ts), for analytics. */
+  calculator: string;
   title?: string;
   titleLevel?: 2 | 3;
   intro?: string;
@@ -129,6 +135,13 @@ export function Sheet({
   footer?: ReactNode;
 }) {
   const Title = titleLevel === 3 ? "h3" : "h2";
+  const used = useRef(false);
+  const onInput = (event: FormEvent) => {
+    // The switch between two calculators sits in the sheet too; choosing one is not using it.
+    if (used.current || (event.target as Element).closest(".tol-switch")) return;
+    used.current = true;
+    track("calculator_used", { calculator });
+  };
   const submit = (event: FormEvent) => {
     event.preventDefault();
     onSubmit?.();
@@ -138,7 +151,7 @@ export function Sheet({
     if (answer.getBoundingClientRect().top > window.innerHeight * 0.6) answer.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
   };
   return (
-    <form className="tol-sheet" noValidate onSubmit={submit}>
+    <form className="tol-sheet" noValidate onSubmit={submit} onInput={onInput}>
       {head}
       {title && <Title className="tol-sheet-title">{title}</Title>}
       {intro && <p className="tol-sheet-intro">{intro}</p>}

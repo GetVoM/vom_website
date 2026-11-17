@@ -23,7 +23,10 @@ export const einvoicingCopy = {
   },
   authors: {
     writer: "نورة النافع",
+    /** The writer's and the reviewer's pages (/author/<slug>/), where the posts they wrote or reviewed are listed. */
+    writerSlug: "nnafea",
     reviewer: "فيصل المطيري",
+    reviewerSlug: "faisal",
     reviewerTitle: "محاسب قانوني",
   },
   phaseTwo: {

@@ -54,9 +54,9 @@ export const TOOLS_SEGMENT = "tools";
 
 export const toolsIndex = {
   path: "/tools/",
-  /** The old archive's title and description, kept byte for byte like the templates index's. */
-  seoTitle: "Tools - Vom",
-  description: "Tools Archive - Vom",
+  /** Written on 2026-11-17: WordPress left the archive's English defaults ("Tools - Vom") on this Arabic page. */
+  seoTitle: "أدوات مالية مجانية: حاسبات الضريبة والزكاة والأرباح | ڤوم",
+  description: "حاسبات مالية مجانية من ڤوم: ضريبة القيمة المضافة، هامش الربح، الخصم، الراتب، وزكاة الأفراد والشركات. أدخل أرقامك واحصل على النتيجة فوراً.",
   h1: "الأدوات المالية",
 } as const;
 

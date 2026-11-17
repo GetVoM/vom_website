@@ -36,6 +36,10 @@ export const site = {
     instagram: "https://www.instagram.com/get.vom",
     linkedin: "https://www.linkedin.com/company/getvom",
   },
+  /** The account on X, for the `twitter:site` tag. */
+  xHandle: "@GetVOM",
   gtmId: "GTM-PS28X6L",
   logo: "/brand/vom-logo.png",
+  /** The square mark for structured data: Google wants a logo at least 112 px on each side (scripts/favicon.mjs draws the same chevron). */
+  logoSquare: "/brand/vom-mark-512.png",
 } as const;

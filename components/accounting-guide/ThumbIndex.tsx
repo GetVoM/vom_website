@@ -60,6 +60,9 @@ export function ThumbIndex({ tabs, label, after, until }: { tabs: ThumbTab[]; la
             {/* The name is on the link: the visible title is a hover label, hidden at rest. */}
             <a
               href={`#${tab.id}`}
+              data-track="contents_link_clicked"
+              data-track-surface="accounting_guide"
+              data-track-target={tab.id}
               className="acg-thumb"
               data-state={i === current ? "current" : current > i ? "read" : undefined}
               aria-current={i === current ? "location" : undefined}

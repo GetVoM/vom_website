@@ -1,4 +1,4 @@
-import { readdirSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
@@ -55,13 +55,19 @@ const TAG_BEACONS = [
   "https://www.facebook.com",
   "https://connect.facebook.net",
 ].join(" ");
+/**
+ * PostHog goes through the reverse proxy at n.getvom.com, which serves both the
+ * ingestion calls and the library's own scripts, so one origin covers both. On
+ * PostHog's own hosts (us.i.posthog.com) the scripts come from a second host,
+ * us-assets.i.posthog.com.
+ */
 const POSTHOG_CSP = (() => {
   try {
     const ingestionHost = new URL(process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "");
-    const assetHost = ingestionHost.hostname.replace(".i.", "-assets.i.");
+    const direct = ingestionHost.hostname.endsWith(".i.posthog.com");
     return {
       ingestion: ingestionHost.origin,
-      assets: `${ingestionHost.protocol}//${assetHost}`,
+      assets: direct ? `${ingestionHost.protocol}//${ingestionHost.hostname.replace(".i.", "-assets.i.")}` : ingestionHost.origin,
     };
   } catch {
     return null;
@@ -190,6 +196,21 @@ const mediaRedirects = [
   },
 ];
 
+/**
+ * Addresses retired for good: the `retire` rows of docs/content/url-map.csv.
+ * Each is rewritten to app/api/gone/route.ts, which answers 410. The path is the
+ * row's third column; the two before it never hold a comma.
+ */
+const retiredPaths = readFileSync(join(process.cwd(), "docs/content/url-map.csv"), "utf8")
+  .split("\n")
+  .slice(1)
+  .map((line) => line.split(","))
+  .filter((cells) => cells[4] === "retire" && cells[2]?.startsWith("/"))
+  .map((cells) => encodeURI(cells[2].replace(/\/$/, "")));
+
+/** A Vercel deployment that is not the production one: a preview or a development build. */
+const NOT_PRODUCTION = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== "production";
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
@@ -233,6 +254,13 @@ const nextConfig: NextConfig = {
               { source: `/${ADMIN_SEGMENT}`, destination: "/admin" },
               { source: `/${ADMIN_SEGMENT}/:path*`, destination: "/admin/:path*" },
             ]),
+        // Before the Arabic rewrite, so a retired address never reaches a page route.
+        ...retiredPaths.map((source) => ({ source, destination: "/api/gone" })),
+        // The blog's RSS feed keeps its WordPress address.
+        { source: "/feed", destination: "/api/feed" },
+        // The sitemap index. app/sitemap.ts owns the name /sitemap.xml as a metadata file but, split by
+        // type, serves only /sitemap/<id>.xml, so the index is a route of its own behind this rewrite.
+        { source: "/sitemap.xml", destination: "/api/sitemap-index" },
         { source: "/", destination: "/ar" },
         { source: ARABIC_PATH, destination: "/ar/:path" },
       ],
@@ -253,10 +281,19 @@ const nextConfig: NextConfig = {
         destination: "/:path+/",
         statusCode: 301,
       },
-      // The sitemap is split by type; the old single address leads to the pages one.
+      // /sitemap.xml is the index of the five sitemaps (app/api/sitemap-index/route.ts).
+      // WordPress (Rank Math) had its own addresses; they lead to it.
+      { source: "/sitemap_index.xml", destination: "/sitemap.xml", statusCode: 301 },
+      { source: "/:name([a-z_-]+-sitemap\\d*).xml", destination: "/sitemap.xml", statusCode: 301 },
+      // Page 1 of a list is the list itself, as it was on WordPress.
+      { source: "/:list*/page/1", destination: "/:list*/", statusCode: 301 },
+      // Author records merged or removed on 2026-11-17: the empty duplicates lead to the person's page.
+      { source: "/author/abass", destination: "/author/abasssahrawi/", statusCode: 301 },
+      { source: "/author/noura", destination: "/author/nnafea/", statusCode: 301 },
+      // The tax workshop was published twice, as news and as a post; the post stays.
       {
-        source: "/sitemap.xml",
-        destination: "/sitemap/pages.xml",
+        source: encodeURI("/news/ڤوم-تقدم-ورشة-الضرائب-في-السعودية"),
+        destination: encodeURI("/tax-zakat/ڤوم-تقدم-ورشة-الضرائب-في-السعودية-لتع/"),
         statusCode: 301,
       },
       // Old WordPress slugs. See the redirect rows in docs/content/url-map.csv.
@@ -368,6 +405,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      // Preview and development deployments on Vercel are never indexed (docs/seo/strategy.md §7.2).
+      ...(NOT_PRODUCTION ? [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }] : []),
       // The admin is never indexed, whatever its address.
       { source: `/${ADMIN_SEGMENT}/:path*`, headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
     ];

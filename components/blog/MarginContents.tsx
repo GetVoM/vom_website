@@ -28,7 +28,7 @@ export function MarginContents({ sections, title }: { sections: { id: string; he
       <ol id="blg-contents" className="blg-margin-list" data-open={open || undefined}>
         {sections.map((section) => (
           <li key={section.id}>
-            <a href={`#${section.id}`} aria-current={section.id === active ? "true" : undefined} onClick={() => setOpen(false)}>
+            <a href={`#${section.id}`} data-track="contents_link_clicked" data-track-surface="post" data-track-target={section.id} aria-current={section.id === active ? "true" : undefined} onClick={() => setOpen(false)}>
               {section.heading}
             </a>
           </li>

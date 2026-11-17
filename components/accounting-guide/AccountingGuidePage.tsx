@@ -70,8 +70,8 @@ export async function AccountingGuidePage() {
           image: guide.image,
           published: guide.published,
           modified: guide.modified,
-          author: by.writer,
-          reviewer: { name: by.reviewer, jobTitle: by.reviewerTitle },
+          author: { name: by.writer, slug: by.writerSlug },
+          reviewer: { name: by.reviewer, slug: by.reviewerSlug, jobTitle: by.reviewerTitle },
         })}
       />
       <JsonLd
@@ -143,12 +143,19 @@ export async function AccountingGuidePage() {
                 <dl className="ein-card-lines acg-byline">
                   <div>
                     <dt>{c.writer}</dt>
-                    <dd>{by.writer}</dd>
+                    <dd>
+                      <a href={`/author/${by.writerSlug}/`} data-track="author_link_clicked" data-track-role="author">
+                        {by.writer}
+                      </a>
+                    </dd>
                   </div>
                   <div>
                     <dt>{c.reviewer}</dt>
                     <dd>
-                      {by.reviewer}، {by.reviewerTitle}
+                      <a href={`/author/${by.reviewerSlug}/`} data-track="author_link_clicked" data-track-role="reviewer">
+                        {by.reviewer}
+                      </a>
+                      ، {by.reviewerTitle}
                     </dd>
                   </div>
                   <div>
