@@ -1,12 +1,12 @@
 # Graph Report - vom-website  (2026-11-19)
 
 ## Corpus Check
-- 308 files · ~261,382 words
+- 308 files · ~261,691 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 8 file(s) not represented in the graph (top: (none) 2, .css 2, .csv 2)
 
 ## Summary
-- 1998 nodes · 5172 edges · 109 communities (99 shown, 10 thin omitted)
+- 2000 nodes · 5177 edges · 96 communities (87 shown, 9 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
 
@@ -16,11 +16,11 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- Locale
+- posts/index.ts
 - calculators.tsx
-- react
-- [lang]/page.tsx
-- InvoiceTemplatesPage.tsx
+- Header.tsx
+- Icon
+- jsonld.ts
 - ToolPage.tsx
 - import-wordpress.mjs
 - [lang]/layout.tsx
@@ -44,46 +44,44 @@
 - Product
 - check-blog-urls.mjs
 - BlogIndex.tsx
-- config.ts
+- (campaigns)/layout.tsx
 - leads.ts
 - invoice-templates-assets.mjs
 - Architecture decisions
-- [slug]/page.tsx
+- track
 - record.ts
-- jsonld.ts
+- PostPage.tsx
 - LeadForm.tsx
 - convert
 - compilerOptions
-- requireAdmin
+- Sidebar.tsx
 - getvom.com on Next.js: design document
-- AccountingGuidePage.tsx
+- classify.ts
 - Accounting Software Pillar Guide (برنامج محاسبة)
 - [...slug]/page.tsx
-- actions.ts
+- auth.ts
 - Phase 1: schema and content layer
 - Design System: VoM website (getvom.com)
 - next.config.ts
 - forms.ts
 - VoM Pay result pages: what changed from WordPress
-- track
-- useActiveSection
+- config.ts
+- Tracker.tsx
 - invoice-templates/index.ts
 - import-zatca-phase-2.mjs
 - TermsPage.tsx
-- signIn
+- actions.ts
 - Tools: text changes from the WordPress pages
 - Components
 - extensions.ts
 - import-vom-pay.mjs
 - AboutPage.tsx
 - getDictionary
-- SectorPage.tsx
+- StudentPage.tsx
 - Next.js 16.4.3 conventions digest
-- features/index.ts
-- dictionaries/types.ts
 - Design directions for the new getvom.com
 - SEO strategy for the getvom.com migration
-- NotFound.tsx
+- not-found.tsx
 - features-images.mjs
 - Blog backend (Supabase + R2), admin editor, lead plumbing, WordPress import
 - Profit margin calculator article (/tools/حاسبة-هامش-الربح/)
@@ -94,7 +92,6 @@
 - VoM website (getvom.com) — project instructions
 - Digital-ads landing page: what changed from WordPress
 - content/zatca-phase-2.ts
-- tools/index.ts
 - ZATCA Phase 2 page (English): what changed from WordPress
 - allowBuilds
 - gone/route.ts
@@ -105,22 +102,12 @@
 - Terms and conditions: text changes from the WordPress pages
 - README.md
 - .claude/CLAUDE.md
-- Icon
-- features/assets.ts
-- Breadcrumb
+- ZatcaPhase2Page.tsx
 - isLocale
-- digital-ads-2023-landing-page/page.tsx
-- analytics/server.ts
-- next
+- DigitalAds2023.tsx
 - devDependencies
-- Integrations.tsx
-- TopClients.tsx
-- breadcrumbJsonLd
-- templates/page.tsx
-- Numbers.tsx
-- NavLoader.tsx
-- feed/route.ts
-- ref_node_url
+- next
+- ref_node_fs
 
 ## God Nodes (most connected - your core abstractions)
 1. `Components` - 126 edges
@@ -154,83 +141,83 @@
 - **Zakat calculator family (individual, zakat base, company)** — content_tools_zakat, content_tools_zakat_base, content_tools_zakat_company, content_tools_zakat_rate_2_5_percent, content_tools_zakat_base_zakat_base_concept [INFERRED 0.85]
 - **Tool page lead + article split loaded by getToolBody** — content_tools_discount_lead, content_tools_margin_lead, content_tools_salary_lead, content_tools_vat_lead, content_tools_zakat_base_lead, content_tools_zakat_company_lead, content_tools_zakat_lead, lib_content_tools_index_gettoolbody [INFERRED 0.95]
 
-## Communities (109 total, 10 thin omitted)
+## Communities (96 total, 9 thin omitted)
 
-### Community 0 - "Locale"
-Cohesion: 0.11
-Nodes (26): metadata, HeaderProps, LocaleSwitchProps, ar, en, postDate(), MEDIA_URL, PostSection (+18 more)
+### Community 0 - "posts/index.ts"
+Cohesion: 0.15
+Nodes (19): metadata, PreviewPage(), MEDIA_URL, PostSection, preparePostHtml(), text(), WIDTHS, POSTS_PER_PAGE (+11 more)
 
 ### Community 1 - "calculators.tsx"
 Cohesion: 0.07
-Nodes (80): allEmpty(), CalcBand(), CalcProps, DiscountCalculator(), historyCache, historyDate, MarginCalculator(), NO_HISTORY (+72 more)
+Nodes (76): allEmpty(), CalcProps, DiscountCalculator(), historyCache, historyDate, MarginCalculator(), NO_HISTORY, PricingCalculator() (+68 more)
 
-### Community 2 - "react"
-Cohesion: 0.31
-Nodes (13): DesktopNav(), NavGroup(), Header(), LocaleSwitch(), MobileMenu(), MobileMenuProps, NavAnchor(), MenuId (+5 more)
+### Community 2 - "Header.tsx"
+Cohesion: 0.38
+Nodes (10): DesktopNav(), NavGroup(), MobileMenu(), MobileMenuProps, NavAnchor(), MenuId, NavItem, NavLink (+2 more)
 
-### Community 3 - "[lang]/page.tsx"
-Cohesion: 0.21
-Nodes (15): currentLocale(), generateMetadata(), HomePage(), Apps(), DocumentStack(), Faq(), Guilloche(), Hero() (+7 more)
+### Community 3 - "Icon"
+Cohesion: 0.09
+Nodes (47): currentLocale(), generateMetadata(), HomePage(), Apps(), ClosingCertificate(), Props, DocumentStack(), Faq() (+39 more)
 
-### Community 4 - "InvoiceTemplatesPage.tsx"
-Cohesion: 0.20
-Nodes (8): invoiceTemplatesMetadata(), Template(), getInvoiceTemplates(), fileSize(), buildMetadata(), fallbackImage(), OG_LOCALE, site
+### Community 4 - "jsonld.ts"
+Cohesion: 0.08
+Nodes (44): currentLocale(), generateMetadata(), GrowthRoute(), currentLocale(), generateMetadata(), PricingRoute(), accountingGuideMetadata(), FeaturesPage() (+36 more)
 
 ### Community 5 - "ToolPage.tsx"
-Cohesion: 0.10
-Nodes (28): arabicOnly(), generateMetadata(), ToolsIndexRoute(), toolsCopy, Byline(), ogImage(), person(), toolMetadata() (+20 more)
+Cohesion: 0.07
+Nodes (45): arabicOnly(), generateMetadata(), ToolsIndexRoute(), generateMetadata(), generateStaticParams(), Props, resolve(), ToolRoute() (+37 more)
 
 ### Community 6 - "import-wordpress.mjs"
 Cohesion: 0.06
 Nodes (55): 6. Images, fonts, scripts, args, authorByTerm, authorRows, BLOCKS, cacheDir, categoryByWpId, categoryRows (+47 more)
 
 ### Community 7 - "[lang]/layout.tsx"
-Cohesion: 0.06
-Nodes (48): AdminRootLayout(), metadata, CampaignLayout(), metadata, fontVariables, plexArabic, plexSans, GlobalNotFound() (+40 more)
+Cohesion: 0.18
+Nodes (15): GlobalNotFound(), metadata, ensureStatic, metadata, RootLayout(), paths, SocialGlyph(), Footer() (+7 more)
 
 ### Community 8 - "IntegrationPage.tsx"
-Cohesion: 0.13
-Nodes (26): currentLocale(), FoodicsRoute(), generateMetadata(), currentLocale(), generateMetadata(), LazyWaitRoute(), currentLocale(), generateMetadata() (+18 more)
+Cohesion: 0.14
+Nodes (23): currentLocale(), FoodicsRoute(), generateMetadata(), currentLocale(), generateMetadata(), LazyWaitRoute(), currentLocale(), generateMetadata() (+15 more)
 
 ### Community 9 - "CompareTable.tsx"
 Cohesion: 0.07
-Nodes (31): Amount(), CellView(), HeadPrice(), RowHead(), pricingAr, pricingEn, Cell, cells (+23 more)
+Nodes (34): Amount(), CellView(), CompareTable(), HeadPrice(), RowHead(), pricingAr, pricingEn, getPricing() (+26 more)
 
 ### Community 10 - "import-accounting-guide.mjs"
 Cohesion: 0.10
 Nodes (38): altFixes, cellJsx(), cleanText(), collectBlocks(), convert(), escapeJsx(), escapeMd(), figure() (+30 more)
 
 ### Community 11 - "sectors/index.ts"
-Cohesion: 0.12
-Nodes (23): ClientKey, eInvoicing, generalReading, sectorsAr, readingImage, sectorClients, sectorPhotos, attachments (+15 more)
+Cohesion: 0.14
+Nodes (19): eInvoicing, generalReading, sectorsAr, readingImage, sectorClients, sectorPhotos, attachments, customers (+11 more)
 
 ### Community 12 - "import-tools.mjs"
 Cohesion: 0.09
 Nodes (29): cacheDir, counts, coverLines, covers, escapeJsx(), escapeMd(), imageRoot, images (+21 more)
 
 ### Community 13 - "import-einvoicing.mjs"
-Cohesion: 0.07
-Nodes (35): accountingGuideMdxComponents, einvoicingMdxComponents, Faq(), PhaseTwo(), components, altOverrides, figureReplacements, cacheDir (+27 more)
+Cohesion: 0.06
+Nodes (37): accountingGuideMdxComponents, sectorIcons, TrialCard(), einvoicingMdxComponents, Faq(), PhaseTwo(), components, altOverrides (+29 more)
 
 ### Community 14 - "docs/README.md"
 Cohesion: 0.17
 Nodes (9): This is NOT the Next.js you know, Content inventory of getvom.com (WordPress), Decisions in `url-map.csv`, Migration mechanics, Platform today, Quality work after launch, Quality work before launch, What exists (+1 more)
 
 ### Community 15 - "FeaturesPage.tsx"
-Cohesion: 0.15
-Nodes (9): displaySize(), Entry(), entryCount(), EntryText(), Exhibits(), markWidth, PlanMark(), Section() (+1 more)
+Cohesion: 0.06
+Nodes (41): currentLocale(), FeaturesRoute(), generateMetadata(), ExhibitStack(), ExhibitStackProps, displaySize(), Entry(), entryCount() (+33 more)
 
 ### Community 16 - "routes.ts"
-Cohesion: 0.12
-Nodes (24): accountingGuideEntry(), blogEntries(), einvoicingEntries(), pagePairEntries(), pages, sitemap(), sitemapIds, SitemapPage (+16 more)
+Cohesion: 0.14
+Nodes (23): accountingGuideEntry(), blogEntries(), einvoicingEntries(), pagePairEntries(), pages, sitemap(), SitemapPage, toolEntries() (+15 more)
 
 ### Community 17 - "GuidePage.tsx"
-Cohesion: 0.09
-Nodes (38): CatalogueRail(), BookingCard(), CatalogueField(), guideMetadata(), GuidePage(), ogImage(), railCard(), DrawerCard() (+30 more)
+Cohesion: 0.05
+Nodes (62): AccountingGuidePage(), partTitle(), ThumbIndex(), ThumbTab, MarginContents(), CatalogueRail(), CatalogueRailProps, RailCard (+54 more)
 
 ### Community 18 - "PayResult.tsx"
 Cohesion: 0.10
-Nodes (33): currentLocale(), generateMetadata(), VomPayFailureRoute(), currentLocale(), generateMetadata(), VomPaySuccessRoute(), noChange(), PayErrorCode() (+25 more)
+Nodes (36): currentLocale(), generateMetadata(), VomPayFailureRoute(), currentLocale(), generateMetadata(), VomPaySuccessRoute(), noChange(), PayErrorCode() (+28 more)
 
 ### Community 19 - "dependencies"
 Cohesion: 0.07
@@ -238,14 +225,14 @@ Nodes (27): dependencies, @aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @md
 
 ### Community 20 - "PostEditor.tsx"
 Cohesion: 0.12
-Nodes (24): createUploadUrl(), PostInput, EditPostPage(), metadata, AdminBase, useAdminHref(), EditorIcon(), EditorIconName (+16 more)
+Nodes (23): createUploadUrl(), deleteDraft(), PostInput, EditPostPage(), metadata, EditorIcon(), EditorIconName, paths (+15 more)
 
 ### Community 21 - "import-campaign-images.mjs"
 Cohesion: 0.22
 Nodes (8): cacheDir, iconsAt, images, outDir, require, root, sharp, write()
 
 ### Community 22 - "supabase/types.ts"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (15): ActionResult, AuthorsPage(), Fields(), metadata, CategoriesPage(), Fields(), metadata, RecordForm() (+7 more)
 
 ### Community 23 - "getToolBody"
@@ -253,8 +240,8 @@ Cohesion: 0.18
 Nodes (20): ZATCA (Zakat, Tax and Customs Authority), Discount calculator article (/tools/حاسبة-الخصم/), Discount calculator lead (حاسبة-الخصم), Calculator id "discount", Zakat calculator article (/tools/حاسبة-الزكاة/), Zakat base calculator article (/tools/حاسبة-الوعاء-الزكوي/), Zakat base calculator lead (حاسبة-الوعاء-الزكوي), Calculator id "zakat-base" (+12 more)
 
 ### Community 24 - "package.json"
-Cohesion: 0.09
-Nodes (22): eslintConfig, name, packageManager, private, version, @aws-sdk/client-s3, @aws-sdk/s3-request-presigner, eslint (+14 more)
+Cohesion: 0.08
+Nodes (22): eslintConfig, name, packageManager, private, version, config, configured, eslint (+14 more)
 
 ### Community 25 - "Product"
 Cohesion: 0.22
@@ -265,40 +252,40 @@ Cohesion: 0.12
 Nodes (23): node-html-parser, alternates(), base, check(), checkLanding(), checkLandingVariants(), checkPay(), checkPayLinks() (+15 more)
 
 ### Community 29 - "BlogIndex.tsx"
-Cohesion: 0.30
-Nodes (20): generateMetadata(), locale(), NewsRoute(), PreservedPathRoute(), authorMetadata(), AuthorPage(), BlogIndex(), CategoryPage() (+12 more)
+Cohesion: 0.41
+Nodes (14): PreservedPathRoute(), AuthorPage(), BlogIndex(), CategoryPage(), ListHead(), ListJsonLd(), NewsIndex(), paginationLabels() (+6 more)
 
-### Community 30 - "config.ts"
-Cohesion: 0.21
-Nodes (19): currentLocale(), FeaturesRoute(), generateMetadata(), currentLocale(), generateMetadata(), PricingRoute(), featuresMetadata(), FeaturesPage() (+11 more)
+### Community 30 - "(campaigns)/layout.tsx"
+Cohesion: 0.17
+Nodes (10): AdminRootLayout(), metadata, CampaignLayout(), metadata, fontVariables, plexArabic, plexSans, AdminBaseProvider() (+2 more)
 
 ### Community 31 - "leads.ts"
-Cohesion: 0.17
-Nodes (21): ALL, cell(), Column, formColumns(), GET(), Lead, LeadsPage(), metadata (+13 more)
+Cohesion: 0.16
+Nodes (22): ALL, cell(), Column, formColumns(), GET(), Lead, LeadsPage(), metadata (+14 more)
 
 ### Community 32 - "invoice-templates-assets.mjs"
 Cohesion: 0.11
 Nodes (19): cacheDir, copyDownload(), hero, hsvToRgb(), imageDir, publicFiles, record, recordInvoice() (+11 more)
 
 ### Community 33 - "Architecture decisions"
-Cohesion: 0.10
-Nodes (19): disallow, named, robots(), generateSitemaps(), 10. Security headers, 11. Testing and quality gates, 12. Hosting and environments, 13. Backend services (blog, admin, leads) (+11 more)
+Cohesion: 0.15
+Nodes (13): 10. Security headers, 11. Testing and quality gates, 12. Hosting and environments, 13. Backend services (blog, admin, leads), 1. Rendering: fully static, revalidated by tag, 2. Locales: Arabic at `/`, English at `/en`, no automatic redirects, 3. URLs: preserve first, restructure later, 6. Fonts: self-hosted through `next/font`, two families at most (+5 more)
 
-### Community 34 - "[slug]/page.tsx"
-Cohesion: 0.29
-Nodes (8): generateMetadata(), generateStaticParams(), Props, resolve(), ToolRoute(), decode(), toolFromSlug(), toolStaticParams()
+### Community 34 - "track"
+Cohesion: 0.26
+Nodes (9): ReturnBar(), ScreenVideo, VideoScreen(), LocaleSwitch(), LocaleSwitchProps, track(), alternateHref(), decodeSegment() (+1 more)
 
 ### Community 35 - "record.ts"
-Cohesion: 0.14
-Nodes (16): flushPostHogLogs(), posthogHost, posthogLogger, posthogLoggerProvider, Visitor, LeadFields, leadForms, LeadContext (+8 more)
+Cohesion: 0.11
+Nodes (22): flushPostHogLogs(), posthogHost, posthogLogger, posthogLoggerProvider, AnalyticsEvent, AnalyticsEvents, Locale, Placed (+14 more)
 
-### Community 37 - "jsonld.ts"
-Cohesion: 0.26
-Nodes (12): planIds, planPeriod, absolute(), articleJsonLd(), contactPageJsonLd(), guideJsonLd(), JsonLd, personNode() (+4 more)
+### Community 37 - "PostPage.tsx"
+Cohesion: 0.25
+Nodes (12): authorPath(), description(), postMetadata(), PostPage(), ar, barePath(), en, postDate() (+4 more)
 
 ### Community 38 - "LeadForm.tsx"
-Cohesion: 0.14
-Nodes (19): check(), Field, GtmFormSuccess, LeadForm(), LeadFormCopy, LeadFormProps, noChange(), OptionalEmail (+11 more)
+Cohesion: 0.18
+Nodes (14): check(), Field, GtmFormSuccess, LeadForm(), LeadFormCopy, noChange(), OptionalEmail, OptionalSector (+6 more)
 
 ### Community 39 - "convert"
 Cohesion: 0.19
@@ -308,33 +295,33 @@ Nodes (20): boldQuestion(), cellJsx(), cleanText(), collectBlocks(), convert(), 
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowImportingTsExtensions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib (+11 more)
 
-### Community 41 - "requireAdmin"
-Cohesion: 0.16
-Nodes (14): PanelLayout(), Shell(), PanelLoading(), PreviewPage(), Loader(), content, inbox, Item (+6 more)
+### Community 41 - "Sidebar.tsx"
+Cohesion: 0.14
+Nodes (15): signOut(), PanelLayout(), Shell(), PanelLoading(), AdminBase, useAdminHref(), Loader(), content (+7 more)
 
 ### Community 42 - "getvom.com on Next.js: design document"
 Cohesion: 0.24
 Nodes (11): Anti-goals (what would make this a failure even if it worked), Constraints, Decisions already made, Delivery shape, getvom.com on Next.js: design document, Goals, Intent, Left to the builder (+3 more)
 
-### Community 43 - "AccountingGuidePage.tsx"
-Cohesion: 0.15
-Nodes (11): AccountingGuidePage(), partTitle(), sectorIcons, TrialCard(), ButtonLinkProps, Variant, accountingGuide, AccountingGuideModule (+3 more)
+### Community 43 - "classify.ts"
+Cohesion: 0.21
+Nodes (10): APP_HOST, ClassifiedLink, classifyLink(), DEMO_HOST, fileName(), hostOf(), OWN_HOSTS, SOCIAL (+2 more)
 
 ### Community 44 - "Accounting Software Pillar Guide (برنامج محاسبة)"
 Cohesion: 0.13
 Nodes (18): Accounting Software Pillar Guide (برنامج محاسبة), closing export (final word s-8), Cloud vs traditional accounting software comparison, Saudi accounting software comparison table (VoM, Qoyod, SkySoft, global, Excel), Microsoft Excel (spreadsheet accounting), Accounting software FAQ (4 visible questions), Free options: Excel templates, VoM free plan, printable invoice templates, Key Points summary (المختصر المفيد) (+10 more)
 
 ### Community 45 - "[...slug]/page.tsx"
-Cohesion: 0.15
-Nodes (15): generateMetadata(), generateStaticParams(), INVOICE_TEMPLATES_SEGMENT, Props, resolve(), splitPage(), accountingGuideMetadata(), categoryMetadata() (+7 more)
+Cohesion: 0.12
+Nodes (20): generateMetadata(), generateStaticParams(), INVOICE_TEMPLATES_SEGMENT, Props, resolve(), splitPage(), currentLocale(), generateMetadata() (+12 more)
 
-### Community 46 - "actions.ts"
-Cohesion: 0.15
-Nodes (21): authorInput, categoryInput, createPost(), deleteDraft(), fail(), optionalId, saveAuthor(), saveCategory() (+13 more)
+### Community 46 - "auth.ts"
+Cohesion: 0.23
+Nodes (11): createPost(), day(), metadata, PostsPage(), currentAdmin, requireAdmin(), ADMIN_BASE, ADMIN_SEGMENT (+3 more)
 
 ### Community 47 - "Phase 1: schema and content layer"
-Cohesion: 0.31
-Nodes (18): resolveBlog(), 4. Content layer: one interface, swappable storage, Phase 1: schema and content layer, asLocale(), asType(), failed(), getAuthor(), getCategory() (+10 more)
+Cohesion: 0.25
+Nodes (20): escape(), GET(), resolveBlog(), 4. Content layer: one interface, swappable storage, Phase 1: schema and content layer, asLocale(), asType(), failed() (+12 more)
 
 ### Community 48 - "Design System: VoM website (getvom.com)"
 Cohesion: 0.10
@@ -346,19 +333,19 @@ Nodes (16): adminPath, csp, MEDIA_URL, mediaRedirects, nextConfig, POSTHOG_CSP, 
 
 ### Community 50 - "forms.ts"
 Cohesion: 0.18
-Nodes (11): clients, DIGITAL_ADS_FORM, gtmFormSuccess, sectorLabel, sectors, saudiMobile, normaliseSaudiMobile(), SAUDI_MOBILE (+3 more)
+Nodes (10): LeadFormProps, LeadForm, LeadFormDefinition, leadForms, saudiMobile, text(), LeadState, messages (+2 more)
 
 ### Community 51 - "VoM Pay result pages: what changed from WordPress"
 Cohesion: 0.25
 Nodes (7): Arabic fixes, Form, Images, Kept byte for byte, Structure, The failure page's error codes, VoM Pay result pages: what changed from WordPress
 
-### Community 52 - "track"
-Cohesion: 0.20
-Nodes (11): ReturnBar(), ExhibitStack(), ExhibitStackProps, ClosingCertificate(), Props, Testimonials(), Props, TestimonialsSlider() (+3 more)
+### Community 52 - "config.ts"
+Cohesion: 0.32
+Nodes (8): Testimonials(), Props, TestimonialsSlider(), HeaderProps, defaultLocale, Locale, DemoTestimonial, demoTestimonials
 
-### Community 53 - "useActiveSection"
-Cohesion: 0.16
-Nodes (13): ThumbIndex(), ThumbTab, MarginContents(), CatalogueRailProps, RailCard, RailTopic, ContentsEntry, TermsContents() (+5 more)
+### Community 53 - "Tracker.tsx"
+Cohesion: 0.60
+Nodes (5): placeOf(), textOf(), Tracker(), trackProps(), trackNamed()
 
 ### Community 54 - "invoice-templates/index.ts"
 Cohesion: 0.23
@@ -369,12 +356,12 @@ Cohesion: 0.14
 Nodes (14): body, cacheDir, done, html, icons, images, mirror, outDir (+6 more)
 
 ### Community 56 - "TermsPage.tsx"
-Cohesion: 0.33
-Nodes (12): currentLocale(), generateMetadata(), TermsRoute(), Clause(), EmailLink(), keepParentheses(), Section(), termsMetadata() (+4 more)
+Cohesion: 0.36
+Nodes (11): currentLocale(), generateMetadata(), TermsRoute(), Clause(), EmailLink(), keepParentheses(), Section(), termsMetadata() (+3 more)
 
-### Community 57 - "signIn"
-Cohesion: 0.53
-Nodes (4): signIn(), LoginPage(), metadata, LoginForm()
+### Community 57 - "actions.ts"
+Cohesion: 0.17
+Nodes (16): authorInput, categoryInput, fail(), optionalId, saveAuthor(), saveCategory(), savePost(), signIn() (+8 more)
 
 ### Community 58 - "Tools: text changes from the WordPress pages"
 Cohesion: 0.18
@@ -397,24 +384,16 @@ Cohesion: 0.33
 Nodes (9): AboutRoute(), currentLocale(), generateMetadata(), aboutMetadata(), AboutPage(), Charter(), Items(), FigureValue() (+1 more)
 
 ### Community 63 - "getDictionary"
-Cohesion: 0.35
-Nodes (8): ContactRoute(), currentLocale(), generateMetadata(), contactMetadata(), ContactPage(), Envelope(), Postmark(), getDictionary()
+Cohesion: 0.23
+Nodes (11): ContactRoute(), currentLocale(), generateMetadata(), contactMetadata(), ContactPage(), Envelope(), Postmark(), SocialLinks() (+3 more)
 
-### Community 64 - "SectorPage.tsx"
-Cohesion: 0.21
-Nodes (15): currentLocale(), generateMetadata(), StudentRoute(), sectorMetadata(), SectorPage(), SectorSeal(), JsonLd(), benefitPhotos (+7 more)
+### Community 64 - "StudentPage.tsx"
+Cohesion: 0.32
+Nodes (9): currentLocale(), generateMetadata(), StudentRoute(), benefitPhotos, indexKey(), studentMetadata(), StudentPage(), TextbookForm() (+1 more)
 
 ### Community 65 - "Next.js 16.4.3 conventions digest"
-Cohesion: 0.25
-Nodes (8): 10. Gotchas when coding from 14/15 memory, 2. Rendering and caching model, 3. Routing for i18n, 5. Redirects at scale, 7. MDX, 8. Config worth enabling, 9. Production checklist and deployment, Next.js 16.4.3 conventions digest
-
-### Community 66 - "features/index.ts"
-Cohesion: 0.22
-Nodes (11): featuresAr, ExhibitId, ModuleId, PartnerId, PhotoId, vomPayPost, featuresEn, FeaturedReport (+3 more)
-
-### Community 67 - "dictionaries/types.ts"
-Cohesion: 0.13
-Nodes (13): en, AboutCharter, AboutIcon, AboutItem, GrowthFeature, GrowthIcon, GrowthPartner, IntegrationCopy (+5 more)
+Cohesion: 0.17
+Nodes (12): robots(), generateSitemaps(), 5. Metadata and structured data: generated from one source, 10. Gotchas when coding from 14/15 memory, 2. Rendering and caching model, 3. Routing for i18n, 4. Metadata and SEO APIs, 5. Redirects at scale (+4 more)
 
 ### Community 68 - "Design directions for the new getvom.com"
 Cohesion: 0.20
@@ -424,12 +403,12 @@ Nodes (10): Brief as agreed with the owner, Colour roles (shared), Design direct
 Cohesion: 0.20
 Nodes (10): 1. Goal and principle, 2. Baseline (crawled 2026-10-25), 3. Keyword clusters and the pages that own them, 4. Information architecture, 5. Technical SEO requirements, 6. Content migration rules, 7. Launch plan, 8. Measurement (+2 more)
 
-### Community 70 - "NotFound.tsx"
-Cohesion: 0.43
-Nodes (5): LangNotFound(), metadata, copy, NotFound(), Ways()
+### Community 70 - "not-found.tsx"
+Cohesion: 0.67
+Nodes (3): LangNotFound(), metadata, NotFound()
 
 ### Community 71 - "features-images.mjs"
-Cohesion: 0.28
+Cohesion: 0.24
 Nodes (8): art(), images, outDir, require, root, screen(), sharp, uploads
 
 ### Community 72 - "Blog backend (Supabase + R2), admin editor, lead plumbing, WordPress import"
@@ -465,12 +444,8 @@ Cohesion: 0.40
 Nodes (5): Character and spelling fixes, Digital-ads landing page: what changed from WordPress, Form, Images, Kept byte for byte
 
 ### Community 80 - "content/zatca-phase-2.ts"
-Cohesion: 0.17
-Nodes (9): 1. Breaking changes and renames in v16 (vs 13 to 15), AccentHeading, icon(), PageImage, zatcaPhase2, config, configured, proxy() (+1 more)
-
-### Community 81 - "tools/index.ts"
-Cohesion: 0.20
-Nodes (9): csv, toolRows, ToolId, toolIds, ToolCover, toolCovers, MdxBody, ToolOutline (+1 more)
+Cohesion: 0.25
+Nodes (6): 1. Breaking changes and renames in v16 (vs 13 to 15), AccentHeading, icon(), PageImage, zatcaPhase2, proxy()
 
 ### Community 82 - "ZATCA Phase 2 page (English): what changed from WordPress"
 Cohesion: 0.40
@@ -492,65 +467,29 @@ Nodes (4): Arabic, English, Left unchanged, for the owner to decide, Terms and c
 Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
-### Community 93 - "Icon"
-Cohesion: 0.22
-Nodes (11): Features(), Glimpse(), IconName, samples, Glyph(), Reports(), TextbookSpread(), Icon() (+3 more)
-
-### Community 94 - "features/assets.ts"
-Cohesion: 0.14
-Nodes (12): apiDocs, exhibitSizes, moduleExhibits, moduleIds, modulePhotos, partnerIds, partnerMarks, partnerPaths (+4 more)
-
-### Community 95 - "Breadcrumb"
-Cohesion: 0.32
-Nodes (9): englishOnly(), generateMetadata(), ZatcaPhase2Route(), Breadcrumb(), Crumb, Accent(), Icon(), zatcaPhase2Metadata() (+1 more)
+### Community 95 - "ZatcaPhase2Page.tsx"
+Cohesion: 0.24
+Nodes (12): englishOnly(), generateMetadata(), ZatcaPhase2Route(), half, Row(), rows, TopClients(), Accent() (+4 more)
 
 ### Community 96 - "isLocale"
-Cohesion: 0.32
-Nodes (10): BlogRoute(), generateMetadata(), locale(), BlogPageRoute(), generateMetadata(), generateStaticParams(), Props, resolve() (+2 more)
+Cohesion: 0.22
+Nodes (14): BlogRoute(), generateMetadata(), locale(), BlogPageRoute(), generateMetadata(), generateStaticParams(), Props, resolve() (+6 more)
 
-### Community 97 - "digital-ads-2023-landing-page/page.tsx"
-Cohesion: 0.24
-Nodes (7): DigitalAds2023Page(), metadata, DigitalAds2023(), CampaignImage, digitalAds2023, Testimonial, homeClients
-
-### Community 98 - "analytics/server.ts"
-Cohesion: 0.31
-Nodes (7): AnalyticsEvent, AnalyticsEvents, Locale, Placed, captureServer(), getClient(), posthog-node
-
-### Community 99 - "next"
-Cohesion: 0.39
-Nodes (4): Resources(), fmt(), VatCalculator(), next
+### Community 97 - "DigitalAds2023.tsx"
+Cohesion: 0.16
+Nodes (15): DigitalAds2023Page(), metadata, DigitalAds2023(), CampaignImage, digitalAds2023, Testimonial, ClientKey, clients (+7 more)
 
 ### Community 100 - "devDependencies"
 Cohesion: 0.18
 Nodes (11): devDependencies, eslint, eslint-config-next, node-html-parser, tailwindcss, @tailwindcss/turbopack, @types/mdx, @types/node (+3 more)
 
-### Community 101 - "Integrations.tsx"
-Cohesion: 0.48
-Nodes (5): Integrations(), ExplorerItem, IntegrationsExplorer(), Logo(), Props
+### Community 106 - "next"
+Cohesion: 0.14
+Nodes (14): disallow, named, sitemapIds, channels, cellOn(), finder(), FooterLink(), socials (+6 more)
 
-### Community 102 - "TopClients.tsx"
-Cohesion: 0.47
-Nodes (5): half, Row(), rows, TopClients(), tileLogo()
-
-### Community 103 - "breadcrumbJsonLd"
-Cohesion: 0.40
-Nodes (7): currentLocale(), generateMetadata(), GrowthRoute(), GrowthDisc(), growthMetadata(), GrowthPage(), breadcrumbJsonLd()
-
-### Community 104 - "templates/page.tsx"
-Cohesion: 0.70
-Nodes (4): currentLocale(), generateMetadata(), TemplatesRoute(), templatesIndexMetadata()
-
-### Community 105 - "Numbers.tsx"
-Cohesion: 0.60
-Nodes (3): Numbers(), CountUp(), CountUpProps
-
-### Community 106 - "NavLoader.tsx"
-Cohesion: 0.50
-Nodes (4): cellOn(), finder(), NAVIGATION_START, qrPath
-
-### Community 108 - "ref_node_url"
-Cohesion: 0.25
-Nodes (5): png(), require, root, sharp, sizes
+### Community 108 - "ref_node_fs"
+Cohesion: 0.16
+Nodes (8): csv, toolRows, toolIds, png(), require, root, sharp, sizes
 
 ## Ambiguous Edges - Review These
 - `Zakat base calculator article (/tools/حاسبة-الوعاء-الزكوي/)` → `Accounting by business sector index (15 Sector entries)`  [AMBIGUOUS]
@@ -559,23 +498,23 @@ Nodes (5): png(), require, root, sharp, sizes
 ## Knowledge Gaps
 - **26 isolated node(s):** `@mdx-js/loader`, `@mdx-js/react`, `@tiptap/pm`, `react-dom`, `remark-gfm` (+21 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 747 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `next` connect `next` to `Locale`, `calculators.tsx`, `react`, `[lang]/page.tsx`, `InvoiceTemplatesPage.tsx`, `ToolPage.tsx`, `[lang]/layout.tsx`, `IntegrationPage.tsx`, `CompareTable.tsx`, `import-einvoicing.mjs`, `FeaturesPage.tsx`, `routes.ts`, `GuidePage.tsx`, `PayResult.tsx`, `PostEditor.tsx`, `supabase/types.ts`, `package.json`, `BlogIndex.tsx`, `config.ts`, `leads.ts`, `invoice-templates-assets.mjs`, `Architecture decisions`, `[slug]/page.tsx`, `LeadForm.tsx`, `requireAdmin`, `AccountingGuidePage.tsx`, `[...slug]/page.tsx`, `actions.ts`, `next.config.ts`, `forms.ts`, `track`, `useActiveSection`, `TermsPage.tsx`, `signIn`, `AboutPage.tsx`, `getDictionary`, `SectorPage.tsx`, `NotFound.tsx`, `content/zatca-phase-2.ts`, `tools/index.ts`, `Icon`, `Breadcrumb`, `isLocale`, `digital-ads-2023-landing-page/page.tsx`, `Integrations.tsx`, `breadcrumbJsonLd`, `templates/page.tsx`, `NavLoader.tsx`?**
-  _High betweenness centrality (0.254) - this node is a cross-community bridge._
+- **Why does `next` connect `next` to `posts/index.ts`, `calculators.tsx`, `Header.tsx`, `Icon`, `jsonld.ts`, `ToolPage.tsx`, `[lang]/layout.tsx`, `IntegrationPage.tsx`, `CompareTable.tsx`, `import-einvoicing.mjs`, `FeaturesPage.tsx`, `routes.ts`, `GuidePage.tsx`, `PayResult.tsx`, `PostEditor.tsx`, `supabase/types.ts`, `package.json`, `BlogIndex.tsx`, `(campaigns)/layout.tsx`, `leads.ts`, `invoice-templates-assets.mjs`, `track`, `PostPage.tsx`, `Sidebar.tsx`, `[...slug]/page.tsx`, `auth.ts`, `next.config.ts`, `forms.ts`, `config.ts`, `TermsPage.tsx`, `actions.ts`, `AboutPage.tsx`, `getDictionary`, `StudentPage.tsx`, `not-found.tsx`, `ZatcaPhase2Page.tsx`, `isLocale`, `DigitalAds2023.tsx`?**
+  _High betweenness centrality (0.250) - this node is a cross-community bridge._
 - **What connects `@mdx-js/loader`, `@mdx-js/react`, `@tiptap/pm` to the rest of the system?**
   _26 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Locale` be split into smaller, more focused modules?**
-  _Cohesion score 0.11051693404634581 - nodes in this community are weakly interconnected._
-- **Why does `Components` connect `Components` to `Design System: VoM website (getvom.com)`, `useActiveSection`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
 - **Should `calculators.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06891385767790262 - nodes in this community are weakly interconnected._
-- **Why does `ButtonLink()` connect `config.ts` to `react`, `[lang]/page.tsx`, `InvoiceTemplatesPage.tsx`, `IntegrationPage.tsx`, `CompareTable.tsx`, `import-einvoicing.mjs`, `FeaturesPage.tsx`, `GuidePage.tsx`, `PayResult.tsx`, `BlogIndex.tsx`, `AccountingGuidePage.tsx`, `[...slug]/page.tsx`, `Components`, `AboutPage.tsx`, `getDictionary`, `SectorPage.tsx`, `Icon`, `Breadcrumb`, `Integrations.tsx`, `breadcrumbJsonLd`?**
-  _High betweenness centrality (0.123) - this node is a cross-community bridge._
+  _Cohesion score 0.07359781121751026 - nodes in this community are weakly interconnected._
+- **Why does `Components` connect `Components` to `Design System: VoM website (getvom.com)`, `GuidePage.tsx`?**
+  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+- **Should `Icon` be split into smaller, more focused modules?**
+  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+- **Why does `ButtonLink()` connect `Icon` to `StudentPage.tsx`, `Header.tsx`, `jsonld.ts`, `PostPage.tsx`, `[lang]/layout.tsx`, `IntegrationPage.tsx`, `CompareTable.tsx`, `import-einvoicing.mjs`, `FeaturesPage.tsx`, `GuidePage.tsx`, `PayResult.tsx`, `ZatcaPhase2Page.tsx`, `Components`, `BlogIndex.tsx`, `AboutPage.tsx`, `getDictionary`?**
+  _High betweenness centrality (0.122) - this node is a cross-community bridge._
 
 ### Low-confidence Hints
 _AMBIGUOUS edges — the extractor was unsure. Verify before acting on these._

@@ -1410,10 +1410,10 @@
     "semantic_hash": "c838bc1148bcf0d9fccf55779c7d3e06"
   },
   "next.config.ts": {
-    "mtime": 1794928287.7084737,
-    "seen": 1795088369.350858,
-    "ast_hash": "9939e8cdfd87de1e338603b707dd4cda",
-    "semantic_hash": "9939e8cdfd87de1e338603b707dd4cda"
+    "mtime": 1795098622.8966198,
+    "seen": 1795098700.184789,
+    "ast_hash": "debef608d5c78e7a405c6f59c18eddbd",
+    "semantic_hash": ""
   },
   "package.json": {
     "mtime": 1794928914.9361758,

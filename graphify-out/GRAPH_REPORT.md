@@ -1,7 +1,7 @@
 # Graph Report - vom-website  (2026-11-19)
 
 ## Corpus Check
-- 308 files · ~261,691 words
+- 308 files · ~262,167 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 8 file(s) not represented in the graph (top: (none) 2, .css 2, .csv 2)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1a2da0e2`
+- Built from commit: `fc2830f1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -504,7 +504,7 @@ Nodes (8): csv, toolRows, toolIds, png(), require, root, sharp, sizes
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `next` to `posts/index.ts`, `calculators.tsx`, `Header.tsx`, `Icon`, `jsonld.ts`, `ToolPage.tsx`, `[lang]/layout.tsx`, `IntegrationPage.tsx`, `CompareTable.tsx`, `import-einvoicing.mjs`, `FeaturesPage.tsx`, `routes.ts`, `GuidePage.tsx`, `PayResult.tsx`, `PostEditor.tsx`, `supabase/types.ts`, `package.json`, `BlogIndex.tsx`, `(campaigns)/layout.tsx`, `leads.ts`, `invoice-templates-assets.mjs`, `track`, `PostPage.tsx`, `Sidebar.tsx`, `[...slug]/page.tsx`, `auth.ts`, `next.config.ts`, `forms.ts`, `config.ts`, `TermsPage.tsx`, `actions.ts`, `AboutPage.tsx`, `getDictionary`, `StudentPage.tsx`, `not-found.tsx`, `ZatcaPhase2Page.tsx`, `isLocale`, `DigitalAds2023.tsx`?**
-  _High betweenness centrality (0.250) - this node is a cross-community bridge._
+  _High betweenness centrality (0.258) - this node is a cross-community bridge._
 - **What connects `@mdx-js/loader`, `@mdx-js/react`, `@tiptap/pm` to the rest of the system?**
   _26 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `calculators.tsx` be split into smaller, more focused modules?**
@@ -514,7 +514,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Icon` be split into smaller, more focused modules?**
   _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
 - **Why does `ButtonLink()` connect `Icon` to `StudentPage.tsx`, `Header.tsx`, `jsonld.ts`, `PostPage.tsx`, `[lang]/layout.tsx`, `IntegrationPage.tsx`, `CompareTable.tsx`, `import-einvoicing.mjs`, `FeaturesPage.tsx`, `GuidePage.tsx`, `PayResult.tsx`, `ZatcaPhase2Page.tsx`, `Components`, `BlogIndex.tsx`, `AboutPage.tsx`, `getDictionary`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+  _High betweenness centrality (0.121) - this node is a cross-community bridge._
 
 ### Low-confidence Hints
 _AMBIGUOUS edges — the extractor was unsure. Verify before acting on these._

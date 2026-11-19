@@ -16554,7 +16554,7 @@
       "file_type": "code",
       "norm_label": "withmdx",
       "source_file": "next.config.ts",
-      "source_location": "L421"
+      "source_location": "L427"
     },
     {
       "id": "ref_next_mdx",
@@ -77344,7 +77344,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "next.config.ts",
-      "source_location": "L421",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -84271,5 +84271,5 @@
       "source_file": "content/tools/discount.lead.mdx"
     }
   ],
-  "built_at_commit": "1a2da0e2dd6f01a9f1c84dcead8d00fa3163c33e"
+  "built_at_commit": "fc2830f14166daf5acd0b3bedaea0181e4d844d1"
 }

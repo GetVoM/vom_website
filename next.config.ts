@@ -217,6 +217,12 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   experimental: {
     globalNotFound: true,
+    // Vercel restores .next/cache before every build, and since 16.3 Turbopack keeps
+    // its build work there. On 2026-11-19 a restored cache fed Tailwind an old copy of
+    // app/globals.css: the deployment shipped the previous font stack and component
+    // styles alongside the new pages (Tailwind's class scan, which reads the disk
+    // itself, was current). Every build starts cold so the CSS always matches the commit.
+    turbopackFileSystemCacheForBuild: false,
     // The router predicts a page's route from patterns it has already seen. Having
     // seen /en/ as [lang], it reads an Arabic link such as /vom-zid/ as [lang]=vom-zid;
     // the server answers for /ar/vom-zid, and in 16.4.3 the router re-requested that
