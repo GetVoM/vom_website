@@ -80,7 +80,7 @@ export function IntegrationPage({ id, locale }: { id: IntegrationId; locale: Loc
               <ButtonLink href={site.signup[locale]} variant="primary" arrow>
                 {s.register}
               </ButtonLink>
-              <ButtonLink href={assets.videos.length > 0 ? "#watch" : "#sync"} variant="ghost">
+              <ButtonLink href={assets.videos.length > 0 ? "#watch" : "#sync"} variant="secondary">
                 {c.watch}
               </ButtonLink>
             </div>

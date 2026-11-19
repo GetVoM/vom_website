@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import { localePath } from "@/lib/i18n/config";
-import { monthlyPrice, planIds, planNames } from "@/lib/content/pricing/plans";
+import { planIds, planNames, planPeriod, planPrice } from "@/lib/content/pricing/plans";
 import { site } from "./site";
 
 type JsonLd = Record<string, unknown>;
@@ -234,7 +234,7 @@ export function webApplicationJsonLd(app: { path: string; anchor: string; name: 
     url: `${url}#${app.anchor}`,
     applicationCategory: "FinanceApplication",
     operatingSystem: "Any",
-    browserRequirements: "Requires JavaScript.",
+    browserRequirements: "Requires JavaScript",
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "SAR" },
     inLanguage: "ar",
@@ -426,10 +426,12 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
     url: `${site.url}${localePath(locale, "/")}`,
     installUrl: site.appStore,
     publisher: { "@id": `${site.url}/#organization` },
-    // One Offer per plan with a published price, monthly and before VAT. Flex's
-    // is its starting price; Business is quoted by sales, so it has no Offer.
+    // One Offer per plan with a published price, before VAT, for the period it is
+    // billed: Flex a month (its starting price), Advanced and Unlimited a year.
+    // Business is quoted by sales, so it has no Offer.
     offers: planIds.flatMap((id) => {
-      const price = monthlyPrice[id];
+      const price = planPrice[id];
+      const monthly = planPeriod[id] === "monthly";
       return price === null
         ? []
         : [
@@ -438,14 +440,14 @@ export function softwareJsonLd(locale: Locale, description: string): JsonLd {
               name: planNames[id][locale],
               price,
               priceCurrency: "SAR",
-              // Says what the bare number cannot: a month's price, before VAT, and for Flex only where it starts.
+              // Says what the bare number cannot: the period it buys, before VAT, and for Flex only where it starts.
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
                 price,
                 ...(id === "flex" ? { minPrice: price } : {}),
                 priceCurrency: "SAR",
-                billingDuration: "P1M",
-                unitCode: "MON",
+                billingDuration: monthly ? "P1M" : "P1Y",
+                unitCode: monthly ? "MON" : "ANN",
                 valueAddedTaxIncluded: false,
               },
               availability: "https://schema.org/InStock",

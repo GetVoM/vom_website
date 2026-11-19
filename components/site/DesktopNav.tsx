@@ -1,33 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import {
-  useEffect,
-  useId,
-  useRef,
-  useState,
-  type CSSProperties,
-  type FocusEvent,
-  type PointerEvent as ReactPointerEvent,
-} from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties, type FocusEvent } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { track } from "@/lib/analytics/track";
 import { NavAnchor } from "./NavAnchor";
 import type { MenuId, NavItem, NavMenus } from "./navTypes";
 
-/** A pointer that rests this long on a trigger opens its menu. */
-const HOVER_OPEN_MS = 80;
-/** Leaving the header and its panel closes the menu after this grace. */
-const HOVER_CLOSE_MS = 220;
 /** A closing panel keeps off its `hidden` attribute this long, for the CSS fade. */
 const EXIT_MS = 200;
 
 /**
  * The desktop links and the two mega menus. Each menu is a disclosure: a real
- * button with `aria-expanded` opens a panel under the header. A mouse opens it by
- * resting on the button; a click, Enter or Space toggles it; Escape closes it and
- * returns focus to its button; leaving the header, clicking elsewhere or tabbing
- * out closes it. The panels are in the HTML when closed, so their links are crawled.
+ * button with `aria-expanded` opens a panel under the header. Only a click, Enter
+ * or Space opens it, never hovering (owner, 2026-11-19), and the same again closes
+ * it. Escape closes it and returns focus to its button; clicking elsewhere, tabbing
+ * out or following one of its links closes it too. The panels are in the HTML when
+ * closed, so their links are crawled.
  * A panel drops in and fades out; moving straight from one menu to the other swaps
  * them at once, so two panels never cross-fade over each other. A closed panel
  * always carries `hidden`, so it stays shut even without the stylesheet; it drops
@@ -48,10 +37,6 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
     }));
   const root = useRef<HTMLDivElement>(null);
   const triggers = useRef<Partial<Record<MenuId, HTMLButtonElement | null>>>({});
-  const timer = useRef<number | undefined>(undefined);
-  // Just after a hover opened the menu, the click that usually follows keeps it open.
-  const justHovered = useRef(false);
-  const hoverGrace = useRef<number | undefined>(undefined);
   const uid = useId();
   const panelId = (id: MenuId) => `${uid}-${id}`;
   const close = () => go(null);
@@ -81,36 +66,9 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
     return () => window.clearTimeout(done);
   }, [menu.closing]);
 
-  useEffect(
-    () => () => {
-      window.clearTimeout(timer.current);
-      window.clearTimeout(hoverGrace.current);
-    },
-    [],
-  );
   const shut = (id: MenuId) => open !== id && menu.closing !== id;
 
-  const schedule = (next: MenuId | null, delay: number) => {
-    window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(() => {
-      if (next) {
-        justHovered.current = true;
-        window.clearTimeout(hoverGrace.current);
-        hoverGrace.current = window.setTimeout(() => {
-          justHovered.current = false;
-        }, 600);
-      }
-      go(next);
-    }, delay);
-  };
-  const isMouse = (event: ReactPointerEvent) => event.pointerType === "mouse";
   const toggle = (id: MenuId) => {
-    window.clearTimeout(timer.current);
-    if (open === id && justHovered.current) {
-      justHovered.current = false;
-      return;
-    }
-    // Counted only when asked for (a click, Enter or Space), not when the pointer passes over.
     if (open !== id) track("nav_menu_opened", { menu: id });
     go(open === id ? null : id);
   };
@@ -129,11 +87,9 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
       ref={root}
       className="nav-root hidden lg:block"
       data-instant={menu.instant || undefined}
-      onPointerEnter={(event) => isMouse(event) && window.clearTimeout(timer.current)}
-      onPointerLeave={(event) => isMouse(event) && open && schedule(null, HOVER_CLOSE_MS)}
       onBlur={onBlur}
     >
-      <nav aria-label={label} className="flex items-center gap-7 text-[0.9375rem]">
+      <nav aria-label={label} className="flex items-center gap-5 text-[0.9375rem] xl:gap-7">
         {items.map((item) =>
           item.kind === "link" ? (
             <Link
@@ -142,7 +98,6 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
               className="link-nav"
               data-track="nav_link_clicked"
               data-track-group="top"
-              onPointerEnter={(event) => isMouse(event) && open && schedule(null, 150)}
             >
               {item.label}
             </Link>
@@ -156,7 +111,6 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
               className="nav-trigger"
               aria-expanded={open === item.id}
               aria-controls={panelId(item.id)}
-              onPointerEnter={(event) => isMouse(event) && schedule(item.id, open ? 0 : HOVER_OPEN_MS)}
               onClick={() => toggle(item.id)}
             >
               {menus[item.id].label}

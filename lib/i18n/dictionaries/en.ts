@@ -5,7 +5,7 @@ export const en: Dictionary = {
     name: "VoM",
     tagline: "The easiest accounting software in Saudi Arabia",
     description:
-      "VoM is a Saudi cloud accounting platform approved by the Zakat, Tax and Customs Authority. It issues ZATCA Phase 2 e-invoices and gives small and mid-sized businesses live financial reports.",
+      "VoM is a Saudi cloud accounting platform approved by the Zakat, Tax and Customs Authority. It issues ZATCA Phase 2 e-invoices and gives small and mid-sized businesses live financial reports",
   },
   nav: {
     home: "Home",
@@ -43,12 +43,12 @@ export const en: Dictionary = {
     close: "Close",
   },
   hero: {
-    tierLight: "Your books, kept.",
-    tierBold: "Your invoices, approved by ZATCA.",
-    body: "VoM issues your e-invoices with the approved QR code, reports them to the Zakat, Tax and Customs Authority the moment they are created, and keeps your financial reports current. No accountant required, no complexity.",
+    tierLight: "Your books, kept",
+    tierBold: "Your invoices, approved by ZATCA",
+    body: "VoM issues your e-invoices with the approved QR code, reports them to the Zakat, Tax and Customs Authority the moment they are created, and keeps your financial reports current. No accountant required, no complexity",
     primary: "Start your free trial",
     secondary: "Book a demo",
-    proof: "A 7-day trial with no credit card. More than 5,000 Saudi businesses run on VoM.",
+    proof: "A 7-day trial with no credit card. More than 5,000 Saudi businesses run on VoM",
     demoLabel: "Sample data",
   },
   invoice: {
@@ -87,26 +87,26 @@ export const en: Dictionary = {
     netValue: "23,480",
   },
   month: {
-    heading: "Every invoice in its place, and you always know where you are in the month.",
+    heading: "Every invoice in its place, and you always know where you are in the month",
     legendOn: "Day with reported invoices",
     legendToday: "Today",
     label: "October 2026",
   },
   steps: {
-    heading: "From sale to report in three steps, with the Authority receiving its copy on the way.",
-    body: "Every transaction in VoM takes this path. You only write the first line.",
+    heading: "From sale to report in three steps, with the Authority receiving its copy on the way",
+    body: "Every transaction in VoM takes this path. You only write the first line",
     items: [
       {
         title: "Record the sale",
-        body: "Record it from your phone or browser, and sales from Foodics, Zid and Marn reach your books on their own.",
+        body: "Record it from your phone or browser, and sales from Foodics, Zid and Marn reach your books on their own",
       },
       {
         title: "The e-invoice is issued",
-        body: "With the approved QR code: tax invoices are cleared by the Fatoora platform and simplified ones reported to it, the moment you save.",
+        body: "With the approved QR code: tax invoices are cleared by the Fatoora platform and simplified ones reported to it, the moment you save",
       },
       {
         title: "Your report updates",
-        body: "Income statement, balance sheet and VAT report, current to the minute, without opening a single spreadsheet.",
+        body: "Income statement, balance sheet and VAT report, current to the minute, without opening a single spreadsheet",
       },
     ],
     panels: {
@@ -116,13 +116,13 @@ export const en: Dictionary = {
     },
   },
   zatca: {
-    heading: "Ready for Phase 2 of e-invoicing.",
-    body: "VoM is integrated directly with the Fatoora platform. Every invoice it issues carries the approved QR code and is reported or cleared according to its type, with no step from you. If ZATCA rejects an invoice, VoM explains why and how to fix it.",
+    heading: "Ready for Phase 2 of e-invoicing",
+    body: "VoM is integrated directly with the Fatoora platform. Every invoice it issues carries the approved QR code and is reported or cleared according to its type, with no step from you. If ZATCA rejects an invoice, VoM explains why and how to fix it",
     cta: "Phase 2 guide",
     types: [
-      { title: "Tax invoice", body: "Cleared by the Authority before you share it with the customer." },
-      { title: "Simplified invoice", body: "Reported automatically when you save, well inside the 24-hour window, with the QR code on it from the moment of issue." },
-      { title: "Credit and debit notes", body: "For returns and corrections, linked to the original invoice." },
+      { title: "Tax invoice", body: "Cleared by the Authority before you share it with the customer" },
+      { title: "Simplified invoice", body: "Reported automatically when you save, well inside the 24-hour window, with the QR code on it from the moment of issue" },
+      { title: "Credit and debit notes", body: "For returns and corrections, linked to the original invoice" },
     ],
     timeline: [
       { date: "4 December 2021", label: "Phase 1: invoices issued electronically" },
@@ -131,7 +131,7 @@ export const en: Dictionary = {
     ],
   },
   sectors: {
-    heading: "Fifteen industries, each with a page on how VoM works there.",
+    heading: "Fifteen industries, each with a page on how VoM works there",
     all: "All industries",
     items: [
       { id: "restaurants", name: "Restaurants and cafés", icon: "utensils" },
@@ -152,7 +152,7 @@ export const en: Dictionary = {
     ],
   },
   resources: {
-    heading: "Guides and tools written by accountants and reviewed by a chartered accountant.",
+    heading: "Guides and tools written by accountants and reviewed by a chartered accountant",
     all: "All articles and tools",
     guide: "Guide",
     tool: "Tool",
@@ -176,33 +176,33 @@ export const en: Dictionary = {
     more: "All calculators",
   },
   faq: {
-    heading: "Questions business owners ask before they start.",
+    heading: "Questions business owners ask before they start",
     items: [
       {
         q: "What is VoM?",
-        a: "VoM is a Saudi cloud accounting platform for small and mid-sized businesses. It issues e-invoices approved by the Zakat, Tax and Customs Authority, manages sales, purchases, expenses, inventory and assets, and gives you financial reports in real time.",
+        a: "VoM is a Saudi cloud accounting platform for small and mid-sized businesses. It issues e-invoices approved by the Zakat, Tax and Customs Authority, manages sales, purchases, expenses, inventory and assets, and gives you financial reports in real time",
       },
       {
         q: "Is VoM approved by ZATCA?",
-        a: "Yes. VoM is integrated directly with the Fatoora platform for Phase 2 of e-invoicing. It issues tax and simplified invoices with the approved QR code and reports or clears them automatically according to their type.",
+        a: "Yes. VoM is integrated directly with the Fatoora platform for Phase 2 of e-invoicing. It issues tax and simplified invoices with the approved QR code and reports or clears them automatically according to their type",
       },
       {
         q: "Do I need an accountant to use it?",
-        a: "No. VoM is designed for the business owner: a ready chart of accounts, entries posted automatically and readable reports. If you do have an accountant, they work on the same account with their own permissions.",
+        a: "No. VoM is designed for the business owner: a ready chart of accounts, entries posted automatically and readable reports. If you do have an accountant, they work on the same account with their own permissions",
       },
       {
         q: "How much does VoM cost?",
-        a: "The Advanced plan starts at 270 SAR per month and the Unlimited plan at 350 SAR per month; for the Business plan, contact sales. Annual billing gives you two months free, and the free trial needs no credit card.",
+        a: "The Advanced plan starts at 270 SAR per month and the Unlimited plan at 350 SAR per month; for the Business plan, contact sales. Annual billing gives you two months free, and the free trial needs no credit card",
       },
       {
         q: "Does VoM work on mobile?",
-        a: "Yes. Manage your books from the browser on any device and from the VoM app on iOS, with sales posted automatically from Foodics, Zid and Marn.",
+        a: "Yes. Manage your books from the browser on any device and from the VoM app on iOS, with sales posted automatically from Foodics, Zid and Marn",
       },
     ],
   },
   closing: {
-    heading: "Issue your business's certificate and start free.",
-    body: "Type your business name to see its certificate, then start your free trial. No credit card.",
+    heading: "Issue your business's certificate and start free",
+    body: "Type your business name to see its certificate, then start your free trial. No credit card",
     inputLabel: "Your business name",
     placeholder: "Example: Al Diwaniya Restaurant",
     cta: "Issue the certificate and start free",
@@ -211,7 +211,7 @@ export const en: Dictionary = {
     defaultName: "Your business",
   },
   footer: {
-    about: "Saudi cloud accounting software, approved by the Zakat, Tax and Customs Authority. Since 2021.",
+    about: "Saudi cloud accounting software, approved by the Zakat, Tax and Customs Authority. Since 2021",
     product: "Product",
     support: "Resources",
     company: "VoM",
@@ -240,8 +240,8 @@ export const en: Dictionary = {
     appStore: "Download on the App Store",
   },
   numbers: {
-    heading: "VoM in numbers, as recorded.",
-    body: "Saudi businesses issue their invoices from VoM every day, and the Authority receives them at the same moment.",
+    heading: "VoM in numbers, as recorded",
+    body: "Saudi businesses issue their invoices from VoM every day, and the Authority receives them at the same moment",
     asOf: "As of October 2026",
     items: [
       { value: 5000, suffix: "+", unit: "", label: "businesses run on VoM" },
@@ -250,20 +250,20 @@ export const en: Dictionary = {
     ],
   },
   clients: {
-    heading: "Trusted by business owners in every sector.",
-    body: "From a single-branch restaurant to a law office with dozens of clients.",
+    heading: "Trusted by business owners in every sector",
+    body: "From a single-branch restaurant to a law office with dozens of clients",
     count: "More than 5,000 businesses",
   },
   testimonials: {
-    heading: "What daily users say.",
-    body: "Business owners and accountants who run their books on VoM.",
+    heading: "What daily users say",
+    body: "Business owners and accountants who run their books on VoM",
     prev: "Previous",
     next: "Next",
     slideOf: "of",
   },
   integrationsSection: {
-    heading: "Integrates with the systems you already run.",
-    body: "Sales from your systems flow into VoM on their own and post as entries to your accounts and branches, so your reports stay current.",
+    heading: "Integrates with the systems you already run",
+    body: "Sales from your systems flow into VoM on their own and post as entries to your accounts and branches, so your reports stay current",
     live: "Live",
     docs: "Developer docs",
     details: {
@@ -273,38 +273,38 @@ export const en: Dictionary = {
     },
   },
   reports: {
-    heading: "17 ready reports, current to the minute.",
-    body: "No month-end wait and no spreadsheet to build. Every report your accountant, auditor or bank asks for is here, read from the same entries.",
+    heading: "17 ready reports, current to the minute",
+    body: "No month-end wait and no spreadsheet to build. Every report your accountant, auditor or bank asks for is here, read from the same entries",
     countLabel: "reports",
     live: "Live now",
     items: ["VAT report", "Income statement", "Balance sheet", "Cash flow (direct)", "Cash flow (indirect)", "Trial balance", "General ledger", "Account statement", "Account summary", "Customer ageing", "Sales", "Purchases", "Sales VAT", "Purchases VAT", "Cost centres", "Journal entries", "Fixed assets"],
     cta: "All reports",
   },
   features: {
-    heading: "Everything your business needs, in one program.",
-    body: "From the first quote to the last closing entry. These are the highlights; the full list is longer.",
+    heading: "Everything your business needs, in one program",
+    body: "From the first quote to the last closing entry. These are the highlights; the full list is longer",
     cta: "All features",
     items: [
-      { title: "Sales and e-invoicing", body: "Quotes that turn into invoices, tax and simplified invoices with QR codes, credit and debit notes, recurring invoices, and collection tracking.", icon: "receipt" },
-      { title: "Purchases and expenses", body: "Purchase orders that become bills, returns and payment vouchers, with partial payments tracked for every supplier.", icon: "wallet" },
-      { title: "Inventory", body: "Unlimited products and services, several warehouses with transfers between them, and a minimum-stock alert before you run out.", icon: "box" },
-      { title: "Accounting and assets", body: "A ready chart of accounts, entries with attached documents, bank statement matching, cost centres, and automatic depreciation.", icon: "layers" },
-      { title: "People and payroll", body: "Employee files, payroll runs, and payroll entries in one click.", icon: "users" },
-      { title: "Reports", body: "17 reports, compared across periods, exported to PDF and Excel, shared with your accountant on read-only access.", icon: "chart" },
-      { title: "Branches and permissions", body: "Several branches in one account, permissions for every screen limited by branch or warehouse, and a log of every change and who made it.", icon: "building" },
-      { title: "Payment links and collection", body: "A VoM Pay link on the invoice for mada, Visa, Mastercard and Apple Pay, the receipt and its entry created on payment, and overdue invoices in front of you on the dashboard.", icon: "card" },
+      { title: "Sales and e-invoicing", body: "Quotes that turn into invoices, tax and simplified invoices with QR codes, credit and debit notes, recurring invoices, and collection tracking", icon: "receipt" },
+      { title: "Purchases and expenses", body: "Purchase orders that become bills, returns and payment vouchers, with partial payments tracked for every supplier", icon: "wallet" },
+      { title: "Inventory", body: "Unlimited products and services, several warehouses with transfers between them, and a minimum-stock alert before you run out", icon: "box" },
+      { title: "Accounting and assets", body: "A ready chart of accounts, entries with attached documents, bank statement matching, cost centres, and automatic depreciation", icon: "layers" },
+      { title: "People and payroll", body: "Employee files, payroll runs, and payroll entries in one click", icon: "users" },
+      { title: "Reports", body: "17 reports, compared across periods, exported to PDF and Excel, shared with your accountant on read-only access", icon: "chart" },
+      { title: "Branches and permissions", body: "Several branches in one account, permissions for every screen limited by branch or warehouse, and a log of every change and who made it", icon: "building" },
+      { title: "Payment links and collection", body: "A VoM Pay link on the invoice for mada, Visa, Mastercard and Apple Pay, the receipt and its entry created on payment, and overdue invoices in front of you on the dashboard", icon: "card" },
     ],
   },
   apps: {
-    heading: "Your books in your pocket, on iOS.",
-    body: "Record the sale on the shop floor, issue the e-invoice with its QR code, and send the payment link before the customer leaves. Everything you see in the browser, you see on your phone.",
+    heading: "Your books in your pocket, on iOS",
+    body: "Record the sale on the shop floor, issue the e-invoice with its QR code, and send the payment link before the customer leaves. Everything you see in the browser, you see on your phone",
     ios: "Download on the App Store",
     features: ["Issue invoices and share them on WhatsApp", "The dashboard, with your sales and what you are owed", "Live reports wherever you are", "A receipt created for you when a customer pays by VoM Pay"],
     screen: { title: "New invoice", subtitle: "Al Diwaniya Restaurant", amount: "263.35", button: "Issue and send", status: "Reported to ZATCA" },
   },
   contact: {
     heading: "Contact Us",
-    intro: "Thank you for your interest in VoM. We value your comments, questions and requests, so please get in touch using the details here.",
+    intro: "Thank you for your interest in VoM. We value your comments, questions and requests, so please get in touch using the details here",
     whatsappCta: "Message us on WhatsApp",
     emailCta: "Send an email",
     info: {
@@ -327,35 +327,35 @@ export const en: Dictionary = {
     },
     question: {
       heading: "Have a question or comment?",
-      body: "If you have any questions or comments, don't hesitate to get in touch. Our customer support team is here to help with anything you need.",
-      reply: "We strive to respond to all messages within 24 hours during our business hours.",
+      body: "If you have any questions or comments, don't hesitate to get in touch. Our customer support team is here to help with anything you need",
+      reply: "We strive to respond to all messages within 24 hours during our business hours",
       sealUnit: "hours",
       sealNote: "during business hours",
     },
     seo: {
       title: "Contact Us | VoM Cloud Accounting Software in Saudi Arabia",
       description:
-        "Contact the VoM team in Riyadh by phone, WhatsApp or email. We strive to respond to all messages within 24 hours during our business hours.",
+        "Contact the VoM team in Riyadh by phone, WhatsApp or email. We strive to respond to all messages within 24 hours during our business hours",
     },
   },
   about: {
+    // Follows the Arabic page section by section (owner, 2026-11-19), rewritten natively.
     crumb: "About Us",
     heading: "How It All Started",
-    lede: "Accounting has never been just about numbers. It's about time, accuracy, and control.",
+    lede: "The challenge was never the numbers. Numbers are clear and fixed, with no room for interpretation. Managing them is the hard part",
     figures: [
-      { value: "2021", label: "launched before it was perfect", target: "launch" },
-      { value: "200+", label: "user suggestions gathered", target: "feedback" },
-      { value: "3", label: "months to gather and implement them", target: "feedback" },
-      { value: "2", label: "weeks between every update", target: "updates" },
+      { value: "2021", label: "We launched VoM before it was perfect", target: "launch" },
+      { value: "200+", label: "Improvement suggestions from our customers", target: "feedback" },
+      { value: "3", label: "Months to put those suggestions in place", target: "feedback" },
+      { value: "2", label: "We release a new update every two weeks", target: "updates" },
     ],
     problem: [
-      "For years, businesses struggled with manual data entry, endless spreadsheets, and outdated systems that made financial management harder than it needed to be.",
-      "When Saudi Arabia introduced electronic invoicing regulations, it was clear that businesses needed a better way to manage their finances. The challenge? Most accounting software was either too complex for small businesses or too basic to meet compliance standards. Accountants were stuck in data entry roles instead of analyzing financial trends and helping businesses grow.",
-      "Business owners needed a solution that automated tasks, simplified invoicing, and offered real-time insights, without requiring an accounting degree.",
+      "Hours lost to data entry, endless rounds of checking, old systems that can't keep up with change, and accountants working as data clerks instead of financial advisers",
+      "As the Kingdom's digital transformation picked up pace and electronic invoicing became mandatory, a gap opened between what small and medium-sized businesses need and what traditional accounting tools offer. Those tools are either complex systems that demand advanced expertise or limited ones that don't cover local compliance",
     ],
     answer: {
-      heading: "That's Why We Built VoM",
-      body: "A smarter, AI-driven accounting platform that makes financial management seamless, compliant, and effortless.",
+      heading: "The Solution Was Clear",
+      body: "A smart accounting system that saves time, simplifies operations and frees accountants to focus on analysis and decisions. That's how VoM was born: not just a tool for managing accounts, but a partner that helps businesses grow with confidence",
     },
     story: {
       heading: "From Idea to Reality",
@@ -363,124 +363,120 @@ export const en: Dictionary = {
         {
           id: "launch",
           figures: [0],
-          body: "We didn't wait for perfection before launching. When VoM was introduced in 2021, it was still in its early stages. But instead of assuming what businesses needed, we took a different approach: we built VoM alongside its users.",
+          body: "We didn't wait for the product to be perfect. When we launched VoM in 2021, the system was still in its early stages, but we made a strategic decision: build it side by side with its users. Instead of finishing a product and then trying to push it onto the market, we started by collecting feedback directly from customers",
         },
         {
           id: "feedback",
           figures: [1, 2],
-          body: "In the first three months, we gathered over 200 user suggestions and implemented them at record speed. Every piece of feedback shaped the platform, ensuring that VoM wasn't just another accounting tool but a system designed to fit real-world business needs.",
+          body: "In the first three months, we received more than 200 improvement suggestions and put them in place at record speed. The goal wasn't just to polish the interface or add features, but to build an accounting system that adapts fully to the needs of the Saudi market",
           challenge: {
-            heading: "The Biggest Challenge?",
-            body: "Balancing compliance with ease of use. Saudi businesses needed a solution that met ZATCA's (Zakat, Tax and Customs Authority) electronic invoicing regulations without adding extra complexity.",
+            heading: "The Biggest Challenge",
+            body: "Balancing compliance with the electronic invoicing rules set by the Zakat, Tax and Customs Authority (ZATCA) with a quick, easy experience for small business owners. That's why development was never just a technical upgrade, but a complete rethink of how day-to-day accounts are managed",
           },
         },
         {
           id: "updates",
           figures: [3],
-          body: "Every two weeks, we release a new update. Every feature is shaped by real user feedback, and every improvement is designed to make accounting smarter and more efficient.",
+          body: "Today, we follow the same approach. Every two weeks we release a new update, every new feature answers directly to what users ask for, and every change is a step toward a smarter, more efficient product",
         },
       ],
     },
     why: {
-      heading: "That's Why We Focused on",
+      heading: "Why Is VoM the First Choice in Saudi Arabia?",
+      body: "Accounting is no longer just a record of financial transactions. It has become a strategic tool for making smart decisions. VoM isn't just another accounting program. It's a complete system that simplifies operations, speeds up performance and gives businesses an accurate financial picture without the complexity",
+      listHeading: "What Makes It Different?",
       items: [
-        { icon: "chip", title: "AI-Powered Automation", body: "To eliminate repetitive tasks and manual errors." },
         {
-          icon: "pointer", title: "An Intuitive Experience",
-          body: "A user-friendly experience that lets business owners focus on growth, not paperwork.",
+          icon: "chip", title: "AI at the Heart of the Experience",
+          body: "Instead of spending hours on data entry and manual checks, VoM relies on automation to save time and reduce errors, so accountants and entrepreneurs can focus on financial analysis and make decisions based on accurate data",
         },
         {
-          icon: "receipt", title: "Seamless Electronic Invoicing",
-          body: "Electronic invoicing that fully complies with Saudi regulations.",
+          icon: "pointer", title: "Easy to Use, Without Compromising on Professionalism",
+          body: "Most accounting systems are either too complex for small businesses or too basic to meet their needs. VoM combines power with flexibility, so you can manage invoices, track cash flow and analyze financial performance with ease",
+        },
+        {
+          icon: "receipt", title: "Full Compliance With Electronic Invoicing",
+          body: "With the Zakat, Tax and Customs Authority's requirements, compliance has become essential. VoM integrates smoothly with the regulations, saving businesses time and effort in managing electronic tax invoices to the approved standards",
+        },
+        {
+          icon: "refresh", title: "Continuous Updates, Driven by Customers",
+          body: "Every two weeks, we release new updates based on user feedback, so VoM keeps adapting to the market's needs and stays current with the latest technical and regulatory changes",
         },
       ],
       result: {
         heading: "What Is the Result?",
-        body: "An accounting system that simplifies procedures, speeds up performance, and gives business owners a clear financial picture, so they can focus on growing their projects with confidence.",
+        body: "An accounting system that simplifies procedures, speeds up performance and gives business owners a clear financial picture, so they can focus on growing their businesses with confidence",
       },
     },
     today: {
-      heading: "More Than Software: Why VoM?",
+      heading: "Where Are We Today?",
       body: [
-        "We're not just another accounting platform. VoM is built for businesses that need more than bookkeeping. They need a smarter, faster way to manage their finances.",
+        "VoM isn't just an accounting program. It's a complete platform that helps small and medium-sized businesses simplify their finances, comply with electronic invoicing rules and make decisions based on accurate data. Since our launch in 2021, we've grown fast, not only as a product but as a team that puts customers' needs at the heart of every decision",
+        "Today, thousands of entrepreneurs in Saudi Arabia rely on VoM to manage their accounts efficiently. Our vision was never just to build an accounting tool, but to create a smart system that adapts to the market's needs and keeps evolving with user feedback",
       ],
       items: [
-        { icon: "refresh", title: "Continuous Updates", body: "A new update every two weeks, shaped by real user feedback." },
         {
-          icon: "chart", title: "Real-Time Insights for Business Owners",
-          body: "Helping them make smarter financial decisions with confidence.",
+          icon: "refresh", title: "Continuous Updates",
+          body: "New improvements every two weeks, for a more efficient experience",
+        },
+        {
+          icon: "support", title: "Real Customer Support",
+          body: "We don't just provide software. We provide ongoing support through training, guidance and resources that help users get the most out of the system",
         },
         {
           icon: "users", title: "Company Culture",
-          body: "A diverse team of professionals from different backgrounds, focused on innovation, efficiency, and elevating the user experience.",
+          body: "A diverse team of professionals from different backgrounds, focused on innovation, efficiency and a better user experience",
         },
       ],
     },
     statement:
-      "We're not just building software. We're building a financial partner that helps businesses focus less on paperwork and more on growth. With VoM, accounting is no longer a chore. It's a competitive advantage.",
+      "We don't sell software. We offer a digital financial partner that helps businesses focus on growth instead of getting caught up in complex accounting procedures",
     approach: {
-      heading: "Why Businesses Choose VoM",
+      heading: "How We Make It Happen",
       items: [
-        { icon: "bolt", title: "AI-Powered Automation", body: "Every document posts its own entry, and VoM AI (beta) reads your sales and purchases figures." },
-        { icon: "shield", title: "Effortless Compliance", body: "Stay fully aligned with Saudi tax and invoicing regulations." },
-        { icon: "chart", title: "Real-Time Insights", body: "Make better decisions with up-to-date financial data." },
-        { icon: "bulb", title: "Continuous Innovation", body: "We release updates every two weeks to keep VoM ahead of the curve." },
+        {
+          icon: "spark", title: "Investing in AI",
+          body: "We build advanced analysis tools that help businesses read their financial data in depth, forecast where they're heading and make more accurate decisions, without needing specialist accounting expertise",
+        },
+        {
+          icon: "bolt", title: "Fully Automating Accounting",
+          body: "We reduce the reliance on manual entry, so businesses save time, avoid errors and run more efficiently",
+        },
+        {
+          icon: "plug", title: "Deeper Integration With Other Business Systems",
+          body: "Accounting doesn't work in isolation from the rest of the business. We focus on building seamless integrations with sales and inventory systems, for a complete financial picture in one place",
+        },
+        {
+          icon: "flag", title: "Becoming Saudi Arabia's Reference for Smart Accounting",
+          body: "VoM wasn't just an accounting solution when it launched, and it won't be one in the future. We aim to be the digital financial partner that helps businesses stay compliant, grow and make well-considered financial decisions with ease",
+        },
       ],
     },
-    closingStatement:
-      "What started as an idea has now become the go\u2060-\u2060to accounting solution for Saudi businesses, and we're just getting started.",
+    closingStatement: "We don't just keep up with change. We're redefining the way accounting is done",
     vision: {
-      heading: "The Future of Accounting: Our Vision",
-      body: "We believe that accounting should do more than just track numbers. It should help businesses grow. Our vision at VoM is to redefine accounting for small and medium-sized businesses, making it:",
-      list: [
-        "Smarter: automating the repetitive work so businesses can focus on strategy.",
-        "Faster: eliminating manual processes and providing real-time financial insights.",
-        "Simpler: creating a platform that's easy to use, even for non-accountants.",
-      ],
+      heading: "The Future Equation: Our Vision",
+      body: "We're heading toward smarter accounting, with financial decisions based on data rather than guesswork. At VoM, we aim to be the leading accounting solution in Saudi Arabia and the Arab region, where accounting turns from a record of transactions into an analytical tool that lets businesses plan, grow and make strategic decisions with confidence",
     },
     mission: {
-      heading: "Our Mission Is Simple: Make Accounting Effortless, Accurate, and Insightful",
-      body: "With VoM, businesses can:",
-      list: [
-        "Automate accounting tasks and save valuable time.",
-        "Reduce errors with AI-driven accuracy.",
-        "Stay compliant with Saudi tax and invoicing regulations.",
-        "Make smarter decisions with real-time financial insights.",
-      ],
+      heading: "We Simplify the Numbers So You Can Simplify Your Business: Our Mission",
+      body: "Our mission is to simplify accounting, reduce complexity and ensure financial compliance without extra effort. We provide smart, easy-to-use, AI-powered solutions that help businesses save time, avoid errors and put their data to work in financial planning",
     },
     values: {
       heading: "Our Core Values: The Principles Behind Every Transaction",
-      intro: "At VoM, everything we do is driven by a strong foundation of values:",
+      intro: "At VoM, we're committed to a set of values that shape our journey with every customer:",
       items: [
-        {
-          icon: "bulb",
-          title: "Continuous Innovation",
-          body: "We improve and enhance VoM every two weeks, ensuring businesses always have access to the latest advancements.",
-        },
-        {
-          icon: "eye", title: "Transparency",
-          body: "We provide clear, accurate financial data, empowering businesses to make confident decisions.",
-        },
-        {
-          icon: "pointer", title: "Simplicity",
-          body: "Accounting doesn't have to be complicated. We make financial management accessible and user-friendly for everyone.",
-        },
-        {
-          icon: "shield", title: "Compliance First",
-          body: "Staying ahead of regulations is a priority. VoM ensures businesses are always aligned with Saudi Arabia's tax and electronic invoicing laws.",
-        },
-        {
-          icon: "growth", title: "Business Growth Focus",
-          body: "We see accounting as more than just bookkeeping. It's a tool for scaling smarter and planning for the future.",
-        },
+        { icon: "bulb", title: "Continuous Innovation", body: "Developing the system regularly, for a modern experience that keeps moving forward" },
+        { icon: "eye", title: "Transparency", body: "Providing clear financial data that helps businesses make informed decisions" },
+        { icon: "pointer", title: "Simplicity", body: "Turning accounting work into smooth tasks you can finish in minutes" },
+        { icon: "shield", title: "Commitment", body: "Ensuring full compliance with electronic invoicing rules and financial regulations" },
+        { icon: "growth", title: "Empowering Entrepreneurs", body: "Turning accounting from an administrative burden into a tool for growth and success" },
       ],
     },
     team: {
-      heading: "The Balance Sheet: Meet Our Team",
-      intro:
-        "Behind VoM is a team of experts dedicated to reshaping the future of accounting. We're not just developers and accountants. We're problem solvers, innovators, and strategists who believe businesses deserve better, smarter, and more intuitive financial tools.",
+      heading: "The Balance of Success: Our Team",
+      intro: "Behind VoM is a team of experts who lead innovation and development, so we deliver the best accounting solutions",
       outro:
-        "Each team member plays a key role in balancing technology, finance, and user experience, ensuring that VoM is more than just software. It's a true partner in business success.",
+        "Everyone on the team is part of the equation for success. We believe accounting isn't just numbers, but smart decisions that build the future of businesses",
       members: [
         { name: "Michael Aswad", role: "Co-Founder & CEO", photo: "/team/michael-aswad.jpg" },
         { name: "Noura Alnafea", role: "Co-Founder & COO", photo: "/team/noura-alnafea.jpg" },
@@ -488,8 +484,8 @@ export const en: Dictionary = {
       ],
     },
     cta: {
-      heading: "Ready to Experience Smarter Accounting?",
-      body: "Start today with VoM and take control of your finances efficiently, accurately, and effortlessly.",
+      heading: "Ready for a New Generation of Accounting?",
+      body: "Start today with VoM and get ready to manage your money more efficiently than ever before",
       primary: "Register Now",
       secondary: "Book a demo",
     },
@@ -505,14 +501,14 @@ export const en: Dictionary = {
     seo: {
       title: "About Us | VoM Cloud Accounting Software in Saudi Arabia",
       description:
-        "How VoM started: launched in 2021, built alongside its users and updated every two weeks. Read our vision, mission and core values, and meet the team.",
+        "How VoM started: launched in 2021, built alongside its users and updated every two weeks. Read our vision, mission and core values, and meet the team",
     },
   },
   growth: {
     crumb: "Growth Program",
     heading: "Growth Program",
-    tagline: ["Grow bigger.", "Grow faster.", "Grow with VoM."],
-    lede: "Startups on VoM work from accurate financial data that strengthens their footing, while automation frees them to focus on the rest of the business and heads off problems down the line. Set up sound accounting while you're small, and you'll be able to forecast and report your growth.",
+    tagline: ["Grow bigger.", "Grow faster.", "Grow with VoM"],
+    lede: "Startups on VoM work from accurate financial data that strengthens their footing, while automation frees them to focus on the rest of the business and heads off problems down the line. Set up sound accounting while you're small, and you'll be able to forecast and report your growth",
     newTab: "(opens in a new tab)",
     startups: {
       heading: "For startups",
@@ -524,7 +520,7 @@ export const en: Dictionary = {
     },
     partners: {
       heading: "Our partners",
-      body: "Together with our partners, we're proud to help startups grow better.",
+      body: "Together with our partners, we're proud to help startups grow better",
       question: "Want to become a partner?",
       apply: "Apply as a partner",
       items: [
@@ -549,18 +545,18 @@ export const en: Dictionary = {
         {
           icon: "receipt",
           title: "Sales and purchase invoices, and quotations",
-          body: "Design them, export them and send them to customers in a few clicks, with no limit on how many you issue.",
+          body: "Design them, export them and send them to customers in a few clicks, with no limit on how many you issue",
         },
-        { icon: "book", title: "Accounting entries", body: "Record journal entries easily, with no limit on how many." },
+        { icon: "book", title: "Accounting entries", body: "Record journal entries easily, with no limit on how many" },
         {
           icon: "wallet",
           title: "Receipt and payment vouchers",
-          body: "Track, save and print them, then design, export and send them to customers, as many as you need.",
+          body: "Track, save and print them, then design, export and send them to customers, as many as you need",
         },
-        { icon: "users", title: "Team access", body: "Add ten users to the account and give each one the permissions their role needs." },
-        { icon: "box", title: "Inventory management", body: "Set quantities and keep them in step as you issue invoices." },
-        { icon: "history", title: "Activity log", body: "See the full history of every customer, expense and product." },
-        { icon: "chart", title: "Financial reports", body: "Generated automatically, with no manual entry." },
+        { icon: "users", title: "Team access", body: "Add unlimited number of users to the account and give each one the permissions their role needs" },
+        { icon: "box", title: "Inventory management", body: "Set quantities and keep them in step as you issue invoices" },
+        { icon: "history", title: "Activity log", body: "See the full history of every customer, expense and product" },
+        { icon: "chart", title: "Financial reports", body: "Generated automatically, with no manual entry" },
       ],
     },
     close: { before: "All this at", figure: "90%", after: "off for 6 months", apply: "Apply now" },
@@ -568,7 +564,7 @@ export const en: Dictionary = {
     seo: {
       title: "Growth Program for Startups: 90% Off VoM for 6 Months",
       description:
-        "VoM's Growth Program gives startups 90% off cloud accounting for 6 months: invoices, journal entries, inventory, team access and automatic reports.",
+        "VoM's Growth Program gives startups 90% off cloud accounting for 6 months: invoices, journal entries, inventory, team access and automatic reports",
     },
   },
   integrationPages: {
@@ -584,7 +580,7 @@ export const en: Dictionary = {
         category: "Restaurant POS",
         crumb: "VoM & Foodics",
         heading: "Connect Foodics to VoM",
-        lede: "Foodics is a point-of-sale and restaurant management system that runs your front of house, your kitchen and your back office with precision, simplicity and flexibility.",
+        lede: "Foodics is a point-of-sale and restaurant management system that runs your front of house, your kitchen and your back office with precision, simplicity and flexibility",
         watch: "Watch how it connects",
         sync: {
           heading: "What moves from Foodics into VoM",
@@ -600,22 +596,22 @@ export const en: Dictionary = {
         offer: {
           heading: "What Foodics gives you",
           items: [
-            "Control and organise every detail of your restaurant from one screen.",
-            "Keep the system running, online or offline.",
-            "Connect the till and the kitchen easily, for service without mistakes.",
-            "Follow sales and customer orders as they happen, whenever you like, from any device.",
-            "Pull instant reports on your restaurant's performance at any time.",
-            "Browse advanced add-ons in the Foodics App Store and connect them to Foodics POS.",
-            "Reach customer support around the clock.",
+            "Control and organise every detail of your restaurant from one screen",
+            "Keep the system running, online or offline",
+            "Connect the till and the kitchen easily, for service without mistakes",
+            "Follow sales and customer orders as they happen, whenever you like, from any device",
+            "Pull instant reports on your restaurant's performance at any time",
+            "Browse advanced add-ons in the Foodics App Store and connect them to Foodics POS",
+            "Reach customer support around the clock",
           ],
         },
         videos: ["How to connect Foodics to VoM", "VoM and Foodics in brief"],
-        close: "Connect Foodics to VoM and start your free trial. No credit card needed.",
+        close: "Connect Foodics to VoM and start your free trial. No credit card needed",
         images: { lockup: "VoM and Foodics" },
         seo: {
           title: "Foodics Integration: Post Restaurant Sales to VoM Accounting",
           description:
-            "Connect Foodics POS to VoM accounting: sales post as journal entries, branches become cost centres, and purchase bills add to your stock.",
+            "Connect Foodics POS to VoM accounting: sales post as journal entries, branches become cost centres, and purchase bills add to your stock",
         },
       },
       marn: {
@@ -623,7 +619,7 @@ export const en: Dictionary = {
         category: "Restaurant POS",
         crumb: "VoM & Marn",
         heading: "Connect Marn to VoM",
-        lede: "Marn is an all-in-one restaurant and point-of-sale system that organises your admin work and tracks every operation in your restaurant, simply and securely.",
+        lede: "Marn is an all-in-one restaurant and point-of-sale system that organises your admin work and tracks every operation in your restaurant, simply and securely",
         watch: "Watch the video",
         sync: {
           heading: "What moves from Marn into VoM",
@@ -639,22 +635,22 @@ export const en: Dictionary = {
         offer: {
           heading: "What Marn gives you",
           items: [
-            "Run your admin work from a single screen.",
-            "Use the system online or offline.",
-            "Follow the till and the kitchen as orders move.",
-            "Watch your sales live from your phone.",
-            "Produce any instant report in one click.",
-            "Explore advanced restaurant management tools and connect them to Marn.",
-            "Contact customer support at any hour, 24/7.",
+            "Run your admin work from a single screen",
+            "Use the system online or offline",
+            "Follow the till and the kitchen as orders move",
+            "Watch your sales live from your phone",
+            "Produce any instant report in one click",
+            "Explore advanced restaurant management tools and connect them to Marn",
+            "Contact customer support at any hour, 24/7",
           ],
         },
         videos: ["VoM and Marn in brief"],
-        close: "Connect Marn to VoM and start your free trial. No credit card needed.",
+        close: "Connect Marn to VoM and start your free trial. No credit card needed",
         images: { lockup: "VoM and Marn" },
         seo: {
           title: "Marn Integration: Post Restaurant Sales to VoM Accounting",
           description:
-            "Connect Marn's restaurant POS to VoM accounting: journal entries for sales, cost centres for branches, supplier statements and up-to-date stock.",
+            "Connect Marn's restaurant POS to VoM accounting: journal entries for sales, cost centres for branches, supplier statements and up-to-date stock",
         },
       },
       lazywait: {
@@ -662,7 +658,7 @@ export const en: Dictionary = {
         category: "Restaurant POS",
         crumb: "VoM & LazyWait",
         heading: "Connect LazyWait to VoM",
-        lede: "LazyWait is a cloud point-of-sale and management system for restaurants and cafés. Connect it to VoM and your sales reach your books with nothing to type in.",
+        lede: "LazyWait is a cloud point-of-sale and management system for restaurants and cafés. Connect it to VoM and your sales reach your books with nothing to type in",
         watch: "What moves into VoM",
         sync: {
           heading: "What moves from LazyWait into VoM",
@@ -675,12 +671,12 @@ export const en: Dictionary = {
           ],
         },
         videos: [],
-        close: "Connect LazyWait to VoM, and start your free trial with no credit card.",
+        close: "Connect LazyWait to VoM, and start your free trial with no credit card",
         images: { lockup: "VoM and LazyWait" },
         seo: {
           title: "Connect LazyWait to VoM: restaurant sales posted automatically",
           description:
-            "Connect LazyWait POS to VoM accounting: journal entries for sales and returns, cost centres for branches, accounts for payment methods, and your customers in one list.",
+            "Connect LazyWait POS to VoM accounting: journal entries for sales and returns, cost centres for branches, accounts for payment methods, and your customers in one list",
         },
       },
       zid: {
@@ -688,19 +684,19 @@ export const en: Dictionary = {
         category: "E-commerce",
         crumb: "VoM & Zid",
         heading: "Connect Zid to VoM",
-        lede: "Zid gives you a complete online store with its own storefront, where you take in your customers' orders and manage them with ease.",
+        lede: "Zid gives you a complete online store with its own storefront, where you take in your customers' orders and manage them with ease",
         watch: "Watch the video",
         sync: {
           heading: "What moves from Zid into VoM",
           rows: [{ from: "Sales", to: "Posted to VoM as journal entries" }],
         },
         videos: ["VoM and Zid in brief"],
-        close: "Connect your Zid store to VoM and start your free trial. No credit card needed.",
+        close: "Connect your Zid store to VoM and start your free trial. No credit card needed",
         images: { lockup: "VoM and Zid" },
         seo: {
           title: "Zid Integration: Post Your Store's Sales to VoM Accounting",
           description:
-            "Connect your Zid online store to VoM accounting, and your store's sales post to VoM as journal entries. Watch the video, then start a free trial.",
+            "Connect your Zid online store to VoM accounting, and your store's sales post to VoM as journal entries. Watch the video, then start a free trial",
         },
       },
     },
@@ -708,7 +704,7 @@ export const en: Dictionary = {
   student: {
     crumb: "Student package",
     heading: "Accounting software for students",
-    lede: "An exceptional chance to gain the accounting skills your career will need, in a package made for students who want to grow in accounting.",
+    lede: "An exceptional chance to gain the accounting skills your career will need, in a package made for students who want to grow in accounting",
     register: { student: "Register as a student", university: "Register your university" },
     newTab: "(opens in a new tab)",
     seal: { word: "Free", micro: "Student package" },
@@ -740,52 +736,52 @@ export const en: Dictionary = {
         {
           form: { kind: "taccount", labels: ["Cash", "Capital", "Dr", "Cr"] },
           concept: "Double entry",
-          conceptLine: "Every entry posts to two sides: a debit and a credit.",
+          conceptLine: "Every entry posts to two sides: a debit and a credit",
           title: "Recording transactions",
           items: [
-            "Post journal entries with every supporting document attached.",
-            "Record your assets and manage their whole life in VoM: depreciation, upgrades and sale.",
-            "Add as many cost centres as you need and report on each one in detail.",
+            "Post journal entries with every supporting document attached",
+            "Record your assets and manage their whole life in VoM: depreciation, upgrades and sale",
+            "Add as many cost centres as you need and report on each one in detail",
           ],
         },
         {
           form: { kind: "invoice", labels: ["Tax invoice", "Seller", "VAT number", "Item", "VAT 15%", "Total"] },
           concept: "The tax invoice",
-          conceptLine: "A tax invoice carries the elements the regulations require.",
+          conceptLine: "A tax invoice carries the elements the regulations require",
           title: "Draft invoices and quotations",
           items: [
-            "Design your invoices with 11 templates.",
-            "Export draft invoices that meet every tax-invoice requirement, with your own terms, conditions and notes.",
+            "Design your invoices with 11 templates",
+            "Export draft invoices that meet every tax-invoice requirement, with your own terms, conditions and notes",
           ],
         },
         {
           form: { kind: "ledger", labels: ["Customer account", "Dr", "Cr", "Balance"] },
           concept: "The subsidiary ledger",
-          conceptLine: "Every customer and supplier has an account in the subsidiary ledger.",
+          conceptLine: "Every customer and supplier has an account in the subsidiary ledger",
           title: "Purchases and sales",
           items: [
-            "Add unlimited customers and suppliers, or import them from an Excel sheet.",
-            "Send invoices straight from VoM, with no limit.",
-            "Track each customer's payment status and get reminders in the notification centre.",
+            "Add unlimited customers and suppliers, or import them from an Excel sheet",
+            "Send invoices straight from VoM, with no limit",
+            "Track each customer's payment status and get reminders in the notification centre",
           ],
         },
         {
           form: { kind: "voucher", labels: ["Receipt voucher", "No.", "Received from", "The sum of", "Being"] },
           concept: "The receipt voucher",
-          conceptLine: "A voucher is the document that proves money received or paid.",
+          conceptLine: "A voucher is the document that proves money received or paid",
           title: "Receipt and payment vouchers",
           items: [
-            "Design your receipt and payment vouchers.",
-            "Link each voucher to its invoices.",
-            "Export them easily, with no limit.",
-            "Track every receipt and payment.",
+            "Design your receipt and payment vouchers",
+            "Link each voucher to its invoices",
+            "Export them easily, with no limit",
+            "Track every receipt and payment",
           ],
         },
       ],
     },
     reports: {
       heading: { before: "Run", figure: "17", after: "reports" },
-      footnote: "Every one is produced automatically, with no manual input.",
+      footnote: "Every one is produced automatically, with no manual input",
       items: [
         { id: "vat", name: "VAT report" },
         { id: "balance-sheet", name: "Balance sheet" },
@@ -811,29 +807,29 @@ export const en: Dictionary = {
       items: [
         {
           title: "Put accounting concepts into practice",
-          body: "Take the theory from your lectures into a working system: create and manage invoices, record journal entries and work on the accounts.",
+          body: "Take the theory from your lectures into a working system: create and manage invoices, record journal entries and work on the accounts",
           alt: "A student writing in a notebook beside a tablet",
         },
         {
           title: "Learn how accounting systems work",
-          body: "Build your knowledge of the accounting systems you will meet at work.",
+          body: "Build your knowledge of the accounting systems you will meet at work",
           alt: "A pen pointing at printed charts during a discussion",
         },
         {
           title: "Gain real accounting skills",
-          body: "Pick up the accounting skills to start a successful career.",
+          body: "Pick up the accounting skills to start a successful career",
           alt: "One hand on a calculator, the other holding receipts",
         },
       ],
     },
     close: {
-      line: "The student package is a real chance to build a strong foundation in accounting and to prepare for success in your studies and your career.",
-      body: "Join today, and grow with the student package.",
+      line: "The student package is a real chance to build a strong foundation in accounting and to prepare for success in your studies and your career",
+      body: "Join today, and grow with the student package",
     },
     seo: {
       title: "Free Accounting Software for Students | VoM Student Package",
       description:
-        "VoM's free student package lets accounting students post journal entries, design invoices and vouchers, and run 17 reports in a real accounting system.",
+        "VoM's free student package lets accounting students post journal entries, design invoices and vouchers, and run 17 reports in a real accounting system",
     },
   },
   sectorPages: {
@@ -858,12 +854,12 @@ export const en: Dictionary = {
     seo: {
       title: "Terms and Conditions of Use | VoM Cloud Accounting",
       description:
-        "The terms that govern your VoM subscription: refunds and training, your data and exports, service and support, liability, and VoM Pay terms for merchants.",
+        "The terms that govern your VoM subscription: refunds and training, your data and exports, service and support, liability, and VoM Pay terms for merchants",
     },
   },
   seo: {
     homeTitle: "The Easiest Accounting Software in Saudi Arabia | VoM",
     homeDescription:
-      "VoM is a ZATCA-approved cloud accounting platform for Saudi businesses: Phase 2 e-invoicing, sales, purchases, inventory and live financial reports. Try it free, no credit card.",
+      "VoM is a ZATCA-approved cloud accounting platform for Saudi businesses: Phase 2 e-invoicing, sales, purchases, inventory and live financial reports. Try it free, no credit card",
   },
 };

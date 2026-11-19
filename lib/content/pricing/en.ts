@@ -1,23 +1,27 @@
-import { annualPrice, flexRates, formatAmount as f, monthlyPrice, reportCount, vatPercent } from "./plans";
+import { flexRates, formatAmount as f, planPrice, reportCount, vatPercent } from "./plans";
 import type { PricingCopy } from "./types";
 
-const advanced = monthlyPrice.advanced!;
-const unlimited = monthlyPrice.unlimited!;
+const advanced = planPrice.advanced!;
+const unlimited = planPrice.unlimited!;
 
-/** Rewritten natively from the old English page and the app's Flex card. */
+/**
+ * Rewritten natively from the old English page and the app's Flex card; yearly-only
+ * billing and the ledger's rows are the owner's of 2026-11-19, as in Arabic.
+ */
 export const pricingEn: PricingCopy = {
   breadcrumb: "Pricing",
   h1: "VoM plans and pricing",
-  lede: "Pay monthly or yearly, or pay as you go with Flex.",
+  lede: "Pay yearly for Advanced or Unlimited, or monthly as you go with Flex",
   noCard: "No credit card required",
   billing: {
     legend: "Billing period",
     monthly: "Monthly",
     annual: "Yearly",
-    free: "2 months free",
     monthlyOnly: "Monthly billing only",
-    flexHidden: "Flex is billed monthly only. Switch to Monthly to see it.",
+    flexHidden: "Flex is billed monthly only. Switch to Monthly to see it",
+    annualOnly: "The other plans are billed yearly only. Switch to Yearly to see them",
   },
+  compareJump: "Compare all features",
   per: {
     month: "a month",
     year: "a year",
@@ -25,9 +29,9 @@ export const pricingEn: PricingCopy = {
     user: "per extra user",
     centre: "per centre a month",
     firstUser: "a month, first user",
+    export: "per export",
   },
   from: "From",
-  save: "Save",
   contactPrice: "Talk to our sales team",
   contactShort: "Contact us",
   popular: "Most popular",
@@ -85,100 +89,112 @@ export const pricingEn: PricingCopy = {
   },
   compare: {
     heading: "Compare the plans",
-    caption: "What differs between VoM's four plans",
+    caption: "What each of VoM's four plans includes",
     feature: "Feature",
-    groups: {
-      documents: "Documents and entries",
-      team: "Users and templates",
-      extras: "Assets and apps",
-      business: "API and support",
-    },
     rows: {
+      customers: "Customers",
       salesDocs: "Sales invoices, quotes and customer receipts",
+      quoteConvert: "Quotes turned into proforma or sales invoices",
+      notes: "Credit and debit notes",
+      recurringInvoices: "Recurring invoices",
+      customerPayments: "Customer payment tracking and filters",
+      vomPay: "VoM Pay payment links",
+      sharing: "Documents sent by email or WhatsApp",
+
+      zatcaPhase1: "Phase 1: e-invoices with a QR code",
+      zatcaPhase2: "Phase 2: linked to ZATCA's Fatoora platform",
+      vatCategories: "Ready VAT categories with exemption reasons",
+
+      suppliers: "Suppliers",
       purchaseDocs: "Purchase bills, expenses and payment vouchers",
+      purchaseOrders: "Purchase orders",
+      purchaseReturns: "Purchase returns",
+      supplierPayments: "Supplier payment tracking and filters",
+
+      products: "Products, services, bundles and expense items",
+      categories: "Categories and units",
+      warehouses: "Several warehouses, main and sub",
+      stockMoves: "Inbound, outbound and transfer requisitions",
+      costing: "Weighted-average stock costing",
+      minQuantity: "Minimum-quantity alerts",
+
+      chart: "Chart of accounts with unlimited levels",
       entries: "Journal entries and easy entries",
+      recurringEntries: "Recurring entries",
       costCentres: "Cost centres",
-      users: "Users",
-      templates: "Sales invoice templates",
+      bankMatching: "Bank statement matching",
+      yearClose: "Year-end close and carried-forward balances",
       assets: "Fixed assets: purchase, depreciation, upgrade and sale",
+
+      employees: "Employee and salary records",
+      payroll: "Payroll runs",
+      positions: "Job positions",
+
+      templates: "Sales invoice templates",
+      printLanguage: "Print in Arabic, English or both",
+      optionalDetails: "Show or hide optional details",
+      quoteDesign: "Quote design",
+      voucherDesign: "Receipt and payment voucher design",
+      numbering: "Numbering prefix and start for each document",
+
+      reports: `${reportCount} ready reports`,
+      inventoryReports: "Three inventory reports",
+      exports: "Report exports to PDF or Excel",
+
+      dashboard: "Dashboard: sales, purchases, expenses and net profit",
+      vomAi: "VoM AI (beta)",
+      weeklyEmail: "Weekly summary email",
+
+      users: "Users",
+      roles: "Roles and permissions",
+      scopedUsers: "Users limited to a branch or warehouse",
+      activityLog: "Activity log for each user",
+
       apps: "Foodics, Zid, Marn and LazyWait integrations",
       api: "API connection to your app or website",
+
+      care: "Customer support, free onboarding and free updates",
       support: "Dedicated technical support",
+
+      bilingual: "Arabic and English interface",
+      attachments: "Attachments on every transaction",
+      customFields: "Custom fields",
+      iosApp: "iOS app",
     },
+    notes: { reports: "The fixed-assets report comes with plans that include asset management" },
+    more: "See every feature in detail",
     yes: "Included",
     no: "Not included",
     unlimited: "Unlimited",
     usage: "Pay per use",
     each: "of each",
   },
-  included: {
-    heading: "In every plan",
-    lede: "These come with all four plans, whichever you choose.",
-    groups: [
-      { heading: "Sales", items: ["Unlimited customer list", "Customer payment tracking and filters"] },
-      { heading: "Purchases", items: ["Unlimited supplier list", "Supplier payment tracking and filters"] },
-      { heading: "Accounting", items: ["Chart of accounts with unlimited levels"] },
-      { heading: "Products and services", items: ["Products", "Services", "Expense items", "Categories", "Units"] },
-      {
-        heading: "Document design",
-        items: ["Show or hide optional details", "Quote design", "Receipt and payment voucher design"],
-      },
-      { heading: "Users and permissions", items: ["Roles and permissions"] },
-      { heading: "HR", items: ["Employee and salary records", "Payroll runs"] },
-      {
-        heading: `${reportCount} reports`,
-        items: [
-          "VAT return",
-          "Account statement",
-          "Account summary",
-          "Income statement",
-          "Cash flow (direct)",
-          "Cash flow (indirect)",
-          "Trial balance",
-          "General ledger",
-          "Balance sheet",
-          "Sales",
-          "Purchases",
-          "Cost centres",
-          "Journal entries",
-          "Fixed assets (on plans that include asset management)",
-          "Sales VAT",
-          "Purchases VAT",
-          "Customer ageing",
-        ],
-      },
-    ],
-  },
   faqHeading: "Pricing questions",
   faq: [
     {
       q: "Do the prices include VAT?",
-      a: `No. Prices are shown before tax, and ${vatPercent}% VAT is added to the invoice total.`,
-    },
-    {
-      q: "How much do I save with yearly billing?",
-      a: `Two months free: Advanced is SAR ${f(annualPrice("advanced")!)} a year instead of SAR ${f(advanced * 12)}, and Unlimited is SAR ${f(annualPrice("unlimited")!)} instead of SAR ${f(unlimited * 12)}.`,
+      a: `No. Prices are shown before tax, and ${vatPercent}% VAT is added to the invoice total`,
     },
     {
       q: "How is Flex billed, and what does it include?",
-      a: `Flex is billed monthly only; it has no yearly option. It starts at SAR ${f(flexRates.firstUser)} a month for the first user, then SAR ${f(flexRates.extraUser)} a month for each extra user. You pay SAR ${f(flexRates.transaction)} per transaction, such as a purchase bill or a journal entry, and SAR ${f(flexRates.export)} each time you export a report to PDF or Excel. The modules you add are billed monthly: SAR ${f(flexRates.zatca)} for the ZATCA integration, SAR ${f(flexRates.costCentre)} per cost centre, SAR ${f(flexRates.assets)} for assets and SAR ${f(flexRates.integrations)} for integrations. Your usage is charged automatically when it reaches SAR ${f(flexRates.autoCharge)}. Flex includes everything in Unlimited.`,
+      a: `Flex is billed monthly only; it has no yearly option. It starts at SAR ${f(flexRates.firstUser)} a month for the first user, then SAR ${f(flexRates.extraUser)} a month for each extra user. You pay SAR ${f(flexRates.transaction)} per transaction, such as a purchase bill or a journal entry, and SAR ${f(flexRates.export)} each time you export a report to PDF or Excel. The modules you add are billed monthly: SAR ${f(flexRates.zatca)} for the ZATCA integration, SAR ${f(flexRates.costCentre)} per cost centre, SAR ${f(flexRates.assets)} for assets and SAR ${f(flexRates.integrations)} for integrations. Your usage is charged automatically when it reaches SAR ${f(flexRates.autoCharge)}. Flex includes everything in Unlimited`,
     },
     {
       q: "Do I need a credit card to try VoM?",
-      a: "No. You can register and try VoM without entering a credit card.",
+      a: "No. You can register and try VoM without entering a credit card",
     },
     {
       q: "What does Business add?",
-      a: "Everything in Unlimited, plus an API connection between your app or website and VoM, and dedicated technical support. Talk to our sales team for a price.",
+      a: "Everything in Unlimited, plus an API connection between your app or website and VoM. Talk to our sales team for a price",
     },
   ],
   close: {
-    line: "Try VoM free. No credit card needed.",
+    line: "Try VoM free. No credit card needed",
     register: "Register now",
     demo: "Book a demo",
   },
   seo: {
     title: `VoM Pricing | Accounting Software Plans from SAR ${f(flexRates.firstUser)} a Month`,
-    description: `Compare VoM plans: Flex starts at SAR ${f(flexRates.firstUser)} a month and you pay as you go; Advanced is SAR ${f(advanced)} and Unlimited SAR ${f(unlimited)} a month, with two months free yearly.`,
+    description: `Compare VoM plans: Flex starts at SAR ${f(flexRates.firstUser)} a month and you pay as you go; Advanced is SAR ${f(advanced)} and Unlimited SAR ${f(unlimited)} a year`,
   },
 };

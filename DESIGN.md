@@ -3,14 +3,6 @@ name: VoM website (getvom.com)
 description: Saudi cloud accounting, presented as an official record being issued, Arabic first and mirrored in English.
 colors:
   teal: "#17baa3"
-  teal-50: "#eefaf7"
-  teal-100: "#ddf5f0"
-  teal-200: "#bfeae2"
-  teal-300: "#8edccf"
-  teal-600: "#13937f"
-  teal-700: "#0f6b5e"
-  teal-800: "#0b5248"
-  teal-950: "#052a25"
   orange: "#ff7300"
   orange-50: "#fff2e6"
   orange-600: "#d96200"
@@ -25,219 +17,219 @@ colors:
   reading-ink: "color-mix(in oklab, #020202 86%, white)"
 typography:
   display:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "3rem (sm 4rem, lg 5rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.01em"
   display-two-tier:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.5rem (sm 3.25rem, lg 3.75rem)"
     fontWeight: "300 then 700"
     lineHeight: 1.15
     letterSpacing: "-0.01em"
   display-reading:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.5rem (lg 3.5rem)"
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "-0.01em"
   headline:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.875rem (sm 2.25rem, lg 2.5rem)"
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: "-0.01em"
   title:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.375rem (lg 1.5rem)"
     fontWeight: 700
     lineHeight: 1.35
   item-title:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 700
     lineHeight: 1.375
   body:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.6
   body-reading:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.0625rem (lg 1.125rem)"
     fontWeight: 400
     lineHeight: "1.75 (Arabic 1.85)"
   lede:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.0625rem (sm 1.1875rem)"
     fontWeight: 400
     lineHeight: 1.75
   label:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "0.9375rem"
     fontWeight: 400
     lineHeight: 1.6
   caption:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "0.8125rem"
     fontWeight: 400
     lineHeight: 1.5
   figure:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "3rem (sm 3.5rem)"
     fontWeight: 700
     lineHeight: 1
     fontFeature: "tnum"
   figure-offer:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "5.5rem (sm 7rem, lg 8rem)"
     fontWeight: 700
     lineHeight: 0.8
     letterSpacing: "-0.02em"
     fontFeature: "tnum"
   figure-price:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.75rem"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "-0.02em"
   display-guide:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.875rem (sm 2.25rem, lg clamp(2.5rem, 3.2vw, 3rem))"
     fontWeight: 700
     lineHeight: "1.25 (lg 1.2)"
     letterSpacing: "-0.01em"
   lede-guide:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.125rem (lg 1.25rem)"
     fontWeight: 400
     lineHeight: 1.85
   headline-field:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.875rem (lg 2.5rem)"
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: "-0.01em"
   heading-reading:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.625rem (lg 1.875rem)"
     fontWeight: 700
     lineHeight: 1.35
     letterSpacing: "-0.01em"
   subheading-reading:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.25rem (lg 1.375rem)"
     fontWeight: 700
     lineHeight: 1.45
   minor-heading-reading:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 700
     lineHeight: 1.55
   card-title:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.25rem"
     fontWeight: 700
     lineHeight: "1.4 to 1.45"
   card-title-drawer:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 700
     lineHeight: 1.45
   card-numeral:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.5rem pinned, 1.75rem next, 1.25rem drawer"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "-0.02em (pinned)"
     fontFeature: "tnum"
   section-numeral:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.75rem (lg 3.5rem)"
     fontWeight: 700
     lineHeight: 0.9
     fontFeature: "tnum"
   section-title:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.625rem (lg 2rem)"
     fontWeight: 700
     lineHeight: 1.25
     letterSpacing: "-0.01em"
   entry:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1rem (sm 1.0625rem)"
     fontWeight: 400
     lineHeight: 1.65
   stamp:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "0.75rem"
     fontWeight: 700
     lineHeight: 1.2
   sheet-serial:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.25rem (sm 2.75rem)"
     fontWeight: 700
     lineHeight: 0.9
     fontFeature: "tnum"
   display-ledger:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "clamp(1.75rem, 1.15rem + 2.6vw, 3.125rem)"
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: "-0.01em"
   heading-ledger:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.5rem (lg 1.75rem)"
     fontWeight: 700
     lineHeight: 1.4
     letterSpacing: "-0.01em"
   subheading-ledger:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.1875rem (lg 1.3125rem)"
     fontWeight: 700
     lineHeight: 1.5
   body-ledger:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.0625rem (lg 1.125rem)"
     fontWeight: 400
     lineHeight: 1.85
   ledger-numeral:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "0.8125rem section, 0.75rem margin"
     fontWeight: 700
     lineHeight: 1.4
     fontFeature: "tnum"
   entry-title:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "1.1875rem (compact 1rem)"
     fontWeight: "700 (compact 500)"
     lineHeight: 1.5
   display-tools-index:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.5rem (sm 3.25rem, lg clamp(3.25rem, 4.4vw, 4rem))"
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "-0.01em"
   display-campaign:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2rem (sm 2.5rem, lg 3rem)"
     fontWeight: 700
     lineHeight: "1.25 (sm 1.2, lg 1.15)"
     letterSpacing: "-0.01em"
   display-zatca:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "3rem (sm 3.75rem, lg 4.5rem)"
     fontWeight: 700
     lineHeight: "1.05 (lg 1)"
     letterSpacing: "-0.02em (lg -0.025em)"
   display-pay:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "2.25rem (lg 3rem)"
     fontWeight: 700
     lineHeight: 1.15
   figure-poster:
-    fontFamily: "Effra, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
+    fontFamily: "IBM Plex Sans, IBM Plex Sans Arabic, Segoe UI, SF Arabic, Geeza Pro, system-ui, sans-serif"
     fontSize: "3rem (sm 3.75rem, lg clamp(4rem, 5.4vw, 5.25rem)); m 2.5rem / 3rem / clamp(3.25rem, 4.2vw, 4rem); s 2rem / 2.375rem / 2.75rem"
     fontWeight: 700
     lineHeight: 1
@@ -268,26 +260,14 @@ components:
   button-primary-hover:
     backgroundColor: "{colors.orange-600}"
   button-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     padding: "0 20px"
     height: "44px"
   button-secondary-hover:
-    backgroundColor: "{colors.paper-100}"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    padding: "0 8px"
-    height: "44px"
-  button-inverse:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-800}"
-    rounded: "{rounded.pill}"
-    padding: "0 20px"
-    height: "44px"
-  button-inverse-hover:
-    backgroundColor: "{colors.teal-50}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
   input-pill:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -309,14 +289,14 @@ components:
     padding: "0 16px"
     height: "64px"
   link-tile-hover:
-    backgroundColor: "{colors.teal-50}"
+    backgroundColor: "{colors.paper-100}"
   partner-seal:
     backgroundColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     size: "4.5rem (lg 5.5rem)"
   icon-tile:
-    backgroundColor: "{colors.teal-100}"
-    textColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.tile}"
     size: "48px"
   contents-rail:
@@ -333,7 +313,7 @@ components:
     width: "36rem"
   play-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "3.75rem (sm 4.5rem)"
   video-pill:
@@ -345,7 +325,7 @@ components:
     height: "44px"
   video-pill-active:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-800}"
+    textColor: "{colors.teal}"
   posting-ledger:
     backgroundColor: "{colors.paper}"
     rounded: "{rounded.card}"
@@ -362,7 +342,7 @@ components:
     rounded: "{rounded.tile}"
     padding: "24px"
   integration-tile-hover:
-    backgroundColor: "{colors.teal-50}"
+    backgroundColor: "{colors.paper-100}"
   textbook-page:
     backgroundColor: "{colors.paper-100}"
     textColor: "{colors.ink-700}"
@@ -385,7 +365,7 @@ components:
     padding: "0.75rem 1.25rem (sm 1rem 2.5rem)"
   free-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "6.5rem"
   free-seal-white:
@@ -394,13 +374,13 @@ components:
     rounded: "{rounded.pill}"
     size: "7.5rem (sm 8.5rem)"
   attachment-chip:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-800}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     padding: "0.25rem 0.625rem"
   sector-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "7.75rem (lg 9.5rem)"
   sector-seal-white:
@@ -418,8 +398,8 @@ components:
     rounded: "{rounded.card}"
     padding: "0.5rem 1.25rem (lg 0.75rem 2.5rem)"
   feature-tile:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.sheet}"
     size: "2.75rem"
   client-seal:
@@ -432,7 +412,7 @@ components:
     padding: "0.5rem (lg 1rem 0.5rem)"
     height: "3.75rem"
   register-link-hover:
-    backgroundColor: "{colors.teal-50}"
+    backgroundColor: "{colors.paper-100}"
   plan-sheet:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -442,7 +422,7 @@ components:
     padding: "3.25rem 1.5rem 1.5rem"
   popular-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "5.75rem"
   billing-switch:
@@ -460,8 +440,8 @@ components:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
   free-chip:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-800}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     padding: "0.3125rem 0.5rem"
   compare-ledger-head:
@@ -469,9 +449,9 @@ components:
     textColor: "{colors.ink}"
     padding: "0.75rem 0.25rem 0.875rem"
   compare-ledger-popular:
-    backgroundColor: "{colors.teal-50}"
+    backgroundColor: "{colors.paper-100}"
   compare-ledger-group:
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     padding: "1.75rem 0 0.5rem"
   included-sheet:
     backgroundColor: "{colors.paper}"
@@ -480,7 +460,7 @@ components:
     padding: "1.75rem 1.5rem (sm 2.25rem 2.5rem, lg 2.5rem 3rem)"
   faq-price-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "5.5rem (lg 8rem)"
   index-card-pinned:
@@ -506,8 +486,8 @@ components:
     rounded: "{rounded.sheet}"
     padding: "0.625rem 1rem 0.5rem"
   topic-divider-count:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-800}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     size: "1.5rem"
   topic-divider-board:
@@ -541,7 +521,7 @@ components:
     padding: "1.5rem 1.25rem 1.25rem (sm 1.75rem 1.75rem 1.5rem)"
   register-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "5.5rem"
   register-entry:
@@ -550,12 +530,12 @@ components:
     padding: "1rem 0"
   entry-stamp:
     backgroundColor: "transparent"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     typography: "{typography.stamp}"
     rounded: "0.375rem"
     padding: "0.3125rem 0.5rem 0.25rem"
   plan-marker:
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.focus}"
     padding: "0 0.125rem"
   attached-sheet:
@@ -564,12 +544,12 @@ components:
     padding: "10px"
   sheet-pager-button:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "2.75rem"
   sheet-pager-button-hover:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
   marks-sheet:
     backgroundColor: "{colors.paper}"
     rounded: "{rounded.card}"
@@ -600,15 +580,15 @@ components:
     padding: "1.375rem 1.25rem 0.75rem (sm inline 1.5rem)"
   thumb-tab:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.screen}"
     width: "2.5rem (lg 2.75rem)"
     height: "2.375rem strip, 2.125rem on the sheet, 2.625rem column"
   thumb-tab-hover:
-    backgroundColor: "{colors.teal-50}"
+    backgroundColor: "{colors.paper-100}"
   thumb-tab-current:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-800}"
+    backgroundColor: "{colors.paper-100}"
+    textColor: "{colors.teal}"
     width: "2.5rem strip (lg 3.75rem)"
     height: "3.125rem strip (lg 2.625rem)"
   thumb-tab-read:
@@ -629,8 +609,8 @@ components:
     rounded: "{rounded.tile}"
     padding: "0.5rem 0.5rem 0.5rem 1rem"
   yes-mark:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     size: "1.375rem"
   no-mark:
@@ -644,25 +624,26 @@ components:
     width: "22.5rem (sm 20rem column, lg 1.3fr)"
   file-pill:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     padding: "0 1rem 0 0.875rem"
     height: "2.75rem"
   file-pill-hover:
-    backgroundColor: "{colors.paper-200}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
   create-online-link:
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     typography: "{typography.label}"
     padding: "0.875rem 0 0"
   create-online-link-hover:
-    textColor: "{colors.teal-800}"
+    textColor: "{colors.teal}"
   hinge-arrow:
-    backgroundColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     size: "2.75rem"
   hinge-arrow-hover:
-    backgroundColor: "{colors.teal-800}"
+    backgroundColor: "{colors.teal}"
   record-sheet:
     backgroundColor: "{colors.paper}"
     rounded: "{rounded.card}"
@@ -670,12 +651,12 @@ components:
     width: "30rem"
   record-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "5.25rem"
   qr-seal:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "2rem"
   ledger-sheet:
@@ -689,16 +670,16 @@ components:
     width: "2rem"
     height: "1.5rem"
   margin-number-current:
-    backgroundColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
   reviewed-mark:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "2.875rem (LTR 4rem)"
   blog-callout:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
     rounded: "4px"
     padding: "1.125rem 1.25rem"
   entry-plate:
@@ -707,14 +688,15 @@ components:
     width: "12rem"
     height: "6.75rem"
   pagination-pill:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
     padding: "0 1.125rem"
     height: "2.75rem"
   pagination-pill-hover:
-    textColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
   tool-band:
     backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
@@ -737,8 +719,8 @@ components:
     padding: "0 1.25rem"
     height: "2.5rem"
   tool-choice-pill-checked:
-    backgroundColor: "{colors.teal-50}"
-    textColor: "{colors.teal-800}"
+    backgroundColor: "{colors.teal}"
+    textColor: "{colors.paper}"
   tool-switch:
     backgroundColor: "{colors.paper-100}"
     rounded: "{rounded.pill}"
@@ -750,10 +732,10 @@ components:
     height: "2.5rem"
   tool-action:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
-    padding: "0 0.875rem"
-    height: "2.25rem"
+    padding: "0 1rem"
+    height: "2.5rem"
   tool-answer-figure:
     textColor: "{colors.paper}"
     typography: "{typography.figure-poster}"
@@ -766,7 +748,7 @@ components:
     textColor: "{colors.paper}"
     rounded: "{rounded.sheet}"
   lead-panel:
-    backgroundColor: "{colors.teal-600}"
+    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
     rounded: "{rounded.card}"
     padding: "4.25rem 16px 2.5rem (lg 2rem 2rem 2.25rem; lg up to 820px tall 1.5rem 1.75rem 1.75rem)"
@@ -794,14 +776,14 @@ components:
     rounded: "{rounded.pill}"
     height: "3.5rem"
   whatsapp-disc:
-    backgroundColor: "{colors.teal-600}"
+    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
     rounded: "{rounded.pill}"
     size: "3.5rem"
   whatsapp-disc-hover:
-    backgroundColor: "{colors.teal-700}"
+    backgroundColor: "{colors.teal}"
   zatca-field:
-    backgroundColor: "{colors.teal-600}"
+    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
     rounded: "{rounded.card}"
     padding: "3.75rem 16px 2.5rem (lg 2rem)"
@@ -812,7 +794,7 @@ components:
     size: "1.5rem"
   zatca-step-node:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-700}"
+    textColor: "{colors.teal}"
     rounded: "{rounded.pill}"
     size: "1.75rem (1200px 2.25rem)"
   zatca-lane-node:
@@ -825,7 +807,7 @@ components:
     padding: "0.5rem 0.625rem (lg 0.625rem 0.75rem)"
     width: "13rem (lg 16rem)"
   zatca-close-band:
-    backgroundColor: "{colors.teal-600}"
+    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
     padding: "6rem 0 4.5rem (1200px 7rem 0 5.5rem)"
 ---
@@ -836,7 +818,7 @@ components:
 
 **Creative North Star: "The Official Record" (الوثيقة)**
 
-Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. Effra sets everything, Arabic, Latin and digits alike, and the layout is built right-to-left first with every component mirrored for English.
+Every page is a document VoM issues to the visitor. The ground is white paper; authority arrives as one unbroken field of brand teal engraved with a fine guilloche, the lattice of certificates and banknotes. Paper objects (invoices, certificates, a sealed envelope, framed sheets) sit on that field with the precision of a government form: rounded double-hairline frames, double-ring seals, serial numbers, tabular numerals, a bilingual English line under the Arabic one. IBM Plex sets everything, Plex Sans Arabic for Arabic and Plex Sans for Latin and digits, and the layout is built right-to-left first with every component mirrored for English.
 
 The system is restrained by rule. Each page gets one signature idea (the document stack issuing itself on the homepage, the envelope opening on contact, the figures rolling on about, the scroll-spy contents on terms, the growth disc drawing its chart on the growth program, the screen lifting onto the field and its play seal stamping in on the integration pages, the textbook spread on the student package, where one entry as the textbook prints it faces the VoM record it becomes and the record writes itself in, the sector's own seal stamped onto its own photo on the fifteen sector pages, the four plan sheets rising onto the field and the most-popular seal stamping on Unlimited on the pricing page, the e-invoicing catalogue, where every page pins its numbered index card beside its H1, the hub's cards file into four topic dividers on the teal field and the pinned card settles in, the features register, where the contents sheet's rows rule in one after another on the teal field and the house ZATCA seal stamps its foot, the accounting-software guide's thumb index, where the guide's eight parts stand off the contents sheet's fore-edge as paper tabs on the teal field and then hold the page's fore-edge as you read, the part being read pulled out with a folded corner and the parts passed ticked, the free invoice templates, where the templates you take away face the invoice VoM issues across a perforated hinge, the paper settles, the record lifts onto the field and the house ZATCA seal stamps its corner, and hovering a template's way into VoM fills its empty QR box, the seven calculators, where each calculator is a full-bleed slanted teal band with its paper sheet on the start side and the answer beside it as a large white poster figure closed by the double white rule, changing as you type, while the sheet lifts onto the band, and the tools index, where each tool is a framed cover plate showing its own cover, filed under its group, the two without a cover drawn as their own worked example on the teal field, and the plates rise in reading order, and the paid-campaign landing page, where the form never leaves the screen: on desktop a sticky teal panel holds the paper form beside the story as it scrolls past, and on phones the form follows the headline as a full-bleed slanted teal band and a return bar brings it back once it has scrolled away) and the rest of the page stays quiet around it. Orange is the single hot colour and marks the one thing to press or the one "now". Buttons are small, precise pills. Sections alternate paper, the light paper-100 grey, and teal bands; depth is mostly tonal, with long teal-tinted shadows reserved for paper objects lifted off a field.
 
@@ -847,24 +829,24 @@ The blog is that reading register ruled as a ledger page: a white sheet on Cool 
 **Key Characteristics:**
 - Paper white ground, brand-teal fields carrying a fine white guilloche, and nothing engraved on paper.
 - Double hairlines everywhere authority is claimed: frames, seals, postmarks, the accountant's double rule under totals.
-- Effra only, in four weights (300, 400, 500, 700), with tabular numerals for every figure.
+- IBM Plex only (Plex Sans for Latin and digits, Plex Sans Arabic for Arabic), in four weights (300, 400, 500, 700), with tabular numerals for every figure.
 - Small pill buttons; orange only on the primary action.
 - One orchestrated motion per page on load, with a reduced-motion fallback that removes it.
 - Arabic RTL first; slanted field edges, transforms and arrows flip for LTR.
 
 ## Colors
 
-A pinned brand palette of teal, orange and near-black on cool paper, extended only with tints and shades of those hues.
+A pinned brand palette of teal, orange and near-black on cool paper. Teal is used at the brand value alone; orange keeps its hover shade.
 
 ### Primary
-- **Record Teal** (`teal`): the field colour. Hero and contact fields with a slanted edge, full-width bands (ZATCA, contact close, about statement), the about figures band, active ticks and progress, the double rule under totals, selection highlight and the focus ring. On the blog, the one 2px margin rule of the ledger page and the short rule under each section number.
-- **Engraver's Teal** (`teal-700`): teal as ink. Links, seal and postmark strokes, figure numerals on paper, icon strokes in tiles, the current entry in the terms contents, hovered nav links, and on the templates page the create-online links, the hinge's arrow disc and the QR mark.
-- **Hairline Teal** (`teal-200`): the double-hairline frame, dividers inside document objects, inactive chart bars.
-- **Ring Teal** (`teal-300`): the outer hairline on client seals, register discs and the FAQ plus; on pricing, the rule under the ledger's pinned plan heads and the double hairline under each "in every plan" group head.
-- **Washed Teal** (`teal-50`, `teal-100`): the wash on a landed anchor (story row, linked clause), selected chips, hovered link tiles, the "2 months free" and saving chips and the most-popular column of the pricing ledger (`teal-50`), and the icon tiles behind line icons (`teal-100`).
-- **Marker Teal** (`teal-600`): section numerals and the sliding contents thumb in the reading register. On the campaign landing page it is the field itself: the form panel and the WhatsApp disc, where white text measures about 3.8:1 against 2.4:1 on Record Teal (see Observed drift). The ZATCA Phase 2 page fills its hero form field and its close band with it for the same reason, and the VoM Pay success page its lead field and its close band.
-- **Deep Teal** (`teal-800`): text on the inverse (white) button and on selected chips.
-- **Shadow Teal** (`teal-950`): never a fill; the tint of every lifted shadow, as `rgba(5, 42, 37, a)`.
+- **Record Teal** (`teal`, #17BAA3): the only teal on the public site (owner, 2026-11-19), for fields, bands, lines, icons and text alike. Hero and contact fields with a slanted edge, full-width bands, links and teal ink, seal and postmark strokes, figure numerals, hairlines and double-hairline frames, rings, ticks and progress, the secondary button, selection highlight and the focus ring.
+
+The scale this section used to describe is retired. Where an older entry in this file names one of its shades, read it as follows:
+- **Engraver's Teal** (`teal-700`), **Marker Teal** (`teal-600`), **Deep Teal** (`teal-800`), **Hairline Teal** (`teal-200`) and **Ring Teal** (`teal-300`) are now Record Teal: links, strokes, numerals, hairlines and rings in the one teal, and the campaign, ZATCA Phase 2 and VoM Pay fields and close bands on the same teal as the guilloche bands.
+- **Washed Teal** (`teal-50`, `teal-100`) split by job. Where it held teal content (icon tiles, tick discs, selected chips, saving and count chips, the integration ticks) it is a solid Record Teal ground with the content in white. Where it was a quiet surface behind ink (hover washes, landed anchors, the most-popular pricing column, callouts, the blog trial panel, the current thumb tab) it is Cool Paper.
+- **Shadow Teal** (`teal-950`) is gone: lifted shadows are tinted with Record Ink, `rgb(2 2 2 / a)`.
+
+The admin (`/admin`) is an internal tool and keeps the old scale, scoped in `app/(admin)/admin.css`.
 
 ### Secondary
 - **Action Orange** (`orange`): the primary button, the "today" tick, the last point on the ZATCA timeline, overdue and reorder states inside product mock-ups. Hover is `orange-600`; `orange-50` is the background of a warning row in a mock-up.
@@ -883,13 +865,15 @@ A pinned brand palette of teal, orange and near-black on cool paper, extended on
 Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is not used on any shipped surface.
 
 ### Named Rules
+**The One Teal Rule.** Record Teal is the only teal, on every ground and for text too (owner, 2026-11-19). No tints, no shades, and no teal mixed toward transparent, which reads as a tint. Contrast is the owner's accepted trade: Record Teal measures about 2.4:1 on white, under AA for text, and white on it the same. A hover that used to step to a darker teal changes thickness, fill or ground instead.
+
 **The One Hot Colour Rule.** Orange marks the single action to take or the single "now" (today's tick, the latest milestone). It is never a background field, a heading colour or decoration.
 
 **The Guilloche-on-Teal Rule.** The guilloche is drawn in white at 10 to 14% opacity on teal fields only. Never on paper, on paper objects, on seals or on the reading register. A reading surface gets at most one field: in the e-invoicing catalogue it is the hub's drawer, and the twelve guides carry no field and no guilloche.
 
 **The Book-in-Slate Rule.** On a textbook spread the textbook page is the book's, so it is printed in Slate and Graphite on Cool Paper with ink-300 and paper-300 hairlines and no teal; teal, the double hairline and the double teal rule belong to the facing VoM page. The book's own total keeps its accountant's double rule, drawn 3px in Graphite.
 
-**The Paper-or-Record Rule.** Where a page faces what a visitor takes away against what VoM issues (the invoice templates page), everything taken away is the paper side: Slate and Graphite on Cool Paper with no teal, the template sheets in a single paper-300 hairline at rest and the Word and PDF pills outlined in ink. Everything that leads into VoM carries teal: the create-online links, the hinge's teal-700 arrow disc and the record on its teal field. Orange stays on the sign-up alone. Focus rings stay Record Teal on both sides; the rule governs what the page draws, not the template files' own print colours.
+**The Paper-or-Record Rule.** Where a page faces what a visitor takes away against what VoM issues (the invoice templates page), everything taken away is the paper side: Slate and Graphite on Cool Paper with no teal, the template sheets in a single paper-300 hairline at rest. The Word and PDF pills are the site's secondary button, the teal pill, like every button that is not the main call to action (owner, 2026-11-19). Everything that leads into VoM carries teal: the create-online links, the hinge's teal arrow disc and the record on its teal field. Orange stays on the sign-up alone. Focus rings stay Record Teal on both sides; the rule governs what the page draws, not the template files' own print colours.
 
 **The Ledger-Page Rule.** A blog page is one ruled sheet: Paper on Cool Paper, with a single 2px Record Teal rule running the sheet's height between a 3/12 margin and a 9/12 column (from 1024px), and between the date column and the entry on list pages (from 640px). Teal is otherwise ink only: section numbers, links, the inked current entry, the reviewed mark and the double rule over tables and topic accounts. No teal field and no guilloche before the closing band, and orange only on the trial button in that band.
 
@@ -897,8 +881,8 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 
 ## Typography
 
-**Display Font:** Effra (with Segoe UI, SF Arabic, Geeza Pro, system-ui)
-**Body Font:** Effra (same stack)
+**Display Font:** IBM Plex Sans with IBM Plex Sans Arabic (then Segoe UI, SF Arabic, Geeza Pro, system-ui)
+**Body Font:** IBM Plex Sans with IBM Plex Sans Arabic (same stack)
 
 **Character:** A single humanist sans that covers Arabic, Latin and digits, so both locales share one voice. Hierarchy comes from weight and size, not from a second family.
 
@@ -933,7 +917,7 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Body, reading** (400, 1.0625rem, 1.125rem from 1024px, 1.75, Arabic 1.85): legal reading and the e-invoicing guide bodies, in Reading Ink. The text column fills the page container beside the contents rail (owner, 2026-11-09), so lines run long at wide screens: about 125 characters in Arabic and 90 in English at 1440px.
 - **Label** (400 to 700, 0.875rem to 0.9375rem): nav, buttons, meta, footer.
 - **Caption** (400, 0.75rem to 0.8125rem): dates, demonstration-data labels, mock-up rows.
-- **Figure** (700, 1): tabular numerals. 3 to 3.5rem in teal-700 on the homepage record; 4.5 to 5.5rem on about story rows; poster scale `clamp(8.75rem, 12.2vw, 11rem)` in white on the about band.
+- **Figure** (700, 1): tabular numerals. 3 to 3.5rem in Record Teal on the homepage record and on the about figures sheet (3rem, 3.5rem from 640px, each ruled off by the 4px double teal underline with its caption under it at 0.9375rem, 1rem from 1024px, weight 500 Slate; owner, 2026-11-19, replacing the 11rem white poster numerals on the about band); 4.5 to 5.5rem on about story rows.
 - **Figure, poster** (`figure-poster`; 700, 3rem, 3.75rem from 640px, then `clamp(4rem, 5.4vw, 5.25rem)` from 1024px, 1, -0.02em, white, tabular through `.sar` / `.num`, no wrap): a calculator's answer on its teal band, under the answer label (700, 1.125rem, 1.25rem from 1024px, 1.5, balanced, white) and over the double white rule. Long amounts step down by length: `m` (over 11 characters) 2.5rem / 3rem / `clamp(3.25rem, 4.2vw, 4rem)`, `s` (over 15) 2rem / 2.375rem / 2.75rem. The riyal sign in it is 0.56em by 0.62em, 0.14em before the figure, as on the price figure. The secondary figures in the parts row are 1.375rem bold at 1.2 under 0.875rem weight-500 terms. The drawn cover plate on the tools index sets the same figure at 3.5rem over its own double white rule, with a 1rem weight-500 tabular line under it.
 - **Display, tools index** (`display-tools-index`; 700, 2.5rem, 3.25rem from 640px, then `clamp(3.25rem, 4.4vw, 4rem)` from 1024px, 1.15, -0.01em): the tools index H1 over its intro (1.0625rem, 1.1875rem from 1024px, 1.8, Slate, 58ch, pretty). Group headings are 700 at 1.375rem (1.625rem from 1024px), 1.35, the group's count after the name at 0.9375rem weight 500 in teal-700, tabular; plate names are 1.1875rem bold at 1.4 (1.5rem on a lone plate from 1024px) over a 0.9375rem Slate line at 1.65 (1.0625rem on a lone plate).
 - **Display, campaign** (`display-campaign`; 700, 2rem, 2.5rem from 640px, 3rem from 1024px, 1.25 then 1.2 then 1.15, -0.01em, balanced, ink): the campaign landing page's H1 on the start 7/12, closed by the ZATCA plate inline; under it the lede (1.0625rem, 1.1875rem from 1024px, 1.85, Slate, 62ch, pretty). The contract named the reading display; the build steps lower so the H1 holds the first viewport beside the panel. The panel title is 700 at 1.375rem (1.25rem at laptop heights), 1.45, white, balanced; the features heading 700 at 1.75rem (2rem from 1024px), 1.25, -0.01em; a feature's name 700 at 1.0625rem, 1.5.
@@ -943,7 +927,7 @@ Brand blue (`#0694FF`) is pinned in PRODUCT.md and defined in the theme but is n
 - **Offer figure** (700, 5.5rem / 7rem / 8rem, 0.8, -0.02em, teal-700): a single offer figure inside a paper door, beside a bold label (1.5rem, 1.875rem from 1024px) over a Slate duration (1.125rem, 1.25rem from 1024px), the group ruled off with the double teal underline. On the growth closing band the same figure runs white at `clamp(5.5rem, 13vw, 10.5rem)`, 0.9, inside a closing line set at 1.75rem / 2.25rem / 2.5rem. The integration close band sets its closing line at the same three steps (700, 1.25, 26ch, balanced).
 
 ### Named Rules
-**The Effra Only Rule.** One family, loaded through `next/font/local`, weights 300, 400, 500 and 700. No second face, no third-party font link.
+**The IBM Plex Only Rule.** One family in two faces, IBM Plex Sans (Latin and digits) and IBM Plex Sans Arabic (Arabic), loaded through `next/font/google` and served from the site, weights 300, 400, 500 and 700. No other face, no third-party font link. It replaced Effra on 2026-11-19 (owner).
 
 **The Tabular Figure Rule.** Every number that can be compared (amounts, serials, dates, counts, clause numbers) is tabular and set `dir="ltr"` inside Arabic text.
 
@@ -957,15 +941,15 @@ The page is a 1280px column with a 16px gutter that respects safe-area insets. C
 
 Section rhythm: 4rem / 6rem (about), 5rem / 7rem (teal bands), 6rem / 8rem (homepage sections), stacked mobile value first, lg value from 1024px. Stacks inside a column step at 1rem, 1.25rem, 1.5rem and 1.75rem gaps.
 
-Responsive: 640px (type steps up), 768px (footer link columns go four across), 1024px (columns, desktop header nav, terms rail), 1180px (about figures side by side). Below 1024px the slanted teal field becomes a full-width teal panel under the copy, with a slanted top edge, and the paper object sits on it.
+Responsive: 640px (type steps up), 768px (footer link columns go four across), 1024px (columns, desktop header nav, terms rail, the about figures sheet four across), 1180px (the about cut-out beside the H1). Below 1024px the slanted teal field becomes a full-width teal panel under the copy, with a slanted top edge, and the paper object sits on it.
 
 Two doors (growth program, from 1024px): under the 7/5 copy-and-photo row, a paper doc-frame door takes the start 5/12 and a teal guilloche field the end 7/12. The field's slanted start edge (a 3.5rem slant at the top) is the seam between the doors, and the field bleeds to the viewport's end edge through `--bleed: max(16px, calc((100vw - 1280px) / 2 + 16px))`; its content stays in the container with a 5rem start pad. A cut-out photograph sits on paper at the end of the copy row, bottom-aligned so the arm appears to rise out of the field, and reaches past the container by at most 8rem. Below 1024px the order is copy, paper door, photo, field; the field becomes a full-width panel with a 2.25rem slanted top edge, high on the end side where the arm rises, and the photo overlaps it by 2rem.
 
-Integration hero (from 1024px): copy on the start 6/12 (breadcrumb, letterhead lockup, H1, lede, Register and a ghost "watch" link that also starts the video), vertically centred; the stage on the end 6/12. The stage's teal guilloche field is cut by a 4.5rem slant on its start edge and bleeds to the viewport's end edge through the same `--bleed` as the growth doors; the stage pads 4.5rem on its start side so the screen sits wholly on teal. Below 1024px the copy comes first, then the field becomes a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, holding the screen centred at up to 36rem.
+Integration hero (from 1024px): copy on the start 6/12 (breadcrumb, letterhead lockup, H1, lede, Register and a teal-pill "watch" link that also starts the video), vertically centred; the stage on the end 6/12. The stage's teal guilloche field is cut by a 4.5rem slant on its start edge and bleeds to the viewport's end edge through the same `--bleed` as the growth doors; the stage pads 4.5rem on its start side so the screen sits wholly on teal. Below 1024px the copy comes first, then the field becomes a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, holding the screen centred at up to 36rem.
 
 Student hero (from 1024px): the integration hero's grid, copy and field, re-proportioned. Copy on the start 5/12 (breadcrumb, H1, lede, the orange student Register and a secondary university Register that opens in a new tab), vertically centred; the stage on the end 7/12 holding the open textbook spread, up to 40rem wide and aligned to the stage's start. The field shares the integration field: a 4.5rem slant on its start edge, the same `--bleed` to the viewport's end edge and a 4.5rem start pad. Between 1024 and 1279px, where the spread is narrowest, the slant and the pad both drop to 3rem, the spread's tables drop to 0.8125rem and its pages pad 1.125rem inline. From 640px the stage keeps 2.5rem under the spread for the seal that hangs below it. Below 1024px: copy first, then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, the spread centred on it with its pages stacked (side by side again from 640px).
 
-Sector hero (from 1024px): the integration hero's grid. Copy on the start 6/12 (breadcrumb, H1, lede, Register and a ghost demo link, then a Graphite "no credit card" note with a teal-700 check), vertically centred with 3rem / 4.5rem block padding; the stage on the end 6/12. The field is the same guilloche field: a 4.5rem slant on its start edge, the shared `--bleed` to the viewport's end edge and a 4.5rem start pad, so the photo plate (up to 34rem) sits wholly on teal; the stage pads 4rem top and 5.25rem bottom to leave room for the seal that hangs below the plate. Below 1024px: copy first, then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, the plate centred on it.
+Sector hero (from 1024px): the integration hero's grid. Copy on the start 6/12 (breadcrumb, H1, lede, Register and a teal-pill demo link, then a Graphite "no credit card" note with a teal check), vertically centred with 3rem / 4.5rem block padding; the stage on the end 6/12. The field is the same guilloche field: a 4.5rem slant on its start edge, the shared `--bleed` to the viewport's end edge and a 4.5rem start pad, so the photo plate (up to 34rem) sits wholly on teal; the stage pads 4rem top and 5.25rem bottom to leave room for the seal that hangs below the plate. Below 1024px: copy first, then the field as a full-width panel (negative 16px inline margin) with a 2.25rem slanted top edge, high on the end side, the plate centred on it.
 
 Sector sections: the integration split (paper-200 top hairline, H2 on the start 4/12, content on the end 8/12, 2rem gap, 4rem / 6rem block padding) carries the clause sheet (on Cool Paper, with the heading and its "more features" link sticky 6rem from the top from 1024px), the client seals and the questions. The articles and the sector register are full-width blocks under their heading: articles two across from 640px and four from 1024px; the register two across on phones, three from 640px and seven from 1024px (two rows of seven for the other fourteen sectors). Sections with no data (clients, articles) drop out.
 
@@ -989,7 +973,7 @@ Calculator pages (`/tools/<slug>/`, Arabic only): a paper title row in the conta
 
 Tools index (`/tools/`, Arabic only): the head in the container (breadcrumb, the H1 1.25rem under it, the intro 1rem under that), padded 1.5rem / 2.5rem (2rem / 3rem from 1024px). The three groups follow 3.5rem apart (4.5rem from 1024px, 5rem / 6rem to the page end), each heading on a paper-200 rule with its plates 1.75rem under it: one per row on phones, two from 640px and three from 1024px (2rem row gap, 1.5rem column gap, 2rem from 1024px). A group of one lies across the row: from 640px image and words in two equal columns, vertically centred, 1.5rem apart; from 1024px the image takes the start 7fr and the words the end 5fr, 3rem apart. The shared blog close band ends the page.
 
-Campaign landing page (`/digital-ads-2023-landing-page/`, Arabic only): its own root layout with no site header, navigation or footer (see Components), the page in the 1280px container with 7rem at its foot for the fixed controls. Below 1024px one column in this order: the head (the VoM wordmark at 5.5rem, the H1 2rem under it closed by the ZATCA plate, the lede 1.25rem under that; 1.25rem / 2rem block padding), the form panel as a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 2.5rem, then the story 3rem under it. From 1024px a two-column grid, `minmax(0, 7fr) minmax(0, 5fr)` with a 4rem gap and rows `auto 1fr`: the head (2rem top pad, the H1 3.5rem under the wordmark) and the story under it on the start 7/12, the panel on the end 5/12 spanning both rows, 2rem from the top and sticky 1.5rem from the top, a rounded card padded 2rem 2rem 2.25rem, held to the window (`max-height: calc(100dvh - 3rem)`) and scrolling inside itself when error messages make it taller. From 1024px wide and up to 820px tall the panel tightens (padding 1.5rem 1.75rem 1.75rem, the sheet 1.25rem and 1rem under the title, a 0.875rem field gap, 2.75rem fields) so it stays sticky down to a 621px window; at 620px tall and below it scrolls with the page and the return bar takes over, 20rem wide beside the WhatsApp disc. The story stacks its blocks 3.5rem apart (4rem from 1024px, padded 3rem / 3.5rem on top): the photo, then the features, the client wall, the voices and the partners, each filed under a paper-200 hairline with 3rem (4rem from 1024px) above its content. Features run one column, a ruled 2×2 from 640px (2rem column gap); the client wall four across, six from 640px (0.5rem gaps, the short last row centred); the quotes one column, two from 640px (1rem gap); the partners four across, six from 640px.
+Campaign landing page (`/digital-ads-2023-landing-page/`, Arabic only): its own root layout with no site header, navigation or footer (see Components), the page in the 1280px container with 7rem at its foot for the fixed controls. Below 1024px one column in this order: the head (the VoM logo at 10rem, the H1 2rem under it closed by the ZATCA plate, the lede 1.25rem under that; 1.25rem / 2rem block padding), the form panel as a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, high on the end side, padded 4.25rem 16px 2.5rem, then the story 3rem under it. From 1024px a two-column grid, `minmax(0, 7fr) minmax(0, 5fr)` with a 4rem gap and rows `auto 1fr`: the head (2rem top pad, the H1 3.5rem under the wordmark) and the story under it on the start 7/12, the panel on the end 5/12 spanning both rows, 2rem from the top and sticky 1.5rem from the top, a rounded card padded 2rem 2rem 2.25rem, held to the window (`max-height: calc(100dvh - 3rem)`) and scrolling inside itself when error messages make it taller. From 1024px wide and up to 820px tall the panel tightens (padding 1.5rem 1.75rem 1.75rem, the sheet 1.25rem and 1rem under the title, a 0.875rem field gap, 2.75rem fields) so it stays sticky down to a 621px window; at 620px tall and below it scrolls with the page and the return bar takes over, 20rem wide beside the WhatsApp disc. The story stacks its blocks 3.5rem apart (4rem from 1024px, padded 3rem / 3.5rem on top): the photo, then the features, the client wall, the voices and the partners, each filed under a paper-200 hairline with 3rem (4rem from 1024px) above its content. Features run one column, a ruled 2×2 from 640px (2rem column gap); the client wall four across, six from 640px (0.5rem gaps, the short last row centred); the quotes one column, two from 640px (1rem gap); the partners four across, six from 640px.
 
 ZATCA Phase 2 (`/en/zatca-e-invoicing-phase-2/`, English only, inside the site header and footer): the hero in the 1280px container, padded 1.5rem (2rem from 1024px) on top. Below 1024px one column: breadcrumb, H1, lede, the Phase 2 Link lockup filling the column, then the form field as a full-bleed band. From 1024px a `minmax(0, 7fr) minmax(0, 5fr)` grid with a 4rem gap, bottom-aligned: the intro and lockup on the start 7/12, the field on the end 5/12. Under the hero the whole body hangs on the thread: content indented 2.25rem (4.5rem from 1024px) from the container's start edge, the line's spine 0.75rem (1rem) in, 3.5rem (5rem) of padding above the first section, sections 4.5rem (6rem) apart. The what-it-is section sets its text beside the old laptop image (max 34rem) in two equal columns from 1024px (4rem gap). The requirements are one column, two from 640px (2.5rem by 2rem gaps). The readiness register and the VoM help register change layout at 900px and the seven steps at 1200px, two breakpoints only this page uses (see Observed drift). The thread ends 3.5rem (4.5rem) under the last section at the arrival, 4rem (5rem) tall, then 4.5rem (6rem) of paper before the close band.
 
@@ -1002,7 +986,7 @@ The reading register is a single column of text that fills the page container. F
 - The orange pill is rebuilt by hand in the mobile menu (40px, no pressed base, no hover) and in the closing certificate form (48px) instead of using the primary button; the header overrides it to 40px.
 - Guilloche stroke opacity varies: 0.11 on the hero and contact fields, 0.14 on bands and the CSS tile, about 0.1 on the apps panel.
 - The ZATCA band's paper cards use a black shadow (`rgba(0,0,0,0.6)`), where every other shadow is teal-tinted.
-- Seal numerals use `font-extrabold` (800), a weight Effra is not loaded in, so the browser synthesises it.
+- Seal numerals use `font-extrabold` (800), a weight Plex is not loaded in, so the browser synthesises it.
 - The page container is the `page-wrap` class on about and terms but repeated inline utilities on home, contact, header and footer (same values).
 - Small icon tiles and calculator inputs use a 0.75rem radius (`rounded-xl`) where list icon tiles use the 1rem tile radius.
 - `--measure: 62ch` is defined on `:root` but unused; about writes 62ch literally; terms sets no measure.
@@ -1011,7 +995,7 @@ The reading register is a single column of text that fills the page container. F
 - Growth: the closing teal band pads 4rem / 4.5rem and 5rem / 5.5rem, not the 5rem / 7rem of other teal bands.
 - Growth: the partner field reuses the CSS guilloche tile, so it draws at 0.14 opacity where the hero and contact fields draw at 0.11.
 - Icon tiles exist twice: about draws them as CSS masks on pseudo-elements; growth renders the shared `Icon` component inside a 48px tile. Same look, two implementations.
-- The inverse button on the homepage ZATCA band keeps the default teal focus outline on a teal ground, where it is invisible; growth overrides it to white on both its teal surfaces.
+- Resolved 2026-11-19: every teal pill on a teal band (`btn-on-teal`) now takes the white focus outline, the homepage ZATCA band included.
 - Integration: the single-rule ledger (Zid) sets its partner record at 1.5rem / 1.75rem and its VoM result at 1.25rem / 1.375rem, off the type ramp (between Title and Headline), so one row still reads as a statement.
 - Integration: the screen's poster is clipped at a 0.625rem radius, a value that was not in the radius scale (card 1.25rem, tile 1rem, sheet 0.75rem) until the features attachments reused it; it is now recorded as `rounded.screen` (see Shapes); the screen's 10px bezel replaces the doc-frame's 28 to 40px padding.
 - Integration: the hero field and the close band reuse the CSS guilloche tile at 0.14 opacity, where the hero and contact fields draw at 0.11.
@@ -1052,7 +1036,7 @@ The reading register is a single column of text that fills the page container. F
 - E-invoicing: the FAQ redraws the sector FAQ's ringed plus (1.75rem, teal-300 hairline) in its own class, a second copy of the same disclosure styling.
 - Features: the H1 sets 1.05 line height where Display sets 1.1, and its lg clamp `clamp(4rem, 5.6vw, 5rem)` is a third fluid Display step beside the integration and student clamps.
 - Features: sections pad 3.5rem / 5.5rem, not the 4rem / 6rem of the integration split, and the section title (`section-title`, 1.625rem / 2rem) sits below the Headline ramp so it can stand beside its numeral.
-- Features: the contents seal's agency line is 0.5rem (8px), below the 0.625rem micro-label floor, and its word is weight 800, which Effra is not loaded in; both copy the homepage certificate seal. A legibility defect carried from the homepage, not a type step.
+- Features: the contents seal's agency line is 0.5rem (8px), below the 0.625rem micro-label floor, and its word is weight 800, which Plex is not loaded in; both copy the homepage certificate seal. A legibility defect carried from the homepage, not a type step.
 - Features: the contents rows wash `teal-50` on hover at a 0.5rem radius, off the radius scale (the register link washes at the 1rem tile radius), and draw their focus outline at 0 offset where the house offset is 3px; the pager buttons use 2px.
 - Features: the contents sheet and the attached sheet rebuild the doc-frame's border and inset rings by hand instead of using the shared frame class (the marks sheet and contact slip use it). Same look, two implementations.
 - Features: the attached sheets carry a teal shadow at rest on paper (`0 24px 48px -28px rgb(5 42 37 / 0.5)`) and the two sheets beneath them `0 18px 36px -24px rgb(5 42 37 / 0.35)`, against the Teal Shadow Rule's flat-at-rest frames, like the student spreads and the pinned card.
@@ -1078,11 +1062,11 @@ The reading register is a single column of text that fills the page container. F
 - Templates: the catalogue H2 is 1.875rem / 2.25rem with no 1024px step, where the headline ramp reaches 2.5rem.
 - Templates: the hinge's bold statement is 1rem, 1.125rem from 640px and 1.0625rem from 1024px, so it steps down when the columns open; the hinge text is 0.875rem / 0.9375rem and the paper line 0.75rem on phones (the Caption floor carrying a link).
 - Templates: the template sheet's 4px corner is off the radius scale (the value is the focus radius); the brief's "print laid on a desk".
-- Templates: the record seal is 5.25rem, a new seal size beside the register seal's 5.5rem, and the QR seal 2rem. Both copy the homepage certificate seal's type: the record seal's agency line at 0.5rem and both seal words at weight 800, which Effra is not loaded in. A legibility defect carried from the homepage, not a type step.
+- Templates: the record seal is 5.25rem, a new seal size beside the register seal's 5.5rem, and the QR seal 2rem. Both copy the homepage certificate seal's type: the record seal's agency line at 0.5rem and both seal words at weight 800, which Plex is not loaded in. A legibility defect carried from the homepage, not a type step.
 - Templates: the QR seal appears from 1.25x scale over 0.3s (a hover transition), where the load stamps use `sec-stamp` from 1.12x.
 - Templates: the record seal sits on the screenshot's physical top-left corner and the QR seal on the QR box's physical bottom-right in both locales, because the rasters do not mirror (like the Peeking Person); the paper sheets' settle rotation (-1.5deg) is not mirrored in RTL either, and has no such reason, against the Do on mirroring transforms.
 - Templates: focus offsets vary: the create-online link draws its outline at 4px offset with a 4px radius and the paper line's link at 3px with a 2px radius.
-- Templates: the file pill is a third outlined pill beside the secondary button and the footer's app-store links: an ink border at 28% (the secondary uses 80%), hover Slate border on paper-200 (the secondary hovers to Cool Paper, which is this page's ground).
+- Resolved 2026-11-19: the templates file pill is now the teal pill (the secondary button), not a third outlined pill.
 - Templates: the record caption («sample data») sits inside the frame on a paper-200 rule, where the Screen and the Attached Sheets caption outside the sheet; the label stays on the document it describes.
 - Templates: the template renders and the hero sheets carry the old files' own print colours (bands of green, blue, orange and grey, and a VoM wordmark on some), shown one to one; the Paper-or-Record Rule governs what the page draws, not the files' artwork.
 - Templates: the brief drew the phone hinge as a horizontal perforated rule between paper and record; the build sets the paper beside a vertical hinge with the record below, so the sign-up reaches the first screen. The brief's «Word · PDF» line ships as «6 templates to print · Word and PDF», a slate link down to the catalogue under a paper-300 underline.
@@ -1100,7 +1084,7 @@ The reading register is a single column of text that fills the page container. F
 - Blog: the table region's scroll shades are neutral ink at 10% (`rgb(2 2 2 / 0.1)`), where the Teal Shadow Rule tints every shade with Shadow Teal. The table is a second copy of the guide's ledger table with its own values: cells pad 0.75rem 0.875rem (the guide 0.875rem 1rem), the head row stays 0.9375rem (the guide 0.875rem), and the 34rem minimum starts at four columns (the guide at three).
 - Blog: the body's FAQ is a `details` on paper-200 rules with the browser's own marker, a third disclosure style beside the house FAQ and the ringed plus on teal-200 rules.
 - Blog: links to other sites carry the external-arrow mask but the preparer adds no visually hidden "opens in a new tab" words, which the guide body has.
-- Blog: the pagination pill is a fourth outlined pill (an ink border at 28%, like the file pill) and hovers to a teal-700 border and text, where the file pill hovers to Slate and the secondary button to Cool Paper.
+- Resolved 2026-11-19: the blog pagination pill is now the teal pill as well.
 - Blog: below 640px the entry lists sit on Cool Paper with no sheet and no teal rule, and the compact lists inside topic accounts never sit on a sheet. The entry sheet's rule does not draw; on list pages the only motion is the heading settling.
 - Blog: the contract ruled the topics as rows, one per topic; the build sets the accounts two across from 1024px and opens the ten fullest topics, naming the rest in one line.
 - Blog: the closing band is the shared sector close band (6rem / 4.5rem padding, a 2.5rem slanted top edge, the CSS guilloche tile at 0.14, the closing line at 1.5rem / 1.75rem), so its drift and the White-on-Teal open conflict apply.
@@ -1212,14 +1196,14 @@ The VoM Pay result pages set the status panel at the card radius. The lead field
 ## Components
 
 ### Buttons
-Small, precise and pill-shaped, in Effra bold at 0.9375rem, often with a 16px arrow that flips in RTL.
-- **Shape:** full pill (999px), 44px tall (40px in the header).
-- **Primary:** Action Orange with white text, 20px inline padding, a pressed 2px inner base; hover `orange-600`. One per view.
-- **Secondary:** transparent with an 80% ink border; hover full ink border and Cool Paper.
-- **Ghost:** text with a 2px teal underline at 6px offset; hover the underline turns ink. Pairs with the primary.
-- **Inverse:** white with Deep Teal text, for teal bands; hover `teal-50`.
-- **Focus / Active:** 2px teal outline at 3px offset; active nudges 1px down. On a teal ground the outline is white.
+Two buttons only (owner, 2026-11-19): orange for the page's main call to action, the teal pill for every other button. Both are full pills in Plex bold at 0.9375rem, often with a 16px arrow that flips in RTL. `ButtonLink` takes `variant="primary"` or `variant="secondary"`; there is no ghost, text or inverse button any more.
+- **Shape:** full pill (999px), 44px tall (40px in the header and the mobile menu).
+- **Primary:** Action Orange with white text, 20px inline padding, a pressed 2px inner base; hover `orange-600`. Sign-up and trial links, the most-popular plan, and every form's submit (lead forms, the campaign return bar, the homepage email field). One per view where the layout allows.
+- **Secondary (the teal pill):** Paper ground with a 1.5px Record Teal border and Record Teal text; hover fills Record Teal and turns the text white. Demo booking, read-more and see-features links, the other plans, calculate, and the one-off controls that used to have looks of their own: the template download pills, blog pagination, the calculator's reset / copy / save and the features screen-stack arrows (drawn round, 44px).
+- **On a teal band:** the same pill with `onTeal` (`btn-on-teal`). At rest it is identical; on hover its edge turns white, so the filled pill does not melt into the band.
+- **Focus / Active:** 2px Record Teal outline at 3px offset; active nudges 1px down. On a teal ground the outline is white.
 - **New tab:** a link button that opens in a new tab (the growth application forms) sets `target="_blank"` and appends a visually hidden " (opens in a new tab)" after its label.
+- **Not buttons:** the App Store badges, toggles and choice pills, the video playlist tabs and the admin's own buttons keep their looks.
 
 ### Inputs / Fields
 - **Style:** pill input, 48px, paper-300 border on paper, 20px padding.
@@ -1233,13 +1217,13 @@ Small, precise and pill-shaped, in Effra bold at 0.9375rem, often with a 16px ar
 - **Icon tile:** a 48px `teal-100` square at 1rem corners holding a 26px line icon in teal-700 (1.75 stroke), drawn from the shared `Icon` set.
 
 ### Navigation
-- **Header:** sticky, 64px, paper at 85% with backdrop blur and a paper-200 bottom rule. Logo at the start, links at 0.9375rem in 90% ink turning teal-700 on hover, then locale switch, login and a small orange start pill. The links are Home, Features, Sectors (a menu), Pricing, E-invoicing and Business support (a menu). Below 1024px a round menu button opens a paper panel of ruled links, scrollable to the viewport, where the two menus become sections that expand in place (sectors two across with their icon tiles, support as its labelled groups).
+- **Header:** sticky, 64px, paper at 85% with backdrop blur and a paper-200 bottom rule. Logo at the start (the "VoM Accounting" lockup, 30px tall, 28px from 1024px to 1279px), links at 0.9375rem in 90% ink turning teal-700 on hover, then locale switch, login and a small orange start pill. The links are Home, Features, Sectors (a menu), Pricing, E-invoicing and Business support (a menu). Below 1024px a round menu button opens a paper panel of ruled links, scrollable to the viewport, where the two menus become sections that expand in place (sectors two across with their icon tiles, support as its labelled groups).
 - **Mega menu:** a disclosure, not an ARIA menu. The trigger is a button with `aria-expanded` and a 14px chevron that turns from down to up; it opens after an 80ms rest of the mouse, or on click, Enter or Space, and closes on Escape (focus returns to the trigger), on leaving the header for 220ms, on a click outside, on tabbing out, and when one of its links is followed. The panel is a full-width paper sheet under the header with the overlay shadow, dropping in over 0.22s (6px and opacity, ease-out-quint) and lifting out a little faster, over 0.16s ease-in, with `display` held until the fade ends (`transition-behavior: allow-discrete`); moving straight from one menu to the other swaps the panels at once. A closed panel carries the `hidden` attribute, dropped only while it is open and for the 0.2s of its fade, so it stays shut even without the stylesheet. Inside the 1280px container, its links run on the start side and a 19rem teal guilloche field with a 2.5rem slanted start edge bleeds to the viewport's end edge (the hero field's `--bleed`), carrying white text. Sectors: three ruled columns read down each column, each entry a 2.5rem teal-50 tile at the sheet radius with the sector's 1.5-stroke line icon in teal-700 (drawn by CSS masks from the shared icon set) beside the name at 0.9375rem, weight 500; hover turns the tile Record Teal and the icon white; the field holds the homepage's sector line and an "All sectors" link. Business support: labelled groups (a bold 0.9375rem heading over a teal-200 hairline, links at 0.9375rem in Slate); a group of more than six links, or a lone group, runs in two columns up to 36rem; the last group (Help) sits on the field in white. The «الأدوات المالية» group (the seven calculators, then «كل الأدوات المالية») holds eight links, so it runs in two columns by that rule. Links to other sites carry a small arrow turned 45° outward, mirrored in Arabic. The panels are in the HTML when closed so their links are crawled; menu links do not prefetch.
 - **Breadcrumb:** 0.875rem Graphite with mirrored chevrons; current page in Slate.
 - **Footer:** Cool Paper; the brand block then four link columns (product, resources, company, and Marketplace listing the three integration pages). Two link columns on phones, four from 768px with the brand block on its own row, and `1.6fr + 4×1fr` in one row from 1024px; quiet links in Slate turning teal-700, outlined pill app-store links, a hairline above the legal line.
 
 ### Seal and Postmark
-Double-ring circles that certify: teal on paper (96px certificate seal, 68px envelope seal, 76px postmark), white on teal (220px closing seal). Slightly rotated, set in bold Effra with tabular numerals.
+Double-ring circles that certify: teal on paper (96px certificate seal, 68px envelope seal, 76px postmark), white on teal (220px closing seal). Slightly rotated, set in bold Plex with tabular numerals.
 
 ### Partner Seal
 A third-party logo on its own white disc, ringed by a 3px teal gap and a white hairline at 75%, in a grid on a teal field: 4.5rem (5.5rem from 1024px), six across from 640px (6×2) and four across below (4×3). The disc carries the partner's own colours, so other marks never sit directly on teal.
@@ -1539,7 +1523,7 @@ For a tool with no old cover (discount, zakat): a Record Teal panel with the CSS
 Once on load, CSS only, on ease-out-quint. On a calculator page each sheet lifts 1.5rem onto its band while its shadow lengthens to rest (0.6s from 0.1s); the poster changing as you type is the page's interaction. On the index the plates rise 1rem into place in reading order (translate only, 0.6s each from 0.08s, 0.06s apart). Resting styles are the finished state; the global reduced-motion rule shows them settled.
 
 ### Campaign Root Layout
-A paid-campaign page is its own document: a root layout outside `app/[lang]` that sets `lang="ar" dir="rtl"`, Effra and the house stylesheet, with no site header, navigation or footer, so the page's one action is its form. The VoM wordmark heads the page as an image, not a link. Hidden from search (noindex, follow).
+A paid-campaign page is its own document: a root layout outside `app/[lang]` that sets `lang="ar" dir="rtl"`, the Plex fonts and the house stylesheet, with no site header, navigation or footer, so the page's one action is its form. The VoM logo heads the page as an image, not a link. Hidden from search (noindex, follow).
 
 ### Form Panel (campaign)
 The field that carries the form: `teal-600` with the CSS guilloche tile (shifted 48px), white text, its title in white over the paper lead sheet 1.25rem under it (see Layout for its two shapes). Once the form is sent the title goes and the thank-you is the panel's only heading.
@@ -1589,7 +1573,7 @@ What VoM does, five entries as a ruled list: each a bold 1.125rem ink title over
 The teal-600 guilloche field (the tile shifted 48px) holding the paper lead sheet on the hero's end 5/12. Below 1024px a full-bleed band (negative 16px inline margin, safe-area aware) with the 2.25rem slanted top edge, padded 3.75rem 16px 2.5rem; from 1024px a rounded card at the card radius padded 2rem, with the panel-on-paper shadow. It has no title of its own: the H1 and lede beside it say what the form is for, and the submit names the action.
 
 ### Close Band (ZATCA Phase 2)
-The house slanted guilloche close band in Marker Teal (`teal-600`), not Record Teal, so its white closing paragraph reaches about 3.8:1: a 2.5rem slanted top edge, padded 6rem / 4.5rem (7rem / 5.5rem from 1200px). The closing line, then Register Now (primary, to sign-up) and Book a call (inverse, opening in a new tab), stacked below 1200px and beside the line from 1200px (`1fr auto`, 4rem gap). Button focus switches to the white outline on the band.
+The house slanted guilloche close band in Record Teal (it was Marker Teal, `teal-600`, for white-text contrast, until the One Teal Rule of 2026-11-19): a 2.5rem slanted top edge, padded 6rem / 4.5rem (7rem / 5.5rem from 1200px). The closing line, then Register Now (primary, to sign-up) and Book a call (the teal pill on its band, opening in a new tab), stacked below 1200px and beside the line from 1200px (`1fr auto`, 4rem gap). Button focus switches to the white outline on the band.
 
 ### Heading Accent (ZATCA Phase 2)
 The old page's accent words inside an H2 or H3 («Second Phase», «VoM») set in Engraver's Teal, the rest of the heading in ink, kept one to one from the old page. Colour only: same weight, size and line, no underline or highlight.
@@ -1657,7 +1641,7 @@ Not part of the public design world: the blog's editor at `/admin`, Arabic and r
 ### Don't:
 - **Don't** put orange on anything but the primary action or the single "now" marker.
 - **Don't** draw the guilloche on paper, on paper objects, on seals or in the reading register.
-- **Don't** add a second typeface or load Effra from a third-party link.
+- **Don't** add another typeface or load Plex from a third-party link.
 - **Don't** use neutral grey shadows, or shadow sections, tiles and frames at rest.
 - **Don't** place a micro-label or any small line above a heading as a kicker or eyebrow.
 - **Don't** treat Mist (`ink-300`) as a text colour for content that must be read, or treat white on Record Teal and white on Action Orange as meeting AA; both measure below 3:1 and are open items.

@@ -1,19 +1,31 @@
-import localFont from "next/font/local";
+import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 
 /**
- * Effra (Dalton Maag) is the pinned brand face and covers Arabic, Latin and
- * Greek, so it is the only typeface on the site. Weights: Light 300,
- * Regular 400, Medium 500, Bold 700. A web-font licence for these files must
- * be confirmed with Dalton Maag before launch (open item in PRODUCT.md).
+ * IBM Plex is the brand face (owner, 2026-11-19): Plex Sans for Latin text and
+ * every digit, Plex Sans Arabic for Arabic. Both are OFL, fetched at build time
+ * and served from this site. The stack in globals.css puts Plex Sans first, so
+ * Latin glyphs come from its one variable file and Arabic glyphs, which it lacks,
+ * fall through to Plex Sans Arabic. Plex Sans must carry no fallback of its own:
+ * next/font's automatic one is a local Arial with no unicode-range, which has
+ * Arabic glyphs and so drew every Arabic letter before Plex Sans Arabic could.
+ * Turbopack ignores `adjustFontFallback: false` and drops that face only when a
+ * `fallback` list is given, hence the empty one. The site uses weights 300, 400,
+ * 500 and 700.
  */
-export const effra = localFont({
-  src: [
-    { path: "./fonts/effra/effra-light.ttf", weight: "300", style: "normal" },
-    { path: "./fonts/effra/effra-regular.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/effra/effra-medium.ttf", weight: "500", style: "normal" },
-    { path: "./fonts/effra/effra-bold.ttf", weight: "700", style: "normal" },
-  ],
-  variable: "--font-effra",
+export const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  variable: "--font-plex",
   display: "swap",
-  fallback: ["Segoe UI", "SF Arabic", "Geeza Pro", "Noto Sans Arabic", "system-ui", "sans-serif"],
+  adjustFontFallback: false,
+  fallback: [],
 });
+
+export const plexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-plex-arabic",
+  display: "swap",
+});
+
+/** Both faces' variables, for the `<html>` of every root layout. */
+export const fontVariables = `${plexSans.variable} ${plexArabic.variable}`;

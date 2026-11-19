@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getPricing, planIds, popularPlan } from "@/lib/content/pricing";
+import { getFeatures, type ModuleId } from "@/lib/content/features";
+import { getPricing, planIds, planPeriod, popularPlan } from "@/lib/content/pricing";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { contactPaths, pricingPaths } from "@/lib/i18n/routes";
@@ -9,6 +10,7 @@ import { site } from "@/lib/seo/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { ButtonLink } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { CompareTable } from "./CompareTable";
 import { PlanSheet } from "./PlanSheet";
 
@@ -27,10 +29,11 @@ export function pricingMetadata(locale: Locale): Metadata {
 }
 
 /**
- * The pricing page: four plans as official sheets on the teal field, a ledger of
- * only the rows where they differ, what every plan shares, and the pricing
- * questions. The billing switch is two radios; CSS shows the chosen period's
- * prices, so the page ships no JavaScript of its own.
+ * The pricing page: the plans as official sheets on the teal field, a ledger of
+ * every capability plan by plan, and the pricing questions. The billing switch is
+ * two radios above the sheets: Monthly shows Flex, Yearly the fixed plans and
+ * Business (CSS, so the page ships no JavaScript of its own). The ledger always
+ * shows all four plans.
  */
 export function PricingPage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
@@ -38,6 +41,11 @@ export function PricingPage({ locale }: { locale: Locale }) {
   const path = pricingPaths[locale];
   const signup = site.signup[locale];
   const contact = localePath(locale, contactPaths[locale]);
+  // The ledger's group heads are the features page's section titles.
+  const groupTitles = Object.fromEntries(getFeatures(locale).modules.map((m) => [m.id, m.title])) as Record<
+    ModuleId,
+    string
+  >;
 
   return (
     <div className="prc">
@@ -54,34 +62,45 @@ export function PricingPage({ locale }: { locale: Locale }) {
               {c.h1}
             </h1>
             <p className="prc-lede">{c.lede}</p>
-          </div>
-          <div className="prc-controls">
-            <fieldset className="prc-billing">
-              <legend className="sr-only">{c.billing.legend}</legend>
-              <input type="radio" name="billing" id="billing-monthly" value="monthly" defaultChecked />
-              <label htmlFor="billing-monthly">{c.billing.monthly}</label>
-              <input type="radio" name="billing" id="billing-annual" value="annual" />
-              <label htmlFor="billing-annual">
-                {c.billing.annual}
-                <span className="prc-free">{c.billing.free}</span>
-              </label>
-            </fieldset>
             <p className="prc-note">{c.noCard}</p>
           </div>
         </div>
 
         <div className="prc-field guilloche-tile">
           <div className="page-wrap">
+            <div className="prc-bar">
+              <fieldset className="prc-billing">
+                <legend className="sr-only">{c.billing.legend}</legend>
+                <input type="radio" name="billing" id="billing-monthly" value="monthly" />
+                <label htmlFor="billing-monthly">{c.billing.monthly}</label>
+                <input type="radio" name="billing" id="billing-annual" value="annual" defaultChecked />
+                <label htmlFor="billing-annual">{c.billing.annual}</label>
+              </fieldset>
+              <a href="#compare" className="btn btn-secondary btn-on-teal prc-jump" data-track="pricing_compare_clicked">
+                <span>{c.compareJump}</span>
+                <Icon name="chevron" size={16} className="rotate-90" />
+              </a>
+            </div>
             <ul className="prc-sheets" role="list">
               {planIds.map((id) => (
-                <li key={id} data-plan={id} {...(id === popularPlan && { "data-popular": "" })}>
+                <li
+                  key={id}
+                  data-plan={id}
+                  data-period={planPeriod[id]}
+                  {...(id === popularPlan && { "data-popular": "" })}
+                >
                   <PlanSheet id={id} c={c} locale={locale} href={id === "business" ? contact : signup} />
                 </li>
               ))}
             </ul>
             <p className="prc-vat">{c.vatNote}</p>
-            {/* Shown by CSS while annual is chosen, where Flex is hidden. */}
-            <p className="prc-vat prc-flex-hidden">{c.billing.flexHidden}</p>
+            {/* CSS shows the line for the chosen period: what the other period holds. */}
+            <p className="prc-vat prc-period-note" data-period="annual">
+              {c.billing.flexHidden}
+            </p>
+            <p className="prc-vat prc-period-note" data-period="monthly">
+              {c.billing.annualOnly}
+            </p>
           </div>
         </div>
       </section>
@@ -91,29 +110,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <h2 id="compare-heading" className="sec-heading">
             {c.compare.heading}
           </h2>
-          <CompareTable c={c} locale={locale} />
-        </div>
-      </section>
-
-      <section id="included" className="prc-section prc-included-section" aria-labelledby="included-heading">
-        <div className="page-wrap prc-block">
-          <h2 id="included-heading" className="sec-heading">
-            {c.included.heading}
-          </h2>
-          <p className="prc-section-lede">{c.included.lede}</p>
-          <div className="prc-included doc-frame">
-            {/* Index keys: a text key would repeat the copy in the RSC payload. */}
-            {c.included.groups.map((group, g) => (
-              <div key={g}>
-                <h3>{group.heading}</h3>
-                <ul role="list">
-                  {group.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <CompareTable c={c} locale={locale} groupTitles={groupTitles} />
         </div>
       </section>
 
@@ -143,7 +140,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
             <ButtonLink href={signup} variant="primary" arrow>
               {c.close.register}
             </ButtonLink>
-            <ButtonLink href={site.demo} variant="inverse">
+            <ButtonLink href={site.demo} variant="secondary" onTeal>
               {c.close.demo}
             </ButtonLink>
           </div>

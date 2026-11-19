@@ -61,18 +61,18 @@ export function VatCalculator({ t, moreHref }: { t: Dictionary["vat"]; moreHref?
           type="checkbox"
           checked={inclusive}
           onChange={(e) => setInclusive(e.target.checked)}
-          className="h-4 w-4 accent-teal-600"
+          className="h-4 w-4 accent-teal-500"
         />
         {t.inclusive}
       </label>
-      <dl className="mt-auto grid grid-cols-3 gap-3 border-t border-teal-200 pt-4 text-[0.875rem]">
+      <dl className="mt-auto grid grid-cols-3 gap-3 border-t border-teal-500 pt-4 text-[0.875rem]">
         <div>
           <dt className="text-ink-500">{t.net}</dt>
           <dd className="num text-[1.0625rem] font-bold">{fmt(result.net)}</dd>
         </div>
         <div>
           <dt className="text-ink-500">{t.tax}</dt>
-          <dd className="num text-[1.0625rem] font-bold text-teal-700">{fmt(result.tax)}</dd>
+          <dd className="num text-[1.0625rem] font-bold text-teal-500">{fmt(result.tax)}</dd>
         </div>
         <div>
           <dt className="text-ink-500">{t.gross}</dt>
@@ -82,7 +82,7 @@ export function VatCalculator({ t, moreHref }: { t: Dictionary["vat"]; moreHref?
         </div>
       </dl>
       {moreHref && (
-        <Link href={moreHref} className="self-start text-[0.9375rem] font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
+        <Link href={moreHref} className="self-start text-[0.9375rem] font-bold text-teal-500 underline decoration-teal-500 underline-offset-4 hover:decoration-2">
           {t.more}
         </Link>
       )}

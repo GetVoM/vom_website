@@ -11,12 +11,12 @@ This repo replaces the WordPress site at getvom.com with a Next.js 16 site. Two 
 
 ## Non-negotiables
 
-1. **Brand is pinned**: the teal script logo, the colours (teal `#17BAA3`, orange `#FF7300`, blue `#0694FF`, near-black `#020202`, greys `#54595F` / `#6B6B6B`, light `#F4F7FC`) and the Effra typeface stay. Tints and shades of those colours are allowed; new hues are not. See `PRODUCT.md` › Brand Commitments and `docs/design/`.
+1. **Brand is pinned**: the logo (the "VoM Accounting" lockup, `public/brand/vom-logo.svg`; the bare "VoM" wordmark only where the lockup would be too small to read), the colours (teal `#17BAA3`, orange `#FF7300`, blue `#0694FF`, near-black `#020202`, greys `#54595F` / `#6B6B6B`, light `#F4F7FC`) and the IBM Plex typefaces (IBM Plex Sans for Latin and digits, IBM Plex Sans Arabic for Arabic) stay. The owner set the logo and the typefaces on 2026-11-19. Teal is used at `#17BAA3` alone, for text too: no teal tints or shades on the public site (owner, 2026-11-19). Tints and shades of the other colours are allowed; new hues are not. See `PRODUCT.md` › Brand Commitments and `docs/design/`.
 2. **Every existing URL keeps working.** `docs/content/url-map.csv` is the contract: `keep` rows must resolve at the same path with the same content; `redirect` rows get a 301; `retire` rows get a 410. Never ship a build that drops a `keep` URL.
 3. **SEO is a feature with tests.** Every page has a unique title and description, an absolute canonical, hreflang pairs (`ar`, `en`, `x-default`), Open Graph image, and the JSON-LD its page type requires (`docs/seo/strategy.md`). Blog posts keep author and "reviewed by" data.
 4. **Performance budgets** (mobile, Lighthouse, 4G): LCP ≤ 2.0 s, CLS ≤ 0.05, INP ≤ 200 ms, HTML ≤ 100 KB, client JS on marketing pages ≤ 150 KB gzipped, fonts ≤ 2 weights per family preloaded. Third-party scripts load after interaction or `lazyOnload`.
 5. **No invented facts.** No fabricated testimonials, customer names, numbers, awards or certifications. Demonstration data in UI mock-ups is labelled as such. Prices come from `PRODUCT.md` and must be reconfirmed before launch.
-6. **Accessibility floor**: WCAG 2.2 AA contrast, keyboard navigation with visible focus, real `<button>` / `<a>` / `<label>` elements, `prefers-reduced-motion` respected, RTL and LTR parity in every component.
+6. **Accessibility floor**: WCAG 2.2 AA contrast (one owner exception: teal `#17BAA3` text and white on teal, about 2.4:1, accepted on 2026-11-19), keyboard navigation with visible focus, real `<button>` / `<a>` / `<label>` elements, `prefers-reduced-motion` respected, RTL and LTR parity in every component.
 
 ## Stack and conventions
 
@@ -24,7 +24,7 @@ This repo replaces the WordPress site at getvom.com with a Next.js 16 site. Two 
 - **This Next.js differs from older training data.** `AGENTS.md` points at the bundled docs in `node_modules/next/dist/docs/`; the short version is `docs/research/next16-digest.md`. The rules that bite most: `proxy.ts` not `middleware.ts`; `params` / `searchParams` / `cookies()` / `headers()` are async; no `dynamic` / `revalidate` / `dynamicParams` segment exports, use `'use cache'` + `cacheLife()` + `cacheTag()`; `revalidateTag(tag, 'max')` needs the second argument; `preload` not `priority` on `next/image`; `images.remotePatterns` not `domains`; nonce CSP breaks static rendering; `generateStaticParams` must return at least one entry.
 - Routing: `app/[lang]/…` with `generateStaticParams` returning `ar` and `en`; `/` rewrites to `/ar` and `/ar/*` redirects to `/*` so Arabic URLs never carry a prefix. Read the locale with `next/root-params`. Details in `docs/architecture.md`.
 - Content goes through one content layer (`lib/content/`). Pages never read files, Supabase or a CMS directly. Posts, news, categories and authors live in Supabase (`lib/content/posts/`, edited at `/admin`); the guides are MDX. Schema changes are SQL files in `supabase/migrations/`, applied through the Supabase MCP, with `lib/supabase/types.ts` regenerated after each. See `docs/architecture.md` §13.
-- Fonts via `next/font` only: Effra from `next/font/local` is the single typeface for Arabic and Latin (`app/fonts.ts`). Never load fonts from a third-party `<link>`. The web-font licence for Effra is an open item.
+- Fonts via `next/font` only: IBM Plex Sans and IBM Plex Sans Arabic from `next/font/google`, fetched at build time and served from the site (`app/fonts.ts`). Plex Sans comes first in the stack and must carry no fallback face of its own, or Arabic glyphs stop at that local Arial instead of falling through to Plex Sans Arabic. Never load fonts from a third-party `<link>`.
 - Images via `next/image` with explicit `sizes`; one `preload` per page for the LCP element.
 - Styling: Tailwind utilities plus the design tokens; no component library that brings its own look. Motion: one orchestrated moment per page, nothing on scroll by default, reduced-motion fallback always.
 - Analytics: Google Tag Manager (`GTM-PS28X6L`) through `@next/third-parties`, loaded `afterInteractive`; Web Vitals forwarded with `useReportWebVitals`.
@@ -47,3 +47,13 @@ This repo replaces the WordPress site at getvom.com with a Next.js 16 site. Two 
 - `docs/design/directions.md`: the three design directions, shared constraints, the typeface finding.
 - `docs/architecture.md`: routing, content layer, caching, i18n, redirects, analytics, hosting decisions.
 - `docs/research/next16-digest.md`: Next.js 16 API digest.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).

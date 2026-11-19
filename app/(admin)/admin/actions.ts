@@ -32,10 +32,10 @@ const ADMIN_COOKIE = "vom_admin";
 export async function signIn(_: ActionResult | null, form: FormData): Promise<ActionResult> {
   const email = String(form.get("email") ?? "").trim();
   const password = String(form.get("password") ?? "");
-  if (!email || !password) return fail("أدخل البريد الإلكتروني وكلمة المرور.");
+  if (!email || !password) return fail("أدخل البريد الإلكتروني وكلمة المرور");
   const supabase = await serverSupabase();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) return fail("البريد الإلكتروني أو كلمة المرور غير صحيحة.");
+  if (error) return fail("البريد الإلكتروني أو كلمة المرور غير صحيحة");
   // Marks this browser as an admin's, so proxy.ts runs for it and keeps the session fresh.
   (await cookies()).set(ADMIN_COOKIE, "1", { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 60 * 60 * 24 * 365 });
   redirect(adminHref());
@@ -113,7 +113,7 @@ export type PostInput = z.input<typeof postInput>;
 export async function savePost(input: PostInput): Promise<ActionResult> {
   const { supabase } = await assertAdmin();
   const parsed = postInput.safeParse(input);
-  if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "البيانات غير صالحة.");
+  if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "البيانات غير صالحة");
   const post = parsed.data;
 
   const { data: current, error: readError } = await supabase
@@ -121,25 +121,25 @@ export async function savePost(input: PostInput): Promise<ActionResult> {
     .select("id, status, path, published_at, primary_category_id, type")
     .eq("id", post.id)
     .maybeSingle();
-  if (readError || !current) return fail("لم يُعثر على المقال.");
+  if (readError || !current) return fail("لم يُعثر على المقال");
 
   const everPublished = current.published_at !== null;
   // A published address is indexed and linked to: it does not change from here.
-  if (everPublished && post.path !== current.path) return fail("لا يمكن تغيير مسار مقال سبق نشره. أي تغيير يحتاج إلى تحويل 301.");
-  if (post.lang === "en" !== post.path.startsWith("/en/")) return fail("مسار المقال الإنجليزي يبدأ بـ ‎/en/‎ والعربي لا يبدأ به.");
+  if (everPublished && post.path !== current.path) return fail("لا يمكن تغيير مسار مقال سبق نشره. أي تغيير يحتاج إلى تحويل 301");
+  if (post.lang === "en" !== post.path.startsWith("/en/")) return fail("مسار المقال الإنجليزي يبدأ بـ ‎/en/‎ والعربي لا يبدأ به");
 
   const publishing = post.intent === "publish";
   const status = post.intent === "save" ? current.status : publishing ? "published" : "draft";
   if (status === "published") {
-    if (!post.title) return fail("أضف عنواناً قبل النشر.");
-    if (post.path.includes("/draft-")) return fail("حدّد مسار المقال قبل النشر.");
+    if (!post.title) return fail("أضف عنواناً قبل النشر");
+    if (post.path.includes("/draft-")) return fail("حدّد مسار المقال قبل النشر");
   }
 
   let body;
   try {
     body = renderPostBody(post.content);
   } catch {
-    return fail("تعذّر حفظ محتوى المقال.");
+    return fail("تعذّر حفظ محتوى المقال");
   }
   const now = new Date().toISOString();
   const categoryIds = [...new Set([...post.categoryIds, ...(post.primaryCategoryId ? [post.primaryCategoryId] : [])])];
@@ -170,7 +170,7 @@ export async function savePost(input: PostInput): Promise<ActionResult> {
       ...(status === "published" && { modified_at: now }),
     })
     .eq("id", post.id);
-  if (error) return fail(error.code === "23505" ? "هذا المسار مستخدم في مقال آخر." : `تعذّر الحفظ: ${error.message}`);
+  if (error) return fail(error.code === "23505" ? "هذا المسار مستخدم في مقال آخر" : `تعذّر الحفظ: ${error.message}`);
 
   const { error: unlinkError } = await supabase.from("post_categories").delete().eq("post_id", post.id);
   if (unlinkError) return fail(`تعذّر حفظ التصنيفات: ${unlinkError.message}`);
@@ -185,7 +185,7 @@ export async function savePost(input: PostInput): Promise<ActionResult> {
     updateTag("posts");
     for (const id of new Set([...categoryIds, ...(current.primary_category_id ? [current.primary_category_id] : [])])) updateTag(`category-${id}`);
   }
-  return { ok: true, message: publishing ? "نُشر المقال." : post.intent === "unpublish" ? "أُعيد المقال إلى المسودات." : "حُفظ." };
+  return { ok: true, message: publishing ? "نُشر المقال" : post.intent === "unpublish" ? "أُعيد المقال إلى المسودات" : "حُفظ" };
 }
 
 export async function deleteDraft(form: FormData) {
@@ -201,7 +201,7 @@ export async function deleteDraft(form: FormData) {
 
 const categoryInput = z.object({
   id: z.string().uuid().optional(),
-  name: z.string().trim().min(1, "أدخل اسم التصنيف.").max(120),
+  name: z.string().trim().min(1, "أدخل اسم التصنيف").max(120),
   path: z.string().trim().regex(/^\/[^\s?#]*\/$/, "المسار يبدأ وينتهي بشرطة مائلة، مثل ‎/accounting/"),
   lang: z.enum(["ar", "en"]),
   seoTitle: optionalText(200),
@@ -220,24 +220,24 @@ export async function saveCategory(_: ActionResult | null, form: FormData): Prom
     seoDescription: form.get("seoDescription") ?? "",
     intro: form.get("intro") ?? "",
   });
-  if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "البيانات غير صالحة.");
+  if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "البيانات غير صالحة");
   const { id, name, path, lang, seoTitle, seoDescription, intro } = parsed.data;
   const row = { name, lang, seo_title: seoTitle, seo_description: seoDescription, intro };
   // An existing category keeps its address; only a new one takes the path given.
   const { error } = id
     ? await supabase.from("categories").update(row).eq("id", id)
     : await supabase.from("categories").insert({ ...row, path, slug: path.split("/").filter(Boolean).at(-1) ?? slugify(name) });
-  if (error) return fail(error.code === "23505" ? "هذا المسار مستخدم في تصنيف آخر." : `تعذّر الحفظ: ${error.message}`);
+  if (error) return fail(error.code === "23505" ? "هذا المسار مستخدم في تصنيف آخر" : `تعذّر الحفظ: ${error.message}`);
   updateTag("categories");
   updateTag("posts");
   if (id) updateTag(`category-${id}`);
-  return { ok: true, message: "حُفظ التصنيف." };
+  return { ok: true, message: "حُفظ التصنيف" };
 }
 
 const authorInput = z.object({
   id: z.string().uuid().optional(),
-  name: z.string().trim().min(1, "أدخل الاسم.").max(120),
-  slug: z.string().trim().regex(/^[\p{L}\p{N}-]+$/u, "المعرّف حروف وأرقام وشرطات فقط."),
+  name: z.string().trim().min(1, "أدخل الاسم").max(120),
+  slug: z.string().trim().regex(/^[\p{L}\p{N}-]+$/u, "المعرّف حروف وأرقام وشرطات فقط"),
   jobTitle: optionalText(200),
   credentials: optionalText(400),
   bio: optionalText(3000),
@@ -255,17 +255,17 @@ export async function saveAuthor(_: ActionResult | null, form: FormData): Promis
     bio: form.get("bio") ?? "",
     sameAs: form.get("sameAs") ?? "",
   });
-  if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "البيانات غير صالحة.");
+  if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "البيانات غير صالحة");
   const { id, name, slug, jobTitle, credentials, bio, sameAs } = parsed.data;
   const links = sameAs.split(/\s+/).filter(Boolean);
   if (!links.every((link) => /^https:\/\//.test(link))) return fail("روابط الحسابات تبدأ بـ https://");
   const row = { name, job_title: jobTitle, credentials, bio, same_as: links };
   // An existing author keeps their address (/author/<slug>/).
   const { error } = id ? await supabase.from("authors").update(row).eq("id", id) : await supabase.from("authors").insert({ ...row, slug });
-  if (error) return fail(error.code === "23505" ? "هذا المعرّف مستخدم." : `تعذّر الحفظ: ${error.message}`);
+  if (error) return fail(error.code === "23505" ? "هذا المعرّف مستخدم" : `تعذّر الحفظ: ${error.message}`);
   updateTag("authors");
   updateTag("posts");
-  return { ok: true, message: "حُفظ الكاتب." };
+  return { ok: true, message: "حُفظ الكاتب" };
 }
 
 /* ------------------------------------------------------------ image uploads */
@@ -278,7 +278,7 @@ export async function saveAuthor(_: ActionResult | null, form: FormData): Promis
 export async function createUploadUrl(name: string): Promise<{ ok: true; uploadUrl: string; publicUrl: string } | { ok: false; message: string }> {
   await assertAdmin();
   const { R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET } = process.env;
-  if (!R2_ACCOUNT_ID || !R2_ACCESS_KEY_ID || !R2_SECRET_ACCESS_KEY || !R2_BUCKET) return { ok: false, message: "تخزين الصور غير مهيأ." };
+  if (!R2_ACCOUNT_ID || !R2_ACCESS_KEY_ID || !R2_SECRET_ACCESS_KEY || !R2_BUCKET) return { ok: false, message: "تخزين الصور غير مهيأ" };
   const stem = slugify(name.replace(/\.[^.]+$/, "")) || "image";
   const now = new Date();
   const key = `uploads/${now.getUTCFullYear()}/${String(now.getUTCMonth() + 1).padStart(2, "0")}/${stem}-${crypto.randomUUID().slice(0, 8)}.webp`;

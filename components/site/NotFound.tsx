@@ -6,7 +6,7 @@ import { Icon } from "@/components/ui/Icon";
 /** The message and the ways out, in each language. */
 const copy = {
   ar: {
-    title: "لا يوجد قيد بهذا العنوان.",
+    title: "لا يوجد قيد بهذا العنوان",
     body: "راجعنا الدفاتر ولم نجد صفحة بهذا الرابط. ربما تغيّر عنوانها أو حُذفت. هذه أقرب الطرق إلى ما تبحث عنه:",
     total: "الإجمالي",
     stamp: "لا يوجد قيد",
@@ -19,7 +19,7 @@ const copy = {
     ],
   },
   en: {
-    title: "No entry at this address.",
+    title: "No entry at this address",
     body: "We checked the books and found no page at this link. It may have moved or been removed. These are the nearest ways to what you were after:",
     total: "Total",
     stamp: "NO ENTRY",

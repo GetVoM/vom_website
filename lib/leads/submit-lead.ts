@@ -16,16 +16,16 @@ export interface LeadState {
 
 const messages = {
   ar: {
-    ok: "وصلتنا رسالتك، وسنتواصل معك قريباً.",
-    invalid: "راجع الحقول المحددة ثم أرسل من جديد.",
-    turnstile: "تعذّر التحقق من أنك لست برنامجاً آلياً. حدّث الصفحة وحاول مرة أخرى.",
-    unavailable: "تعذّر إرسال رسالتك الآن. حاول بعد قليل، أو راسلنا على واتساب.",
+    ok: "وصلتنا رسالتك، وسنتواصل معك قريباً",
+    invalid: "راجع الحقول المحددة ثم أرسل من جديد",
+    turnstile: "تعذّر التحقق من أنك لست برنامجاً آلياً. حدّث الصفحة وحاول مرة أخرى",
+    unavailable: "تعذّر إرسال رسالتك الآن. حاول بعد قليل، أو راسلنا على واتساب",
   },
   en: {
-    ok: "We have your message and will be in touch soon.",
-    invalid: "Check the marked fields and send again.",
-    turnstile: "We could not confirm you are not a bot. Refresh the page and try again.",
-    unavailable: "We could not send your message just now. Try again shortly, or reach us on WhatsApp.",
+    ok: "We have your message and will be in touch soon",
+    invalid: "Check the marked fields and send again",
+    turnstile: "We could not confirm you are not a bot. Refresh the page and try again",
+    unavailable: "We could not send your message just now. Try again shortly, or reach us on WhatsApp",
   },
 };
 

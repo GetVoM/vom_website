@@ -4,7 +4,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { ButtonLink } from "@/components/ui/Button";
 import { PayErrorCode, PayErrorMessage, PayResultViewed } from "@/components/vompay/PayError";
-import { vomPayFailure, vomPayImages as img, vomPaySuccess } from "@/lib/content/vom-pay";
+import { vomPayClose, vomPayFailure, vomPayImages as img, vomPaySuccess } from "@/lib/content/vom-pay";
 import type { Locale } from "@/lib/i18n/config";
 import { vomPayFailurePaths, vomPaySuccessPaths } from "@/lib/i18n/routes";
 import { optimizedSrc } from "@/lib/image-url";
@@ -27,7 +27,7 @@ export function payMetadata(outcome: PayOutcome, locale: Locale): Metadata {
  * The first screen holds the outcome on the start side (the old illustration on
  * the old ribbon panel) and what comes next on the end side: on success the
  * invitation and the lead form on the teal field, on failure the code's message
- * and the FAQ. Direction contract:
+ * and three things to check, in the FAQ's accordion. Both close on the pricing page's no-card trial band. Direction contract:
  * .impeccable/surfaces/components-vompay-payresult-tsx.md. Styled from `.pr-`
  * in app/globals.css.
  */
@@ -118,14 +118,7 @@ function Success({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="pr-close-band guilloche-dark guilloche-tile text-white">
-        <div className="page-wrap pr-close">
-          <p className="pr-close-line">{c.closing}</p>
-          <ButtonLink href={site.signup[locale]} variant="primary" arrow>
-            {c.register}
-          </ButtonLink>
-        </div>
-      </section>
+      <Close locale={locale} />
     </>
   );
 }
@@ -133,36 +126,62 @@ function Success({ locale }: { locale: Locale }) {
 function Failure({ locale }: { locale: Locale }) {
   const c = vomPayFailure[locale];
   return (
-    <section className="pr-top pr-top-failure">
-      <PayResultViewed outcome="failure" locale={locale} />
-      <div className="page-wrap pr-grid">
-        <Status outcome="failure" image={img.failure} alt={c.alt} heading={c.heading}>
-          <PayErrorCode copy={c} className="pr-code" />
-        </Status>
+    <>
+      <section className="pr-top pr-top-failure">
+        <PayResultViewed outcome="failure" locale={locale} />
+        <div className="page-wrap pr-grid">
+          <Status outcome="failure" image={img.failure} alt={c.alt} heading={c.heading}>
+            <PayErrorCode copy={c} className="pr-code" />
+          </Status>
 
-        <div className="pr-after">
-          <div className="pr-sheet">
-            <div className="pr-sheet-head">
-              <h2>{c.messageHeading}</h2>
+          <div className="pr-after">
+            <div className="pr-sheet">
+              <div className="pr-sheet-head">
+                <h2>{c.messageHeading}</h2>
+              </div>
+              <PayErrorMessage copy={c} className="pr-message" />
             </div>
-            <PayErrorMessage copy={c} className="pr-message" />
-          </div>
-          <div className="pr-faq" aria-labelledby="pr-faq-title" role="region">
-            <h2 id="pr-faq-title" className="pr-faq-title">
-              {c.faqHeading}
-            </h2>
-            <div className="sec-faq">
-              {c.faq.map((item, i) => (
-                <details key={i} className="faq" open={i === 0}>
-                  <summary>
-                    <span>{item.q}</span>
-                    <span className="faq-icon sec-faq-icon" aria-hidden="true" />
-                  </summary>
-                  <p>{item.a}</p>
-                </details>
-              ))}
+            <div className="pr-faq" aria-labelledby="pr-faq-title" role="region">
+              <h2 id="pr-faq-title" className="pr-faq-title">
+                {c.faqHeading}
+              </h2>
+              <div className="sec-faq">
+                {c.faq.map((item, i) => (
+                  <details key={i} className="faq" open={i === 0}>
+                    <summary>
+                      <span>{item.q}</span>
+                      <span className="faq-icon sec-faq-icon" aria-hidden="true" />
+                    </summary>
+                    <p>{item.a}</p>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <Close locale={locale} />
+    </>
+  );
+}
+
+/** Both pages close on the pricing page's band: try VoM free with no credit card, then register or book a demo. */
+function Close({ locale }: { locale: Locale }) {
+  const c = vomPayClose[locale];
+  return (
+    <section className="pr-close-band guilloche-dark guilloche-tile text-white" aria-labelledby="pr-close">
+      <div className="page-wrap pr-close">
+        <h2 id="pr-close" className="pr-close-line">
+          {c.line}
+        </h2>
+        <div className="pr-close-actions">
+          <ButtonLink href={site.signup[locale]} variant="primary" arrow>
+            {c.register}
+          </ButtonLink>
+          <ButtonLink href={site.demo} variant="secondary" onTeal>
+            {c.demo}
+          </ButtonLink>
         </div>
       </div>
     </section>

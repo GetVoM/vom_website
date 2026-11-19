@@ -20,7 +20,7 @@ const qrPath = Array.from({ length: 21 * 21 }, (_, i) => (cellOn(i % 21, Math.fl
 /**
  * The loader between pages: when a client-side navigation takes more than a moment, a
  * paper veil covers the page under the header and VoM issues an invoice while the visitor
- * waits. The receipt feeds out of the slot (the wordmark, the lines, the total under its
+ * waits. The receipt feeds out of the slot (the logo, the lines, the total under its
  * double rule, the QR code), then the "reported to ZATCA" tick lands, and it starts again
  * until the next page arrives. The lines are blank bars: there are no figures to invent.
  * It never shows on a page's first load, which is prerendered HTML, and the receipt is
@@ -61,7 +61,7 @@ export function NavLoader({ label, reported }: { label: string; reported: string
           <div className="nav-loader-feed">
             <div className="nav-loader-receipt">
               {/* eslint-disable-next-line @next/next/no-img-element -- the brand file as is, already in the cache when the veil shows. */}
-              <img src={site.logo} alt="" width={220} height={72} className="nav-loader-logo" />
+              <img src={site.logo} alt="" width={168} height={30} className="nav-loader-logo" />
               <span className="nav-loader-row"><i /><i /></span>
               <span className="nav-loader-row"><i /><i /></span>
               <span className="nav-loader-row"><i /><i /></span>

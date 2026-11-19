@@ -5,7 +5,7 @@ Date: 2026-10-25. Mockups: https://claude.ai/artifact/7GCrRoKwJgTDsGhwWeJNwd (pr
 ## Brief as agreed with the owner
 
 - Goal: a whole new, modern, gorgeous site. The current site is dated. No reference sites; the bar is "gorgeous".
-- Pinned by the owner: the logo, the colours and the fonts stay.
+- Pinned by the owner: the logo, the colours and the fonts stay. (Update, 2026-11-19: the owner replaced the logo with the "VoM Accounting" lockup and the typeface with IBM Plex Sans and IBM Plex Sans Arabic. The Effra notes below are history.)
 - Mode of the homepage: Persuade. The visitor is a Saudi small-business owner who must become ZATCA-compliant and wants accounting without an accountant. The page must make the offer intelligible in one line, show the mechanism (sale → e-invoice with QR → reported to ZATCA → report), and expose one primary action: start the free trial.
 - Shared across all directions: Arabic right-to-left first; teal is the structural ink; orange appears only on the single primary action per view; blue is secondary and rare; no gradients, glass, emoji or stock-photo heroes; real content from the current site (sectors, integrations, article titles, plan prices) and labelled demonstration data in product mock-ups.
 

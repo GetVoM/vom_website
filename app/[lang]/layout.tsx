@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { lang } from "next/root-params";
 import { notFound } from "next/navigation";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { effra } from "@/app/fonts";
+import { fontVariables } from "@/app/fonts";
 import { dirOf, isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { site } from "@/lib/seo/site";
@@ -36,7 +36,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
   const t = getDictionary(locale);
 
   return (
-    <html lang={locale} dir={dirOf(locale)} className={effra.variable}>
+    <html lang={locale} dir={dirOf(locale)} className={fontVariables}>
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd(locale)} />
         <JsonLd data={websiteJsonLd()} />

@@ -15,9 +15,9 @@ export function Sectors({ locale, t }: { locale: Locale; t: Dictionary }) {
               href={localePath(locale, sectorPaths[sector.id][locale])}
               data-track="sector_card_clicked"
               data-track-sector={sector.id}
-              className="sector flex h-full min-h-[132px] flex-col justify-between gap-5 rounded-[var(--radius-tile)] border border-teal-200 bg-paper p-5 text-ink"
+              className="sector flex h-full min-h-[132px] flex-col justify-between gap-5 rounded-[var(--radius-tile)] border border-teal-500 bg-paper p-5 text-ink"
             >
-              <Icon name={sector.icon} size={26} className="text-teal-600" strokeWidth={1.5} />
+              <Icon name={sector.icon} size={26} className="text-teal-500" strokeWidth={1.5} />
               <span className="text-[0.9375rem] font-bold leading-snug">{sector.name}</span>
             </Link>
           </li>

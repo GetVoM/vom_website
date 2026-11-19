@@ -39,7 +39,10 @@ export const site = {
   /** The account on X, for the `twitter:site` tag. */
   xHandle: "@GetVOM",
   gtmId: "GTM-PS28X6L",
-  logo: "/brand/vom-logo.png",
+  /** The "VoM Accounting" lockup (owner, 2026-11-19). An SVG is served as is: next/image skips it and the optimiser refuses it. */
+  logo: "/brand/vom-logo.svg",
+  /** Its viewBox, about 5.6 to 1: a call site picks a height and takes the width from this. */
+  logoSize: { width: 1706, height: 305 },
   /** The square mark for structured data: Google wants a logo at least 112 px on each side (scripts/favicon.mjs draws the same chevron). */
   logoSquare: "/brand/vom-mark-512.png",
 } as const;

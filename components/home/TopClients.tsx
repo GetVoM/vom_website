@@ -43,7 +43,7 @@ export function TopClients({ t, locale }: { t: Dictionary; locale: Locale }) {
             <h2 className="font-arabic text-[1.5rem] font-bold leading-snug sm:text-[1.75rem]">{t.clients.heading}</h2>
             <p className="text-[1rem] text-ink-700">{t.clients.body}</p>
           </div>
-          <div className="flex items-center gap-3 rounded-pill border border-teal-200 bg-paper px-4 py-2 text-[0.9375rem]">
+          <div className="flex items-center gap-3 rounded-pill border border-teal-500 bg-paper px-4 py-2 text-[0.9375rem]">
             <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="font-bold">{t.clients.count}</span>
           </div>

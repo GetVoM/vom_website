@@ -52,7 +52,7 @@ export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
             />
             <button
               type="submit"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-pill bg-orange-500 px-5 text-[0.9375rem] font-bold text-white shadow-[inset_0_-2px_0_rgba(0,0,0,0.12)] transition-colors hover:bg-orange-600"
+              className="btn btn-primary h-12 justify-center"
             >
               {t.closing.cta}
               <Icon name="arrow" size={16} className="rtl:-scale-x-100" />
@@ -60,14 +60,14 @@ export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
           </form>
           <p className="text-[0.9375rem] text-ink-500">
             {t.closing.pricingLine}{" "}
-            <Link href={compareHref} className="font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
+            <Link href={compareHref} className="font-bold text-teal-500 underline decoration-teal-500 underline-offset-4 hover:decoration-2">
               {t.closing.compare}
             </Link>
           </p>
         </div>
 
-        <div className="doc-frame relative mx-auto w-full max-w-[420px] bg-paper p-7 shadow-[0_40px_80px_-40px_rgba(5,42,37,0.4)]" aria-hidden="true">
-          <div className="flex items-start justify-between border-b border-teal-200 pb-4">
+        <div className="doc-frame relative mx-auto w-full max-w-[420px] bg-paper p-7 shadow-[0_40px_80px_-40px_rgba(2,2,2,0.4)]" aria-hidden="true">
+          <div className="flex items-start justify-between border-b border-teal-500 pb-4">
             <div>
               <div className="text-[1.125rem] font-bold">{t.certificate.title}</div>
               <div className="label-en">Certificate of compliance</div>
@@ -80,7 +80,7 @@ export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
             </div>
             <div>
               <div className="text-ink-500">{t.certificate.status}</div>
-              <div className="flex items-center gap-1.5 font-bold text-teal-700">
+              <div className="flex items-center gap-1.5 font-bold text-teal-500">
                 <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-teal-500 text-white">
                   <Icon name="check" size={10} strokeWidth={3} />
                 </span>
@@ -95,10 +95,10 @@ export function ClosingCertificate({ t, signupHref, compareHref }: Props) {
             </div>
           </div>
           <div className="mt-6 flex items-end justify-between">
-            <div className="flex h-[96px] w-[96px] flex-col items-center justify-center rounded-full border-[3px] border-double border-teal-500 text-center text-teal-700" style={{ transform: "rotate(-8deg)" }}>
+            <div className="flex h-[96px] w-[96px] flex-col items-center justify-center rounded-full border-[3px] border-double border-teal-500 text-center text-teal-500" style={{ transform: "rotate(-8deg)" }}>
               <span className="text-[0.5625rem] leading-tight">{t.certificate.sealTop}</span>
               <span className="text-[1.0625rem] font-extrabold leading-none">{t.certificate.sealMain}</span>
-              <span className="label-en text-teal-700">Phase 2</span>
+              <span className="label-en text-teal-500">Phase 2</span>
             </div>
             <span className="text-[0.6875rem] text-ink-300">{t.hero.demoLabel}</span>
           </div>

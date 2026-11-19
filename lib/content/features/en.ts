@@ -12,12 +12,12 @@ export const featuresEn: FeaturesCopy = {
   seo: {
     title: "VoM features | ZATCA-approved cloud accounting software",
     description:
-      "Everything VoM does for your business: e-invoicing linked to ZATCA, sales, purchases and warehouses, accounting and fixed assets, payroll, 17 ready reports, and an iOS app.",
+      "Everything VoM does for your business: e-invoicing linked to ZATCA, sales, purchases and warehouses, accounting and fixed assets, payroll, 17 ready reports, and an iOS app",
   },
   crumb: "Features",
   h1: "VoM features",
   subline: "Every service and feature your business needs to run its accounting from start to finish",
-  lede: "See what VoM does, and how each feature fits the way your business already works.",
+  lede: "See what VoM does, and how each feature fits the way your business already works",
   register: "Register now",
   demo: "Book a demo",
   contents: {
@@ -38,7 +38,7 @@ export const featuresEn: FeaturesCopy = {
         { text: "Issue tax invoices and simplified tax invoices, or plain sales invoices if you are not VAT-registered", unlimited: true, plan: true },
         { text: "Correct an issued invoice with a credit or debit note linked to it" },
         { text: "Record a receipt and split it across several invoices; whatever is left stays on the receipt" },
-        { text: "Repeat an invoice automatically every day, week, month or year, and pause it whenever you like", plan: true },
+        { text: "Repeat an invoice automatically every day, week, month or year, and pause it whenever you like" },
         { text: "Email the document, or share it on WhatsApp with a link that opens its PDF" },
         { text: "Add a VoM Pay link to the invoice, so your customer pays by mada, Visa, Mastercard or Apple Pay" },
         { text: "When a customer pays through the link, the receipt and its journal entry are created for you" },
@@ -81,7 +81,7 @@ export const featuresEn: FeaturesCopy = {
       entries: [
         { text: "Add products, services and bundles, or import them from Excel", unlimited: true },
         { text: "Group products into categories and set their units", unlimited: true },
-        { text: "Run several warehouses, main and sub, each with its own prices and minimum quantity", plan: true },
+        { text: "Run several warehouses, main and sub, each with its own prices and minimum quantity" },
         { text: "Move stock with inbound, outbound and transfer requisitions between warehouses" },
         { text: "Stock is costed at the weighted average per warehouse, and cost of goods sold is posted with every sale" },
         { text: "A bundle deducts its components from stock when it sells" },
@@ -96,7 +96,7 @@ export const featuresEn: FeaturesCopy = {
         { text: "Start from a ready chart of accounts, add to it and change it, and import opening balances from Excel", unlimited: true },
         { text: "Every document posts its own entry: invoices, receipts, returns, expenses, payroll and depreciation" },
         { text: "Post manual journal entries with their documents attached, and copy or reverse an entry in one click", plan: true },
-        { text: "Repeat an entry automatically on its date", plan: true },
+        { text: "Repeat an entry automatically on its date" },
         { text: "Easy entries for a money transfer, added capital, owner drawings and cash dividends, with no debits and credits to work out", plan: true },
         { text: "Add your branches and cost centres in one tree, and tag every transaction to them", unlimited: true, plan: true },
         { text: "Upload a bank statement from Excel, and match each line to its entry or create the entry from it" },
@@ -217,15 +217,15 @@ export const featuresEn: FeaturesCopy = {
     featured: [
       {
         name: "Income statement",
-        body: "Run it for a financial year or any period you choose, compare it with the previous period or with earlier months, up to 11 of them, and export it to PDF or Excel.",
+        body: "Run it for a financial year or any period you choose, compare it with the previous period or with earlier months, up to 11 of them, and export it to PDF or Excel",
       },
       {
         name: "Trial balance",
-        body: "Each account's opening balance, movement for the period and closing balance, for a financial year or any period you choose, exported to PDF or Excel.",
+        body: "Each account's opening balance, movement for the period and closing balance, for a financial year or any period you choose, exported to PDF or Excel",
       },
       {
         name: "VAT report",
-        body: "Sales VAT against purchases VAT at each rate, with adjustments and the net VAT payable, for any period you choose, exported to PDF or Excel.",
+        body: "Sales VAT against purchases VAT at each rate, with adjustments and the net VAT payable, for any period you choose, exported to PDF or Excel",
       },
     ],
     indexHeading: "And fourteen more",
@@ -255,11 +255,11 @@ export const featuresEn: FeaturesCopy = {
   support: { heading: "Talk to us", whatsapp: "WhatsApp", email: "Email" },
   app: { line: "Get the app on your phone now", ios: "Download on the App Store" },
   planNote: {
-    text: "These entries depend on your plan: how many documents, users and templates it includes, and whether it has fixed assets, warehouses, recurring transactions, integrations and the API.",
+    text: "These entries depend on your plan: how many documents, users and templates it includes, and whether it has fixed assets, integrations and the API.",
     link: "Compare plans",
   },
   close: {
-    line: "Try VoM free for seven days, with no credit card.",
+    line: "Try VoM free for seven days, with no credit card",
     register: "Register now",
     demo: "Book a demo",
   },

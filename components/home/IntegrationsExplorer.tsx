@@ -43,7 +43,7 @@ function Logo({ item, size = 40 }: { item: ExplorerItem; size?: number }) {
   }
   return (
     <span
-      className="num inline-flex items-center justify-center rounded-xl bg-teal-50 font-bold text-teal-700 ring-1 ring-teal-200"
+      className="num inline-flex items-center justify-center rounded-xl bg-teal-500 font-bold text-white"
       style={{ width: size, height: size, fontSize: size * 0.45 }}
       aria-hidden="true"
     >
@@ -72,7 +72,7 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
               aria-selected={item.id === activeId}
               onClick={() => selectIntegration(item)}
               data-active={item.id === activeId ? "" : undefined}
-              className="int-item flex w-full items-center gap-3 rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-4 py-3 text-start transition-colors hover:border-teal-300"
+              className="int-item flex w-full items-center gap-3 rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-4 py-3 text-start transition-colors hover:border-teal-500"
             >
               <Logo item={item} size={36} />
               <span className="flex min-w-0 flex-col">
@@ -96,7 +96,7 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
                 <span className="num text-[1.75rem] font-bold leading-none" dir="ltr">{active.name}</span>
                 <span className="rounded-pill bg-teal-500 px-2.5 py-1 text-[0.75rem] font-bold text-white">{t.live}</span>
               </div>
-              <span className="text-[0.9375rem] text-teal-700">{active.category}</span>
+              <span className="text-[0.9375rem] text-teal-500">{active.category}</span>
             </div>
           </div>
           <div className="flex items-center gap-2 text-[0.8125rem] text-ink-500" aria-hidden="true">
@@ -139,11 +139,11 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-4 border-t border-teal-200 pt-6">
+        <div className="flex flex-wrap items-center gap-4 border-t border-teal-500 pt-6">
           <a
             href={signupHref}
             rel="noopener"
-            className="inline-flex h-11 items-center gap-2 rounded-pill bg-orange-500 px-5 text-[0.9375rem] font-bold text-white shadow-[inset_0_-2px_0_rgba(0,0,0,0.12)] transition-colors hover:bg-orange-600"
+            className="btn btn-primary"
           >
             {t.details.activate}
             <Icon name="arrow" size={16} className="rtl:-scale-x-100" />
@@ -153,7 +153,7 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
               {active.page.label}
             </ButtonLink>
           )}
-          <a href={docsHref} rel="noopener" className="text-[0.9375rem] font-bold text-teal-700 underline decoration-teal-300 underline-offset-4 hover:decoration-teal-700">
+          <a href={docsHref} rel="noopener" className="text-[0.9375rem] font-bold text-teal-500 underline decoration-teal-500 underline-offset-4 hover:decoration-2">
             {t.docs}
           </a>
         </div>

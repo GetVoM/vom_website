@@ -1,0 +1,8 @@
+# graphify maps the code and the docs; these hold images, uploads and tool output.
+public/
+.impeccable/
+.superpowers/
+.playwright-mcp/
+.github/
+.mcp.json
+graphify-out/

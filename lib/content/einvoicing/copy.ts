@@ -8,7 +8,7 @@ export const einvoicingCopy = {
   catalogue: "الفهرس",
   catalogueLabel: "فهرس دليل الفوترة الإلكترونية",
   catalogueHeading: "فهرس الدليل",
-  catalogueLede: "اثنتا عشرة بطاقة في أربعة أبواب، تبدأ من مفهوم الفاتورة الإلكترونية وتنتهي بغراماتها.",
+  catalogueLede: "اثنتا عشرة بطاقة في أربعة أبواب، تبدأ من مفهوم الفاتورة الإلكترونية وتنتهي بغراماتها",
   openCatalogue: "الفهرس",
   card: {
     label: "بطاقة الدليل",

@@ -81,7 +81,7 @@ export function ZatcaPhase2Page() {
             <p className="zp-lede">{page.lede}</p>
             {/* The link, drawn as one piece so it scales as one: the VoM mark, the line with its loop, ZATCA's badge on its plate. */}
             <svg className="zp-link" viewBox="0 10 722 172" role="img" aria-label={`${site.name.en} · ${page.badge.alt}`}>
-              <image href={optimizedSrc(site.logo, 256)} x="0" y="108" width="148" height="48" />
+              <image href={site.logo} x="0" y="119" width="148" height="26.5" />
               <path className="zp-link-path" pathLength={1} d={LINK} />
               <circle className="zp-link-start" cx="160" cy="132" r="4.5" />
               <rect className="zp-link-plate" x="400.5" y="84.5" width="320" height="95" rx="12" />
@@ -231,7 +231,7 @@ export function ZatcaPhase2Page() {
           <p className="zp-close-line">{page.closing.body}</p>
           <div className="zp-close-actions">
             {register}
-            <ButtonLink href={site.demo} variant="inverse" newTab={page.newTab}>
+            <ButtonLink href={site.demo} variant="secondary" onTeal newTab={page.newTab}>
               {page.closing.call}
             </ButtonLink>
           </div>

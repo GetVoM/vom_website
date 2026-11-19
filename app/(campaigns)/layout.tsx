@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { effra } from "@/app/fonts";
+import { fontVariables } from "@/app/fonts";
 import { Tracker } from "@/components/analytics/Tracker";
 import { site } from "@/lib/seo/site";
 import { loadTags } from "@/lib/seo/tags";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
  */
 export default function CampaignLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={effra.variable}>
+    <html lang="ar" dir="rtl" className={fontVariables}>
       <body className="min-h-full">
         {children}
         <Tracker />

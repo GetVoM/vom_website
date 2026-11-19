@@ -40,7 +40,7 @@ function Glimpse({ index, t, locale }: { index: number; t: Dictionary; locale: L
     case 1:
       return (
         <div className="flex items-center gap-3 rounded-[var(--radius-tile)] border border-paper-200 bg-paper p-3 text-[0.8125rem]" aria-hidden="true">
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-500 text-white">
             <Icon name="receipt" size={18} />
           </span>
           <span className="flex flex-col">
@@ -67,10 +67,10 @@ function Glimpse({ index, t, locale }: { index: number; t: Dictionary; locale: L
         <div className="flex flex-col gap-2" aria-hidden="true">
           <div className="flex h-14 items-end gap-2">
             {[100, 80, 60, 40, 20].map((h, i) => (
-              <span key={i} className="flex-1 rounded-t-md" style={{ height: `${h}%`, background: i === 0 ? "var(--color-teal-500)" : "var(--color-teal-200)" }} />
+              <span key={i} className="flex-1 rounded-t-md" style={{ height: `${h}%`, background: i === 0 ? "var(--color-teal-500)" : "var(--color-teal-500)" }} />
             ))}
           </div>
-          <div className="num flex justify-between border-t border-dashed border-teal-200 pt-1.5 text-[0.6875rem] text-ink-500">
+          <div className="num flex justify-between border-t border-dashed border-teal-500 pt-1.5 text-[0.6875rem] text-ink-500">
             {["1", "2", "3", "4", "5"].map((y) => (
               <span key={y}>{y}</span>
             ))}
@@ -81,7 +81,7 @@ function Glimpse({ index, t, locale }: { index: number; t: Dictionary; locale: L
       return (
         <div className="flex items-center justify-between rounded-[var(--radius-tile)] border border-paper-200 bg-paper px-4 py-3 text-[0.8125rem]" aria-hidden="true">
           <span className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-50 font-bold text-teal-700">{x.initial}</span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-500 font-bold text-white">{x.initial}</span>
             <span className="flex flex-col">
               <span className="font-bold">{x.payroll}</span>
               <span className="text-ink-500">{x.staff}</span>
@@ -94,14 +94,14 @@ function Glimpse({ index, t, locale }: { index: number; t: Dictionary; locale: L
       return (
         <div className="flex flex-wrap items-center gap-2 text-[0.8125rem]" aria-hidden="true">
           {x.branches.map((b, i) => (
-            <span key={b} className={`inline-flex items-center gap-2 rounded-pill border px-3 py-1.5 ${i === 0 ? "border-teal-500 bg-teal-50 text-teal-800" : "border-paper-300 text-ink-700"}`}>
+            <span key={b} className={`inline-flex items-center gap-2 rounded-pill border px-3 py-1.5 ${i === 0 ? "border-teal-500 bg-teal-500 text-white" : "border-paper-300 text-ink-700"}`}>
               <span className={`h-1.5 w-1.5 rounded-full ${i === 0 ? "bg-teal-500" : "bg-paper-300"}`} />
               {b}
             </span>
           ))}
           <span className="ms-auto flex -space-x-2 rtl:space-x-reverse">
             {["م", "ن", "خ"].map((c) => (
-              <span key={c} className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-paper bg-teal-100 text-[0.6875rem] font-bold text-teal-800">
+              <span key={c} className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-paper bg-teal-500 text-[0.6875rem] font-bold text-white">
                 {c}
               </span>
             ))}
@@ -125,7 +125,7 @@ function Glimpse({ index, t, locale }: { index: number; t: Dictionary; locale: L
       return (
         <div className="flex h-12 items-end gap-1.5" aria-hidden="true">
           {[40, 62, 50, 78, 66, 90, 72, 100, 84].map((h, i) => (
-            <span key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i % 2 ? "var(--color-teal-500)" : "var(--color-teal-200)" }} />
+            <span key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i % 2 ? "var(--color-teal-500)" : "var(--color-teal-500)" }} />
           ))}
         </div>
       );
@@ -144,7 +144,7 @@ export function Features({ locale, t }: { locale: Locale; t: Dictionary }) {
           </div>
           <Link
             href={featuresHref}
-            className="inline-flex h-11 items-center gap-2 rounded-pill border border-ink/80 px-5 text-[0.9375rem] font-bold text-ink transition-colors hover:bg-paper-100"
+            className="btn btn-secondary"
           >
             {t.features.cta}
             <Icon name="arrow" size={16} className="rtl:-scale-x-100" />
@@ -157,7 +157,7 @@ export function Features({ locale, t }: { locale: Locale; t: Dictionary }) {
               className={`flex flex-col justify-between gap-6 rounded-[var(--radius-card)] border border-paper-300 bg-paper p-6 sm:p-7 ${i === 0 ? "sm:col-span-2" : ""}`}
             >
               <div className="flex flex-col gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-500 text-white">
                   <Icon name={item.icon as IconName} size={22} />
                 </span>
                 <h3 className="text-[1.25rem] font-bold leading-snug">{item.title}</h3>

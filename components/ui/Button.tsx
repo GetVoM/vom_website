@@ -2,11 +2,14 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Icon } from "./Icon";
 
-type Variant = "primary" | "secondary" | "ghost" | "inverse";
+/** `primary` is the page's main call to action (orange); every other button is `secondary` (the teal pill). */
+type Variant = "primary" | "secondary";
 
 interface ButtonLinkProps {
   href: string;
   variant?: Variant;
+  /** The button sits on a teal band: the hover keeps a white edge so the filled pill stays visible. */
+  onTeal?: boolean;
   arrow?: boolean;
   external?: boolean;
   /** Opens the link in a new tab; the text is read after the label, never shown. */
@@ -20,6 +23,7 @@ interface ButtonLinkProps {
 export function ButtonLink({
   href,
   variant = "primary",
+  onTeal = false,
   arrow = false,
   external = false,
   newTab,
@@ -27,7 +31,7 @@ export function ButtonLink({
   children,
   ...tracking
 }: ButtonLinkProps) {
-  const classes = `btn btn-${variant} ${className}`;
+  const classes = `btn btn-${variant}${onTeal ? " btn-on-teal" : ""} ${className}`;
   const content = (
     <>
       <span>{children}</span>

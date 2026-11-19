@@ -12,7 +12,7 @@ export function DocumentStack({ t }: { t: Dictionary }) {
     <div className="doc-stack" aria-hidden="true">
       {/* Report, at the back */}
       <div className="sheet sheet-report p-4 text-[0.6875rem]">
-        <div className="mb-2 flex items-center justify-between border-b border-teal-200 pb-2">
+        <div className="mb-2 flex items-center justify-between border-b border-teal-500 pb-2">
           <span className="font-bold">{t.report.title}</span>
           <span className="label-en">P&amp;L</span>
         </div>
@@ -23,9 +23,9 @@ export function DocumentStack({ t }: { t: Dictionary }) {
               <span className="num">{value}</span>
             </div>
           ))}
-          <div className="mt-1 flex justify-between border-t border-teal-200 pt-1.5 font-bold">
+          <div className="mt-1 flex justify-between border-t border-teal-500 pt-1.5 font-bold">
             <span>{t.report.net}</span>
-            <span className="num text-teal-700">{t.report.netValue}</span>
+            <span className="num text-teal-500">{t.report.netValue}</span>
           </div>
         </div>
         <div className="mt-3 flex h-10 items-end gap-1">
@@ -33,7 +33,7 @@ export function DocumentStack({ t }: { t: Dictionary }) {
             <span
               key={i}
               className="flex-1 rounded-sm"
-              style={{ height: `${h}%`, background: i % 2 ? "var(--color-teal-500)" : "var(--color-teal-200)" }}
+              style={{ height: `${h}%`, background: i % 2 ? "var(--color-teal-500)" : "var(--color-teal-500)" }}
             />
           ))}
         </div>
@@ -41,7 +41,7 @@ export function DocumentStack({ t }: { t: Dictionary }) {
 
       {/* Certificate */}
       <div className="sheet sheet-certificate doc-frame p-5 text-[0.6875rem]">
-        <div className="flex items-start justify-between border-b border-teal-200 pb-3">
+        <div className="flex items-start justify-between border-b border-teal-500 pb-3">
           <div>
             <div className="text-[0.9375rem] font-bold">{t.certificate.title}</div>
             <div className="label-en">Certificate of compliance</div>
@@ -60,7 +60,7 @@ export function DocumentStack({ t }: { t: Dictionary }) {
           </div>
           <div className="col-span-2">
             <div className="text-ink-500">{t.certificate.status}</div>
-            <div className="flex items-center gap-1.5 font-bold text-teal-700">
+            <div className="flex items-center gap-1.5 font-bold text-teal-500">
               <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-teal-500 text-white">
                 <Icon name="check" size={9} strokeWidth={3} />
               </span>
@@ -68,10 +68,10 @@ export function DocumentStack({ t }: { t: Dictionary }) {
             </div>
           </div>
         </div>
-        <div className="seal ms-auto mt-4 flex h-[84px] w-[84px] flex-col items-center justify-center rounded-full border-[3px] border-double border-teal-500 text-center text-teal-700">
+        <div className="seal ms-auto mt-4 flex h-[84px] w-[84px] flex-col items-center justify-center rounded-full border-[3px] border-double border-teal-500 text-center text-teal-500">
           <span className="text-[0.5rem] leading-tight">{t.certificate.sealTop}</span>
           <span className="text-[0.9375rem] font-extrabold leading-none">{t.certificate.sealMain}</span>
-          <span className="label-en text-teal-700">Phase 2</span>
+          <span className="label-en text-teal-500">Phase 2</span>
         </div>
       </div>
 

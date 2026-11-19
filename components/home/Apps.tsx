@@ -31,7 +31,7 @@ export function Apps({ t }: { t: Dictionary }) {
           <div className="absolute inset-x-0 top-0 bottom-0 -z-10 mx-auto w-full max-w-[560px] rounded-[48px] bg-teal-500">
             <Guilloche id="apps-guilloche" className="h-full w-full rounded-[48px]" stroke="rgba(255,255,255,0.14)" />
           </div>
-          <div className="relative w-[280px] rounded-[44px] bg-ink p-2.5 shadow-[0_50px_90px_-40px_rgba(5,42,37,0.7)]" aria-hidden="true">
+          <div className="relative w-[280px] rounded-[44px] bg-ink p-2.5 shadow-[0_50px_90px_-40px_rgba(2,2,2,0.7)]" aria-hidden="true">
             <div className="relative flex h-[580px] flex-col overflow-hidden rounded-[36px] bg-paper">
               <div className="absolute inset-x-0 top-0 flex justify-center pt-2.5">
                 <span className="h-6 w-24 rounded-pill bg-ink" />

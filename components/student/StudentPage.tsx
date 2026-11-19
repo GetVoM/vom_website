@@ -192,7 +192,7 @@ export function StudentPage({ locale }: { locale: Locale }) {
             <ButtonLink href={links.student[locale]} variant="primary" arrow>
               {s.register.student}
             </ButtonLink>
-            <ButtonLink href={links.university[locale]} variant="inverse" newTab={s.newTab}>
+            <ButtonLink href={links.university[locale]} variant="secondary" onTeal newTab={s.newTab}>
               {s.register.university}
             </ButtonLink>
           </div>

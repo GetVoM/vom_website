@@ -38,7 +38,7 @@ The tools (2026-11-12) are MDX too, in code, not Supabase: metadata in `lib/cont
 
 ## 6. Fonts: self-hosted through `next/font`, two families at most
 
-Effra from `next/font/local` in four weights is the only typeface; its files cover Arabic, Latin and Greek, so one family serves both locales and all digits. Convert the TTFs to subset WOFF2 once the Dalton Maag web licence is confirmed (the licence is the open item, not the glyph coverage).
+IBM Plex is the typeface (owner, 2026-11-19; it replaced Effra): IBM Plex Sans for Latin text and every digit, IBM Plex Sans Arabic for Arabic, both from `next/font/google`, fetched at build time and served from the site as subset WOFF2. Plex Sans is one variable file (latin subset); Plex Sans Arabic is four static weights (300, 400, 500, 700, arabic subset). The stack puts Plex Sans first, so each glyph takes the first face that has it. Plex Sans carries no fallback face of its own: next/font's automatic one is a local Arial with no unicode-range, which holds Arabic glyphs and would draw every Arabic letter before Plex Sans Arabic could. Turbopack ignores `adjustFontFallback: false` and drops that face only when a `fallback` list is given, so `app/fonts.ts` passes an empty one.
 
 ## 7. Images and media
 
@@ -108,4 +108,4 @@ Environment variables (`.env.example`):
 - Arabic typeface licence.
 - The lead forms themselves (contact first), built with their pages.
 - Whether the English blog exists (today all posts are Arabic).
-- Vector logo master and high-resolution product screenshots from the team.
+- High-resolution product screenshots from the team. (The vector logo master arrived on 2026-11-19: `public/brand/vom-logo.svg`.)

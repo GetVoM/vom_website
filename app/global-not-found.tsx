@@ -1,6 +1,6 @@
 import { Tracker } from "@/components/analytics/Tracker";
 import type { Metadata } from "next";
-import { effra } from "@/app/fonts";
+import { fontVariables } from "@/app/fonts";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function GlobalNotFound() {
   const t = getDictionary("ar");
   return (
-    <html lang="ar" dir="rtl" className={effra.variable}>
+    <html lang="ar" dir="rtl" className={fontVariables}>
       <body className="min-h-full flex flex-col">
         <Header locale="ar" t={t} />
         <main className="flex-1">

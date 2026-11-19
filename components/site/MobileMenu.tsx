@@ -49,7 +49,7 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-16 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-b border-paper-200 bg-paper px-[max(16px,env(safe-area-inset-left,0px))] pb-6 pt-2 shadow-[0_24px_40px_-24px_rgba(5,42,37,0.35)]"
+        className="absolute inset-x-0 top-16 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-b border-paper-200 bg-paper px-[max(16px,env(safe-area-inset-left,0px))] pb-6 pt-2 shadow-[0_24px_40px_-24px_rgba(2,2,2,0.35)]"
       >
         <nav className="flex flex-col" aria-label={labels.menu}>
           {items.map((item) =>
@@ -120,7 +120,7 @@ export function MobileMenu({ items, menus, login, locale, switchLabel, start, la
           <LocaleSwitch locale={locale} label={switchLabel} className="num text-[0.9375rem] text-ink-700" onClick={close} />
           <a
             href={start.href}
-            className="inline-flex h-10 items-center rounded-pill bg-orange-500 px-4 text-[0.9375rem] font-bold text-white"
+            className="btn btn-primary h-10 px-4"
           >
             {start.label}
           </a>

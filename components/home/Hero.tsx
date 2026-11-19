@@ -5,6 +5,11 @@ import { ButtonLink } from "@/components/ui/Button";
 import { DocumentStack } from "./DocumentStack";
 import { Guilloche } from "./Guilloche";
 
+/* The hero pair carries 25% more padding than the site's buttons (owner, 2026-11-19):
+   44px tall with 14.5px above and below 15px text becomes 18.125px (51.25px tall),
+   and the 20px sides become 25px. The text size stays. */
+const heroButton = "h-[3.203rem] px-[1.5625rem]";
+
 export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
     <section data-track-section="hero" className="relative overflow-hidden">
@@ -23,10 +28,10 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
             {t.hero.body}
           </p>
           <div className="rise rise-3 flex flex-wrap items-center gap-4">
-            <ButtonLink href={site.signup[locale]} variant="primary" arrow>
+            <ButtonLink href={site.signup[locale]} variant="primary" arrow className={heroButton}>
               {t.hero.primary}
             </ButtonLink>
-            <ButtonLink href={site.demo} variant="ghost">
+            <ButtonLink href={site.demo} variant="secondary" className={heroButton}>
               {t.hero.secondary}
             </ButtonLink>
           </div>

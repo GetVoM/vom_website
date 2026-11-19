@@ -153,13 +153,13 @@ calculator="vat"
         answerRef={answerRef}
         footer={
           <div className="tol-actions">
-            <button type="button" className="tol-action" onClick={reset}>
+            <button type="button" className="btn btn-secondary tol-action" onClick={reset}>
               {vatCopy.reset}
             </button>
-            <button type="button" className="tol-action" onClick={copy}>
+            <button type="button" className="btn btn-secondary tol-action" onClick={copy}>
               {vatCopy.copy}
             </button>
-            <button type="button" className="tol-action" onClick={save}>
+            <button type="button" className="btn btn-secondary tol-action" onClick={save}>
               {vatCopy.save}
             </button>
             <p className="tol-status" role="status">
@@ -424,7 +424,7 @@ export function ZakatBaseCalculator({ head }: CalcProps) {
     silverPrice: silverPrice.value,
     investments: investments.value,
   });
-  const note = [result.missing.includes("goldPrice") && c.needGoldPrice, result.missing.includes("silverPrice") && c.needSilverPrice].filter(Boolean).join(" ") || undefined;
+  const note = [result.missing.includes("goldPrice") && c.needGoldPrice, result.missing.includes("silverPrice") && c.needSilverPrice].filter(Boolean).join("، و") || undefined;
   return (
     <>
       <Sheet calculator="zakat-base" head={head} button={c.button} answerRef={answerRef}>

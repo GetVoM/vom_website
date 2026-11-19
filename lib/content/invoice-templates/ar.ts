@@ -4,7 +4,7 @@ import type { InvoiceTemplatesCopy } from "./types";
  * The old Arabic page's words, one to one (owner, 2026-11-11), with character
  * fixes only: the H1's «محٜانية» (U+065C, a dot below, made the ح read as ج)
  * reads «مجانية»; «و المجانية», «و قوالب» and «قوالب و نماذج» lose the stray
- * space; «على ان» takes its hamza; the note's comma before «إذا» becomes a full stop, since
+ * space; «على ان» takes its hamza; the note's comma before «إذا» goes, since
  * the page sets the statement and the offer as two lines; the description's «Word ،PDF» comma sits after
  * Word. The six card names stay as written although every file is the same sales
  * invoice form (owner). The paper line, the record caption, the alts and the
@@ -14,16 +14,16 @@ export const invoiceTemplatesAr: InvoiceTemplatesCopy = {
   seo: {
     title: "نماذج فواتير مجانية جاهزة | Word Excel PDF",
     description:
-      "هل تحتاج نماذج فواتير يمكنك تخصيصها؟ إليك مجموعة قوالب ونماذج فواتير مجانية وجاهزة للتحميل والطباعة أونلاين - حملها الآن Word، PDF مباشرة.",
+      "هل تحتاج نماذج فواتير يمكنك تخصيصها؟ إليك مجموعة قوالب ونماذج فواتير مجانية وجاهزة للتحميل والطباعة أونلاين - حملها الآن Word، PDF مباشرة",
   },
   published: "2024-08-10T12:47:58+00:00",
   modified: "2024-08-11T22:32:41+00:00",
   crumb: "نماذج فواتير",
   h1: "نماذج فواتير مجانية",
   intro:
-    "في ڤوم، ندرك أن إنشاء فواتير احترافية يعد جزءاً مهماً من إدارة أعمالك بكفاءة. لتسهيل هذه العملية بالنسبة لك، يسعدنا أن نقدم مجموعة مختارة من قوالب الفواتير عالية الجودة، والقابلة للتخصيص، والمجانية تماماً.",
+    "في ڤوم، ندرك أن إنشاء فواتير احترافية يعد جزءاً مهماً من إدارة أعمالك بكفاءة. لتسهيل هذه العملية بالنسبة لك، يسعدنا أن نقدم مجموعة مختارة من قوالب الفواتير عالية الجودة، والقابلة للتخصيص، والمجانية تماماً",
   note: {
-    statement: "نود التنويه على أن هذه القوالب لا تدعم الفوترة الإلكترونية.",
+    statement: "نود التنويه على أن هذه القوالب لا تدعم الفوترة الإلكترونية",
     offer: "إذا كنت تبحث عن فواتير إلكترونية يمكنك تجربة النظام هنا مجاناً",
   },
   register: "سجل الآن",
@@ -49,7 +49,7 @@ export const invoiceTemplatesAr: InvoiceTemplatesCopy = {
   },
   createOnline: "إنشاء أونلاين",
   close: {
-    line: "تبحث عن فواتير إلكترونية؟ أصدرها من ڤوم بـ11 قالبًا تُطبع بالعربية أو الإنجليزية أو بهما معًا، وهو المعتمد من هيئة الزكاة والضريبة والجمارك.",
+    line: "تبحث عن فواتير إلكترونية؟ أصدرها من ڤوم بـ11 قالبًا تُطبع بالعربية أو الإنجليزية أو بهما معًا، وهو المعتمد من هيئة الزكاة والضريبة والجمارك",
     cta: "ابدأ بتجربة مجانية لمدة 7 أيام",
   },
 };

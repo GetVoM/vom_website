@@ -63,13 +63,13 @@ export function ExhibitStack({ labels, children }: ExhibitStackProps) {
       </div>
       {total > 1 && (
         <div className="ftr-stack-controls">
-          <button type="button" className="ftr-stack-btn" onClick={() => go(-1, "button")} aria-label={labels.prev}>
+          <button type="button" className="btn btn-secondary ftr-stack-btn" onClick={() => go(-1, "button")} aria-label={labels.prev}>
             <Icon name="chevron" size={18} className="ftr-prev" />
           </button>
           <p className="num ftr-stack-count" aria-live="polite">
             {labels.of.replace("{n}", String(active + 1)).replace("{total}", String(total))}
           </p>
-          <button type="button" className="ftr-stack-btn" onClick={() => go(1, "button")} aria-label={labels.next}>
+          <button type="button" className="btn btn-secondary ftr-stack-btn" onClick={() => go(1, "button")} aria-label={labels.next}>
             <Icon name="chevron" size={18} className="ftr-next" />
           </button>
         </div>

@@ -74,9 +74,9 @@ export function RichEditor({ content, dir, lang, onDirChange, onChange, onEditor
         const chain = editorRef.current?.chain().focus();
         if (position === undefined) chain?.insertContent(node).run();
         else chain?.insertContentAt(position, node).run();
-        onMessage("saved", "رُفعت الصورة. أضف لها نصاً بديلاً يصفها.");
+        onMessage("saved", "رُفعت الصورة. أضف لها نصاً بديلاً يصفها");
       } catch (error) {
-        onMessage("error", error instanceof Error ? error.message : "تعذّر رفع الصورة.");
+        onMessage("error", error instanceof Error ? error.message : "تعذّر رفع الصورة");
       } finally {
         setUploading((count) => count - 1);
       }

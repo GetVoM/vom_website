@@ -75,7 +75,7 @@ export function Pagination({
   return (
     <nav className="blg-pages" aria-label={labels.nav}>
       {page > 1 ? (
-        <Link href={href(page - 1)} rel="prev" prefetch={false} className="blg-pages-link" data-track="blog_pagination_clicked" data-track-direction="newer">
+        <Link href={href(page - 1)} rel="prev" prefetch={false} className="btn btn-secondary blg-pages-link" data-track="blog_pagination_clicked" data-track-direction="newer">
           {labels.newer}
         </Link>
       ) : (
@@ -83,7 +83,7 @@ export function Pagination({
       )}
       <p className="blg-pages-position num">{labels.position}</p>
       {page < pages ? (
-        <Link href={href(page + 1)} rel="next" prefetch={false} className="blg-pages-link" data-track="blog_pagination_clicked" data-track-direction="older">
+        <Link href={href(page + 1)} rel="next" prefetch={false} className="btn btn-secondary blg-pages-link" data-track="blog_pagination_clicked" data-track-direction="older">
           {labels.older}
         </Link>
       ) : (

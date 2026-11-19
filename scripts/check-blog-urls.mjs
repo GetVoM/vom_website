@@ -137,7 +137,10 @@ async function check(row) {
   if (!crawl || !comparesCopy(row)) return;
   if (EXCEPTIONS[path]) { counts.exceptions++; return; }
   if (norm(crawl.title) && title !== norm(crawl.title)) fail(`title "${title}" ≠ crawl "${norm(crawl.title)}"`);
-  if (norm(crawl.meta_description) && description !== norm(crawl.meta_description)) fail(`description differs from the crawl`);
+  // The site drops a description's closing full stop (owner, 2026-11-19), so the comparison ignores one.
+  const noStop = (text) => text.replace(/\.$/, "");
+  if (norm(crawl.meta_description) && noStop(description) !== noStop(norm(crawl.meta_description)))
+    fail(`description differs from the crawl`);
 }
 
 /** A tool page: Arabic-only hreflang, its JSON-LD, no FAQPage. */

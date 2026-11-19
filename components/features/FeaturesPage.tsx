@@ -116,9 +116,6 @@ function Exhibits({ id, c, locale }: { id: ModuleId; c: FeaturesCopy; locale: Lo
           </figure>
         ))}
       </ExhibitStack>
-      {photo && (
-        <Image src={photoSrc(photo)} alt={c.photos[photo]} {...displaySize(photoSizes[photo], 208)} className="ftr-person" />
-      )}
     </div>
   );
 }
@@ -236,7 +233,6 @@ function Section({ module, index, c, locale }: { module: FeatureModule; index: n
         <div className="ftr-app-badges">
           <StoreBadges ios={c.app.ios} />
         </div>
-        <Image src={photoSrc("app")} alt={c.photos.app} {...displaySize(photoSizes.app, 304)} className="ftr-person" />
       </div>
     );
   }
@@ -359,7 +355,7 @@ export function FeaturesPage({ locale }: { locale: Locale }) {
             <ButtonLink href={signup} variant="primary" arrow>
               {c.close.register}
             </ButtonLink>
-            <ButtonLink href={site.demo} variant="inverse">
+            <ButtonLink href={site.demo} variant="secondary" onTeal>
               {c.close.demo}
             </ButtonLink>
           </div>

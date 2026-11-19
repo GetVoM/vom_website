@@ -63,7 +63,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
               <ButtonLink href={site.signup[locale]} variant="primary" arrow>
                 {s.register}
               </ButtonLink>
-              <ButtonLink href={site.demo} variant="ghost">
+              <ButtonLink href={site.demo} variant="secondary">
                 {s.demo}
               </ButtonLink>
             </div>
@@ -222,7 +222,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
             <ButtonLink href={site.signup[locale]} variant="primary" arrow>
               {s.register}
             </ButtonLink>
-            <ButtonLink href={site.demo} variant="inverse">
+            <ButtonLink href={site.demo} variant="secondary" onTeal>
               {s.demo}
             </ButtonLink>
           </div>

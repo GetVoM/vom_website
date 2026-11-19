@@ -54,7 +54,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
               <ButtonLink href={site.whatsappUrl} variant="primary" arrow>
                 {c.whatsappCta}
               </ButtonLink>
-              <ButtonLink href={`mailto:${site.email}`} variant="ghost" external>
+              <ButtonLink href={`mailto:${site.email}`} variant="secondary" external>
                 {c.emailCta}
               </ButtonLink>
             </div>

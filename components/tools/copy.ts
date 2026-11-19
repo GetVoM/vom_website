@@ -10,7 +10,7 @@ export const toolsCopy = {
   /** The old template's contents box heading. */
   contents: "محتويات المقال",
   /** The index's intro (new copy, pending the owner's approval). */
-  intro: "احسب ضريبة القيمة المضافة وهامش الربح والخصم وصافي الراتب والزكاة في ثوانٍ، بأدوات مجانية لا تحتاج إلى تسجيل. اختر الحاسبة، وأدخل أرقامك، وتظهر النتيجة مباشرة.",
+  intro: "احسب ضريبة القيمة المضافة وهامش الربح والخصم وصافي الراتب والزكاة في ثوانٍ، بأدوات مجانية لا تحتاج إلى تسجيل. اختر الحاسبة، وأدخل أرقامك، وتظهر النتيجة مباشرة",
   open: "افتح الحاسبة",
   /** Index plates for the two tools with no old cover: each page's own worked example. */
   drawn: {

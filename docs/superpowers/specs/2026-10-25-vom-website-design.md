@@ -34,7 +34,7 @@ Why now: the current site is dated, heavy (about 1 MB of HTML on the homepage, 4
 
 ## Constraints
 
-- Brand: logo, colours and fonts stay (owner, 2026-10-25). Effra covers Arabic and Latin and is the single typeface; only its web-font licence remains to be confirmed.
+- Brand: logo, colours and fonts stay (owner, 2026-10-25). Effra covers Arabic and Latin and is the single typeface; only its web-font licence remains to be confirmed. (Superseded on 2026-11-19: the owner replaced the logo with the "VoM Accounting" lockup and Effra with IBM Plex Sans and IBM Plex Sans Arabic, so the licence item is closed.)
 - Stack: Next.js 16.4.3 App Router with Cache Components, React 19.3, Tailwind v4, TypeScript, pnpm. Hosting: Vercel (owner).
 - Languages: Arabic at `/`, English at `/en`, no automatic redirects.
 - Data available: full URL inventory with current titles, descriptions, canonicals, H1, schema, dates and sizes (`docs/content/wp-url-inventory.csv`). No Semrush data yet; Search Console export still needed.

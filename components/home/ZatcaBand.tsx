@@ -16,7 +16,7 @@ export function ZatcaBand({ locale, t }: { locale: Locale; t: Dictionary }) {
           <h2 className="font-arabic text-[1.875rem] font-bold leading-[1.25] sm:text-[2.25rem] lg:text-[2.5rem]">{t.zatca.heading}</h2>
           <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-white/90">{t.zatca.body}</p>
           <div>
-            <ButtonLink href={guideHref} variant="inverse" arrow>
+            <ButtonLink href={guideHref} variant="secondary" onTeal arrow>
               {t.zatca.cta}
             </ButtonLink>
           </div>

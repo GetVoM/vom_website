@@ -12,17 +12,17 @@ export const invoiceTemplatesEn: InvoiceTemplatesCopy = {
   seo: {
     title: "Free Invoice Templates: Word and PDF Downloads | VoM",
     description:
-      "Six free invoice and quotation templates you can customise, ready to download in Word or PDF and print. Need ZATCA e-invoices? Try VoM for free.",
+      "Six free invoice and quotation templates you can customise, ready to download in Word or PDF and print. Need ZATCA e-invoices? Try VoM for free",
   },
   published: "2023-10-13T13:06:43+00:00",
   modified: "2025-08-25T04:20:28+00:00",
   crumb: "Invoice templates",
   h1: "Free Invoices Templates",
   intro:
-    "At VoM, we know that professional invoices are a big part of running your business well. To make them easier, here is a selection of high-quality invoice templates you can customise, completely free.",
+    "At VoM, we know that professional invoices are a big part of running your business well. To make them easier, here is a selection of high-quality invoice templates you can customise, completely free",
   note: {
-    statement: "Please note: these templates don't support e-invoicing.",
-    offer: "If you're looking for e-invoices, you can try VoM here for free.",
+    statement: "Please note: these templates don't support e-invoicing",
+    offer: "If you're looking for e-invoices, you can try VoM here for free",
   },
   register: "Register now",
   paperLine: "6 templates to print · Word and PDF",
@@ -45,10 +45,10 @@ export const invoiceTemplatesEn: InvoiceTemplatesCopy = {
     pdf: "PDF",
     lead: (name) => `Download the ${name.charAt(0).toLowerCase()}${name.slice(1)} as `,
   },
-  filesNote: "All six templates are Arabic documents.",
+  filesNote: "All six templates are Arabic documents",
   createOnline: "Create online",
   close: {
-    line: "Looking for e-invoices? Issue them in VoM, approved by ZATCA, with 11 templates that print in Arabic, English or both.",
+    line: "Looking for e-invoices? Issue them in VoM, approved by ZATCA, with 11 templates that print in Arabic, English or both",
     cta: "Start a 7-day free trial",
   },
 };

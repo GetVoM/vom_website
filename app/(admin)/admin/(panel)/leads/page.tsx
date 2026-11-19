@@ -76,7 +76,7 @@ export default async function LeadsPage({ searchParams }: { searchParams: Promis
         </button>
       </form>
       <p className="adm-muted num">
-        {count ?? 0} طلب{(count ?? 0) > 200 ? "، تظهر أحدث 200. التصدير يشملها كلها." : ""}
+        {count ?? 0} طلب{(count ?? 0) > 200 ? "، تظهر أحدث 200. التصدير يشملها كلها" : ""}
       </p>
       <div className="adm-table-wrap">
         <table className="adm-table">
@@ -143,7 +143,7 @@ export default async function LeadsPage({ searchParams }: { searchParams: Promis
             {data.length === 0 && (
               <tr>
                 <td colSpan={columnCount} className="adm-muted">
-                  لا توجد طلبات بعد.
+                  لا توجد طلبات بعد
                 </td>
               </tr>
             )}

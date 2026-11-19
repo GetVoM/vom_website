@@ -21,8 +21,8 @@ export function DigitalAds2023() {
     <>
       <main className="lp page-wrap">
         <header className="lp-head">
-          {/* eslint-disable-next-line @next/next/no-img-element -- a small fixed-size logo, optimised without a srcset. */}
-          <img className="lp-logo" src={optimizedSrc(site.logo, 256)} alt={site.name.ar} width={110} height={36} />
+          {/* eslint-disable-next-line @next/next/no-img-element -- a small fixed-size logo, an SVG served as is. */}
+          <img className="lp-logo" src={site.logo} alt={site.name.ar} width={160} height={29} />
           <h1 className="lp-title">
             {page.heading}{" "}
             <span className="lp-zatca">

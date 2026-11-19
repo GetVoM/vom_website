@@ -54,7 +54,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
       <div className="mx-auto max-w-[1280px] px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] pb-14 pt-16">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:grid-cols-[1.6fr_repeat(4,minmax(0,1fr))]">
           <div className="col-span-2 flex flex-col gap-5 md:col-span-4 lg:col-span-1">
-            <Image src={site.logo} alt={t.brand.name} width={96} height={31} />
+            <Image src={site.logo} alt={t.brand.name} width={179} height={32} />
             <p className="max-w-[36ch] text-[0.9375rem] leading-relaxed text-ink-700">{t.footer.about}</p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
               <Image
@@ -81,7 +81,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
       <div className="bg-teal-500 text-white">
         <div className="site-footer-strip mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-x-4 gap-y-1 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-3 text-[0.875rem]">
           <span>
-            © <span className="num">{year}</span> {t.brand.name}. {t.footer.rights}.
+            © <span className="num">{year}</span> {t.brand.name}. {t.footer.rights}
           </span>
           <ul className="-mx-2.5 flex items-center" aria-label={t.contact.follow.heading}>
             {socials.map(({ id, href }) => (

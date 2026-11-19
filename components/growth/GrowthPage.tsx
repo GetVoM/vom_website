@@ -87,7 +87,7 @@ export function GrowthPage({ locale }: { locale: Locale }) {
                 <ButtonLink href={site.growthForms.apply} variant="primary" arrow newTab={g.newTab}>
                   {g.startups.apply}
                 </ButtonLink>
-                <ButtonLink href="#features" variant="ghost">
+                <ButtonLink href="#features" variant="secondary">
                   {g.startups.included}
                 </ButtonLink>
               </div>
@@ -113,7 +113,7 @@ export function GrowthPage({ locale }: { locale: Locale }) {
             </ul>
             <div className="growth-partners-cta">
               <p>{g.partners.question}</p>
-              <ButtonLink href={site.growthForms.partner} variant="inverse" newTab={g.newTab}>
+              <ButtonLink href={site.growthForms.partner} variant="secondary" onTeal newTab={g.newTab}>
                 {g.partners.apply}
               </ButtonLink>
             </div>

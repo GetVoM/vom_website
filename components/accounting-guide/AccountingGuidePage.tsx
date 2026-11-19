@@ -192,7 +192,7 @@ export async function AccountingGuidePage() {
                 <p>
                   <strong>{booking.question}</strong> {booking.line}
                 </p>
-                <ButtonLink href={site.demo} variant="inverse" newTab={booking.newTab}>
+                <ButtonLink href={site.demo} variant="secondary" onTeal newTab={booking.newTab}>
                   {booking.cta}
                 </ButtonLink>
               </aside>

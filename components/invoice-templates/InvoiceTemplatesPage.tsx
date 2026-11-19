@@ -85,7 +85,7 @@ function Template({
         <ul className="ivt-files" role="list">
           {files.map(({ format, file }) => (
             <li key={format}>
-              <a href={file.href} download className="ivt-file" data-track-template={template.id}>
+              <a href={file.href} download className="btn btn-secondary ivt-file" data-track-template={template.id}>
                 <Icon name="download" size={18} />
                 <span className="sr-only">{c.download.lead(name)}</span>
                 <span className="ivt-file-format">{format}</span>{" "}

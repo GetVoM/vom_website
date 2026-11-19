@@ -121,7 +121,7 @@ export function PostEditor({ post, categories, authors, categoryIds, twins }: Pr
         posthog.capture("post_unpublished", { post_type: post.type, locale: post.lang });
       }
       setDirty(false);
-      setNote({ kind: "saved", text: result.message ?? "حُفظ." });
+      setNote({ kind: "saved", text: result.message ?? "حُفظ" });
       return true;
     },
     [editor, post.id, post.lang, title, path, seoTitle, seoDescription, excerpt, cover, coverAlt, primary, selected, author, reviewer, twin, publishedAt],
@@ -147,7 +147,7 @@ export function PostEditor({ post, categories, authors, categoryIds, twins }: Pr
     try {
       await work();
     } catch (error) {
-      setNote({ kind: "error", text: error instanceof Error ? error.message : "حدث خطأ." });
+      setNote({ kind: "error", text: error instanceof Error ? error.message : "حدث خطأ" });
     } finally {
       setBusy(false);
     }
@@ -249,8 +249,8 @@ export function PostEditor({ post, categories, authors, categoryIds, twins }: Pr
           </label>
           <p className="adm-hint">
             {everPublished
-              ? "سبق نشر هذا المقال، فمساره ثابت: تغييره يكسر الروابط ونتائج البحث."
-              : "يُشتق من العنوان والتصنيف الرئيسي. بعد أول نشر يثبت ولا يمكن تغييره."}
+              ? "سبق نشر هذا المقال، فمساره ثابت: تغييره يكسر الروابط ونتائج البحث"
+              : "يُشتق من العنوان والتصنيف الرئيسي. بعد أول نشر يثبت ولا يمكن تغييره"}
           </p>
         </fieldset>
 

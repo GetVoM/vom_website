@@ -15,7 +15,7 @@ Open with the owner (raised 2026-11-09, undecided): the introduction's first sen
 
 THESIS: The terms read as a well-set legal document: one column of text, every clause numbered and linkable, and a contents rail that always shows where you are. It refuses the category's grey wall of text under a banner, and the accordion that hides clauses from search and Ctrl+F.
 
-OWN-WORLD: The Official Record world at its quietest: paper white, near-black ink, Effra only, paper-200 hairlines, teal-600 section numerals, teal-700 for the active contents entry. No teal field, no guilloche, no buttons. New atoms: hanging clause numbers in a narrow gutter that link to themselves, bold lead labels, a teal thumb that slides along a hairline track in the rail, a teal-50 wash on a linked clause.
+OWN-WORLD: The Official Record world at its quietest: paper white, near-black ink, IBM Plex only, paper-200 hairlines, teal-600 section numerals, teal-700 for the active contents entry. No teal field, no guilloche, no buttons. New atoms: hanging clause numbers in a narrow gutter that link to themselves, bold lead labels, a teal thumb that slides along a hairline track in the rail, a teal-50 wash on a linked clause.
 
 STORY: The visitor arrives from the footer, a support link or search, reads the title, the section count and the notices email, picks a section in the contents, finds the clause by its bold label or number and can copy its link. A deep link lands on the clause, highlighted.
 

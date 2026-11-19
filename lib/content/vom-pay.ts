@@ -63,8 +63,6 @@ export interface SuccessCopy {
   laptopAlt: string;
   zatcaAlt: string;
   features: { title: string; body: string; icon: string }[];
-  closing: string;
-  register: string;
 }
 
 export interface FailureCopy {
@@ -78,6 +76,11 @@ export interface FailureCopy {
   /** The old page's three messages; 1 is also the general one, for a missing or unknown code. */
   messages: Record<PayErrorCode, string>;
   faqHeading: string;
+  /**
+   * Three things the payer can check before paying again (owner, 2026-11-19), in
+   * the FAQ's place: they replaced the old page's three product questions (the
+   * logo on the invoice, team permissions, whether VoM suits the business).
+   */
   faq: { q: string; a: string }[];
 }
 
@@ -106,15 +109,15 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
       sending: "جارٍ الإرسال…",
       /** new, as on the campaign form */
       errors: {
-        name: "اكتب اسمك الكامل.",
-        phone: "أدخل رقم جوال سعودي من 10 أرقام يبدأ بـ 05، مثل 0512345678.",
-        email: "تحقق من البريد الإلكتروني، أو اتركه فارغًا.",
-        network: "تعذّر إرسال طلبك الآن. تحقق من اتصالك ثم أعد المحاولة، أو راسلنا على واتساب.",
+        name: "اكتب اسمك الكامل",
+        phone: "أدخل رقم جوال سعودي من 10 أرقام يبدأ بـ 05، مثل 0512345678",
+        email: "تحقق من البريد الإلكتروني، أو اتركه فارغًا",
+        network: "تعذّر إرسال طلبك الآن. تحقق من اتصالك ثم أعد المحاولة، أو راسلنا على واتساب",
       },
       /** new, as on the campaign form */
       thanks: {
-        heading: "شكرًا لك، وصلنا طلبك.",
-        body: "سيتواصل معك فريقنا بأسرع وقت ممكن.",
+        heading: "شكرًا لك، وصلنا طلبك",
+        body: "سيتواصل معك فريقنا بأسرع وقت ممكن",
         whatsapp: "تحتاج ردًا أسرع؟ راسلنا على واتساب",
       },
     },
@@ -129,25 +132,23 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
     features: titles(
       ["الفوترة الإلكترونية", "إدارة مالية شاملة", "التوافق مع القوانين الضريبية", "تحليلات مالية ذكية باستخدام الذكاء الاصطناعي", "دعم فني مخصص", "تكامل مع التطبيقات الأخرى"],
       [
-        "يتيح لك VoM إصدار الفواتير الإلكترونية المعتمدة من هيئة الزكاة والضريبة والجمارك للمرحلة الأولى والمرحلة الثانية بسهولة وفعالية، مما يساهم في ضمان التزامك بالمعايير الضريبية.",
-        "VoM يوفر جميع الأدوات التي تحتاجها لإدارة الحسابات والفواتير والمصروفات في مكان واحد، مما يجعل عملياتك المالية سلسة ومنظمة.",
-        "يساعدك VoM على الالتزام باللوائح الضريبية المحلية من خلال أدوات متطورة تضمن دقة وسهولة في التعامل مع الأمور الضريبية.",
-        "مع ميزة VoM AI، يمكنك الاستفادة من تحليلات متقدمة تعتمد على الذكاء الاصطناعي، مما يوفر لك رؤى أعمق ويعزز دقة القرارات المالية.",
-        "يوفر VoM فريق دعم متاح دائمًا لمساعدتك في أي استفسار أو مشكلة، مما يضمن لك تحقيق أقصى استفادة من البرنامج وتقنياته المتقدمة.",
-        "يدعم الربط مع أنظمة نقاط البيع ومنصات التجارة الإلكترونية، مما يضمن لك تجربة متكاملة وسهلة.",
+        "يتيح لك VoM إصدار الفواتير الإلكترونية المعتمدة من هيئة الزكاة والضريبة والجمارك للمرحلة الأولى والمرحلة الثانية بسهولة وفعالية، مما يساهم في ضمان التزامك بالمعايير الضريبية",
+        "VoM يوفر جميع الأدوات التي تحتاجها لإدارة الحسابات والفواتير والمصروفات في مكان واحد، مما يجعل عملياتك المالية سلسة ومنظمة",
+        "يساعدك VoM على الالتزام باللوائح الضريبية المحلية من خلال أدوات متطورة تضمن دقة وسهولة في التعامل مع الأمور الضريبية",
+        "مع ميزة VoM AI، يمكنك الاستفادة من تحليلات متقدمة تعتمد على الذكاء الاصطناعي، مما يوفر لك رؤى أعمق ويعزز دقة القرارات المالية",
+        "يوفر VoM فريق دعم متاح دائمًا لمساعدتك في أي استفسار أو مشكلة، مما يضمن لك تحقيق أقصى استفادة من البرنامج وتقنياته المتقدمة",
+        "يدعم الربط مع أنظمة نقاط البيع ومنصات التجارة الإلكترونية، مما يضمن لك تجربة متكاملة وسهلة",
       ],
     ),
-    closing: "استخدم VoM AI وحقق نقلة نوعية في إدارة أعمالك!",
-    register: "سجل الآن",
   },
   /** All new: written natively from the Arabic, for the owner's approval. */
   en: {
     seoTitle: "VoM Pay: payment successful | VoM",
-    description: "Your VoM Pay payment went through. Enjoyed it? Apply for VoM Pay for your own business.",
+    description: "Your VoM Pay payment went through. Enjoyed it? Apply for VoM Pay for your own business",
     heading: "Payment successful!",
     line: "Did you enjoy paying with VoM Pay?",
     alt: "A phone showing a tick, beside an invoice and coins",
-    formIntro: ["Now you can apply for VoM Pay for your own business.", "Leave your details below and one of our team will be in touch!"],
+    formIntro: ["Now you can apply for VoM Pay for your own business", "Leave your details below and one of our team will be in touch!"],
     form: {
       name: "Name",
       phone: "Mobile number",
@@ -157,14 +158,14 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
       submit: "Send",
       sending: "Sending…",
       errors: {
-        name: "Enter your full name.",
-        phone: "Enter a 10-digit Saudi mobile number starting with 05, like 0512345678.",
-        email: "Check the email address, or leave it blank.",
-        network: "We couldn’t send your details just now. Check your connection and try again, or message us on WhatsApp.",
+        name: "Enter your full name",
+        phone: "Enter a 10-digit Saudi mobile number starting with 05, like 0512345678",
+        email: "Check the email address, or leave it blank",
+        network: "We couldn’t send your details just now. Check your connection and try again, or message us on WhatsApp",
       },
       thanks: {
-        heading: "Thank you, we have your details.",
-        body: "Our team will contact you as soon as possible.",
+        heading: "Thank you, we have your details",
+        body: "Our team will contact you as soon as possible",
         whatsapp: "Need a faster reply? Message us on WhatsApp",
       },
     },
@@ -179,17 +180,26 @@ export const vomPaySuccess: Record<Locale, SuccessCopy> = {
     features: titles(
       ["E-invoicing", "Complete financial management", "Tax compliance", "Smart financial analytics with AI", "Dedicated support", "Works with your other apps"],
       [
-        "VoM lets you issue e-invoices approved by the Zakat, Tax and Customs Authority for Phase 1 and Phase 2, simply and efficiently, so you keep to the tax standards.",
-        "VoM gives you every tool you need to manage your accounts, invoices and expenses in one place, so your finances run smoothly and stay organised.",
-        "VoM helps you keep to local tax regulations, with advanced tools that make tax matters accurate and easy to handle.",
-        "With VoM AI, you get advanced analytics driven by artificial intelligence, for deeper insight and sharper financial decisions.",
-        "VoM’s support team is always on hand to help with any question or problem, so you get the most out of the software and its advanced features.",
-        "VoM connects with point-of-sale systems and e-commerce platforms, for a joined-up, easy experience.",
+        "VoM lets you issue e-invoices approved by the Zakat, Tax and Customs Authority for Phase 1 and Phase 2, simply and efficiently, so you keep to the tax standards",
+        "VoM gives you every tool you need to manage your accounts, invoices and expenses in one place, so your finances run smoothly and stay organised",
+        "VoM helps you keep to local tax regulations, with advanced tools that make tax matters accurate and easy to handle",
+        "With VoM AI, you get advanced analytics driven by artificial intelligence, for deeper insight and sharper financial decisions",
+        "VoM’s support team is always on hand to help with any question or problem, so you get the most out of the software and its advanced features",
+        "VoM connects with point-of-sale systems and e-commerce platforms, for a joined-up, easy experience",
       ],
     ),
-    closing: "Use VoM AI and transform the way you run your business!",
-    register: "Register Now",
   },
+};
+
+/**
+ * The band both result pages close on: the pricing page's «try VoM free, no
+ * credit card» close, word for word (owner, 2026-11-19). It replaced the old
+ * success page's «استخدم VoM AI وحقق نقلة نوعية في إدارة أعمالك!» with «سجل
+ * الآن»; the failure page had no close.
+ */
+export const vomPayClose: Record<Locale, { line: string; register: string; demo: string }> = {
+  ar: { line: "جرّب ڤوم مجانًا، دون بطاقة ائتمان", register: "سجّل الآن", demo: "احجز عرضًا توضيحيًا" },
+  en: { line: "Try VoM free. No credit card needed", register: "Register now", demo: "Book a demo" },
 };
 
 export const vomPayFailure: Record<Locale, FailureCopy> = {
@@ -209,42 +219,49 @@ export const vomPayFailure: Record<Locale, FailureCopy> = {
       "2": "تم دفع هذه الفاتورة بشكل كامل أو جزئي",
       "3": "التاجر لم يعد نشطًا في خدمة VoM Pay",
     },
-    faqHeading: "أسئلة شائعة",
+    /** new (owner, 2026-11-19), with the three checks under it */
+    faqHeading: "كيف تحل المشكلة؟",
     faq: [
       {
-        q: "هل أستطيع وضع الشعار الخاص بي على الفاتورة؟",
-        a: "بالتأكيد، بإمكانك وضع العلامة التجارية الخاصة بك على الفاتورة، وتبقى الفاتورة متوافقة مع لوائح هيئة الزكاة والضريبة والجمارك.",
+        q: "تأكد من أن رصيد بطاقتك يكفي",
+        a: "يجب أن يغطي رصيدك مبلغ الفاتورة كاملًا، وألا يتجاوز المبلغ حد الشراء اليومي لبطاقتك، وتجد الاثنين في تطبيق بنكك",
       },
       {
-        q: "هل يمكنني منح الصلاحيات لمختلف الفريق؟",
-        a: "يمكنك تنظيم وتخصيص صلاحيات فريقك بكل سهولة ويسر؛ بما يتوافق مع احتياجات ومهام أعضاء الفريق في هذا القطاع.",
+        q: "تأكد من تفعيل الشراء عبر الإنترنت على بطاقتك",
+        a: "بعض البنوك لا تسمح بالدفع الإلكتروني بالبطاقة حتى تفعّله بنفسك، ويمكنك تفعيله من تطبيق بنكك أو عبر خدمة عملائه",
       },
       {
-        q: "هل ڤوم مناسب لعملي؟",
-        a: "ستجد في نظام ڤوم شريكًا مثاليًّا ومساعدًا مهمًّا لإدارة المبيعات وإصدار الفواتير ومعالجة مسائل الضرائب وإعداد التقارير المخصصة لدعم الشركات الصغيرة والمتوسطة، حتى إذا كنت تفتقر إلى الخبرة في مجال المحاسبة.",
+        q: "تأكد من صحة بيانات بطاقتك",
+        a: "راجع رقم البطاقة وتاريخ انتهائها ورمز الأمان (CVV) كما هي على بطاقتك، وأدخل رمز التحقق الذي يرسله بنكك إلى جوالك قبل أن تنتهي مهلته",
       },
     ],
   },
   /** All new: written natively from the Arabic, for the owner's approval. */
   en: {
     seoTitle: "VoM Pay: payment failed | VoM",
-    description: "Your VoM Pay payment didn’t go through.",
+    description: "Your VoM Pay payment didn’t go through",
     heading: "Payment failed!",
     alt: "A phone showing a cross, beside an invoice",
     codeLabel: "Error code:",
     messageHeading: "Something went wrong with your payment!",
     messages: {
-      "1": "Something went wrong during the payment.",
-      "2": "This invoice has already been paid, in full or in part.",
-      "3": "This merchant is no longer active on VoM Pay.",
+      "1": "Something went wrong during the payment",
+      "2": "This invoice has already been paid, in full or in part",
+      "3": "This merchant is no longer active on VoM Pay",
     },
-    faqHeading: "Frequently asked questions",
+    faqHeading: "How to fix it",
     faq: [
-      { q: "Can I put my own logo on the invoice?", a: "Absolutely. You can put your own brand on your invoices, and they stay in line with the Zakat, Tax and Customs Authority’s rules." },
-      { q: "Can I give my team different permissions?", a: "Yes. You can set up and tailor your team’s permissions easily, to fit each member’s needs and tasks." },
       {
-        q: "Is VoM right for my business?",
-        a: "VoM is an ideal partner for small and medium-sized businesses: it manages your sales, issues your invoices, handles tax and prepares custom reports, even if you have no accounting experience.",
+        q: "Check your card has enough balance",
+        a: "Your balance needs to cover the whole invoice, and the amount has to fit within your card’s daily spending limit. Your bank’s app shows both",
+      },
+      {
+        q: "Make sure online payments are turned on for your card",
+        a: "Some banks block online card payments until you switch them on yourself. You can do it in your bank’s app or through its customer service",
+      },
+      {
+        q: "Check your card details",
+        a: "Make sure the card number, expiry date and security code (CVV) match your card, and enter the verification code your bank texts you before it runs out",
       },
     ],
   },

@@ -136,7 +136,7 @@ export default async function PostsPage({ searchParams }: { searchParams: Promis
             {data.length === 0 && (
               <tr>
                 <td colSpan={5} className="adm-muted">
-                  لا توجد مقالات بهذه الشروط.
+                  لا توجد مقالات بهذه الشروط
                 </td>
               </tr>
             )}

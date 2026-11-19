@@ -22,9 +22,9 @@ export function SocialLinks({ t }: { t: Dictionary }) {
               <a
                 href={href}
                 rel="noopener"
-                className="flex h-16 items-center gap-3 rounded-[var(--radius-tile)] border border-paper-300 bg-paper px-4 text-[0.9375rem] font-bold transition-colors hover:border-teal-500 hover:bg-teal-50"
+                className="flex h-16 items-center gap-3 rounded-[var(--radius-tile)] border border-paper-300 bg-paper px-4 text-[0.9375rem] font-bold transition-colors hover:border-teal-500 hover:bg-paper-100"
               >
-                <span className="shrink-0 text-teal-700">
+                <span className="shrink-0 text-teal-500">
                   <SocialGlyph id={id} size={22} />
                 </span>
                 {t.contact.follow.items[id]}

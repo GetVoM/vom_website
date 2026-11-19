@@ -59,7 +59,7 @@ function Charter({ charter, photo, alt, width, height }: { charter: AboutCharter
           <ul className="mt-5 flex flex-col gap-3">
             {charter.list.map((line) => (
               <li key={line} className="flex gap-3 text-[1rem] leading-[1.6]">
-                <Icon name="check" size={18} strokeWidth={2.25} className="mt-1 shrink-0 text-teal-700" />
+                <Icon name="check" size={18} strokeWidth={2.25} className="mt-1 shrink-0 text-teal-500" />
                 {line}
               </li>
             ))}
@@ -111,10 +111,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <div className="figures">
           <div className="figures-band guilloche-tile" aria-hidden="true" />
           <div className="page-wrap relative">
-            <ul className="figures-grid">
+            <ul className="figures-sheet">
               {a.figures.map((figure, i) => (
                 <li key={figure.value}>
-                  <a href={`#${figure.target}`} className="figure-link" data-short={figure.value.length === 1 || undefined}>
+                  <a href={`#${figure.target}`} className="figure-link">
                     <FigureValue value={figure.value} offset={digitsBefore(i)} />
                     <span className="figure-label">
                       <span className="figure-text">{figure.label}</span>
@@ -256,7 +256,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               width={348}
               height={595}
               sizes="300px"
-              className="h-auto w-[280px] rounded-[var(--radius-card)] shadow-[0_32px_60px_-28px_rgba(5,42,37,0.6)] lg:w-[300px]"
+              className="h-auto w-[280px] rounded-[var(--radius-card)] shadow-[0_32px_60px_-28px_rgba(2,2,2,0.6)] lg:w-[300px]"
             />
             <span className="rounded-pill bg-paper px-3 py-1 text-[0.75rem] text-ink-700">{t.hero.demoLabel}</span>
           </div>
@@ -318,14 +318,14 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="guilloche-dark guilloche-tile">
         <div className="page-wrap py-16 lg:py-24">
-          <div className="doc-frame mx-auto flex max-w-[820px] flex-col items-center gap-5 bg-paper px-6 py-12 text-center shadow-[0_40px_80px_-40px_rgba(5,42,37,0.6)] lg:px-16 lg:py-16">
+          <div className="doc-frame mx-auto flex max-w-[820px] flex-col items-center gap-5 bg-paper px-6 py-12 text-center shadow-[0_40px_80px_-40px_rgba(2,2,2,0.6)] lg:px-16 lg:py-16">
             <h2 className="about-heading">{a.cta.heading}</h2>
             <p className="max-w-[48ch] text-[1.125rem] leading-[1.7] text-ink-700">{a.cta.body}</p>
             <div className="mt-2 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
               <ButtonLink href={site.signup[locale]} variant="primary" arrow>
                 {a.cta.primary}
               </ButtonLink>
-              <ButtonLink href={site.demo} variant="ghost" external>
+              <ButtonLink href={site.demo} variant="secondary" external>
                 {a.cta.secondary}
               </ButtonLink>
             </div>

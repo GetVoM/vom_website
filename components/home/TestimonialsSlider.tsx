@@ -72,9 +72,9 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
               </blockquote>
             </div>
             <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-3 rounded-[var(--radius-tile)] bg-teal-50 px-4 py-3">
-                <span className="num text-[1.75rem] font-bold leading-none text-teal-700">{item.metric.value}</span>
-                <span className="text-[0.875rem] leading-snug text-teal-800">{item.metric.label[locale]}</span>
+              <div className="flex items-center gap-3 rounded-[var(--radius-tile)] bg-paper-100 px-4 py-3">
+                <span className="num text-[1.75rem] font-bold leading-none text-teal-500">{item.metric.value}</span>
+                <span className="text-[0.875rem] leading-snug text-teal-500">{item.metric.label[locale]}</span>
               </div>
               <figcaption className="flex items-center gap-4">
                 <Image
@@ -82,7 +82,7 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
                   alt=""
                   width={56}
                   height={56}
-                  className="h-14 w-14 rounded-full object-cover ring-2 ring-teal-200 ring-offset-2 ring-offset-paper"
+                  className="h-14 w-14 rounded-full object-cover ring-2 ring-teal-500 ring-offset-2 ring-offset-paper"
                 />
                 <span className="flex flex-col text-[0.9375rem]">
                   <span className="font-bold">{item.name[locale]}</span>
@@ -111,7 +111,7 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
               data-index={i}
               aria-label={`${i + 1} ${labels.slideOf} ${items.length}`}
               aria-current={index === i ? "true" : undefined}
-              className={`h-2 rounded-pill transition-all duration-300 ${index === i ? "w-7 bg-teal-500" : "w-2 bg-teal-200 hover:bg-teal-300"}`}
+              className={`h-2 rounded-pill transition-all duration-300 ${index === i ? "w-7 bg-teal-500" : "w-2 bg-paper-300 hover:bg-teal-500"}`}
             />
           ))}
         </div>

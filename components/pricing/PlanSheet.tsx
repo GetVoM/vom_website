@@ -1,29 +1,19 @@
 import type { Locale } from "@/lib/i18n/config";
-import {
-  annualPrice,
-  annualSaving,
-  flexRates,
-  monthlyPrice,
-  planNames,
-  popularPlan,
-  type PlanId,
-  type PricingCopy,
-} from "@/lib/content/pricing";
+import { flexRates, planNames, planPeriod, planPrice, popularPlan, type PlanId, type PricingCopy } from "@/lib/content/pricing";
 import { ButtonLink } from "@/components/ui/Button";
 import { Amount } from "./Amount";
 
 /**
  * One plan as an official sheet on the teal field: its name, the price ruled off
- * with the accountant's double rule, then what sets it apart and its button. Both
- * the monthly and the annual price are in the HTML; the billing switch shows one.
- * List keys are indexes: a text key would repeat the copy in the RSC payload.
+ * with the accountant's double rule, then what sets it apart and its button. Each
+ * plan has one period (Flex monthly, the rest yearly), so one price; the billing
+ * switch shows or hides whole sheets. List keys are indexes: a text key would
+ * repeat the copy in the RSC payload.
  */
 export function PlanSheet({ id, c, locale, href }: { id: PlanId; c: PricingCopy; locale: Locale; href: string }) {
   const copy = c.plans[id];
   const popular = id === popularPlan;
-  const monthly = monthlyPrice[id];
-  const annual = annualPrice(id);
-  const saving = annualSaving(id);
+  const price = planPrice[id];
 
   return (
     <article className="prc-sheet" {...(popular && { "data-popular": "" })}>
@@ -38,31 +28,20 @@ export function PlanSheet({ id, c, locale, href }: { id: PlanId; c: PricingCopy;
       <p className="prc-summary">{copy.summary}</p>
 
       <div className="prc-price">
-        {monthly === null ? (
+        {price === null ? (
           <p className="prc-contact">{c.contactPrice}</p>
-        ) : annual === null ? (
-          <p className="prc-period">
+        ) : planPeriod[id] === "monthly" ? (
+          <p className="prc-amount">
             <span className="prc-from">{c.from}</span>
-            <Amount value={monthly} currency={c.currency} className="prc-figure" />
+            <Amount value={price} currency={c.currency} className="prc-figure" />
             <span>{c.per.firstUser}</span>
-            <span className="prc-save">{c.billing.monthlyOnly}</span>
+            <span className="prc-chip">{c.billing.monthlyOnly}</span>
           </p>
         ) : (
-          <>
-            <p className="prc-period" data-period="monthly">
-              <Amount value={monthly} currency={c.currency} className="prc-figure" />
-              <span>{c.per.month}</span>
-            </p>
-            <p className="prc-period" data-period="annual">
-              <Amount value={annual} currency={c.currency} className="prc-figure" />
-              <span>{c.per.year}</span>
-              {saving !== null && (
-                <span className="prc-save">
-                  {c.save} <Amount value={saving} currency={c.currency} />
-                </span>
-              )}
-            </p>
-          </>
+          <p className="prc-amount">
+            <Amount value={price} currency={c.currency} className="prc-figure" />
+            <span>{c.per.year}</span>
+          </p>
         )}
       </div>
 

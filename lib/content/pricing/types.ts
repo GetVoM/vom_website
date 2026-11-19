@@ -1,4 +1,4 @@
-import type { GroupId, PlanId, RowId } from "./plans";
+import type { PlanId, RowId } from "./plans";
 
 export interface PlanCopy {
   /** One factual line under the plan's name. */
@@ -23,13 +23,15 @@ export interface PricingCopy {
     legend: string;
     monthly: string;
     annual: string;
-    /** The chip on the annual option. */
-    free: string;
     /** The chip under Flex's price: it has no annual billing. */
     monthlyOnly: string;
     /** Under the sheets while annual is chosen, where Flex is hidden. */
     flexHidden: string;
+    /** Under the sheets while monthly is chosen, where only Flex shows. */
+    annualOnly: string;
   };
+  /** The button beside the billing switch that jumps to the comparison ledger. */
+  compareJump: string;
   /** Units after a figure: "/ شهريًا", "/ year", "per transaction". */
   per: {
     month: string;
@@ -40,11 +42,11 @@ export interface PricingCopy {
     centre: string;
     /** After Flex's starting price: what it covers. */
     firstUser: string;
+    /** Per export of a report. */
+    export: string;
   };
   /** Before Flex's starting price. */
   from: string;
-  /** Before the saving on the annual figure, e.g. "توفّر". */
-  save: string;
   /** Business's figure: it is quoted by sales. */
   contactPrice: string;
   /** The same, short enough for the ledger's column head. */
@@ -67,12 +69,16 @@ export interface PricingCopy {
     /** Before the amount at which usage is charged automatically; set as a ticked point. */
     autoCharge: string;
   };
+  /** The ledger. Its group heads are the features page's section titles. */
   compare: {
     heading: string;
     caption: string;
     feature: string;
-    groups: Record<GroupId, string>;
     rows: Record<RowId, string>;
+    /** A small line under a row's label. */
+    notes: Partial<Record<RowId, string>>;
+    /** The link after the ledger to the features page. */
+    more: string;
     yes: string;
     no: string;
     unlimited: string;
@@ -80,11 +86,6 @@ export interface PricingCopy {
     usage: string;
     /** Under a count that applies to each kind of document in the row. */
     each: string;
-  };
-  included: {
-    heading: string;
-    lede: string;
-    groups: { heading: string; items: string[] }[];
   };
   faqHeading: string;
   faq: PricingQuestion[];

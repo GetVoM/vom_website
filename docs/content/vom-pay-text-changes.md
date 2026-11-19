@@ -49,8 +49,6 @@ The placeholder paragraph is gone.
 | Failure message heading | «حصل خطا في عملية الدفع!» → «حصل خطأ…» | Hamza |
 | Code 2 | «بشكل كامل او جزئي» → «أو» | Hamza |
 | Code 3 | «VoM pay» → «VoM Pay» | Brand casing |
-| FAQ 1 | «هل استطيع» → «هل أستطيع» | Hamza |
-| FAQ 3 | «هل فوم مناسب لعملي؟» → «هل ڤوم…» | The brand's Arabic spelling, as in the answer under it |
 | Failure description | «رمز الخطأ: 1» (the code's placeholder) → the general message | The old description was the placeholder |
 
 ## Structure
@@ -59,8 +57,13 @@ The placeholder paragraph is gone.
   - The old pitch's three lines are now the features section's opening. The first line is its heading, «VoM AI» is drawn as its logo (the logo's alt is «VoM AI»), and the third line sits under the heading.
   - «مميزات» heads the six features.
   - The invitation's two lines are the form sheet's head.
-- **Failure page:** the FAQ keeps its three questions and answers as a visible list. Its FAQPage schema is dropped, per the site-wide ruling.
-- **Second FAQ answer:** it ends «في هذا القطاع», left over from a sector page. It is kept in Arabic and left out of the English.
+- **Both pages' close (owner, 2026-11-19):** the old success page closed on «استخدم VoM AI وحقق نقلة نوعية في إدارة أعمالك!» with «سجل الآن». Both pages now close on the pricing page's band, word for word: «جرّب ڤوم مجانًا، دون بطاقة ائتمان» with «سجّل الآن» and «احجز عرضًا توضيحيًا» ("Try VoM free. No credit card needed", "Register now", "Book a demo"). The failure page had no close before.
+- **Failure page's FAQ (owner, 2026-11-19):** the old page's three product questions are gone: «هل أستطيع وضع الشعار الخاص بي على الفاتورة؟», «هل يمكنني منح الصلاحيات لمختلف الفريق؟» and «هل ڤوم مناسب لعملي؟». In their place, under «كيف تحل المشكلة؟» ("How to fix it"), are three things to check on the card, written new for the owner's approval:
+  - «تأكد من أن رصيد بطاقتك يكفي»: the balance and the daily limit (the owner's)
+  - «تأكد من تفعيل الشراء عبر الإنترنت على بطاقتك» (the owner's)
+  - «تأكد من صحة بيانات بطاقتك»: the number, expiry date and CVV, then the bank's verification code (the third, added on the owner's request)
+
+  They keep the FAQ's accordion, the first one open. There is no FAQPage schema, per the site-wide ruling.
 
 ## Form
 

@@ -42,7 +42,7 @@ export function Steps({ t }: { t: Dictionary }) {
             <div className="doc-frame relative min-h-[420px] w-full max-w-[440px] bg-paper sm:min-h-[460px]">
               {/* Panel 1: sale */}
               <div className="story-panel p-6 sm:p-8" data-active={active === 0 ? "" : undefined}>
-                <div className="flex items-center justify-between border-b border-teal-200 pb-3">
+                <div className="flex items-center justify-between border-b border-teal-500 pb-3">
                   <span className="text-[1.0625rem] font-bold">{p.sale.title}</span>
                   <span className="num text-[0.8125rem] text-ink-500">14:32</span>
                 </div>
@@ -62,7 +62,7 @@ export function Steps({ t }: { t: Dictionary }) {
 
               {/* Panel 2: invoice */}
               <div className="story-panel p-6 sm:p-8" data-active={active === 1 ? "" : undefined}>
-                <div className="flex items-center justify-between border-b border-teal-200 pb-3">
+                <div className="flex items-center justify-between border-b border-teal-500 pb-3">
                   <span className="text-[1.0625rem] font-bold">{p.invoice.title}</span>
                   <span className="inline-flex items-center gap-1.5 rounded-pill bg-teal-500 px-2.5 py-1 text-[0.6875rem] font-bold text-white">
                     <Icon name="check" size={11} strokeWidth={3} />
@@ -100,7 +100,7 @@ export function Steps({ t }: { t: Dictionary }) {
 
               {/* Panel 3: report */}
               <div className="story-panel p-6 sm:p-8" data-active={active === 2 ? "" : undefined}>
-                <div className="flex items-center justify-between border-b border-teal-200 pb-3">
+                <div className="flex items-center justify-between border-b border-teal-500 pb-3">
                   <span className="text-[1.0625rem] font-bold">{p.report.title}</span>
                   <span className="text-[0.8125rem] text-ink-500">{p.report.period}</span>
                 </div>
@@ -113,7 +113,7 @@ export function Steps({ t }: { t: Dictionary }) {
                   ))}
                   <div className="flex justify-between border-t border-ink pt-2.5 font-bold">
                     <span>{t.report.net}</span>
-                    <span className="num text-teal-700">{t.report.netValue}</span>
+                    <span className="num text-teal-500">{t.report.netValue}</span>
                   </div>
                 </div>
                 <div className="mt-6 flex h-20 items-end gap-1.5" aria-hidden="true">
@@ -121,7 +121,7 @@ export function Steps({ t }: { t: Dictionary }) {
                     <span
                       key={i}
                       className="flex-1 rounded-sm transition-[height] duration-700"
-                      style={{ height: active === 2 ? `${h}%` : "8%", background: i % 2 ? "var(--color-teal-500)" : "var(--color-teal-200)" }}
+                      style={{ height: active === 2 ? `${h}%` : "8%", background: i % 2 ? "var(--color-teal-500)" : "var(--color-teal-500)" }}
                     />
                   ))}
                 </div>
@@ -129,7 +129,7 @@ export function Steps({ t }: { t: Dictionary }) {
               <div className="absolute inset-x-6 bottom-5 flex items-center justify-between sm:inset-x-8" aria-hidden="true">
                 <div className="flex gap-1.5">
                   {[0, 1, 2].map((i) => (
-                    <span key={i} className={`h-1.5 rounded-pill transition-all duration-500 ${active === i ? "w-6 bg-teal-500" : "w-1.5 bg-teal-200"}`} />
+                    <span key={i} className={`h-1.5 rounded-pill transition-all duration-500 ${active === i ? "w-6 bg-teal-500" : "w-1.5 bg-paper-300"}`} />
                   ))}
                 </div>
                 <span className="label-en">Step {active + 1} / 3</span>
@@ -138,7 +138,7 @@ export function Steps({ t }: { t: Dictionary }) {
           </div>
         </div>
 
-        <ol className="order-1 flex flex-col border-s border-teal-200 lg:order-2">
+        <ol className="order-1 flex flex-col border-s border-teal-500 lg:order-2">
           {t.steps.items.map((step, i) => (
             <li key={step.title}>
               <div
@@ -146,11 +146,11 @@ export function Steps({ t }: { t: Dictionary }) {
                   refs.current[i] = el;
                 }}
                 data-index={i}
-                className="story-step relative flex min-h-[36vh] flex-col justify-center gap-3 border-t border-teal-200 py-10 ps-8 lg:min-h-[52vh]"
+                className="story-step relative flex min-h-[36vh] flex-col justify-center gap-3 border-t border-teal-500 py-10 ps-8 lg:min-h-[52vh]"
                 data-active={active === i ? "" : undefined}
               >
-                <span className="absolute -start-[7px] top-10 h-3.5 w-3.5 rounded-full border-2 border-paper bg-teal-500 shadow-[0_0_0_2px_var(--color-teal-200)]" aria-hidden="true" />
-                <span className="num text-[0.875rem] font-bold text-teal-600">0{i + 1}</span>
+                <span className="absolute -start-[7px] top-10 h-3.5 w-3.5 rounded-full border-2 border-paper bg-teal-500 shadow-[0_0_0_2px_var(--color-teal-500)]" aria-hidden="true" />
+                <span className="num text-[0.875rem] font-bold text-teal-500">0{i + 1}</span>
                 <h3 className="font-arabic text-[1.5rem] font-bold leading-snug sm:text-[1.75rem]">{step.title}</h3>
                 <p className="max-w-[40ch] text-[1.0625rem] leading-relaxed text-ink-700">{step.body}</p>
               </div>
