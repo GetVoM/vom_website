@@ -55,13 +55,33 @@ export interface Dictionary {
   invoice: {
     kind: string;
     seller: string;
-    vatNumber: string;
-    date: string;
     items: [string, string, string][];
-    subtotal: string;
     vat: string;
     total: string;
     reported: string;
+  };
+  /** The tax invoice drawn in the hero, laid out as VoM prints one. Its business, customer and items are sample data. */
+  heroInvoice: {
+    title: string;
+    seller: string;
+    vatNumber: string;
+    crNumber: string;
+    number: string;
+    date: string;
+    customer: string;
+    customerName: string;
+    /** Item, quantity, unit price, VAT, total. */
+    columns: [string, string, string, string, string];
+    /** Name, quantity, unit price before VAT. */
+    items: [string, string, string][];
+    net: string;
+    vat: string;
+    total: string;
+    currency: string;
+    /** The badge on the invoice's corner. */
+    cleared: string;
+    /** The line beside the ZATCA and Fatoora marks at the invoice's foot. */
+    phase: string;
   };
   certificate: {
     title: string;
@@ -144,7 +164,16 @@ export interface Dictionary {
     items: { value: number; suffix: string; unit: string; label: string }[];
   };
   clients: { heading: string; body: string; count: string };
-  testimonials: { heading: string; body: string; prev: string; next: string; slideOf: string };
+  testimonials: {
+    heading: string;
+    body: string;
+    prev: string;
+    next: string;
+    slideOf: string;
+    /** The button that opens a long quote on a phone, and closes it again. */
+    more: string;
+    less: string;
+  };
   integrationsSection: {
     heading: string;
     body: string;
@@ -165,7 +194,8 @@ export interface Dictionary {
     body: string;
     ios: string;
     features: string[];
-    screen: { title: string; subtitle: string; amount: string; button: string; status: string };
+    /** The photo's alt text: a hand holding a phone with the app's sales invoices. */
+    image: string;
   };
   contact: {
     heading: string;
@@ -215,7 +245,7 @@ export interface Dictionary {
       members: { name: string; role: string; photo: string }[];
     };
     cta: { heading: string; body: string; primary: string; secondary: string };
-    images: Record<"owner" | "growth" | "laptop" | "reports" | "balance" | "boardroom" | "meeting", string>;
+    images: Record<"owner" | "growth" | "laptop" | "reports" | "boardroom" | "meeting", string>;
     seo: { title: string; description: string };
   };
   growth: {

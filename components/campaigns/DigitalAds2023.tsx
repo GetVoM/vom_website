@@ -26,8 +26,8 @@ export function DigitalAds2023() {
           <h1 className="lp-title">
             {page.heading}{" "}
             <span className="lp-zatca">
-              {/* eslint-disable-next-line @next/next/no-img-element -- part of the heading's text: its alt completes the sentence. */}
-              <img src={optimizedSrc(page.zatca.src, 640)} alt={page.zatca.alt} width={page.zatca.width} height={page.zatca.height} />
+              {/* eslint-disable-next-line @next/next/no-img-element -- part of the heading's text: its alt completes the sentence. An SVG served as is. */}
+              <img src={site.zatcaLogo.src} alt={page.zatcaAlt} width={site.zatcaLogo.width} height={site.zatcaLogo.height} />
             </span>
           </h1>
           <p className="lp-lede">{page.lede}</p>

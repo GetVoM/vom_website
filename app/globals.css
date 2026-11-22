@@ -153,12 +153,14 @@ html[dir="rtl"] .hero-field {
   --field-shift: -40px;
 }
 
-/* Document stack */
+/* Document stack. It is drawn at 500 px wide: the sheets' type is 2.2% of the stack's
+   width (11 px there) and everything inside them is in em, so the drawing scales whole. */
 .doc-stack {
   position: relative;
   width: 100%;
   max-width: 500px;
   aspect-ratio: 500 / 600;
+  container-type: inline-size;
   perspective: 1400px;
   animation: idle-float 7s ease-in-out 3s infinite;
 }
@@ -173,6 +175,8 @@ html[dir="rtl"] .hero-field {
 }
 .sheet {
   position: absolute;
+  font-size: 2.2cqw;
+  line-height: 1.45;
   border-radius: var(--radius-sheet);
   background: var(--color-paper);
   color: var(--color-ink);
@@ -182,22 +186,24 @@ html[dir="rtl"] .hero-field {
     0 60px 90px -40px rgb(2 2 2 / 0.35);
   transform-style: preserve-3d;
 }
+/* The invoice is an A4 tax invoice, not a till receipt (owner, 2026-11-22): wide enough
+   for its item table, and turned less than the sheets behind it so it reads straight. */
 .sheet-invoice {
   inset-inline-start: 0;
-  top: 20%;
-  width: 60%;
+  top: 9%;
+  width: 80%;
   z-index: 3;
-  transform: rotateY(var(--ry, -8deg)) rotateX(3deg) rotateZ(var(--rz, -2deg));
+  transform: rotateY(var(--ry, -6deg)) rotateX(2deg) rotateZ(var(--rz, -1.5deg));
   animation: sheet-rise 1s var(--ease-out-quint) 0.15s both;
 }
 html[dir="rtl"] .sheet-invoice {
-  --ry: 8deg;
-  --rz: 2deg;
+  --ry: 6deg;
+  --rz: 1.5deg;
 }
 .sheet-certificate {
   inset-inline-end: 0;
   top: 0;
-  width: 57%;
+  width: 52%;
   z-index: 2;
   transform: rotateY(var(--ry, -8deg)) rotateX(3deg) rotateZ(var(--rz, 4deg)) translateZ(-40px);
   animation: sheet-rise 1s var(--ease-out-quint) 0.35s both;
@@ -207,9 +213,9 @@ html[dir="rtl"] .sheet-certificate {
   --rz: -4deg;
 }
 .sheet-report {
-  inset-inline-end: 2%;
-  bottom: 0;
-  width: 46%;
+  inset-inline-end: 0;
+  bottom: 2%;
+  width: 42%;
   z-index: 1;
   transform: rotateY(var(--ry, -8deg)) rotateX(3deg) rotateZ(var(--rz, -6deg)) translateZ(-80px);
   animation: sheet-rise 1s var(--ease-out-quint) 0.5s both;
@@ -217,6 +223,25 @@ html[dir="rtl"] .sheet-certificate {
 html[dir="rtl"] .sheet-report {
   --ry: 8deg;
   --rz: 6deg;
+}
+/* On a phone the stack would set the invoice's type near 7 px: the invoice stands alone,
+   full width, and its type is sized from that width instead. */
+@media (max-width: 639.98px) {
+  .doc-stack {
+    aspect-ratio: auto;
+  }
+  .sheet {
+    font-size: 2.75cqw;
+  }
+  .sheet-invoice {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+  .sheet-certificate,
+  .sheet-report {
+    display: none;
+  }
 }
 @keyframes sheet-rise {
   from {
@@ -276,15 +301,12 @@ html[dir="rtl"] .sheet-report {
     filter: blur(0);
   }
 }
-.badge-pop {
-  position: absolute;
-  top: -12px;
-  inset-inline-end: -14px;
+/* ZATCA's clearance, stamped beside the invoice's totals once its QR code has drawn. */
+.inv-stamp {
   rotate: -6deg;
-  box-shadow: 0 6px 14px -6px rgb(2 2 2 / 0.5);
   animation: pop 0.45s var(--ease-out-quint) 2.55s both;
 }
-html[dir="rtl"] .badge-pop {
+html[dir="rtl"] .inv-stamp {
   rotate: 6deg;
 }
 @keyframes pop {
@@ -719,10 +741,16 @@ details.faq[open] .faq-icon {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 
-/* The lattice from components/home/Guilloche.tsx as a CSS image, for pages with
-   several bands: the stylesheet is cached and the page's HTML stays small. */
+/* The VoM loop: one large instance per teal field (owner, 2026-11-22). Traced as vectors
+   from the owner's VoM-Loop artwork, a looped stroke and a caret, in white at 23% so it
+   lands on the artwork's colour over teal. The viewBox holds the whole drawing and
+   `meet` fits it inside any field, centred, as large as the field allows; both tails run
+   on outside the viewBox so the line always leaves the field's edges. The stroke scales
+   with the drawing. components/home/Guilloche.tsx renders this class. */
 .guilloche-tile {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.14' stroke-width='.55'%3E%3Cellipse cx='48' cy='48' rx='44' ry='13'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(18 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(36 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(54 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(72 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(90 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(108 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(126 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(144 48 48)'/%3E%3Cellipse cx='48' cy='48' rx='44' ry='13' transform='rotate(162 48 48)'/%3E%3Ccircle cx='48' cy='48' r='46'/%3E%3Ccircle r='22'/%3E%3Ccircle cx='96' cy='96' r='22'/%3E%3Ccircle cx='96' r='22'/%3E%3Ccircle cy='96' r='22'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='10 10 180 81'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.23'%3E%3Cpath d='M-248.1 -126L13.5 20.9C39.5 35.5 71.4 48.9 88.3 50.3C98.5 51.2 104 46.6 103.9 42.6C103.7 37.3 99 34.8 92.1 34.8C82.1 34.8 72.3 43.3 72.7 54.5C73.2 70.6 98.2 80.5 118.3 79.9C142.4 79.1 171 73.3 186 67.4L465.2 -42.4' stroke-width='3'/%3E%3Cpath d='M135.9 39.8L139.9 36.2L143.9 39.8' stroke-width='2.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 /* Header: the Sectors and Business support mega menus. A paper panel drops under
@@ -1039,7 +1067,7 @@ html[dir="rtl"] .nav-out {
 .about-heading {
   font-size: 1.875rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.35;
 }
 .about-copy {
   font-size: 1.125rem;
@@ -1165,7 +1193,7 @@ html[dir="rtl"] .nav-out {
   line-height: 1.375;
 }
 .about-value dd {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--color-ink-700);
@@ -1221,13 +1249,9 @@ html[dir="rtl"] .nav-out {
   line-height: 1.25;
 }
 .team-role {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: 1rem;
   color: var(--color-ink-700);
-}
-.about-field {
-  width: 41%;
-  animation: none;
 }
 @media (min-width: 640px) {
   .about-heading {
@@ -1246,47 +1270,36 @@ html[dir="rtl"] .nav-out {
   }
 }
 
-/* About: the figures. One record sheet lifted onto the slanted teal band, four
-   columns split by hairlines: each numeral is ruled off by an accountant's double
-   underline with its caption right under it, so every figure reads with its own
-   words. Two by two below 1024px. The numerals keep the homepage record's size. */
-.about-hero {
-  display: flex;
-  flex-direction: column;
+/* About hero: a plain two-column hero (owner, 2026-11-22). Copy on the start side,
+   the photo on the end side, both centred in a tall row; stacked below 1024px. */
+.about-hero-grid {
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+  padding-block: 2rem 3rem;
 }
-.about-art-slot {
-  order: 3;
-  display: flex;
-  justify-content: center;
-  padding: 2.5rem 16px 0;
+@media (min-width: 1024px) {
+  .about-hero-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 4rem;
+    padding-block: 3rem 4.5rem;
+  }
 }
-.about-art {
-  position: relative;
-  width: min(100%, 26rem);
-}
-.about-demo {
-  position: absolute;
-  top: 44%;
-  left: 0;
-  font-size: 0.75rem;
-  color: var(--color-ink-500);
-}
+
+/* About: the figures. One record sheet on a straight teal band, four columns split
+   by hairlines: each numeral is ruled off by an accountant's double underline with
+   its caption right under it, so every figure reads with its own words. Two by two
+   below 1024px. The numerals keep the homepage record's size. */
 .figures {
-  --fig-slant: 1.75rem;
   position: relative;
   z-index: 1;
-  margin-top: 1.75rem;
-  padding-block: calc(var(--fig-slant) + 1.75rem) 2.5rem;
+  padding-block: 2.5rem;
 }
 .figures-band {
   position: absolute;
   inset: 0;
   z-index: -1;
   background-color: var(--color-teal-500);
-  clip-path: polygon(0 var(--fig-slant), 100% 0, 100% 100%, 0 100%);
-}
-html[dir="rtl"] .figures-band {
-  clip-path: polygon(0 0, 100% var(--fig-slant), 100% 100%, 0 100%);
 }
 .figures-sheet {
   display: grid;
@@ -1404,8 +1417,7 @@ html[dir="rtl"] .figures-band {
 /* Four across: one row of figures on the band. */
 @media (min-width: 1024px) {
   .figures {
-    --fig-slant: 2.5rem;
-    padding-block: calc(var(--fig-slant) + 2.5rem) 3.5rem;
+    padding-block: 3.5rem;
   }
   .figures-sheet {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1426,32 +1438,6 @@ html[dir="rtl"] .figures-band {
     font-size: 1rem;
   }
 }
-/* Side by side from here: the person rises from behind the band. */
-@media (min-width: 1180px) {
-  .about-hero-copy {
-    max-width: 58%;
-  }
-  .about-art-slot {
-    order: 0;
-    position: relative;
-    display: block;
-    width: 100%;
-    max-width: 1280px;
-    height: 0;
-    margin-inline: auto;
-    padding: 0;
-  }
-  .about-art {
-    position: absolute;
-    bottom: -3.75rem;
-    inset-inline-end: 16px;
-    width: 26rem;
-  }
-  .figures {
-    margin-top: 1.5rem;
-  }
-}
-
 /* Growth program: two doors under one title. The startup door is a paper
    document; the partner door is a teal field whose slanted start edge is the
    seam between them, and the hand's arm rises out of it. Stacked below 1024 px:
@@ -1903,9 +1889,7 @@ html[dir="rtl"] .growth-field {
 .integ-mark[data-mark="zid"] {
   --mark-scale: 1.25;
 }
-.integ-mark[data-mark="lazywait"] {
-  --mark-scale: 1.35;
-}
+/* LazyWait's mark is cropped to its ink, so it needs no scale (the padded mark before it took 1.35). */
 /* A page with no video yet (LazyWait): the partner's mark and VoM's, joined, stand on the field. */
 .integ-pair {
   position: relative;
@@ -6435,7 +6419,7 @@ html[dir="rtl"] .ftr-partners b + span::after {
   --mark-scale: 1.25;
 }
 .ftr-marks img[data-mark="lazywait"] {
-  --mark-scale: 1.3;
+  --mark-scale: 0.97;
 }
 
 /* The attached sheets. */
@@ -10177,7 +10161,6 @@ html[dir="rtl"] .lead-field select {
 .lp-panel {
   padding: 4.25rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
   background-color: var(--color-teal-500);
-  background-position: 48px 0;
   color: #fff;
   clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
   scroll-margin-top: 1rem;
@@ -10632,7 +10615,6 @@ html[dir="rtl"] .lp-panel {
   margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
   padding: 3.75rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
   background-color: var(--color-teal-500);
-  background-position: 48px 0;
   clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
 }
 .zp-sheet {
@@ -11302,7 +11284,6 @@ html[dir="rtl"] .lp-panel {
   margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
   padding: 3.75rem max(16px, env(safe-area-inset-right, 0px)) 2.5rem max(16px, env(safe-area-inset-left, 0px));
   background-color: var(--color-teal-500);
-  background-position: 48px 0;
   clip-path: polygon(0 2.25rem, 100% 0, 100% 100%, 0 100%);
 }
 html[dir="rtl"] .pr-field {

@@ -288,9 +288,9 @@
     "semantic_hash": "f346e500915297e0cce6b3e01e1dca3e"
   },
   "components/about/AboutPage.tsx": {
-    "mtime": 1795097106.92897,
-    "seen": 1795097547.300116,
-    "ast_hash": "47739848ba2cfdaaa794a5c9f9740d65",
+    "mtime": 1795354133.197777,
+    "seen": 1795354540.279393,
+    "ast_hash": "afedc6f212638996701aae6b555776ac",
     "semantic_hash": ""
   },
   "components/about/FigureValue.tsx": {
@@ -402,9 +402,9 @@
     "semantic_hash": "31ac3f98319d26a235f27cb7c3879f8b"
   },
   "components/campaigns/DigitalAds2023.tsx": {
-    "mtime": 1795091063.536815,
-    "seen": 1795091825.2522318,
-    "ast_hash": "c852a8682473e96bd5e95a7e0cb7c400",
+    "mtime": 1795353227.5901918,
+    "seen": 1795353337.3163378,
+    "ast_hash": "ab6c69c2c016feda71e1846ed92acec1",
     "semantic_hash": ""
   },
   "components/campaigns/ReturnBar.tsx": {
@@ -414,9 +414,9 @@
     "semantic_hash": "306c3d859be2de81445e4dfbd36c1335"
   },
   "components/contact/ContactPage.tsx": {
-    "mtime": 1795093516.4830241,
-    "seen": 1795094593.059072,
-    "ast_hash": "39cbca0d9fd1245836fe470b272d6522",
+    "mtime": 1795351855.9297676,
+    "seen": 1795352000.4307,
+    "ast_hash": "ecee9691ae346bcfe2b2fb8bafcc7db9",
     "semantic_hash": ""
   },
   "components/contact/Envelope.tsx": {
@@ -504,9 +504,9 @@
     "semantic_hash": ""
   },
   "components/home/Apps.tsx": {
-    "mtime": 1795093949.1321747,
-    "seen": 1795094593.059333,
-    "ast_hash": "55b99eab88fd7fc8614dc1962c1e03d3",
+    "mtime": 1795356851.2000704,
+    "seen": 1795356937.852306,
+    "ast_hash": "0c1df69c9acae54b87719c678bc5ba33",
     "semantic_hash": ""
   },
   "components/home/ClosingCertificate.tsx": {
@@ -516,9 +516,9 @@
     "semantic_hash": ""
   },
   "components/home/DocumentStack.tsx": {
-    "mtime": 1795093653.501458,
-    "seen": 1795094593.059335,
-    "ast_hash": "86f9441f7bb1d18c02bad4baea955310",
+    "mtime": 1795357514.2009058,
+    "seen": 1795357709.0156841,
+    "ast_hash": "a4f2526b7aaefdb967d66a4d5a3da410",
     "semantic_hash": ""
   },
   "components/home/Faq.tsx": {
@@ -534,15 +534,15 @@
     "semantic_hash": ""
   },
   "components/home/Guilloche.tsx": {
-    "mtime": 1792931003.6339927,
-    "seen": 1795088369.350773,
-    "ast_hash": "1ea976c2d2b2e58d6c1d915539a0f335",
-    "semantic_hash": "1ea976c2d2b2e58d6c1d915539a0f335"
+    "mtime": 1795351850.8486598,
+    "seen": 1795352000.431205,
+    "ast_hash": "53684c8581c10f73eaa4d206367c70dc",
+    "semantic_hash": ""
   },
   "components/home/Hero.tsx": {
-    "mtime": 1795095010.632109,
-    "seen": 1795095083.637364,
-    "ast_hash": "c0ecd9b143113e42d84d49cbf52f9d8f",
+    "mtime": 1795357538.995478,
+    "seen": 1795357709.015766,
+    "ast_hash": "78679d883270da465e5422446b4642f3",
     "semantic_hash": ""
   },
   "components/home/Integrations.tsx": {
@@ -600,15 +600,15 @@
     "semantic_hash": ""
   },
   "components/home/Testimonials.tsx": {
-    "mtime": 1792933090.968243,
-    "seen": 1795088369.35078,
-    "ast_hash": "1398481ea498c1ea883e03fbb2a7cfe5",
-    "semantic_hash": "1398481ea498c1ea883e03fbb2a7cfe5"
+    "mtime": 1795356263.4357667,
+    "seen": 1795356373.987721,
+    "ast_hash": "2d8cf92a6bce7b6f2a36fd9c7316d880",
+    "semantic_hash": ""
   },
   "components/home/TestimonialsSlider.tsx": {
-    "mtime": 1795093676.179069,
-    "seen": 1795094593.059514,
-    "ast_hash": "ba4d0e54268203d9b756374f1d2102bb",
+    "mtime": 1795356281.8309066,
+    "seen": 1795356373.987722,
+    "ast_hash": "dacab0074046a4f970049decb68c585a",
     "semantic_hash": ""
   },
   "components/home/TopClients.tsx": {
@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "components/home/ZatcaBand.tsx": {
-    "mtime": 1795093516.478397,
-    "seen": 1795094593.059516,
-    "ast_hash": "114a333ca4e168f6fe2b4b461284ad2d",
+    "mtime": 1795351855.929401,
+    "seen": 1795352000.4315279,
+    "ast_hash": "6b487c3d71dead3d80bf213109125c7e",
     "semantic_hash": ""
   },
   "components/integrations/IntegrationPage.tsx": {
@@ -708,9 +708,9 @@
     "semantic_hash": ""
   },
   "components/site/Footer.tsx": {
-    "mtime": 1795091063.5333352,
-    "seen": 1795091825.253559,
-    "ast_hash": "ae4945c81dbae8ad20ed3981bbbab14c",
+    "mtime": 1795353227.971855,
+    "seen": 1795353337.317703,
+    "ast_hash": "540cffcc9fab3709e65c55e3aaefb44c",
     "semantic_hash": ""
   },
   "components/site/Header.tsx": {
@@ -858,9 +858,9 @@
     "semantic_hash": "e2e87a30edd4d59ea5d0cf650887a65d"
   },
   "components/vompay/PayResult.tsx": {
-    "mtime": 1795096133.793676,
-    "seen": 1795096210.425972,
-    "ast_hash": "cdff62b8a041f8dc43bfb96b4ba4acea",
+    "mtime": 1795353227.437055,
+    "seen": 1795353337.31835,
+    "ast_hash": "9a30bd215d90d257ba7434ba315eac76",
     "semantic_hash": ""
   },
   "components/zatca/ZatcaPhase2Page.tsx": {
@@ -954,10 +954,10 @@
     "semantic_hash": "d9058f2f5b992795e3d3e6911252f958"
   },
   "lib/content/campaigns/digital-ads-2023.ts": {
-    "mtime": 1795086881.9567165,
-    "seen": 1795088369.350813,
-    "ast_hash": "b9930bb26c4688eb7e5a63d2401cfc46",
-    "semantic_hash": "b9930bb26c4688eb7e5a63d2401cfc46"
+    "mtime": 1795353227.7272336,
+    "seen": 1795353337.318749,
+    "ast_hash": "f62bcf777b86e7ee19f117f3f4ad57d3",
+    "semantic_hash": ""
   },
   "lib/content/clients.ts": {
     "mtime": 1794311116.395945,
@@ -990,10 +990,10 @@
     "semantic_hash": ""
   },
   "lib/content/features/assets.ts": {
-    "mtime": 1794828120.0895252,
-    "seen": 1795088369.350816,
-    "ast_hash": "ddb5beafe6e5537fcfe55620d962d397",
-    "semantic_hash": "ddb5beafe6e5537fcfe55620d962d397"
+    "mtime": 1795355179.7978816,
+    "seen": 1795355262.63397,
+    "ast_hash": "5eda8dca2e427398a30c9de207e86e71",
+    "semantic_hash": ""
   },
   "lib/content/features/en.ts": {
     "mtime": 1795089717.6872098,
@@ -1182,16 +1182,16 @@
     "semantic_hash": "d12604f46cfd8c35cde7ce8baf251cec"
   },
   "lib/content/vom-pay.ts": {
-    "mtime": 1795096133.6466265,
-    "seen": 1795096210.430562,
-    "ast_hash": "2bbf1fc3c95fbc347221f4bdccf5f9f1",
+    "mtime": 1795353227.8547506,
+    "seen": 1795353337.319838,
+    "ast_hash": "a4fa43ec0837d9f541f24f2bdafde913",
     "semantic_hash": ""
   },
   "lib/content/zatca-phase-2.ts": {
-    "mtime": 1795086881.9191227,
-    "seen": 1795088369.350838,
-    "ast_hash": "bf91ea8032480c57d3881bc996d50abf",
-    "semantic_hash": "bf91ea8032480c57d3881bc996d50abf"
+    "mtime": 1795357806.6102648,
+    "seen": 1795357952.547552,
+    "ast_hash": "ffddba537137314ed4c0a1b2b8e01274",
+    "semantic_hash": ""
   },
   "lib/editor/extensions.ts": {
     "mtime": 1794407383.8217719,
@@ -1212,28 +1212,22 @@
     "semantic_hash": "926f6568a3527f11cf83c18f66610386"
   },
   "lib/i18n/dictionaries/ar.ts": {
-    "mtime": 1795086881.9716456,
-    "seen": 1795088369.35084,
-    "ast_hash": "340ba85756af04609a133c33f315ebfe",
-    "semantic_hash": "340ba85756af04609a133c33f315ebfe"
-  },
-  "lib/i18n/dictionaries/demo.ts": {
-    "mtime": 1795086881.9617255,
-    "seen": 1795088369.350841,
-    "ast_hash": "fc30c6f5df0d3e2cb74139e8f79d00a5",
-    "semantic_hash": "fc30c6f5df0d3e2cb74139e8f79d00a5"
+    "mtime": 1795357656.9386432,
+    "seen": 1795357709.018867,
+    "ast_hash": "4302663856d732b107af1caae43a919b",
+    "semantic_hash": ""
   },
   "lib/i18n/dictionaries/en.ts": {
-    "mtime": 1795097259.9629402,
-    "seen": 1795097547.304176,
-    "ast_hash": "72b216ac0197760c26ab7a54694d22d9",
+    "mtime": 1795357656.9390757,
+    "seen": 1795357709.018868,
+    "ast_hash": "f58a0e47506ccd97c2d6b099ad186372",
     "semantic_hash": ""
   },
   "lib/i18n/dictionaries/types.ts": {
-    "mtime": 1794828813.6263142,
-    "seen": 1795088369.350842,
-    "ast_hash": "9439289c48291abf783c4b06eb550f52",
-    "semantic_hash": "9439289c48291abf783c4b06eb550f52"
+    "mtime": 1795357656.9378939,
+    "seen": 1795357709.018869,
+    "ast_hash": "d663cf9c16877bc356b8456f5ca0bf0f",
+    "semantic_hash": ""
   },
   "lib/i18n/getDictionary.ts": {
     "mtime": 1792930643.8144627,
@@ -1254,10 +1248,10 @@
     "semantic_hash": "d0eed39256d7dda20259687020f06174"
   },
   "lib/integrations.ts": {
-    "mtime": 1794828176.1798341,
-    "seen": 1795088369.350844,
-    "ast_hash": "ae650abf780f06e89c74eda7e0b4d6a3",
-    "semantic_hash": "ae650abf780f06e89c74eda7e0b4d6a3"
+    "mtime": 1795352690.6336842,
+    "seen": 1795352832.9581409,
+    "ast_hash": "fb7cf272d4b80dcd0f70678c3f51d505",
+    "semantic_hash": ""
   },
   "lib/leads/attribution.ts": {
     "mtime": 1794486316.800344,
@@ -1332,9 +1326,9 @@
     "semantic_hash": "c6104e09504ae9ae3ca371dc52ef70c3"
   },
   "lib/seo/site.ts": {
-    "mtime": 1795091063.532363,
-    "seen": 1795091825.2588449,
-    "ast_hash": "9175a51f157b7e1cc94dba71be1634f2",
+    "mtime": 1795357358.9420204,
+    "seen": 1795357709.019352,
+    "ast_hash": "a0eac21e5d900ca3616b4be92d202f60",
     "semantic_hash": ""
   },
   "lib/seo/tags.ts": {
@@ -1578,9 +1572,9 @@
     "semantic_hash": ""
   },
   "PRODUCT.md": {
-    "mtime": 1795094500.1404488,
-    "seen": 1795094593.064919,
-    "ast_hash": "6d58d29a56cdecdb11d83c5f12f4e16e",
+    "mtime": 1795355890.216314,
+    "seen": 1795356373.9917738,
+    "ast_hash": "ead5503248be2d334a8f1b213eef0982",
     "semantic_hash": ""
   },
   "README.md": {
@@ -1620,10 +1614,10 @@
     "semantic_hash": "9d66371e0e29fbe795221d17be485c6a"
   },
   "content/e-invoicing/hub.mdx": {
-    "mtime": 1795087100.0435743,
-    "seen": 1795088369.350878,
-    "ast_hash": "04662b60bbf0aae7ec4bbe1a8a9acf98",
-    "semantic_hash": "04662b60bbf0aae7ec4bbe1a8a9acf98"
+    "mtime": 1795358603.528174,
+    "seen": 1795358679.6517582,
+    "ast_hash": "f429ccd0365c10adce3a36b4b5985370",
+    "semantic_hash": ""
   },
   "content/e-invoicing/phases.mdx": {
     "mtime": 1795087100.0473804,
@@ -1662,10 +1656,10 @@
     "semantic_hash": "78935ec0a058bb1b118301bf9a262dc8"
   },
   "content/e-invoicing/what-is.mdx": {
-    "mtime": 1795087100.0564258,
-    "seen": 1795088369.350881,
-    "ast_hash": "02854ac1df29c6152bb010cd848c5041",
-    "semantic_hash": "02854ac1df29c6152bb010cd848c5041"
+    "mtime": 1795358222.0838835,
+    "seen": 1795358361.874562,
+    "ast_hash": "de22ba268f9b543dde159dc1605d0a9f",
+    "semantic_hash": ""
   },
   "content/e-invoicing/zatca-link.mdx": {
     "mtime": 1795087100.0574183,
@@ -1863,6 +1857,12 @@
     "mtime": 1794479952.9925838,
     "seen": 1795090159.319781,
     "ast_hash": "9c766456e88dc91bb7187e59ca69d81b",
+    "semantic_hash": ""
+  },
+  "lib/content/testimonials.ts": {
+    "mtime": 1795356562.2469344,
+    "seen": 1795356637.981039,
+    "ast_hash": "46a53ca5695e15da0c579e358c32cb89",
     "semantic_hash": ""
   }
 }

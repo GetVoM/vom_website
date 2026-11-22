@@ -53,7 +53,7 @@ function Charter({ charter, photo, alt, width, height }: { charter: AboutCharter
         className="aspect-[16/9] w-full rounded-[0.75rem] object-cover"
       />
       <div className="p-4 lg:p-7">
-        <h2 className="text-[1.5rem] font-bold leading-[1.3] lg:text-[1.75rem]">{charter.heading}</h2>
+        <h2 className="text-[1.5rem] font-bold leading-[1.4] lg:text-[1.75rem]">{charter.heading}</h2>
         <p className="mt-4 about-copy">{charter.body}</p>
         {charter.list && (
           <ul className="mt-5 flex flex-col gap-3">
@@ -83,28 +83,24 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <JsonLd data={aboutPageJsonLd(locale, path, a.seo.title, a.seo.description, a.team.members)} />
       <JsonLd data={breadcrumbJsonLd(locale, [{ name: t.nav.home, path: "/" }, { name: a.crumb, path }])} />
 
-      <section className="about-hero">
-        <div className="page-wrap flex w-full flex-col gap-5 pt-8 lg:pt-12">
+      <section>
+        <div className="page-wrap pt-8 lg:pt-12">
           <Breadcrumb items={crumbs} label={t.nav.breadcrumb} />
-          <div className="about-hero-copy flex flex-col gap-4">
-            <h1 className="text-[3rem] font-bold leading-[1.1] sm:text-[4rem] lg:text-[5rem]">{a.heading}</h1>
-            <p className="max-w-[40ch] text-[1.1875rem] leading-[1.55] text-ink-700 lg:text-[1.375rem]">{a.lede}</p>
-          </div>
-        </div>
-
-        <div className="about-art-slot">
-          <div className="about-art">
+          <div className="about-hero-grid">
+            <div className="flex flex-col gap-5">
+              <h1 className="text-[3rem] font-bold leading-[1.15] sm:text-[4rem] lg:text-[5rem]">{a.heading}</h1>
+              <p className="max-w-[40ch] text-[1.1875rem] leading-[1.6] text-ink-700 lg:text-[1.375rem]">{a.lede}</p>
+            </div>
             <Image
-              src="/about/business-owner.png"
+              src="/about/shop-owner-phone.webp"
               alt={a.images.owner}
-              width={640}
-              height={510}
+              width={1402}
+              height={1122}
               preload
               fetchPriority="high"
-              sizes="(min-width: 1180px) 416px, 100vw"
-              className="h-auto w-full"
+              sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, 100vw"
+              className="about-photo h-auto"
             />
-            <span className="about-demo">{t.hero.demoLabel}</span>
           </div>
         </div>
 
@@ -144,19 +140,23 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <h2 className="about-heading">{a.story.heading}</h2>
         <div className="mt-8 grid gap-8 lg:mt-12 lg:grid-cols-[7fr_5fr] lg:gap-16">
           <div className="lg:order-2">
-            <Image
-              src="/about/growth-illustration.png"
-              alt={a.images.growth}
-              width={1200}
-              height={1001}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="h-auto w-full lg:sticky lg:top-24"
-            />
+            {/* The laptop's dashboard shows made-up figures, so it carries the demo label. */}
+            <figure className="flex flex-col items-center gap-2 lg:sticky lg:top-24">
+              <Image
+                src="/about/dashboard-sketch.webp"
+                alt={a.images.growth}
+                width={1374}
+                height={1145}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="h-auto w-full"
+              />
+              <figcaption className="text-[0.75rem] text-ink-500">{t.hero.demoLabel}</figcaption>
+            </figure>
           </div>
           <div className="border-b-[4px] border-double border-teal-500">
             {a.story.rows.map((row) => (
               <article key={row.id} id={row.id} className="story-row">
-                <div className="flex flex-wrap gap-x-10 gap-y-4">
+                <div className="flex flex-wrap gap-x-10 gap-y-8">
                   {row.figures.map((index) => (
                     <div key={index} className="max-w-[16rem]">
                       <div className="story-number num">
@@ -193,10 +193,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
             </div>
             <div className="lg:sticky lg:top-24 lg:self-start">
               <Image
-                src="/about/owner-laptop.jpg"
+                src="/about/perfume-shop.webp"
                 alt={a.images.laptop}
-                width={1200}
-                height={1200}
+                width={1254}
+                height={1254}
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="about-photo aspect-square"
               />
@@ -220,10 +220,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
             </div>
           </div>
           <Image
-            src="/about/owner-reports.jpg"
+            src="/about/warehouse-desk.webp"
             alt={a.images.reports}
-            width={1200}
-            height={800}
+            width={1536}
+            height={1024}
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="about-photo aspect-[3/2]"
           />
@@ -235,40 +235,24 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
       <section className="guilloche-dark guilloche-tile text-white">
         <div className="page-wrap py-20 lg:py-28">
-          <p className="max-w-[46ch] text-balance text-[1.75rem] font-bold leading-[1.3] sm:text-[2.25rem] lg:text-[2.75rem]">{a.statement}</p>
+          <p className="max-w-[46ch] text-balance text-[1.75rem] font-bold leading-[1.45] sm:text-[2.25rem] lg:text-[2.75rem]">{a.statement}</p>
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden">
-        <div className="hero-field about-field guilloche-tile hidden lg:block" aria-hidden="true" />
-        <div className="page-wrap grid items-center gap-10 pt-16 lg:grid-cols-[7fr_5fr] lg:gap-16 lg:py-24">
-          <div>
-            <h2 className="about-heading">{a.approach.heading}</h2>
-            <div className="mt-8">
-              <Items items={a.approach.items} columns="sm:grid-cols-2" />
-            </div>
-          </div>
-          <div className="relative -mx-4 flex flex-col items-center gap-3 px-4 pb-12 pt-16 lg:mx-0 lg:p-0">
-            <div className="contact-panel guilloche-tile absolute inset-0 -z-10 bg-teal-500 lg:hidden" aria-hidden="true" />
-            <Image
-              src="/about/current-balance.png"
-              alt={a.images.balance}
-              width={348}
-              height={595}
-              sizes="300px"
-              className="h-auto w-[280px] rounded-[var(--radius-card)] shadow-[0_32px_60px_-28px_rgba(2,2,2,0.6)] lg:w-[300px]"
-            />
-            <span className="rounded-pill bg-paper px-3 py-1 text-[0.75rem] text-ink-700">{t.hero.demoLabel}</span>
-          </div>
+      {/* Full width, no image (owner, 2026-11-22): the four aims in one row from 1024px. */}
+      <section className="page-wrap py-16 lg:py-24">
+        <h2 className="about-heading">{a.approach.heading}</h2>
+        <div className="mt-8 lg:mt-12">
+          <Items items={a.approach.items} columns="sm:grid-cols-2 lg:grid-cols-4" />
         </div>
       </section>
 
       <section className="border-y border-paper-200 bg-paper-100">
         <div className="page-wrap py-16 lg:py-24">
-          <p className="max-w-[34ch] text-balance text-[1.625rem] font-bold leading-[1.3] sm:text-[2rem] lg:text-[2.5rem]">{a.closingStatement}</p>
+          <p className="max-w-[34ch] text-balance text-[1.625rem] font-bold leading-[1.45] sm:text-[2rem] lg:text-[2.5rem]">{a.closingStatement}</p>
           <div className="mt-10 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
-            <Charter charter={a.vision} photo="/about/boardroom.jpg" alt={a.images.boardroom} width={600} height={338} />
-            <Charter charter={a.mission} photo="/about/team-meeting.jpg" alt={a.images.meeting} width={626} height={418} />
+            <Charter charter={a.vision} photo="/about/partners-tablet.webp" alt={a.images.boardroom} width={1672} height={941} />
+            <Charter charter={a.mission} photo="/about/riyadh-window.webp" alt={a.images.meeting} width={1672} height={941} />
           </div>
         </div>
       </section>
@@ -296,7 +280,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
           </div>
           <ul className="mt-10 grid gap-8 sm:grid-cols-3 sm:gap-6 lg:mt-14">
             {a.team.members.map((member) => (
-              <li key={member.name}>
+              <li key={member.name} className="text-center">
                 <Image
                   src={member.photo}
                   alt={`${member.name}, ${member.role}`}
@@ -312,7 +296,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               </li>
             ))}
           </ul>
-          <p className="mt-10 max-w-[62ch] text-[1.125rem] leading-[1.8] lg:mt-14">{a.team.outro}</p>
+          <p className="mt-10 text-center text-[1.125rem] leading-[1.8] lg:mt-14">{a.team.outro}</p>
         </div>
       </section>
 

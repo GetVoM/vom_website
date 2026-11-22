@@ -42,7 +42,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
       <section className="relative isolate overflow-hidden">
         <div className="hero-field contact-field hidden lg:block">
-          <Guilloche id="contact-guilloche" className="absolute inset-0 h-full w-full" />
+          <Guilloche className="absolute inset-0 h-full w-full" />
         </div>
 
         <div className="relative mx-auto grid max-w-[1280px] items-center gap-10 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] pt-8 lg:grid-cols-[7fr_5fr] lg:py-16">
@@ -62,7 +62,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
           <div className="relative -mx-[max(16px,env(safe-area-inset-left,0px))] flex justify-center px-[max(16px,env(safe-area-inset-left,0px))] pb-14 pt-16 lg:mx-0 lg:justify-start lg:p-0">
             <div className="contact-panel absolute inset-0 -z-10 bg-teal-500 lg:hidden">
-              <Guilloche id="contact-guilloche-sm" className="h-full w-full" />
+              <Guilloche className="h-full w-full" />
             </div>
             <Envelope t={t} />
           </div>
@@ -72,7 +72,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
       <SocialLinks t={t} />
 
       <section className="guilloche-dark relative overflow-hidden text-white">
-        <Guilloche id="contact-close-guilloche" className="absolute inset-0 h-full w-full" stroke="rgba(255,255,255,0.14)" />
+        <Guilloche className="absolute inset-0 h-full w-full" />
         <div className="relative mx-auto grid max-w-[1280px] items-center gap-12 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-20 lg:grid-cols-[8fr_4fr] lg:py-28">
           <div className="flex flex-col gap-5">
             <h2 className="font-arabic text-[2rem] font-bold leading-[1.2] sm:text-[2.5rem] lg:text-[3rem]">{c.question.heading}</h2>

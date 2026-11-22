@@ -100,8 +100,8 @@ function Success({ locale }: { locale: Locale }) {
               <h4>{first.title}</h4>
               <p>{first.body}</p>
               <span className="pr-zatca">
-                {/* eslint-disable-next-line @next/next/no-img-element -- ZATCA's logo on its plate, at one size. */}
-                <img src={optimizedSrc(img.zatca.src, 384)} alt={c.zatcaAlt} width={img.zatca.width} height={img.zatca.height} loading="lazy" decoding="async" />
+                {/* eslint-disable-next-line @next/next/no-img-element -- ZATCA's logo on its plate, at one size: an SVG served as is. */}
+                <img src={site.zatcaLogo.src} alt={c.zatcaAlt} width={site.zatcaLogo.width} height={site.zatcaLogo.height} loading="lazy" decoding="async" />
               </span>
             </div>
           </div>

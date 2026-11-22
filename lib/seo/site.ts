@@ -45,4 +45,12 @@ export const site = {
   logoSize: { width: 1706, height: 305 },
   /** The square mark for structured data: Google wants a logo at least 112 px on each side (scripts/favicon.mjs draws the same chevron). */
   logoSquare: "/brand/vom-mark-512.png",
+  /** ZATCA's bilingual lockup, the owner's file of 2026-11-22, served as is. Its viewBox is 520.5 by 113.78. */
+  zatcaLogo: { src: "/zatca/logo.svg", width: 520, height: 114 },
+  /**
+   * The Fatoora platform's lockup, the owner's file of 2026-11-22: its visible layer and the
+   * three fills it uses (the export carried 160 KB of unused styles and a hidden layer),
+   * cropped to the artwork. Its viewBox is 348 by 507.
+   */
+  fatooraLogo: { src: "/fatoora/logo.svg", width: 348, height: 507 },
 } as const;

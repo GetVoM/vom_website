@@ -27,6 +27,10 @@ export type AccentHeading = readonly [before: string, accent: string, after: str
 /** One of the page's 256 px icons; decorative, beside a text that says the same. */
 const icon = (name: string) => ({ src: `${dir}/icon-${name}.webp`, width: 256, height: 256 });
 
+/**
+ * The four requirement photos are the owner's of 2026-11-22, replacing the old page's.
+ * A replaced image takes a new file name (-v2), so no image cache can keep the old one.
+ */
 const photo = (name: string, width: number, height: number, alt: string): PageImage => ({ src: `${dir}/${name}.webp`, width, height, alt });
 
 export const zatcaPhase2 = {
@@ -81,22 +85,22 @@ export const zatcaPhase2 = {
       {
         title: "Ensure",
         body: "Ensure that the technical solution of the establishment complies with all electronic invoicing requirements, including verification of internet connectivity capability",
-        photo: photo("ensure", 1535, 567, "Hands typing on a smartphone"),
+        photo: photo("ensure-v2", 1535, 567, "A shop owner at his counter pointing at a tablet that shows a Wi-Fi signal, a router beside it"),
       },
       {
         title: "Enhance",
         body: "Enhance integration and linkage between the electronic invoicing technical solution and the “Fatoora” system of the authority",
-        photo: photo("enhance", 1535, 567, "Someone typing on an open laptop held in one arm"),
+        photo: photo("enhance-v2", 1535, 567, "A man at his desk looking at a screen that shows a document linked to a server"),
       },
       {
         title: "Issue",
         body: "Issue and store electronic invoices according to the specified format (XML) or (PDF/A-3, including XML format)",
-        photo: photo("issue", 1536, 565, "Hands holding printed sheets of figures"),
+        photo: photo("issue-v2", 1536, 565, "A woman at a laptop showing an invoice with its QR code beside a list of saved invoice files"),
       },
       {
         title: "Comply",
         body: "Comply with the technical and technological specifications of the second phase of electronic invoicing (Fatoora)",
-        photo: photo("comply", 1538, 565, "Someone writing in a notebook at a desk"),
+        photo: photo("comply-v2", 1538, 565, "Two colleagues checking an invoice on a tablet, each of its points ticked"),
       },
     ],
   },

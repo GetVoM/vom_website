@@ -30,7 +30,6 @@ export const vomPayImages = {
   heroBg: { src: `${dir}/hero-bg.webp`, width: 1600, height: 1184 },
   vomAi: { src: `${dir}/vom-ai.webp`, width: 640, height: 363 },
   laptop: { src: `${dir}/laptop.webp`, width: 1600, height: 1153 },
-  zatca: { src: `${dir}/zatca.webp`, width: 640, height: 168 },
 } satisfies Record<string, PayImage>;
 
 /** The six feature icons, in the old page's order (the first two were the same drawing there too). */

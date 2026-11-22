@@ -83,12 +83,14 @@ export const integrations: Record<IntegrationId, Integration> = {
       },
     ],
   },
-  // No old page and no video: the marks come from the logo the owner supplied on 2026-11-16.
+  // No old page and no video: every mark is drawn from the LazyWait logo the owner supplied
+  // on 2026-11-22 (Lazywait_logo-en.png). The lockup takes VoM and the divider from the
+  // Foodics lockup, with LazyWait's capitals on the FOODICS cap height.
   lazywait: {
     name: "LazyWait",
-    icon: "/integrations/lazywait/icon.png",
-    lockup: { src: "/integrations/lazywait/lockup.png", width: 1175, height: 220 },
-    mark: { src: "/integrations/lazywait/mark.png", width: 352, height: 112 },
+    icon: "/integrations/lazywait/icon-v2.png",
+    lockup: { src: "/integrations/lazywait/lockup-v2.png", width: 1760, height: 271 },
+    mark: { src: "/integrations/lazywait/mark-v2.png", width: 1175, height: 288 },
     videos: [],
   },
   zid: {

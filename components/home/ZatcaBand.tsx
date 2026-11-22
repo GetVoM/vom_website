@@ -10,7 +10,7 @@ export function ZatcaBand({ locale, t }: { locale: Locale; t: Dictionary }) {
   const guideHref = localePath(locale, zatcaPhase2Paths[locale]);
   return (
     <section id="zatca" className="guilloche-dark relative overflow-hidden text-white">
-      <Guilloche id="zatca-guilloche" className="absolute inset-0 h-full w-full" stroke="rgba(255,255,255,0.14)" />
+      <Guilloche className="absolute inset-0 h-full w-full" />
       <div className="relative mx-auto grid max-w-[1280px] gap-14 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] py-24 lg:grid-cols-[5fr_7fr] lg:gap-20 lg:py-32">
         <div className="flex flex-col gap-6">
           <h2 className="font-arabic text-[1.875rem] font-bold leading-[1.25] sm:text-[2.25rem] lg:text-[2.5rem]">{t.zatca.heading}</h2>

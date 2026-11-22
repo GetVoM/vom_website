@@ -1,8 +1,8 @@
+import Image from "next/image";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { Icon } from "@/components/ui/Icon";
 import { StoreBadges } from "@/components/ui/StoreBadges";
 import { Guilloche } from "./Guilloche";
-import { QrCode } from "./QrCode";
 
 export function Apps({ t }: { t: Dictionary }) {
   const a = t.apps;
@@ -27,58 +27,24 @@ export function Apps({ t }: { t: Dictionary }) {
           </div>
         </div>
 
-        <div className="relative flex justify-center py-10">
-          <div className="absolute inset-x-0 top-0 bottom-0 -z-10 mx-auto w-full max-w-[560px] rounded-[48px] bg-teal-500">
-            <Guilloche id="apps-guilloche" className="h-full w-full rounded-[48px]" stroke="rgba(255,255,255,0.14)" />
-          </div>
-          <div className="relative w-[280px] rounded-[44px] bg-ink p-2.5 shadow-[0_50px_90px_-40px_rgba(2,2,2,0.7)]" aria-hidden="true">
-            <div className="relative flex h-[580px] flex-col overflow-hidden rounded-[36px] bg-paper">
-              <div className="absolute inset-x-0 top-0 flex justify-center pt-2.5">
-                <span className="h-6 w-24 rounded-pill bg-ink" />
-              </div>
-              <div className="flex items-center justify-between px-6 pb-3 pt-12 text-[0.75rem]">
-                <span className="num font-bold">14:32</span>
-                <span className="flex gap-1">
-                  <span className="h-2 w-2 rounded-full bg-ink" />
-                  <span className="h-2 w-2 rounded-full bg-ink" />
-                  <span className="h-2 w-2 rounded-full bg-ink-300" />
-                </span>
-              </div>
-              <div className="flex flex-col gap-1 border-b border-paper-200 px-6 pb-4">
-                <span className="text-[1.0625rem] font-bold">{a.screen.title}</span>
-                <span className="text-[0.8125rem] text-ink-500">{a.screen.subtitle}</span>
-              </div>
-              <div className="flex flex-col gap-4 px-6 py-5">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[0.75rem] text-ink-500">{t.invoice.total}</span>
-                  <span className="num text-[2.25rem] font-bold leading-none">{a.screen.amount}</span>
-                  <span className="text-[0.75rem] text-ink-500">{t.invoice.vat}: <span className="num">34.35</span></span>
-                </div>
-                <div className="flex flex-col divide-y divide-paper-200 border-y border-paper-200 text-[0.8125rem]">
-                  {t.invoice.items.map(([name, qty, price]) => (
-                    <div key={name} className="flex items-center justify-between py-2">
-                      <span>{name}</span>
-                      <span className="num text-ink-700">{(Number(qty) * Number(price)).toFixed(2)}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between">
-                  <QrCode className="w-[72px]" animate={false} />
-                  <span className="inline-flex items-center gap-1.5 rounded-pill bg-teal-500 px-2.5 py-1 text-[0.6875rem] font-bold text-white">
-                    <Icon name="check" size={11} strokeWidth={3} />
-                    {a.screen.status}
-                  </span>
-                </div>
-              </div>
-              <div className="mt-auto px-6 pb-6">
-                <span className="flex h-12 items-center justify-center gap-2 rounded-pill bg-orange-500 text-[0.9375rem] font-bold text-white">
-                  {a.screen.button}
-                  <Icon name="arrow" size={14} className="rtl:-scale-x-100" />
-                </span>
-              </div>
+        <figure className="flex flex-col items-center gap-3">
+          {/* The cut-out's arm leaves the photo at its bottom edge, so the photo sits on the panel's
+              bottom and takes its rounded corners there; the phone rises above the panel's top. */}
+          <div className="relative isolate w-full max-w-[520px]">
+            <div className="absolute inset-x-0 bottom-0 top-[22%] -z-10 rounded-[36px] bg-teal-500 sm:rounded-[48px]">
+              <Guilloche className="h-full w-full rounded-[36px] sm:rounded-[48px]" />
             </div>
+            <Image
+              src="/home/mobile-app.webp"
+              alt={a.image}
+              width={1028}
+              height={1221}
+              sizes="(min-width: 640px) 520px, calc(100vw - 32px)"
+              className="h-auto w-full [clip-path:inset(0_round_0_0_36px_36px)] sm:[clip-path:inset(0_round_0_0_48px_48px)]"
+            />
           </div>
-        </div>
+          <figcaption className="text-[0.75rem] text-ink-500">{t.hero.demoLabel}</figcaption>
+        </figure>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
     <section data-track-section="hero" className="relative overflow-hidden">
       <div className="hero-field hidden lg:block">
-        <Guilloche id="hero-guilloche" className="absolute inset-0 h-full w-full" />
+        <Guilloche className="absolute inset-0 h-full w-full" />
       </div>
 
       <div className="relative mx-auto grid max-w-[1280px] items-center gap-12 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))] pb-20 pt-14 lg:grid-cols-[7fr_5fr] lg:gap-10 lg:pb-24 lg:pt-16">
@@ -40,9 +40,9 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
 
         <div className="relative flex justify-center lg:justify-start">
           <div className="absolute inset-0 -z-10 bg-teal-500 lg:hidden" style={{ clipPath: "polygon(0 18%, 100% 0, 100% 100%, 0 100%)" }}>
-            <Guilloche id="hero-guilloche-sm" className="h-full w-full" />
+            <Guilloche className="h-full w-full" />
           </div>
-          <div className="w-full max-w-[500px] px-6 py-10 lg:px-0 lg:py-0">
+          <div className="w-full max-w-[500px] px-3 py-10 sm:px-6 lg:px-0 lg:py-0">
             <DocumentStack t={t} />
             <p className="mt-5 text-center text-[0.75rem] text-white/80 lg:text-end">{t.hero.demoLabel}</p>
           </div>

@@ -7,8 +7,8 @@ import { integrationIds } from "@/lib/integrations";
 import { site } from "@/lib/seo/site";
 import { StoreBadges } from "@/components/ui/StoreBadges";
 
-/** The Authority's lockup with the Phase 2 tick, from the old site (public/zatca-phase-2/). */
-const zatcaBadge = { src: "/zatca-phase-2/badge.webp", width: 1600, height: 384 };
+/** The Authority's lockup with the Phase 2 tick: the owner's ZATCA logo (public/zatca/logo.svg) in the old badge's arrangement. */
+const zatcaBadge = { src: "/zatca-phase-2/badge-v2.webp", width: 1600, height: 384 };
 
 // Drawn from public/icons/social.svg, so these paths are not repeated in every page's HTML.
 const socials: { id: SocialId; href: string }[] = [

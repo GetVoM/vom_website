@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-import { demoTestimonials } from "@/lib/i18n/dictionaries/demo";
+import { testimonials } from "@/lib/content/testimonials";
 import { TestimonialsSlider } from "./TestimonialsSlider";
 
 export function Testimonials({ locale, t }: { locale: Locale; t: Dictionary }) {
@@ -13,8 +13,14 @@ export function Testimonials({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
         <TestimonialsSlider
           locale={locale}
-          items={demoTestimonials}
-          labels={{ prev: t.testimonials.prev, next: t.testimonials.next, slideOf: t.testimonials.slideOf }}
+          items={testimonials}
+          labels={{
+            prev: t.testimonials.prev,
+            next: t.testimonials.next,
+            slideOf: t.testimonials.slideOf,
+            more: t.testimonials.more,
+            less: t.testimonials.less,
+          }}
         />
       </div>
     </section>

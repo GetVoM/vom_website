@@ -111,9 +111,22 @@ export const modulePhotos: Partial<Record<ModuleId, PhotoId>> = {
   general: "app",
 };
 
+/**
+ * A screen replaced after launch takes a new file name, so no image cache (31 days in
+ * next.config.ts) can keep serving the old one. On 2026-11-22 the owner supplied new
+ * captures of the payroll screen (its Created by column showing Demo Account) and of
+ * the taxes screen.
+ */
+const exhibitFiles: Partial<Record<ExhibitId, string>> = {
+  "hr-payroll": "hr-payroll-v2",
+  "zatca-taxes": "zatca-taxes-v2",
+};
+
 /** A screen in the page's language; the printed invoice is one file for both. */
-export const exhibitSrc = (id: ExhibitId, locale: "ar" | "en") =>
-  sharedExhibits.includes(id) ? `/features/${id}.webp` : `/features/${locale}/${id}.webp`;
+export const exhibitSrc = (id: ExhibitId, locale: "ar" | "en") => {
+  const file = exhibitFiles[id] ?? id;
+  return sharedExhibits.includes(id) ? `/features/${file}.webp` : `/features/${locale}/${file}.webp`;
+};
 export const photoSrc = (id: PhotoId) => `/features/photo-${id}.webp`;
 
 export type PartnerId = "foodics" | "zid" | "marn" | "lazywait";
