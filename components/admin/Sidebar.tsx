@@ -2,7 +2,7 @@
 
 import Link, { useLinkStatus } from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import posthog from "posthog-js";
+import { withPostHog } from "@/lib/analytics/client";
 import { Suspense, useEffect, useState } from "react";
 import { useAdminHref } from "./AdminBase";
 
@@ -62,11 +62,12 @@ export function Sidebar({ userId, signOutAction }: { userId: string; signOutActi
   const close = () => setOpen(false);
 
   useEffect(() => {
-    posthog.identify(userId);
+    // Marked as the team, so their own visits to the public site can be filtered out of the visitors' numbers.
+    withPostHog((posthog) => posthog.identify(userId, { is_admin: true }));
   }, [userId]);
 
   const signOut = () => {
-    posthog.reset();
+    withPostHog((posthog) => posthog.reset());
     void signOutAction();
   };
   const group = (title: string, items: Item[]) => (

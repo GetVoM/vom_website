@@ -7,7 +7,8 @@ import { Icon } from "@/components/ui/Icon";
 import { track } from "@/lib/analytics/track";
 
 interface Props {
-  t: Dictionary;
+  /** Only the parts it reads: a Client Component's props are written into the page's HTML. */
+  t: Pick<Dictionary, "closing" | "certificate" | "hero">;
   signupHref: string;
   compareHref: string;
 }

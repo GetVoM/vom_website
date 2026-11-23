@@ -27,7 +27,7 @@ This repo replaces the WordPress site at getvom.com with a Next.js 16 site. Two 
 - Fonts via `next/font` only: IBM Plex Sans and IBM Plex Sans Arabic from `next/font/google`, fetched at build time and served from the site (`app/fonts.ts`). Plex Sans comes first in the stack and must carry no fallback face of its own, or Arabic glyphs stop at that local Arial instead of falling through to Plex Sans Arabic. Never load fonts from a third-party `<link>`.
 - Images via `next/image` with explicit `sizes`; one `preload` per page for the LCP element.
 - Styling: Tailwind utilities plus the design tokens; no component library that brings its own look. Motion: one orchestrated moment per page, nothing on scroll by default, reduced-motion fallback always.
-- Analytics: Google Tag Manager (`GTM-PS28X6L`) through `@next/third-parties`, loaded `afterInteractive`; Web Vitals forwarded with `useReportWebVitals`.
+- Analytics: Google Tag Manager (`GTM-PS28X6L`) through `components/analytics/GoogleTagManager.tsx` (not `@next/third-parties`, which preloads the container at high priority), loaded `afterInteractive`, production only; Web Vitals forwarded to the dataLayer with `useReportWebVitals` (`components/analytics/WebVitals.tsx`). PostHog: components call `track()` or `withPostHog()` (`lib/analytics/`), never `posthog-js` directly, so the SDK stays off the critical path (docs/architecture.md §8).
 - Commands: `pnpm dev`, `pnpm build`, `pnpm start`, `pnpm lint`. Add `pnpm typecheck` (`tsc --noEmit`) and `pnpm test` when tests exist. `next build` no longer lints, so run `pnpm lint` before claiming done.
 
 ## How to work here

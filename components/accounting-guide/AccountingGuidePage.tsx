@@ -12,6 +12,7 @@ import { getDictionary } from "@/lib/i18n/getDictionary";
 import { breadcrumbJsonLd, guideJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
+import { ReadTracker } from "@/components/analytics/ReadTracker";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { ButtonLink } from "@/components/ui/Button";
@@ -171,6 +172,7 @@ export async function AccountingGuidePage() {
         </header>
 
         <article className="ein-body acg-prose">
+          <ReadTracker body=".ein-body" contentType="accounting_guide" locale="ar" />
           <Body />
         </article>
       </div>

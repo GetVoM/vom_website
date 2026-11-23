@@ -54,7 +54,8 @@ export function Header({ locale, t }: HeaderProps) {
     <header data-track-section="header" className="sticky top-0 z-40 border-b border-paper-200/80 bg-paper/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-6 px-[max(16px,env(safe-area-inset-left,0px))] pr-[max(16px,env(safe-area-inset-right,0px))]">
         <Link href={home} className="flex shrink-0 items-center" aria-label={t.brand.name}>
-          <Image src={site.logo} alt={t.brand.name} width={168} height={30} loading="eager" className="h-[30px] w-auto lg:max-xl:h-7" />
+          {/* On phones the logo is often the page's largest paint (LCP); it is 4 KB, so it can go first. */}
+          <Image src={site.logo} alt={t.brand.name} width={168} height={30} loading="eager" fetchPriority="high" className="h-[30px] w-auto lg:max-xl:h-7" />
         </Link>
 
         <DesktopNav items={items} menus={menus} label={t.nav.menu} />

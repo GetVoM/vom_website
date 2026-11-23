@@ -60,7 +60,9 @@ export function buildMetadata({
   return {
     title,
     description,
-    alternates: { canonical, languages },
+    // The blog's RSS feed (app/api/feed/route.ts), named on every page as WordPress did, so readers
+    // and crawlers that look for it in the head find new posts.
+    alternates: { canonical, languages, types: { "application/rss+xml": "/feed/" } },
     openGraph: {
       title,
       description,

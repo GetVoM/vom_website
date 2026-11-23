@@ -225,8 +225,10 @@ async function blogEntries(type: "post" | "news" | "template"): Promise<Metadata
             const lastModified = newestOf(index.posts.filter((post) => post.categoryId === category.id)) ?? newest[category.lang];
             return lastModified ? [single(category.path, category.lang, lastModified, 0.6, "weekly")] : [];
           }),
+          // The author page lists that person's Arabic entries only, so only those count: a byline with
+          // English entries alone has an empty, noindex page, which must stay out of the sitemap.
           ...index.authors.flatMap((author) => {
-            const lastModified = newestOf(index.posts.filter((post) => post.authorId === author.id || post.reviewerId === author.id));
+            const lastModified = newestOf(index.posts.filter((post) => post.lang === "ar" && (post.authorId === author.id || post.reviewerId === author.id)));
             return lastModified ? [single(`/author/${author.slug}/`, "ar", lastModified, 0.3, "monthly")] : [];
           }),
         ]

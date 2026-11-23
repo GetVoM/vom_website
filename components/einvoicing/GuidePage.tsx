@@ -19,6 +19,7 @@ import { zatcaPhase2Paths } from "@/lib/i18n/routes";
 import { breadcrumbJsonLd, guideJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
+import { ReadTracker } from "@/components/analytics/ReadTracker";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { ButtonLink } from "@/components/ui/Button";
@@ -198,6 +199,7 @@ export async function GuidePage({ id }: { id: GuideId }) {
           {isHub && <CatalogueField />}
         </div>
         <article className="ein-body">
+          <ReadTracker body=".ein-body" contentType={isHub ? "einvoicing_hub" : "einvoicing_guide"} locale="ar" />
           <Body />
           <footer className="ein-end">
             <NextCard entry={next} minutes={nextOutline.minutes} />

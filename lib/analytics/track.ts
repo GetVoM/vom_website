@@ -1,14 +1,14 @@
-import posthog from "posthog-js";
+import { withPostHog } from "./client";
 import type { AnalyticsEvent, AnalyticsEvents } from "./events";
 
 /**
  * Sends one custom event to PostHog from the browser. The event must be in the
  * catalogue (lib/analytics/events.ts). PostHog is started in
- * instrumentation-client.ts; before that, or with no key, this does nothing.
+ * instrumentation-client.ts; an event sent before that waits for it
+ * (lib/analytics/client.ts), and with no key nothing is sent.
  */
 export function track<E extends AnalyticsEvent>(event: E, properties: AnalyticsEvents[E]): void {
-  if (typeof window === "undefined") return;
-  posthog.capture(event, properties);
+  withPostHog((posthog) => posthog.capture(event, properties));
 }
 
 /**
@@ -16,6 +16,5 @@ export function track<E extends AnalyticsEvent>(event: E, properties: AnalyticsE
  * attribute or the link classifier, so it is not known to the type checker.
  */
 export function trackNamed(event: string, properties: Record<string, unknown>): void {
-  if (typeof window === "undefined") return;
-  posthog.capture(event, properties);
+  withPostHog((posthog) => posthog.capture(event, properties));
 }

@@ -49,6 +49,9 @@ export interface AnalyticsEvents {
   // Pricing.
   pricing_billing_period_changed: Placed & { period: string };
   pricing_plan_cta_clicked: Placed & { plan: string };
+  /** The hero's jump to the comparison table, and the link to the features page. */
+  pricing_compare_clicked: Placed;
+  pricing_features_clicked: Placed;
 
   // Downloads and links out.
   file_downloaded: Placed & { file_name: string; file_type: string; host: string; template?: string };
@@ -65,6 +68,11 @@ export interface AnalyticsEvents {
   locale_switched: { from: Locale; to: Locale };
   footer_link_clicked: Placed & { group: string };
   not_found_exit_clicked: Placed;
+  /**
+   * A 404 was shown (components/analytics/TrackOnMount.tsx). PostHog adds the address and
+   * `$referrer`, so the old links that still lead nowhere after the migration can be found and redirected.
+   */
+  page_not_found: { locale: Locale };
 
   // Tools.
   calculator_used: { calculator: string };
@@ -91,6 +99,12 @@ export interface AnalyticsEvents {
   author_link_clicked: Placed & { role: string };
   guide_card_clicked: Placed & { guide: string };
   tool_card_clicked: Placed & { tool: string };
+  /**
+   * The reader reached the end of a post, news item, template or guide
+   * (components/analytics/ReadTracker.tsx): `seconds` since the page opened, so a
+   * read can be told from a scroll to the bottom.
+   */
+  article_read: { content_type: string; locale: Locale; seconds: number };
 
   // VoM Pay result pages.
   pay_result_viewed: { outcome: string; locale: Locale; error_code?: string };

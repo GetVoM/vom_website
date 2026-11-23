@@ -212,6 +212,12 @@ const retiredPaths = readFileSync(join(process.cwd(), "docs/content/url-map.csv"
 const NOT_PRODUCTION = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== "production";
 
 const nextConfig: NextConfig = {
+  env: {
+    // Which deployment built this: "production", "preview", or "development" off Vercel. Every
+    // PostHog event carries it (instrumentation-client.ts, lib/analytics/server.ts), so tests on a
+    // laptop or a preview can be filtered out of the visitors' numbers.
+    DEPLOYMENT_ENV: process.env.VERCEL_ENV || "development",
+  },
   cacheComponents: true,
   partialPrefetching: true,
   trailingSlash: true,
@@ -267,6 +273,8 @@ const nextConfig: NextConfig = {
         // The sitemap index. app/sitemap.ts owns the name /sitemap.xml as a metadata file but, split by
         // type, serves only /sitemap/<id>.xml, so the index is a route of its own behind this rewrite.
         { source: "/sitemap.xml", destination: "/api/sitemap-index" },
+        // /llms.txt is built from the content catalogues (app/api/llms/route.ts), so it lists every guide, tool and sector.
+        { source: "/llms.txt", destination: "/api/llms" },
         { source: "/", destination: "/ar" },
         { source: ARABIC_PATH, destination: "/ar/:path" },
       ],

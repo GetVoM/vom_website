@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { fontVariables } from "@/app/fonts";
+import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
 import { Tracker } from "@/components/analytics/Tracker";
+import { WebVitals } from "@/components/analytics/WebVitals";
 import { site } from "@/lib/seo/site";
 import { loadTags } from "@/lib/seo/tags";
 import "@/app/globals.css";
@@ -27,6 +28,7 @@ export default function CampaignLayout({ children }: { children: React.ReactNode
       <body className="min-h-full">
         {children}
         <Tracker />
+        {loadTags && <WebVitals />}
       </body>
       {loadTags && <GoogleTagManager gtmId={site.gtmId} />}
     </html>

@@ -3,8 +3,25 @@ import { site } from "@/lib/seo/site";
 
 /** What no crawler should fetch: the server's endpoints and the admin. */
 const disallow = ["/api/", "/admin/"];
-/** Crawlers named so their access is stated, not assumed; each keeps the same closed doors as everyone else. */
-const named = ["OAI-SearchBot", "PerplexityBot", "ClaudeBot", "Google-Extended"];
+/**
+ * Crawlers named so their access is stated, not assumed; each keeps the same closed doors as
+ * everyone else. The answer engines' search indexers, the fetchers they send when a person asks
+ * them about a page, and their training crawlers (so the models know VoM), plus Bing, whose index
+ * feeds Copilot and ChatGPT search (docs/seo/strategy.md §9).
+ */
+const named = [
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "GPTBot",
+  "PerplexityBot",
+  "Perplexity-User",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "Google-Extended",
+  "Applebot-Extended",
+  "Bingbot",
+];
 
 /**
  * A crawler that finds a group for its own name ignores the `*` group, so each

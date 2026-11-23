@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { lang } from "next/root-params";
 import { notFound } from "next/navigation";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { fontVariables } from "@/app/fonts";
 import { dirOf, isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
@@ -10,7 +9,9 @@ import { site } from "@/lib/seo/site";
 import { loadTags } from "@/lib/seo/tags";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
 import { Tracker } from "@/components/analytics/Tracker";
+import { WebVitals } from "@/components/analytics/WebVitals";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { NavLoader } from "@/components/site/NavLoader";
@@ -48,6 +49,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
           <NavLoader label={t.nav.loading} reported={t.invoice.reported} />
         </Suspense>
         <Tracker />
+        {loadTags && <WebVitals />}
       </body>
       {/* Production only (lib/seo/tags.ts); loaded once the page is interactive; every pixel lives inside the container (docs/architecture.md §8). */}
       {loadTags && <GoogleTagManager gtmId={site.gtmId} />}

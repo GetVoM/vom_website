@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import { contactPaths, featuresPaths, pricingPaths } from "@/lib/i18n/routes";
 import { Icon } from "@/components/ui/Icon";
+import { TrackOnMount } from "@/components/analytics/TrackOnMount";
 
 /** The message and the ways out, in each language. */
 const copy = {
@@ -60,6 +61,7 @@ export function NotFound({ locale }: { locale: Locale }) {
   const o = copy[other];
   return (
     <section className="nf page-wrap" data-track-section="not_found" aria-labelledby="nf-heading">
+      <TrackOnMount event="page_not_found" properties={{ locale }} />
       <div className="nf-copy">
         <p className="nf-code num">404</p>
         <h1 id="nf-heading" className="nf-title">

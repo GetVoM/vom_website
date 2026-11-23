@@ -1,7 +1,7 @@
 "use client";
 
 import { startTransition, useActionState, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
-import posthog from "posthog-js";
+import { startedPostHog, withPostHog } from "@/lib/analytics/client";
 import { Turnstile } from "@/components/forms/Turnstile";
 import { track } from "@/lib/analytics/track";
 import type { Locale } from "@/lib/i18n/config";
@@ -98,10 +98,12 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
         const value = (name: string) => String(data.get(name) ?? "").trim() || undefined;
         const mobile = normaliseSaudiMobile(value("phone") ?? "");
         if (mobile) {
-          posthog.identify(
-            mobile,
-            { name: value("name"), phone: mobile, email: value("email"), business_sector: value("sector") },
-            { first_lead_form: form, first_lead_page: value("page_path") },
+          withPostHog((posthog) =>
+            posthog.identify(
+              mobile,
+              { name: value("name"), phone: mobile, email: value("email"), business_sector: value("sector") },
+              { first_lead_form: form, first_lead_page: value("page_path") },
+            ),
           );
         }
       } else {
@@ -179,7 +181,8 @@ export function LeadForm({ form, locale, copy, label, gtm, whatsappUrl, email, s
     // The token field is filled now; read the form again so it is included.
 const filled = new FormData(element);
     // The visitor's PostHog id goes with the lead, so the server's `lead_recorded` lands on the same person.
-    if (posthog.__loaded) {
+    const posthog = startedPostHog();
+    if (posthog?.__loaded) {
       filled.set("ph_distinct_id", posthog.get_distinct_id());
       const session = posthog.get_session_id();
       if (session) filled.set("ph_session_id", session);

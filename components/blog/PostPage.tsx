@@ -5,8 +5,9 @@ import { barePath, blogCopy, postDate, relatedPosts, type Author, type Post } fr
 import { localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, fallbackImage } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
+import { ReadTracker } from "@/components/analytics/ReadTracker";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { ButtonLink } from "@/components/ui/Button";
@@ -92,14 +93,17 @@ export async function PostPage({ post }: { post: Post }) {
 
   return (
     <article className="blg" data-sections={post.sections.length > 0 || undefined}>
+      <ReadTracker body=".blg-body" contentType={post.type} locale={locale} />
       <JsonLd
         data={articleJsonLd({
           locale,
           path: barePath(post.path),
           headline: post.title,
           description: description(post),
-          image: post.coverImage,
-          imageSize: post.coverSize,
+          // Without a cover the article names the share card the page already sends as og:image,
+          // so every Article has the image search engines ask for.
+          image: post.coverImage ?? `${site.url}${fallbackImage(locale)}`,
+          imageSize: post.coverImage ? post.coverSize : { width: 1200, height: 630 },
           news: post.type === "news",
           published: post.publishedAt,
           modified: post.modifiedAt,

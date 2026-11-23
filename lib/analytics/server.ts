@@ -30,7 +30,8 @@ export async function captureServer<E extends AnalyticsEvent>(visitor: Visitor, 
     posthog.capture({
       distinctId: visitor.distinctId,
       event,
-      properties: { ...properties, ...(visitor.sessionId && { $session_id: visitor.sessionId }) },
+      // `environment` as the browser registers it (instrumentation-client.ts), so test leads filter out the same way.
+      properties: { ...properties, environment: process.env.DEPLOYMENT_ENV, ...(visitor.sessionId && { $session_id: visitor.sessionId }) },
     });
     await posthog.flush();
   } catch (error) {

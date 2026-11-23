@@ -152,13 +152,9 @@ export function guideJsonLd(guide: {
       author: personNode(guide.author),
       publisher: { "@id": `${site.url}/#organization` },
       mainEntityOfPage: { "@id": `${url}#webpage` },
-      ...(guide.partOf && {
-        isPartOf: {
-          "@type": "Article",
-          "@id": `${absolute("ar", guide.partOf.path)}#article`,
-          headline: guide.partOf.headline,
-        },
-      }),
+      // A bare reference to the hub's Article, which its own page describes in full: a second
+      // node typed Article here, with only a headline, reads to validators as an incomplete Article.
+      ...(guide.partOf && { isPartOf: { "@id": `${absolute("ar", guide.partOf.path)}#article` } }),
     },
   };
 }

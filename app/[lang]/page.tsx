@@ -53,7 +53,8 @@ export default async function HomePage() {
       <Hero locale={locale} t={t} />
       <TopClients t={t} locale={locale} />
       <MonthStrip t={t} />
-      <Steps t={t} />
+      {/* Client Components get only the dictionary parts they read: the whole one is 56 KB of HTML. */}
+      <Steps t={{ steps: t.steps, invoice: t.invoice, report: t.report }} />
       <Features locale={locale} t={t} />
       <ZatcaBand locale={locale} t={t} />
       <Numbers t={t} />
@@ -64,7 +65,7 @@ export default async function HomePage() {
       <Integrations locale={locale} t={t} />
       <Resources locale={locale} t={t} />
       <Faq t={t} />
-      <ClosingCertificate t={t} signupHref={site.signup[locale]} compareHref={compareHref} />
+      <ClosingCertificate t={{ closing: t.closing, certificate: t.certificate, hero: t.hero }} signupHref={site.signup[locale]} compareHref={compareHref} />
     </>
   );
 }

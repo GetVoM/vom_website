@@ -64,8 +64,9 @@ export function IntegrationsExplorer({ items, t, signupHref, docsHref }: Props) 
   return (
     <div className="grid gap-6 lg:grid-cols-[4fr_8fr]">
       <ul className="no-scrollbar -mx-[max(16px,env(safe-area-inset-left,0px))] flex gap-2 overflow-x-auto px-[max(16px,env(safe-area-inset-left,0px))] lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0" role="tablist">
+        {/* Each li is presentation only: in a tablist the tabs must be its direct children in the accessibility tree. */}
         {items.map((item) => (
-          <li key={item.id} className="shrink-0 lg:shrink">
+          <li key={item.id} role="presentation" className="shrink-0 lg:shrink">
             <button
               type="button"
               role="tab"

@@ -5,7 +5,8 @@ import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { Icon } from "@/components/ui/Icon";
 import { QrCode } from "./QrCode";
 
-export function Steps({ t }: { t: Dictionary }) {
+/** `t` holds only the parts it reads: a Client Component's props are written into the page's HTML. */
+export function Steps({ t }: { t: Pick<Dictionary, "steps" | "invoice" | "report"> }) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLDivElement | null)[]>([]);
 
