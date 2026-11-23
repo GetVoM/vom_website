@@ -46,7 +46,7 @@ Typos noticed but **not** changed, because they read as style or need the owner:
 | zakat-company | The heading «حاسبة زكاة منصة زكاتي» was an H3 inside a bullet; now a plain H3. The one-cell table around the intro's sign-up offer is a callout. |
 | discount | The comparison table's ✔️/❌ and the three «✔» lines become drawn marks with «نعم»/«لا» for screen readers (5 marks); the words stay. |
 | margin | Everything after the page's broken second script never rendered on the old site, and is dropped: a duplicate «ما يجب فعله بعد حساب هامش الربح» and its five H3s, «كيفية استخدام حاسبة هامش الربح وتسعير المنتج» (with «أدخل قيمة الإيرادات:», «أدخل تكلفة البضائع المباعة:», «اضغط على زر "احسب":»), «فوائد استخدام حاسبة هامش الربح» (with «توفير الوقت:», «دقة النتائج:», «تحسين إدارة الميزانية:»), the FAQ again, «في الختام» again, and the sign-up banner `2023/07/حاسبة-هامش-الربح1.png`. |
-| every page | Each page's old featured image (above the H1) opens the article; vat, margin, salary, zakat-company and zakat-base had one. |
+| every page | Each page's old featured image (above the H1) opened the article; vat, margin, salary, zakat-company and zakat-base had one. On 2026-11-23 the owner replaced them with a new cover for every page, discount and zakat included (`lib/content/tools/covers.ts`); the import no longer brings the old ones over. |
 
 ## Links
 

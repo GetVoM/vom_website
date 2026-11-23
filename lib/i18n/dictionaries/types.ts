@@ -187,7 +187,8 @@ export interface Dictionary {
       page: string;
     };
   };
-  reports: { heading: string; body: string; countLabel: string; items: string[]; cta: string; live: string };
+  /** The home page's report cards; each `id` picks its icon (components/reports/ReportIcon.tsx). */
+  reports: { heading: string; body: string; countLabel: string; items: { id: ReportId; name: string }[]; cta: string; live: string };
   features: { heading: string; body: string; cta: string; items: { title: string; body: string; icon: string }[] };
   apps: {
     heading: string;
@@ -315,7 +316,7 @@ export interface Dictionary {
       /** The heading, split around the figure: before, figure, after. */
       heading: { before: string; figure: string; after: string };
       footnote: string;
-      items: { id: StudentReportId; name: string }[];
+      items: { id: ReportId; name: string }[];
     };
     benefits: { heading: string; items: { title: string; body: string; alt: string }[] };
     close: { line: string; body: string };
@@ -426,7 +427,8 @@ export interface IntegrationCopy {
   seo: { title: string; description: string };
 }
 
-export type StudentReportId =
+/** The app's seventeen reports, each with its icon in components/reports/ReportIcon.tsx. */
+export type ReportId =
   | "vat"
   | "balance-sheet"
   | "cash-flow-direct"
@@ -441,7 +443,6 @@ export type StudentReportId =
   | "assets"
   | "trial-balance"
   | "cost-centres"
-  // Added with the app's current reports (2026-11-16); their icons reuse the VAT and statement ones.
   | "sales-vat"
   | "purchases-vat"
   | "customer-ageing";

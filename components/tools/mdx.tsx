@@ -11,10 +11,10 @@ import { CalcBand } from "./calculators";
  * of a body is repeated in the page's RSC payload.
  */
 
-/** The poster band: a full-width teal field holding one calculator, or two behind a switch. */
+/** The poster band: a full-width plain teal field (no loop, owner 2026-11-23) holding one calculator, or two behind a switch. */
 function Calculator({ ids, label }: { ids: CalculatorId[]; label: string }) {
   return (
-    <section className="tol-band guilloche-tile" aria-label={label}>
+    <section className="tol-band" aria-label={label}>
       <div className="page-wrap">
         <CalcBand ids={ids} />
       </div>

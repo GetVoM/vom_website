@@ -11,9 +11,9 @@ Scope: one Arabic-only page, `app/[lang]/tools/page.tsx` → `components/tools/T
 
 ## Direction contract
 
-THESIS: Cover plates. Each tool is a framed plate showing its own old cover, filed under its group, so the index reads as the set of instruments it is. It refuses the category default: a grid of identical icon cards with a calculator glyph on each.
+THESIS: Cover plates. Each tool is a framed plate showing its own cover (the owner's set of 2026-11-23, one per tool), filed under its group, so the index reads as the set of instruments it is. It refuses the category default: a grid of identical icon cards with a calculator glyph on each.
 
-OWN-WORLD: The Official Record on paper. Plates in the double-hairline doc-frame at the card radius, the image inside at the sheet radius; the name (item title, ink), one Slate line, a teal-700 "open" link with the arrow. The two tools with no old cover (discount, zakat) get a drawn plate: the teal guilloche field with the page's own worked example set as a white poster figure (discount «20%» and «1,000 ← 800»; zakat «2.5%»), the same language as the tool pages' bands. Group headings on paper-200 rules. Orange only in the close band.
+OWN-WORLD: The Official Record on paper. Plates in the double-hairline doc-frame at the card radius, the image inside at the sheet radius; the name (item title, ink), one Slate line, a teal-700 "open" link with the arrow. Covers are cut to 1600 by 915; the two wider zakat covers are shown whole on their own background colour. (Until 2026-11-23 discount and zakat had no cover and got a drawn plate: their worked example as a white poster figure on the teal guilloche field.) Group headings on paper-200 rules. Orange only in the close band.
 
 STORY: The visitor sees all seven tools in three groups within a scroll, recognises the one they came for by its picture and name, and opens it; the trial band closes the page.
 

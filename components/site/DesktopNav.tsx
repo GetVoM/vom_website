@@ -138,7 +138,7 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
             ))}
           </ul>
           <div className="nav-field">
-            <span className="nav-field-bg guilloche-tile" aria-hidden="true" />
+            <span className="nav-field-bg" aria-hidden="true" />
             <p className="nav-field-line">{sectors.line}</p>
             <NavAnchor link={sectors.all} group="sectors" className="nav-field-link" onNavigate={close}>
               {sectors.all.label}
@@ -161,7 +161,7 @@ export function DesktopNav({ items, menus, label }: { items: NavItem[]; menus: N
             ))}
           </div>
           <div className="nav-field">
-            <span className="nav-field-bg guilloche-tile" aria-hidden="true" />
+            <span className="nav-field-bg" aria-hidden="true" />
             <NavGroup group={fieldGroup} onNavigate={close} />
           </div>
         </div>

@@ -25,20 +25,19 @@ export function toolsIndexMetadata(): Metadata {
   return { ...meta, title: { absolute: toolsIndex.seoTitle } };
 }
 
-/** The plate's picture: the old page's cover, or, for the two without one, its worked example drawn on the field. */
+/** The plate's picture: the tool's cover, cut to the plate's shape, or shown whole on its own ground when it is wider. */
 function PlateArt({ tool }: { tool: ToolEntry }) {
   const cover = toolCovers[tool.id];
-  if (cover) {
-    return <Image src={cover.src} width={cover.width} height={cover.height} alt="" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" />;
-  }
-  const drawn = toolsCopy.drawn[tool.id as keyof typeof toolsCopy.drawn];
   return (
-    <span className="tix-drawn guilloche-tile" role="img" aria-label={drawn.alt}>
-      <span className="tix-drawn-figure" dir="ltr">
-        {drawn.figure}
-      </span>
-      <span className="tix-drawn-line">{drawn.line}</span>
-    </span>
+    <Image
+      src={cover.src}
+      width={cover.width}
+      height={cover.height}
+      alt=""
+      sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+      data-whole={cover.ground ? "" : undefined}
+      style={cover.ground ? { backgroundColor: cover.ground } : undefined}
+    />
   );
 }
 

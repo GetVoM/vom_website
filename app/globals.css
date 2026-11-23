@@ -884,7 +884,7 @@ details.faq[open] .faq-icon {
 .nav-sectors a:hover > [data-icon]::before {
   background: #fff;
 }
-/* The field: teal guilloche cut by a slant on its start edge, to the viewport's end. */
+/* The field: plain teal (no loop, owner 2026-11-23), cut by a slant on its start edge, to the viewport's end. */
 .nav-field {
   position: relative;
   isolation: isolate;
@@ -2956,10 +2956,10 @@ html[dir="rtl"] .stu-write > * {
 .stu-index li:first-child {
   border-top: 0;
 }
-.stu-index img {
+.stu-index-icon {
   flex: none;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 2rem;
 }
 
 /* Benefits: each photo as a plate with its caption beside it. */
@@ -4184,6 +4184,12 @@ html[dir="rtl"] .sec-close-band {
   }
   .sec-close-line {
     font-size: 1.75rem;
+  }
+  /* The buttons take the last column, on the end edge, whether or not a seal
+     (sector pages) fills the first; without one they fell into the middle column
+     beside the line (owner, 2026-11-23). */
+  .sec-close-actions {
+    grid-column: -2;
   }
 }
 
@@ -9821,8 +9827,7 @@ html[dir="rtl"] .tol-input input:placeholder-shown {
     box-shadow 0.3s var(--ease-out-quint),
     transform 0.3s var(--ease-out-quint);
 }
-.tix-plate-art img,
-.tix-drawn {
+.tix-plate-art img {
   display: block;
   width: 100%;
   height: auto;
@@ -9830,28 +9835,9 @@ html[dir="rtl"] .tol-input input:placeholder-shown {
   object-fit: cover;
   border-radius: var(--radius-sheet);
 }
-.tix-drawn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: var(--color-teal-500);
-  color: #fff;
-}
-.tix-drawn-figure {
-  padding-bottom: 0.625rem;
-  background: linear-gradient(#fff 0 1px, transparent 1px 3px, #fff 3px 4px) bottom / 100% 4px no-repeat;
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-.tix-drawn-line {
-  font-size: 1rem;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
+/* A wider cover, whole, on its own background colour (set inline from covers.ts). */
+.tix-plate-art img[data-whole] {
+  object-fit: contain;
 }
 .tix-plate-words {
   display: grid;

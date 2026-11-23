@@ -12,11 +12,6 @@ export const toolsCopy = {
   /** The index's intro (new copy, pending the owner's approval). */
   intro: "احسب ضريبة القيمة المضافة وهامش الربح والخصم وصافي الراتب والزكاة في ثوانٍ، بأدوات مجانية لا تحتاج إلى تسجيل. اختر الحاسبة، وأدخل أرقامك، وتظهر النتيجة مباشرة",
   open: "افتح الحاسبة",
-  /** Index plates for the two tools with no old cover: each page's own worked example. */
-  drawn: {
-    discount: { figure: "20%", line: "1,000 ← 800", alt: "خصم 20% على 1,000 ريال يصبح 800 ريال" },
-    zakat: { figure: "2.5%", line: "من صافي المال بعد الديون", alt: "الزكاة 2.5% من صافي المال بعد الديون" },
-  },
   others: "أدوات مالية أخرى",
   all: "كل الأدوات المالية",
   /** Each calculator's name in its WebApplication JSON-LD. */

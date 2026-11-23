@@ -7,6 +7,7 @@ import { studentPaths } from "@/lib/i18n/routes";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
+import { ReportIcon } from "@/components/reports/ReportIcon";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { ButtonLink } from "@/components/ui/Button";
@@ -135,17 +136,7 @@ export function StudentPage({ locale }: { locale: Locale }) {
           <ul className="stu-index doc-frame" style={{ "--rows": rows } as CSSProperties}>
             {reports.map((report, i) => (
               <li key={report.id} className={i === rows ? "stu-index-col" : undefined}>
-                {/* A decorative 48px icon: one plain tag on the optimizer's 96px
-                    rendition, so the index does not carry fourteen srcsets. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/_next/image/?url=%2Fstudent-package%2Freports%2F${report.id}.png&w=96&q=75`}
-                  alt=""
-                  width={48}
-                  height={48}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <ReportIcon id={report.id} className="stu-index-icon" />
                 {report.name}
               </li>
             ))}
