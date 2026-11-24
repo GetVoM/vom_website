@@ -45,7 +45,7 @@ export const zatcaPhase2 = {
 
   h1: "Integration Phase",
   /** ZATCA's bilingual "Phase 2 e-invoicing" mark; on the old page it sat beside the VoM logo. */
-  badge: photo("badge", 1600, 384, "Zakat, Tax and Customs Authority: Phase 2 e-invoicing"),
+  badge: photo("badge-v2", 1600, 384, "Zakat, Tax and Customs Authority: Phase 2 e-invoicing"),
   lede: "The second phase of electronic invoicing integration with direct submission to the Zakat, Tax, and Customs Authority",
 
   what: {

@@ -25,23 +25,6 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote: {
-      ar: "كنت أحتاج برنامج محاسبي يفهمني، مو أنا أفهمه، ومع ڤوم صار كل شيء واضح، وسهّل عليّ الشغل والتقارير بشكل كبير",
-      en: "I needed accounting software that understands me, not software I have to understand. With VoM everything became clear, and my work and reports got a lot easier",
-    },
-    name: { ar: "أ. ناديه", en: "Nadia" },
-    business: { ar: "مؤسسة الأقحوان لرياض الأطفال", en: "Daisy Day Care" },
-    logo: "/testimonials/daisy-day-care.webp",
-  },
-  {
-    quote: {
-      ar: "من أول يوم، فريق رواد الجودة لخدمات الأعمال تعامل مع ڤوم بكل سهولة وبدون أي تعقيد، واكتشفوا أن القيمة اللي يقدمها ڤوم تستحق تكلفته",
-      en: "From day one, the team at Ruwad Al Jawda Business Services found VoM easy to work with, without any complications, and saw that the value it delivers is worth what it costs",
-    },
-    name: { ar: "أ. محمود", en: "Mahmoud" },
-    business: { ar: "شركة رواد الجودة لخدمات الأعمال", en: "Ruwad Al Jawda Business Services" },
-  },
-  {
-    quote: {
       ar: "قبل ڤوم، التقارير الشهرية كانت تاخذ منا أسبوع إلى أسبوع ونص، والحين أقدر أشوف أرقامي وتحليلاتي بأي وقت",
       en: "Before VoM, our monthly reports took us a week to a week and a half. Now I can see my numbers and analysis whenever I want",
     },
@@ -60,12 +43,12 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote: {
-      ar: "فخور بوجود برنامج سعودي بهذه الكفاءة العالية",
-      en: "Proud to have Saudi software this capable",
+      ar: "كنت أحتاج برنامج محاسبي يفهمني، مو أنا أفهمه، ومع ڤوم صار كل شيء واضح، وسهّل عليّ الشغل والتقارير بشكل كبير",
+      en: "I needed accounting software that understands me, not software I have to understand. With VoM everything became clear, and my work and reports got a lot easier",
     },
-    name: { ar: "أ. عبدالعزيز بن فهد", en: "Abdulaziz bin Fahd" },
-    business: { ar: "في قطاع التأثير", en: "Influencer" },
-    logo: "/testimonials/abdulaziz-bin-fahd-v2.webp",
+    name: { ar: "أ. ناديه", en: "Nadia" },
+    business: { ar: "مؤسسة الأقحوان لرياض الأطفال", en: "Daisy Day Care" },
+    logo: "/testimonials/daisy-day-care.webp",
   },
   {
     quote: {
@@ -78,6 +61,15 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote: {
+      ar: "تجربتي مع ڤوم امانة رتبت لي الشغل رغم قلة خبرتي بالأمور المحاسبية، وصار شغلي أكثر احترافية ووضوح، وأي معلومة أحتاج أرجع لها ألقاها مسجلة. واللي يميزهم الصراحة الدعم، ما واجهت أي مشكلة إلا وحلوها لي واقترحوا علي حلول بديلة. بعد 3 سنوات أقدر أقول إن تجربتي معهم ناجحة بامتياز، ممتن للعاملين في ڤوم",
+      en: "Honestly, VoM put my work in order even though I have little accounting experience. My work is more professional and clearer now, and anything I need to look back at, I find on record. What really sets them apart is the support: every problem I ran into, they solved, and they suggested other ways to do things too. After 3 years I can say my experience with them has been an outstanding success. I'm grateful to everyone who works at VoM",
+    },
+    name: { ar: "أ. عبدالله الشبل", en: "Abdullah Al Shibl" },
+    business: { ar: "في قطاع التأثير", en: "Influencer" },
+    logo: "/testimonials/abdullah-alshibl.webp",
+  },
+  {
+    quote: {
       ar: "أهم شيء في ڤوم سهولة الشاشات والدعم الفني، أنجزنا اللي نحتاجه في وقت أقل، ومع التطوير المستمر صار البرنامج يواكب احتياجاتنا",
       en: "What matters most with VoM is how easy the screens are, and the technical support. We get what we need done in less time, and with constant development the software keeps up with our needs",
     },
@@ -87,11 +79,19 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote: {
-      ar: "تجربتي مع ڤوم امانة رتبت لي الشغل رغم قلة خبرتي بالأمور المحاسبية، وصار شغلي أكثر احترافية ووضوح، وأي معلومة أحتاج أرجع لها ألقاها مسجلة. واللي يميزهم الصراحة الدعم، ما واجهت أي مشكلة إلا وحلوها لي واقترحوا علي حلول بديلة. بعد 3 سنوات أقدر أقول إن تجربتي معهم ناجحة بامتياز، ممتن للعاملين في ڤوم",
-      en: "Honestly, VoM put my work in order even though I have little accounting experience. My work is more professional and clearer now, and anything I need to look back at, I find on record. What really sets them apart is the support: every problem I ran into, they solved, and they suggested other ways to do things too. After 3 years I can say my experience with them has been an outstanding success. I'm grateful to everyone who works at VoM",
+      ar: "من أول يوم، فريق رواد الجودة لخدمات الأعمال تعامل مع ڤوم بكل سهولة وبدون أي تعقيد، واكتشفوا أن القيمة اللي يقدمها ڤوم تستحق تكلفته",
+      en: "From day one, the team at Ruwad Al Jawda Business Services found VoM easy to work with, without any complications, and saw that the value it delivers is worth what it costs",
     },
-    name: { ar: "أ. عبدالله الشبل", en: "Abdullah Al Shibl" },
+    name: { ar: "أ. محمود", en: "Mahmoud" },
+    business: { ar: "شركة رواد الجودة لخدمات الأعمال", en: "Ruwad Al Jawda Business Services" },
+  },
+  {
+    quote: {
+      ar: "فخور بوجود برنامج سعودي بهذه الكفاءة العالية",
+      en: "Proud to have Saudi software this capable",
+    },
+    name: { ar: "أ. عبدالعزيز بن فهد", en: "Abdulaziz bin Fahd" },
     business: { ar: "في قطاع التأثير", en: "Influencer" },
-    logo: "/testimonials/abdullah-alshibl.webp",
+    logo: "/testimonials/abdulaziz-bin-fahd-v2.webp",
   },
 ];
