@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { barePath, blogCopy, postDate, relatedPosts, type Author, type Post } from "@/lib/content/posts";
+import { coverShareImage } from "@/lib/images";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
@@ -19,6 +20,9 @@ const authorPath = (author: Author) => `/author/${author.slug}/`;
 
 export function postMetadata(post: Post): Metadata {
   const title = post.seoTitle ?? `${post.title} | ${site.name[post.lang]}`;
+  // Shared links show a JPEG made from the cover (scripts/optimize-media.mjs): not every
+  // network reads WebP. Until it exists the cover itself is the share image.
+  const share = post.coverImage ? coverShareImage(post.coverImage) : null;
   const meta = buildMetadata({
     locale: post.lang,
     path: barePath(post.path),
@@ -26,8 +30,8 @@ export function postMetadata(post: Post): Metadata {
     title,
     description: description(post),
     type: "article",
-    image: post.coverImage ?? undefined,
-    imageSize: post.coverSize,
+    image: share?.src ?? post.coverImage ?? undefined,
+    imageSize: share ?? post.coverSize,
   });
   return {
     ...meta,

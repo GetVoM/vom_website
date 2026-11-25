@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { BlogClose } from "@/components/blog/PostPage";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -135,7 +135,8 @@ export async function ToolPage({ id }: { id: ToolId }) {
         <div className="ein-body tol-body">
           {cover && (
             <figure className="ein-figure tol-cover">
-              <Image src={cover.src} width={cover.width} height={cover.height} alt={cover.alt} sizes="(min-width: 1024px) 760px, 100vw" />
+              {/* Above the fold on desktop, where it is the page's largest paint. */}
+              <Image src={cover.src} width={cover.width} height={cover.height} alt={cover.alt} sizes="(min-width: 1024px) 760px, 100vw" preload />
             </figure>
           )}
           <Body components={components} />

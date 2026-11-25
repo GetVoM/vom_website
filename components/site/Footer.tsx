@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary, SocialId } from "@/lib/i18n/dictionaries/types";

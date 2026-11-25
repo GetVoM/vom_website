@@ -1,14 +1,10 @@
-import { optimizedSrc } from "@/lib/image-url";
+import { resolveImage } from "@/lib/images";
 
 export interface PostSection {
   id: string;
   heading: string;
 }
 
-const MEDIA_URL = (process.env.MEDIA_BASE_URL || "https://media.getvom.com").replace(/\/$/, "");
-
-/** Widths the image optimizer serves (next.config.ts `images.deviceSizes`). */
-const WIDTHS = [640, 1080, 1600];
 
 const text = (html: string) =>
   html
@@ -26,8 +22,9 @@ const text = (html: string) =>
  * editor's own output (a fixed set of tags, no attributes beyond href, src, alt
  * and sizes), so it is rewritten with patterns rather than parsed:
  * - every H2 gets an id, and the list of them becomes the margin's contents;
- * - images hosted on the media domain go through the image optimizer with a
- *   srcset, load lazily, and keep their size so the page does not shift;
+ * - images on the media domain get a srcset of the smaller copies made beside them
+ *   (scripts/optimize-media.mjs, lib/images); every image loads lazily and keeps
+ *   its size so the page does not shift;
  * - tables sit in a numbered region that scrolls sideways on narrow screens,
  *   their first row becomes column headers, and one-cell tables become callouts.
  */
@@ -40,13 +37,10 @@ export function preparePostHtml(stored: string, tableLabel: string): { html: str
   });
 
   html = html.replace(/<img src="([^"]+)" alt="([^"]*)"(?: width="(\d+)" height="(\d+)")?>/g, (tag, src: string, alt: string, w?: string, h?: string) => {
-    if (!src.startsWith(`${MEDIA_URL}/`)) return tag.replace("<img ", '<img loading="lazy" decoding="async" ');
-    const width = w ? Number(w) : 0;
-    const widths = WIDTHS.filter((size, i) => i === 0 || !width || WIDTHS[i - 1] < width);
-    const srcset = widths.map((size) => `${optimizedSrc(src, size).replace(/&/g, "&amp;")} ${size}w`).join(", ");
-    const fallback = optimizedSrc(src, widths.at(-1) ?? 1080).replace(/&/g, "&amp;");
+    const image = resolveImage(src);
+    if (!image?.srcSet) return tag.replace("<img ", '<img loading="lazy" decoding="async" ');
     const size = w && h ? ` width="${w}" height="${h}"` : "";
-    return `<img src="${fallback}" srcset="${srcset}" sizes="(min-width: 1024px) 46rem, 100vw" alt="${alt}"${size} loading="lazy" decoding="async">`;
+    return `<img src="${src}" srcset="${image.srcSet}" sizes="(min-width: 1024px) 46rem, 100vw" alt="${alt}"${size} loading="lazy" decoding="async">`;
   });
 
   let tables = 0;

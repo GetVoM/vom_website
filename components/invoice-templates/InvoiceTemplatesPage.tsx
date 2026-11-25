@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import {
   fileSize,
   getInvoiceTemplates,

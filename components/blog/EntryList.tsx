@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { postDate, type PostSummary } from "@/lib/content/posts";
+import { staticSrc } from "@/lib/images";
 import type { Locale } from "@/lib/i18n/config";
-import { optimizedSrc } from "@/lib/image-url";
 
 /**
  * Posts as dated ledger entries: the date in the margin column, then the title,
@@ -50,7 +50,7 @@ export function EntryList({
           {!compact && post.coverImage && (
             // The alt is empty: the title beside it already names the post.
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="blg-entry-plate" src={optimizedSrc(post.coverImage, 384)} alt="" width={192} height={108} loading="lazy" decoding="async" />
+            <img className="blg-entry-plate" src={staticSrc(post.coverImage, 384)} alt="" width={192} height={108} loading="lazy" decoding="async" />
           )}
         </li>
       ))}

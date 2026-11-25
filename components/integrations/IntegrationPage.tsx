@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { integrationPaths } from "@/lib/i18n/routes";
+import { resolveImage } from "@/lib/images";
 import { integrationIds, integrations, isoDuration, videoLength, vomMark, type IntegrationId } from "@/lib/integrations";
 import { breadcrumbJsonLd, videoJsonLd, webPageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -95,6 +96,7 @@ export function IntegrationPage({ id, locale }: { id: IntegrationId; locale: Loc
                   title: c.videos[i],
                   length: videoLength(video.seconds),
                   poster: video.poster,
+                  posterImage: resolveImage(video.poster.src),
                   seal: video.seal,
                 }))}
                 playLabel={s.play}

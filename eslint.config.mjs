@@ -5,6 +5,24 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // Images go through components/ui/Image.tsx (or ImageView in client components), which serve the pre-optimized files.
+  {
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/image",
+              importNames: ["default"],
+              message: "Use @/components/ui/Image (ImageView in a client component): it serves the pre-optimized files in public/images/optimized/.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  { files: ["components/ui/ImageView.tsx"], rules: { "no-restricted-imports": "off" } },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

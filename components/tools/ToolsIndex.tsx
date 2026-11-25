@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { BlogClose } from "@/components/blog/PostPage";
@@ -26,7 +26,7 @@ export function toolsIndexMetadata(): Metadata {
 }
 
 /** The plate's picture: the tool's cover, cut to the plate's shape, or shown whole on its own ground when it is wider. */
-function PlateArt({ tool }: { tool: ToolEntry }) {
+function PlateArt({ tool, first }: { tool: ToolEntry; first: boolean }) {
   const cover = toolCovers[tool.id];
   return (
     <Image
@@ -35,6 +35,8 @@ function PlateArt({ tool }: { tool: ToolEntry }) {
       height={cover.height}
       alt=""
       sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+      // The first two plates open the page on every screen; one of them is its largest paint.
+      preload={first}
       data-whole={cover.ground ? "" : undefined}
       style={cover.ground ? { backgroundColor: cover.ground } : undefined}
     />
@@ -46,7 +48,7 @@ function Plate({ tool, n, wide }: { tool: ToolEntry; n: number; wide?: boolean }
     <li className="tix-plate" data-wide={wide || undefined} style={{ "--n": n } as CSSProperties}>
       <Link href={toolPath(tool.id)} className="tix-plate-link" data-track="tool_card_clicked" data-track-tool={tool.id}>
         <span className="tix-plate-art">
-          <PlateArt tool={tool} />
+          <PlateArt tool={tool} first={n < 2} />
         </span>
         <span className="tix-plate-words">
           <span className="tix-plate-name">{tool.cardTitle}</span>

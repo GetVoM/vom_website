@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { testimonials } from "@/lib/content/testimonials";
+import { staticSrc } from "@/lib/images";
 import { TestimonialsSlider } from "./TestimonialsSlider";
 
 export function Testimonials({ locale, t }: { locale: Locale; t: Dictionary }) {
@@ -13,7 +14,8 @@ export function Testimonials({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
         <TestimonialsSlider
           locale={locale}
-          items={testimonials}
+          // The slider is a client component: it gets each logo's pre-optimized file, not the manifest.
+          items={testimonials.map((item) => ({ ...item, logo: item.logo && staticSrc(item.logo, 112) }))}
           labels={{
             prev: t.testimonials.prev,
             next: t.testimonials.next,

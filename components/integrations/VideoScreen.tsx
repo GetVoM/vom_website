@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import { ImageView } from "@/components/ui/ImageView";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import type { ResolvedImage } from "@/lib/images/files";
 import type { Raster } from "@/lib/integrations";
 import { track } from "@/lib/analytics/track";
 
@@ -12,6 +13,8 @@ export interface ScreenVideo {
   /** "7:02". */
   length: string;
   poster: Raster;
+  /** The poster's pre-optimized files, resolved on the server (lib/images). */
+  posterImage: ResolvedImage | null;
   seal?: { x: string; y: string };
 }
 
@@ -77,7 +80,8 @@ export function VideoScreen({
               }}
               style={video.seal ? ({ "--seal-x": video.seal.x, "--seal-y": video.seal.y } as CSSProperties) : undefined}
             >
-              <Image
+              <ImageView
+                image={video.posterImage}
                 src={video.poster.src}
                 alt=""
                 width={video.poster.width}

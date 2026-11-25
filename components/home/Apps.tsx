@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { Icon } from "@/components/ui/Icon";
 import { StoreBadges } from "@/components/ui/StoreBadges";

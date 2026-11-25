@@ -9,7 +9,9 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "check:urls": "node scripts/check-blog-urls.mjs",
-    "test": "node --test --disable-warning=ExperimentalWarning \"lib/**/*.test.ts\""
+    "test": "node --test --disable-warning=ExperimentalWarning \"lib/**/*.test.ts\"",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:media": "node --env-file-if-exists=.env.local scripts/optimize-media.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1165.0",
@@ -48,6 +50,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
     "node-html-parser": "^9.0.7",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

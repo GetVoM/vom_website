@@ -1,6 +1,7 @@
 import { localePath, type Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { integrationPaths } from "@/lib/i18n/routes";
+import { staticSrc } from "@/lib/images";
 import { integrationIds, integrations } from "@/lib/integrations";
 import { site } from "@/lib/seo/site";
 import { IntegrationsExplorer, type ExplorerItem } from "./IntegrationsExplorer";
@@ -14,7 +15,8 @@ export function Integrations({ locale, t }: { locale: Locale; t: Dictionary }) {
     return {
       id,
       name: integrations[id].name,
-      logo: integrations[id].icon,
+      // The pre-optimized file: the explorer is a client component and cannot read the manifest.
+      logo: integrations[id].icon && staticSrc(integrations[id].icon, 96),
       category: page.category,
       description: page.lede,
       flow: [page.partner, s.details.target],

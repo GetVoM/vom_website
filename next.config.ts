@@ -236,14 +236,12 @@ const nextConfig: NextConfig = {
     // Off, the router asks the server for each route it has not seen yet.
     optimisticRouting: false,
   },
-  images: {
-    formats: ["image/avif", "image/webp"],
-    // Fewer candidates keep every srcset, and so every page's HTML, smaller.
-    deviceSizes: [640, 1080, 1600],
-    imageSizes: [48, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 31,
-    remotePatterns: [{ protocol: "https", hostname: new URL(MEDIA_URL).hostname }],
-  },
+  // Every image is pre-optimized and served as a static file: public/ images by
+  // scripts/optimize-images.mjs into /images/optimized/, the blog's by
+  // scripts/optimize-media.mjs beside them on the media domain. Vercel's image
+  // optimizer (and its monthly transformation allowance) is never used. lib/images
+  // and components/ui/Image.tsx pick the files.
+  images: { unoptimized: true },
   turbopack: {
     rules: {
       "*.css": {

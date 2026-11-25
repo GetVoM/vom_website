@@ -1,7 +1,7 @@
 import { clients, homeClients, tileLogo, type ClientKey } from "@/lib/content/clients";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
-import { optimizedSrc } from "@/lib/image-url";
+import { staticSrc } from "@/lib/images";
 
 /** The old homepage's 47 client logos, split across the two rows. */
 const half = Math.ceil(homeClients.length / 2);
@@ -19,7 +19,7 @@ function Row({ logos, locale, reverse = false }: { logos: ClientKey[]; locale: L
             <div key={`${key}-${i}`} className="logo-tile" aria-hidden={copy || undefined}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={optimizedSrc(tileLogo(key).src, 256)}
+                src={staticSrc(tileLogo(key).src, 256)}
                 alt={copy ? "" : clients[key][locale]}
                 width={160}
                 height={80}

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { clients, sealLogo } from "@/lib/content/clients";
-import { optimizedSrc } from "@/lib/image-url";
+import { staticSrc } from "@/lib/images";
 import { getSector, readingImage, sectorClients, sectorPhotos, type SectorId } from "@/lib/content/sectors";
 import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
@@ -129,7 +129,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
                 <li key={key} className="sec-client">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={optimizedSrc(sealLogo(key).src, 256)}
+                    src={staticSrc(sealLogo(key).src, 256)}
                     alt={clients[key][locale]}
                     width={320}
                     height={320}
@@ -180,7 +180,7 @@ export function SectorPage({ id, locale }: { id: SectorId; locale: Locale }) {
                   <Link href={localePath(locale, article.href)} prefetch={false} className="sec-article">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={optimizedSrc(`/sectors/reading/${article.image}.jpg`, 640)}
+                      src={staticSrc(`/sectors/reading/${article.image}.jpg`, 640)}
                       alt=""
                       width={readingImage.width}
                       height={readingImage.height}

@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { ReturnBar } from "@/components/campaigns/ReturnBar";
 import { SocialGlyph } from "@/components/contact/SocialGlyph";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { clients, tileLogo } from "@/lib/content/clients";
 import { digitalAds2023 as page } from "@/lib/content/campaigns/digital-ads-2023";
-import { optimizedSrc } from "@/lib/image-url";
+import { staticSrc } from "@/lib/images";
 import { DIGITAL_ADS_FORM, gtmFormSuccess, sectorLabel, sectors } from "@/lib/leads/digital-ads-2023";
 import { site } from "@/lib/seo/site";
 
@@ -55,7 +55,7 @@ export function DigitalAds2023() {
 
         <div className="lp-story">
           <figure className="lp-photo">
-            <Image src={page.banner.src} alt={page.banner.alt} width={page.banner.width} height={page.banner.height} sizes="(min-width: 1024px) 700px, 100vw" />
+            <Image src={page.banner.src} alt={page.banner.alt} width={page.banner.width} height={page.banner.height} sizes="(min-width: 1024px) 700px, 100vw" preload />
           </figure>
 
           <section className="lp-features" aria-labelledby="lp-features-title">
@@ -64,7 +64,7 @@ export function DigitalAds2023() {
               {page.features.map((feature) => (
                 <li key={feature.title}>
                   {/* eslint-disable-next-line @next/next/no-img-element -- a small illustration at one size. */}
-                  <img src={optimizedSrc(feature.icon.src, 256)} alt="" width={feature.icon.width} height={feature.icon.height} loading="lazy" decoding="async" />
+                  <img src={staticSrc(feature.icon.src, 256)} alt="" width={feature.icon.width} height={feature.icon.height} loading="lazy" decoding="async" />
                   <h3>{feature.title}</h3>
                 </li>
               ))}
@@ -75,14 +75,14 @@ export function DigitalAds2023() {
             {page.clients.map((key) => (
               <li key={key} className="logo-tile">
                 {/* eslint-disable-next-line @next/next/no-img-element -- 47 logos: one small optimised file each, no srcset. */}
-                <img src={optimizedSrc(tileLogo(key).src, 256)} alt={clients[key].ar} width={256} height={128} loading="lazy" decoding="async" />
+                <img src={staticSrc(tileLogo(key).src, 256)} alt={clients[key].ar} width={256} height={128} loading="lazy" decoding="async" />
               </li>
             ))}
           </ul>
 
           <section className="lp-voices">
             {/* eslint-disable-next-line @next/next/no-img-element -- the old page's star image. */}
-            <img className="lp-rating" src={optimizedSrc(page.rating.src, 384)} alt={page.rating.alt} width={page.rating.width} height={page.rating.height} loading="lazy" decoding="async" />
+            <img className="lp-rating" src={staticSrc(page.rating.src, 384)} alt={page.rating.alt} width={page.rating.width} height={page.rating.height} loading="lazy" decoding="async" />
             <ul className="lp-quotes">
               {page.testimonials.map((item) => (
                 <li key={item.quote}>
@@ -92,7 +92,7 @@ export function DigitalAds2023() {
                     </blockquote>
                     <figcaption>
                       {/* eslint-disable-next-line @next/next/no-img-element -- a 56 px avatar. */}
-                      <img src={optimizedSrc(item.avatar.src, 128)} alt={item.avatar.alt} width={56} height={56} loading="lazy" decoding="async" />
+                      <img src={staticSrc(item.avatar.src, 128)} alt={item.avatar.alt} width={56} height={56} loading="lazy" decoding="async" />
                     </figcaption>
                   </figure>
                 </li>
@@ -104,7 +104,7 @@ export function DigitalAds2023() {
             {page.partners.map((logo) => (
               <li key={logo.src}>
                 {/* eslint-disable-next-line @next/next/no-img-element -- a round logo at one size. */}
-                <img src={optimizedSrc(logo.src, 256)} alt={logo.alt} width={logo.width} height={logo.height} loading="lazy" decoding="async" />
+                <img src={staticSrc(logo.src, 256)} alt={logo.alt} width={logo.width} height={logo.height} loading="lazy" decoding="async" />
               </li>
             ))}
           </ul>

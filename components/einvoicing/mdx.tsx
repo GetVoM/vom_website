@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import { Children, cloneElement, isValidElement, type AnchorHTMLAttributes, type ReactElement, type ReactNode } from "react";
 import { einvoicingCopy } from "@/lib/content/einvoicing/copy";

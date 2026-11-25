@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { ImageView } from "@/components/ui/ImageView";
 import type { Locale } from "@/lib/i18n/config";
 import type { Testimonial } from "@/lib/content/testimonials";
 import { Icon } from "@/components/ui/Icon";
@@ -104,7 +104,7 @@ export function TestimonialsSlider({ locale, items, labels }: Props) {
               </div>
               <figcaption className="flex items-center gap-4 border-t border-paper-200 pt-6">
                 {item.logo ? (
-                  <Image
+                  <ImageView
                     src={item.logo}
                     alt=""
                     width={56}

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import type { CSSProperties, ReactNode } from "react";
+import { preload } from "react-dom";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { ButtonLink } from "@/components/ui/Button";
 import { PayErrorCode, PayErrorMessage, PayResultViewed } from "@/components/vompay/PayError";
 import { vomPayClose, vomPayFailure, vomPayImages as img, vomPaySuccess } from "@/lib/content/vom-pay";
 import type { Locale } from "@/lib/i18n/config";
 import { vomPayFailurePaths, vomPaySuccessPaths } from "@/lib/i18n/routes";
-import { optimizedSrc } from "@/lib/image-url";
+import { staticSrc } from "@/lib/images";
 import { VOM_PAY_FORM, gtmFormSuccess } from "@/lib/leads/vom-pay";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/seo/site";
@@ -37,8 +38,11 @@ export function PayResult({ outcome, locale }: { outcome: PayOutcome; locale: Lo
 
 /** The outcome: the old illustration standing in the old light-blue ribbon panel, the status and what follows it. */
 function Status({ outcome, image, alt, heading, children }: { outcome: PayOutcome; image: typeof img.success; alt: string; heading: string; children: ReactNode }) {
+  const background = staticSrc(img.heroBg.src, 1080);
+  // The ribbon panel is the page's largest paint; as a CSS background the browser would find it late.
+  preload(background, { as: "image", fetchPriority: "high" });
   return (
-    <div className="pr-status" data-outcome={outcome} style={{ "--pr-bg": `url(${optimizedSrc(img.heroBg.src, 1080)})` } as CSSProperties}>
+    <div className="pr-status" data-outcome={outcome} style={{ "--pr-bg": `url(${background})` } as CSSProperties}>
       <Image className="pr-illustration" src={image.src} alt={alt} width={image.width} height={image.height} sizes="(min-width: 1024px) 240px, 180px" preload fetchPriority="high" />
       <h1 className="pr-title">{heading}</h1>
       {children}
@@ -82,7 +86,7 @@ function Success({ locale }: { locale: Locale }) {
         <div className="page-wrap">
           <div className="pr-pitch">
             {/* eslint-disable-next-line @next/next/no-img-element -- the VoM AI logo at one size; it carries the old pages' «VoM AI» line. */}
-            <img className="pr-vom-ai" src={optimizedSrc(img.vomAi.src, 384)} alt={c.pitch.badge} width={img.vomAi.width} height={img.vomAi.height} loading="lazy" decoding="async" />
+            <img className="pr-vom-ai" src={staticSrc(img.vomAi.src, 384)} alt={c.pitch.badge} width={img.vomAi.width} height={img.vomAi.height} loading="lazy" decoding="async" />
             <div>
               <h2 id="pr-pitch" className="pr-pitch-title">
                 {c.pitch.lead}
@@ -96,7 +100,7 @@ function Success({ locale }: { locale: Locale }) {
             <Image className="pr-laptop" src={img.laptop.src} alt={c.laptopAlt} width={img.laptop.width} height={img.laptop.height} sizes="(min-width: 1024px) 560px, 92vw" />
             <div className="pr-feature">
               {/* eslint-disable-next-line @next/next/no-img-element -- six small icons at one size. */}
-              <img src={optimizedSrc(first.icon, 128)} alt="" width={256} height={256} loading="lazy" decoding="async" />
+              <img src={staticSrc(first.icon, 128)} alt="" width={256} height={256} loading="lazy" decoding="async" />
               <h4>{first.title}</h4>
               <p>{first.body}</p>
               <span className="pr-zatca">
@@ -109,7 +113,7 @@ function Success({ locale }: { locale: Locale }) {
             {rest.map((feature, i) => (
               <li key={i} className="pr-feature">
                 {/* eslint-disable-next-line @next/next/no-img-element -- six small icons at one size. */}
-                <img src={optimizedSrc(feature.icon, 128)} alt="" width={256} height={256} loading="lazy" decoding="async" />
+                <img src={staticSrc(feature.icon, 128)} alt="" width={256} height={256} loading="lazy" decoding="async" />
                 <h4>{feature.title}</h4>
                 <p>{feature.body}</p>
               </li>

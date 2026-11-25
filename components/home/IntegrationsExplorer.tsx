@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import Image from "next/image";
+import { ImageView } from "@/components/ui/ImageView";
 import { track } from "@/lib/analytics/track";
 import type { Dictionary } from "@/lib/i18n/dictionaries/types";
 import { ButtonLink } from "@/components/ui/Button";
@@ -31,7 +31,7 @@ interface Props {
 function Logo({ item, size = 40 }: { item: ExplorerItem; size?: number }) {
   if (item.logo) {
     return (
-      <Image
+      <ImageView
         src={item.logo}
         alt=""
         width={size}

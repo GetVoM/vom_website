@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { studentPaths } from "@/lib/i18n/routes";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { localePath, otherLocale, type Locale } from "@/lib/i18n/config";
 import type { AboutCharter, AboutItem } from "@/lib/i18n/dictionaries/types";
 import { getDictionary } from "@/lib/i18n/getDictionary";

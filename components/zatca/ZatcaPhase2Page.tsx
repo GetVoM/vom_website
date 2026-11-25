@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
@@ -8,7 +8,7 @@ import { zatcaPhase2 as page, type AccentHeading } from "@/lib/content/zatca-pha
 import { localePath } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { zatcaPhase2Paths } from "@/lib/i18n/routes";
-import { optimizedSrc } from "@/lib/image-url";
+import { staticSrc } from "@/lib/images";
 import { ZATCA_PHASE_2_FORM, gtmFormSuccess } from "@/lib/leads/zatca-phase-2";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -46,7 +46,7 @@ function Accent({ heading }: { heading: AccentHeading }) {
 /** A small icon from the old page, decorative beside the words that say the same. */
 function Icon({ src, size = 128 }: { src: string; size?: 96 | 128 }) {
   // eslint-disable-next-line @next/next/no-img-element -- 14 small icons, some repeated: one optimised file each, no srcset.
-  return <img src={optimizedSrc(src, size)} alt="" width={256} height={256} loading="lazy" decoding="async" />;
+  return <img src={staticSrc(src, size)} alt="" width={256} height={256} loading="lazy" decoding="async" />;
 }
 
 /**
@@ -85,7 +85,7 @@ export function ZatcaPhase2Page() {
               <path className="zp-link-path" pathLength={1} d={LINK} />
               <circle className="zp-link-start" cx="160" cy="132" r="4.5" />
               <rect className="zp-link-plate" x="400.5" y="84.5" width="320" height="95" rx="12" />
-              <image href={optimizedSrc(page.badge.src, 640)} x="412" y="96" width="296" height="71" />
+              <image href={staticSrc(page.badge.src, 640)} x="412" y="96" width="296" height="71" />
               <circle className="zp-link-end" cx="400" cy="132" r="6" />
             </svg>
           </div>
@@ -220,7 +220,7 @@ export function ZatcaPhase2Page() {
           <div className="zp-arrive" aria-hidden="true">
             <span className="zp-arrive-plate">
               {/* eslint-disable-next-line @next/next/no-img-element -- a small repeat of the hero's badge, decorative. */}
-              <img src={optimizedSrc(page.badge.src, 384)} alt="" width={page.badge.width} height={page.badge.height} loading="lazy" decoding="async" />
+              <img src={staticSrc(page.badge.src, 384)} alt="" width={page.badge.width} height={page.badge.height} loading="lazy" decoding="async" />
             </span>
           </div>
         </div>

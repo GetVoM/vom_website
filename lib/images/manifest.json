@@ -1,0 +1,5750 @@
+{
+  "/about/dashboard-sketch.webp": {
+    "src": "/images/optimized/about/dashboard-sketch.webp",
+    "width": 1374,
+    "height": 1145,
+    "bytes": 133578,
+    "sourceBytes": 182864,
+    "variants": [
+      {
+        "width": 640,
+        "height": 533,
+        "src": "/images/optimized/about/dashboard-sketch-640w.webp",
+        "bytes": 39002
+      }
+    ],
+    "hash": "6c7e65bcafec1574"
+  },
+  "/about/partners-tablet.webp": {
+    "src": "/images/optimized/about/partners-tablet.webp",
+    "width": 1400,
+    "height": 788,
+    "bytes": 74094,
+    "sourceBytes": 136240,
+    "variants": [
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/images/optimized/about/partners-tablet-640w.webp",
+        "bytes": 28578
+      }
+    ],
+    "hash": "e82f4996ca5561bf"
+  },
+  "/about/perfume-shop.webp": {
+    "src": "/images/optimized/about/perfume-shop.webp",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 104666,
+    "sourceBytes": 134378,
+    "variants": [
+      {
+        "width": 640,
+        "height": 640,
+        "src": "/images/optimized/about/perfume-shop-640w.webp",
+        "bytes": 42072
+      }
+    ],
+    "hash": "0ba0341d5ac3e561"
+  },
+  "/about/riyadh-window.webp": {
+    "src": "/images/optimized/about/riyadh-window.webp",
+    "width": 1400,
+    "height": 788,
+    "bytes": 58224,
+    "sourceBytes": 101428,
+    "variants": [
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/images/optimized/about/riyadh-window-640w.webp",
+        "bytes": 22610
+      }
+    ],
+    "hash": "aa15311e8345d046"
+  },
+  "/about/shop-owner-phone.webp": {
+    "src": "/images/optimized/about/shop-owner-phone.webp",
+    "width": 1402,
+    "height": 1122,
+    "bytes": 102078,
+    "sourceBytes": 127344,
+    "variants": [
+      {
+        "width": 640,
+        "height": 512,
+        "src": "/images/optimized/about/shop-owner-phone-640w.webp",
+        "bytes": 35244
+      }
+    ],
+    "hash": "f5fc730b3754225a"
+  },
+  "/about/warehouse-desk.webp": {
+    "src": "/images/optimized/about/warehouse-desk.webp",
+    "width": 1452,
+    "height": 968,
+    "bytes": 92406,
+    "sourceBytes": 137880,
+    "variants": [
+      {
+        "width": 640,
+        "height": 427,
+        "src": "/images/optimized/about/warehouse-desk-640w.webp",
+        "bytes": 34100
+      }
+    ],
+    "hash": "12973efbd7db314d"
+  },
+  "/accounting-guide/dashboard.webp": {
+    "src": "/images/optimized/accounting-guide/dashboard.webp",
+    "width": 1555,
+    "height": 748,
+    "bytes": 33198,
+    "sourceBytes": 53196,
+    "variants": [
+      {
+        "width": 640,
+        "height": 308,
+        "src": "/images/optimized/accounting-guide/dashboard-640w.webp",
+        "bytes": 9978
+      },
+      {
+        "width": 1280,
+        "height": 616,
+        "src": "/images/optimized/accounting-guide/dashboard-1280w.webp",
+        "bytes": 23674
+      }
+    ],
+    "hash": "06a934e46ce3c6d8"
+  },
+  "/accounting-guide/excel-templates.webp": {
+    "src": "/images/optimized/accounting-guide/excel-templates.webp",
+    "width": 1020,
+    "height": 623,
+    "bytes": 45408,
+    "sourceBytes": 65040,
+    "variants": [
+      {
+        "width": 640,
+        "height": 391,
+        "src": "/images/optimized/accounting-guide/excel-templates-640w.webp",
+        "bytes": 25798
+      }
+    ],
+    "hash": "e79fe6c7e9b43477"
+  },
+  "/accounting-guide/features-grid.webp": {
+    "src": "/images/optimized/accounting-guide/features-grid.webp",
+    "width": 1224,
+    "height": 1284,
+    "bytes": 52368,
+    "sourceBytes": 70734,
+    "variants": [
+      {
+        "width": 640,
+        "height": 671,
+        "src": "/images/optimized/accounting-guide/features-grid-640w.webp",
+        "bytes": 21082
+      }
+    ],
+    "hash": "6083ed2e643f13ce"
+  },
+  "/accounting-guide/inventory.webp": {
+    "src": "/images/optimized/accounting-guide/inventory.webp",
+    "width": 1600,
+    "height": 801,
+    "bytes": 43148,
+    "sourceBytes": 64938,
+    "variants": [
+      {
+        "width": 640,
+        "height": 320,
+        "src": "/images/optimized/accounting-guide/inventory-640w.webp",
+        "bytes": 13736
+      },
+      {
+        "width": 1280,
+        "height": 641,
+        "src": "/images/optimized/accounting-guide/inventory-1280w.webp",
+        "bytes": 30812
+      }
+    ],
+    "hash": "299dbfddd1b39f65"
+  },
+  "/accounting-guide/overview.webp": {
+    "src": "/images/optimized/accounting-guide/overview.webp",
+    "width": 1483,
+    "height": 742,
+    "bytes": 20014,
+    "sourceBytes": 30782,
+    "variants": [
+      {
+        "width": 640,
+        "height": 320,
+        "src": "/images/optimized/accounting-guide/overview-640w.webp",
+        "bytes": 7214
+      }
+    ],
+    "hash": "24a8f7ea346db6b0"
+  },
+  "/accounting-guide/reports.webp": {
+    "src": "/images/optimized/accounting-guide/reports.webp",
+    "width": 1493,
+    "height": 746,
+    "bytes": 19928,
+    "sourceBytes": 31912,
+    "variants": [
+      {
+        "width": 640,
+        "height": 320,
+        "src": "/images/optimized/accounting-guide/reports-640w.webp",
+        "bytes": 5978
+      }
+    ],
+    "hash": "8a4ca674e7698132"
+  },
+  "/accounting-guide/tax-settings.webp": {
+    "src": "/images/optimized/accounting-guide/tax-settings.webp",
+    "width": 1600,
+    "height": 673,
+    "bytes": 32668,
+    "sourceBytes": 48606,
+    "variants": [
+      {
+        "width": 640,
+        "height": 269,
+        "src": "/images/optimized/accounting-guide/tax-settings-640w.webp",
+        "bytes": 10314
+      },
+      {
+        "width": 1280,
+        "height": 538,
+        "src": "/images/optimized/accounting-guide/tax-settings-1280w.webp",
+        "bytes": 22808
+      }
+    ],
+    "hash": "b888a2bb68130c3f"
+  },
+  "/brand/vom-logo.png": {
+    "src": "/images/optimized/brand/vom-logo.webp",
+    "width": 220,
+    "height": 72,
+    "bytes": 2328,
+    "sourceBytes": 5062,
+    "variants": [],
+    "hash": "2532c2f5e6f45689"
+  },
+  "/campaigns/digital-ads-2023/avatar-23.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/avatar-23.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 5142,
+    "sourceBytes": 70242,
+    "variants": [],
+    "hash": "c18c49510467ca20"
+  },
+  "/campaigns/digital-ads-2023/avatar-25.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/avatar-25.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 2140,
+    "sourceBytes": 39008,
+    "variants": [],
+    "hash": "7e2f696b8ec54fa2"
+  },
+  "/campaigns/digital-ads-2023/avatar-30.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/avatar-30.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 1886,
+    "sourceBytes": 14788,
+    "variants": [],
+    "hash": "6da8a89a2cdaac05"
+  },
+  "/campaigns/digital-ads-2023/avatar-33.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/avatar-33.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 2558,
+    "sourceBytes": 34040,
+    "variants": [],
+    "hash": "7e7a0f5e3a9dffab"
+  },
+  "/campaigns/digital-ads-2023/avatar-8.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/avatar-8.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 2132,
+    "sourceBytes": 14896,
+    "variants": [],
+    "hash": "fa4fee053a55ef5f"
+  },
+  "/campaigns/digital-ads-2023/avatar-abdulaziz.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/avatar-abdulaziz.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3182,
+    "sourceBytes": 26170,
+    "variants": [],
+    "hash": "bfd2887aa087cc06"
+  },
+  "/campaigns/digital-ads-2023/banner.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/banner.webp",
+    "width": 1200,
+    "height": 800,
+    "bytes": 70306,
+    "sourceBytes": 129668,
+    "variants": [
+      {
+        "width": 640,
+        "height": 427,
+        "src": "/images/optimized/campaigns/digital-ads-2023/banner-640w.webp",
+        "bytes": 24200
+      }
+    ],
+    "hash": "58b7497997fd8ead"
+  },
+  "/campaigns/digital-ads-2023/feature-1.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/feature-1.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 4686,
+    "sourceBytes": 35592,
+    "variants": [],
+    "hash": "abdaa539f6e6a897"
+  },
+  "/campaigns/digital-ads-2023/feature-2.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/feature-2.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3536,
+    "sourceBytes": 28306,
+    "variants": [],
+    "hash": "c3424a52f8d3e79e"
+  },
+  "/campaigns/digital-ads-2023/feature-3.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/feature-3.webp",
+    "width": 112,
+    "height": 142,
+    "bytes": 3422,
+    "sourceBytes": 17630,
+    "variants": [],
+    "hash": "73ab70cdade0bf14"
+  },
+  "/campaigns/digital-ads-2023/feature-4.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/feature-4.webp",
+    "width": 112,
+    "height": 104,
+    "bytes": 2100,
+    "sourceBytes": 12574,
+    "variants": [],
+    "hash": "a14b1fb64eb779e8"
+  },
+  "/campaigns/digital-ads-2023/rating.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/rating.webp",
+    "width": 272,
+    "height": 61,
+    "bytes": 3936,
+    "sourceBytes": 6604,
+    "variants": [],
+    "hash": "e18c1fe004bcf4e1"
+  },
+  "/campaigns/digital-ads-2023/round-01.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-01.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 7036,
+    "sourceBytes": 59582,
+    "variants": [],
+    "hash": "9aa6dbe1cd68f691"
+  },
+  "/campaigns/digital-ads-2023/round-02.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-02.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 6570,
+    "sourceBytes": 49130,
+    "variants": [],
+    "hash": "09584883f238b3fa"
+  },
+  "/campaigns/digital-ads-2023/round-03.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-03.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 7580,
+    "sourceBytes": 59456,
+    "variants": [],
+    "hash": "decfd751a408ae21"
+  },
+  "/campaigns/digital-ads-2023/round-04.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-04.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 5680,
+    "sourceBytes": 43536,
+    "variants": [],
+    "hash": "9c6e4c040fcf32b0"
+  },
+  "/campaigns/digital-ads-2023/round-05.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-05.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 6754,
+    "sourceBytes": 51642,
+    "variants": [],
+    "hash": "1f6de3330e985fbc"
+  },
+  "/campaigns/digital-ads-2023/round-06.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-06.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 6594,
+    "sourceBytes": 52230,
+    "variants": [],
+    "hash": "a1de1dcb7301525c"
+  },
+  "/campaigns/digital-ads-2023/round-07.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-07.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 5858,
+    "sourceBytes": 43868,
+    "variants": [],
+    "hash": "dcccf0100b955fb7"
+  },
+  "/campaigns/digital-ads-2023/round-08.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-08.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 7178,
+    "sourceBytes": 53476,
+    "variants": [],
+    "hash": "a06a8986b5e32254"
+  },
+  "/campaigns/digital-ads-2023/round-09.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-09.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 7278,
+    "sourceBytes": 54474,
+    "variants": [],
+    "hash": "34ca5f09f95e0fae"
+  },
+  "/campaigns/digital-ads-2023/round-10.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-10.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 6270,
+    "sourceBytes": 47850,
+    "variants": [],
+    "hash": "e727997425381579"
+  },
+  "/campaigns/digital-ads-2023/round-11.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-11.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 7200,
+    "sourceBytes": 55734,
+    "variants": [],
+    "hash": "9a0c1108c365e100"
+  },
+  "/campaigns/digital-ads-2023/round-12.webp": {
+    "src": "/images/optimized/campaigns/digital-ads-2023/round-12.webp",
+    "width": 208,
+    "height": 208,
+    "bytes": 7112,
+    "sourceBytes": 54694,
+    "variants": [],
+    "hash": "a3d8742494164e70"
+  },
+  "/clients/66-cups.png": {
+    "src": "/images/optimized/clients/66-cups.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 808,
+    "sourceBytes": 2483,
+    "variants": [],
+    "hash": "a4d0521f54a6f032"
+  },
+  "/clients/abajur.png": {
+    "src": "/images/optimized/clients/abajur.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1062,
+    "sourceBytes": 3044,
+    "variants": [],
+    "hash": "88e1d086cc8ca0c7"
+  },
+  "/clients/al-sucre.png": {
+    "src": "/images/optimized/clients/al-sucre.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1710,
+    "sourceBytes": 4012,
+    "variants": [],
+    "hash": "43a940628389a15d"
+  },
+  "/clients/al-suraihi.png": {
+    "src": "/images/optimized/clients/al-suraihi.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1362,
+    "sourceBytes": 3525,
+    "variants": [],
+    "hash": "36b5ead09f7583d0"
+  },
+  "/clients/arkan-al-tasmeem.png": {
+    "src": "/images/optimized/clients/arkan-al-tasmeem.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 824,
+    "sourceBytes": 2738,
+    "variants": [],
+    "hash": "dc780defe9dc1bd6"
+  },
+  "/clients/atmosphere.png": {
+    "src": "/images/optimized/clients/atmosphere.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1242,
+    "sourceBytes": 3266,
+    "variants": [],
+    "hash": "63a97f042979d834"
+  },
+  "/clients/body-soul-mind.png": {
+    "src": "/images/optimized/clients/body-soul-mind.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1160,
+    "sourceBytes": 3187,
+    "variants": [],
+    "hash": "b0ad590f22860a82"
+  },
+  "/clients/bytc.png": {
+    "src": "/images/optimized/clients/bytc.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1130,
+    "sourceBytes": 3427,
+    "variants": [],
+    "hash": "966ae779879d0ff8"
+  },
+  "/clients/cazzela.png": {
+    "src": "/images/optimized/clients/cazzela.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 990,
+    "sourceBytes": 2721,
+    "variants": [],
+    "hash": "059f2dde99091fdd"
+  },
+  "/clients/falafel-hand.png": {
+    "src": "/images/optimized/clients/falafel-hand.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1226,
+    "sourceBytes": 4021,
+    "variants": [],
+    "hash": "9e2e7def4741143f"
+  },
+  "/clients/framboise-olive.png": {
+    "src": "/images/optimized/clients/framboise-olive.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1320,
+    "sourceBytes": 3666,
+    "variants": [],
+    "hash": "f6b8a16110d14274"
+  },
+  "/clients/ganat-alshawerma.png": {
+    "src": "/images/optimized/clients/ganat-alshawerma.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1330,
+    "sourceBytes": 3398,
+    "variants": [],
+    "hash": "9984644afa69eaed"
+  },
+  "/clients/green-fork.png": {
+    "src": "/images/optimized/clients/green-fork.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1350,
+    "sourceBytes": 3551,
+    "variants": [],
+    "hash": "692728b814dd9598"
+  },
+  "/clients/hala-padel.png": {
+    "src": "/images/optimized/clients/hala-padel.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1096,
+    "sourceBytes": 3304,
+    "variants": [],
+    "hash": "552274f4207cd3f7"
+  },
+  "/clients/khat-altashyeed.png": {
+    "src": "/images/optimized/clients/khat-altashyeed.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1354,
+    "sourceBytes": 3884,
+    "variants": [],
+    "hash": "dbe527d706243534"
+  },
+  "/clients/khubza-shawarma.png": {
+    "src": "/images/optimized/clients/khubza-shawarma.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1342,
+    "sourceBytes": 4291,
+    "variants": [],
+    "hash": "24773c45e5f49ef1"
+  },
+  "/clients/koy.png": {
+    "src": "/images/optimized/clients/koy.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1552,
+    "sourceBytes": 3471,
+    "variants": [],
+    "hash": "936d13d7b2cbb524"
+  },
+  "/clients/l-monogram.png": {
+    "src": "/images/optimized/clients/l-monogram.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 504,
+    "sourceBytes": 1988,
+    "variants": [],
+    "hash": "2cc20e1f7192d6bf"
+  },
+  "/clients/laof.png": {
+    "src": "/images/optimized/clients/laof.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1046,
+    "sourceBytes": 4044,
+    "variants": [],
+    "hash": "618f348491aac66b"
+  },
+  "/clients/lucy.png": {
+    "src": "/images/optimized/clients/lucy.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 644,
+    "sourceBytes": 2389,
+    "variants": [],
+    "hash": "8433ce07cbae8acd"
+  },
+  "/clients/mada-hr.png": {
+    "src": "/images/optimized/clients/mada-hr.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1376,
+    "sourceBytes": 3504,
+    "variants": [],
+    "hash": "8ac755da0721f954"
+  },
+  "/clients/meatful.png": {
+    "src": "/images/optimized/clients/meatful.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 966,
+    "sourceBytes": 3340,
+    "variants": [],
+    "hash": "25cd3e525a229a91"
+  },
+  "/clients/midway.png": {
+    "src": "/images/optimized/clients/midway.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1250,
+    "sourceBytes": 3471,
+    "variants": [],
+    "hash": "328af65ab756f999"
+  },
+  "/clients/mieyar.png": {
+    "src": "/images/optimized/clients/mieyar.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1058,
+    "sourceBytes": 2883,
+    "variants": [],
+    "hash": "bd2e53838682eefe"
+  },
+  "/clients/move-it.png": {
+    "src": "/images/optimized/clients/move-it.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1056,
+    "sourceBytes": 3444,
+    "variants": [],
+    "hash": "d0c88ca5e638138e"
+  },
+  "/clients/music-house.png": {
+    "src": "/images/optimized/clients/music-house.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1774,
+    "sourceBytes": 3890,
+    "variants": [],
+    "hash": "ccc1d00bc62a6816"
+  },
+  "/clients/musk-sea.png": {
+    "src": "/images/optimized/clients/musk-sea.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1368,
+    "sourceBytes": 3539,
+    "variants": [],
+    "hash": "155a5bff332e9d0f"
+  },
+  "/clients/nawafeth.png": {
+    "src": "/images/optimized/clients/nawafeth.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1056,
+    "sourceBytes": 3443,
+    "variants": [],
+    "hash": "50b6d197b1e944de"
+  },
+  "/clients/okawa.png": {
+    "src": "/images/optimized/clients/okawa.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1424,
+    "sourceBytes": 3559,
+    "variants": [],
+    "hash": "5b6b0f9ce9cf058a"
+  },
+  "/clients/order.png": {
+    "src": "/images/optimized/clients/order.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1114,
+    "sourceBytes": 3281,
+    "variants": [],
+    "hash": "9cd632bcd37b9e8f"
+  },
+  "/clients/ozzy-cafe.png": {
+    "src": "/images/optimized/clients/ozzy-cafe.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1664,
+    "sourceBytes": 3742,
+    "variants": [],
+    "hash": "3e0489ea414567cf"
+  },
+  "/clients/poem.png": {
+    "src": "/images/optimized/clients/poem.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 994,
+    "sourceBytes": 2930,
+    "variants": [],
+    "hash": "78a7175d1cf64ad9"
+  },
+  "/clients/rubys.png": {
+    "src": "/images/optimized/clients/rubys.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1302,
+    "sourceBytes": 3416,
+    "variants": [],
+    "hash": "93f5ce267247897b"
+  },
+  "/clients/sette.png": {
+    "src": "/images/optimized/clients/sette.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1110,
+    "sourceBytes": 3498,
+    "variants": [],
+    "hash": "a19feb38778be9ca"
+  },
+  "/clients/shawarma-and-sauce.png": {
+    "src": "/images/optimized/clients/shawarma-and-sauce.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1346,
+    "sourceBytes": 3745,
+    "variants": [],
+    "hash": "ea84c1275390686c"
+  },
+  "/clients/shawarma-shuaib.png": {
+    "src": "/images/optimized/clients/shawarma-shuaib.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1394,
+    "sourceBytes": 4208,
+    "variants": [],
+    "hash": "d9b060a5fa877338"
+  },
+  "/clients/sikka-8.png": {
+    "src": "/images/optimized/clients/sikka-8.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1398,
+    "sourceBytes": 3903,
+    "variants": [],
+    "hash": "e895dd844c7341fe"
+  },
+  "/clients/sorour.png": {
+    "src": "/images/optimized/clients/sorour.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1250,
+    "sourceBytes": 3385,
+    "variants": [],
+    "hash": "cce950c8fc3ab450"
+  },
+  "/clients/thalay.png": {
+    "src": "/images/optimized/clients/thalay.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 550,
+    "sourceBytes": 2096,
+    "variants": [],
+    "hash": "85f72a8c4c858861"
+  },
+  "/clients/the-stage.png": {
+    "src": "/images/optimized/clients/the-stage.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1460,
+    "sourceBytes": 3995,
+    "variants": [],
+    "hash": "c8a3fc7572274775"
+  },
+  "/clients/time-entertainment.png": {
+    "src": "/images/optimized/clients/time-entertainment.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1138,
+    "sourceBytes": 3594,
+    "variants": [],
+    "hash": "142d0abf36313694"
+  },
+  "/clients/uncle-khalil.png": {
+    "src": "/images/optimized/clients/uncle-khalil.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 2142,
+    "sourceBytes": 5035,
+    "variants": [],
+    "hash": "605404acc1020781"
+  },
+  "/clients/usool-alruz.png": {
+    "src": "/images/optimized/clients/usool-alruz.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1326,
+    "sourceBytes": 3315,
+    "variants": [],
+    "hash": "0bdb33d426710f50"
+  },
+  "/clients/uvas.png": {
+    "src": "/images/optimized/clients/uvas.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1090,
+    "sourceBytes": 3276,
+    "variants": [],
+    "hash": "30bf3db9d9667412"
+  },
+  "/clients/wahed-kofta.png": {
+    "src": "/images/optimized/clients/wahed-kofta.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1104,
+    "sourceBytes": 3071,
+    "variants": [],
+    "hash": "e3012fba9cb3dc2a"
+  },
+  "/clients/wakad-aljazeera.png": {
+    "src": "/images/optimized/clients/wakad-aljazeera.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1458,
+    "sourceBytes": 4252,
+    "variants": [],
+    "hash": "d121388241a3b5a9"
+  },
+  "/clients/world-gate.png": {
+    "src": "/images/optimized/clients/world-gate.webp",
+    "width": 256,
+    "height": 128,
+    "bytes": 1256,
+    "sourceBytes": 3301,
+    "variants": [],
+    "hash": "7075a6bbd06abfaf"
+  },
+  "/e-invoicing/image-30-png.webp": {
+    "src": "/images/optimized/e-invoicing/image-30-png.webp",
+    "width": 1176,
+    "height": 1069,
+    "bytes": 39810,
+    "sourceBytes": 64748,
+    "variants": [
+      {
+        "width": 640,
+        "height": 582,
+        "src": "/images/optimized/e-invoicing/image-30-png-640w.webp",
+        "bytes": 20694
+      }
+    ],
+    "hash": "65cd16b546a047f6"
+  },
+  "/e-invoicing/image-31-png.webp": {
+    "src": "/images/optimized/e-invoicing/image-31-png.webp",
+    "width": 1360,
+    "height": 1275,
+    "bytes": 39380,
+    "sourceBytes": 58226,
+    "variants": [
+      {
+        "width": 640,
+        "height": 600,
+        "src": "/images/optimized/e-invoicing/image-31-png-640w.webp",
+        "bytes": 17278
+      }
+    ],
+    "hash": "26b234febf473238"
+  },
+  "/e-invoicing/image1-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-1-png.webp",
+    "width": 1102,
+    "height": 586,
+    "bytes": 14158,
+    "sourceBytes": 20838,
+    "variants": [
+      {
+        "width": 640,
+        "height": 340,
+        "src": "/images/optimized/e-invoicing/image1-1-png-640w.webp",
+        "bytes": 6848
+      }
+    ],
+    "hash": "f6e886f2ab548086"
+  },
+  "/e-invoicing/image1-10-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-10-png.webp",
+    "width": 1140,
+    "height": 500,
+    "bytes": 10530,
+    "sourceBytes": 15250,
+    "variants": [
+      {
+        "width": 640,
+        "height": 281,
+        "src": "/images/optimized/e-invoicing/image1-10-png-640w.webp",
+        "bytes": 5830
+      }
+    ],
+    "hash": "d62a8c8dce4ef215"
+  },
+  "/e-invoicing/image1-11-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-11-png.webp",
+    "width": 843,
+    "height": 573,
+    "bytes": 15660,
+    "sourceBytes": 22004,
+    "variants": [
+      {
+        "width": 640,
+        "height": 435,
+        "src": "/images/optimized/e-invoicing/image1-11-png-640w.webp",
+        "bytes": 10280
+      }
+    ],
+    "hash": "7a0bd004249f9ff2"
+  },
+  "/e-invoicing/image1-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-2-png.webp",
+    "width": 551,
+    "height": 358,
+    "bytes": 4826,
+    "sourceBytes": 6782,
+    "variants": [],
+    "hash": "51e3460fa158f561"
+  },
+  "/e-invoicing/image1-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-3-png.webp",
+    "width": 1516,
+    "height": 1603,
+    "bytes": 43536,
+    "sourceBytes": 70412,
+    "variants": [
+      {
+        "width": 640,
+        "height": 677,
+        "src": "/images/optimized/e-invoicing/image1-3-png-640w.webp",
+        "bytes": 17800
+      },
+      {
+        "width": 1280,
+        "height": 1354,
+        "src": "/images/optimized/e-invoicing/image1-3-png-1280w.webp",
+        "bytes": 36634
+      }
+    ],
+    "hash": "4a35629fbb46f233"
+  },
+  "/e-invoicing/image1-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-4-png.webp",
+    "width": 1516,
+    "height": 711,
+    "bytes": 20254,
+    "sourceBytes": 34764,
+    "variants": [
+      {
+        "width": 640,
+        "height": 300,
+        "src": "/images/optimized/e-invoicing/image1-4-png-640w.webp",
+        "bytes": 6456
+      },
+      {
+        "width": 1280,
+        "height": 600,
+        "src": "/images/optimized/e-invoicing/image1-4-png-1280w.webp",
+        "bytes": 16362
+      }
+    ],
+    "hash": "eef2e645aa8a1a42"
+  },
+  "/e-invoicing/image1-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-5-png.webp",
+    "width": 1516,
+    "height": 1454,
+    "bytes": 33586,
+    "sourceBytes": 55646,
+    "variants": [
+      {
+        "width": 640,
+        "height": 614,
+        "src": "/images/optimized/e-invoicing/image1-5-png-640w.webp",
+        "bytes": 14410
+      },
+      {
+        "width": 1280,
+        "height": 1228,
+        "src": "/images/optimized/e-invoicing/image1-5-png-1280w.webp",
+        "bytes": 28216
+      }
+    ],
+    "hash": "2966ed9074252429"
+  },
+  "/e-invoicing/image1-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-6-png.webp",
+    "width": 1261,
+    "height": 563,
+    "bytes": 15100,
+    "sourceBytes": 22830,
+    "variants": [
+      {
+        "width": 640,
+        "height": 286,
+        "src": "/images/optimized/e-invoicing/image1-6-png-640w.webp",
+        "bytes": 6064
+      }
+    ],
+    "hash": "4de26a88217f2a7f"
+  },
+  "/e-invoicing/image1-7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-7-png.webp",
+    "width": 991,
+    "height": 490,
+    "bytes": 11412,
+    "sourceBytes": 16550,
+    "variants": [
+      {
+        "width": 640,
+        "height": 316,
+        "src": "/images/optimized/e-invoicing/image1-7-png-640w.webp",
+        "bytes": 5440
+      }
+    ],
+    "hash": "ca2cf9482544889c"
+  },
+  "/e-invoicing/image1-8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-8-png.webp",
+    "width": 1516,
+    "height": 734,
+    "bytes": 19046,
+    "sourceBytes": 33754,
+    "variants": [
+      {
+        "width": 640,
+        "height": 310,
+        "src": "/images/optimized/e-invoicing/image1-8-png-640w.webp",
+        "bytes": 5908
+      },
+      {
+        "width": 1280,
+        "height": 620,
+        "src": "/images/optimized/e-invoicing/image1-8-png-1280w.webp",
+        "bytes": 15026
+      }
+    ],
+    "hash": "44c65a03a93b3076"
+  },
+  "/e-invoicing/image1-9-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-9-png.webp",
+    "width": 864,
+    "height": 1009,
+    "bytes": 8588,
+    "sourceBytes": 10864,
+    "variants": [
+      {
+        "width": 640,
+        "height": 747,
+        "src": "/images/optimized/e-invoicing/image1-9-png-640w.webp",
+        "bytes": 6032
+      }
+    ],
+    "hash": "a445f61e38a25291"
+  },
+  "/e-invoicing/image1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image1-png.webp",
+    "width": 1516,
+    "height": 1118,
+    "bytes": 33370,
+    "sourceBytes": 54588,
+    "variants": [
+      {
+        "width": 640,
+        "height": 472,
+        "src": "/images/optimized/e-invoicing/image1-png-640w.webp",
+        "bytes": 13832
+      },
+      {
+        "width": 1280,
+        "height": 944,
+        "src": "/images/optimized/e-invoicing/image1-png-1280w.webp",
+        "bytes": 27830
+      }
+    ],
+    "hash": "2251104fdc3f736b"
+  },
+  "/e-invoicing/image10-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-1-png.webp",
+    "width": 1516,
+    "height": 1213,
+    "bytes": 32788,
+    "sourceBytes": 52794,
+    "variants": [
+      {
+        "width": 640,
+        "height": 512,
+        "src": "/images/optimized/e-invoicing/image10-1-png-640w.webp",
+        "bytes": 13368
+      },
+      {
+        "width": 1280,
+        "height": 1024,
+        "src": "/images/optimized/e-invoicing/image10-1-png-1280w.webp",
+        "bytes": 27242
+      }
+    ],
+    "hash": "44272de35674c523"
+  },
+  "/e-invoicing/image10-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-2-png.webp",
+    "width": 829,
+    "height": 377,
+    "bytes": 9052,
+    "sourceBytes": 14350,
+    "variants": [
+      {
+        "width": 640,
+        "height": 291,
+        "src": "/images/optimized/e-invoicing/image10-2-png-640w.webp",
+        "bytes": 6012
+      }
+    ],
+    "hash": "a2bf1eca8b11b7f6"
+  },
+  "/e-invoicing/image10-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-3-png.webp",
+    "width": 1086,
+    "height": 472,
+    "bytes": 22178,
+    "sourceBytes": 46034,
+    "variants": [
+      {
+        "width": 640,
+        "height": 278,
+        "src": "/images/optimized/e-invoicing/image10-3-png-640w.webp",
+        "bytes": 10904
+      }
+    ],
+    "hash": "54214678fb42c0d3"
+  },
+  "/e-invoicing/image10-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-4-png.webp",
+    "width": 1383,
+    "height": 605,
+    "bytes": 16398,
+    "sourceBytes": 24366,
+    "variants": [
+      {
+        "width": 640,
+        "height": 280,
+        "src": "/images/optimized/e-invoicing/image10-4-png-640w.webp",
+        "bytes": 6050
+      }
+    ],
+    "hash": "f9c286ef9873c94d"
+  },
+  "/e-invoicing/image10-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-5-png.webp",
+    "width": 1516,
+    "height": 725,
+    "bytes": 18356,
+    "sourceBytes": 32896,
+    "variants": [
+      {
+        "width": 640,
+        "height": 306,
+        "src": "/images/optimized/e-invoicing/image10-5-png-640w.webp",
+        "bytes": 6082
+      },
+      {
+        "width": 1280,
+        "height": 612,
+        "src": "/images/optimized/e-invoicing/image10-5-png-1280w.webp",
+        "bytes": 14850
+      }
+    ],
+    "hash": "0155efd5d68a7501"
+  },
+  "/e-invoicing/image10-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-6-png.webp",
+    "width": 682,
+    "height": 778,
+    "bytes": 17446,
+    "sourceBytes": 26718,
+    "variants": [],
+    "hash": "2e84949023d7c2cc"
+  },
+  "/e-invoicing/image10-png.webp": {
+    "src": "/images/optimized/e-invoicing/image10-png.webp",
+    "width": 1115,
+    "height": 404,
+    "bytes": 9242,
+    "sourceBytes": 13890,
+    "variants": [
+      {
+        "width": 640,
+        "height": 232,
+        "src": "/images/optimized/e-invoicing/image10-png-640w.webp",
+        "bytes": 4598
+      }
+    ],
+    "hash": "19d452ea07d5b4e6"
+  },
+  "/e-invoicing/image11-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image11-1-png.webp",
+    "width": 1141,
+    "height": 501,
+    "bytes": 12546,
+    "sourceBytes": 19858,
+    "variants": [
+      {
+        "width": 640,
+        "height": 281,
+        "src": "/images/optimized/e-invoicing/image11-1-png-640w.webp",
+        "bytes": 6004
+      }
+    ],
+    "hash": "a6359b4df3222ae1"
+  },
+  "/e-invoicing/image11-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image11-2-png.webp",
+    "width": 1115,
+    "height": 404,
+    "bytes": 9242,
+    "sourceBytes": 13890,
+    "variants": [
+      {
+        "width": 640,
+        "height": 232,
+        "src": "/images/optimized/e-invoicing/image11-2-png-640w.webp",
+        "bytes": 4598
+      }
+    ],
+    "hash": "19d452ea07d5b4e6"
+  },
+  "/e-invoicing/image11-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image11-3-png.webp",
+    "width": 1440,
+    "height": 1224,
+    "bytes": 37368,
+    "sourceBytes": 51072,
+    "variants": [
+      {
+        "width": 640,
+        "height": 544,
+        "src": "/images/optimized/e-invoicing/image11-3-png-640w.webp",
+        "bytes": 13182
+      }
+    ],
+    "hash": "6f09c4211568893d"
+  },
+  "/e-invoicing/image11-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image11-4-png.webp",
+    "width": 1210,
+    "height": 612,
+    "bytes": 16210,
+    "sourceBytes": 22622,
+    "variants": [
+      {
+        "width": 640,
+        "height": 324,
+        "src": "/images/optimized/e-invoicing/image11-4-png-640w.webp",
+        "bytes": 6444
+      }
+    ],
+    "hash": "f23b2dce97a421eb"
+  },
+  "/e-invoicing/image11-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image11-5-png.webp",
+    "width": 976,
+    "height": 522,
+    "bytes": 23196,
+    "sourceBytes": 33324,
+    "variants": [
+      {
+        "width": 640,
+        "height": 342,
+        "src": "/images/optimized/e-invoicing/image11-5-png-640w.webp",
+        "bytes": 12692
+      }
+    ],
+    "hash": "891c96aaea22bcf2"
+  },
+  "/e-invoicing/image11-png.webp": {
+    "src": "/images/optimized/e-invoicing/image11-png.webp",
+    "width": 1089,
+    "height": 321,
+    "bytes": 6358,
+    "sourceBytes": 9290,
+    "variants": [
+      {
+        "width": 640,
+        "height": 189,
+        "src": "/images/optimized/e-invoicing/image11-png-640w.webp",
+        "bytes": 3220
+      }
+    ],
+    "hash": "903cdcecff0a334f"
+  },
+  "/e-invoicing/image12-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image12-1-png.webp",
+    "width": 686,
+    "height": 873,
+    "bytes": 57826,
+    "sourceBytes": 82268,
+    "variants": [],
+    "hash": "6d7a949baa8ef01d"
+  },
+  "/e-invoicing/image12-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image12-2-png.webp",
+    "width": 1516,
+    "height": 1388,
+    "bytes": 31054,
+    "sourceBytes": 48290,
+    "variants": [
+      {
+        "width": 640,
+        "height": 586,
+        "src": "/images/optimized/e-invoicing/image12-2-png-640w.webp",
+        "bytes": 13040
+      },
+      {
+        "width": 1280,
+        "height": 1172,
+        "src": "/images/optimized/e-invoicing/image12-2-png-1280w.webp",
+        "bytes": 25766
+      }
+    ],
+    "hash": "56ca39ee899759e4"
+  },
+  "/e-invoicing/image12-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image12-3-png.webp",
+    "width": 1516,
+    "height": 647,
+    "bytes": 21774,
+    "sourceBytes": 37272,
+    "variants": [
+      {
+        "width": 640,
+        "height": 273,
+        "src": "/images/optimized/e-invoicing/image12-3-png-640w.webp",
+        "bytes": 8132
+      },
+      {
+        "width": 1280,
+        "height": 546,
+        "src": "/images/optimized/e-invoicing/image12-3-png-1280w.webp",
+        "bytes": 18066
+      }
+    ],
+    "hash": "6f0e1dfbe127d6b6"
+  },
+  "/e-invoicing/image12-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image12-4-png.webp",
+    "width": 1516,
+    "height": 643,
+    "bytes": 16002,
+    "sourceBytes": 27884,
+    "variants": [
+      {
+        "width": 640,
+        "height": 272,
+        "src": "/images/optimized/e-invoicing/image12-4-png-640w.webp",
+        "bytes": 5570
+      },
+      {
+        "width": 1280,
+        "height": 543,
+        "src": "/images/optimized/e-invoicing/image12-4-png-1280w.webp",
+        "bytes": 12830
+      }
+    ],
+    "hash": "fc6e9bbad7a902dd"
+  },
+  "/e-invoicing/image12-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image12-5-png.webp",
+    "width": 573,
+    "height": 808,
+    "bytes": 14638,
+    "sourceBytes": 19696,
+    "variants": [],
+    "hash": "cae48b9dea232c49"
+  },
+  "/e-invoicing/image12-png.webp": {
+    "src": "/images/optimized/e-invoicing/image12-png.webp",
+    "width": 1077,
+    "height": 600,
+    "bytes": 15624,
+    "sourceBytes": 26686,
+    "variants": [
+      {
+        "width": 640,
+        "height": 357,
+        "src": "/images/optimized/e-invoicing/image12-png-640w.webp",
+        "bytes": 8234
+      }
+    ],
+    "hash": "5fc98811e2906319"
+  },
+  "/e-invoicing/image13-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image13-1-png.webp",
+    "width": 1141,
+    "height": 501,
+    "bytes": 7508,
+    "sourceBytes": 11032,
+    "variants": [
+      {
+        "width": 640,
+        "height": 281,
+        "src": "/images/optimized/e-invoicing/image13-1-png-640w.webp",
+        "bytes": 4076
+      }
+    ],
+    "hash": "fecbe668839fb599"
+  },
+  "/e-invoicing/image13-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image13-2-png.webp",
+    "width": 1211,
+    "height": 106,
+    "bytes": 5042,
+    "sourceBytes": 7242,
+    "variants": [
+      {
+        "width": 640,
+        "height": 56,
+        "src": "/images/optimized/e-invoicing/image13-2-png-640w.webp",
+        "bytes": 2320
+      }
+    ],
+    "hash": "a5eae35ea1c79d51"
+  },
+  "/e-invoicing/image13-jpg.webp": {
+    "src": "/images/optimized/e-invoicing/image13-jpg.webp",
+    "width": 1516,
+    "height": 1638,
+    "bytes": 83048,
+    "sourceBytes": 163228,
+    "variants": [
+      {
+        "width": 640,
+        "height": 692,
+        "src": "/images/optimized/e-invoicing/image13-jpg-640w.webp",
+        "bytes": 31332
+      },
+      {
+        "width": 1280,
+        "height": 1383,
+        "src": "/images/optimized/e-invoicing/image13-jpg-1280w.webp",
+        "bytes": 68796
+      }
+    ],
+    "hash": "4be060c301739309"
+  },
+  "/e-invoicing/image13-png.webp": {
+    "src": "/images/optimized/e-invoicing/image13-png.webp",
+    "width": 1516,
+    "height": 1208,
+    "bytes": 26468,
+    "sourceBytes": 40038,
+    "variants": [
+      {
+        "width": 640,
+        "height": 510,
+        "src": "/images/optimized/e-invoicing/image13-png-640w.webp",
+        "bytes": 11510
+      },
+      {
+        "width": 1280,
+        "height": 1020,
+        "src": "/images/optimized/e-invoicing/image13-png-1280w.webp",
+        "bytes": 21914
+      }
+    ],
+    "hash": "2d34e8402df382dd"
+  },
+  "/e-invoicing/image14-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image14-1-png.webp",
+    "width": 1516,
+    "height": 741,
+    "bytes": 8240,
+    "sourceBytes": 13840,
+    "variants": [
+      {
+        "width": 640,
+        "height": 313,
+        "src": "/images/optimized/e-invoicing/image14-1-png-640w.webp",
+        "bytes": 2842
+      },
+      {
+        "width": 1280,
+        "height": 626,
+        "src": "/images/optimized/e-invoicing/image14-1-png-1280w.webp",
+        "bytes": 6788
+      }
+    ],
+    "hash": "dc7e6020b7a4ca3d"
+  },
+  "/e-invoicing/image14-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image14-2-png.webp",
+    "width": 1516,
+    "height": 693,
+    "bytes": 19414,
+    "sourceBytes": 34368,
+    "variants": [
+      {
+        "width": 640,
+        "height": 292,
+        "src": "/images/optimized/e-invoicing/image14-2-png-640w.webp",
+        "bytes": 6652
+      },
+      {
+        "width": 1280,
+        "height": 585,
+        "src": "/images/optimized/e-invoicing/image14-2-png-1280w.webp",
+        "bytes": 15694
+      }
+    ],
+    "hash": "2c0ad01acff1cccf"
+  },
+  "/e-invoicing/image14-png.webp": {
+    "src": "/images/optimized/e-invoicing/image14-png.webp",
+    "width": 1516,
+    "height": 1214,
+    "bytes": 32406,
+    "sourceBytes": 52052,
+    "variants": [
+      {
+        "width": 640,
+        "height": 512,
+        "src": "/images/optimized/e-invoicing/image14-png-640w.webp",
+        "bytes": 12804
+      },
+      {
+        "width": 1280,
+        "height": 1025,
+        "src": "/images/optimized/e-invoicing/image14-png-1280w.webp",
+        "bytes": 27248
+      }
+    ],
+    "hash": "6d966812a895ccfe"
+  },
+  "/e-invoicing/image15-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image15-1-png.webp",
+    "width": 1516,
+    "height": 1538,
+    "bytes": 21912,
+    "sourceBytes": 34622,
+    "variants": [
+      {
+        "width": 640,
+        "height": 649,
+        "src": "/images/optimized/e-invoicing/image15-1-png-640w.webp",
+        "bytes": 8472
+      },
+      {
+        "width": 1280,
+        "height": 1298,
+        "src": "/images/optimized/e-invoicing/image15-1-png-1280w.webp",
+        "bytes": 18050
+      }
+    ],
+    "hash": "20e4e812216b729f"
+  },
+  "/e-invoicing/image15-png.webp": {
+    "src": "/images/optimized/e-invoicing/image15-png.webp",
+    "width": 1266,
+    "height": 561,
+    "bytes": 13040,
+    "sourceBytes": 19200,
+    "variants": [
+      {
+        "width": 640,
+        "height": 284,
+        "src": "/images/optimized/e-invoicing/image15-png-640w.webp",
+        "bytes": 5334
+      }
+    ],
+    "hash": "21e47dd1234af0b6"
+  },
+  "/e-invoicing/image16-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image16-1-png.webp",
+    "width": 1210,
+    "height": 651,
+    "bytes": 18132,
+    "sourceBytes": 25620,
+    "variants": [
+      {
+        "width": 640,
+        "height": 344,
+        "src": "/images/optimized/e-invoicing/image16-1-png-640w.webp",
+        "bytes": 7074
+      }
+    ],
+    "hash": "e9256732cdeed4ad"
+  },
+  "/e-invoicing/image16-png.webp": {
+    "src": "/images/optimized/e-invoicing/image16-png.webp",
+    "width": 819,
+    "height": 838,
+    "bytes": 38638,
+    "sourceBytes": 55008,
+    "variants": [
+      {
+        "width": 640,
+        "height": 655,
+        "src": "/images/optimized/e-invoicing/image16-png-640w.webp",
+        "bytes": 24806
+      }
+    ],
+    "hash": "630ba6d53547fc0b"
+  },
+  "/e-invoicing/image17-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image17-1-png.webp",
+    "width": 1516,
+    "height": 1088,
+    "bytes": 32614,
+    "sourceBytes": 53558,
+    "variants": [
+      {
+        "width": 640,
+        "height": 459,
+        "src": "/images/optimized/e-invoicing/image17-1-png-640w.webp",
+        "bytes": 13336
+      },
+      {
+        "width": 1280,
+        "height": 918,
+        "src": "/images/optimized/e-invoicing/image17-1-png-1280w.webp",
+        "bytes": 27224
+      }
+    ],
+    "hash": "aa54e54d9e68f9c6"
+  },
+  "/e-invoicing/image17-png.webp": {
+    "src": "/images/optimized/e-invoicing/image17-png.webp",
+    "width": 707,
+    "height": 896,
+    "bytes": 25646,
+    "sourceBytes": 38526,
+    "variants": [],
+    "hash": "332d3fa3aeddf984"
+  },
+  "/e-invoicing/image18-png.webp": {
+    "src": "/images/optimized/e-invoicing/image18-png.webp",
+    "width": 1250,
+    "height": 543,
+    "bytes": 11266,
+    "sourceBytes": 17266,
+    "variants": [
+      {
+        "width": 640,
+        "height": 278,
+        "src": "/images/optimized/e-invoicing/image18-png-640w.webp",
+        "bytes": 5808
+      }
+    ],
+    "hash": "92707aa46b38ff05"
+  },
+  "/e-invoicing/image19-jpg.webp": {
+    "src": "/images/optimized/e-invoicing/image19-jpg.webp",
+    "width": 1516,
+    "height": 1516,
+    "bytes": 96096,
+    "sourceBytes": 358946,
+    "variants": [
+      {
+        "width": 640,
+        "height": 640,
+        "src": "/images/optimized/e-invoicing/image19-jpg-640w.webp",
+        "bytes": 31784
+      },
+      {
+        "width": 1280,
+        "height": 1280,
+        "src": "/images/optimized/e-invoicing/image19-jpg-1280w.webp",
+        "bytes": 76200
+      }
+    ],
+    "hash": "0fd6d3e81e77aff3"
+  },
+  "/e-invoicing/image2-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-1-png.webp",
+    "width": 1095,
+    "height": 478,
+    "bytes": 8096,
+    "sourceBytes": 11984,
+    "variants": [
+      {
+        "width": 640,
+        "height": 279,
+        "src": "/images/optimized/e-invoicing/image2-1-png-640w.webp",
+        "bytes": 4658
+      }
+    ],
+    "hash": "3c17d5f27e3dbef4"
+  },
+  "/e-invoicing/image2-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-2-png.webp",
+    "width": 1516,
+    "height": 713,
+    "bytes": 39622,
+    "sourceBytes": 68122,
+    "variants": [
+      {
+        "width": 640,
+        "height": 301,
+        "src": "/images/optimized/e-invoicing/image2-2-png-640w.webp",
+        "bytes": 13564
+      },
+      {
+        "width": 1280,
+        "height": 602,
+        "src": "/images/optimized/e-invoicing/image2-2-png-1280w.webp",
+        "bytes": 32588
+      }
+    ],
+    "hash": "4265f8cefc3bd72c"
+  },
+  "/e-invoicing/image2-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-3-png.webp",
+    "width": 1516,
+    "height": 783,
+    "bytes": 23050,
+    "sourceBytes": 36272,
+    "variants": [
+      {
+        "width": 640,
+        "height": 330,
+        "src": "/images/optimized/e-invoicing/image2-3-png-640w.webp",
+        "bytes": 10002
+      },
+      {
+        "width": 1280,
+        "height": 661,
+        "src": "/images/optimized/e-invoicing/image2-3-png-1280w.webp",
+        "bytes": 19418
+      }
+    ],
+    "hash": "b678420fb0f172fd"
+  },
+  "/e-invoicing/image2-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-4-png.webp",
+    "width": 1089,
+    "height": 321,
+    "bytes": 6358,
+    "sourceBytes": 9290,
+    "variants": [
+      {
+        "width": 640,
+        "height": 189,
+        "src": "/images/optimized/e-invoicing/image2-4-png-640w.webp",
+        "bytes": 3220
+      }
+    ],
+    "hash": "903cdcecff0a334f"
+  },
+  "/e-invoicing/image2-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-5-png.webp",
+    "width": 798,
+    "height": 540,
+    "bytes": 24500,
+    "sourceBytes": 31686,
+    "variants": [
+      {
+        "width": 640,
+        "height": 433,
+        "src": "/images/optimized/e-invoicing/image2-5-png-640w.webp",
+        "bytes": 17098
+      }
+    ],
+    "hash": "9a6acc37c7b203f2"
+  },
+  "/e-invoicing/image2-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-6-png.webp",
+    "width": 1210,
+    "height": 619,
+    "bytes": 19004,
+    "sourceBytes": 25730,
+    "variants": [
+      {
+        "width": 640,
+        "height": 327,
+        "src": "/images/optimized/e-invoicing/image2-6-png-640w.webp",
+        "bytes": 7280
+      }
+    ],
+    "hash": "729abe1913757b30"
+  },
+  "/e-invoicing/image2-8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-8-png.webp",
+    "width": 1516,
+    "height": 1001,
+    "bytes": 18842,
+    "sourceBytes": 30176,
+    "variants": [
+      {
+        "width": 640,
+        "height": 422,
+        "src": "/images/optimized/e-invoicing/image2-8-png-640w.webp",
+        "bytes": 7818
+      },
+      {
+        "width": 1280,
+        "height": 845,
+        "src": "/images/optimized/e-invoicing/image2-8-png-1280w.webp",
+        "bytes": 15678
+      }
+    ],
+    "hash": "47f4e8bcd99db4c1"
+  },
+  "/e-invoicing/image2-9-png.webp": {
+    "src": "/images/optimized/e-invoicing/image2-9-png.webp",
+    "width": 1086,
+    "height": 660,
+    "bytes": 19474,
+    "sourceBytes": 28566,
+    "variants": [
+      {
+        "width": 640,
+        "height": 389,
+        "src": "/images/optimized/e-invoicing/image2-9-png-640w.webp",
+        "bytes": 9894
+      }
+    ],
+    "hash": "4225d0824be79706"
+  },
+  "/e-invoicing/image2-jpg.webp": {
+    "src": "/images/optimized/e-invoicing/image2-jpg.webp",
+    "width": 1141,
+    "height": 501,
+    "bytes": 13046,
+    "sourceBytes": 21196,
+    "variants": [
+      {
+        "width": 640,
+        "height": 281,
+        "src": "/images/optimized/e-invoicing/image2-jpg-640w.webp",
+        "bytes": 7050
+      }
+    ],
+    "hash": "4064911a5d5361a5"
+  },
+  "/e-invoicing/image20-png.webp": {
+    "src": "/images/optimized/e-invoicing/image20-png.webp",
+    "width": 1516,
+    "height": 866,
+    "bytes": 14586,
+    "sourceBytes": 23656,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/e-invoicing/image20-png-640w.webp",
+        "bytes": 4282
+      },
+      {
+        "width": 1280,
+        "height": 731,
+        "src": "/images/optimized/e-invoicing/image20-png-1280w.webp",
+        "bytes": 11516
+      }
+    ],
+    "hash": "f6964aa580b48756"
+  },
+  "/e-invoicing/image21-png.webp": {
+    "src": "/images/optimized/e-invoicing/image21-png.webp",
+    "width": 1516,
+    "height": 864,
+    "bytes": 28886,
+    "sourceBytes": 47360,
+    "variants": [
+      {
+        "width": 640,
+        "height": 365,
+        "src": "/images/optimized/e-invoicing/image21-png-640w.webp",
+        "bytes": 9478
+      },
+      {
+        "width": 1280,
+        "height": 730,
+        "src": "/images/optimized/e-invoicing/image21-png-1280w.webp",
+        "bytes": 24286
+      }
+    ],
+    "hash": "3f1e13a044d1d61d"
+  },
+  "/e-invoicing/image22-png.webp": {
+    "src": "/images/optimized/e-invoicing/image22-png.webp",
+    "width": 1516,
+    "height": 181,
+    "bytes": 3832,
+    "sourceBytes": 5820,
+    "variants": [
+      {
+        "width": 640,
+        "height": 77,
+        "src": "/images/optimized/e-invoicing/image22-png-640w.webp",
+        "bytes": 1386
+      },
+      {
+        "width": 1280,
+        "height": 153,
+        "src": "/images/optimized/e-invoicing/image22-png-1280w.webp",
+        "bytes": 3072
+      }
+    ],
+    "hash": "ae9fff3a53181246"
+  },
+  "/e-invoicing/image23-png.webp": {
+    "src": "/images/optimized/e-invoicing/image23-png.webp",
+    "width": 1516,
+    "height": 706,
+    "bytes": 14686,
+    "sourceBytes": 25250,
+    "variants": [
+      {
+        "width": 640,
+        "height": 298,
+        "src": "/images/optimized/e-invoicing/image23-png-640w.webp",
+        "bytes": 4350
+      },
+      {
+        "width": 1280,
+        "height": 596,
+        "src": "/images/optimized/e-invoicing/image23-png-1280w.webp",
+        "bytes": 11738
+      }
+    ],
+    "hash": "351284998f433a11"
+  },
+  "/e-invoicing/image24-png.webp": {
+    "src": "/images/optimized/e-invoicing/image24-png.webp",
+    "width": 1516,
+    "height": 894,
+    "bytes": 18222,
+    "sourceBytes": 29088,
+    "variants": [
+      {
+        "width": 640,
+        "height": 378,
+        "src": "/images/optimized/e-invoicing/image24-png-640w.webp",
+        "bytes": 7680
+      },
+      {
+        "width": 1280,
+        "height": 755,
+        "src": "/images/optimized/e-invoicing/image24-png-1280w.webp",
+        "bytes": 15122
+      }
+    ],
+    "hash": "c9649bd03c1ac5cf"
+  },
+  "/e-invoicing/image25-png.webp": {
+    "src": "/images/optimized/e-invoicing/image25-png.webp",
+    "width": 1516,
+    "height": 1079,
+    "bytes": 23272,
+    "sourceBytes": 36826,
+    "variants": [
+      {
+        "width": 640,
+        "height": 456,
+        "src": "/images/optimized/e-invoicing/image25-png-640w.webp",
+        "bytes": 9616
+      },
+      {
+        "width": 1280,
+        "height": 911,
+        "src": "/images/optimized/e-invoicing/image25-png-1280w.webp",
+        "bytes": 19612
+      }
+    ],
+    "hash": "9076b5f126cd2527"
+  },
+  "/e-invoicing/image26-png.webp": {
+    "src": "/images/optimized/e-invoicing/image26-png.webp",
+    "width": 1516,
+    "height": 699,
+    "bytes": 22532,
+    "sourceBytes": 37338,
+    "variants": [
+      {
+        "width": 640,
+        "height": 295,
+        "src": "/images/optimized/e-invoicing/image26-png-640w.webp",
+        "bytes": 9064
+      },
+      {
+        "width": 1280,
+        "height": 590,
+        "src": "/images/optimized/e-invoicing/image26-png-1280w.webp",
+        "bytes": 18928
+      }
+    ],
+    "hash": "b67d62e4d23ca7ee"
+  },
+  "/e-invoicing/image27-png.webp": {
+    "src": "/images/optimized/e-invoicing/image27-png.webp",
+    "width": 1259,
+    "height": 554,
+    "bytes": 23372,
+    "sourceBytes": 34352,
+    "variants": [
+      {
+        "width": 640,
+        "height": 282,
+        "src": "/images/optimized/e-invoicing/image27-png-640w.webp",
+        "bytes": 10230
+      }
+    ],
+    "hash": "b2befcfc912ccf80"
+  },
+  "/e-invoicing/image28-png.webp": {
+    "src": "/images/optimized/e-invoicing/image28-png.webp",
+    "width": 1516,
+    "height": 1031,
+    "bytes": 21862,
+    "sourceBytes": 34696,
+    "variants": [
+      {
+        "width": 640,
+        "height": 435,
+        "src": "/images/optimized/e-invoicing/image28-png-640w.webp",
+        "bytes": 8104
+      },
+      {
+        "width": 1280,
+        "height": 870,
+        "src": "/images/optimized/e-invoicing/image28-png-1280w.webp",
+        "bytes": 18032
+      }
+    ],
+    "hash": "986f8ccade086004"
+  },
+  "/e-invoicing/image29-png.webp": {
+    "src": "/images/optimized/e-invoicing/image29-png.webp",
+    "width": 1258,
+    "height": 567,
+    "bytes": 13042,
+    "sourceBytes": 19160,
+    "variants": [
+      {
+        "width": 640,
+        "height": 288,
+        "src": "/images/optimized/e-invoicing/image29-png-640w.webp",
+        "bytes": 5640
+      }
+    ],
+    "hash": "423b6d84c8f6bcdc"
+  },
+  "/e-invoicing/image3-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-1-png.webp",
+    "width": 1089,
+    "height": 321,
+    "bytes": 6358,
+    "sourceBytes": 9290,
+    "variants": [
+      {
+        "width": 640,
+        "height": 189,
+        "src": "/images/optimized/e-invoicing/image3-1-png-640w.webp",
+        "bytes": 3220
+      }
+    ],
+    "hash": "903cdcecff0a334f"
+  },
+  "/e-invoicing/image3-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-2-png.webp",
+    "width": 1008,
+    "height": 355,
+    "bytes": 11914,
+    "sourceBytes": 17210,
+    "variants": [
+      {
+        "width": 640,
+        "height": 225,
+        "src": "/images/optimized/e-invoicing/image3-2-png-640w.webp",
+        "bytes": 6418
+      }
+    ],
+    "hash": "573ca5ed637ba8b1"
+  },
+  "/e-invoicing/image3-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-3-png.webp",
+    "width": 1516,
+    "height": 734,
+    "bytes": 27802,
+    "sourceBytes": 47616,
+    "variants": [
+      {
+        "width": 640,
+        "height": 310,
+        "src": "/images/optimized/e-invoicing/image3-3-png-640w.webp",
+        "bytes": 9002
+      },
+      {
+        "width": 1280,
+        "height": 620,
+        "src": "/images/optimized/e-invoicing/image3-3-png-1280w.webp",
+        "bytes": 22386
+      }
+    ],
+    "hash": "7f5e60be5fa5951d"
+  },
+  "/e-invoicing/image3-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-4-png.webp",
+    "width": 1102,
+    "height": 586,
+    "bytes": 14158,
+    "sourceBytes": 20838,
+    "variants": [
+      {
+        "width": 640,
+        "height": 340,
+        "src": "/images/optimized/e-invoicing/image3-4-png-640w.webp",
+        "bytes": 6848
+      }
+    ],
+    "hash": "f6e886f2ab548086"
+  },
+  "/e-invoicing/image3-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-5-png.webp",
+    "width": 725,
+    "height": 752,
+    "bytes": 26830,
+    "sourceBytes": 40610,
+    "variants": [],
+    "hash": "62c4c2441d3b04c2"
+  },
+  "/e-invoicing/image3-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-6-png.webp",
+    "width": 1516,
+    "height": 748,
+    "bytes": 15464,
+    "sourceBytes": 28096,
+    "variants": [
+      {
+        "width": 640,
+        "height": 316,
+        "src": "/images/optimized/e-invoicing/image3-6-png-640w.webp",
+        "bytes": 5136
+      },
+      {
+        "width": 1280,
+        "height": 631,
+        "src": "/images/optimized/e-invoicing/image3-6-png-1280w.webp",
+        "bytes": 12744
+      }
+    ],
+    "hash": "284d07dd26914116"
+  },
+  "/e-invoicing/image3-7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-7-png.webp",
+    "width": 1516,
+    "height": 1424,
+    "bytes": 26258,
+    "sourceBytes": 42520,
+    "variants": [
+      {
+        "width": 640,
+        "height": 601,
+        "src": "/images/optimized/e-invoicing/image3-7-png-640w.webp",
+        "bytes": 11346
+      },
+      {
+        "width": 1280,
+        "height": 1202,
+        "src": "/images/optimized/e-invoicing/image3-7-png-1280w.webp",
+        "bytes": 22390
+      }
+    ],
+    "hash": "82fd9116a53b74f2"
+  },
+  "/e-invoicing/image3-8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-8-png.webp",
+    "width": 1516,
+    "height": 1169,
+    "bytes": 30382,
+    "sourceBytes": 48500,
+    "variants": [
+      {
+        "width": 640,
+        "height": 494,
+        "src": "/images/optimized/e-invoicing/image3-8-png-640w.webp",
+        "bytes": 11990
+      },
+      {
+        "width": 1280,
+        "height": 987,
+        "src": "/images/optimized/e-invoicing/image3-8-png-1280w.webp",
+        "bytes": 25000
+      }
+    ],
+    "hash": "6b414c56d242e568"
+  },
+  "/e-invoicing/image3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image3-png.webp",
+    "width": 1516,
+    "height": 716,
+    "bytes": 13558,
+    "sourceBytes": 21202,
+    "variants": [
+      {
+        "width": 640,
+        "height": 302,
+        "src": "/images/optimized/e-invoicing/image3-png-640w.webp",
+        "bytes": 5262
+      },
+      {
+        "width": 1280,
+        "height": 605,
+        "src": "/images/optimized/e-invoicing/image3-png-1280w.webp",
+        "bytes": 11364
+      }
+    ],
+    "hash": "93410727155e9c1b"
+  },
+  "/e-invoicing/image30-png.webp": {
+    "src": "/images/optimized/e-invoicing/image30-png.webp",
+    "width": 848,
+    "height": 832,
+    "bytes": 45758,
+    "sourceBytes": 67530,
+    "variants": [
+      {
+        "width": 640,
+        "height": 628,
+        "src": "/images/optimized/e-invoicing/image30-png-640w.webp",
+        "bytes": 29236
+      }
+    ],
+    "hash": "af9195d79e48e6da"
+  },
+  "/e-invoicing/image31-png.webp": {
+    "src": "/images/optimized/e-invoicing/image31-png.webp",
+    "width": 1388,
+    "height": 827,
+    "bytes": 12972,
+    "sourceBytes": 17640,
+    "variants": [
+      {
+        "width": 640,
+        "height": 381,
+        "src": "/images/optimized/e-invoicing/image31-png-640w.webp",
+        "bytes": 4018
+      }
+    ],
+    "hash": "e09c0facf8972547"
+  },
+  "/e-invoicing/image32-jpg.webp": {
+    "src": "/images/optimized/e-invoicing/image32-jpg.webp",
+    "width": 1080,
+    "height": 1080,
+    "bytes": 93798,
+    "sourceBytes": 214936,
+    "variants": [
+      {
+        "width": 640,
+        "height": 640,
+        "src": "/images/optimized/e-invoicing/image32-jpg-640w.webp",
+        "bytes": 39894
+      }
+    ],
+    "hash": "e9ca0d65b49bf74d"
+  },
+  "/e-invoicing/image4-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-1-png.webp",
+    "width": 707,
+    "height": 896,
+    "bytes": 25646,
+    "sourceBytes": 38526,
+    "variants": [],
+    "hash": "332d3fa3aeddf984"
+  },
+  "/e-invoicing/image4-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-2-png.webp",
+    "width": 1203,
+    "height": 714,
+    "bytes": 23560,
+    "sourceBytes": 31566,
+    "variants": [
+      {
+        "width": 640,
+        "height": 380,
+        "src": "/images/optimized/e-invoicing/image4-2-png-640w.webp",
+        "bytes": 9938
+      }
+    ],
+    "hash": "2f54e15beb966759"
+  },
+  "/e-invoicing/image4-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-3-png.webp",
+    "width": 1516,
+    "height": 710,
+    "bytes": 36902,
+    "sourceBytes": 62960,
+    "variants": [
+      {
+        "width": 640,
+        "height": 300,
+        "src": "/images/optimized/e-invoicing/image4-3-png-640w.webp",
+        "bytes": 12418
+      },
+      {
+        "width": 1280,
+        "height": 599,
+        "src": "/images/optimized/e-invoicing/image4-3-png-1280w.webp",
+        "bytes": 29998
+      }
+    ],
+    "hash": "9b980b851e0a5e20"
+  },
+  "/e-invoicing/image4-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-4-png.webp",
+    "width": 1516,
+    "height": 1021,
+    "bytes": 24024,
+    "sourceBytes": 37118,
+    "variants": [
+      {
+        "width": 640,
+        "height": 431,
+        "src": "/images/optimized/e-invoicing/image4-4-png-640w.webp",
+        "bytes": 10226
+      },
+      {
+        "width": 1280,
+        "height": 862,
+        "src": "/images/optimized/e-invoicing/image4-4-png-1280w.webp",
+        "bytes": 19966
+      }
+    ],
+    "hash": "58f23c0fbbb4e9ef"
+  },
+  "/e-invoicing/image4-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-6-png.webp",
+    "width": 1210,
+    "height": 646,
+    "bytes": 18000,
+    "sourceBytes": 23980,
+    "variants": [
+      {
+        "width": 640,
+        "height": 342,
+        "src": "/images/optimized/e-invoicing/image4-6-png-640w.webp",
+        "bytes": 8272
+      }
+    ],
+    "hash": "36d6adca0a4eccbd"
+  },
+  "/e-invoicing/image4-7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-7-png.webp",
+    "width": 1516,
+    "height": 1110,
+    "bytes": 26432,
+    "sourceBytes": 42046,
+    "variants": [
+      {
+        "width": 640,
+        "height": 468,
+        "src": "/images/optimized/e-invoicing/image4-7-png-640w.webp",
+        "bytes": 10356
+      },
+      {
+        "width": 1280,
+        "height": 937,
+        "src": "/images/optimized/e-invoicing/image4-7-png-1280w.webp",
+        "bytes": 21868
+      }
+    ],
+    "hash": "3e80d6283be92fd7"
+  },
+  "/e-invoicing/image4-8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-8-png.webp",
+    "width": 1516,
+    "height": 1339,
+    "bytes": 42308,
+    "sourceBytes": 69394,
+    "variants": [
+      {
+        "width": 640,
+        "height": 565,
+        "src": "/images/optimized/e-invoicing/image4-8-png-640w.webp",
+        "bytes": 18182
+      },
+      {
+        "width": 1280,
+        "height": 1130,
+        "src": "/images/optimized/e-invoicing/image4-8-png-1280w.webp",
+        "bytes": 36074
+      }
+    ],
+    "hash": "926f5fb71c645b30"
+  },
+  "/e-invoicing/image4-9-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-9-png.webp",
+    "width": 1516,
+    "height": 1402,
+    "bytes": 20252,
+    "sourceBytes": 33482,
+    "variants": [
+      {
+        "width": 640,
+        "height": 592,
+        "src": "/images/optimized/e-invoicing/image4-9-png-640w.webp",
+        "bytes": 7898
+      },
+      {
+        "width": 1280,
+        "height": 1184,
+        "src": "/images/optimized/e-invoicing/image4-9-png-1280w.webp",
+        "bytes": 16646
+      }
+    ],
+    "hash": "38b46f62e94db167"
+  },
+  "/e-invoicing/image4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image4-png.webp",
+    "width": 1516,
+    "height": 1253,
+    "bytes": 24594,
+    "sourceBytes": 38326,
+    "variants": [
+      {
+        "width": 640,
+        "height": 529,
+        "src": "/images/optimized/e-invoicing/image4-png-640w.webp",
+        "bytes": 9164
+      },
+      {
+        "width": 1280,
+        "height": 1058,
+        "src": "/images/optimized/e-invoicing/image4-png-1280w.webp",
+        "bytes": 20172
+      }
+    ],
+    "hash": "09e9eb6628999451"
+  },
+  "/e-invoicing/image5-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-1-png.webp",
+    "width": 848,
+    "height": 832,
+    "bytes": 45758,
+    "sourceBytes": 67530,
+    "variants": [
+      {
+        "width": 640,
+        "height": 628,
+        "src": "/images/optimized/e-invoicing/image5-1-png-640w.webp",
+        "bytes": 29236
+      }
+    ],
+    "hash": "af9195d79e48e6da"
+  },
+  "/e-invoicing/image5-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-2-png.webp",
+    "width": 702,
+    "height": 844,
+    "bytes": 52744,
+    "sourceBytes": 75302,
+    "variants": [],
+    "hash": "e76417e7ce3a51b9"
+  },
+  "/e-invoicing/image5-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-3-png.webp",
+    "width": 1516,
+    "height": 1253,
+    "bytes": 29154,
+    "sourceBytes": 46670,
+    "variants": [
+      {
+        "width": 640,
+        "height": 529,
+        "src": "/images/optimized/e-invoicing/image5-3-png-640w.webp",
+        "bytes": 10964
+      },
+      {
+        "width": 1280,
+        "height": 1058,
+        "src": "/images/optimized/e-invoicing/image5-3-png-1280w.webp",
+        "bytes": 23804
+      }
+    ],
+    "hash": "2a37098b5058fb7b"
+  },
+  "/e-invoicing/image5-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-4-png.webp",
+    "width": 854,
+    "height": 274,
+    "bytes": 6888,
+    "sourceBytes": 10590,
+    "variants": [
+      {
+        "width": 640,
+        "height": 205,
+        "src": "/images/optimized/e-invoicing/image5-4-png-640w.webp",
+        "bytes": 4330
+      }
+    ],
+    "hash": "4e16e75704dfa04b"
+  },
+  "/e-invoicing/image5-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-5-png.webp",
+    "width": 1258,
+    "height": 543,
+    "bytes": 10614,
+    "sourceBytes": 15532,
+    "variants": [
+      {
+        "width": 640,
+        "height": 276,
+        "src": "/images/optimized/e-invoicing/image5-5-png-640w.webp",
+        "bytes": 5616
+      }
+    ],
+    "hash": "71f8762a1ce6ecc8"
+  },
+  "/e-invoicing/image5-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-6-png.webp",
+    "width": 1082,
+    "height": 473,
+    "bytes": 6722,
+    "sourceBytes": 9972,
+    "variants": [
+      {
+        "width": 640,
+        "height": 280,
+        "src": "/images/optimized/e-invoicing/image5-6-png-640w.webp",
+        "bytes": 3956
+      }
+    ],
+    "hash": "b8d405aa5337c7eb"
+  },
+  "/e-invoicing/image5-7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-7-png.webp",
+    "width": 1076,
+    "height": 726,
+    "bytes": 12162,
+    "sourceBytes": 17084,
+    "variants": [
+      {
+        "width": 640,
+        "height": 432,
+        "src": "/images/optimized/e-invoicing/image5-7-png-640w.webp",
+        "bytes": 6500
+      }
+    ],
+    "hash": "791d998281ef7280"
+  },
+  "/e-invoicing/image5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image5-png.webp",
+    "width": 1036,
+    "height": 1283,
+    "bytes": 24836,
+    "sourceBytes": 53410,
+    "variants": [
+      {
+        "width": 640,
+        "height": 793,
+        "src": "/images/optimized/e-invoicing/image5-png-640w.webp",
+        "bytes": 15802
+      }
+    ],
+    "hash": "27d85155a51258b5"
+  },
+  "/e-invoicing/image6-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image6-1-png.webp",
+    "width": 819,
+    "height": 838,
+    "bytes": 38638,
+    "sourceBytes": 55008,
+    "variants": [
+      {
+        "width": 640,
+        "height": 655,
+        "src": "/images/optimized/e-invoicing/image6-1-png-640w.webp",
+        "bytes": 24806
+      }
+    ],
+    "hash": "630ba6d53547fc0b"
+  },
+  "/e-invoicing/image6-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image6-2-png.webp",
+    "width": 952,
+    "height": 759,
+    "bytes": 31894,
+    "sourceBytes": 45576,
+    "variants": [
+      {
+        "width": 640,
+        "height": 510,
+        "src": "/images/optimized/e-invoicing/image6-2-png-640w.webp",
+        "bytes": 16572
+      }
+    ],
+    "hash": "21a96a73d6d87fc7"
+  },
+  "/e-invoicing/image6-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image6-3-png.webp",
+    "width": 1516,
+    "height": 1118,
+    "bytes": 29176,
+    "sourceBytes": 49416,
+    "variants": [
+      {
+        "width": 640,
+        "height": 472,
+        "src": "/images/optimized/e-invoicing/image6-3-png-640w.webp",
+        "bytes": 12198
+      },
+      {
+        "width": 1280,
+        "height": 944,
+        "src": "/images/optimized/e-invoicing/image6-3-png-1280w.webp",
+        "bytes": 24532
+      }
+    ],
+    "hash": "e7462ac4ef82c1df"
+  },
+  "/e-invoicing/image6-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image6-4-png.webp",
+    "width": 1467,
+    "height": 690,
+    "bytes": 17264,
+    "sourceBytes": 24074,
+    "variants": [
+      {
+        "width": 640,
+        "height": 301,
+        "src": "/images/optimized/e-invoicing/image6-4-png-640w.webp",
+        "bytes": 6128
+      }
+    ],
+    "hash": "d51f14c32fbb0151"
+  },
+  "/e-invoicing/image6-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image6-5-png.webp",
+    "width": 1348,
+    "height": 670,
+    "bytes": 15836,
+    "sourceBytes": 22960,
+    "variants": [
+      {
+        "width": 640,
+        "height": 318,
+        "src": "/images/optimized/e-invoicing/image6-5-png-640w.webp",
+        "bytes": 5660
+      }
+    ],
+    "hash": "5d19ed0cb5047716"
+  },
+  "/e-invoicing/image6-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image6-6-png.webp",
+    "width": 1075,
+    "height": 605,
+    "bytes": 25078,
+    "sourceBytes": 36676,
+    "variants": [
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/images/optimized/e-invoicing/image6-6-png-640w.webp",
+        "bytes": 13448
+      }
+    ],
+    "hash": "79ec2ee4ee3343ab"
+  },
+  "/e-invoicing/image7-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-1-png.webp",
+    "width": 1115,
+    "height": 404,
+    "bytes": 9242,
+    "sourceBytes": 13890,
+    "variants": [
+      {
+        "width": 640,
+        "height": 232,
+        "src": "/images/optimized/e-invoicing/image7-1-png-640w.webp",
+        "bytes": 4598
+      }
+    ],
+    "hash": "19d452ea07d5b4e6"
+  },
+  "/e-invoicing/image7-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-2-png.webp",
+    "width": 1516,
+    "height": 1441,
+    "bytes": 42204,
+    "sourceBytes": 70544,
+    "variants": [
+      {
+        "width": 640,
+        "height": 608,
+        "src": "/images/optimized/e-invoicing/image7-2-png-640w.webp",
+        "bytes": 16682
+      },
+      {
+        "width": 1280,
+        "height": 1217,
+        "src": "/images/optimized/e-invoicing/image7-2-png-1280w.webp",
+        "bytes": 35362
+      }
+    ],
+    "hash": "e7386d460b2cb261"
+  },
+  "/e-invoicing/image7-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-3-png.webp",
+    "width": 1516,
+    "height": 938,
+    "bytes": 29776,
+    "sourceBytes": 47166,
+    "variants": [
+      {
+        "width": 640,
+        "height": 396,
+        "src": "/images/optimized/e-invoicing/image7-3-png-640w.webp",
+        "bytes": 12360
+      },
+      {
+        "width": 1280,
+        "height": 792,
+        "src": "/images/optimized/e-invoicing/image7-3-png-1280w.webp",
+        "bytes": 25092
+      }
+    ],
+    "hash": "ba0e6d78d9a3f309"
+  },
+  "/e-invoicing/image7-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-4-png.webp",
+    "width": 1272,
+    "height": 554,
+    "bytes": 12862,
+    "sourceBytes": 18952,
+    "variants": [
+      {
+        "width": 640,
+        "height": 279,
+        "src": "/images/optimized/e-invoicing/image7-4-png-640w.webp",
+        "bytes": 5340
+      }
+    ],
+    "hash": "fbe2fadc097628c0"
+  },
+  "/e-invoicing/image7-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-6-png.webp",
+    "width": 842,
+    "height": 548,
+    "bytes": 23562,
+    "sourceBytes": 31856,
+    "variants": [
+      {
+        "width": 640,
+        "height": 417,
+        "src": "/images/optimized/e-invoicing/image7-6-png-640w.webp",
+        "bytes": 16242
+      }
+    ],
+    "hash": "689e0c012520499b"
+  },
+  "/e-invoicing/image7-7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-7-png.webp",
+    "width": 1516,
+    "height": 754,
+    "bytes": 19364,
+    "sourceBytes": 33176,
+    "variants": [
+      {
+        "width": 640,
+        "height": 318,
+        "src": "/images/optimized/e-invoicing/image7-7-png-640w.webp",
+        "bytes": 6164
+      },
+      {
+        "width": 1280,
+        "height": 637,
+        "src": "/images/optimized/e-invoicing/image7-7-png-1280w.webp",
+        "bytes": 15684
+      }
+    ],
+    "hash": "42cfb2abc16016db"
+  },
+  "/e-invoicing/image7-8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-8-png.webp",
+    "width": 828,
+    "height": 768,
+    "bytes": 22868,
+    "sourceBytes": 34612,
+    "variants": [
+      {
+        "width": 640,
+        "height": 594,
+        "src": "/images/optimized/e-invoicing/image7-8-png-640w.webp",
+        "bytes": 15856
+      }
+    ],
+    "hash": "a81ef64e3dbed36e"
+  },
+  "/e-invoicing/image7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image7-png.webp",
+    "width": 1102,
+    "height": 586,
+    "bytes": 14158,
+    "sourceBytes": 20838,
+    "variants": [
+      {
+        "width": 640,
+        "height": 340,
+        "src": "/images/optimized/e-invoicing/image7-png-640w.webp",
+        "bytes": 6848
+      }
+    ],
+    "hash": "f6e886f2ab548086"
+  },
+  "/e-invoicing/image8-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-1-png.webp",
+    "width": 1080,
+    "height": 594,
+    "bytes": 22418,
+    "sourceBytes": 32526,
+    "variants": [
+      {
+        "width": 640,
+        "height": 352,
+        "src": "/images/optimized/e-invoicing/image8-1-png-640w.webp",
+        "bytes": 12396
+      }
+    ],
+    "hash": "f53deeb67a015faf"
+  },
+  "/e-invoicing/image8-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-2-png.webp",
+    "width": 846,
+    "height": 319,
+    "bytes": 7850,
+    "sourceBytes": 12682,
+    "variants": [
+      {
+        "width": 640,
+        "height": 241,
+        "src": "/images/optimized/e-invoicing/image8-2-png-640w.webp",
+        "bytes": 5068
+      }
+    ],
+    "hash": "199e4bd7056c6bd3"
+  },
+  "/e-invoicing/image8-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-3-png.webp",
+    "width": 1516,
+    "height": 734,
+    "bytes": 23600,
+    "sourceBytes": 39548,
+    "variants": [
+      {
+        "width": 640,
+        "height": 310,
+        "src": "/images/optimized/e-invoicing/image8-3-png-640w.webp",
+        "bytes": 8826
+      },
+      {
+        "width": 1280,
+        "height": 620,
+        "src": "/images/optimized/e-invoicing/image8-3-png-1280w.webp",
+        "bytes": 18908
+      }
+    ],
+    "hash": "99dc9428456c5d10"
+  },
+  "/e-invoicing/image8-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-4-png.webp",
+    "width": 1090,
+    "height": 489,
+    "bytes": 31232,
+    "sourceBytes": 47518,
+    "variants": [
+      {
+        "width": 640,
+        "height": 287,
+        "src": "/images/optimized/e-invoicing/image8-4-png-640w.webp",
+        "bytes": 16836
+      }
+    ],
+    "hash": "821a38a5b8fd8ddf"
+  },
+  "/e-invoicing/image8-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-5-png.webp",
+    "width": 1210,
+    "height": 526,
+    "bytes": 79142,
+    "sourceBytes": 101826,
+    "variants": [
+      {
+        "width": 640,
+        "height": 278,
+        "src": "/images/optimized/e-invoicing/image8-5-png-640w.webp",
+        "bytes": 30194
+      }
+    ],
+    "hash": "aaafe1e72f0675dd"
+  },
+  "/e-invoicing/image8-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-6-png.webp",
+    "width": 1516,
+    "height": 1252,
+    "bytes": 26318,
+    "sourceBytes": 41668,
+    "variants": [
+      {
+        "width": 640,
+        "height": 528,
+        "src": "/images/optimized/e-invoicing/image8-6-png-640w.webp",
+        "bytes": 11200
+      },
+      {
+        "width": 1280,
+        "height": 1057,
+        "src": "/images/optimized/e-invoicing/image8-6-png-1280w.webp",
+        "bytes": 22268
+      }
+    ],
+    "hash": "a4614ae5bc2d2c71"
+  },
+  "/e-invoicing/image8-jpg.webp": {
+    "src": "/images/optimized/e-invoicing/image8-jpg.webp",
+    "width": 1000,
+    "height": 600,
+    "bytes": 7246,
+    "sourceBytes": 11292,
+    "variants": [
+      {
+        "width": 640,
+        "height": 384,
+        "src": "/images/optimized/e-invoicing/image8-jpg-640w.webp",
+        "bytes": 4340
+      }
+    ],
+    "hash": "262b59cbbfc25c03"
+  },
+  "/e-invoicing/image8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image8-png.webp",
+    "width": 1393,
+    "height": 468,
+    "bytes": 18082,
+    "sourceBytes": 25652,
+    "variants": [
+      {
+        "width": 640,
+        "height": 215,
+        "src": "/images/optimized/e-invoicing/image8-png-640w.webp",
+        "bytes": 6522
+      }
+    ],
+    "hash": "9ae95940e305b2fe"
+  },
+  "/e-invoicing/image9-1-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-1-png.webp",
+    "width": 1516,
+    "height": 1169,
+    "bytes": 23224,
+    "sourceBytes": 35658,
+    "variants": [
+      {
+        "width": 640,
+        "height": 494,
+        "src": "/images/optimized/e-invoicing/image9-1-png-640w.webp",
+        "bytes": 9840
+      },
+      {
+        "width": 1280,
+        "height": 987,
+        "src": "/images/optimized/e-invoicing/image9-1-png-1280w.webp",
+        "bytes": 19248
+      }
+    ],
+    "hash": "1775e0eacd39c4d0"
+  },
+  "/e-invoicing/image9-2-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-2-png.webp",
+    "width": 1516,
+    "height": 1400,
+    "bytes": 34046,
+    "sourceBytes": 51480,
+    "variants": [
+      {
+        "width": 640,
+        "height": 591,
+        "src": "/images/optimized/e-invoicing/image9-2-png-640w.webp",
+        "bytes": 14222
+      },
+      {
+        "width": 1280,
+        "height": 1182,
+        "src": "/images/optimized/e-invoicing/image9-2-png-1280w.webp",
+        "bytes": 28492
+      }
+    ],
+    "hash": "7ccbe55d78e1501d"
+  },
+  "/e-invoicing/image9-3-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-3-png.webp",
+    "width": 1102,
+    "height": 586,
+    "bytes": 14158,
+    "sourceBytes": 20838,
+    "variants": [
+      {
+        "width": 640,
+        "height": 340,
+        "src": "/images/optimized/e-invoicing/image9-3-png-640w.webp",
+        "bytes": 6848
+      }
+    ],
+    "hash": "f6e886f2ab548086"
+  },
+  "/e-invoicing/image9-4-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-4-png.webp",
+    "width": 852,
+    "height": 348,
+    "bytes": 8166,
+    "sourceBytes": 12374,
+    "variants": [
+      {
+        "width": 640,
+        "height": 261,
+        "src": "/images/optimized/e-invoicing/image9-4-png-640w.webp",
+        "bytes": 4912
+      }
+    ],
+    "hash": "949c5fd5e8c61d6d"
+  },
+  "/e-invoicing/image9-5-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-5-png.webp",
+    "width": 1115,
+    "height": 404,
+    "bytes": 9242,
+    "sourceBytes": 13890,
+    "variants": [
+      {
+        "width": 640,
+        "height": 232,
+        "src": "/images/optimized/e-invoicing/image9-5-png-640w.webp",
+        "bytes": 4598
+      }
+    ],
+    "hash": "19d452ea07d5b4e6"
+  },
+  "/e-invoicing/image9-6-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-6-png.webp",
+    "width": 1086,
+    "height": 483,
+    "bytes": 25050,
+    "sourceBytes": 38230,
+    "variants": [
+      {
+        "width": 640,
+        "height": 285,
+        "src": "/images/optimized/e-invoicing/image9-6-png-640w.webp",
+        "bytes": 12620
+      }
+    ],
+    "hash": "130dd04603d586de"
+  },
+  "/e-invoicing/image9-7-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-7-png.webp",
+    "width": 1516,
+    "height": 708,
+    "bytes": 9992,
+    "sourceBytes": 15820,
+    "variants": [
+      {
+        "width": 640,
+        "height": 299,
+        "src": "/images/optimized/e-invoicing/image9-7-png-640w.webp",
+        "bytes": 3418
+      },
+      {
+        "width": 1280,
+        "height": 598,
+        "src": "/images/optimized/e-invoicing/image9-7-png-1280w.webp",
+        "bytes": 8288
+      }
+    ],
+    "hash": "fd1e6d43c0fcf3eb"
+  },
+  "/e-invoicing/image9-8-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-8-png.webp",
+    "width": 873,
+    "height": 588,
+    "bytes": 14300,
+    "sourceBytes": 19502,
+    "variants": [
+      {
+        "width": 640,
+        "height": 431,
+        "src": "/images/optimized/e-invoicing/image9-8-png-640w.webp",
+        "bytes": 8976
+      }
+    ],
+    "hash": "1543eef9ae689449"
+  },
+  "/e-invoicing/image9-png.webp": {
+    "src": "/images/optimized/e-invoicing/image9-png.webp",
+    "width": 1516,
+    "height": 1551,
+    "bytes": 34700,
+    "sourceBytes": 56900,
+    "variants": [
+      {
+        "width": 640,
+        "height": 655,
+        "src": "/images/optimized/e-invoicing/image9-png-640w.webp",
+        "bytes": 15086
+      },
+      {
+        "width": 1280,
+        "height": 1310,
+        "src": "/images/optimized/e-invoicing/image9-png-1280w.webp",
+        "bytes": 29456
+      }
+    ],
+    "hash": "a1fb01211dd87eaf"
+  },
+  "/e-invoicing/phase-2-waves.webp": {
+    "src": "/images/optimized/e-invoicing/phase-2-waves.webp",
+    "width": 1036,
+    "height": 3728,
+    "bytes": 216856,
+    "sourceBytes": 252872,
+    "variants": [
+      {
+        "width": 640,
+        "height": 2303,
+        "src": "/images/optimized/e-invoicing/phase-2-waves-640w.webp",
+        "bytes": 104222
+      }
+    ],
+    "hash": "131537664d89981b"
+  },
+  "/e-invoicing/rollout-timeline.webp": {
+    "src": "/images/optimized/e-invoicing/rollout-timeline.webp",
+    "width": 1516,
+    "height": 437,
+    "bytes": 30690,
+    "sourceBytes": 34574,
+    "variants": [
+      {
+        "width": 640,
+        "height": 185,
+        "src": "/images/optimized/e-invoicing/rollout-timeline-640w.webp",
+        "bytes": 10208
+      },
+      {
+        "width": 1280,
+        "height": 369,
+        "src": "/images/optimized/e-invoicing/rollout-timeline-1280w.webp",
+        "bytes": 24802
+      }
+    ],
+    "hash": "b99469d11ee26578"
+  },
+  "/e-invoicing/tax-invoice-b2b.webp": {
+    "src": "/images/optimized/e-invoicing/tax-invoice-b2b.webp",
+    "width": 1516,
+    "height": 1668,
+    "bytes": 74970,
+    "sourceBytes": 135962,
+    "variants": [
+      {
+        "width": 640,
+        "height": 704,
+        "src": "/images/optimized/e-invoicing/tax-invoice-b2b-640w.webp",
+        "bytes": 24872
+      },
+      {
+        "width": 1280,
+        "height": 1408,
+        "src": "/images/optimized/e-invoicing/tax-invoice-b2b-1280w.webp",
+        "bytes": 59918
+      }
+    ],
+    "hash": "5300fa2917ae224d"
+  },
+  "/features/ar/accounting-chart.webp": {
+    "src": "/images/optimized/features/ar/accounting-chart.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 23126,
+    "sourceBytes": 30966,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/accounting-chart-640w.webp",
+        "bytes": 13042
+      }
+    ],
+    "hash": "7dc357c7721fcb1f"
+  },
+  "/features/ar/accounting-entries.webp": {
+    "src": "/images/optimized/features/ar/accounting-entries.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 35920,
+    "sourceBytes": 48902,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/accounting-entries-640w.webp",
+        "bytes": 19400
+      }
+    ],
+    "hash": "8de96cd35714fd43"
+  },
+  "/features/ar/dashboard-home.webp": {
+    "src": "/images/optimized/features/ar/dashboard-home.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 34376,
+    "sourceBytes": 45272,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/dashboard-home-640w.webp",
+        "bytes": 18252
+      }
+    ],
+    "hash": "f22a0819c06f4821"
+  },
+  "/features/ar/hr-payroll-v2.webp": {
+    "src": "/images/optimized/features/ar/hr-payroll-v2.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 11362,
+    "sourceBytes": 14998,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/hr-payroll-v2-640w.webp",
+        "bytes": 6576
+      }
+    ],
+    "hash": "264403008e066386"
+  },
+  "/features/ar/inventory-transfer.webp": {
+    "src": "/images/optimized/features/ar/inventory-transfer.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 10746,
+    "sourceBytes": 14554,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/inventory-transfer-640w.webp",
+        "bytes": 5812
+      }
+    ],
+    "hash": "19c97a3a7981a909"
+  },
+  "/features/ar/inventory-warehouses.webp": {
+    "src": "/images/optimized/features/ar/inventory-warehouses.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 12304,
+    "sourceBytes": 15858,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/inventory-warehouses-640w.webp",
+        "bytes": 6870
+      }
+    ],
+    "hash": "1860ca7e1aacedc2"
+  },
+  "/features/ar/permissions-roles.webp": {
+    "src": "/images/optimized/features/ar/permissions-roles.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 23144,
+    "sourceBytes": 31230,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/permissions-roles-640w.webp",
+        "bytes": 12524
+      }
+    ],
+    "hash": "39efb31ec3606535"
+  },
+  "/features/ar/purchases-bill-new.webp": {
+    "src": "/images/optimized/features/ar/purchases-bill-new.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 13750,
+    "sourceBytes": 18534,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/purchases-bill-new-640w.webp",
+        "bytes": 7438
+      }
+    ],
+    "hash": "0429e3cc5004a72a"
+  },
+  "/features/ar/purchases-bills.webp": {
+    "src": "/images/optimized/features/ar/purchases-bills.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 33040,
+    "sourceBytes": 42814,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/purchases-bills-640w.webp",
+        "bytes": 18584
+      }
+    ],
+    "hash": "50bec6d667f58063"
+  },
+  "/features/ar/reports-hub.webp": {
+    "src": "/images/optimized/features/ar/reports-hub.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 19074,
+    "sourceBytes": 25628,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/reports-hub-640w.webp",
+        "bytes": 10332
+      }
+    ],
+    "hash": "b017c991760121f3"
+  },
+  "/features/ar/sales-invoices.webp": {
+    "src": "/images/optimized/features/ar/sales-invoices.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 29982,
+    "sourceBytes": 40194,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/sales-invoices-640w.webp",
+        "bytes": 15738
+      }
+    ],
+    "hash": "dff43e5e4a672d93"
+  },
+  "/features/ar/sales-quotation.webp": {
+    "src": "/images/optimized/features/ar/sales-quotation.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 15014,
+    "sourceBytes": 19474,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/sales-quotation-640w.webp",
+        "bytes": 8254
+      }
+    ],
+    "hash": "017b69f75a34eb55"
+  },
+  "/features/ar/templates-design.webp": {
+    "src": "/images/optimized/features/ar/templates-design.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 15330,
+    "sourceBytes": 20596,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/templates-design-640w.webp",
+        "bytes": 8452
+      }
+    ],
+    "hash": "4956b8db5370b7da"
+  },
+  "/features/ar/zatca-taxes-v2.webp": {
+    "src": "/images/optimized/features/ar/zatca-taxes-v2.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 23270,
+    "sourceBytes": 29936,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/ar/zatca-taxes-v2-640w.webp",
+        "bytes": 12482
+      }
+    ],
+    "hash": "cb892f32c6a37e00"
+  },
+  "/features/en/accounting-chart.webp": {
+    "src": "/images/optimized/features/en/accounting-chart.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 28846,
+    "sourceBytes": 38752,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/accounting-chart-640w.webp",
+        "bytes": 15816
+      }
+    ],
+    "hash": "d1e1b15c922357df"
+  },
+  "/features/en/accounting-entries.webp": {
+    "src": "/images/optimized/features/en/accounting-entries.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 29224,
+    "sourceBytes": 38974,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/accounting-entries-640w.webp",
+        "bytes": 14602
+      }
+    ],
+    "hash": "03c849b26492654e"
+  },
+  "/features/en/dashboard-home.webp": {
+    "src": "/images/optimized/features/en/dashboard-home.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 34914,
+    "sourceBytes": 45556,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/dashboard-home-640w.webp",
+        "bytes": 18758
+      }
+    ],
+    "hash": "3b0655cd7dd2d94c"
+  },
+  "/features/en/hr-payroll-v2.webp": {
+    "src": "/images/optimized/features/en/hr-payroll-v2.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 14590,
+    "sourceBytes": 18734,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/hr-payroll-v2-640w.webp",
+        "bytes": 7730
+      }
+    ],
+    "hash": "4f07828dfb49c6a8"
+  },
+  "/features/en/inventory-transfer.webp": {
+    "src": "/images/optimized/features/en/inventory-transfer.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 12660,
+    "sourceBytes": 17824,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/inventory-transfer-640w.webp",
+        "bytes": 6668
+      }
+    ],
+    "hash": "54c5cf02383e71f2"
+  },
+  "/features/en/inventory-warehouses.webp": {
+    "src": "/images/optimized/features/en/inventory-warehouses.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 12254,
+    "sourceBytes": 15556,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/inventory-warehouses-640w.webp",
+        "bytes": 6622
+      }
+    ],
+    "hash": "7e6790f51bb6d227"
+  },
+  "/features/en/permissions-roles.webp": {
+    "src": "/images/optimized/features/en/permissions-roles.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 26182,
+    "sourceBytes": 35540,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/permissions-roles-640w.webp",
+        "bytes": 14214
+      }
+    ],
+    "hash": "942b724117962836"
+  },
+  "/features/en/purchases-bill-new.webp": {
+    "src": "/images/optimized/features/en/purchases-bill-new.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 15106,
+    "sourceBytes": 20832,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/purchases-bill-new-640w.webp",
+        "bytes": 7956
+      }
+    ],
+    "hash": "584d373e7b304723"
+  },
+  "/features/en/purchases-bills.webp": {
+    "src": "/images/optimized/features/en/purchases-bills.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 32842,
+    "sourceBytes": 42860,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/purchases-bills-640w.webp",
+        "bytes": 18024
+      }
+    ],
+    "hash": "baeaab640dce4d6e"
+  },
+  "/features/en/reports-hub.webp": {
+    "src": "/images/optimized/features/en/reports-hub.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 20362,
+    "sourceBytes": 27688,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/reports-hub-640w.webp",
+        "bytes": 10906
+      }
+    ],
+    "hash": "b818bc19650e970b"
+  },
+  "/features/en/sales-invoices.webp": {
+    "src": "/images/optimized/features/en/sales-invoices.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 26608,
+    "sourceBytes": 35344,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/sales-invoices-640w.webp",
+        "bytes": 13752
+      }
+    ],
+    "hash": "b71794bd8859ef4f"
+  },
+  "/features/en/sales-quotation.webp": {
+    "src": "/images/optimized/features/en/sales-quotation.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 17920,
+    "sourceBytes": 23388,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/sales-quotation-640w.webp",
+        "bytes": 9300
+      }
+    ],
+    "hash": "46c6d90fa078f14a"
+  },
+  "/features/en/templates-design.webp": {
+    "src": "/images/optimized/features/en/templates-design.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 18660,
+    "sourceBytes": 24828,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/templates-design-640w.webp",
+        "bytes": 9544
+      }
+    ],
+    "hash": "7dc870b5968ac995"
+  },
+  "/features/en/zatca-taxes-v2.webp": {
+    "src": "/images/optimized/features/en/zatca-taxes-v2.webp",
+    "width": 975,
+    "height": 800,
+    "bytes": 17094,
+    "sourceBytes": 23266,
+    "variants": [
+      {
+        "width": 640,
+        "height": 525,
+        "src": "/images/optimized/features/en/zatca-taxes-v2-640w.webp",
+        "bytes": 10360
+      }
+    ],
+    "hash": "063d98839a0da74c"
+  },
+  "/features/photo-app.webp": {
+    "src": "/images/optimized/features/photo-app.webp",
+    "width": 1568,
+    "height": 1657,
+    "bytes": 87412,
+    "sourceBytes": 149342,
+    "variants": [
+      {
+        "width": 640,
+        "height": 676,
+        "src": "/images/optimized/features/photo-app-640w.webp",
+        "bytes": 27988
+      },
+      {
+        "width": 1280,
+        "height": 1353,
+        "src": "/images/optimized/features/photo-app-1280w.webp",
+        "bytes": 69134
+      }
+    ],
+    "hash": "7bbf314f8f7f3828"
+  },
+  "/features/photo-purchases.webp": {
+    "src": "/images/optimized/features/photo-purchases.webp",
+    "width": 347,
+    "height": 321,
+    "bytes": 10760,
+    "sourceBytes": 14998,
+    "variants": [],
+    "hash": "cab325b03cad0617"
+  },
+  "/features/photo-sales.webp": {
+    "src": "/images/optimized/features/photo-sales.webp",
+    "width": 490,
+    "height": 454,
+    "bytes": 21812,
+    "sourceBytes": 31522,
+    "variants": [],
+    "hash": "a3b1cf707642b07a"
+  },
+  "/features/sales-invoice.webp": {
+    "src": "/images/optimized/features/sales-invoice.webp",
+    "width": 1140,
+    "height": 1651,
+    "bytes": 53284,
+    "sourceBytes": 74634,
+    "variants": [
+      {
+        "width": 640,
+        "height": 927,
+        "src": "/images/optimized/features/sales-invoice-640w.webp",
+        "bytes": 23906
+      }
+    ],
+    "hash": "47353a96ca84984f"
+  },
+  "/growth/hand-growth.png": {
+    "src": "/images/optimized/growth/hand-growth.webp",
+    "width": 1088,
+    "height": 788,
+    "bytes": 42578,
+    "sourceBytes": 967562,
+    "variants": [
+      {
+        "width": 640,
+        "height": 463,
+        "src": "/images/optimized/growth/hand-growth-640w.webp",
+        "bytes": 22652
+      }
+    ],
+    "hash": "d09bb0be4d546031"
+  },
+  "/growth/partners/500-global.png": {
+    "src": "/images/optimized/growth/partners/500-global.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 2754,
+    "sourceBytes": 5815,
+    "variants": [],
+    "hash": "c19a109597a85347"
+  },
+  "/growth/partners/abaad.png": {
+    "src": "/images/optimized/growth/partners/abaad.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3730,
+    "sourceBytes": 9259,
+    "variants": [],
+    "hash": "5a5f03f78cbdc9b7"
+  },
+  "/growth/partners/aramco-entrepreneurship.png": {
+    "src": "/images/optimized/growth/partners/aramco-entrepreneurship.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3844,
+    "sourceBytes": 14113,
+    "variants": [],
+    "hash": "2f8f03669b9bd485"
+  },
+  "/growth/partners/astrolabs.png": {
+    "src": "/images/optimized/growth/partners/astrolabs.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3600,
+    "sourceBytes": 9756,
+    "variants": [],
+    "hash": "3e7efde50966d9c2"
+  },
+  "/growth/partners/fb.png": {
+    "src": "/images/optimized/growth/partners/fb.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 2978,
+    "sourceBytes": 6001,
+    "variants": [],
+    "hash": "5829574b916fcb06"
+  },
+  "/growth/partners/genius.png": {
+    "src": "/images/optimized/growth/partners/genius.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3952,
+    "sourceBytes": 9571,
+    "variants": [],
+    "hash": "ef597d686701b1b2"
+  },
+  "/growth/partners/jovia.png": {
+    "src": "/images/optimized/growth/partners/jovia.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 4268,
+    "sourceBytes": 15123,
+    "variants": [],
+    "hash": "81c640bc69d1c4aa"
+  },
+  "/growth/partners/prince-sultan-fund.png": {
+    "src": "/images/optimized/growth/partners/prince-sultan-fund.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3902,
+    "sourceBytes": 12486,
+    "variants": [],
+    "hash": "f1886acbe982893f"
+  },
+  "/growth/partners/sand.png": {
+    "src": "/images/optimized/growth/partners/sand.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 4416,
+    "sourceBytes": 9928,
+    "variants": [],
+    "hash": "127560f78eedcaba"
+  },
+  "/growth/partners/sharik-hub.png": {
+    "src": "/images/optimized/growth/partners/sharik-hub.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3466,
+    "sourceBytes": 8383,
+    "variants": [],
+    "hash": "c29422d40b49a869"
+  },
+  "/growth/partners/taibah-valley.png": {
+    "src": "/images/optimized/growth/partners/taibah-valley.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 4166,
+    "sourceBytes": 13521,
+    "variants": [],
+    "hash": "f8626a608340c047"
+  },
+  "/growth/partners/the-space.png": {
+    "src": "/images/optimized/growth/partners/the-space.webp",
+    "width": 176,
+    "height": 176,
+    "bytes": 3390,
+    "sourceBytes": 9212,
+    "variants": [],
+    "hash": "a6ef4b6dedd2b69a"
+  },
+  "/home/mobile-app.webp": {
+    "src": "/images/optimized/home/mobile-app.webp",
+    "width": 1028,
+    "height": 1221,
+    "bytes": 75284,
+    "sourceBytes": 104788,
+    "variants": [
+      {
+        "width": 640,
+        "height": 760,
+        "src": "/images/optimized/home/mobile-app-640w.webp",
+        "bytes": 38066
+      }
+    ],
+    "hash": "66815253953d8476"
+  },
+  "/integrations/foodics/icon.png": {
+    "src": "/images/optimized/integrations/foodics/icon.webp",
+    "width": 128,
+    "height": 128,
+    "bytes": 690,
+    "sourceBytes": 1132,
+    "variants": [],
+    "hash": "f020b4af535904b8"
+  },
+  "/integrations/foodics/lockup.png": {
+    "src": "/images/optimized/integrations/foodics/lockup.webp",
+    "width": 662,
+    "height": 88,
+    "bytes": 15916,
+    "sourceBytes": 91508,
+    "variants": [],
+    "hash": "3145c5b6651aeb2d"
+  },
+  "/integrations/foodics/mark.png": {
+    "src": "/images/optimized/integrations/foodics/mark.webp",
+    "width": 506,
+    "height": 69,
+    "bytes": 9576,
+    "sourceBytes": 63782,
+    "variants": [],
+    "hash": "ee174805ce5fc62c"
+  },
+  "/integrations/foodics/poster-short.jpg": {
+    "src": "/images/optimized/integrations/foodics/poster-short.webp",
+    "width": 1108,
+    "height": 623,
+    "bytes": 14912,
+    "sourceBytes": 34200,
+    "variants": [
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/images/optimized/integrations/foodics/poster-short-640w.webp",
+        "bytes": 7246
+      }
+    ],
+    "hash": "9e30ee5470bebc6d"
+  },
+  "/integrations/foodics/poster-tutorial.jpg": {
+    "src": "/images/optimized/integrations/foodics/poster-tutorial.webp",
+    "width": 1108,
+    "height": 618,
+    "bytes": 26256,
+    "sourceBytes": 75580,
+    "variants": [
+      {
+        "width": 640,
+        "height": 357,
+        "src": "/images/optimized/integrations/foodics/poster-tutorial-640w.webp",
+        "bytes": 14186
+      }
+    ],
+    "hash": "4de2e7dfa52b1b8c"
+  },
+  "/integrations/lazywait/icon-v2.png": {
+    "src": "/images/optimized/integrations/lazywait/icon-v2.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 492,
+    "sourceBytes": 7892,
+    "variants": [],
+    "hash": "58ba4da83807f4d0"
+  },
+  "/integrations/lazywait/lockup-v2.png": {
+    "src": "/images/optimized/integrations/lazywait/lockup-v2.webp",
+    "width": 572,
+    "height": 88,
+    "bytes": 15420,
+    "sourceBytes": 55037,
+    "variants": [],
+    "hash": "d0d1fb6776caeb34"
+  },
+  "/integrations/lazywait/mark-v2.png": {
+    "src": "/images/optimized/integrations/lazywait/mark-v2.webp",
+    "width": 292,
+    "height": 72,
+    "bytes": 8182,
+    "sourceBytes": 46006,
+    "variants": [],
+    "hash": "9d96f857acb93292"
+  },
+  "/integrations/marn/icon.png": {
+    "src": "/images/optimized/integrations/marn/icon.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 1254,
+    "sourceBytes": 2302,
+    "variants": [],
+    "hash": "b5cadf27b0298415"
+  },
+  "/integrations/marn/lockup.png": {
+    "src": "/images/optimized/integrations/marn/lockup.webp",
+    "width": 536,
+    "height": 88,
+    "bytes": 11390,
+    "sourceBytes": 40870,
+    "variants": [],
+    "hash": "72e6267b501312a2"
+  },
+  "/integrations/marn/mark.png": {
+    "src": "/images/optimized/integrations/marn/mark.webp",
+    "width": 394,
+    "height": 86,
+    "bytes": 5282,
+    "sourceBytes": 12201,
+    "variants": [],
+    "hash": "c09284c1a82274a6"
+  },
+  "/integrations/marn/poster-short.jpg": {
+    "src": "/images/optimized/integrations/marn/poster-short.webp",
+    "width": 1108,
+    "height": 623,
+    "bytes": 10390,
+    "sourceBytes": 21057,
+    "variants": [
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/images/optimized/integrations/marn/poster-short-640w.webp",
+        "bytes": 6080
+      }
+    ],
+    "hash": "fec336ae2dbcd6d2"
+  },
+  "/integrations/vom-mark.png": {
+    "src": "/images/optimized/integrations/vom-mark.webp",
+    "width": 722,
+    "height": 234,
+    "bytes": 24134,
+    "sourceBytes": 19758,
+    "variants": [
+      {
+        "width": 128,
+        "height": 41,
+        "src": "/images/optimized/integrations/vom-mark-128w.webp",
+        "bytes": 3646
+      }
+    ],
+    "hash": "85f5b64813647a88"
+  },
+  "/integrations/zid/icon.png": {
+    "src": "/images/optimized/integrations/zid/icon.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 956,
+    "sourceBytes": 1813,
+    "variants": [],
+    "hash": "17f9d76af7f1392e"
+  },
+  "/integrations/zid/lockup.png": {
+    "src": "/images/optimized/integrations/zid/lockup.webp",
+    "width": 418,
+    "height": 88,
+    "bytes": 12888,
+    "sourceBytes": 46119,
+    "variants": [],
+    "hash": "9f8dedb55196a654"
+  },
+  "/integrations/zid/mark.png": {
+    "src": "/images/optimized/integrations/zid/mark.webp",
+    "width": 170,
+    "height": 90,
+    "bytes": 6612,
+    "sourceBytes": 18876,
+    "variants": [],
+    "hash": "2bad9ce53aaaa34d"
+  },
+  "/integrations/zid/poster-short.jpg": {
+    "src": "/images/optimized/integrations/zid/poster-short.webp",
+    "width": 1108,
+    "height": 623,
+    "bytes": 10728,
+    "sourceBytes": 21463,
+    "variants": [
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/images/optimized/integrations/zid/poster-short-640w.webp",
+        "bytes": 6196
+      }
+    ],
+    "hash": "12237c2470950271"
+  },
+  "/invoice-templates/business.webp": {
+    "src": "/images/optimized/invoice-templates/business.webp",
+    "width": 692,
+    "height": 970,
+    "bytes": 28078,
+    "sourceBytes": 78774,
+    "variants": [],
+    "hash": "775557777407cde1"
+  },
+  "/invoice-templates/company-quote.webp": {
+    "src": "/images/optimized/invoice-templates/company-quote.webp",
+    "width": 692,
+    "height": 964,
+    "bytes": 24766,
+    "sourceBytes": 75324,
+    "variants": [],
+    "hash": "2837eb11cfa016fd"
+  },
+  "/invoice-templates/e-invoice.webp": {
+    "src": "/images/optimized/invoice-templates/e-invoice.webp",
+    "width": 692,
+    "height": 970,
+    "bytes": 26736,
+    "sourceBytes": 76312,
+    "variants": [],
+    "hash": "e0f48866a0243efa"
+  },
+  "/invoice-templates/hero.webp": {
+    "src": "/images/optimized/invoice-templates/hero.webp",
+    "width": 672,
+    "height": 860,
+    "bytes": 30276,
+    "sourceBytes": 93568,
+    "variants": [],
+    "hash": "e19645154654c775"
+  },
+  "/invoice-templates/quote.webp": {
+    "src": "/images/optimized/invoice-templates/quote.webp",
+    "width": 692,
+    "height": 955,
+    "bytes": 25478,
+    "sourceBytes": 74274,
+    "variants": [],
+    "hash": "5ef549a65f789dce"
+  },
+  "/invoice-templates/sales.webp": {
+    "src": "/images/optimized/invoice-templates/sales.webp",
+    "width": 692,
+    "height": 970,
+    "bytes": 27620,
+    "sourceBytes": 73414,
+    "variants": [],
+    "hash": "f103d328d5a9ace1"
+  },
+  "/invoice-templates/tax.webp": {
+    "src": "/images/optimized/invoice-templates/tax.webp",
+    "width": 692,
+    "height": 970,
+    "bytes": 30240,
+    "sourceBytes": 83196,
+    "variants": [],
+    "hash": "edc1be1a7b57ccee"
+  },
+  "/invoice-templates/vom-invoice.webp": {
+    "src": "/images/optimized/invoice-templates/vom-invoice.webp",
+    "width": 916,
+    "height": 726,
+    "bytes": 29474,
+    "sourceBytes": 53822,
+    "variants": [],
+    "hash": "f231bc1093c83c5e"
+  },
+  "/sectors/beauty/photo.jpg": {
+    "src": "/images/optimized/sectors/beauty/photo.webp",
+    "width": 756,
+    "height": 513,
+    "bytes": 44516,
+    "sourceBytes": 61786,
+    "variants": [
+      {
+        "width": 640,
+        "height": 434,
+        "src": "/images/optimized/sectors/beauty/photo-640w.webp",
+        "bytes": 35168
+      }
+    ],
+    "hash": "84e65a4dee54ad12"
+  },
+  "/sectors/car-care/photo.jpg": {
+    "src": "/images/optimized/sectors/car-care/photo.webp",
+    "width": 769,
+    "height": 526,
+    "bytes": 78768,
+    "sourceBytes": 95774,
+    "variants": [
+      {
+        "width": 640,
+        "height": 438,
+        "src": "/images/optimized/sectors/car-care/photo-640w.webp",
+        "bytes": 59754
+      }
+    ],
+    "hash": "4ed2f91fc34999d5"
+  },
+  "/sectors/childcare/photo.jpg": {
+    "src": "/images/optimized/sectors/childcare/photo.webp",
+    "width": 753,
+    "height": 501,
+    "bytes": 43566,
+    "sourceBytes": 64906,
+    "variants": [
+      {
+        "width": 640,
+        "height": 426,
+        "src": "/images/optimized/sectors/childcare/photo-640w.webp",
+        "bytes": 35060
+      }
+    ],
+    "hash": "9448c053a92e1377"
+  },
+  "/sectors/clients/66-cups.png": {
+    "src": "/images/optimized/sectors/clients/66-cups.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1062,
+    "sourceBytes": 5111,
+    "variants": [],
+    "hash": "db8089ddc4271ad5"
+  },
+  "/sectors/clients/abajur.png": {
+    "src": "/images/optimized/sectors/clients/abajur.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1398,
+    "sourceBytes": 6105,
+    "variants": [],
+    "hash": "28519b0b4f5d75ea"
+  },
+  "/sectors/clients/al-sucre.png": {
+    "src": "/images/optimized/sectors/clients/al-sucre.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 2566,
+    "sourceBytes": 11073,
+    "variants": [],
+    "hash": "1619f99f45d06184"
+  },
+  "/sectors/clients/al-suraihi.png": {
+    "src": "/images/optimized/sectors/clients/al-suraihi.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 2440,
+    "sourceBytes": 8410,
+    "variants": [],
+    "hash": "d1a199daae55782b"
+  },
+  "/sectors/clients/ana-mashi.png": {
+    "src": "/images/optimized/sectors/clients/ana-mashi.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 938,
+    "sourceBytes": 4808,
+    "variants": [],
+    "hash": "11939a3a09e162ca"
+  },
+  "/sectors/clients/arkan-al-tasmeem.png": {
+    "src": "/images/optimized/sectors/clients/arkan-al-tasmeem.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1394,
+    "sourceBytes": 6729,
+    "variants": [],
+    "hash": "f6e09e7c81526dab"
+  },
+  "/sectors/clients/atmosphere.png": {
+    "src": "/images/optimized/sectors/clients/atmosphere.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1320,
+    "sourceBytes": 5731,
+    "variants": [],
+    "hash": "b7b16c916fb2ccc3"
+  },
+  "/sectors/clients/body-soul-mind.png": {
+    "src": "/images/optimized/sectors/clients/body-soul-mind.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1784,
+    "sourceBytes": 9050,
+    "variants": [],
+    "hash": "9c25c893c004bac4"
+  },
+  "/sectors/clients/cazzela.png": {
+    "src": "/images/optimized/sectors/clients/cazzela.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1276,
+    "sourceBytes": 6108,
+    "variants": [],
+    "hash": "ffc39955d8e401a4"
+  },
+  "/sectors/clients/december.png": {
+    "src": "/images/optimized/sectors/clients/december.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1374,
+    "sourceBytes": 14771,
+    "variants": [],
+    "hash": "5111bcb3d1380a2b"
+  },
+  "/sectors/clients/framboise-olive.png": {
+    "src": "/images/optimized/sectors/clients/framboise-olive.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1188,
+    "sourceBytes": 5175,
+    "variants": [],
+    "hash": "8fd4b9eedef032e1"
+  },
+  "/sectors/clients/ganat-alshawerma.png": {
+    "src": "/images/optimized/sectors/clients/ganat-alshawerma.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1610,
+    "sourceBytes": 6671,
+    "variants": [],
+    "hash": "636c91f267b0f657"
+  },
+  "/sectors/clients/green-fork.png": {
+    "src": "/images/optimized/sectors/clients/green-fork.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1758,
+    "sourceBytes": 8457,
+    "variants": [],
+    "hash": "a35385d9674481d6"
+  },
+  "/sectors/clients/hbex.png": {
+    "src": "/images/optimized/sectors/clients/hbex.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1634,
+    "sourceBytes": 8420,
+    "variants": [],
+    "hash": "31550cdfb2b8de28"
+  },
+  "/sectors/clients/homek.png": {
+    "src": "/images/optimized/sectors/clients/homek.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1222,
+    "sourceBytes": 5541,
+    "variants": [],
+    "hash": "f6185dd671631ec4"
+  },
+  "/sectors/clients/khat-altashyeed.png": {
+    "src": "/images/optimized/sectors/clients/khat-altashyeed.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 2202,
+    "sourceBytes": 8593,
+    "variants": [],
+    "hash": "4e70718c683e51a9"
+  },
+  "/sectors/clients/khubza-shawarma.png": {
+    "src": "/images/optimized/sectors/clients/khubza-shawarma.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 2038,
+    "sourceBytes": 13612,
+    "variants": [],
+    "hash": "49e8d2cafcf21c20"
+  },
+  "/sectors/clients/koy.png": {
+    "src": "/images/optimized/sectors/clients/koy.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 2002,
+    "sourceBytes": 7442,
+    "variants": [],
+    "hash": "81765bfe14353b2c"
+  },
+  "/sectors/clients/l-monogram.png": {
+    "src": "/images/optimized/sectors/clients/l-monogram.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 696,
+    "sourceBytes": 3561,
+    "variants": [],
+    "hash": "2b1cbd572f47bc7d"
+  },
+  "/sectors/clients/laof.png": {
+    "src": "/images/optimized/sectors/clients/laof.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1420,
+    "sourceBytes": 10315,
+    "variants": [],
+    "hash": "d6ab2d30a8507a42"
+  },
+  "/sectors/clients/lucy.png": {
+    "src": "/images/optimized/sectors/clients/lucy.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 888,
+    "sourceBytes": 4913,
+    "variants": [],
+    "hash": "388f29bded91de84"
+  },
+  "/sectors/clients/midway.png": {
+    "src": "/images/optimized/sectors/clients/midway.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1592,
+    "sourceBytes": 6845,
+    "variants": [],
+    "hash": "648bbcb6f7892523"
+  },
+  "/sectors/clients/mieyar.png": {
+    "src": "/images/optimized/sectors/clients/mieyar.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1346,
+    "sourceBytes": 6207,
+    "variants": [],
+    "hash": "db56f0f8c7065ba1"
+  },
+  "/sectors/clients/move-it.png": {
+    "src": "/images/optimized/sectors/clients/move-it.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1306,
+    "sourceBytes": 6070,
+    "variants": [],
+    "hash": "739dd5a5f6cde31c"
+  },
+  "/sectors/clients/nawafeth.png": {
+    "src": "/images/optimized/sectors/clients/nawafeth.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1216,
+    "sourceBytes": 7950,
+    "variants": [],
+    "hash": "81fd4a636be78351"
+  },
+  "/sectors/clients/okawa.png": {
+    "src": "/images/optimized/sectors/clients/okawa.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1858,
+    "sourceBytes": 7149,
+    "variants": [],
+    "hash": "5fc5c2d9062b260f"
+  },
+  "/sectors/clients/order.png": {
+    "src": "/images/optimized/sectors/clients/order.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1398,
+    "sourceBytes": 6799,
+    "variants": [],
+    "hash": "746c5b34c01653e1"
+  },
+  "/sectors/clients/out-of-line.png": {
+    "src": "/images/optimized/sectors/clients/out-of-line.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1200,
+    "sourceBytes": 6166,
+    "variants": [],
+    "hash": "febbe96419046b38"
+  },
+  "/sectors/clients/poem.png": {
+    "src": "/images/optimized/sectors/clients/poem.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1184,
+    "sourceBytes": 5268,
+    "variants": [],
+    "hash": "56a9d614eb2f3a1d"
+  },
+  "/sectors/clients/ramah-equestrian.png": {
+    "src": "/images/optimized/sectors/clients/ramah-equestrian.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1986,
+    "sourceBytes": 7937,
+    "variants": [],
+    "hash": "7aee7f13350858ac"
+  },
+  "/sectors/clients/shawarma-and-sauce.png": {
+    "src": "/images/optimized/sectors/clients/shawarma-and-sauce.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1884,
+    "sourceBytes": 9062,
+    "variants": [],
+    "hash": "d4ea9313a7d4cc93"
+  },
+  "/sectors/clients/shawarma-shuaib.png": {
+    "src": "/images/optimized/sectors/clients/shawarma-shuaib.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 2078,
+    "sourceBytes": 12111,
+    "variants": [],
+    "hash": "2646f762a8edb561"
+  },
+  "/sectors/clients/sikka-8.png": {
+    "src": "/images/optimized/sectors/clients/sikka-8.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1954,
+    "sourceBytes": 9622,
+    "variants": [],
+    "hash": "b3d1ec1f5cf53601"
+  },
+  "/sectors/clients/thalay.png": {
+    "src": "/images/optimized/sectors/clients/thalay.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 702,
+    "sourceBytes": 3994,
+    "variants": [],
+    "hash": "f55e6805a9326f8a"
+  },
+  "/sectors/clients/the-stage.png": {
+    "src": "/images/optimized/sectors/clients/the-stage.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 2044,
+    "sourceBytes": 9009,
+    "variants": [],
+    "hash": "825708402f79b1c7"
+  },
+  "/sectors/clients/thura.png": {
+    "src": "/images/optimized/sectors/clients/thura.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1508,
+    "sourceBytes": 14510,
+    "variants": [],
+    "hash": "06d44a4e2c8be33e"
+  },
+  "/sectors/clients/time-entertainment.png": {
+    "src": "/images/optimized/sectors/clients/time-entertainment.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1632,
+    "sourceBytes": 8106,
+    "variants": [],
+    "hash": "3dcd0da92a03b9d7"
+  },
+  "/sectors/clients/uncle-khalil.png": {
+    "src": "/images/optimized/sectors/clients/uncle-khalil.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 3248,
+    "sourceBytes": 15790,
+    "variants": [],
+    "hash": "00c791f0edf814ac"
+  },
+  "/sectors/clients/usool-alruz.png": {
+    "src": "/images/optimized/sectors/clients/usool-alruz.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1546,
+    "sourceBytes": 5975,
+    "variants": [],
+    "hash": "443db8da93c18165"
+  },
+  "/sectors/clients/wahed-kofta.png": {
+    "src": "/images/optimized/sectors/clients/wahed-kofta.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 1394,
+    "sourceBytes": 6229,
+    "variants": [],
+    "hash": "ffa70f2f68287e08"
+  },
+  "/sectors/clients/wakad-aljazeera.png": {
+    "src": "/images/optimized/sectors/clients/wakad-aljazeera.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 2364,
+    "sourceBytes": 10765,
+    "variants": [],
+    "hash": "034be76a01cb5804"
+  },
+  "/sectors/clients/world-gate.png": {
+    "src": "/images/optimized/sectors/clients/world-gate.webp",
+    "width": 206,
+    "height": 206,
+    "bytes": 1936,
+    "sourceBytes": 7897,
+    "variants": [],
+    "hash": "f2c1728f746d7779"
+  },
+  "/sectors/design/photo.jpg": {
+    "src": "/images/optimized/sectors/design/photo.webp",
+    "width": 769,
+    "height": 519,
+    "bytes": 31344,
+    "sourceBytes": 48038,
+    "variants": [
+      {
+        "width": 640,
+        "height": 432,
+        "src": "/images/optimized/sectors/design/photo-640w.webp",
+        "bytes": 23160
+      }
+    ],
+    "hash": "e12694285272542d"
+  },
+  "/sectors/ecommerce/photo.jpg": {
+    "src": "/images/optimized/sectors/ecommerce/photo.webp",
+    "width": 756,
+    "height": 513,
+    "bytes": 24292,
+    "sourceBytes": 40247,
+    "variants": [
+      {
+        "width": 640,
+        "height": 434,
+        "src": "/images/optimized/sectors/ecommerce/photo-640w.webp",
+        "bytes": 19540
+      }
+    ],
+    "hash": "ab27f63b1e454d7e"
+  },
+  "/sectors/gyms/photo.jpg": {
+    "src": "/images/optimized/sectors/gyms/photo.webp",
+    "width": 757,
+    "height": 513,
+    "bytes": 49150,
+    "sourceBytes": 68979,
+    "variants": [
+      {
+        "width": 640,
+        "height": 434,
+        "src": "/images/optimized/sectors/gyms/photo-640w.webp",
+        "bytes": 38036
+      }
+    ],
+    "hash": "dbaf2c430be2fd91"
+  },
+  "/sectors/investment/photo.jpg": {
+    "src": "/images/optimized/sectors/investment/photo.webp",
+    "width": 757,
+    "height": 514,
+    "bytes": 22566,
+    "sourceBytes": 36751,
+    "variants": [
+      {
+        "width": 640,
+        "height": 435,
+        "src": "/images/optimized/sectors/investment/photo-640w.webp",
+        "bytes": 17310
+      }
+    ],
+    "hash": "000e864480571eb2"
+  },
+  "/sectors/law/photo.jpg": {
+    "src": "/images/optimized/sectors/law/photo.webp",
+    "width": 756,
+    "height": 514,
+    "bytes": 26006,
+    "sourceBytes": 42710,
+    "variants": [
+      {
+        "width": 640,
+        "height": 435,
+        "src": "/images/optimized/sectors/law/photo-640w.webp",
+        "bytes": 20096
+      }
+    ],
+    "hash": "e2a23fab12cef0f5"
+  },
+  "/sectors/logistics/photo.jpg": {
+    "src": "/images/optimized/sectors/logistics/photo.webp",
+    "width": 753,
+    "height": 514,
+    "bytes": 56722,
+    "sourceBytes": 80217,
+    "variants": [
+      {
+        "width": 640,
+        "height": 437,
+        "src": "/images/optimized/sectors/logistics/photo-640w.webp",
+        "bytes": 43482
+      }
+    ],
+    "hash": "af58e97fcb667301"
+  },
+  "/sectors/marketing/photo.jpg": {
+    "src": "/images/optimized/sectors/marketing/photo.webp",
+    "width": 769,
+    "height": 528,
+    "bytes": 27418,
+    "sourceBytes": 43660,
+    "variants": [
+      {
+        "width": 640,
+        "height": 439,
+        "src": "/images/optimized/sectors/marketing/photo-640w.webp",
+        "bytes": 20230
+      }
+    ],
+    "hash": "22ce1cbd4a4eb2eb"
+  },
+  "/sectors/perfume/photo.jpg": {
+    "src": "/images/optimized/sectors/perfume/photo.webp",
+    "width": 777,
+    "height": 537,
+    "bytes": 56882,
+    "sourceBytes": 78586,
+    "variants": [
+      {
+        "width": 640,
+        "height": 442,
+        "src": "/images/optimized/sectors/perfume/photo-640w.webp",
+        "bytes": 41718
+      }
+    ],
+    "hash": "d7b338703431f1e3"
+  },
+  "/sectors/printing/photo.jpg": {
+    "src": "/images/optimized/sectors/printing/photo.webp",
+    "width": 753,
+    "height": 514,
+    "bytes": 45316,
+    "sourceBytes": 66805,
+    "variants": [
+      {
+        "width": 640,
+        "height": 437,
+        "src": "/images/optimized/sectors/printing/photo-640w.webp",
+        "bytes": 35312
+      }
+    ],
+    "hash": "009dd288c7e343ee"
+  },
+  "/sectors/reading/accountant-test.jpg": {
+    "src": "/images/optimized/sectors/reading/accountant-test.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 11564,
+    "sourceBytes": 19500,
+    "variants": [],
+    "hash": "285a10041794abf0"
+  },
+  "/sectors/reading/accounting-entries.jpg": {
+    "src": "/images/optimized/sectors/reading/accounting-entries.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 13594,
+    "sourceBytes": 22680,
+    "variants": [],
+    "hash": "af8c53bf031031a8"
+  },
+  "/sectors/reading/accounting-principles.jpg": {
+    "src": "/images/optimized/sectors/reading/accounting-principles.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 10138,
+    "sourceBytes": 22713,
+    "variants": [],
+    "hash": "e66f76af869f185c"
+  },
+  "/sectors/reading/cashier-devices.jpg": {
+    "src": "/images/optimized/sectors/reading/cashier-devices.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 19320,
+    "sourceBytes": 29574,
+    "variants": [],
+    "hash": "2f83329ef2b7e5a7"
+  },
+  "/sectors/reading/cashier-software.jpg": {
+    "src": "/images/optimized/sectors/reading/cashier-software.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 15568,
+    "sourceBytes": 25012,
+    "variants": [],
+    "hash": "06724055bf2765ea"
+  },
+  "/sectors/reading/e-invoice.jpg": {
+    "src": "/images/optimized/sectors/reading/e-invoice.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 12902,
+    "sourceBytes": 21877,
+    "variants": [],
+    "hash": "420cb833f68d8d6b"
+  },
+  "/sectors/reading/fixed-assets.jpg": {
+    "src": "/images/optimized/sectors/reading/fixed-assets.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 13468,
+    "sourceBytes": 24272,
+    "variants": [],
+    "hash": "98a138695ae489e9"
+  },
+  "/sectors/reading/foodics.jpg": {
+    "src": "/images/optimized/sectors/reading/foodics.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 4624,
+    "sourceBytes": 12345,
+    "variants": [],
+    "hash": "4d5248d7f9bc3ed2"
+  },
+  "/sectors/reading/income-statement.jpg": {
+    "src": "/images/optimized/sectors/reading/income-statement.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 11796,
+    "sourceBytes": 22621,
+    "variants": [],
+    "hash": "1b87ee92efdefda4"
+  },
+  "/sectors/reading/journal-entries.jpg": {
+    "src": "/images/optimized/sectors/reading/journal-entries.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 11438,
+    "sourceBytes": 20186,
+    "variants": [],
+    "hash": "ea0950b52a081e24"
+  },
+  "/sectors/reading/paying-taxes.jpg": {
+    "src": "/images/optimized/sectors/reading/paying-taxes.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 12888,
+    "sourceBytes": 21583,
+    "variants": [],
+    "hash": "ed14a6dc8728240f"
+  },
+  "/sectors/reading/receipt-voucher.jpg": {
+    "src": "/images/optimized/sectors/reading/receipt-voucher.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 13400,
+    "sourceBytes": 22564,
+    "variants": [],
+    "hash": "cf74c5efa98be529"
+  },
+  "/sectors/reading/restaurant-invoice.jpg": {
+    "src": "/images/optimized/sectors/reading/restaurant-invoice.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 16326,
+    "sourceBytes": 25813,
+    "variants": [],
+    "hash": "ca8d7001032c78d9"
+  },
+  "/sectors/reading/sales-invoice-design.jpg": {
+    "src": "/images/optimized/sectors/reading/sales-invoice-design.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 17058,
+    "sourceBytes": 26798,
+    "variants": [],
+    "hash": "eb9b3f1eddc523a8"
+  },
+  "/sectors/reading/statement-analysis.jpg": {
+    "src": "/images/optimized/sectors/reading/statement-analysis.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 14520,
+    "sourceBytes": 24516,
+    "variants": [],
+    "hash": "fb2c131efa6c7964"
+  },
+  "/sectors/reading/tax-return.jpg": {
+    "src": "/images/optimized/sectors/reading/tax-return.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 11738,
+    "sourceBytes": 22278,
+    "variants": [],
+    "hash": "419e8a2a337907b0"
+  },
+  "/sectors/reading/zakat-return.jpg": {
+    "src": "/images/optimized/sectors/reading/zakat-return.webp",
+    "width": 640,
+    "height": 366,
+    "bytes": 10792,
+    "sourceBytes": 19368,
+    "variants": [],
+    "hash": "edc107174d2f33dc"
+  },
+  "/sectors/real-estate/photo.jpg": {
+    "src": "/images/optimized/sectors/real-estate/photo.webp",
+    "width": 756,
+    "height": 513,
+    "bytes": 50206,
+    "sourceBytes": 68548,
+    "variants": [
+      {
+        "width": 640,
+        "height": 434,
+        "src": "/images/optimized/sectors/real-estate/photo-640w.webp",
+        "bytes": 37846
+      }
+    ],
+    "hash": "bad2cd79f07052e8"
+  },
+  "/sectors/restaurants/photo.jpg": {
+    "src": "/images/optimized/sectors/restaurants/photo.webp",
+    "width": 643,
+    "height": 440,
+    "bytes": 60868,
+    "sourceBytes": 74338,
+    "variants": [],
+    "hash": "2eaa924ee58fd7c2"
+  },
+  "/sectors/travel/photo.jpg": {
+    "src": "/images/optimized/sectors/travel/photo.webp",
+    "width": 769,
+    "height": 517,
+    "bytes": 67538,
+    "sourceBytes": 79717,
+    "variants": [
+      {
+        "width": 640,
+        "height": 430,
+        "src": "/images/optimized/sectors/travel/photo-640w.webp",
+        "bytes": 49908
+      }
+    ],
+    "hash": "ab1dee1c2f75202e"
+  },
+  "/student-package/benefit-apply.jpg": {
+    "src": "/images/optimized/student-package/benefit-apply.webp",
+    "width": 906,
+    "height": 366,
+    "bytes": 14832,
+    "sourceBytes": 48493,
+    "variants": [],
+    "hash": "7813c26790c91850"
+  },
+  "/student-package/benefit-skills.jpg": {
+    "src": "/images/optimized/student-package/benefit-skills.webp",
+    "width": 906,
+    "height": 366,
+    "bytes": 16186,
+    "sourceBytes": 50699,
+    "variants": [],
+    "hash": "e310f7af906695d3"
+  },
+  "/student-package/benefit-systems.jpg": {
+    "src": "/images/optimized/student-package/benefit-systems.webp",
+    "width": 906,
+    "height": 366,
+    "bytes": 18656,
+    "sourceBytes": 58931,
+    "variants": [],
+    "hash": "25e47af9aca39ae1"
+  },
+  "/team/michael-aswad.jpg": {
+    "src": "/images/optimized/team/michael-aswad.webp",
+    "width": 800,
+    "height": 800,
+    "bytes": 29056,
+    "sourceBytes": 108660,
+    "variants": [],
+    "hash": "9db6ac713ce27d6b"
+  },
+  "/team/noura-alnafea.jpg": {
+    "src": "/images/optimized/team/noura-alnafea.webp",
+    "width": 800,
+    "height": 800,
+    "bytes": 29444,
+    "sourceBytes": 104583,
+    "variants": [],
+    "hash": "cf1ae402f0f968ba"
+  },
+  "/team/yasmine-mokhtar.jpg": {
+    "src": "/images/optimized/team/yasmine-mokhtar.webp",
+    "width": 800,
+    "height": 800,
+    "bytes": 38542,
+    "sourceBytes": 127380,
+    "variants": [],
+    "hash": "aad28579cb36b40e"
+  },
+  "/testimonials/abdulaziz-bin-fahd-v2.webp": {
+    "src": "/images/optimized/testimonials/abdulaziz-bin-fahd-v2.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3050,
+    "sourceBytes": 11116,
+    "variants": [],
+    "hash": "31558d6dfdc437d7"
+  },
+  "/testimonials/abdullah-alshibl.webp": {
+    "src": "/images/optimized/testimonials/abdullah-alshibl.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 2688,
+    "sourceBytes": 10664,
+    "variants": [],
+    "hash": "3ec207f101e60f40"
+  },
+  "/testimonials/daisy-day-care.webp": {
+    "src": "/images/optimized/testimonials/daisy-day-care.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 1290,
+    "sourceBytes": 3962,
+    "variants": [],
+    "hash": "9538d68ea30ed419"
+  },
+  "/testimonials/refd.webp": {
+    "src": "/images/optimized/testimonials/refd.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 1664,
+    "sourceBytes": 4158,
+    "variants": [],
+    "hash": "8fbcef10688dc29c"
+  },
+  "/testimonials/tamheed.webp": {
+    "src": "/images/optimized/testimonials/tamheed.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 2082,
+    "sourceBytes": 5392,
+    "variants": [],
+    "hash": "179211fefa1c84c2"
+  },
+  "/testimonials/time-events.webp": {
+    "src": "/images/optimized/testimonials/time-events.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 1024,
+    "sourceBytes": 1956,
+    "variants": [],
+    "hash": "c6513931ad917869"
+  },
+  "/testimonials/uncle-khalil.webp": {
+    "src": "/images/optimized/testimonials/uncle-khalil.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3854,
+    "sourceBytes": 10714,
+    "variants": [],
+    "hash": "8464ff292b3152ef"
+  },
+  "/tools/discount/cover.webp": {
+    "src": "/images/optimized/tools/discount/cover.webp",
+    "width": 1516,
+    "height": 890,
+    "bytes": 28132,
+    "sourceBytes": 67788,
+    "variants": [
+      {
+        "width": 640,
+        "height": 376,
+        "src": "/images/optimized/tools/discount/cover-640w.webp",
+        "bytes": 10266
+      },
+      {
+        "width": 1280,
+        "height": 751,
+        "src": "/images/optimized/tools/discount/cover-1280w.webp",
+        "bytes": 23188
+      }
+    ],
+    "hash": "b220a9538f7f0e13"
+  },
+  "/tools/margin/cover-v2.webp": {
+    "src": "/images/optimized/tools/margin/cover-v2.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 55276,
+    "sourceBytes": 151962,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/margin/cover-v2-640w.webp",
+        "bytes": 15718
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/margin/cover-v2-1280w.webp",
+        "bytes": 43722
+      }
+    ],
+    "hash": "d9febe32f398452c"
+  },
+  "/tools/salary/body-1.webp": {
+    "src": "/images/optimized/tools/salary/body-1.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 66802,
+    "sourceBytes": 123042,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/salary/body-1-640w.webp",
+        "bytes": 25440
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/salary/body-1-1280w.webp",
+        "bytes": 55122
+      }
+    ],
+    "hash": "8b9e2aee034bac50"
+  },
+  "/tools/salary/body-2.webp": {
+    "src": "/images/optimized/tools/salary/body-2.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 44672,
+    "sourceBytes": 81270,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/salary/body-2-640w.webp",
+        "bytes": 15480
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/salary/body-2-1280w.webp",
+        "bytes": 36014
+      }
+    ],
+    "hash": "d1c7a19c5deeec26"
+  },
+  "/tools/salary/body-3.webp": {
+    "src": "/images/optimized/tools/salary/body-3.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 38152,
+    "sourceBytes": 64392,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/salary/body-3-640w.webp",
+        "bytes": 13044
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/salary/body-3-1280w.webp",
+        "bytes": 30420
+      }
+    ],
+    "hash": "c37adac2be2a5607"
+  },
+  "/tools/salary/body-4.webp": {
+    "src": "/images/optimized/tools/salary/body-4.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 63704,
+    "sourceBytes": 125020,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/salary/body-4-640w.webp",
+        "bytes": 24556
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/salary/body-4-1280w.webp",
+        "bytes": 53846
+      }
+    ],
+    "hash": "a4fa13efa555dca4"
+  },
+  "/tools/salary/body-5.webp": {
+    "src": "/images/optimized/tools/salary/body-5.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 64860,
+    "sourceBytes": 126286,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/salary/body-5-640w.webp",
+        "bytes": 23510
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/salary/body-5-1280w.webp",
+        "bytes": 52038
+      }
+    ],
+    "hash": "45b0b53bd08c3c40"
+  },
+  "/tools/salary/cover-v2.webp": {
+    "src": "/images/optimized/tools/salary/cover-v2.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 27252,
+    "sourceBytes": 87058,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/salary/cover-v2-640w.webp",
+        "bytes": 9874
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/salary/cover-v2-1280w.webp",
+        "bytes": 21894
+      }
+    ],
+    "hash": "297e88ec69b955f3"
+  },
+  "/tools/vat/body-1.webp": {
+    "src": "/images/optimized/tools/vat/body-1.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 65172,
+    "sourceBytes": 130022,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/vat/body-1-640w.webp",
+        "bytes": 23556
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/vat/body-1-1280w.webp",
+        "bytes": 52182
+      }
+    ],
+    "hash": "dfdc4fd79f3db942"
+  },
+  "/tools/vat/cover-v2.webp": {
+    "src": "/images/optimized/tools/vat/cover-v2.webp",
+    "width": 1516,
+    "height": 867,
+    "bytes": 31652,
+    "sourceBytes": 87132,
+    "variants": [
+      {
+        "width": 640,
+        "height": 366,
+        "src": "/images/optimized/tools/vat/cover-v2-640w.webp",
+        "bytes": 11538
+      },
+      {
+        "width": 1280,
+        "height": 732,
+        "src": "/images/optimized/tools/vat/cover-v2-1280w.webp",
+        "bytes": 26114
+      }
+    ],
+    "hash": "1ec41ee433ac0561"
+  },
+  "/tools/zakat-base/body-1.webp": {
+    "src": "/images/optimized/tools/zakat-base/body-1.webp",
+    "width": 1516,
+    "height": 682,
+    "bytes": 38528,
+    "sourceBytes": 64826,
+    "variants": [
+      {
+        "width": 640,
+        "height": 288,
+        "src": "/images/optimized/tools/zakat-base/body-1-640w.webp",
+        "bytes": 15474
+      },
+      {
+        "width": 1280,
+        "height": 576,
+        "src": "/images/optimized/tools/zakat-base/body-1-1280w.webp",
+        "bytes": 32944
+      }
+    ],
+    "hash": "51f81c6e17cbc806"
+  },
+  "/tools/zakat-base/cover-v2.webp": {
+    "src": "/images/optimized/tools/zakat-base/cover-v2.webp",
+    "width": 1516,
+    "height": 666,
+    "bytes": 37508,
+    "sourceBytes": 125310,
+    "variants": [
+      {
+        "width": 640,
+        "height": 281,
+        "src": "/images/optimized/tools/zakat-base/cover-v2-640w.webp",
+        "bytes": 11962
+      },
+      {
+        "width": 1280,
+        "height": 562,
+        "src": "/images/optimized/tools/zakat-base/cover-v2-1280w.webp",
+        "bytes": 30436
+      }
+    ],
+    "hash": "d962598a3b30e381"
+  },
+  "/tools/zakat-company/body-1.webp": {
+    "src": "/images/optimized/tools/zakat-company/body-1.webp",
+    "width": 1516,
+    "height": 1142,
+    "bytes": 12326,
+    "sourceBytes": 19822,
+    "variants": [
+      {
+        "width": 640,
+        "height": 482,
+        "src": "/images/optimized/tools/zakat-company/body-1-640w.webp",
+        "bytes": 4190
+      },
+      {
+        "width": 1280,
+        "height": 964,
+        "src": "/images/optimized/tools/zakat-company/body-1-1280w.webp",
+        "bytes": 9950
+      }
+    ],
+    "hash": "f36859603e7e8034"
+  },
+  "/tools/zakat-company/body-2.webp": {
+    "src": "/images/optimized/tools/zakat-company/body-2.webp",
+    "width": 1516,
+    "height": 1035,
+    "bytes": 23768,
+    "sourceBytes": 40608,
+    "variants": [
+      {
+        "width": 640,
+        "height": 437,
+        "src": "/images/optimized/tools/zakat-company/body-2-640w.webp",
+        "bytes": 9310
+      },
+      {
+        "width": 1280,
+        "height": 874,
+        "src": "/images/optimized/tools/zakat-company/body-2-1280w.webp",
+        "bytes": 19968
+      }
+    ],
+    "hash": "b1c296a7709fb899"
+  },
+  "/tools/zakat-company/body-3.webp": {
+    "src": "/images/optimized/tools/zakat-company/body-3.webp",
+    "width": 1516,
+    "height": 1332,
+    "bytes": 40138,
+    "sourceBytes": 68882,
+    "variants": [
+      {
+        "width": 640,
+        "height": 562,
+        "src": "/images/optimized/tools/zakat-company/body-3-640w.webp",
+        "bytes": 16570
+      },
+      {
+        "width": 1280,
+        "height": 1125,
+        "src": "/images/optimized/tools/zakat-company/body-3-1280w.webp",
+        "bytes": 33570
+      }
+    ],
+    "hash": "752c2dc09b42c30c"
+  },
+  "/tools/zakat-company/body-4.webp": {
+    "src": "/images/optimized/tools/zakat-company/body-4.webp",
+    "width": 1082,
+    "height": 463,
+    "bytes": 11920,
+    "sourceBytes": 19830,
+    "variants": [
+      {
+        "width": 640,
+        "height": 274,
+        "src": "/images/optimized/tools/zakat-company/body-4-640w.webp",
+        "bytes": 6696
+      }
+    ],
+    "hash": "e64b7733c5789442"
+  },
+  "/tools/zakat-company/body-5.webp": {
+    "src": "/images/optimized/tools/zakat-company/body-5.webp",
+    "width": 1516,
+    "height": 682,
+    "bytes": 35550,
+    "sourceBytes": 60420,
+    "variants": [
+      {
+        "width": 640,
+        "height": 288,
+        "src": "/images/optimized/tools/zakat-company/body-5-640w.webp",
+        "bytes": 14166
+      },
+      {
+        "width": 1280,
+        "height": 576,
+        "src": "/images/optimized/tools/zakat-company/body-5-1280w.webp",
+        "bytes": 30242
+      }
+    ],
+    "hash": "24f4071b09a3be4c"
+  },
+  "/tools/zakat-company/cover-v2.webp": {
+    "src": "/images/optimized/tools/zakat-company/cover-v2.webp",
+    "width": 1516,
+    "height": 666,
+    "bytes": 33910,
+    "sourceBytes": 108428,
+    "variants": [
+      {
+        "width": 640,
+        "height": 281,
+        "src": "/images/optimized/tools/zakat-company/cover-v2-640w.webp",
+        "bytes": 12020
+      },
+      {
+        "width": 1280,
+        "height": 562,
+        "src": "/images/optimized/tools/zakat-company/cover-v2-1280w.webp",
+        "bytes": 28218
+      }
+    ],
+    "hash": "644f0d460b3f49fc"
+  },
+  "/tools/zakat/cover.webp": {
+    "src": "/images/optimized/tools/zakat/cover.webp",
+    "width": 1516,
+    "height": 876,
+    "bytes": 28788,
+    "sourceBytes": 73144,
+    "variants": [
+      {
+        "width": 640,
+        "height": 370,
+        "src": "/images/optimized/tools/zakat/cover-640w.webp",
+        "bytes": 10312
+      },
+      {
+        "width": 1280,
+        "height": 740,
+        "src": "/images/optimized/tools/zakat/cover-1280w.webp",
+        "bytes": 23788
+      }
+    ],
+    "hash": "eda2eeb4ba89f124"
+  },
+  "/vom-pay/failure.webp": {
+    "src": "/images/optimized/vom-pay/failure.webp",
+    "width": 416,
+    "height": 571,
+    "bytes": 15914,
+    "sourceBytes": 82650,
+    "variants": [],
+    "hash": "5e723323db76dce6"
+  },
+  "/vom-pay/hero-bg.webp": {
+    "src": "/images/optimized/vom-pay/hero-bg.webp",
+    "width": 1452,
+    "height": 1074,
+    "bytes": 5522,
+    "sourceBytes": 7938,
+    "variants": [
+      {
+        "width": 640,
+        "height": 474,
+        "src": "/images/optimized/vom-pay/hero-bg-640w.webp",
+        "bytes": 1498
+      }
+    ],
+    "hash": "3d68a33d23c9c8b0"
+  },
+  "/vom-pay/icon-ai.webp": {
+    "src": "/images/optimized/vom-pay/icon-ai.webp",
+    "width": 96,
+    "height": 111,
+    "bytes": 4418,
+    "sourceBytes": 22512,
+    "variants": [],
+    "hash": "695922449cb455dc"
+  },
+  "/vom-pay/icon-compliance.webp": {
+    "src": "/images/optimized/vom-pay/icon-compliance.webp",
+    "width": 96,
+    "height": 96,
+    "bytes": 3600,
+    "sourceBytes": 17974,
+    "variants": [],
+    "hash": "24fe7b006b83d2de"
+  },
+  "/vom-pay/icon-einvoicing.webp": {
+    "src": "/images/optimized/vom-pay/icon-einvoicing.webp",
+    "width": 96,
+    "height": 96,
+    "bytes": 2734,
+    "sourceBytes": 10686,
+    "variants": [],
+    "hash": "b32744f00ef134c9"
+  },
+  "/vom-pay/icon-finance.webp": {
+    "src": "/images/optimized/vom-pay/icon-finance.webp",
+    "width": 96,
+    "height": 96,
+    "bytes": 2734,
+    "sourceBytes": 10686,
+    "variants": [],
+    "hash": "b32744f00ef134c9"
+  },
+  "/vom-pay/icon-integrations.webp": {
+    "src": "/images/optimized/vom-pay/icon-integrations.webp",
+    "width": 96,
+    "height": 96,
+    "bytes": 4658,
+    "sourceBytes": 25472,
+    "variants": [],
+    "hash": "d1808833305229ae"
+  },
+  "/vom-pay/icon-support.webp": {
+    "src": "/images/optimized/vom-pay/icon-support.webp",
+    "width": 96,
+    "height": 96,
+    "bytes": 3436,
+    "sourceBytes": 18870,
+    "variants": [],
+    "hash": "2f500d6f3e84d8a5"
+  },
+  "/vom-pay/laptop.webp": {
+    "src": "/images/optimized/vom-pay/laptop.webp",
+    "width": 1372,
+    "height": 989,
+    "bytes": 51060,
+    "sourceBytes": 108148,
+    "variants": [
+      {
+        "width": 640,
+        "height": 461,
+        "src": "/images/optimized/vom-pay/laptop-640w.webp",
+        "bytes": 17358
+      }
+    ],
+    "hash": "86a38224ed7ebf86"
+  },
+  "/vom-pay/success.webp": {
+    "src": "/images/optimized/vom-pay/success.webp",
+    "width": 416,
+    "height": 571,
+    "bytes": 18886,
+    "sourceBytes": 101966,
+    "variants": [],
+    "hash": "5ac462c9795f4443"
+  },
+  "/vom-pay/vom-ai.webp": {
+    "src": "/images/optimized/vom-pay/vom-ai.webp",
+    "width": 384,
+    "height": 218,
+    "bytes": 17398,
+    "sourceBytes": 45586,
+    "variants": [],
+    "hash": "b556c2bb7f3a8317"
+  },
+  "/zatca-phase-2/badge-v2.webp": {
+    "src": "/images/optimized/zatca-phase-2/badge-v2.webp",
+    "width": 596,
+    "height": 143,
+    "bytes": 29696,
+    "sourceBytes": 101550,
+    "variants": [],
+    "hash": "0fbabf11f25bc608"
+  },
+  "/zatca-phase-2/comply-v2.webp": {
+    "src": "/images/optimized/zatca-phase-2/comply-v2.webp",
+    "width": 1144,
+    "height": 420,
+    "bytes": 34154,
+    "sourceBytes": 69460,
+    "variants": [
+      {
+        "width": 640,
+        "height": 235,
+        "src": "/images/optimized/zatca-phase-2/comply-v2-640w.webp",
+        "bytes": 17064
+      }
+    ],
+    "hash": "965e6bf3e6149d14"
+  },
+  "/zatca-phase-2/enhance-v2.webp": {
+    "src": "/images/optimized/zatca-phase-2/enhance-v2.webp",
+    "width": 1144,
+    "height": 423,
+    "bytes": 46214,
+    "sourceBytes": 100654,
+    "variants": [
+      {
+        "width": 640,
+        "height": 236,
+        "src": "/images/optimized/zatca-phase-2/enhance-v2-640w.webp",
+        "bytes": 20746
+      }
+    ],
+    "hash": "375ab17a187f76bb"
+  },
+  "/zatca-phase-2/ensure-v2.webp": {
+    "src": "/images/optimized/zatca-phase-2/ensure-v2.webp",
+    "width": 1144,
+    "height": 423,
+    "bytes": 51426,
+    "sourceBytes": 111180,
+    "variants": [
+      {
+        "width": 640,
+        "height": 236,
+        "src": "/images/optimized/zatca-phase-2/ensure-v2-640w.webp",
+        "bytes": 22820
+      }
+    ],
+    "hash": "a0aff1b507796610"
+  },
+  "/zatca-phase-2/icon-approval.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-approval.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3234,
+    "sourceBytes": 10464,
+    "variants": [],
+    "hash": "96d9137bb78b58fc"
+  },
+  "/zatca-phase-2/icon-authority.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-authority.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 1742,
+    "sourceBytes": 12628,
+    "variants": [],
+    "hash": "1e479a780cfee7a3"
+  },
+  "/zatca-phase-2/icon-buyer.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-buyer.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 2412,
+    "sourceBytes": 19980,
+    "variants": [],
+    "hash": "6a5ffa881b3aefa9"
+  },
+  "/zatca-phase-2/icon-commitment.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-commitment.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 4762,
+    "sourceBytes": 19498,
+    "variants": [],
+    "hash": "c1560d504232cbb2"
+  },
+  "/zatca-phase-2/icon-fatoora.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-fatoora.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3692,
+    "sourceBytes": 12720,
+    "variants": [],
+    "hash": "ec3b5306da590e52"
+  },
+  "/zatca-phase-2/icon-integrate.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-integrate.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 6044,
+    "sourceBytes": 25472,
+    "variants": [],
+    "hash": "ac75c2dbd3cb9573"
+  },
+  "/zatca-phase-2/icon-invoicing.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-invoicing.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3658,
+    "sourceBytes": 10686,
+    "variants": [],
+    "hash": "f0b8e38ff1ef6071"
+  },
+  "/zatca-phase-2/icon-notify.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-notify.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 4634,
+    "sourceBytes": 16978,
+    "variants": [],
+    "hash": "9c93316946a93575"
+  },
+  "/zatca-phase-2/icon-otp-generate.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-otp-generate.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 2886,
+    "sourceBytes": 10758,
+    "variants": [],
+    "hash": "a08c78eb482a3bd0"
+  },
+  "/zatca-phase-2/icon-otp-insert.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-otp-insert.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3268,
+    "sourceBytes": 11654,
+    "variants": [],
+    "hash": "80faaa53de92a102"
+  },
+  "/zatca-phase-2/icon-portal.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-portal.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 1904,
+    "sourceBytes": 5796,
+    "variants": [],
+    "hash": "0f19e4da88e5cddb"
+  },
+  "/zatca-phase-2/icon-seller.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-seller.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 2304,
+    "sourceBytes": 18870,
+    "variants": [],
+    "hash": "62955396865870e5"
+  },
+  "/zatca-phase-2/icon-setup.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-setup.webp",
+    "width": 112,
+    "height": 112,
+    "bytes": 3638,
+    "sourceBytes": 12846,
+    "variants": [],
+    "hash": "60f323284830c4f6"
+  },
+  "/zatca-phase-2/icon-stored.webp": {
+    "src": "/images/optimized/zatca-phase-2/icon-stored.webp",
+    "width": 72,
+    "height": 72,
+    "bytes": 2102,
+    "sourceBytes": 12846,
+    "variants": [],
+    "hash": "31e67226283370c8"
+  },
+  "/zatca-phase-2/issue-v2.webp": {
+    "src": "/images/optimized/zatca-phase-2/issue-v2.webp",
+    "width": 1144,
+    "height": 421,
+    "bytes": 46630,
+    "sourceBytes": 101746,
+    "variants": [
+      {
+        "width": 640,
+        "height": 235,
+        "src": "/images/optimized/zatca-phase-2/issue-v2-640w.webp",
+        "bytes": 21354
+      }
+    ],
+    "hash": "15fb583c420f0865"
+  },
+  "/zatca-phase-2/laptop.webp": {
+    "src": "/images/optimized/zatca-phase-2/laptop.webp",
+    "width": 1088,
+    "height": 551,
+    "bytes": 48088,
+    "sourceBytes": 149520,
+    "variants": [
+      {
+        "width": 640,
+        "height": 324,
+        "src": "/images/optimized/zatca-phase-2/laptop-640w.webp",
+        "bytes": 18818
+      }
+    ],
+    "hash": "5a42219c27fa2533"
+  }
+}

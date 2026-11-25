@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CalculatorId } from "@/lib/content/tools/catalogue";

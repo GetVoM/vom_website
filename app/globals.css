@@ -2511,13 +2511,13 @@ html[dir="rtl"] .integ-close-band {
 .stu-letterhead-book {
   border-color: var(--color-paper-300);
 }
-/* VoM's mark at 18px, drawn by CSS from next/image's 128px rendition, so the
-   five pages do not each carry an image tag and its srcset. */
+/* VoM's mark at 18px, drawn by CSS from its 128px pre-optimized copy (the `extra`
+   width in scripts/image-widths.json), so the five pages do not each carry an image tag. */
 .stu-letterhead-vom::before {
   content: "";
   width: 3.5rem;
   height: 1.125rem;
-  background: url("/_next/image/?url=%2Fintegrations%2Fvom-mark.png&w=128&q=75") center / contain no-repeat;
+  background: url("/images/optimized/integrations/vom-mark-128w.webp") center / contain no-repeat;
 }
 /* The textbook page's running foot, at the bottom of the page like a folio. */
 .stu-folio {
